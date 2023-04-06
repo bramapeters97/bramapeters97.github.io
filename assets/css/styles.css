@@ -47,12 +47,6 @@
   --z-modal: 1000;
 }
 
-a:link {
-  color: hsl(var(--hue-color), 8%, 45%);
-  background-color: transparent;
-  text-decoration: none;
-}
-
 @media screen and (min-width: 968px) {
   :root {
     --big-font-size: 3rem;
@@ -333,10 +327,6 @@ img {
   font-size: 1.25rem;
 }
 
-.button{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
-
-}
 
 /*========== BUTTONS ==========*/
 .button {
@@ -346,6 +336,12 @@ img {
   padding: 1rem;
   border-radius: .5rem;
   font-weight: var(--font-medium);
+}
+
+a:link.link{
+    color: hsl(var(--hue-color), 8%, 45%);
+    background-color: transparent;
+    text-decoration: none;
 }
 
 .button:hover {
