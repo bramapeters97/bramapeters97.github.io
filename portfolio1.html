@@ -2,6 +2,7 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
         <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
@@ -46,10 +47,13 @@
             </nav>
         </header>
 
+
         <main class="main">
             <section class="home section portfoliohome" id="home">
                 <div class="home__container container grid">
+
                     <div class="home__content grid">
+
                         <div class="home__social">
                         </div>
                         <div class="home__img">
@@ -59,10 +63,17 @@
                             <h3 class="home__subtitle">Design and Evaluation of a Student-Facing Learning Dashboard Using Self-Regulated Learning Theory
                                 </h3>
                         </div>
+                        <img class="dashboard_img" onclick="document.getElementById('modal01').style.display='block'" src="assets/img/dashboard1.jpg" alt="TU/e Learning Dashboard">
+
                     </div>
+                    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                        <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                        <div class="w3-modal-content w3-animate-zoom">
+                          <img src="assets/img/dashboard1.jpg" style="width:100%">
+                        </div>
+                      </div>
                 </div>
             </section>
-            <img class="dashboard_img" src="assets/img/dashboard1.jpg" alt="TU/e Learning Dashboard">
         </main>
 
         <section class="about section" id="about">
