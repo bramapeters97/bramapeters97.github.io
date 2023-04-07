@@ -12,12 +12,12 @@
   --first-color-second: #19A7CE;
   --first-color-alt: #146C94;
   --first-color-lighter: #146C94;
-  --title-color: hsl(var(--hue-color), 8%, 15%);
+  --title-color: hsl(var(--hue-color), 8%, 25%);
   --text-color: hsl(var(--hue-color), 8%, 45%);
   --text-color-light: hsl(var(--hue-color), 8%, 65%);
   --input-color: hsl(var(--hue-color), 70%, 96%);
   --body-color: hsl(var(--hue-color), 60%, 99%);
-  --container-color: #FFF;
+  --container-color: #f6f1ed;
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
   /*========== Font and typography ==========*/
@@ -57,6 +57,12 @@
     --small-font-size: .875rem;
     --smaller-font-size: .813rem;
   }
+}
+
+.dashboard_img {
+  margin-top: 5%;
+  width: 100%;
+  box-shadow: 0 -4px -8px 0 rgba(0, 0, 0, 0.09), 0 -6px -20px 0 rgba(0, 0, 0, 0.09);
 }
 
 /*========== Button Dark/Light ==========*/
