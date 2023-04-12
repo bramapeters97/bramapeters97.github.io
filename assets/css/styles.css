@@ -66,27 +66,23 @@
 }
 
 .dashboard_img {
-  margin-top: 5%;
-  overflow: hidden;
   box-shadow: 0 -4px -8px 0 rgba(0, 0, 0, 0.09), 0 -6px -20px 0 rgba(0, 0, 0, 0.09);
   cursor: zoom-in;
+  border-radius: 15px;
+}
+
+.text_img {
+  box-shadow: 0 -4px -8px 0 rgba(0, 0, 0, 0.09), 0 -6px -20px 0 rgba(0, 0, 0, 0.09);
+  cursor: zoom-in;
+  border-radius: 15px;
+  width: 70%;
+  margin-left: 15%;
 }
 
 /*========== Button Dark/Light ==========*/
 .nav__btns {
   display: flex;
   align-items: center;
-}
-
-.change-theme {
-  font-size: 1.25rem;
-  color: var(--title-color);
-  margin-right: var(--mb-1);
-  cursor: pointer;
-}
-
-.change-theme:hover {
-  color: var(--first-color);
 }
 
 /*==================== BASE ====================*/
@@ -269,21 +265,6 @@ img {
   align-items: center;
 }
 
-.home__social {
-  display: grid;
-  grid-template-columns: max-content;
-  row-gap: 1rem;
-}
-
-.home__social-icon {
-  font-size: 1.25rem;
-  color: var(--first-color);
-}
-
-.home__social-icon:hover {
-  color: var(--first-color-alt);
-}
-
 .home__blob {
   width: 200px;
   fill: var(--first-color);
@@ -397,15 +378,8 @@ a:link.link{
 }
 
 /*==================== ABOUT ====================*/
-.about__img {
-  width: 200px;
-  border-radius: .5rem;
-  justify-self: center;
-  align-self: center;
-}
-
 .about__description {
-  text-align: center;
+  text-align: justify;
   margin-bottom: var(--mb-2-5);
 }
 
@@ -432,7 +406,7 @@ a:link.link{
 
 .about__info-title, .about__info-name {
   display: block;
-  text-align: center;
+  text-align: justify;
 }
 
 .about__buttons {
@@ -602,7 +576,7 @@ a:link.link{
 
 /*==================== PROJECT IN MIND ====================*/
 .project {
-  text-align: center;
+  text-align: justify;
 }
 
 .project__bg {
@@ -825,17 +799,6 @@ a:link.link{
   .project__img {
     width: 200px;
   }
-  .testimonial__data, .testimonial__header {
-    flex-direction: column;
-    align-items: center;
-  }
-  .testimonial__img {
-    margin-right: 0;
-    margin-bottom: var(--mb-0-25);
-  }
-  .testimonial__data, .testimonial__description {
-    text-align: center;
-  }
 }
 
 /* For medium devices */
@@ -928,7 +891,7 @@ a:link.link{
     width: 350px;
   }
   .about__description {
-    text-align: center;
+    text-align: justify;
     font-size: 16px;
   }
   .about__info {
@@ -1032,14 +995,5 @@ a:link.link{
   }
   .swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
     bottom: 0;
-  }
-  .testimonial__description {
-    margin-bottom: 4rem;
-  }
-  .contact__form {
-    width: 460px;
-  }
-  .contact__inputs {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
