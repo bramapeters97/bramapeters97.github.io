@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
         <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
@@ -85,6 +86,27 @@
                     </div>
                 </div>
             </section>
+            
+            <div id="modal04" class="w3-modal" onclick="this.style.display='none'">
+                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                <div class="w3-modal-content w3-animate-zoom">
+                  <img src="assets/img/dashboard1.jpg" style="width:100%">
+                </div>
+              </div>
+
+              <div id="modal05" class="w3-modal" onclick="this.style.display='none'">
+                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                <div class="w3-modal-content w3-animate-zoom">
+                  <img src="assets/img/BlueJay1.jpg" style="width:100%">
+                </div>
+              </div>
+
+              <div id="modal06" class="w3-modal" onclick="this.style.display='none'">
+                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                <div class="w3-modal-content w3-animate-zoom">
+                  <img src="assets/img/vinobolarge.jpg" style="width:100%">
+                </div>
+              </div>
 
             <section class="portfolio section" id="portfolio">
                 <h2 class="section__title">Projects </h2>
@@ -93,7 +115,7 @@
                 <div class="portfolio__container container swiper-container">
                     <div class="swiper-wrapper">
                         <div class="portfolio__content grid swiper-slide">
-                            <a href="portfolio1.html"><img src="assets/img/portfolio1.png" alt="" class="portfolio__img"></a>
+                            <img src="assets/img/portfolio1.png" onclick="document.getElementById('modal04').style.display='block'" alt="" class="portfolio__img">
                             <div class="portfolio__data">
                                 <h3 class="portfolio__title">TU/e Learning Dashboard</h3>
                                 <p class="portfolio__description">I laid the groundwork for a new learning dashboard that visualizes 
@@ -103,8 +125,8 @@
                         </div>
                         
                         <div class="portfolio__content grid swiper-slide">
-                            <a href="portfolio2.html"><img src="assets/img/BlueJay1.jpg" alt="" class="portfolio__img"></a>
-    
+                            <img src="assets/img/BlueJay1.jpg" onclick="document.getElementById('modal05').style.display='block'" alt="" class="portfolio__img">
+
                             <div class="portfolio__data">
                                 <h3 class="portfolio__title">Blue Jay</h3>
                                 <p class="portfolio__description">An intelligent drone companion that empowers and assists healthcare workers in their daily tasks. I designed and developed
@@ -113,7 +135,7 @@
                             </div>
                         </div>
                         <div class="portfolio__content grid swiper-slide">
-                            <a href="https://vinobo.herokuapp.com/"><img src="assets/img/portfolio2.jpg" alt="" class="portfolio__img"></a>
+                            <img src="assets/img/portfolio2.jpg" alt="" onclick="document.getElementById('modal06').style.display='block'" class="portfolio__img">
     
                             <div class="portfolio__data">
                                 <h3 class="portfolio__title">Vinobo</h3>

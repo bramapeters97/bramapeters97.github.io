@@ -538,6 +538,7 @@ a:link.link{
 .portfolio__img {
   border-radius: .5rem;
   justify-self: center;
+  cursor: zoom-in;
 }
 
 .portfolio__title {
