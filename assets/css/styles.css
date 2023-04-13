@@ -57,6 +57,7 @@
     --small-font-size: .875rem;
     --smaller-font-size: .813rem;
   }
+
 }
 
 .portfoliohome{
@@ -207,6 +208,9 @@ img {
     box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 1.5rem 1.5rem 0 0;
     transition: .3s;
+  }
+  .dashboard_img{
+    width: 100%;
   }
 }
 
@@ -832,6 +836,9 @@ a:link.link{
     grid-template-columns: .6fr;
     justify-content: center;
   }
+  .dashboard_img{
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -965,6 +972,9 @@ a:link.link{
   }
   .footer__copy {
     margin-top: 4.5rem;
+  }
+  .dashboard_img{
+    width: 100%;
   }
 }
 
