@@ -282,6 +282,8 @@ img {
 
 .home__blob-img {
   width: 170px;
+  -webkit-filter: drop-shadow(5px 5px 5px #c2c2c2);
+  filter: drop-shadow(5px 5px 5px #c2c2c2);
 }
 
 .home__data {
