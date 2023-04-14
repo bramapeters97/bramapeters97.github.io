@@ -74,6 +74,10 @@
   min-width: 300px;
 }
 
+.portfolio2 {
+  border-radius: 20px;
+}
+
 .portfolio1 {
   background-image: url("dashboard1.jpg");
 }
