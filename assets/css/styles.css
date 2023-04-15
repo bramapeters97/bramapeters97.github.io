@@ -539,9 +539,6 @@ a:link.link{
   .dashboard_img{
     width: 100%;
   }
-  .home__content {
-    margin-top: -15%;
-  }
 }
 
 /* For small devices */
@@ -784,5 +781,12 @@ a:link.link{
   }
   .swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
     bottom: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  
+  .home__content {
+    margin-top: -15%;
   }
 }
