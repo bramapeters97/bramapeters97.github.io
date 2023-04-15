@@ -539,6 +539,9 @@ a:link.link{
   .dashboard_img{
     width: 100%;
   }
+  .home__content {
+    margin-top: -15%;
+  }
 }
 
 /* For small devices */
