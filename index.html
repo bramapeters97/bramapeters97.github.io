@@ -141,7 +141,7 @@
                                 <h3 style="font-family: 'Poppins', sans-serif;" class="portfolio__title">Vinobo</h3>
                                 <p class="portfolio__description"> This webtool allows students to watch and annotate YouTube videos
                                      and search for keywords in the video's transcript to find relevant parts in the video.
-                                    Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts. <a class="link" href="https://vinobo.herokuapp.com/"><b>Demo</b></a></p>
+                                    Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts. <a onclick="document.getElementById('id01').style.display='block'" class="link" style="cursor: pointer"><b>Demo</b></a></p>
                             </div>
                         </div>
                     </div>
@@ -151,9 +151,24 @@
                     <div class="swiper-button-prev">
                         <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
                     </div>
-
                     <div class="swiper-pagination"></div>
                 </div>
+
+                    <div id="id01" class="w3-modal w3-card-4">
+                        <div class="w3-modal-content" style="width: 75%">   
+                            <header class="w3-container" style="background-color:#DCDCDC">
+                            <span onclick="document.getElementById('id01').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                            <h2 style="margin-left: 10px;">Unavailable</h2>
+                            </header>
+                            <div style="margin-left: 10px;" class="w3-container">
+                                <br>
+                                <p>This demo project is temporarily unavailable.</p>
+                                <p>Please come back at a later time to while the technical issues are being solved.</p>
+                                <br>
+                            </div>                              
+                        </div>
+                    </div>
             </section>
 
         </main>

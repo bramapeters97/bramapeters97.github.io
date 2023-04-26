@@ -57,7 +57,10 @@
     --small-font-size: .875rem;
     --smaller-font-size: .813rem;
   }
+}
 
+#id01 {
+  font-family: 'Poppins', sans-serif;
 }
 
 .portfoliohome{
