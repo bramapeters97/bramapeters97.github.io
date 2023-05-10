@@ -8,52 +8,28 @@
         <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script> 
+          $(function(){
+            $("#header").load("header.html"); 
+          });
+        </script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script> 
+          $(function(){
+            $("#footer").load("footer.html"); 
+          });
+        </script>
         <title>Bram Peters | Blue Jay</title>
     </head>
     <body>
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="index.html" class="nav__logo">Bram Peters</a>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list grid">
-                        <li class="nav__item">
-                            <a href="index.html" class="nav__link active-link">
-                                <i class="uil uil-estate nav__icon"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="index.html#about" class="nav__link">
-                                <i class="uil uil-user nav__icon"></i> About Me
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="index.html#portfolio" class="nav__link">
-                                <i class="uil uil-scenery nav__icon"></i> Projects
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="mailto:bramapeters@outlook.com" class="nav__link">
-                                <i class="uil uil-message nav__icon"></i> Contact
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#linkedin" class="nav__link">
-                                <i class="uil uil-message nav__icon"></i> LinkedIn
-                            </a>
-                        </li>
-                    </ul>
-                    <i class="uil uil-times nav__close" id="nav-close"></i>
-                </div>
-            </nav>
-        </header>
 
+      <div id="header"></div>
 
         <main class="main">
             <section class="home section portfoliohome" id="home">
                 <div class="home__container container grid">
-
                     <div class="home__content portfolio2 grid">
-
                         <div class="home__social">
                         </div>
                         <div class="home__img">
@@ -64,7 +40,6 @@
                                 <br><br></h3>
                         </div>
                         <img class="dashboard_img" onclick="document.getElementById('modal01').style.display='block'" src="assets/img/BlueJay1.jpg" alt="Blue Jay">
-
                     </div>
                     <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
                         <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
@@ -321,13 +296,7 @@
             </div>
         </section>
 
-        <footer class="footer">
-            <p>&#169; 2023 Bram Peters</p>
-        </footer>
-
-        <a href="#" class="scrollup" id="scroll-top">
-            <i class="uil uil-arrow-up scrollup__icon"></i>
-        </a>
+        <div id="footer"></div>
 
         <script src="assets/js/swiper-bundle.min.js"></script>
         <script src="assets/js/main.js"></script>

@@ -8,44 +8,23 @@
         <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script> 
+          $(function(){
+            $("#header").load("header.html"); 
+          });
+        </script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script> 
+        $(function(){
+            $("#footer").load("footer.html"); 
+        });
+        </script>
         <title>Bram Peters</title>
     </head>
     <body>
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="#" class="nav__logo">Bram Peters</a>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list grid">
-                        <li class="nav__item">
-                            <a href="#home" class="nav__link active-link">
-                                <i class="uil uil-estate nav__icon"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#about" class="nav__link">
-                                <i class="uil uil-user nav__icon"></i> About Me
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#portfolio" class="nav__link">
-                                <i class="uil uil-scenery nav__icon"></i> Projects
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="mailto:bramapeters@outlook.com" class="nav__link">
-                                <i class="uil uil-message nav__icon"></i> Contact
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#linkedin" class="nav__link">
-                                <i class="uil uil-message nav__icon"></i> LinkedIn
-                            </a>
-                        </li>
-                    </ul>
-                    <i class="uil uil-times nav__close" id="nav-close"></i>
-                </div>
-            </nav>
-        </header>
+
+        <div id="header"></div>
 
         <main class="main">
             <section class="home section" id="home">
@@ -68,7 +47,6 @@
                             </a>
                         </div>
                     </div>
-                    <div><p></p></div>
                 </div>
             </section>
 
@@ -82,27 +60,6 @@
                     </div>
                 </div>
             </section>
-            
-            <div id="modal04" class="w3-modal" onclick="this.style.display='none'">
-                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                <div class="w3-modal-content w3-animate-zoom">
-                  <img src="assets/img/dashboard1.jpg" style="width:100%">
-                </div>
-              </div>
-
-              <div id="modal05" class="w3-modal" onclick="this.style.display='none'">
-                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                <div class="w3-modal-content w3-animate-zoom">
-                  <img src="assets/img/BlueJay1.jpg" style="width:100%">
-                </div>
-              </div>
-
-              <div id="modal06" class="w3-modal" onclick="this.style.display='none'">
-                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                <div class="w3-modal-content w3-animate-zoom">
-                  <img src="assets/img/vinobolarge.jpg" style="width:100%">
-                </div>
-              </div>
 
             <section class="portfolio section" id="portfolio" style="margin-bottom: 100px;">
                 <h2 style="font-family: 'Poppins', sans-serif;" class="section__title">Projects </h2>
@@ -132,13 +89,13 @@
                             </div>
                         </div>
                         <div class="portfolio__content grid swiper-slide">
-                            <img src="assets/img/portfolio2.jpg" alt="" class="portfolio__img">
+                            <a href="https://vinobo-demo.onrender.com/" target="blank"><img src="assets/img/portfolio2.jpg" alt="" class="portfolio__img"></a>
     
                             <div class="portfolio__data">
                                 <h3 style="font-family: 'Poppins', sans-serif;" class="portfolio__title">Vinobo</h3>
                                 <p class="portfolio__description"> This webtool allows students to watch and annotate YouTube videos
                                      and search for keywords in the video's transcript to find relevant parts in the video.
-                                    Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts. <a href="https://vinobo-demo.onrender.com/" class="link" style="cursor: pointer"><b>Demo</b></a></p>
+                                    Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts. <a href="https://vinobo-demo.onrender.com/" target="blank" class="link" style="cursor: pointer"><b>Demo</b></a></p>
                             </div>
                         </div>
                     </div>
@@ -150,22 +107,6 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-
-                    <div id="id01" class="w3-modal w3-card-4">
-                        <div class="w3-modal-content" style="width: 75%">   
-                            <header class="w3-container" style="background-color:#DCDCDC">
-                            <span onclick="document.getElementById('id01').style.display='none'"
-                            class="w3-button w3-display-topright">&times;</span>
-                            <h2 style="margin-left: 10px;">Unavailable</h2>
-                            </header>
-                            <div style="margin-left: 10px;" class="w3-container">
-                                <br>
-                                <p>This demo project is temporarily unavailable.</p>
-                                <p>Please come back at a later time to while the technical issues are being solved.</p>
-                                <br>
-                            </div>                              
-                        </div>
-                    </div>
             </section>
 
             <section class="about section" id="linkedin">
@@ -174,18 +115,11 @@
                     <div class="about__data">
                     <iframe src='https://widgets.sociablekit.com/linkedin-profile-posts/iframe/139883' frameborder='0' width='100%' height='500'></iframe>                </div>
             </section>
-
         </main>
 
-        <footer class="footer">
-            <p>&#169; 2023 Bram Peters</p>
-        </footer>
+        <div id="footer"></div>
 
-        <a href="#" class="scrollup" id="scroll-top">
-            <i class="uil uil-arrow-up scrollup__icon"></i>
-        </a>
         <script src="assets/js/swiper-bundle.min.js"></script>
         <script src="assets/js/main.js"></script>
-        
     </body>
 </html>

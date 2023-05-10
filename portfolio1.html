@@ -8,45 +8,23 @@
         <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
         <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png">
         <link rel="stylesheet" href="assets/css/styles.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script> 
+          $(function(){
+            $("#header").load("header.html"); 
+          });
+        </script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script> 
+          $(function(){
+            $("#footer").load("footer.html"); 
+          });
+        </script>
         <title>Bram Peters | TU/e Learning Dashboard</title>
     </head>
     <body>
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="index.html" class="nav__logo">Bram Peters</a>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list grid">
-                        <li class="nav__item">
-                            <a href="index.html" class="nav__link active-link">
-                                <i class="uil uil-estate nav__icon"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="index.html#about" class="nav__link">
-                                <i class="uil uil-user nav__icon"></i> About Me
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="index.html#projects" class="nav__link">
-                                <i class="uil uil-scenery nav__icon"></i> Projects
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="mailto:bramapeters@outlook.com" class="nav__link">
-                                <i class="uil uil-message nav__icon"></i> Contact
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#linkedin" class="nav__link">
-                                <i class="uil uil-message nav__icon"></i> LinkedIn
-                            </a>
-                        </li>
-                    </ul>
-                    <i class="uil uil-times nav__close" id="nav-close"></i>
-                </div>
-            </nav>
-        </header>
 
+        <div id="header"></div>
 
         <main class="main">
             <section class="home section portfolio1 portfoliohome" id="home">
@@ -118,15 +96,7 @@
             </div>
         </section>
 
-        <footer class="footer">
-            <p>&#169; 2023 Bram Peters</p>
-        </footer>
-
-        <a href="#" class="scrollup" id="scroll-top">
-            <i class="uil uil-arrow-up scrollup__icon"></i>
-        </a>
-
-
+        <div id="footer"></div>
 
         <script src="assets/js/swiper-bundle.min.js"></script>
         <script src="assets/js/main.js"></script>
