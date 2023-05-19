@@ -24,20 +24,28 @@
     <body>
 
         <div id="header"></div>
-
-        <main class="main" style="margin-top: 30px">
-          <section class="home section portfoliohome" id="home">
-              <div class="home__container container grid">
-                      <div class="home__data" style="margin-top: 60px">
-                          <h1 style="font-family: 'Poppins', sans-serif;" class="home__title">Vinobo</h1>
-                          <h3 style="font-family: 'Poppins', sans-serif;" class="home__subtitle">This webtool allows students to watch and annotate lecture videos
-                            and search for keywords in the video's transcript to find relevant parts in the video.
-                           Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts.
-                              <br><br></h3>
-                      </div>
+      <main class="main">
+        <section class="home section portfolio1 portfoliohome" id="home">
+            <div class="home__container portfolio1 container grid">
+                <div class="home__content  grid">
+                    <div class="home__social">
+                    </div>
+                    <div class="home__data">
+                        <h1 style="font-family: 'Poppins', sans-serif;" class="home__title">Vinobo</h1>
+                        <h3 style="font-family: 'Poppins', sans-serif;" class="home__subtitle">Elevating online learning with a lecture-annotation tool: annotate, search, and save lecture videos effortlessly with Vinobo
+                            <br><br></h3>
+                    </div>
+                    <img class="dashboard_img" onclick="document.getElementById('modal01').style.display='block'" src="assets/img/vinobolarge.jpg" alt="Vinobo">
+                </div>
+                <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                    <div class="w3-modal-content w3-animate-zoom">
+                      <img src="assets/img/vinobolarge.jpg" style="width:100%">
+                    </div>
                   </div>
-          </section>
-      </main>
+            </div>
+        </section>
+    </main>
 
       <section class="about section" id="about">
         <div class="about__container container">
