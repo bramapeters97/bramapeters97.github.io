@@ -1039,6 +1039,7 @@ Generic layout (demo looks)
   }
   .about__img {
     height: 100%;
+    border-radius: 30px;
     -webkit-filter: drop-shadow(4px 4px 4px #cdcdcd);
   }
   .about__description {
