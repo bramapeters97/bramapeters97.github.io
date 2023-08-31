@@ -918,7 +918,7 @@ Generic layout (demo looks)
 @container card (min-width: 380px) {
   .article-wrapper {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 0px 1fr;
     gap: 16px;
   }
   .article-body {
@@ -1019,6 +1019,7 @@ Generic layout (demo looks)
   .home__container {
     row-gap: 5rem;
     margin-bottom: 50px;
+    
   }
   .home__content {
     padding-top: 5.5rem;
