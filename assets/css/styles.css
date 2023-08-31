@@ -385,7 +385,7 @@ a:link.link{
 
 /*==================== ABOUT ====================*/
 .about__description {
-  text-align: justify;
+  text-align: left;
 }
 
 .about{
@@ -481,7 +481,7 @@ a:link.link{
 * {box-sizing: border-box}
                           body {margin:0}
                           .mySlides {display: none}
-                          img {vertical-align: middle; border-radius: 10px;}
+                          img {vertical-align: middle; border-radius: 15px;}
                           
                           /* Slideshow container */
                           .slideshow-container {
@@ -628,7 +628,6 @@ a:link.link{
 .skills__subtitle {
   font-size: var(--smaller-font-size);
   color: var(--text-color-light);  font-family: var(--body-font);
-
 }
 
 .skills__arrow {
@@ -646,14 +645,12 @@ a:link.link{
   justify-content: space-between;
   margin-bottom: var(--mb-0-5);
   font-family: var(--body-font);
-
 }
 
 .skills__name {
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
   font-family: var(--body-font);
-
 }
 
 .skills__bar, .skills__percentage {
@@ -1037,10 +1034,11 @@ Generic layout (demo looks)
     margin-left: 3rem;
   }
   .about__container {
-    column-gap: 5rem;
+    column-gap: 4rem;
   }
   .about__img {
-    width: 350px;
+    height: 100%;
+    -webkit-filter: drop-shadow(4px 4px 4px #cdcdcd);
   }
   .about__description {
     text-align: justify;
@@ -1140,6 +1138,10 @@ Generic layout (demo looks)
   .swiper-portfolio-icon {
     font-size: 3.5rem;
   }
+  .about__img {
+    height: 100%;
+    -webkit-filter: drop-shadow(4px 4px 4px #cdcdcd);
+  }
   .swiper-button-prev {
     left: -3.5rem;
   }
@@ -1158,5 +1160,9 @@ Generic layout (demo looks)
   
   .home__content {
     margin-top: -15%;
+  }
+  .about__img {
+    height: 100%;
+    -webkit-filter: drop-shadow(4px 4px 4px #cdcdcd);
   }
 }

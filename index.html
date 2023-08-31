@@ -50,15 +50,28 @@
                 </div>
             </section>
 
-            <section class="about section" id="about">
-                <h2 style="font-family: 'Poppins', sans-serif;" class="section__title">About Me</h2>
-                <div class="about__container container">
-                    <div class="about__data">
-                        <p style="font-family: 'Poppins', sans-serif; text-align: center" class="about__description">
-                            <br>As a recently graduated <i>Human-Technology Interaction</i> engineer who just moved to Sweden, I am looking for professional challenges where I can combine my UX-, UI-, and Interaction-design and research expertise with my front-end software development skills. What drives me is being part of the creation of new innovative technological solutions that address the complex challenges of our ever-evolving society, so let's collaborate and create something powerful together!    
-                        </p>
-                    </div>
+            <section class="about section" id="about">             
+                <h2 class="section__title" style="margin-bottom: 50px">About Me</h2>
+                <div class="card card_about">
+                    <div class="about__container container grid" style="max-width: 900px">
+                        <img onclick="document.getElementById('modal01').style.display='block'" src="assets/img/graduation.jpg" alt="" class="about__img">
+                        <div class="about__data">
+                            <p class="about__description">As a recently graduated <i>Human-Technology Interaction</i> engineer who just moved to Sweden, I am looking for professional challenges where I can combine my UX-, UI-, and Interaction-design and research expertise with my front-end software development skills. What drives me is being part of the creation of new innovative technological solutions that address the complex challenges of our ever-evolving society, so let's collaborate and create something powerful together!
+                            </p>
+                            <a href="mailto:bramapeters@outlook.com" class="button button--flex" style="margin-top: 20px">
+                                Contact Me <i class="uil uil-message button__icon"></i>
+                            </i>
+                            </a>
+                        </div>
+                        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                            <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                            <div class="w3-modal-content w3-animate-zoom">
+                            <img src="assets/img/graduation.jpg" style="width:100%; border-radius: 0px">
+                            </div>
+                        </div> 
+                        </div>                
                 </div>
+                
             <!--==================== SKILLS ====================-->
             <section class="skills section" id="skills">
                 <h2 class="section__title">Skills</h2>
@@ -477,73 +490,73 @@
             </section>
 
             <div class="articles__container">
-            <section class="articles">
-                <article class="card">
-                  <div class="article-wrapper">
-                    <figure>
-                      <img src="assets/img/dashboard1.jpg" alt="" />
-                    </figure>
-                    <div class="article-body">
-                      <h2>TU/e Learning Dashboard</h2>
-                      <p>
-                        I laid the groundwork for a new learning dashboard that visualizes 
-                        academic performance and provides dynamic recommendations on how students can improve their learning 
-                        for the university's Canvas-platform.</p>
-                        <hr>
-                      <a href="portfolio1.html" class="read-more">
-                        <b>Read more</b><span class="sr-only">about this is some title</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-                <article class="card">
-                  <div class="article-wrapper">
-                    <figure>
-                      <img src="assets/img/BlueJay1.jpg" alt="" />
-                    </figure>
-                    <div class="article-body">
-                      <h2>Blue Jay</h2>
-                      <p>
-                        An intelligent drone companion that empowers and assists healthcare workers in their daily tasks. I designed and developed
-                            multiple communication channels for interaction with the drone, including a 
-                            mobile app and speech and emotion detection functionalities.</p>
+                <section class="articles">
+                    <article class="card">
+                    <div class="article-wrapper">
+                        <figure>
+                        <img src="assets/img/dashboard1.jpg" alt="" />
+                        </figure>
+                        <div class="article-body">
+                        <h2>TU/e Learning Dashboard</h2>
+                        <p>
+                            I laid the groundwork for a new learning dashboard that visualizes 
+                            academic performance and provides dynamic recommendations on how students can improve their learning 
+                            for the university's Canvas-platform.</p>
                             <hr>
-                      <a href="portfolio2.html" class="read-more">
-                        <b>Read more</b> <span class="sr-only">about this is some title</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                      </a>
+                        <a href="portfolio1.html" class="read-more">
+                            <b>Read more</b><span class="sr-only">about this is some title</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        </div>
                     </div>
-                  </div>
-                </article>
-                <article class="card">
-                  <div class="article-wrapper">
-                    <figure>
-                      <img src="assets/img/portfolio2.jpg" alt="" />
-                    </figure>
-                    <div class="article-body">
-                      <h2>Vinobo</h2>
-                      <p>
-                        This webtool allows students to watch and annotate YouTube videos
-                        and search for keywords in the video's transcript to find relevant parts in the video.
-                       Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts.</a></p>
-                                     </p>
-                                     <hr>
-                      <a href="portfolio3.html" class="read-more">
-                        <b>Read more</b> <span class="sr-only">about this is some title</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                      </a>
+                    </article>
+                    <article class="card">
+                    <div class="article-wrapper">
+                        <figure>
+                        <img src="assets/img/BlueJay1.jpg" alt="" />
+                        </figure>
+                        <div class="article-body">
+                        <h2>Blue Jay</h2>
+                        <p>
+                            An intelligent drone companion that empowers and assists healthcare workers in their daily tasks. I designed and developed
+                                multiple communication channels for interaction with the drone, including a 
+                                mobile app and speech and emotion detection functionalities.</p>
+                                <hr>
+                        <a href="portfolio2.html" class="read-more">
+                            <b>Read more</b> <span class="sr-only">about this is some title</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        </div>
                     </div>
-                  </div>
-                </article>
-              </section>
-              </div>
+                    </article>
+                    <article class="card">
+                    <div class="article-wrapper">
+                        <figure>
+                        <img src="assets/img/portfolio2.jpg" alt="" />
+                        </figure>
+                        <div class="article-body">
+                        <h2>Vinobo</h2>
+                        <p>
+                            This webtool allows students to watch and annotate YouTube videos
+                            and search for keywords in the video's transcript to find relevant parts in the video.
+                        Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts.</a></p>
+                                        </p>
+                                        <hr>
+                        <a href="portfolio3.html" class="read-more">
+                            <b>Read more</b> <span class="sr-only">about this is some title</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        </div>
+                    </div>
+                    </article>
+                </section>
+            </div>
         </main>
 
         <div id="footer"></div>
