@@ -148,6 +148,7 @@ img {
 .section__title {
   font-size: var(--h1-font-size);
   color: var(--title-color);
+  font-family: var(--body-font);
 }
 
 .section__subtitle {
@@ -385,7 +386,6 @@ a:link.link{
 /*==================== ABOUT ====================*/
 .about__description {
   text-align: justify;
-  margin-bottom: var(--mb-2-5);
 }
 
 .about{
@@ -601,6 +601,7 @@ a:link.link{
 /*==================== SKILLS ====================*/
 .skills__container {
   row-gap: 0;
+  margin-top: 40px;
 }
 
 .skills__header {
@@ -621,6 +622,7 @@ a:link.link{
 
 .skills__title {
   font-size: var(--h3-font-size);
+  font-family: var(--body-font);
 }
 
 .skills__subtitle {
@@ -661,50 +663,6 @@ a:link.link{
 .skills__percentage {
   display: block;
   background-color: var(--first-color);
-}
-
-.skills__html {
-  width: 90%;
-}
-
-.skills__css {
-  width: 80%;
-}
-
-.skills__js {
-  width: 60%;
-}
-
-.skills__react {
-  width: 85%;
-}
-
-.skills__php {
-  width: 80%;
-}
-
-.skills__node {
-  width: 70%;
-}
-
-.skills__firebase {
-  width: 90%;
-}
-
-.skills__python {
-  width: 55%;
-}
-
-.skills__figma {
-  width: 90%;
-}
-
-.skills__sketch {
-  width: 85%;
-}
-
-.skills__photoshop {
-  width: 85%;
 }
 
 .skills__close .skills__list {
@@ -1154,6 +1112,7 @@ Generic layout (demo looks)
   .main,
   .footer__container {
     padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px -10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   }
   .home__blob {
     width: 320px;
