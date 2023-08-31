@@ -665,6 +665,7 @@ a:link.link{
   background-color: var(--first-color);
 }
 
+
 .skills__close .skills__list {
   height: 0px;
   overflow: hidden;
@@ -880,10 +881,15 @@ Generic layout (demo looks)
   max-width: 1200px;
   margin-inline: auto;
   padding-inline: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 80px));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 50px;
   margin-top: 60px;
   margin-bottom: 60px;
+}
+
+.articles__container {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px -10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+            padding: 20px; width: 100%; background-image: linear-gradient(to bottom, #146c94, #116084, #0f5474, #0c4965, #0a3e56);
 }
 
 .card {
