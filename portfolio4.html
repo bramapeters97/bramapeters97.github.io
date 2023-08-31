@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script> 
+          $(function(){
+            $("#header").load("header.html"); 
+          });
+        </script>
+        <script> 
+          $(function(){
+            $("#footer").load("footer.html"); 
+          });
+        </script>
+        <title>Bram Peters | The Honeymoon Webshop</title>
+    </head>
+    <body>
+
+        <div id="header"></div>
+      <main class="main">
+        <section class="home section portfolio1 portfoliohome" id="home">
+            <div class="home__container portfolio1 container grid">
+                <div class="home__content  grid">
+                    <div class="home__social">
+                    </div>
+                    <div class="home__data">
+                        <h1 style="font-family: 'Poppins', sans-serif;" class="home__title">The Honeymoon Webshop</h1>
+                        <h3 style="font-family: 'Poppins', sans-serif;" class="home__subtitle">
+                          A custom website that lets wedding guests buy and customize honeymoon gifts like activities and hotel stays.                          <br><br></h3>
+                    </div>
+                    <img class="dashboard_img" onclick="document.getElementById('modal01').style.display='block'" src="assets/img/honeymoon.jpg" alt="Honeymoon">
+                </div>
+                <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                    <div class="w3-modal-content w3-animate-zoom">
+                      <img src="assets/img/vinobolarge.jpg" style="width:100%">
+                    </div>
+                  </div>
+            </div>
+        </section>
+    </main>
+
+      <section class="about section" id="about">
+        <div class="about__container container">
+            <div class="about__data">
+                <p class="about__description">
+                  Placeholder
+                </p>
+            </div>
+          </div>
+      </section>
+      </section>
+
+
+                </div>
+            </div>
+        </section>
+
+        <div id="footer"></div>
+
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
