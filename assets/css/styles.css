@@ -1141,7 +1141,6 @@ Generic layout (demo looks)
     font-size: 3.5rem;
   }
   .about__img {
-    height: 100%;
     -webkit-filter: drop-shadow(4px 4px 4px #cdcdcd);
   }
   .swiper-button-prev {
