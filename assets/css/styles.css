@@ -93,40 +93,6 @@
   margin-left: 15%;
 }
 
-.portfolio_banner {
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-}
-
-.hero-banner {
-  position: relative;
-  background-image: url('assets/img/portfolio1.png');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  color: white;
-  width: 100%;
-}
-
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-
-.hero-content p {
-  font-size: 1.5rem;
-  margin: 10px 0;
-}
-
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -135,33 +101,6 @@
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-}
-
-
-.nav__submenu {
-    position: relative;
-}
-
-.nav__submenu-list {
-    display: none;
-    position: absolute;
-    top: var(--header-height);
-    left: 0;
-    background-color: #fff; /* Adjust as needed */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    border-top: none;
-    z-index: 100;
-    white-space: nowrap; /* Prevent line breaks */
-    width: max-content; /* Set the submenu width to match the longest item */
-}
-
-.nav__submenu:hover .nav__submenu-list {
-    display: block;
-}
-
-.nav__submenu-item {
-    padding: 10px;
-
 }
 
 /*==================== BASE ====================*/
@@ -387,7 +326,6 @@ img {
 .home__scroll-arrow {
   font-size: 1.25rem;
 }
-
 
 /*========== BUTTONS ==========*/
 .button {
@@ -659,6 +597,7 @@ a:link.link{
   width: 10%;
   height: auto
 }
+
 /*==================== SKILLS ====================*/
 .skills__container {
   row-gap: 0;
@@ -782,7 +721,6 @@ a:link.link{
   transform: rotate(-180deg);
 }
 
-
 /*==================== FOOTER ====================*/
 .footer {
   background-color: white;
@@ -883,17 +821,20 @@ a:link.link{
   }
 }
 
+/* Articles */
+
 article {
-  --img-scale: 1.001;
+  --img-scale: 1.00s1;
   --link-icon-translate: -20px;
   --link-icon-opacity: 0;
   position: relative;
   border-radius: 16px;
-  box-shadow: none;
-  background: #fff;
+  background: rgba(255, 255, 255, .9);
   transform-origin: center;
   transition: all 0.4s ease-in-out;
   overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+  width: 95%;
 }
 
 article a::after {
@@ -910,7 +851,7 @@ article h2 {
   font-family: var(--body-font);
   --hue-color: 250;
   margin: 0 0 18px 0;
-  font-size: 1.9rem;
+  font-size: 1.3rem;
   letter-spacing: 0.03em;
   color: var(--title-color);
   transition: color 0.3s ease-out;
@@ -920,7 +861,8 @@ figure {
   margin: 0;
   padding: 0;
   aspect-ratio: 16 / 7;
-  overflow: hidden; 
+  overflow: hidden;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 }
 
 article img {
@@ -928,10 +870,13 @@ article img {
   transform-origin: center;
   transform: scale(var(--img-scale));
   transition: transform 0.4s ease-in-out;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
 }
 
 .article-body {
-  padding: 30px;
+  padding: 26px;
+  font-size: 13px;
 }
 
 article a {
@@ -977,10 +922,23 @@ Generic layout (demo looks)
   max-width: 1200px;
   margin-inline: auto;
   padding-inline: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 80px));
+  gap: 50px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(15px);
 }
 
 @media screen and (max-width: 960px) {
@@ -988,7 +946,6 @@ Generic layout (demo looks)
     container: card/inline-size;
   }
   .article-body p {
-    display: none;
   }
 }
 
