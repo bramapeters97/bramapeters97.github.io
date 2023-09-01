@@ -432,7 +432,7 @@ a:link.link{
 
 .video-player{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
-
+  width: 70%;
 }
 
 /*==================== PORTFOLIO ====================*/
@@ -942,6 +942,31 @@ Generic layout (demo looks)
   }
 }
 
+/* Default styles for the two-column grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; /* Adjust the gap between columns */
+}
+
+.grid-item {
+  text-align: left;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .grid-container {
+      grid-template-columns: 1fr; /* Change to one column */
+  }
+  .video-player{
+    width: 100%;
+  }
+
+  .dashboard_browser{
+    width: 90%;
+  }
+}
+
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0); 
   clip-path: inset(50%);
@@ -954,6 +979,7 @@ Generic layout (demo looks)
 
 /* For medium devices */
 @media screen and (min-width: 568px) {
+
   .home__content {
     grid-template-columns: max-content 1fr 1fr;
   }
