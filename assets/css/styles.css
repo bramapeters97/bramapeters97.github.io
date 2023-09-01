@@ -883,7 +883,7 @@ Generic layout (demo looks)
   max-width: 1200px;
   margin-inline: auto;
   padding-inline: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 50px;
   margin-top: 60px;
   margin-bottom: 60px;
