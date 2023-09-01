@@ -727,21 +727,37 @@ a:link.link{
 .dashboard_browser {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.10);
   width: 70%;
+  cursor: pointer;
+
 }
 
 /*==================== MEDIA QUERIES ====================*/
 @media screen and (max-width: 767px) {
   .nav__menu {
     position: fixed;
-    bottom: -100%;
+    top: 0;
     left: 0;
     width: 100%;
     background-color: var(--body-color);
-    padding: 2rem 1.5rem 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 1.5rem 1.5rem 0 0;
+    border-radius: 0;
     transition: .3s;
   }
+
+  .home__container {
+    margin-top: 20px;
+  }
+
+  .nav__mail{
+    display:none;
+  }
+
+  .nav__linkedin{
+    display:none;
+  }
+
   .dashboard_img{
     width: 100%;
   }
@@ -754,7 +770,7 @@ a:link.link{
     margin-right: var(--mb-1);
   }
   .nav__menu {
-    padding: 2rem .25rem 4rem;
+    padding: 2rem .25rem 2rem;
   }
   .nav__list {
     column-gap: 0;

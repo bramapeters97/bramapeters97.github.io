@@ -58,8 +58,16 @@
                     </div>
                 </div>
             </section>
-                    <div style="margin-top: 70px; margin-bottom: 70px" class="video-container" >
+                    <div onclick="document.getElementById('modal01').style.display='block'" style="margin-top: 70px; margin-bottom: 70px" class="video-container" >
                         <img src="assets/img/dashboard_browser.png" class="dashboard_browser" alt="Image Description" />
+                    </div>
+
+                    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                        <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                        <div class="w3-modal-content w3-animate-zoom">
+                          <img src="assets/img/dashboard1.jpg" style="width:100%; border-radius: 0; cursor: pointer;
+                          ">
+                        </div>
                     </div>
         
             <section class="about section" id="about">
