@@ -750,12 +750,10 @@ figure {
 }
 
 article img {
-  max-width: 100%;
   transform-origin: center;
   transform: scale(var(--img-scale));
   transition: transform 0.4s ease-in-out;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
 }
 
 .article-body {
@@ -804,8 +802,6 @@ Generic layout (demo looks)
 .articles {
   display: grid;
   max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: 24px;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 50px;
   margin-top: 60px;
