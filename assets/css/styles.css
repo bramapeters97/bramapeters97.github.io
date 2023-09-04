@@ -691,12 +691,14 @@ a:link.link{
 /*==================== FOOTER ====================*/
 .footer {
   background-color: white;
+  opacity: 90%;
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 14px;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
+
 
 .header{
   background-color: white;
