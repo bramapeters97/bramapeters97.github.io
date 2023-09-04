@@ -1170,7 +1170,6 @@ Generic layout (demo looks)
     margin-top: -15%;
   }
   .about__img {
-    height: 100%;
     -webkit-filter: drop-shadow(4px 4px 4px #cdcdcd);
   }
 }
