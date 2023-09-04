@@ -982,6 +982,11 @@ Generic layout (demo looks)
   .dashboard_img{
     width: 100%;
   }
+
+  .about__img{
+    -webkit-filter: drop-shadow(4px 4px 4px #cdcdcd);
+
+  }
 }
 
 @media screen and (min-width: 768px) {
