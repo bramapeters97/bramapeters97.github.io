@@ -1054,7 +1054,6 @@ Generic layout (demo looks)
     column-gap: 4rem;
   }
   .about__img {
-    height: 100%;
     border-radius: 30px;
     -webkit-filter: drop-shadow(4px 4px 4px #cdcdcd);
   }
