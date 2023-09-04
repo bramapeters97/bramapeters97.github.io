@@ -802,6 +802,7 @@ Generic layout (demo looks)
 .articles {
   display: grid;
   max-width: 1200px;
+  margin-inline: auto;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 50px;
   margin-top: 60px;
@@ -818,11 +819,9 @@ Generic layout (demo looks)
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-
   border-radius: 20px;
   background: rgba(255, 255, 255, .95);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
   backdrop-filter: blur(15px);
 }
 
