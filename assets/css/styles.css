@@ -337,6 +337,7 @@ img {
   padding: 1rem;
   border-radius: .5rem;
   font-weight: var(--font-medium);
+  transition: all .3s ease-in-out;
 }
 
 a:link.link{
@@ -347,6 +348,8 @@ a:link.link{
 
 .button:hover {
   background-color: var(--first-color-alt);
+  transform: scale(1.02);
+
 }
 
 .button__icon {
