@@ -705,9 +705,7 @@ a:link.link{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
 
-
 /* Articles */
-
 article {
   --img-scale: 1.00s1;
   --link-icon-translate: -20px;
@@ -813,7 +811,7 @@ Generic layout (demo looks)
 
 .articles__container {
   box-shadow: rgba(0, 0, 0, 0.16) 0px -10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-            padding: 20px; width: 100%; background-image: linear-gradient(to bottom, #146c94, #116084, #0f5474, #0c4965, #0a3e56);
+  padding: 20px; width: 100%; background-image: linear-gradient(to bottom, #146c94, #116084, #0f5474, #0c4965, #0a3e56);
 }
 
 .card {
@@ -896,14 +894,6 @@ Generic layout (demo looks)
   }
   .project__img {
     scale: 10%;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  article {
-    container: card/inline-size;
-  }
-  .article-body p {
   }
 }
 
