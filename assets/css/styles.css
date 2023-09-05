@@ -349,7 +349,7 @@ a:link.link{
 .button:hover {
   background-color: var(--first-color-alt);
   transform: scale(1.02);
-
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
 
 .button__icon {
@@ -432,6 +432,7 @@ a:link.link{
 .video-container{
   text-align: center;
   width: 100%;
+  cursor: pointer;
 }
 
 .video-player{
