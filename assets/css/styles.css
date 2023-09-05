@@ -82,7 +82,7 @@
 }
 
 .portfolio1 {
-  background-image: url("dashboard1.jpg");
+  background-image: linear-gradient(to bottom, #146c94, #116084, #0f5474, #0c4965, #0a3e56);  
 }
 
 .text_img {

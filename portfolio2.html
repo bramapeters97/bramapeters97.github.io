@@ -27,47 +27,50 @@
       <div id="header"></div>
 
         <main class="main">
-            <section class="home section portfoliohome" id="home">
-                <div class="home__container container grid">
-                    <div class="home__content portfolio2 grid">
-                        <div class="home__social">
-                        </div>
-                        <div class="home__img">
-                        </div>
-                        <div class="home__data">
-                            <h1 style="font-family: 'Poppins', sans-serif;" class="home__title">Blue Jay</h1>
-                            <h3 style="font-family: 'Poppins', sans-serif;" class="home__subtitle">An intelligent drone companion that empowers and assists healthcare workers in their daily tasks.
-                                <br><br></h3>
-                        </div>
-                        <img class="dashboard_img" onclick="document.getElementById('modal01').style.display='block'" src="assets/img/BlueJay1.jpg" alt="Blue Jay">
+          <section class="home section portfolio1 portfoliohome" id="home">
+            <div class="home__container container grid">
+                <div class="home__content  grid">
+                    <div class="home__data">
+                        <h1 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%)" class="home__title">Blue Jay</h1>
+                        <h3 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%); font-weight: 8" class="home__subtitle">An intelligent drone companion that empowers and <br>assists healthcare workers in their daily tasks.</h3>
                     </div>
-                    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-                        <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                        <div class="w3-modal-content w3-animate-zoom">
-                          <img src="assets/img/BlueJay1.jpg" style="width:100%">
-                        </div>
-                      </div>
                 </div>
-            </section>
+            </div>
+        </section>
         </main>
 
         <section class="about section" id="about">
           <div class="about__container container">
               <div class="about__data">
+                <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">The 'Emotional' Drone</h1>
                   <p class="about__description">At student-team <a target=”_blank” href="https://bluejayeindhoven.nl"><b>Blue Jay</b></a>, my team and I were committed to creating a drone that can assist healthcare workers in their daily tasks and can serve as an
                     an intelligent companion for patients. The goal at Blue Jay is to expand the capabilities of intelligent systems by developing drones that are safe, autonomous, 
-                      interactive, and helpful.
-                      <br><br>
+                      interactive, and helpful.</p>
+                      <div onclick="document.getElementById('modal01').style.display='block'" style="margin-top: 70px; margin-bottom: 70px" class="video-container" >
+                        <img src="assets/img/BlueJay1.jpg" class="" alt="Image Description" />
+                    </div>
+                    <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Designing Interaction Interfaces</h1>
+                    <p class="about__description">
                       At the time, my role as an <i>Interaction Designer</i> was specifically created to assist the Blue Jay-team 
                       in its early days as a start-up student-team. During my time there, we worked on many 
                       different scenarios to explore the possibilities of using drones in healthcare and beyond. One of the 
                       scenarios we focused on was the use of drones to support nurses in time-consuming routine tasks, 
                       such as distributing medicines in healthcare facilities and doing simple checks. By using drones for these tasks, healthcare
                       workers could focus more on personal patient care, and patients would have more time to interact with workers. 
-                      The core underlying idea of Blue Jay is that the drone should be able to do so autonomously, meaning that it should therefore
-                      also be able to detect emergencies happening around the facility and report that back to the nurses efficiently and effectively. </p>
-                  </p>
+                      Given the environment in which Blue Jay would operate, the drone and its interaction interfaces had to be carefully and sensibly
+                      designed in a way that balanced trust, predictability and approachability with a subtle and non-invasive presence. The core underlying idea of Blue Jay is that the drone should be able to do operate autonomously, meaning that it should therefore
+                      also be able to detect emergencies happening around the facility and report that back to the nurses efficiently, effectively and intuitively.
+                    <br><br></p>
               </div>
+
+
+            <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                <div class="w3-modal-content w3-animate-zoom">
+                  <img src="assets/img/BlueJay1.jpg" style="width:100%; border-radius: 0; cursor: pointer;
+                  ">
+                </div>
+            </div>
           </div>
         </section>
 
@@ -82,6 +85,7 @@
           <section class="about section" id="about">
               <div class="about__container container">
                   <div class="about__data">
+                    <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Communicating Thought and Emotion</h1>
                       <p class="about__description">This meant that the Blue Jay-drone had to be visibly present and approachable, yet perceived
                         as safe, trustworthy and non-invasive to the personal space and privacy of patients and worker's. That is where my role as an Interaction
                         Designer came in, as we had to innovate and find new ways in which healthcare workers and patients could
@@ -91,50 +95,42 @@
                         if it was responding to an event it had detected). For example, the drone would turn green and smile at a patient or worker once it had processed
                         a command succesfully and proceeded with executing it. The drone also responded to input from patients through emotion detection
                         and speech recognition using a camera and a microphone.</p>
-                        <div class="slideshow-container">
 
-                          <div class="mySlides fade">
-                            <img src="assets/img/BlueJay2.jpg" style="width:100%; ">
-                          </div>
-  
-                          <div class="mySlides fade">
-                            <img src="assets/img/BlueJay1.jpg" style="width:100%; ">
-                          </div>
-                          
-                          <div class="mySlides fade">
-                              <img src="assets/img/BlueJay3.jpg" style="width:100%; ">
-                            </div>
+                        <div onclick="document.getElementById('modal02').style.display='block'" style="margin-top: 70px; margin-bottom: 70px" class="video-container" >
+                          <img src="assets/img/BlueJay3.jpg" class="" alt="Image Description" />
+                      </div>
 
-                            <div class="mySlides fade">
-                              <img src="assets/img/portfolio3.png" style="width:100%; ">
-                            </div>
-                          
-                          <a class="prev" onclick="plusSlides(-1)">❮</a>
-                          <a class="next" onclick="plusSlides(1)">❯</a>
-                          
-                          </div>
-                          <br>
-                          
-                          <div style="text-align:center">
-                            <span class="dot" onclick="currentSlide(1)"></span> 
-                            <span class="dot" onclick="currentSlide(2)"></span> 
-                            <span class="dot" onclick="currentSlide(3)"></span>
-                            <span class="dot" onclick="currentSlide(4)"></span> 
-                          </div>
-                          
+                      <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
+                        <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                        <div class="w3-modal-content w3-animate-zoom">
+                          <img src="assets/img/BlueJay3.jpg" style="width:100%; border-radius: 0; cursor: pointer;
+                          ">
+                        </div>
+                    </div>
                         <p class="about__description">
-                        <br><br>
                         Through an iterative user-centered design process - including several phases of user interviews, creating personas, storytelling, and prototyping - we created different
                         lighting- and 'eye'-schemes for the drone that represented different 'emotional' states for the drone. As part of the conceptualization of these 'emotional states', these 
                         schemes were presented to patients and workers in different scenarios, and through a collaborative process we finetuned
                         the responsiveness of the drone to a large variety of different situations.
                         <br><br>
-                        Additionally, I developed the Blue Jay Android-app, which simplifies communication between users and drones. 
+                        <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">The Blue Jay App</h1>
+                        Additionally, I worked as a <i>Mobile App Developer</i> for Blue Jay and developed the Blue Jay Android-app, which simplifies communication between users and drones. 
                         The app allows real-time tracking of drones, easy commands for the drone's operations, and archives all historical 
                         data on emergencies detected by the drone. The Blue Jay App makes it easier for inexperienced users 
                         to interact with drones safely, efficiently, and intuitively. I tested the Blue Jay using a variety of methods,
-                        including think-aloud interviews with healthcare and emergency staff and AB-testing.
-                      </p>    
+                        including think-aloud interviews with healthcare and emergency staff and A/B-testing.
+                      </p>
+                      <div onclick="document.getElementById('modal03').style.display='block'" style="margin-top: 70px; margin-bottom: 70px" class="video-container" >
+                        <img src="assets/img/portfolio3.png" class="" alt="Image Description" />
+                    </div>
+
+                    <div id="modal03" class="w3-modal" onclick="this.style.display='none'">
+                      <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                      <div class="w3-modal-content w3-animate-zoom">
+                        <img src="assets/img/portfolio3.png" style="width:100%; border-radius: 0; cursor: pointer;
+                        ">
+                      </div>
+                  </div>    
                         <a target=”_blank” href="https://www.bluejayeindhoven.nl/" style="margin-top: 20px;" class="button button--flex">
                           Visit Website <i class="uil uil-globe button__icon"></i>
                       </a>
