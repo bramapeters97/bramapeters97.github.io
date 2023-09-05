@@ -24,42 +24,52 @@
     <body>
 
         <div id="header"></div>
-      <main class="main">
-        <section class="home section portfolio1 portfoliohome" id="home">
-            <div class="home__container portfolio1 container grid">
+        <main class="main">
+          <section class="home section portfolio1 portfoliohome" id="home">
+            <div class="home__container container grid">
                 <div class="home__content  grid">
-                    <div class="home__social">
-                    </div>
                     <div class="home__data">
-                        <h1 style="font-family: 'Poppins', sans-serif;" class="home__title">Vinobo</h1>
-                        <h3 style="font-family: 'Poppins', sans-serif;" class="home__subtitle">Elevating online learning with a lecture-annotation tool: annotate, search, and save lecture videos effortlessly with Vinobo
-                            <br><br></h3>
+                        <h1 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%)" class="home__title">Vinobo</h1>
+                        <h3 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%); font-weight: 8" class="home__subtitle">Elevating online learning with a lecture-annotation tool: <br> annotate, search, and save lecture videos effortlessly with Vinobo
+                        </h3>
                     </div>
-                    <img class="dashboard_img" onclick="document.getElementById('modal01').style.display='block'" src="assets/img/vinobolarge.jpg" alt="Vinobo">
                 </div>
-                <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-                    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                    <div class="w3-modal-content w3-animate-zoom">
-                      <img src="assets/img/vinobolarge.jpg" style="width:100%">
-                    </div>
-                  </div>
             </div>
         </section>
-    </main>
+        </main>
 
       <section class="about section" id="about">
         <div class="about__container container">
             <div class="about__data">
+              <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Vinobo</h1>
                 <p class="about__description">
                   For a project at <a href="https://www.kth.se" target="blank"><b>Kungliga Tekniska Högskolan (KTH)</b></a> in Stockholm, Sweden, I 
                   designed a web tool that empowers students to watch, annotate, and search for keywords within lecture 
                   transcripts, enabling them to locate relevant sections efficiently. With advanced features, including keyword 
                   search within lecture transcripts, precise note-saving at specific timestamps, and personalized notebooks stored 
-                  securely in user accounts, this tool has the potential to optimize how students engage with their educational content online.
-                  <br><br>
+                  securely in user accounts, this tool has the potential to optimize how students engage with their educational content online.</p>
+                  <div onclick="document.getElementById('modal01').style.display='block'" style="  border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+;                  margin-top: 70px; margin-bottom: 70px" class="video-container" >
+                    <img src="assets/img/vinobolarge.jpg" class="" alt="Image Description" />
+                </div>
+                <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                  <div class="w3-modal-content w3-animate-zoom">
+                    <img src="assets/img/BlueJay1.jpg" style="width:100%; border-radius: 0; cursor: pointer;
+                    ">
+                  </div>
+              </div>
+                <p class="about__description">
                   The core feature of the web tool is its seamless integration with YouTube videos. Students can easily watch 
                   their desired videos within the application by simply pasting the YouTube link. This integration eliminates the 
                   need to switch between multiple platforms, ensuring a streamlined learning process.
+
+                  One of the standout features is the intelligent search functionality within the video's transcript. 
+                  transcript, swiftly identifying the most relevant parts of the video. This powerful search capability 
+                  saves valuable time and enhances the overall effectiveness of the learning process. Furthermore, the 
+                  application includes auto-scrolling of both the transcript and notes while the video is playing, 
+                  ensuring a synchronized learning experience. <br> <br>
+                  
                 </p>
             </div>
           </div>
@@ -73,15 +83,7 @@
       <section class="about section" id="about">
         <div class="about__container container">
             <div class="about__data">
-                <p class="about__description">
-                  One of the standout features is the intelligent search functionality within the video's transcript. 
-                  Leveraging a custom API endpoint, students can search for specific keywords or phrases within the 
-                  transcript, swiftly identifying the most relevant parts of the video. This powerful search capability 
-                  saves valuable time and enhances the overall effectiveness of the learning process. Furthermore, the 
-                  application includes auto-scrolling of both the transcript and notes while the video is playing, 
-                  ensuring a synchronized learning experience.
-                  <br><br>
-                  To facilitate comprehensive note-taking, the application allows students to annotate videos with 
+                <p class="about__description">                  To facilitate comprehensive note-taking, the application allows students to annotate videos with 
                   personal notes. These notes can be attached to specific timestamps within the video, enabling precise 
                   referencing and enhancing comprehension. Students have the flexibility to add and delete notes as needed, 
                   ensuring a personalized and dynamic learning environment. In addition, the application incorporates a user 
