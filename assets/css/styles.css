@@ -432,6 +432,18 @@ a:link.link{
   justify-content: center;
 }
 
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
 /* Active Modal */
 .active-modal {
   opacity: 1;
@@ -445,6 +457,12 @@ a:link.link{
 }
 
 .video-player{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+  width: 70%;
+  height: 70%;
+}
+
+.video-player2{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
   width: 70%;
   height: 70%;
@@ -963,6 +981,9 @@ Generic layout (demo looks)
       grid-template-columns: 1fr; /* Change to one column */
   }
   .video-player{
+    width: 100%;
+  }
+  .video-player2{
     width: 100%;
   }
 

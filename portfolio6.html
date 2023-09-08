@@ -24,13 +24,15 @@
     <body>
 
         <div id="header"></div>
-        <main class="main">
-          <section class="home section portfolio1 portfoliohome" id="home">
+        <main class="main"style="z-index: var(--z-fixed);   box-shadow: rgba(0, 0, 0, 0.16) 0px -10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        ">
+          <section class="home section portfolio1 portfoliohome" style="z-index: var(--z-fixed);    box-shadow: rgba(0, 0, 0, 0.16) 0px -10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+"id="home">
             <div class="home__container container grid">
                 <div class="home__content  grid">
                     <div class="home__data">
                         <h1 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%)" class="home__title">Raspberries</h1>
-                        <h3 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%); font-weight: 8" class="home__subtitle">A newly envisioned Digital Shopping Assistant for Rodebjer’s <br> that lets the customer decide when, and what for, they need
+                        <h3 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%); font-weight: 8" class="home__subtitle">A newly envisioned Digital Shopping Assistant for Rodebjer <br> that lets the customer decide when, and what for, they need
                           help.
                         </h3>
                     </div>
@@ -39,45 +41,73 @@
         </section>
         </main>
 
-      <section class="about section" id="about">
+      <section style="  -webkit-filter: drop-shadow(5px 5px 5px #575757);
+      filter: drop-shadow(5px 5px 5px #5a5a5a); z-index: 1" class="about section" id="about">
         <div class="about__container container">
             <div class="about__data">
               <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">A new way to shop</h1>
                 <p class="about__description">
+                  <div class="grid-container">
+                    <div class="grid-item">
                   The present-day shopping experience can be stressful and aggravating to some. Especially for introverts shopping may be challenging for a number of reasons, such as invasive staff, crowded clothing stores and a lack of self-efficacy.
-                  What about letting the customer decide when they
-                  need assistance? The Digital Shopping Assistant helps them do just that. The digital help desk bridges the gap between customers and salespeople by letting the customer decide when, and what for, they need help. For this project at <a href="https://www.kth.se" target="blank"><b>Kungliga Tekniska Högskolan (KTH)</b></a>, we decided to use the Rodebjer brand as an example product. 
-            <br><br></div>
+                  What about letting the customer decide when they need assistance? </div>
+                  <div class="grid-item" style="text-align: center;"><img src="assets/img/raspberries_INTRO.jpg" style="max-height: 150px;" alt="Image Description" />
+                  </div>
+                  </div>
+                  <br>The Digital Shopping Assistant helps them do just that. The digital help desk bridges the gap between customers and salespeople by letting the customer decide when, and what for, they need help. For this project at <a href="https://www.kth.se" target="blank">Kungliga Tekniska Högskolan (KTH)</a>, we decided to use the Rodebjer brand as an example product.
+            Below you can find the <b>UX-workbook</b> that takes you through the <i>Double-Diamond Model</i> that we used to conceptualize Raspberries. The workbook takes you through the different design phases in that model, from original ideation and conceptualization to wireframing, prototyping, testing and evaluation. <br><br></div>
           </div>
       </section>
 
-      <div style="margin-top: 70px; margin-bottom: 70px" class="video-container">
-        <video class="video-player" width="70%" height="auto" controls>
-            <source src="assets/img/raspberries.mp4" type="video/mp4">
-            <source src="assets/img/raspberries.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-        </video>
-       </div>
-
-      <section class="about section" id="about">
-        <div class="about__container container">
-            <div class="about__data">
-
-            </div>
-            <a target=”_blank” href="https://www.figma.com/proto/y5tzGJA6o9mhBXfYdHYMlX/Media-team-library?node-id=462-11&starting-point-node-id=462%3A11&scaling=scale-down&mode=design&t=0Lyc8sCZonoUtQjO-1" class="button button--flex">
-              Full Demo <i class="uil uil-globe button__icon"></i>
-            </a>
+      <div style="background-color: #ED7F72; padding-top: 20px;">
+       <div style="width: 100%; text-align: center; text-justify: center; background-color: #ED7F72; z-index: 2">
+        <div style=" padding-bottom: 70px; padding-top: 50px; background-color: #ED7F72;" class="video-container container_rodebjer reveal">
+          <video class="video-player2" width="70%" height="auto" controls>
+              <source src="assets/img/raspberries.mp4" type="video/mp4">
+              <source src="assets/img/raspberries.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+          </video>
+         </div>
         </div>
-      </section>
-
-
-                </div>
-            </div>
-        </section>
-
-        <div id="footer"></div>
+      <div style="background-color: #ED7F72">
+         <div class="container_rodebjer reveal" style="background-color: #ED7F72">
+          <img style="width:100%; border-radius: 0" id="image" src="assets/img/rodebjercase_1.jpg">
+         </div>
+        </div>
+        <div style="background-color: #FFFCF7">
+         <div class="container_rodebjer reveal" style="background-color: #FFFCF7">
+          <img style="width:100%; border-radius: 0" id="image" src="assets/img/rodebjercase_2.jpg">
+         </div>         <div class="container_rodebjer reveal">
+          <img style="width:100%; border-radius: 0" id="image" src="assets/img/rodebjercase_3.jpg">
+         </div>         <div class="container_rodebjer reveal">
+          <img style="width:100%; border-radius: 0" id="image" src="assets/img/rodebjercase_4.jpg">
+         </div>         <div class="container_rodebjer reveal">
+          <img style="width:100%; border-radius: 0" id="image" src="assets/img/rodebjercase_5.jpg">
+         </div>         <div class="container_rodebjer reveal">
+          <img style="width:100%; border-radius: 0" id="image" src="assets/img/rodebjercase_6.jpg">
+         </div>
+        </div>
+        </div><div id="footer"></div>
 
         <script src="assets/js/swiper-bundle.min.js"></script>
         <script src="assets/js/main.js"></script>
+        <script>
+        function reveal() {
+          var reveals = document.querySelectorAll(".reveal");
+        
+          for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+        
+            if (elementTop < windowHeight - elementVisible) {
+              reveals[i].classList.add("active");
+            } else {
+              reveals[i].classList.remove("active");
+            }
+          }
+        }
+        
+        window.addEventListener("scroll", reveal);</script>
     </body>
 </html>
