@@ -177,6 +177,91 @@ img {
   margin-right: var(--mb-1-5);
 }
 
+.container_carrousel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 410px;
+  padding-bottom: 40px;
+  gap: 10px;
+  overflow: auto;
+
+  > div {
+    flex: 0 0 170px;
+    border-radius: 22px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: 1px 5px 15px #aaaaaa ;
+    position: relative;
+    overflow: hidden;
+
+    &:nth-of-type(1) {
+      background: url(../img/spotify_1.png)
+        no-repeat 50% / cover;
+    }
+    
+    &:nth-of-type(2) {
+      background: url(../img/spotify_3.png)
+        no-repeat 50% / cover;
+    }
+
+    &:nth-of-type(3) {
+      background: url(../img/spotify_5.png)
+        no-repeat 50% / cover;
+    }
+
+    &:nth-of-type(4) {
+      background: url(../img/spotify_7.png)
+        no-repeat 50% / cover;
+    }
+
+    &:nth-of-type(5) {
+      background: url(../img/spotify_8.png)
+        no-repeat 50% / cover;
+    }
+
+    &:nth-of-type(6) {
+      background: url(../img/spotify_11.png)
+        no-repeat 50% / cover;
+    }
+
+    .content {
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      opacity: 0;
+      flex-direction: column;
+      height: 120%;
+      justify-content: flex-end;
+      transform: translatey(100%);
+      transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+      visibility: hidden;
+
+      span {
+        display: block;
+        margin-top: 5px;
+        font-size: 1.2rem;
+      }
+    }
+
+    &:hover {
+      flex: 0 0 250px;
+      box-shadow: 1px 3px 15px #717171 
+;
+      transform: translatey();
+    }
+
+    &:hover .content {
+      opacity: 1;
+      transform: translatey(0%);
+      
+      visibility: visible;
+    }
+  }
+}
+
+
 .grid {
   display: grid;
   gap: 1.5rem;
@@ -1100,7 +1185,7 @@ Generic layout (demo looks)
     column-gap: 4rem;
   }
   .about__img {
-    border-radius: 30px;
+    border-radius: 20px;
     -webkit-filter: drop-shadow(4px 4px 4px #cdcdcd);
   }
   .about__description {
