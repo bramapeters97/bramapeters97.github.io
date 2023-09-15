@@ -954,6 +954,9 @@ Generic layout (demo looks)
   .home__data {
     margin-top: 50px;
   }
+  .video-container{
+    margin-top: 0px;
+  }
   .skills__container{
     margin-bottom: -60px;
   }
