@@ -1,147 +1,122 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Bram Peters | The Honeymoon Webshop</title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="Retrina Group" />
+
+        <!--  FavIcon  -->
+        <link rel="shortcut icon" href="assets/img/favicon-16x16.png">
+
+        <!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png">
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script> 
-          $(function(){
-            $("#header").load("header.html"); 
-          });
-        </script>
-        <script> 
-          $(function(){
-            $("#footer").load("footer.html"); 
-          });
-        </script>
-        <title>Bram Peters | Doula</title>
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/thinline.css">
+        <!-- FontAwesome Css -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <!-- Line icon Css -->
+        <link rel="stylesheet" href="assets/css/LineIcons.css">
+        <!-- Bootstrap Css -->
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <!-- Owl Carousel Css -->
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <!-- Magnific Popup Css -->
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!--  Custom Style CSS  -->
+        <link rel="stylesheet" href="assets/css/main.css">
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#scrollspy" data-offset="70" class="flat-demo mono">
 
-        <div id="header"></div>
-        <main class="main"style="z-index: var(--z-fixed);   box-shadow: rgba(0, 0, 0, 0.16) 0px -10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-        ">
-          <section class="home section portfolio1 portfoliohome" style="z-index: var(--z-fixed);    box-shadow: rgba(0, 0, 0, 0.16) 0px -10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-"id="home">
-            <div class="home__container container grid">
-                <div class="home__content  grid">
-                    <div class="home__data">
-                        <h1 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%)" class="home__title">Doula | UX/UI Case Study</h1>
-                        <h3 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%); font-weight: 8" class="home__subtitle">The Conceptual Redesign of Labour Contraction App Doula
+    <!--  Pre Loader  -->
+    <div id="overlayer"></div>
+    <span class="loader"></span>
 
-                        </h3>
+    <!--    Header Start    -->
+    <header id="header" class="header fixed-top">
+        <nav id="scrollspy" class="navbar navbar-expand-lg header-nav">
+            <div class="container-fluid">
+                <a class="navbar-brand font-weight-bold" href="index.html#hero">Bram Peters</a>
+                <!--  Navbar Toggler Button Start -->
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#toggle-menu" aria-controls="toggle-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="lni-menu size-md"></span>
+                </button>
+                <!--  Navbar Toggler Button End -->
+                <div class="collapse navbar-collapse" id="toggle-menu">
+                    <ul class="navbar-nav nav-pills ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html#hero">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="assets/pdf/bapeters_cv.pdf">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.linkedin.com/in/bram-peters.com">LinkedIn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mailto:bramapeters@outlook.com">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--  404 Start  -->
+    <section class="hero error-404 py-5 mt-5 py-lg-0 mt-lg-0">
+        <div class="hero-content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="hero-item pb-5 pb-lg-0">
+                            <h1 class="base-color">Oops!</h1>
+                            <h3>404 ERROR <i class="lni lni-emoji-sad"></i></h3>
+                            <p>This portfolio item is still under construction!</p>
+                            <div class="search w-100 search-404 mr-auto px-0 mx-lg-0">
+                            </div>
+                            <div class="button-border">
+                                <a class="pill-button" href="index.html">Back to Home?</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        </main>
-
-        <section class="about section" id="about" style="box-shadow: inset 0 10px 10px -10px gray;">
-        <div class="about__container container">
-            <div class="about__data">
-              <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">A UX/UI-Design Case Study</h1>
-                <p class="about__description">
-                      For a 10-hour time limited UX/UI Case Study, I was given the opportunity to redesign the design for an outdated
-                      pregnancy symptom and contraction tracker app built in 2014. My process involved in-depth user and usability research to identify and address key pain points within the existing app. The result? A transformation of the app's visual style and a substantial enhancement of the user experience.
-                  </div>
-          </div>
-      </section>
-      <div style="margin-top: 70px; margin-bottom: 70px" class="video-container">
-        <img src="assets/img/doula.png" style="width:80%; border-radius: 0; cursor: pointer;                  ">
-       </div>
-
-       <section class="about section" id="about">
-        <div class="about__container container">
-            <div class="about__data">
-                <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Design Brief</h1>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <p class="about__description">Doula is a pregnancy app which provides audio guidance in the final phase of pregnancy for managing the pain during contractions. Additionally, users can view statistics of their contractions. The app is missing a symptom tracker that expectant mothers can use to log their symptoms and monitor changes throughout their pregnancy. 
-                          Additionally, the visual style of the app is outdated and not very engaging. Users have also reported feeling disconnected from the app and are looking for a more personal and supportive experience.</b><br><br>
-                        </p></div>
-                    <div class="grid-item" style="text-align: center;"><img src="assets/img/doulaold.png" style="max-height: 300px;" alt="Image Description" />
-                    </div>
-                </div>
-                <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">User Research</h1>
-                        <p class="about__description">While my ideal approach would involve in-depth user interviews, think-aloud sessions, and data analytics, the 10-hour time limit was the greatest rival. So, I pivoted, focusing on understanding our audience: expectant mothers and their incredible doulas.
-                          These doula superheroes offer emotional support, information, physical comfort, advocacy, continuous presence, and postpartum care. I dived into uncovering what expectant mothers need during the final phases of pregnancy, including emotional reassurance, information, comfort, advocacy, continuous presence, and postpartum preparation.
-                          But that's not all – I delved into understanding pregnancy symptoms, diligently cataloging the essentials that expectant mothers often want to track, from weight gain and morning sickness to mood changes and fetal movements.<br></p>
-                <br><h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">User Reviews</h1>
-                        <p class="about__description">User feedback for the Doula app in the App Store and Google Play Store paints a mixed picture. Many users express positivity, finding it comforting during labor. However, challenges exist, including occasional freezing or crashing issues. Some appreciate the free features, while others express frustration over in-app purchases.
-<br><br></p>
-
-<i>"Seems a bit too basic and no general walk-through. Everything is for purchase or "do this task to access content" nice option. The music is nice but I wish there were better options."
-</i><br><br>✩✩✩✩  - May 27, 2021     
-<br><br>
-<i>"I both love and hate this app.i tested it before my labour and liked the sounds so was happy to use it. However I didn't let it run long enough so didn't test it properly. when it came to labour I was listening to it but every time or got to the end of the audio it crashed and closed the app which infuriated me as I was in agony."
-</i><br><br>✩✩✩  - March 24, 2019<br><br>
-<h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Competitor Analysis</h1>
-<p class="about__description">In the world of pregnancy and labor support apps, you'll find a range of options. Some, like the Contraction Timer & Counter and Full Term - Labor Contraction Timer, focus solely on tracking contractions with no audio coaching or music features. Others, such as Pregnancy+ and Ovia Pregnancy Tracker, offer comprehensive pregnancy tracking and information but lack dedicated contraction coaching. Additionally, there are wearable devices like Bloomlife for real-time contraction tracking, while apps like Mama Natural Birth Course prioritize childbirth education and natural birth support over contraction tracking.<br><br></p>
-<div style="width: 100%; text-align: center;"><img src="assets/img/otherapps.png" style="max-width: 70%; margin-left: auto; margin-right: auto;" alt="Image Description" /></div><br><br>
-<h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Usability Test (Jakob Nielson's 10 Principles of Interaction Design)</h1>
-<p class="about__description">
-  <ul style="list-style-type:disc; margin-left: 30px">
-    <li><b>Visibility of System Status:</b> The app provides clear feedback on the homescreen but lacks loading indicators in certain areas, potentially causing confusion.</li>
-    <li><b>Match Between System and the Real World:</b> The app effectively uses familiar language and concepts, avoiding confusing jargon.</li>
-    <li><b>User Control and Freedom:</b> Users may encounter challenges in undoing actions, with a lack of clear exit options, potentially leading to data loss.</li>
-    <li><b>Consistency and Standards:</b> The app does not consistently follow established OS guidelines, leading to inconsistencies in design and icon placement.</li>
-    <li><b>Error Prevention:</b> While structurally clean, the use of fancy fonts in instructions may reduce readability and increase the chance of users skipping important information.</li>
-    <li><b>Recognition Rather Than Recall:</b> Inconsistent icon usage and placement make it challenging for users to remember information across different parts of the interface.</li>
-    <li><b>Aesthetic and Minimalist Design:</b> The outdated and inconsistent design, including long instructional texts and color choices, hinders user experience and readability.</li>
-    <li><b>Help and Documentation:</b> While some help is available, its effectiveness is limited due to other design issues within the app.</li>
-  </ul>
-</li>
-<br><br>
-<h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">User Story (Example)</h1>
-<p class="about__description"><i>“As an expectant mother, I want to easily track my pregnancy symptoms and monitor
-  changes throughout my pregnancy using the Doula app, so I can receive personalized
-  support and feel more connected to the app's features and content.”</i><br><br>
-  <b>Acceptance Criteria:</b><br>
-  <ul style="list-style-type:disc; margin-left: 30px">
-    <li>Given that I am using the Doula app, when I open the app, I should be presented with a
-      clear and inviting home screen.</li>
-    <li>When I want to log my pregnancy symptoms, I can navigate to the new "Symptom
-      Tracker" feature from the home screen.</li>
-    <li>In the "Symptom Tracker," I should see a user-friendly interface with options to log
-      common symptoms such as morning sickness, fatigue, cramping, and more.
-    <li>Each symptom should have a dedicated input field for recording its severity or
-      frequency.</li>
-    <li>I should be able to add additional notes or comments related to each symptom if I
-      choose to.</li>
-    <li>The app should allow me to save and date-stamp my symptom entries.</li>
-  <li>Once I've logged my symptoms, I can easily access a history or log of my previous
-    entries for reference.</li>  </ul><br><br><br>
-  <div class="grid-container">
-    <div class="grid-item" style="text-align: center;">
-  <b>Updating the visual style</b><br>I overhauled the color schemes, typography, and iconography to create a visually captivating and modern interface that resonates with the app's purpose. By employing a clean color palette with soothing gradients and harmonious shades, I directed users' attention towards vital content.
-  I struck a balance between playful branding elements and professional clarity by adopting a clean and neutral font for instructional text, aligning with iOS guidelines. Additionally, I adhered to iOS standards for iconography, placing them in a user-friendly nav-bar at the bottom for intuitive navigation, ensuring users always know their location within the app. Consistency reigns supreme across screens, unifying typography, color coding, and iconography for a seamless user journey.
-  </div><div class="grid-item" style="text-align: center;"><img src="assets/img/doula1.png" style="max-height: 400px;" alt="Image Description" />
-  </div> </div><br><br>
-  <div class="grid-container" >
-  <div class="grid-item" style="text-align: center;"><img src="assets/img/doula2.png" style="max-height: 400px;" alt="Image Description" />
-  </div>            
-
-    <div class="grid-item" style="text-align: center;">
-  <b>Improving the homescreen</b><br>The redesigned homescreen not only embodies Doula's new visual identity but also offers a dynamic 'pulsing' play button, evoking the essence of breathing techniques within Mary's instructions. Users are now greeted with personalized messages and customizable profile pictures, making the app feel uniquely theirs.
-
-  I've introduced a handy volume control panel, allowing users to tailor their audio experience, while a user-friendly nav-bar at the bottom ensures quick access to the app's full functionality. To make the symptom tracker more engaging, a notification icon encourages users to log their daily symptoms, enhancing their overall experience. Plus, I've incorporated a dedicated premium package screen, addressing user preferences for a simplified payment model.</div>  
-
-    </div><br><br>
-    <div class="grid-container">
-      <div class="grid-item" style="text-align: center;">
-    <b>Symptom tracker feature</b><br>I introduced a user-friendly symptom tracker to the app, enabling users to log and monitor their pregnancy symptoms, rate their severity, and add notes. Users are prompted to input their daily symptoms, and only the 'Save' button becomes active once at least one symptom is selected, ensuring data accuracy. The tracker offers a calendar view with color-coded bars for symptom submissions and a graph displaying symptom progression over time, enhancing users' ability to visualize their pregnancy journey.Additionally, I added a back-button on all non-home screens, providing users with a convenient way to return to the home screen without data loss, addressing a missing feature from the original app. </div><div class="grid-item" style="text-align: center;"><img src="assets/img/doula3.png" style="max-height: 400px;" alt="Image Description" />
-    </div> </div><br><br>
-    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FIdbZoPTBYvutOuIlQLhI9u%2FDoula%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D14-147%26viewport%3D192%252C210%252C0.24%26t%3DYvtLBLYoMpkqtCKi-1%26scaling%3Dscale-down%26starting-point-node-id%3D14%253A147%26mode%3Ddesign" allowfullscreen></iframe>
-
-                    </div>
-                    </section>
+        </div>
+    </section>
+    <!--  404 End  -->
 
 
-        </div><div id="footer"></div>
+    <!--   Return To Top  -->
+    <a class="return-to-top text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-arrow-up"></i></a>
+
+
+    <!--  JavaScripts  -->
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <!--  Bootstrap Js  -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!--  Easing Js  -->
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <!--  Typed Js  -->
+    <script src="assets/js/typed.js"></script>
+    <!--  Magnific Popup Js  -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--  Isotope Js  -->
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <!--  Owl Carousel Js  -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- Map Js -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRemITiP7JRWpZwLhVt-T2x5MeUFE2KWs"></script>
+    <!--  Custom JS  -->
+    <script src="assets/js/arshia.js"></script>
+
     </body>
 </html>

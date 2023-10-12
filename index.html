@@ -1,685 +1,533 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png">
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script> 
-          $(function(){
-            $("#header").load("header.html"); 
-          });
-        </script>
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script> 
-        $(function(){
-            $("#footer").load("footer.html"); 
-        });
-        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Bram Peters</title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="Retrina Group" />
+
+        <!--  FavIcon  -->
+        <link rel="shortcut icon" href="assets/img/favicon-16x16.png">
+
+        <!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/thinline.css">
+        <!-- FontAwesome Css -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <!-- Line icon Css -->
+        <link rel="stylesheet" href="assets/css/LineIcons.css">
+        <!-- Bootstrap Css -->
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <!-- Owl Carousel Css -->
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <!-- Magnific Popup Css -->
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!--  Custom Style CSS  -->
+        <link rel="stylesheet" href="assets/css/main.css">
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#scrollspy" data-offset="70" class="flat-demo mono">
 
-        <div id="header"></div>
+    <!--  Pre Loader  -->
+    <div id="overlayer"></div>
+    <span class="loader"></span>
 
-        <main class="main">
-            <section class="home section" id="home">
-                <div class="home__container container grid">
-                    <div class="home__content grid">
-                        <div class="home__social">
-                        </div>
-                        <div class="home__img">
-                            <svg class="home__blob" viewBox="0 0 200 210">
-                                <image class="home__blob-img" x="12" y="18" href="assets/img/profilephoto2.png"/>
-                            </svg>
-                        </div>
-                        <div class="home__data">
-                            <h1 style="font-family: 'Poppins', sans-serif;" class="home__title">Bram Peters <a href="https://www.linkedin.com/in/bram-peters/"><i class="uil uil-linkedin"></i></a></h1>
-                            <h3 style="font-family: 'Poppins', sans-serif;" class="home__subtitle"> MSc Human-Technology Interaction | UX-, UI-, and Interaction-Design | Frontend Web & App Development 
-                                </h3>
-                            <a target=”_blank” href="assets/pdf/bapeters_cv.pdf" class="button button--flex">
-                                Download CV<i class="uil uil-download-alt button__icon"></i>
-                            </i>
-                            </a>
-                        </div>
-                    </div>
+    <!--    Header Start    -->
+    <header id="header" class="header fixed-top">
+        <nav id="scrollspy" class="navbar navbar-expand-lg header-nav">
+            <div class="container-fluid">
+                <a class="navbar-brand font-weight-bold" href="#hero">Bram Peters</a>
+                <!--  Navbar Toggler Button Start -->
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#toggle-menu" aria-controls="toggle-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="lni-menu size-md"></span>
+                </button>
+                <!--  Navbar Toggler Button End -->
+                <div class="collapse navbar-collapse" id="toggle-menu">
+                    <ul class="navbar-nav nav-pills ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html#hero">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="assets/pdf/bapeters_cv.pdf">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.linkedin.com/in/bram-peters.com">LinkedIn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mailto:bramapeters@outlook.com">Contact</a>
+                        </li>
+                    </ul>
                 </div>
-            </section>
-
-            <section class="about section" id="about">             
-                <h2 class="section__title" style="margin-bottom: 50px">About Me</h2>
-                    <div class="about__container container grid" style="max-width: 900px">
-                        <img src="assets/img/graduation.jpg" alt="" class="about__img">
-                        <div class="about__data">
-                            <p class="about__description">As a recently graduated <i>Human-Technology Interaction</i> engineer, I am looking for professional challenges where I can combine my UX-, UI-, and Interaction-design and research experience with my front-end software development skills. What drives me is being part of the creation of new innovative technological solutions that address the complex challenges of our ever-evolving society, so let's collaborate and create something powerful together!
-                            </p>
-                            <a href="mailto:bramapeters@outlook.com" class="button button--flex" style="margin-top: 20px">
-                                Contact Me <i class="uil uil-message button__icon"></i>
-                            </a>
-                            <a href="portfolio1.html" class="button button--flex" style="margin-top: 20px; margin-left: 15px">
-                                MSc Thesis <i class="uil uil-book button__icon"></i>
-                            </a>
-                        </div>
-                </div>
-                
-            <!--==================== SKILLS ====================-->
-            <section class="skills section" id="skills">
-                <h2 class="section__title">Skills</h2>
-                <div class="skills__container container grid">
-                        <!--=============== SKILLS 1 ===============-->
-                        <div class="skills__content skills__close">
-                            <div class="skills__header">
-                                <i class="uil uil-swatchbook skills__icon"></i>
-                                <div>
-                                    <h1 class="skills__title">UX-Design</h1>
-                                </div>
-                                <i class="uil uil-angle-down skills__arrow"></i>
-                            </div>
-    
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">User Research</h3>
-                                        <span class="skills__number">90%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 90%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Usability Testing</h3>
-                                        <span class="skills__number">85%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 85%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">A/B Testing</h3>
-                                        <span class="skills__number">85%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 85%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">User-Centered Design</h3>
-                                        <span class="skills__number">85%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 85%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">AdobeXD</h3>
-                                        <span class="skills__number">80%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 80%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Interaction Design</h3>
-                                        <span class="skills__number">80%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 80%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Wireframing</h3>
-                                        <span class="skills__number">80%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 80%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Prototyping</h3>
-                                        <span class="skills__number">80%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 80%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Persona Defining</h3>
-                                        <span class="skills__number">80%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 80%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Figma</h3>
-                                        <span class="skills__number">75%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 75%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Storyboarding</h3>
-                                        <span class="skills__number">75%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 75%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Typography & Color Theory</h3>
-                                        <span class="skills__number">75%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 75%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Mobile & Responsive Design</h3>
-                                        <span class="skills__number">75%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 75%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                            <!--=============== SKILLS 3 ===============-->
-                            <div class="skills__content skills__close">
-                                <div class="skills__header">
-                                    <i class="uil uil-brackets-curly skills__icon"></i>
-                                    <div>
-                                        <h1 class="skills__title">Frontend Development</h1>
-                                    </div>
-    
-                                    <i class="uil uil-angle-down skills__arrow"></i>
-                                </div>
-                                <div class="skills__list grid">
-                                    <div class="skills__data">
-                                        <div class="skills__titles">
-                                            <h3 class="skills__name">HTML/CSS/JavaScript</h3>
-                                            <span class="skills__number">80%</span>
-                                        </div>
-                                        <div class="skills__bar">
-                                            <span class="skills__percentage" style="width: 80%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills__list grid">
-                                    <div class="skills__data">
-                                        <div class="skills__titles">
-                                            <h3 class="skills__name">Android</h3>
-                                            <span class="skills__number">80%</span>
-                                        </div>
-                                        <div class="skills__bar">
-                                            <span class="skills__percentage" style="width: 80%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills__list grid">
-                                    <div class="skills__data">
-                                        <div class="skills__titles">
-                                            <h3 class="skills__name">PowerBI</h3>
-                                            <span class="skills__number">80%</span>
-                                        </div>
-                                        <div class="skills__bar">
-                                            <span class="skills__percentage" style="width: 80%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills__list grid">
-                                    <div class="skills__data">
-                                        <div class="skills__titles">
-                                            <h3 class="skills__name">Responsive Design</h3>
-                                            <span class="skills__number">85%</span>
-                                        </div>
-                                        <div class="skills__bar">
-                                            <span class="skills__percentage" style="width: 85%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills__list grid">
-                                    <div class="skills__data">
-                                        <div class="skills__titles">
-                                            <h3 class="skills__name">Data Visualization</h3>
-                                            <span class="skills__number">75%</span>
-                                        </div>
-                                        <div class="skills__bar">
-                                            <span class="skills__percentage" style="width: 75%"></span>
-                                        </div>
-                                    </div>
-                                </div>                         
-                                <div class="skills__list grid">
-                                    <div class="skills__data">
-                                        <div class="skills__titles">
-                                            <h3 class="skills__name">React</h3>
-                                            <span class="skills__number">70%</span>
-                                        </div>
-                                        <div class="skills__bar">
-                                            <span class="skills__percentage" style="width: 70%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills__list grid">
-                                    <div class="skills__data">
-                                        <div class="skills__titles">
-                                            <h3 class="skills__name">Vue</h3>
-                                            <span class="skills__number">70%</span>
-                                        </div>
-                                        <div class="skills__bar">
-                                            <span class="skills__percentage" style="width: 70%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills__list grid">
-                                    <div class="skills__data">
-                                        <div class="skills__titles">
-                                            <h3 class="skills__name">API Integration</h3>
-                                            <span class="skills__number">70%</span>
-                                        </div>
-                                        <div class="skills__bar">
-                                            <span class="skills__percentage" style="width: 70%"></span>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>
-                        <!--=============== SKILLS 2 ===============-->
-                        <div class="skills__content skills__close">
-                            <div class="skills__header">
-                                <i class="uil uil-server-network skills__icon"></i>
-                                <div>
-                                    <h1 class="skills__title">Backend Development</h1>
-                                </div>
-                                <i class="uil uil-angle-down skills__arrow"></i>
-                            </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Java</h3>
-                                    <span class="skills__number">75%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage" style="width: 75%"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Python</h3>
-                                    <span class="skills__number">75%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage" style="width: 75%"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">DAX</h3>
-                                    <span class="skills__number">75%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage" style="width: 75%"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">PowerQuery</h3>
-                                    <span class="skills__number">70%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage" style="width: 70%"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">SQL</h3>
-                                    <span class="skills__number">70%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage" style="width: 70%"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Node.js</h3>
-                                    <span class="skills__number">70%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage" style="width: 70%"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                        <!--=============== SKILLS 4 ===============-->
-                        <div class="skills__content skills__close">
-                            <div class="skills__header">
-                                <i class="uil uil-user skills__icon"></i>
-                                <div>
-                                    <h1 class="skills__title">Other Skills</h1>
-                                </div>
-                                <i class="uil uil-angle-down skills__arrow"></i>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Quantitative Research</h3>
-                                        <span class="skills__number">85%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 85%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">STATA</h3>
-                                        <span class="skills__number">85%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 85%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Scientific Writing</h3>
-                                        <span class="skills__number">85%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 85%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Qualitative Research</h3>
-                                        <span class="skills__number">80%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 80%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Data Mining</h3>
-                                        <span class="skills__number">75%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 75%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Interdisciplinary Collaboration</h3>
-                                        <span class="skills__number">80%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 80%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Video-Editing</h3>
-                                        <span class="skills__number">80%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 80%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">Swedish (B1)</h3>
-                                        <span class="skills__number">30%</span>
-                                    </div>
-                                    <div class="skills__bar">
-                                        <span class="skills__percentage" style="width: 30%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </section>
-            </section>
-
-            <div class="articles__container">
-                <section class="articles" id="projects" >
-                    <article class="card">
-                    <div class="article-wrapper">
-                        <figure>
-                        <img src="assets/img/dashboard1.jpg" alt="" />
-                        </figure>
-                        <div class="article-body">
-                        <h2>TU/e Learning Dashboard</h2>
-                        <p>
-                            I laid the groundwork for a new learning dashboard that visualizes 
-                            academic performance and provides dynamic recommendations on how students can improve their learning 
-                            for the university's Canvas-platform.</p>
-                            <hr>
-                        <a href="portfolio1.html" class="read-more">
-                            <b>Read More</b><span class="sr-only">about this is some title</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                        </div>
-                    </div>
-                    </article>
-                    <article class="card">
-                    <div class="article-wrapper">
-                        <figure>
-                        <img src="assets/img/BlueJay1.jpg" alt="" />
-                        </figure>
-                        <div class="article-body">
-                        <h2>Blue Jay</h2>
-                        <p>
-                            I designed and developed
-                                multiple communication channels for interaction with the Blue Jay drone, including a 
-                                mobile app and speech and emotion detection functionalities. Blue Jay is an intelligent drone companion that empowers and assists healthcare workers in their daily tasks.</p>
-                                <hr>
-                        <a href="portfolio2.html" class="read-more">
-                            <b>Read More</b> <span class="sr-only">about this is some title</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                        </div>
-                    </div>
-                    </article>
-                    <article class="card">
-                    <div class="article-wrapper">
-                        <figure>
-                        <img src="assets/img/portfolio2.jpg" alt="" />
-                        </figure>
-                        <div class="article-body">
-                        <h2>Vinobo</h2>
-                        <p>
-                            This webtool allows students to watch and annotate YouTube videos
-                            and search for keywords in the video's transcript to find relevant parts in the video.
-                        Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts.</a></p>
-                                        </p>
-                                        <hr>
-                        <a href="portfolio3.html" class="read-more">
-                            <b>Full Demo</b> <span class="sr-only">about this is some title</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                        </div>
-                    </div>
-                    </article>
-                    <article class="card">
-                        <div class="article-wrapper">
-                            <figure>
-                            <img src="assets/img/doula4.png" alt="" />
-                            </figure>
-                            <div class="article-body">
-                            <h2>Doula | UX/UI Case Study</h2>
-                            <p>For a 10-hour time limited UX/UI Case Study, I was given the opportunity to redesign the design for an outdated
-                                pregnancy symptom and contraction tracker app built in 2014. My process involved in-depth user and usability research to identify and address key pain points within the existing app. The result? A transformation of the app's visual style and a substantial enhancement of the user experience.
-                            </p>
-                                            <hr>
-                            <a href="portfolio7.html" class="read-more">
-                                <b>Case Study</b> <span class="sr-only">about this is some title</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            </div>
-                        </div>
-                        </article>
-                    <article class="card">
-                        <div class="article-wrapper">
-                            <figure>
-                            <img src="assets/img/spotify.png" alt="" />
-                            </figure>
-                            <div class="article-body">
-                            <h2>Reimagining Spotify Podcasts</h2>
-                            <p>For a project at KTH, we embarked on a mission to enhance Spotify's Podcast section. Employing the Double Diamond framework, our design approach centered on goal-oriented strategies to uncover and meet user expectations.</a></p>
-                                            <hr>
-                            <a href="portfolio5.html" class="read-more">
-                                <b>Read More</b> <span class="sr-only">about this is some title</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <div class="article-wrapper">
-                            <figure>
-                            <img src="assets/img/rodebjer.png" alt="" />
-                            </figure>
-                            <div class="article-body">
-                            <h2>Raspberries</h2>
-                            <p>The present-day shopping experience can be stressful
-                                and aggravating to some (think of crowded clothing stores and a
-                                lack of self-efficacy). What about letting the customer decide when they
-                                need assistance? Rodebjer’s Digital Shopping Assistant
-                                helps them do just that. This digital help desk bridges
-                                the gap between customers and salespeople by letting
-                                the customer decide when, and what for, they need
-                                help. </a></p>
-                                            <hr>
-                            <a href="portfolio6.html" class="read-more">
-                                <b>View Workbook</b> <span class="sr-only">about this is some title</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <div class="article-wrapper">
-                            <figure>
-                            <img src="assets/img/honeymoon.jpg" alt="" />
-                            </figure>
-                            <div class="article-body">
-                            <h2>The Honeymoon Webshop</h2>
-                            <p>One of my favorite personal projects is creating "Honeymoon Webshops" for newlyweds. I built a custom website that lets wedding guests buy and customize honeymoon gifts like activities and hotel stays. After the big day, all the thoughtful presents and messages were beautifully displayed on a bulletin-style collage frame. </a></p>
-                                            <hr>
-                            <a href="" class="read-more">
-                                <b>Read More</b> <span class="sr-only">about this is some title</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <div class="article-wrapper">
-                            <figure>
-                                <div style="  display: flex;
-                                justify-content: center;
-                                align-items: center; height: 100%; background-color: rgb(233, 233, 233)">
-                                    <img src="assets/img/questionmark.png" style="width: 25%; opacity: 80%;" alt="" />
-                                </div>
-                            </figure>
-                            <div class="article-body">
-                            <h2>My Next Project</h2>
-                            <p>I am looking for professional challenges where I can combine my UX-, UI-, and Interaction-design and research experience with my front-end software development skills, so let's get in touch!
-                            </a></p>
-                                            <hr>
-                            <a href="mailto:bramapeters@outlook.com" class="read-more">
-                                <b>Contact Me</b> <span class="sr-only">about this is some title</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                </section>
             </div>
-        </main>
+        </nav>
+    </header>
 
-        <div id="footer"></div>
+    <!--  Hero Start  -->
+    <section id="hero" class="section hero hero-03 full-screen p-0">
+        <div class="hero-content">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-6 order-2 order-lg-1">
+                        <div class="hero-item">
+                            <h1 class="dark-color mb-3">I'm </span class="base-color"> Bram Peters <a href="https://www.linkedin.com/in/bram-peters/"><i style="color: #222" class="uil uil-linkedin"></i></a></span></h1>
+                            <h4 class="text-darktext-capitalize mb-0"><span class="base-color">MSc  </span> <span class="element" data-elements="Human-Technology Interaction"></span></h4>
+                            <p class="text-muted my-4">Aspiring UX/UI- and Interaction-Designer | Frontend Web & App Developer | Data Analyst</p>
+                            <div class="button-border mt-2">
+                                <a href="assets/pdf/bapeters_cv.pdf" target="_blank" class="pill-button">Download CV <i class="uit uit-download-alt" style="font-weight: 5px"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2">
+                        <div class="hero-image">
+                            <div class="personal-image rounded-circle">
+                                <img src="assets/img/Photo.jpg" alt="/" class="rounded-circle img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  Hero End  -->
 
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <script src="assets/js/main.js"></script>
+    <!--  About Start  -->
+    <section id="about" class="resume">
+            <div class="display-table">
+                <div class="display-content">
+                    <div class="container">
+                        <div class="row" style="margin-bottom: 20px">
+                            <div class="col-lg-12">
+                                <div class="title-content mb-4">
+                                    <h1 class="text-dark my-3">About <span class="base-color">Me</span></h1>
+                                    <p class="text-muted max-width-450 mb-5">As a recently graduated <i>Human-Technology Interaction</i> engineer, I am looking for professional challenges where I can combine my UX-, UI-, and Interaction-design and research experience with my front-end software development skills. What drives me is being part of the creation of new innovative technological solutions that address the complex challenges of our ever-evolving society, so let's collaborate and create something powerful together!
+                                        <div style="margin-top: -30px; position: relative">
+                                            <div class="button-border mt-2">
+                                                <a href="mailto:bramapeters@outlook.com" target="_blank" class="pill-button">Contact Me <i class="uit uit-at" style="font-weight: 5px"></i></a>
+                                            </div>
+                                            <div class="button-border mt-2">
+                                                <a href="portfolio1.html" class="pill-button">MSc Thesis <i class="uit uit-document-layout-left" style="font-weight: 5px"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        <!--    TimeLine Start   -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3 class="text-dark">
+                                    <i class="lni-graduation base-color"></i>
+                                      Education
+                                </h3>
+                                <div class="timeline-items box-border">
+                                    <!--    Item 01   -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon"></div>
+                                        <div class="timeline-contents">
+                                            <div class="time-line-header">
+                                                <h6 class="timeline-title">MSc Human-Technology Interaction</h6>
+                                                <p class="timeline-year">Eindhoven University of Technology, Netherlands</p>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <span class="skillbox">UX-Design </span>
+                                                <span class="skillbox">HTML/CSS/JavaScript</span>
+                                                <span class="skillbox">Human-Computer Interaction</span>
+                                                <span class="skillbox">User Research</span>
+                                                <span class="skillbox">Quantitative Analyses</span>
+                                                <span class="skillbox">STATA</span>
+                                                <span class="skillbox">Python</span>
+                                                <span class="skillbox">A/B-Testing</span>
+                                                <span class="skillbox">Data Analytics</span>
+                                                <span class="skillbox">Scientific Writing</span>
+                                                <span class="skillbox">Cognitive Psychology</span>
+                                                <span class="skillbox">Affective Computing</span>
+                                                <span class="skillbox">Android Development</span>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    <!--    Item 02   -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon"></div>
+                                        <div class="timeline-contents">
+                                            <div class="time-line-header">
+                                                <h6 class="timeline-title">Computer Science Erasmus+</h6>
+                                                <p class="timeline-year">Kungliga Tekniska Högskolan (KTH), Sweden</p>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <span class="skillbox">UX-Design </span>
+                                                <span class="skillbox">Qualitative Research</span>
+                                                <span class="skillbox">Usability-Testing</span>
+                                                <span class="skillbox">Data Analytics</span>
+                                                <span class="skillbox">Android Development</span>
+                                                <span class="skillbox">Interaction Programming</span>
+                                                <span class="skillbox">HTML/CSS/JavaScript</span>
+                                                <span class="skillbox">Media Technology</span>
+                                                <span class="skillbox">Data Mining</span>
+                                                <span class="skillbox">React</span>
+                                                <span class="skillbox">Next.js</span>
+                                                <span class="skillbox">Computer Networks & Security</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--    Item 03   -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon"></div>
+                                        <div class="timeline-contents">
+                                            <div class="time-line-header">
+                                                <h6 class="timeline-title">BSc Psychology & Technology </h6>
+                                                <p class="timeline-year">Eindhoven University of Technology, Netherlands</p>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <span class="skillbox">HTML/CSS/JavaScript</span>                                            
+                                                <span class="skillbox">Human-Computer Interaction</span>
+                                                <span class="skillbox">Object-Oriented Programming</span>
+                                                <span class="skillbox">Java</span>
+                                                <span class="skillbox">Qualitative Research</span>
+                                                <span class="skillbox">Quantitative Analyses</span>
+                                                <span class="skillbox">Scientific Writing</span>
+                                                <span class="skillbox">STATA</span>
+                                                <span class="skillbox">Cognitive Psychology</span>
+                                                <span class="skillbox">Consumer Behaviour</span>
+                                                <span class="skillbox">Human Factors</span>
+                                                <span class="skillbox">Perception & Motor Control</span>
+                                                <span class="skillbox">Social Psychology</span>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="button-border mt-2">
+                                        <a href="assets/pdf/bapeters_cv.pdf" target="_blank" class="pill-button">More...</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mt-5 mt-lg-0">
+                                <h3 class="text-dark">
+                                    <i class="lni-pencil base-color"></i>  Experience
+                                </h3>
+                                <div class="timeline-items box-border">
+                                    <!--    Item 01   -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon"></div>
+                                        <div class="timeline-contents">
+                                            <div class="time-line-header">
+                                                <h6 class="timeline-title">Master Thesis Project</h6>
+                                                <p class="timeline-year">Information Management Services TU/e, Netherlands</p>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <span class="skillbox">PowerBI/Azure</span>
+                                                <span class="skillbox">SQL/PowerQuery</span>
+                                                <span class="skillbox">AdobeXD</span>
+                                                <span class="skillbox">Web Programming</span>
+                                                <span class="skillbox">Wireframing & Prototyping</span>
+                                                <span class="skillbox">Typography & Color Theory</span>
+                                                <span class="skillbox">User-Centered Design</span>
+                                                <span class="skillbox">Learning Analytics</span>
+                                                <span class="skillbox">Self-Regulated Learning</span>
+                                                <span class="skillbox">UX-Design & Research </span>
+                                                <span class="skillbox">Quantitative Analyses</span>
+                                                <span class="skillbox">A/B-Testing</span>
+                                                <span class="skillbox">Scientific Writing</span>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <!--    Item 02   -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon"></div>
+                                        <div class="timeline-contents">
+                                            <div class="time-line-header">
+                                                <h6 class="timeline-title">Frontend Developer</h6>
+                                                <p class="timeline-year">TU/e, Netherlands</p>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <span class="skillbox">React</span>
+                                                <span class="skillbox">Vue</span>
+                                                <span class="skillbox">HTML/CSS/Javascript</span>
+                                                <span class="skillbox">Web Programming</span>
+                                                <span class="skillbox">TypeScript</span>
+                                                <span class="skillbox">Typo3</span>
+                                                <span class="skillbox">SharePoint</span>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!--    Item 03   -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon"></div>
+                                        <div class="timeline-contents">
+                                            <div class="time-line-header">
+                                                <h6 class="timeline-title">UX Designer</h6>
+                                                <p class="timeline-year">Blue Jay Eindhoven, Netherlands</p>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <span class="skillbox">UX-Design </span>
+                                                <span class="skillbox">Figma</span>
+                                                <span class="skillbox">Empathising</span>
+                                                <span class="skillbox">Storyboarding</span>
+                                                <span class="skillbox">Adobe Creative Suite</span>
+                                                <span class="skillbox">Interaction Design</span>
+                                                <span class="skillbox">Wireframing & Prototyping</span>
+                                                <span class="skillbox">Color Theory & Typography</span>
+                                                <span class="skillbox">User-Centered Design</span>
+                                                <span class="skillbox">User Research</span>
+                                                <span class="skillbox">Python / Pygame</span>
+                                                <span class="skillbox">Python</span>
+                                                <span class="skillbox">Usability-Testing</span>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!--    Item 04   -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon"></div>
+                                        <div class="timeline-contents">
+                                            <div class="time-line-header">
+                                                <h6 class="timeline-title">Mobile App Developer</h6>
+                                                <p class="timeline-year">Blue Jay Eindhoven, Netherlands</p>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <span class="skillbox">Android Development</span>
+                                                <span class="skillbox">Java</span>
+                                                <span class="skillbox">Kotlin</span>
+                                                <span class="skillbox">React</span>
+                                                <span class="skillbox">Machine Learning</span>
+                                                <span class="skillbox">Speech Recognition</span>
+                                                <span class="skillbox">Light Programming</span>
+                                                <span class="skillbox">Wireframing & Prototyping</span>
+                                                <span class="skillbox">AdobeXD</span>
+                                                <span class="skillbox">Usability-Testing</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="button-border mt-2">
+                                        <a href="assets/pdf/bapeters_cv.pdf" target="_blank" class="pill-button">More...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--    TimeLine End   -->
+                        
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!--     About End    -->
+
+    <!--   Portfolio Start   -->
+    <section id="portfolio">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="title-content mb-4">
+                                    <h1 class="text-dark my-3">My <span class="base-color">Portfolio</span></h1>                    </div>
+                                </div>
+                            </div>
+                            </div>
+                    <div class="articles__container" >
+                        <section class="articles" id="projects" style="margin-top: 20px; margin-bottom: 20px" >
+                            <article class="card">
+                            <div class="article-wrapper">
+                                <figure >
+                                <img src="assets/img/dashboard1.jpg" style="width: 100%" alt="" />
+                                </figure>
+                                <div class="article-body">
+                                <h2>TU/e Learning Dashboard</h2>
+                                <p>
+                                    I laid the groundwork for a new learning dashboard that visualizes 
+                                    academic performance and provides dynamic recommendations on how students can improve their learning 
+                                    for the university's Canvas-platform.</p>
+                                    <hr>
+                                <a href="portfolio1.html" style="color: #222">
+                                    <b>Read More</b><span class="sr-only">about this is some title</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                </div>
+                            </div>
+                            </article>
+                            <article class="card">
+                            <div class="article-wrapper">
+                                <figure>
+                                <img src="assets/img/BlueJay1.jpg" style="width: 100%" alt="" />
+                                </figure>
+                                <div class="article-body">
+                                <h2>Blue Jay</h2>
+                                <p>
+                                    I designed and developed
+                                        multiple communication channels for interaction with the Blue Jay drone, including a 
+                                        mobile app and speech and emotion detection functionalities. Blue Jay is an intelligent drone companion that empowers and assists healthcare workers in their daily tasks.</p>
+                                        <hr>
+                                <a href="portfolio2.html" style="color: #222">
+                                    <b>Read More</b> <span class="sr-only">about this is some title</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                </div>
+                            </div>
+                            </article>
+                            <article class="card">
+                            <div class="article-wrapper">
+                                <figure>
+                                <img src="assets/img/portfolio2.jpg" style="width: 100%" alt="" />
+                                </figure>
+                                <div class="article-body">
+                                <h2>Vinobo</h2>
+                                <p>
+                                    This webtool allows students to watch and annotate YouTube videos
+                                    and search for keywords in the video's transcript to find relevant parts in the video.
+                                Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts.</a></p>
+                                                </p>
+                                                <hr>
+                                <a href="portfolio3.html" style="color: #222">
+                                    <b>Full Demo</b> <span class="sr-only">about this is some title</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                </div>
+                            </div>
+                            </article>
+                            <article class="card">
+                                <div class="article-wrapper">
+                                    <figure>
+                                    <img src="assets/img/doula4.png" style="width: 100%" alt="" />
+                                    </figure>
+                                    <div class="article-body">
+                                    <h2>Doula | UX/UI Case Study</h2>
+                                    <p>For a 10-hour time limited UX/UI Case Study, I was given the opportunity to redesign the design for an outdated
+                                        pregnancy symptom and contraction tracker app built in 2014. My process involved in-depth user and usability research to identify and address key pain points within the existing app. The result? A transformation of the app's visual style and a substantial enhancement of the user experience.
+                                    </p>
+                                                    <hr>
+                                    <a href="portfolio4.html" style="color: #222">
+                                        <b>Case Study</b> <span class="sr-only">about this is some title</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                    </div>
+                                </div>
+                                </article>
+                            <article class="card">
+                                <div class="article-wrapper">
+                                    <figure>
+                                    <img src="assets/img/spotifyfull.png" style="width: 100%" alt="" />
+                                    </figure>
+                                    <div class="article-body">
+                                    <h2>Reimagining Spotify Podcasts</h2>
+                                    <p>For a project at KTH, we embarked on a mission to enhance Spotify's Podcast section. Employing the Double Diamond framework, our design approach centered on goal-oriented strategies to uncover and meet user expectations.</a></p>
+                                                    <hr>
+                                    <a href="portfolio5.html" style="color: #222">
+                                        <b>Read More</b> <span class="sr-only">about this is some title</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card">
+                                <div class="article-wrapper">
+                                    <figure>
+                                    <img src="assets/img/rodebjer.png" style="width: 100%" alt="" />
+                                    </figure>
+                                    <div class="article-body">
+                                    <h2>Raspberries Shopping Assistant</h2>
+                                    <p>The present-day shopping experience can be stressful
+                                        and aggravating to some (think of crowded clothing stores and a
+                                        lack of self-efficacy). What about letting the customer decide when they
+                                        need assistance? Rodebjer’s Digital Shopping Assistant
+                                        helps them do just that. This digital help desk bridges
+                                        the gap between customers and salespeople by letting
+                                        the customer decide when, and what for, they need
+                                        help. </a></p>
+                                                    <hr>
+                                    <a href="portfolio6.html" style="color: #222">
+                                        <b>View Workbook</b> <span class="sr-only">about this is some title</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card">
+                                <div class="article-wrapper">
+                                    <figure>
+                                    <img src="assets/img/honeymoon.jpg" style="width: 100%" alt="" />
+                                    </figure>
+                                    <div class="article-body">
+                                    <h2>The Honeymoon Webshop</h2>
+                                    <p>One of my favorite personal projects is creating "Honeymoon Webshops" for newlyweds. I built a custom website that lets wedding guests buy and customize honeymoon gifts like activities and hotel stays. After the big day, all the thoughtful presents and messages were beautifully displayed on a bulletin-style collage frame. </a></p>
+                                                    <hr>
+                                    <a href="portfolio7.html" style="color: #222">
+                                        <b>Read More</b> <span class="sr-only">about this is some title</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card">
+                                <div class="article-wrapper">
+                                    <figure>
+                                        <div style="  display: flex;
+                                        justify-content: center;
+                                        align-items: center; height: 100%; background-color: rgb(233, 233, 233)">
+                                            <img src="assets/img/questionmark.png" style="width: 25%; opacity: 80%;" alt="" />
+                                        </div>
+                                    </figure>
+                                    <div class="article-body">
+                                    <h2>My Next Project</h2>
+                                    <p>I am looking for professional challenges where I can combine my UX-, UI-, and Interaction-design and research experience with my front-end software development skills, so let's get in touch!
+                                    </a></p>
+                                                    <hr>
+                                    <a href="mailto:bramapeters@outlook.com" style="color: #222">
+                                        <b>Contact Me</b> <span class="sr-only">about this is some title</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                    </div>
+    </section>
+    <!--   Portfolio End   -->
+
+    <!-- Footer Start -->
+    <div style="width: 100%; text-align: center; margin-bottom: 20px">
+        <span class="base-color">© 2023 <b>Bram Peters</b></span>
+    </div>
+    <!--  Footer End  -->
+
+    <!--   Return To Top  -->
+    <a class="return-to-top text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-arrow-up"></i></a>
+
+    <!--  JavaScripts  -->
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <!--  Bootstrap Js  -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!--  Easing Js  -->
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <!--  Typed Js  -->
+    <script src="assets/js/typed.js"></script>
+    <!--  Magnific Popup Js  -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--  Isotope Js  -->
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <!--  Owl Carousel Js  -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!--  Custom JS  -->
+    <script src="assets/js/arshia.js"></script>
+
     </body>
 </html>

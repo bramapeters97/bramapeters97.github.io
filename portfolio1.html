@@ -1,150 +1,240 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script> 
-          $(function(){
-            $("#header").load("header.html"); 
-          });
-        </script>
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script> 
-          $(function(){
-            $("#footer").load("footer.html"); 
-          });
-        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Bram Peters | TU/e Learning Dashboard</title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="Retrina Group" />
+
+        <!--  FavIcon  -->
+        <link rel="shortcut icon" href="assets/img/favicon-16x16.png">
+
+        <!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/thinline.css">
+        <!-- FontAwesome Css -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <!-- Line icon Css -->
+        <link rel="stylesheet" href="assets/css/LineIcons.css">
+        <!-- Bootstrap Css -->
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <!-- Owl Carousel Css -->
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <!-- Magnific Popup Css -->
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!--  Custom Style CSS  -->
+        <link rel="stylesheet" href="assets/css/main.css">
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#scrollspy" data-offset="70" class="flat-demo mono">
 
-        <div id="header"></div>
+    <!--  Pre Loader  -->
+    <div id="overlayer"></div>
+    <span class="loader"></span>
 
-        <main class="main">
-            <section class="home section portfolio1 portfoliohome" id="home">
-                <div class="home__container container grid">
-                    <div class="home__content  grid">
-                        <div class="home__data">
-                            <h1 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%)" class="home__title">TU/e Learning Dashboard</h1>
-                            <h3 style="font-family: 'Poppins', sans-serif; color: hsl(0, 0%, 95%); font-weight: 8" class="home__subtitle">Design and Evaluation of a Student-Facing Learning <br> Dashboard Using Self-Regulated Learning Theory</h3>
-                        </div>
+        <!--    Header Start    -->
+        <header id="header" class="header fixed-top">
+            <nav id="scrollspy" class="navbar navbar-expand-lg header-nav">
+                <div class="container-fluid">
+                    <a class="navbar-brand font-weight-bold" href="index.html#hero">Bram Peters</a>
+                    <!--  Navbar Toggler Button Start -->
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#toggle-menu" aria-controls="toggle-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="lni-menu size-md"></span>
+                    </button>
+                    <!--  Navbar Toggler Button End -->
+                    <div class="collapse navbar-collapse" id="toggle-menu">
+                        <ul class="navbar-nav nav-pills ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html#hero">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#portfolio">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="assets/pdf/bapeters_cv.pdf">Resume</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.linkedin.com/in/bram-peters.com">LinkedIn</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="mailto:bramapeters@outlook.com">Contact</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </section>
-        </main>
+            </nav>
+        </header>
 
-        <section class="about section" id="about" style="box-shadow: inset 0 10px 10px -10px gray;">
-            <div class="about__container container">
-                <div class="about__data">
-                    <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Empowering Students: Data to Insights</h1>
-                    <p class="about__description">Online learning has become a strong solution for educational institutions to save money and offer 
-                        courses with more flexibility. The use of online learning platforms generates a goldmine of data 
-                        on how students navigate the system and progress through their academic studies.
-                        <br><br>
-                        In my <a target="blank" href="https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin"><b>Master Thesis Project<i class="uil uil-file-alt button__icon"></i></b></a>, I focused on how we can develop a learning dashboard for <a target=”_blank” href="https://www.tue.nl"><b>TU/e's</b></a> Canvas-platform 
-                        in a way that is grounded in learning sciences and truly facilitates online learning. Through an iterative user-centered design approach - using frameworks from 
-                        self-regulated learning theory - I designed and 
-                        implemented a learning dashboard for TU/e's (Eindhoven University of Technology) online learning platform Canvas. The dashboard visualizes academic performance and provides dynamic, course-level 
-                        recommendations on how students can improve their learning (i.e., based on aggregate models of clickstream-data 
-                        and historical academic results).<br><br></p>
+    <!--    Hero Start    -->
+    <section class="section hero page-hero position-relative pt-5" id="hero">
+        <div class="container page-container">
+            <div class="row pt-5">
+                <div class="col-lg-12">
+                    <div class="title-content">
+                        <!-- <h1 class="base-color h3">The best way to become a good web designer</h1> -->
                     </div>
                 </div>
-            </section>
-                    <div onclick="document.getElementById('modal01').style.display='block'" style="margin-top: 70px; margin-bottom: 70px" class="video-container" >
-                        <img src="assets/img/dashboard_browser.png" class="dashboard_browser" alt="Image Description" />
-                    </div>
-
-                    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-                        <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                        <div class="w3-modal-content w3-animate-zoom">
-                          <img src="assets/img/dashboard1.jpg" style="width:100%; border-radius: 0; cursor: pointer;
-                          ">
-                        </div>
-                    </div>
-        
-            <section class="about section" id="about">
-                <div class="about__container container">
-                    <div class="about__data">
-                        <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Self-Regulated Learning</h1>
-                        <div class="grid-container">
-                            <div class="grid-item">
-                                <p class="about__description">Self-regulated learning is about taking control of your learning journey. It involves setting goals and planning how to achieve them. As you work towards your goals, you monitor your progress and adjust your strategies to improve. After each learning experience, you reflect on how well you did and use that insight to set new goals and improve your learning methods. These skills, like goal-setting and self-assessment, are crucial for academic success and skill development. Knowing this, <b>how can we facilitate self-regulated learning for students that are learning online?</b><br><br>
-                                </p></div>
-                            <div class="grid-item" style="text-align: center;"><img src="assets/img/selfregulatedlearning.png" style="max-height: 250px;" alt="Image Description" />
-                            </div>
-                        </div>
-                        <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">My Research Project</h1>
-                                <p class="about__description">Even though many learning dashboards argue the core of their designs to be based on self-regulated learning theory, their implementations differ substantially and yield different cognitive and affective learning outcomes. In my research project, I looked at how different implementations of self-regulated learning theory in learning dashboards affect students' thinking and feelings about their learning as well as how they progress academically in the long-term. To be able to do this, I implemented a learning dashboard specifically designed with and for students at Eindhoven University of Technology (TU/e) in collaboration with the university's Information Management Services-department. This study followed a user-centered design approach, using student feedback to shape the dashboard features for each stage of self-regulated learning.</p>
-                                     <br>
-                        <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Design Process</h1>
-                        <p class="about__description"> While many learning dashboard studies consider what students need, only a few actually ask students what they need. Learning dashboards aim to help students learn better, so it makes sense to involve students in the design process. I talked to students at TU/e and used their input, along with information from previous research, to create a new dashboard for Canvas, the university's learning system.                                     
-                            Through an iterative user-centered design process - including several phases of user interviews, creating personas, storytelling, wireframing, and
-                        prototyping - I created several designs in AdobeXD that differed in the extent to which they theoretically supported self-regulated learning and 
-                        how they met the needs as proposed by students themselves. I then compared and further improved these designs through A/B- and usability-testing, and I presented my work to all stakeholders involved in the project continuously while
-                        using their feedback to steer course when necessary. <br> <br> Eventually, I implemented the
-                        dashboard fully in PowerBI and HTML/CSS/JavaScript using real clickstream data that was generated from students' use of university's learning management system as well as records of their academic progress such as their grades and submissions. The dashboard is also fully designed according to the TU/e house style and branding regulations. Eventually, the dashboard was enrolled for all participating students in one of the university's Bachelor programs. The dashboard used real-time data from students using an Azure Databricks connection and single sign-on with the TU/e's learning management system. The different versions of the dashboard were then evaluated and compared using a variety of usability metrics as well as cognitive and affective learning outcomes.<br><br>
-                    </p>
-
             </div>
+            <!-- Breadcrumb -->
+            <div class="row page-title pb-5">
+                <div class="col-12">
+                    <ul class="mb-0 breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="colorfull.html">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="blog.html">Portfolio</a>
+                        </li>
+                        <li class="breadcrumb-item">TU/e Learning Dashboard</li>
+                    </ul>  
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--  Blog Single Start  -->
+    <section id="blog-single" class="section py-5 blog-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 blog">
+                    <div class="rounded">
+                        <div class="text-md-left">
+                            <h1 class="mb-4 h4">TU/e Learning Dashboard</h1>
+                            <div class="entry-meta mb-4">
+                                <p>Design and Evaluation of a Student-Facing Learning Dashboard Using Self-Regulated Learning Theory</p>
                             </div>
-                            </section>
+                            <div class="entry-image image-border mb-4">
+                                <img src="assets/img/dashboard1.jpg" alt="">
+                            </div>
+                            <div class="entry-content box-border p-3">
+                                <h4>Empowering Students: Data to Insights</h4>
+                                <p>Online learning has become a strong solution for educational institutions to save money and offer courses with more flexibility. The use of online learning platforms generates a goldmine of data on how students navigate the system and progress through their academic studies.
+                                </p>
+                                <p>In my <a target="blank" href="https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin"><b>Master Thesis Project<i class="uil uil-file-alt button__icon"></i></b></a>, I focused on how we can develop a learning dashboard for <a target=”_blank” href="https://www.tue.nl"><b>TU/e's</b></a> Canvas-platform 
+                                    in a way that is grounded in learning sciences and truly facilitates online learning. Through an iterative user-centered design approach - using frameworks from 
+                                    self-regulated learning theory - I designed and 
+                                    implemented a learning dashboard for TU/e's (Eindhoven University of Technology) online learning platform Canvas. The dashboard visualizes academic performance and provides dynamic, course-level 
+                                    recommendations on how students can improve their learning (i.e., based on aggregate models of clickstream-data 
+                                    and historical academic results).</p>
+                                    <h4>Self-Regulated Learning</h4>
+                                    <p>Self-regulated learning is about taking control of your learning journey. It involves setting goals and planning how to achieve them. As you work towards your goals, you monitor your progress and adjust your strategies to improve. After each learning experience, you reflect on how well you did and use that insight to set new goals and improve your learning methods. These skills, like goal-setting and self-assessment, are crucial for academic success and skill development. Knowing this, <b>how can we facilitate self-regulated learning for students that are learning online?</b>
+                                    <br><br></p>
 
-                        <div style="margin-top: 70px; margin-bottom: 70px" class="video-container">
-                            <video class="video-player" height="auto" controls>
-                                <source src="assets/img/soft_demo.mp4" type="video/mp4">
-                                <source src="assets/img/soft_demo.ogg" type="video/ogg">
-                              Your browser does not support the video tag.
-                              </video>
+                                
                         </div>
-                        <section class="about section" id="about">
-                            <div class="about__container container">
-                                <div class="about__data">
-                                    <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Final Product</h1>
-                                    <p class="about__description">
-                                        The final version of the TU/e Learning Dashboard focused on improving the self-regulated learning experience for students. To achieve this, data was collected from Canvas, the learning management system at TU/e. This data included clickstream information, grades, submissions, and other relevant indicators, all in pseudonymized format.To make sense of this data and provide students with valuable insights, PowerBI was used to create aggregate tables to streamline the information, including a simplified online activity table and a course results table. Features that were implemented aligned with the different phases of self-regulated learning theory, but designed in a way that met the needs that the students reported themselves.
-                                        <br></p>
-                                        </p>
-
-                            <ul>
-                                <br><li><b>Forethought-features:</b> to help students plan their studies effectively. When students first logged in, they could set their grade goals using a slider. This goal influenced the subsequent "What's next" functionality, tailoring the experience to their objectives.</li>
-                                <br><li><b>Performance-features:</b> provide visualizations of students' online activity, gradebook, and course progression. These visualizations were based solely on each student's individual data, ensuring objectivity and relevance. </li>
-                                <br><li><b>Self Evaluation-features:</b> In the "What's next" panel, students could access self-reflection features. These features included insights into how other students with similar grade goals accessed course materials and utilized Canvas differently.</li>
-                            </ul><br>
+                        <div style="margin-top: 50px; margin-bottom: 50px; text-align: center" class="box-border p-3">
+                            <img style="width: 50%" src="assets/img/selfregulatedlearning.png" alt="">
+                        </div>
+                        <div class="entry-content box-border p-3">
+                            <h4>My Research Project                            </h4>
+                            <p>Even though many learning dashboards argue the core of their designs to be based on self-regulated learning theory, their implementations differ substantially and yield different cognitive and affective learning outcomes. In my research project, I looked at how different implementations of self-regulated learning theory in learning dashboards affect students' thinking and feelings about their learning as well as how they progress academically in the long-term. To be able to do this, I implemented a learning dashboard specifically designed with and for students at Eindhoven University of Technology (TU/e) in collaboration with the university's Information Management Services-department. This study followed a user-centered design approach, using student feedback to shape the dashboard features for each stage of self-regulated learning.                            </p>
+                            <br><h4>Design Process
+                            </h4>
+                            <p>While many learning dashboard studies consider what students need, only a few actually ask students what they need. Learning dashboards aim to help students learn better, so it makes sense to involve students in the design process. I talked to students at TU/e and used their input, along with information from previous research, to create a new dashboard for Canvas, the university's learning system. Through an iterative user-centered design process - including several phases of user interviews, creating personas, storytelling, wireframing, and prototyping - I created several designs in AdobeXD that differed in the extent to which they theoretically supported self-regulated learning and how they met the needs as proposed by students themselves. I then compared and further improved these designs through A/B- and usability-testing, and I presented my work to all stakeholders involved in the project continuously while using their feedback to steer course when necessary.
+                            </p>
+                            <p>Eventually, I implemented the dashboard fully in PowerBI and HTML/CSS/JavaScript using real clickstream data that was generated from students' use of university's learning management system as well as records of their academic progress such as their grades and submissions. The dashboard is also fully designed according to the TU/e house style and branding regulations. Eventually, the dashboard was enrolled for all participating students in one of the university's Bachelor programs. The dashboard used real-time data from students using an Azure Databricks connection and single sign-on with the TU/e's learning management system. The different versions of the dashboard were then evaluated and compared using a variety of usability metrics as well as cognitive and affective learning outcomes.
+                            </p>                            
+                    </div>
+                    <div style="margin-top: 50px; margin-bottom: 50px" class="entry-image image-border mb-4">
+                        <video class="video-player2" width="100%" height="auto" controls>
+                            <source src="assets/img/soft_demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="entry-content box-border p-3">
+                        <h4>Final Product</h4>  
+                        <p>The final version of the TU/e Learning Dashboard focused on improving the self-regulated learning experience for students. To achieve this, data was collected from Canvas, the learning management system at TU/e. This data included clickstream information, grades, submissions, and other relevant indicators, all in pseudonymized format.To make sense of this data and provide students with valuable insights, PowerBI was used to create aggregate tables to streamline the information, including a simplified online activity table and a course results table. Features that were implemented aligned with the different phases of self-regulated learning theory, but designed in a way that met the needs that the students reported themselves.
+                        </p>                  
+                        <ul>
+                            <li><b>Forethought-features:</b> to help students plan their studies effectively. When students first logged in, they could set their grade goals using a slider. This goal influenced the subsequent "What's next" functionality, tailoring the experience to their objectives.
+                            </li>
+                            <li><b>Performance-features:</b> provide visualizations of students' online activity, gradebook, and course progression. These visualizations were based solely on each student's individual data, ensuring objectivity and relevance.</li>
+                            <li><b>Self Evaluation-features:</b> In the "What's next" panel, students could access self-reflection features. These features included insights into how other students with similar grade goals accessed course materials and utilized Canvas differently.</li>
+                        </ul>     <br>
+                        <h4>Conclusion</h4>   
+                        <p>I explored how providing support for all three phases of self-regulated learning in a design affects cognitive and affective learning outcomes differently compared to only supporting the performance phase. By doing so, my goal was to provide targeted design recommendations that could resolve some of the shortcomings in current learning dashboards designs. With the progressive growth of online education, it's becoming increasingly important to design technologies that can facilitate effective learning experiences. And I believe that learning dashboards have a crucial role to play in this regard, helping students access key information about their progress and performance.
                         </p>
+                        <h4>Success!</h4>
+                        <p>
 
-                        <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Conclusion</h1>
-            <p class="about__description">
-                I explored how providing support for all three phases of self-regulated learning in a design 
-                affects cognitive and affective learning outcomes differently compared to only supporting the performance phase. By doing so, 
-                my goal was to provide targeted design recommendations that could resolve some of the shortcomings in current learning 
-                dashboards designs. With the progressive growth of online education, it's becoming increasingly important to design 
-                technologies that can facilitate effective learning experiences. And I believe that learning dashboards have 
-                a crucial role to play in this regard, helping students access key information about their progress and 
-                performance.<br><br>
-                </p>
-
-                <h1 style="font-family: 'Poppins', sans-serif; font-size: 18px">Success</h1>
-               <p class="about__description">
-
-                The project was such a success that it's currently being implemented at the Eindhoven University of Technology for students to use within their Canvas-environment. The <a target="blank" href="https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin"><b>research paper<i class="uil uil-file-alt button__icon"></i></b></a> - which discusses in detail a literature review of self-regulated learning theory and an extensive illustration of the design and research methodologies (i.e., including the results from the qualitative and quantitative analyses) - will be published in the <a href="https://www.solaresearch.org/events/lak/lak24/"><b>Learning Analytics and Knowledge Conference</b></a>-journal and has been used as inspiration for multiple MSc Human-Technology Interaction theses after my original publication. <br><br>
-                </p>
-     
-                <a target=”_blank” href="https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin" class="button button--flex">
-                    Publication <i class="uil uil-file-alt button__icon"></i>
-                </a>
+                            The project was such a success that it's currently being implemented at the Eindhoven University of Technology for students to use within their Canvas-environment. The <a target="blank" href="https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin"><b>research paper<i class="uil uil-file-alt button__icon"></i></b></a> - which discusses in detail a literature review of self-regulated learning theory and an extensive illustration of the design and research methodologies (i.e., including the results from the qualitative and quantitative analyses) - will be published in the <a href="https://www.solaresearch.org/events/lak/lak24/"><b>Learning Analytics and Knowledge Conference</b></a>-journal and has been used as inspiration for multiple MSc Human-Technology Interaction theses after my original publication. <br><br>
+                            </p>                
+                            <div class="button-border mt-2">
+                                <a target=”_blank” href="https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin" class="pill-button">Publication <i class="uit uit-document-layout-left" style="font-weight: 5px"></i></a>
+                            </div></div>
+                            
+                    </div>
                 </div>
                 </div>
-        </section>
+                <!--   Aside Start   -->
+                <aside class="post-sidebar">
+                    <!-- Toggler Button -->
+                    <div class="post-sidebar-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="post-sidebar-content">
+                        <!-- Recent Posts -->
+                        <div class="aside-contents">
+                            <div class="aside-title">
+                                <span class="base-color">Skills</span>
+                            </div>
+                            <div class="aside-item">
+                                    <span class="skillbox">PowerBI/Azure</span>
+                                    <span class="skillbox">SQL/PowerQuery</span>
+                                    <span class="skillbox">AdobeXD</span>
+                                    <span class="skillbox">Web Programming</span>
+                                    <span class="skillbox">Wireframing & Prototyping</span>
+                                    <span class="skillbox">Typography & Color Theory</span>
+                                    <span class="skillbox">User-Centered Design</span>
+                                    <span class="skillbox">Learning Analytics</span>
+                                    <span class="skillbox">Self-Regulated Learning</span>
+                                    <span class="skillbox">UX-Design & Research </span>
+                                    <span class="skillbox">Quantitative Analyses</span>
+                                    <span class="skillbox">A/B-Testing</span>
+                                    <span class="skillbox">Scientific Writing</span>    
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <!--   Aside End   --> 
+            </div>
+        </div>
+    </section>
+    <!--   Blog Single End   -->
 
-        <div id="footer"></div>
+    <!-- Footer Start -->
+    <div style="width: 100%; text-align: center; margin-bottom: 20px">
+        <span class="base-color">© 2023 <b>Bram Peters</b></span>
+    </div>
+    <!--  Footer End  -->
 
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <script src="assets/js/main.js"></script>
+    <!--   Return To Top  -->
+    <a class="return-to-top text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-arrow-up"></i></a>
+
+    <!--  JavaScripts  -->
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <!--  Bootstrap Js  -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!--  Easing Js  -->
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <!--  Typed Js  -->
+    <script src="assets/js/typed.js"></script>
+    <!--  Magnific Popup Js  -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--  Isotope Js  -->
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <!--  Owl Carousel Js  -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!--  Custom JS  -->
+    <script src="assets/js/arshia.js"></script>
+
     </body>
 </html>
