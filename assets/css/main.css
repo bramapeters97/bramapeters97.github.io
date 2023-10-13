@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 /*-------------------------
          GENERAL
 -------------------------*/
@@ -372,6 +373,8 @@ a, button {
   color: #5f5f5f;
   font-weight: 700;
   font-size: 22px;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: .1rem;
 }
 
 .header-sticky {
