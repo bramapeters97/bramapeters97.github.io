@@ -3,7 +3,7 @@
          GENERAL
 -------------------------*/
 :root {
-  color-scheme: light only !important;
+  color-scheme: only light !important;
 }
 
 body {
