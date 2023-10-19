@@ -2,6 +2,9 @@
 /*-------------------------
          GENERAL
 -------------------------*/
+:root {
+  color-scheme: light only !important;
+}
 
 body {
   font-family: "Muli", sans-serif;
