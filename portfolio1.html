@@ -23,10 +23,6 @@
 </head>
 <body data-spy="scroll" data-target="#scrollspy" data-offset="70" class="flat-demo mono">
 
-<!-- Pre Loader -->
-<div id="overlayer"></div>
-<span class="loader"></span>
-
 <!-- Include Header -->
 <div include-html="header.html"></div>
 
@@ -178,40 +174,18 @@
     </div>
     <!--  Footer End  -->
 
-<!-- JavaScript includeHTML function -->
-<script>
-function includeHTML() {
-    const elements = document.querySelectorAll('[include-html]');
-    elements.forEach(el => {
-        const file = el.getAttribute("include-html");
-        fetch(file)
-            .then(response => {
-                if (!response.ok) throw new Error("Page not found");
-                return response.text();
-            })
-            .then(data => {
-                el.innerHTML = data;
-                el.removeAttribute("include-html");
-                includeHTML(); // handle nested includes
-            })
-            .catch(error => {
-                el.innerHTML = "Error loading file.";
-                console.error(error);
-            });
-    });
-}
-document.addEventListener("DOMContentLoaded", includeHTML);
-</script>
+     <!--   Return To Top  -->
+    <a class="return-to-top text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-arrow-up"></i></a>
 
-<!-- Other JS -->
-<script src="assets/js/jquery-3.4.1.min.js"></script>
-<script src="assets/js/bootstrap.js"></script>
-<script src="assets/js/jquery.easing.min.js"></script>
-<script src="assets/js/typed.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/arshia.js"></script>
-
+    <!--  Scripts -->
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/typed.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/arshia.js"></script>
+    <script src="assets/js/scripts.js"></script>
 </body>
 </html>
