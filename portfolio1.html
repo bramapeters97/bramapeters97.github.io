@@ -1,81 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Bram Peters | TU/e Learning Dashboard</title>
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <meta name="author" content="Retrina Group" />
-        <meta name="author" content="Retrina Group" />
-        <meta name="color-scheme" content="light only">
-        <meta name="color-scheme" content="only light">
-        <meta name="color-scheme" content="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bram Peters | TU/e Learning Dashboard</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Retrina Group" />
+    <meta name="color-scheme" content="light">
+    <link rel="shortcut icon" href="assets/img/favicon-16x16.png">
 
-        <!--  FavIcon  -->
-        <link rel="shortcut icon" href="assets/img/favicon-16x16.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/thinline.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/LineIcons.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-spy="scroll" data-target="#scrollspy" data-offset="70" class="flat-demo mono">
 
-        <!-- Google Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/thinline.css">
-        <!-- FontAwesome Css -->
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <!-- Line icon Css -->
-        <link rel="stylesheet" href="assets/css/LineIcons.css">
-        <!-- Bootstrap Css -->
-        <link rel="stylesheet" href="assets/css/bootstrap.css">
-        <!-- Owl Carousel Css -->
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <!-- Magnific Popup Css -->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!--  Custom Style CSS  -->
-        <link rel="stylesheet" href="assets/css/main.css">
-    </head>
-    <body data-spy="scroll" data-target="#scrollspy" data-offset="70" class="flat-demo mono">
+<!-- Pre Loader -->
+<div id="overlayer"></div>
+<span class="loader"></span>
 
-
-
-    <!--  Pre Loader  -->
-    <div id="overlayer"></div>
-    <span class="loader"></span>
-
-        <!--    Header Start    -->
-        <header id="header" class="header fixed-top">
-            <nav id="scrollspy" class="navbar navbar-expand-lg header-nav">
-                <div class="container-fluid">
-                    <a class="navbar-brand font-weight-bold" href="index.html#hero">Bram Peters</a>
-                    <!--  Navbar Toggler Button Start -->
-                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#toggle-menu" aria-controls="toggle-menu" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="lni-menu size-md"></span>
-                    </button>
-                    <!--  Navbar Toggler Button End -->
-                    <div class="collapse navbar-collapse" id="toggle-menu">
-                        <ul class="navbar-nav nav-pills ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="index.html#hero">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#about">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#portfolio">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="assets/pdf/bapeters_cv.pdf">Resume</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://www.linkedin.com/in/bram-peters">LinkedIn</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="mailto:bramapeters@outlook.com">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+<!-- Include Header -->
+<div include-html="header.html"></div>
 
     <!--    Hero Start    -->
     <section class="section hero page-hero position-relative pt-5" id="hero">
@@ -225,25 +178,40 @@
     </div>
     <!--  Footer End  -->
 
-    <!--   Return To Top  -->
-    <a class="return-to-top text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-arrow-up"></i></a>
+<!-- JavaScript includeHTML function -->
+<script>
+function includeHTML() {
+    const elements = document.querySelectorAll('[include-html]');
+    elements.forEach(el => {
+        const file = el.getAttribute("include-html");
+        fetch(file)
+            .then(response => {
+                if (!response.ok) throw new Error("Page not found");
+                return response.text();
+            })
+            .then(data => {
+                el.innerHTML = data;
+                el.removeAttribute("include-html");
+                includeHTML(); // handle nested includes
+            })
+            .catch(error => {
+                el.innerHTML = "Error loading file.";
+                console.error(error);
+            });
+    });
+}
+document.addEventListener("DOMContentLoaded", includeHTML);
+</script>
 
-    <!--  JavaScripts  -->
-    <script src="assets/js/jquery-3.4.1.min.js"></script>
-    <!--  Bootstrap Js  -->
-    <script src="assets/js/bootstrap.js"></script>
-    <!--  Easing Js  -->
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <!--  Typed Js  -->
-    <script src="assets/js/typed.js"></script>
-    <!--  Magnific Popup Js  -->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <!--  Isotope Js  -->
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <!--  Owl Carousel Js  -->
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <!--  Custom JS  -->
-    <script src="assets/js/arshia.js"></script>
+<!-- Other JS -->
+<script src="assets/js/jquery-3.4.1.min.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/jquery.easing.min.js"></script>
+<script src="assets/js/typed.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/arshia.js"></script>
 
-    </body>
+</body>
 </html>
