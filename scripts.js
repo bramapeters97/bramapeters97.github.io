@@ -1,5 +1,4 @@
 
-<script>
 function includeHTML() {
     const elements = document.querySelectorAll('[include-html]');
     elements.forEach(el => {
@@ -21,4 +20,3 @@ function includeHTML() {
     });
 }
 document.addEventListener("DOMContentLoaded", includeHTML);
-</script>
