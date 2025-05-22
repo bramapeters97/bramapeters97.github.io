@@ -36,8 +36,45 @@
     </head>
     <body data-spy="scroll" data-target="#scrollspy" data-offset="70" class="flat-demo mono">
 
-    <!-- Include Header -->
-    <div include-html="header.html"></div>
+    <!--  Pre Loader  -->
+    <div id="overlayer"></div>
+    <span class="loader"></span>
+
+        <!--    Header Start    -->
+        <header id="header" class="header fixed-top">
+            <nav id="scrollspy" class="navbar navbar-expand-lg header-nav">
+                <div class="container-fluid">
+                    <a class="navbar-brand font-weight-bold" href="index.html#hero">Bram Peters</a>
+                    <!--  Navbar Toggler Button Start -->
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#toggle-menu" aria-controls="toggle-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="lni-menu size-md"></span>
+                    </button>
+                    <!--  Navbar Toggler Button End -->
+                    <div class="collapse navbar-collapse" id="toggle-menu">
+                        <ul class="navbar-nav nav-pills ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html#hero">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#portfolio">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="assets/pdf/bapeters_cv.pdf">Resume</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.linkedin.com/in/bram-peters.com">LinkedIn</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="mailto:bramapeters@outlook.com">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
     <!--    Hero Start    -->
     <section class="section hero page-hero position-relative pt-5" id="hero">
@@ -224,15 +261,22 @@
     <!--   Return To Top  -->
     <a class="return-to-top text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-arrow-up"></i></a>
 
-    <!--  Scripts -->
+    <!--  JavaScripts  -->
     <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <!--  Bootstrap Js  -->
     <script src="assets/js/bootstrap.js"></script>
+    <!--  Easing Js  -->
     <script src="assets/js/jquery.easing.min.js"></script>
+    <!--  Typed Js  -->
     <script src="assets/js/typed.js"></script>
+    <!--  Magnific Popup Js  -->
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--  Isotope Js  -->
     <script src="assets/js/isotope.pkgd.min.js"></script>
+    <!--  Owl Carousel Js  -->
     <script src="assets/js/owl.carousel.min.js"></script>
+    <!--  Custom JS  -->
     <script src="assets/js/arshia.js"></script>
-    <script src="assets/js/scripts.js"></script>
+
     </body>
 </html>
