@@ -24,8 +24,8 @@ body {
   border-radius: 10px;
   width: max-content;
   display: inline-flex;
-  margin: 5px 5px 5px 0;
-         font-size: 70%;
+  margin: 2px 2px 2px 0;
+  font-size: 75%;
 }
 
 .full-screen {
