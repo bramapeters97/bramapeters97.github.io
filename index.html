@@ -32,6 +32,57 @@
 		<link rel="stylesheet" href="assets/css/magnific-popup.css">
 		<!--  Custom Style CSS  -->
 		<link rel="stylesheet" href="assets/css/main.css">
+		  <style>
+
+    /* Popup background overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* Card style for popup */
+.card_popup {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 80%;
+  margin: 0 10%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  height: auto; /* Ensures it only takes as much vertical space as needed */
+}
+
+/* Desktop styles: 50% width, centered */
+@media (min-width: 768px) {
+  .card_popup{
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .card_popup p {
+      margin-top: 20px;
+      color: #555;
+    }
+  </style>
 	</head>
 	<body data-spy="scroll" data-target="#scrollspy" data-offset="70" class="flat-demo mono">
 
@@ -342,13 +393,29 @@
 				</div>
 			</div>
 	</section>
-	<!--     About End    -->
+
+  <!-- Popup -->
+  <div class="overlay" id="popup">
+    <div class="card_popup">
+      <button class="close-btn" id="closeBtn">&times;</button>
+                        <div class="px-md-5 px-3 py-4 quotation">
+                        	<h6 class="base-color font-italic mb-0">
+                                	<br>
+	                                What you’ll find here is more than just a showcase — it’s a curated collection of the projects I’m most proud of. This portfolio represents not just the work I’ve done, but the experiences that shaped me as a designer and engineer. Each piece was chosen because it challenged me, allowed me to grow, and brought together my full skill set.
+                                	<br><br>
+                                	But more than that, these projects stand out because of the people I had the chance to collaborate with. Working alongside talented, multidisciplinary teams made the process as rewarding as the results. Every project here reflects a moment where I was fully engaged, creatively driven, and proud of what we built together.
+                                    	<br></h6>
+                                    <hr>
+                                    <h3 class="text-dark my-3"><i>Bram</i></h3>                
+                        </div>  
+    </div>
+  </div>
 
 	<!--   Portfolio Start   -->
 	<section id="portfolio">
 					<div class="container">
 						<div class="title-content mb-4">
-							<h1 class="text-dark my-3">My <span class="base-color">Portfolio</span></h1>                    
+							<h1 id="portfolioTitle" class="text-dark my-3">My <span class="base-color">Portfolio</span></h1>                    
 			</div>
 						<div class="row">
 							<div class="col-lg-12">
@@ -574,5 +641,25 @@ Global Transit, Local Nonsense. Just mind the (language) gap.
 	<script src="assets/js/owl.carousel.min.js"></script>
 	<script src="assets/js/arshia.js"></script>
 	<script src="assets/js/scripts.js"></script>
+	  <script>
+    const title = document.getElementById('portfolioTitle');
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('closeBtn');
+
+    title.addEventListener('click', () => {
+      popup.style.display = 'flex';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    // Optional: click outside the card to close
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  </script>
 	</body>
 </html>

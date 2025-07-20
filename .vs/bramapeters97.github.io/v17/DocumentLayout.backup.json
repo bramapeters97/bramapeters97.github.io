@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAGQCAAAAAAAAAAAwwI0CAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACUCAAAAAAAAAAAAACsCAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-05-22T14:42:55.931Z",
               "IsPinned": true,
@@ -99,18 +99,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "sendEmail.php",
-              "DocumentMoniker": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\sendEmail.php",
-              "RelativeDocumentMoniker": "sendEmail.php",
-              "ToolTip": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\sendEmail.php",
-              "RelativeToolTip": "sendEmail.php",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-07-16T21:35:47.661Z"
             },
             {
               "$type": "Document",
@@ -156,9 +144,22 @@
               "RelativeDocumentMoniker": "portfolio1.html",
               "ToolTip": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\portfolio1.html",
               "RelativeToolTip": "portfolio1.html",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-07-13T19:36:55.486Z"
+              "WhenOpened": "2025-07-13T19:36:55.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "sendEmail.php",
+              "DocumentMoniker": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\sendEmail.php",
+              "RelativeDocumentMoniker": "sendEmail.php",
+              "ToolTip": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\sendEmail.php",
+              "RelativeToolTip": "sendEmail.php",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-07-16T21:35:47.661Z"
             },
             {
               "$type": "Document",
