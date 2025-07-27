@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -62,13 +62,12 @@
               "Title": "portfolio3.html",
               "DocumentMoniker": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\portfolio3.html",
               "RelativeDocumentMoniker": "portfolio3.html",
-              "ToolTip": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\portfolio3.html*",
-              "RelativeToolTip": "portfolio3.html*",
+              "ToolTip": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\portfolio3.html",
+              "RelativeToolTip": "portfolio3.html",
               "ViewState": "AgIAACMAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-05-22T14:52:28.178Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -84,6 +83,10 @@
               "IsPinned": true
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "index.html",
@@ -91,14 +94,10 @@
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\brama\\OneDrive\\Documenten\\GitHub\\bramapeters97.github.io\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADUAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAK0BAAAAAAAAAAAAALoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-07-20T16:15:17.87Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
