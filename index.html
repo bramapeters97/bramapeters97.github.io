@@ -50,10 +50,7 @@
 							<h1 class="dark-color mb-3">I'm </span class="base-color"> <b>Bram Peters</b> <a href="https://www.linkedin.com/in/bram-peters/"><i style="color: #222" class="uil uil-linkedin"></i></a></span></h1>
 							<h4 class="text-darktext-capitalize mb-0"><span class="base-color">Sr. Data-/BI-Specialist | UX-/UI- Designer</span> <span class="element" data-elements="MSc Human-Technology Interaction"></span></h4>
 							<p class="text-muted my-4">Designing Data-Driven and User-Centered Experiences at the Intersection of Tech, Psychology and Corporate Impact</p>
-							<div class="button-border mt-2">
-								<a href="resume.html"
-								class="pill-button">Download CV <i class="uit uit-download-alt" style="font-weight: 5px"></i></a>
-							</div>
+							<button id="resumeButton" class="pill-button">Download CV <i class="uit uit-download-alt" style="font-weight: 5px"></i></button>
 						</div>
 					</div>
 					<div class="col-lg-6 order-1 order-lg-2">
@@ -613,6 +610,17 @@ I just thought it was funny. Strangely, friends and family loved it and wanted o
     popup.addEventListener('click', (e) => {
       if (e.target === popup) {
         popup.style.display = 'none';
+      }
+    });
+  </script>
+    <script>
+    document.getElementById('resumeButton').addEventListener('click', function () {
+      const isMobile = window.innerWidth < 768; // breakpoint for tablet/desktop
+
+      if (isMobile) {
+        window.location.href = 'assets/pdf/bapeters_cv.pdf'; // Mobile: open PDF
+      } else {
+        window.location.href = 'resume.html'; // Desktop/Tablet: open full HTML resume
       }
     });
   </script>
