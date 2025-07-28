@@ -11,7 +11,6 @@
 		<meta name="color-scheme" content="only light">
 		<meta name="color-scheme" content="light">
 
-
 		<!--  FavIcon  -->
 		<link rel="shortcut icon" href="assets/img/favicon-16x16.png">
 
@@ -620,14 +619,8 @@ I just thought it was funny. Strangely, friends and family loved it and wanted o
   </script>
     <script>
     document.getElementById('resumeButton').addEventListener('click', function () {
-      const isMobile = window.innerWidth < 768; // breakpoint for tablet/desktop
-
-      if (isMobile) {
-        window.location.href = 'assets/pdf/bapeters_cv.pdf'; // Mobile: open PDF
-      } else {
         window.location.href = 'resume.html'; // Desktop/Tablet: open full HTML resume
-      }
-    });
+      });
   </script>
 	</body>
 </html>
