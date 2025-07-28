@@ -301,9 +301,7 @@
   <script>
     function downloadPDF() {
       const button = document.getElementById('downloadBtn');
-      button.style.display = 'none';
-      window.print();
-      setTimeout(() => button.style.display = 'inline-block', 1000);
+      window.location.href = "assets/pdf/bapeters_cv.pdf";
     }
   </script>
 </body>
