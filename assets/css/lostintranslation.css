@@ -4,10 +4,8 @@
   --accent: #1e8547;
 }
 
-/* Reset and base */
-*,
-*::before,
-*::after {
+/* Reset & base */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -26,7 +24,7 @@ body {
   min-height: 100vh;
 }
 
-/* Metro background (fills fully) */
+/* Metro background */
 .metro-lines {
   position: fixed;
   inset: 0;
@@ -41,14 +39,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  /* preserveAspectRatio="none" on the SVG makes this gap-free */
 }
-.line {
-  fill: none;
-  stroke-width: 7.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+.line { fill: none; stroke-width: 7.5; stroke-linecap: round; stroke-linejoin: round; }
 .red   { stroke: #e63946; }
 .blue  { stroke: #457b9d; }
 .yellow{ stroke: #ffbe0b; }
@@ -56,9 +48,52 @@ body {
 .purple{ stroke: #a259c7; }
 .orange{ stroke: #fd7e14; }
 .cyan  { stroke: #17bebb; }
-.station { fill: #fff; }
+.station{ fill: #fff; }
 
-/* Page layout: card centered, footer bottom */
+/* ─── TRAIN ANIMATION ───────────────────────── */
+.train {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 900px;               /* doubled from 380px */
+  height: auto;
+  opacity: 0.1;               /* 20% opaque */
+  animation: moveTrain 6s infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  animation-fill-mode: forwards;
+  /* no transform needed if you adjust width; if you prefer scale:
+     transform-origin: left bottom;
+     transform: scale(2);
+  */
+}
+.train .roof       { fill: #333;    }
+.train .car-body   { fill: #1e1e1e; }
+.train .stripe     { fill: #555;    }
+.train .window     { fill: #88c0d0; }
+.train .door       { fill: #444;    }
+.train .connector  { fill: #222;    }
+.train .headlight  { fill: #ffeb3b; }
+
+@keyframes moveTrain {
+  /* decelerate into center */
+  0%   { transform: translateX(-100%); animation-timing-function: ease-out; }
+  33.33% {
+    transform: translateX(calc(50vw - 190px));
+    /* hold the ease-out until here */
+  }
+  /* pause in place for 1 second (16.67% of 6s) */
+  50% {
+    transform: translateX(calc(50vw - 190px));
+    animation-timing-function: ease-in;
+  }
+  /* accelerate out */
+  100% {
+    transform: translateX(calc(100vw + 100%));
+  }
+}
+
+/* Page & card layout */
 .page-flex {
   flex: 1;
   display: flex;
@@ -79,8 +114,6 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-/* Card */
 .card {
   background: #fff;
   border-radius: 48px;
@@ -93,26 +126,13 @@ body {
   position: relative;
   z-index: 2;
 }
-
-/* Logo full-width */
 .card-logo img {
   width: 100%;
   height: auto;
   margin-bottom: 1.5rem;
 }
-
-/* Typography */
-.slogan {
-  font-size: 1.15rem;
-  font-weight: 500;
-  margin-bottom: 1em;
-}
-.coming-soon {
-  font-size: 1.33rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 1.1em;
-}
+.slogan { font-size: 1.15rem; font-weight: 500; margin-bottom: 1em; }
+.coming-soon { font-size: 1.33rem; font-weight: 700; color: var(--accent); margin-bottom: 1.1em; }
 .teaser {
   font-size: 1.11em;
   color: #444;
@@ -121,8 +141,6 @@ body {
   line-height: 1.4;
   text-align: center;
 }
-
-/* Button */
 .portfolio-btn {
   display: inline-block;
   background: #232323;
@@ -141,8 +159,6 @@ body {
   box-shadow: 0 8px 24px rgba(69,123,157,0.18);
   cursor: pointer;
 }
-
-/* Footer */
 .footer {
   font-size: 0.96em;
   color: #888;
@@ -150,12 +166,9 @@ body {
   padding: 1rem 0;
   flex-shrink: 0;
 }
-.footer a {
-  color: #457b9d;
-  text-decoration: none;
-}
+.footer a { color: #457b9d; text-decoration: none; }
 
-/* ─── DESKTOP VERTICAL CENTERING ───────────────────────── */
+/* Desktop vertical centering */
 @media (min-width: 768px) {
   .center-stack .container {
     height: 100%;
