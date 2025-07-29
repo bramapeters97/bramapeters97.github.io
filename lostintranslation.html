@@ -5,138 +5,89 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Lost In Translation │ Coming Soon</title>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --bg-gradient: linear-gradient(135deg, #f6fafd 0%, #d9d9d9 100%);
       --glass-bg: rgba(255,255,255,0.28);
-      --glass-border: rgba(200, 200, 200, 0.30);
+      --glass-border: rgba(200,200,200,0.30);
       --text: #232323;
       --accent: #1e8547;
-      --slogan: #232323;
-      --button-bg: #232323;
-      --button-bg-hover: #457b9d;
-      --line-red: #e63946;
-      --line-blue: #457b9d;
-      --line-yellow: #ffbe0b;
-      --line-green: #2a9d8f;
-      --line-purple: #a259c7;
-      --line-orange: #fd7e14;
-      --line-cyan: #17bebb;
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
     }
     html, body {
-      height: 100%;
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
+      height: 100%; min-height: 100vh;
       background: var(--bg-gradient);
       color: var(--text);
-      font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Ubuntu', sans-serif;
       overflow-x: hidden;
     }
     body {
-      min-height: 100vh;
-      min-height: 100svh;
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      justify-content: stretch;
-      align-items: stretch;
+      width: 100vw;
     }
+
+    /* Metro background */
     .metro-lines {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.17;
-      z-index: 1;
+      position: fixed; inset: 0;
+      pointer-events: none; opacity: 0.17; z-index: 1;
     }
     .metro-lines svg {
-      width: 220vw;
-      height: 220vh;
-      position: absolute;
-      top: -70vh;
-      left: -60vw;
-      max-width: none;
-      max-height: none;
-      min-width: 1500px;
+      width: 220vw; height: 220vh;
+      position: absolute; top: -70vh; left: -60vw;
     }
     .line { fill: none; stroke-width: 7.5; stroke-linecap: round; stroke-linejoin: round; }
-    .red { stroke: var(--line-red);}
-    .blue { stroke: var(--line-blue);}
-    .yellow { stroke: var(--line-yellow);}
-    .green { stroke: var(--line-green);}
-    .purple { stroke: var(--line-purple);}
-    .orange { stroke: var(--line-orange);}
-    .cyan { stroke: var(--line-cyan);}
-    .station { fill: #fff; }
+    .red   { stroke: #e63946; }
+    .blue  { stroke: #457b9d; }
+    .yellow{ stroke: #ffbe0b; }
+    .green { stroke: #2a9d8f; }
+    .purple{ stroke: #a259c7; }
+    .orange{ stroke: #fd7e14; }
+    .cyan  { stroke: #17bebb; }
+    .station{ fill: #fff; }
 
+    /* Layout wrappers */
     .page-flex {
-      flex: 1 1 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: stretch;
-      align-items: stretch;
-      min-height: 0;
+      flex: 1; display: flex; flex-direction: column;
     }
     .center-stack {
-      flex: 1 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 0;
-      position: relative;
-      width: 100vw;
-      box-sizing: border-box;
-    }
-    .container {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex: 1; display: flex; justify-content: center; align-items: center;
       width: 100%;
-      max-width: 760px;
+    }
+
+    /* Container & card */
+    .container {
+      width: 100%; max-width: 760px;
+      padding: 0 3%;     /* 3% side margin always */
+      display: flex; flex-direction: column; align-items: center;
     }
     .card {
       background: var(--glass-bg);
       border: 2.5px solid var(--glass-border);
       backdrop-filter: blur(32px) saturate(280%);
-      -webkit-backdrop-filter: blur(32px) saturate(280%);
       border-radius: 48px;
-      box-shadow: 0 18px 64px 0 rgba(40,60,100,0.16), 0 2px 24px 0 rgba(140,180,220,0.10);
-      padding: 3rem 2.6rem 2.3rem 2.6rem;
-      max-width: 700px;
+      box-shadow: 0 18px 64px rgba(40,60,100,0.16), 0 2px 24px rgba(140,180,220,0.10);
+      padding: 3rem 2.6rem 2.3rem;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      max-width: 700px;
       text-align: center;
-      position: relative;
-      z-index: 2;
-      overflow: visible;
-      box-sizing: border-box;
-      transition: margin 0.2s, padding 0.2s;
-    }
-    .card-logo {
-      width: 100%;
-      margin-bottom: 1.8rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      position: relative; z-index: 2;
     }
     .card-logo img {
       width: 100%;
+      max-width: 300px;
       height: auto;
-      display: block;
-      background: transparent;
+      margin-bottom: 1.8rem;
     }
+
+    /* Typography */
     .slogan {
       font-size: 1.15rem;
-      color: var(--slogan);
       font-weight: 500;
       margin-bottom: 1em;
     }
@@ -149,16 +100,16 @@
     .teaser {
       font-size: 1.11em;
       color: #444;
-      opacity: 0.90;
+      opacity: 0.9;
       margin-bottom: 2.1em;
       max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      font-weight: 400;
+      line-height: 1.4;
+      /* ensure centered text */
+      text-align: center;
     }
     .portfolio-btn {
       display: inline-block;
-      background: var(--button-bg);
+      background: #232323;
       color: #fff;
       border: none;
       border-radius: 2em;
@@ -166,110 +117,30 @@
       font-size: 1.13em;
       font-weight: 600;
       text-decoration: none;
-      margin-top: 0.25em;
       box-shadow: 0 3px 18px rgba(35,35,35,0.13);
       transition: background 0.18s, box-shadow 0.18s;
       cursor: pointer;
-      letter-spacing: 0.01em;
     }
-    .portfolio-btn:hover, .portfolio-btn:focus {
-      background: var(--button-bg-hover);
-      color: #fff;
+    .portfolio-btn:hover {
+      background: #457b9d;
       box-shadow: 0 8px 24px rgba(69,123,157,0.18);
-      text-decoration: none;
     }
+
+    /* Footer */
     .footer {
       font-size: 0.96em;
       color: #888;
-      margin-top: 2.8rem;
       text-align: center;
-      z-index: 3;
-      position: relative;
-      flex-shrink: 0;
-      width: 100vw;
-      padding-bottom: 1.2rem;
-      box-sizing: border-box;
+      padding: 1rem 0;
     }
-    .footer a { color: var(--line-blue); text-decoration: none;}
-
-    /* On mobile, enforce a minimum margin for the card */
-    @media (max-width: 900px) {
-      .card {
-        margin: 10vw;
-        padding: 2.5rem 5vw 1.6rem 5vw;
-        border-radius: 24px;
-        max-width: 100vw;
-        width: auto;
-      }
-      .card-logo {
-        width: 100%;
-      }
-    }
-    @media (max-width: 500px) {
-      .card {
-        margin: 10vw 0;
-        padding: 2rem 4vw 1.2rem 4vw;
-        border-radius: 16px;
-        max-width: 100vw;
-        width: auto;
-      }
-      .card-logo {
-        width: 100%;
-      }
-    }
-.persona {
-      position: relative;
-      width:140px;
-      text-align:center;
-    }
-    .persona img.avatar {
-      width:100%;
-      border-radius:50%;
-      border:4px solid #fff;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    }
-    .persona .flag {
-      width:24px;
-      height:16px;
-      vertical-align:middle;
-      margin-right:4px;
-    }
-    .persona h3 {
-      font-size:1rem;
-      margin:0.5rem 0 0.3rem;
-      font-weight:700;
-    }
-    .persona .keywords {
-      font-size:0.8rem;
-      line-height:1.2;
-      color:#444;
-    }
-    .persona .thought {
-      position:absolute;
-      top:-1.2rem;
-      left:50%;
-      transform:translateX(-50%);
-      background:#fff;
-      border:1px solid #ccc;
-      border-radius:12px;
-      padding:0.3rem 0.6rem;
-      font-size:0.75rem;
-      box-shadow:0 2px 6px rgba(0,0,0,0.1);
-      white-space:nowrap;
-    }
-    .persona .thought::after {
-      content:'';
-      position:absolute;
-      bottom:-6px;
-      left:50%;
-      transform:translateX(-50%);
-      border-width:6px 6px 0 6px;
-      border-style:solid;
-      border-color:#fff transparent transparent transparent;
+    .footer a {
+      color: #457b9d;
+      text-decoration: none;
     }
   </style>
-  </head>
+</head>
 <body>
+
   <div class="metro-lines">
     <svg viewBox="0 0 1200 1200">
       <polyline class="line red"    points="50 100 300 100 550 300 700 450 900 650 1200 850"/>
@@ -296,182 +167,6 @@
       <circle class="station" cx="700" cy="700" r="8"/>
     </svg>
   </div>
-  <div class="page-flex">
-    <div class="center-stack">
-      <div class="container">
-        <section class="card">
-          <div class="card-logo">
-            <img src="assets/img/logo.png" alt="Lost In Translation Logo">
-          </div>
-          <div class="coming-soon">🚇 Coming Soon</div>
-                    <div class="slogan">The Dumbest Clever Gift You'll Ever Buy</div>
-                    </p>
-  Our charmingly incompetent AI travel guides will reinterpret your city—<strong>pick a destination, choose a language, and get boldly inaccurate metro maps.</strong><br>
-  Chaos guaranteed. Accuracy sold separately.
-</p>
-<p class="teaser" style="font-size:1.1em; line-height:1.4;">
-  <img src="https://flagcdn.com/gb.svg" alt="United Kingdom flag" width="24" height="16"> <strong>Karin</strong> ·
-  <img src="https://flagcdn.com/nl.svg" alt="Netherlands flag"   width="24" height="16"> <strong>Gerrit</strong> ·
-  <img src="https://flagcdn.com/de.svg" alt="Germany flag"      width="24" height="16"> <strong>Dieter</strong> ·
-  <img src="https://flagcdn.com/fr.svg" alt="France flag"       width="24" height="16"> <strong>Clémence</strong> ·
-  <img src="https://flagcdn.com/se.svg" alt="Sweden flag"       width="24" height="16"> <strong>Agnes</strong>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Lost In Translation │ Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #f6fafd 0%, #d9d9d9 100%);
-      --glass-bg: rgba(255,255,255,0.28);
-      --glass-border: rgba(200, 200, 200, 0.30);
-      --text: #232323;
-      --accent: #1e8547;
-      --button-bg: #232323;
-      --button-bg-hover: #457b9d;
-      --line-red: #e63946;
-      --line-blue: #457b9d;
-      --line-yellow: #ffbe0b;
-      --line-green: #2a9d8f;
-      --line-purple: #a259c7;
-      --line-orange: #fd7e14;
-      --line-cyan: #17bebb;
-    }
-    html, body {
-      height: 100%; min-height: 100vh;
-      margin: 0; padding: 0;
-      background: var(--bg-gradient);
-      color: var(--text);
-      font-family: 'Ubuntu', sans-serif;
-      overflow-x: hidden;
-    }
-    body {
-      display: flex; flex-direction: column;
-      justify-content: stretch; align-items: stretch;
-    }
-    .metro-lines {
-      position: fixed; inset: 0;
-      pointer-events: none; opacity: 0.17; z-index: 1;
-    }
-    .metro-lines svg {
-      width: 220vw; height: 220vh;
-      position: absolute; top: -70vh; left: -60vw;
-    }
-    .line { fill: none; stroke-width: 7.5; stroke-linecap: round; stroke-linejoin: round; }
-    .red { stroke: var(--line-red); }
-    .blue { stroke: var(--line-blue); }
-    .yellow { stroke: var(--line-yellow); }
-    .green { stroke: var(--line-green); }
-    .purple { stroke: var(--line-purple); }
-    .orange { stroke: var(--line-orange); }
-    .cyan { stroke: var(--line-cyan); }
-    .station { fill: #fff; }
-
-    .page-flex {
-      flex: 1; display: flex; flex-direction: column;
-    }
-    .center-stack {
-      flex: 1; display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      position: relative; width: 100vw;
-    }
-    .container {
-      max-width: 760px; width: 100%;
-      display: flex; flex-direction: column;
-      align-items: center;
-    }
-    .card {
-      background: var(--glass-bg);
-      border: 2.5px solid var(--glass-border);
-      backdrop-filter: blur(32px) saturate(280%);
-      border-radius: 48px;
-      box-shadow: 0 18px 64px rgba(40,60,100,0.16), 0 2px 24px rgba(140,180,220,0.10);
-      padding: 3rem 2.6rem 2.3rem;
-      margin: 0 auto;
-      text-align: center;
-      position: relative; z-index: 2;
-      overflow: visible; box-sizing: border-box;
-      transition: margin 0.2s, padding 0.2s;
-    }
-    .card-logo img {
-      width: 100%; max-width: 300px; height: auto;
-      margin-bottom: 1.8rem;
-    }
-    .coming-soon {
-      font-size: 1.33rem; font-weight: 700;
-      color: var(--accent); margin-bottom: 1em;
-    }
-    .slogan {
-      font-size: 1.15rem; font-weight: 500;
-      margin-bottom: 1.5em;
-    }
-    .persona-grid {
-      display: flex; justify-content: space-between;
-      flex-wrap: wrap; gap: 1.5rem;
-      margin-bottom: 1.8rem;
-    }
-    .persona {
-      position: relative; width: 120px; text-align: center;
-    }
-    .persona .avatar {
-      width: 100%; border-radius: 50%;
-      border: 3px solid #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .persona h3 {
-      margin: .5rem 0 .3rem; font-size: 0.95rem;
-      font-weight: 700;
-    }
-    .persona .flag {
-      width: 20px; height: 14px;
-      vertical-align: middle; margin-right: 4px;
-    }
-    .persona .keywords {
-      font-size: 0.75rem; line-height: 1.2;
-      color: #444;
-    }
-    .persona .thought {
-      position: absolute; top: -1rem;
-      left: 50%; transform: translateX(-50%);
-      background: #fff; padding: 0.25rem 0.6rem;
-      border-radius: 12px; font-size: 0.7rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      white-space: nowrap;
-    }
-    .persona .thought::after {
-      content: ''; position: absolute;
-      bottom: -6px; left: 50%; transform: translateX(-50%);
-      border-width: 6px 6px 0 6px; border-style: solid;
-      border-color: #fff transparent transparent transparent;
-    }
-    .portfolio-btn {
-      background: var(--button-bg);
-      color: #fff; border: none; border-radius: 2em;
-      padding: 1em 2.5em; font-size: 1.1em; font-weight: 600;
-      text-decoration: none; box-shadow: 0 3px 18px rgba(35,35,35,0.13);
-      transition: background 0.2s, box-shadow 0.2s; cursor: pointer;
-      margin-bottom: 2rem;
-    }
-    .portfolio-btn:hover {
-      background: var(--button-bg-hover);
-      box-shadow: 0 8px 24px rgba(69,123,157,0.18);
-    }
-    .footer {
-      font-size: 0.9rem; color: #888;
-      text-align: center; padding: 1rem;
-    }
-    @media (max-width: 600px) {
-      .persona-grid { justify-content: center; }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="metro-lines">
-    <!-- (Your existing metro-lines SVG here) -->
-  </div>
 
   <div class="page-flex">
     <div class="center-stack">
@@ -481,105 +176,15 @@
           <div class="card-logo">
             <img src="assets/img/logo.png" alt="Lost In Translation Logo">
           </div>
+          <div class="slogan">The Dumbest Smart Gift You'll Ever Buy</div>
           <div class="coming-soon">🚇 Coming Soon</div>
-          <div class="slogan">The Dumbest Clever Gift You'll Ever Buy</div>
-
-          <!-- Persona Grid -->
-             <div class="avatars-container">
-
-    <div class="avatar-card">
-      <div class="thought-bubble">“Okay! We’re just gonna manifest this translation ✨”</div>
-      <img src="avatars/karin.png" alt="Karin – English PTA Mom">
-      <div class="avatar-label">Karin</div>
-    </div>
-
-    <div class="avatar-card">
-      <div class="thought-bubble">“Translation complete. You’re welcome. I guess.”</div>
-      <img src="avatars/gerrit.png" alt="Gerrit – Dutch Civil Servant">
-      <div class="avatar-label">Gerrit</div>
-    </div>
-
-    <div class="avatar-card">
-      <div class="thought-bubble">“Literal means literal. Metaphors are a sin.”</div>
-      <img src="avatars/dieter.png" alt="Dieter – German Translator">
-      <div class="avatar-label">Dieter</div>
-    </div>
-
-    <div class="avatar-card">
-      <div class="thought-bubble">“Do not thank me. Nothing matters.”</div>
-      <img src="avatars/clemence.png" alt="Clémence – French Existentialist">
-      <div class="avatar-label">Clémence</div>
-    </div>
-
-    <div class="avatar-card">
-      <div class="thought-bubble">“Lagom. Not funny. Not sad. Just… translated.”</div>
-      <img src="avatars/agnes.png" alt="Agnes – Swedish Yogi">
-      <div class="avatar-label">Agnes</div>
-    </div>
-
-  </div>
-          <div class="persona-grid">
-
-            <!-- Karin -->
-            <div class="persona">
-              <div class="thought">“Oopsie-daisy, did I press ‘Dutch’ instead of ‘Deutsch’ again?”</div>
-              <img class="avatar" src="img/karin.svg" alt="Karin">
-              <h3><img class="flag" src="https://flagcdn.com/gb.svg" alt="UK">Karin</h3>
-              <div class="keywords">
-                PTA boss, biscuit hoarder,<br>
-                thinks “bonjour” = tea time,<br>
-                15 exclamations/day
-              </div>
-            </div>
-
-            <!-- Gerrit -->
-            <div class="persona">
-              <div class="thought">“The train arrives when it arrives. Your jokes do not accelerate my schedule.”</div>
-              <img class="avatar" src="img/gerrit.svg" alt="Gerrit">
-              <h3><img class="flag" src="https://flagcdn.com/nl.svg" alt="NL">Gerrit</h3>
-              <div class="keywords">
-                Civil servant,<br>
-                extreme literalist,<br>
-                ruler-pocket,<br>
-                idiom-killer
-              </div>
-            </div>
-
-            <!-- Dieter -->
-            <div class="persona">
-              <div class="thought">"NO", the umlaut is NOT decorative.””</div>
-              <img class="avatar" src="img/dieter.svg" alt="Dieter">
-              <h3><img class="flag" src="https://flagcdn.com/de.svg" alt="DE">Dieter</h3>
-              <div class="keywords">
-                Functional. Precise. Unforgiving. No jokes. Just verbs. Unless you ordered on a Saturday, when Biergarten-Dieter might digitally slur a little.
-                              </div>
-            </div>
-
-            <!-- Clémence -->
-            <div class="persona">
-              <div class="thought">“ 'La République? Quelle Illu=sion!'.”</div>
-\              <h3><img class="flag" src="https://flagcdn.com/fr.svg" alt="FR">Clémence</h3>
-              <div class="keywords">
-                Chainsmoking philosopher,<br>
-                Existential crisis-victim<br>
-                Does not take critique well<br>
-                Striked last monday alread<br>
-              </div>
-            </div>
-
-            <!-- Agnes -->
-            <div class="persona">
-              <div class="thought">“Om… turn left (or right?).”</div>
-              <img class="avatar" src="img/agnes.svg" alt="Agnes">
-              <h3><img class="flag" src="https://flagcdn.com/se.svg" alt="SE">Agnes</h3>
-              <div class="keywords">
-                Eco-yogi,<br>
-                non-binary directions,<br>
-                hemp fashionista,<br>
-                calm chaos
-              </div>
-            </div>
-
+          <div class="teaser">
+            <em>
+              <b>Choose your city. Pick your language.</b><br><br>
+              Let our international squad of over-eager, under-qualified AI travel assistants guide you through your city of choice — beautifully, zero-accuracy guaranteed. Chaos is a feature, not a bug.<br><br>
+              <b>You’re welcome.</b><br>
+              <b>Mind the language gap.</b>
+            </em>
           </div>
 
           <a class="portfolio-btn" href="https://bram-peters.com" target="_blank" rel="noopener">
@@ -591,33 +196,9 @@
     </div>
 
     <div class="footer">
-      © 2025 Lost In Translation &nbsp;·&nbsp; Part of
-      <a href="https://bram-peters.com" target="_blank" rel="noopener">Bram Peters</a>
+      © 2025 Lost In Translation · Part of <a href="https://bram-peters.com" target="_blank" rel="noopener">Bram Peters</a>
     </div>
   </div>
 
-</body>
-</html>
-
-  <!-- AGNES -->
-  <div class="persona">
-    <div class="thought">“Om… turn left (or right?).”</div>
-    <img class="avatar" src="img/agnes.svg" alt="Agnes">
-    <h3><img class="flag" src="https://flagcdn.com/se.svg" alt="SE">Agnes</h3>
-    <div class="keywords">
-      Eco-yogi,<br>
-      non-binary directions,<br>
-      hemp fashionista,<br>
-      calm chaos
-    </div>
-  </div>
-          <a class="portfolio-btn" href="https://bram-peters.com" target="_blank" rel="noopener">← Back to bram-peters.com</a>
-        </section>
-      </div>
-    </div>
-    <div class="footer">
-      © 2025 Lost In Translation &nbsp;·&nbsp; Part of <a href="https://bram-peters.com" target="_blank" rel="noopener">Bram Peters</a>
-    </div>
-  </div>
 </body>
 </html>
