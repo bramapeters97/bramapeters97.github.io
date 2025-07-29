@@ -1,49 +1,61 @@
-/* Import fonts */
+/*────────────────────────────────────────────────────────────────────────────
+  1) IMPORTS & RESET
+────────────────────────────────────────────────────────────────────────────*/
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&family=Fira+Sans+Extra+Condensed:ital,wght@1,600&display=swap');
 
-/* Reset & base */
-html, body {
-  width: 100%; height: 100%;
-  margin: 0; padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
-*, *::before, *::after {
-  box-sizing: inherit;
-}
+
+/*────────────────────────────────────────────────────────────────────────────
+  2) BASE BODY & CONTAINER
+────────────────────────────────────────────────────────────────────────────*/
 body {
-  margin: 2%;
   font-family: 'Ubuntu', sans-serif;
-  background: linear-gradient(135deg,#f5fafd 0%,#dfe6f2 100%) fixed;
+  background: linear-gradient(135deg, #f5fafd 0%, #dfe6f2 100%) fixed;
   color: #333;
   min-height: 100vh;
   scroll-behavior: smooth;
 }
 
-/* Container & fade-in */
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 2%;
   display: grid;
   gap: 1.5rem;
-  animation: fadeIn .6s both;
+  animation: fadeIn 0.6s both;
 }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(15px); }
   to   { opacity: 1; transform: translateY(0);    }
 }
 
-/* Header */
+/*────────────────────────────────────────────────────────────────────────────
+  3) HEADER
+────────────────────────────────────────────────────────────────────────────*/
 .profile-header {
   display: flex;
   align-items: center;
   gap: 2.2rem;
-  margin: .2rem 0 .7rem;
+  margin: 0.2rem 0 0.7rem;
   padding-bottom: 1.5rem;
   border-bottom: 1.5px solid #e5eaf3;
 }
 .profile-pic {
-  width: 235px; height: 235px;
+  width: 235px;
+  height: 235px;
   border-radius: 50%;
   object-fit: cover;
   background: #f7fafd;
@@ -75,7 +87,9 @@ body {
   white-space: nowrap;
 }
 
-/* Buttons */
+/*────────────────────────────────────────────────────────────────────────────
+  4) BUTTONS
+────────────────────────────────────────────────────────────────────────────*/
 .resume-btn, #downloadBtnInline {
   display: inline-flex;
   align-items: center;
@@ -107,7 +121,9 @@ body {
   box-shadow: 0 4px 18px rgba(100,110,140,.13);
 }
 
-/* Header text */
+/*────────────────────────────────────────────────────────────────────────────
+  5) HEADER TEXT
+────────────────────────────────────────────────────────────────────────────*/
 .header-title {
   font-size: 1.08rem;
   font-weight: 500;
@@ -138,7 +154,9 @@ body {
   min-width: 0;
 }
 
-/* Cards */
+/*────────────────────────────────────────────────────────────────────────────
+  6) CARDS
+────────────────────────────────────────────────────────────────────────────*/
 .card {
   display: flex;
   flex-direction: column;
@@ -150,22 +168,31 @@ body {
   box-shadow: 0 8px 28px rgba(0,0,0,.12);
   backdrop-filter: blur(14px);
   transition: transform .3s, box-shadow .3s;
-  box-sizing: border-box;
 }
 
-/* Grids */
+/*────────────────────────────────────────────────────────────────────────────
+  7) LAYOUT GRIDS
+────────────────────────────────────────────────────────────────────────────*/
 .header-split, .horizontal-split, .two-columns {
   display: grid;
   gap: 2%;
 }
 .header-split { grid-template-columns: 70% 30%; }
 .horizontal-split { grid-template-columns: 36% 64%; }
-.two-columns { grid-template-columns: 70% 28%; margin-top: 10px; align-items: start; }
+.two-columns { grid-template-columns: 70% 28%; margin-top:10px; align-items:start; }
+
 @media (max-width: 900px) {
-  .header-split, .horizontal-split, .two-columns { grid-template-columns: 1fr; gap: 1rem; }
+  .header-split,
+  .horizontal-split,
+  .two-columns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
-/* Section titles */
+/*────────────────────────────────────────────────────────────────────────────
+  8) SECTION TITLES
+────────────────────────────────────────────────────────────────────────────*/
 .section-title {
   margin-bottom: .5rem;
   padding-bottom: .25rem;
@@ -191,9 +218,18 @@ body {
 .contact::before      { content: '\f2b9'; }
 .portfolio::before    { content: '\f5fd'; }
 
-/* Lists & links */
-ul { list-style: none; padding-left: 1rem; margin: 0; }
-li { margin-bottom: 1rem; word-break: break-word; }
+/*────────────────────────────────────────────────────────────────────────────
+  9) LISTS & LINKS
+────────────────────────────────────────────────────────────────────────────*/
+ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0;
+}
+li {
+  margin-bottom: 1rem;
+  word-break: break-word;
+}
 li span {
   display: block;
   margin-top: .25rem;
@@ -209,8 +245,11 @@ a {
 }
 a:hover { color: #000; }
 
-/* Quotes & contact */
-.subtitle, .header-contact {
+/*────────────────────────────────────────────────────────────────────────────
+ 10) QUOTES & CONTACT
+────────────────────────────────────────────────────────────────────────────*/
+.subtitle,
+.header-contact {
   font-size: .95rem;
   color: #555;
   padding-left: .4rem;
@@ -225,7 +264,9 @@ a:hover { color: #000; }
 }
 .quote-line i { margin-right: .4rem; color: #888; }
 
-/* Portfolio grid & cards */
+/*────────────────────────────────────────────────────────────────────────────
+ 11) PORTFOLIO GRID & CARDS
+────────────────────────────────────────────────────────────────────────────*/
 .portfolio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -233,50 +274,78 @@ a:hover { color: #000; }
   margin-top: 1rem;
 }
 @media (max-width: 900px) {
-  .portfolio-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 @media (max-width: 600px) {
-  .portfolio-grid { gap: .8rem; }
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
+
 .portfolio-card {
   display: flex;
   flex-direction: column;
   background: rgba(255,255,255,.66);
   border: 1px solid rgba(210,220,240,.25);
   border-radius: 15px;
-  box-shadow: 0 2px 12px rgba(120,140,180,.08);
   overflow: hidden;
   cursor: pointer;
   transition: transform .19s, box-shadow .18s;
-  min-height: 390px;
+  min-height: 320px;
 }
-.portfolio-card:hover, .portfolio-card:focus-visible {
+.portfolio-card:hover,
+.portfolio-card:focus-visible {
   transform: scale(1.035);
   box-shadow: 0 12px 30px rgba(50,80,140,.16);
   z-index: 2;
 }
-.portfolio-card:active { transform: scale(.99); }
+.portfolio-card:active {
+  transform: scale(.99);
+}
 
-/* Remove underline, force dark gray links in portfolio */
+/* remove underline & dark-grey links */
 .portfolio-card a {
   text-decoration: none;
   color: #333;
 }
 
-/* Ensure all portfolio images fill width & height and are centered */
+/* divider above link */
+.portfolio-card .article-body hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 1rem 0 .5rem;
+}
+
+/* light text inside */
+.portfolio-card .article-body p,
+.portfolio-card .article-body span {
+  font-weight: 300;
+}
+
+/* images fill/center */
+.portfolio-card .article-wrapper figure {
+  margin: 0;
+  padding: 0;
+}
 .portfolio-card .article-wrapper img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-
-/* Doula card: focus on top of image */
+/* doula focus top */
 .portfolio-card:nth-child(4) .article-wrapper img {
   object-position: top center;
 }
 
-/* Article & skills */
+/*────────────────────────────────────────────────────────────────────────────
+ 12) ARTICLE & SKILLS
+────────────────────────────────────────────────────────────────────────────*/
 .article-wrapper {
   display: flex;
   flex-direction: column;
@@ -317,20 +386,17 @@ a:hover { color: #000; }
   padding-top: .12em;
   letter-spacing: .02em;
 }
-.article-body hr {
-  border: none;
-  border-top: 1px solid #e8eaf1;
-  margin: .6em 0;
-}
 .article-body a {
   margin-top: auto;
-  font-weight: 600;
-  transition: color .14s;
   display: inline-flex;
   align-items: center;
+  font-weight: 600;
+  transition: color .14s;
   color: #2c3757;
 }
-.article-body a:hover { color: #4281ff; }
+.article-body a:hover {
+  color: #4281ff;
+}
 
 .skills-card-list {
   display: flex;
@@ -356,55 +422,37 @@ a:hover { color: #000; }
   border-color: #82b6ff;
   box-shadow: 0 4px 22px rgba(120,180,255,.1);
 }
-.skill-glass-card strong { font-weight: 600; }
+.skill-glass-card strong {
+  font-weight: 600;
+}
 
-/* Mobile tweaks */
+/*────────────────────────────────────────────────────────────────────────────
+ 13) MOBILE RESPONSIVE
+────────────────────────────────────────────────────────────────────────────*/
 @media (max-width: 600px) {
-  .container { padding: 8vw 7vw; gap: 1.1rem; }
+  /* keep 2% margin both sides */
+  .container {
+    padding: 0 2%;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .card,
+  .portfolio-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
   .profile-header {
     flex-direction: column;
     align-items: center;
-    gap: 1.1rem;
-    padding-bottom: 1.1rem;
+    gap: 1rem;
+    padding-bottom: 1rem;
   }
   .profile-pic {
-    width: 80vw!important;
-    height: 80vw!important;
+    width: 80vw !important;
+    height: 80vw !important;
     max-width: 350px;
     max-height: 350px;
-    border-radius: 50%!important;
+    border-radius: 50% !important;
     margin: 0 auto .7em;
   }
-  header h1 { font-size: 2rem; }
-  .thought-bubble { width: 160px; font-size: .65rem; }
-}
-.portfolio-card .article-wrapper figure {
-  margin: 0;
-  padding: 0;
-}
-.portfolio-card .article-wrapper img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* subtle divider above the action link in portfolio items */
-.portfolio-card .article-body a {
-  display: block;               /* make room for the divider */
-  margin: 1rem 0 0;             /* space above the divider */
-  padding: 0.5rem 0 0;          /* space between divider and link text */
-  border-top: 1px solid #e0e0e0;/* light gray thin line */
-  text-decoration: none;        /* keep links un-underlined */
-  color: #333;                  /* dark-gray link color */
-}
-
-.portfolio-card .article-body a:hover {
-  color: #000;                  /* slightly darker on hover */
-}
-
-.portfolio-card .article-body p,
-.portfolio-card .article-body span {
-  font-weight: 300;
 }
