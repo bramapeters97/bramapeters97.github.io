@@ -1,0 +1,166 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #f6fafd 0%, #d9d9d9 100%);
+  --text: #232323;
+  --accent: #1e8547;
+}
+
+/* Reset and base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--text);
+  background: var(--bg-gradient);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Metro background (fills fully) */
+.metro-lines {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.17;
+  z-index: 1;
+}
+.metro-lines svg {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* preserveAspectRatio="none" on the SVG makes this gap-free */
+}
+.line {
+  fill: none;
+  stroke-width: 7.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.red   { stroke: #e63946; }
+.blue  { stroke: #457b9d; }
+.yellow{ stroke: #ffbe0b; }
+.green { stroke: #2a9d8f; }
+.purple{ stroke: #a259c7; }
+.orange{ stroke: #fd7e14; }
+.cyan  { stroke: #17bebb; }
+.station { fill: #fff; }
+
+/* Page layout: card centered, footer bottom */
+.page-flex {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.center-stack {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+}
+.container {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 48px;
+  box-shadow: 0 18px 64px rgba(40,60,100,0.16),
+              0 2px 24px rgba(140,180,220,0.10);
+  padding: 2.5rem 2rem;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo full-width */
+.card-logo img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+/* Typography */
+.slogan {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+.coming-soon {
+  font-size: 1.33rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1.1em;
+}
+.teaser {
+  font-size: 1.11em;
+  color: #444;
+  opacity: 0.9;
+  margin-bottom: 2.1em;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Button */
+.portfolio-btn {
+  display: inline-block;
+  background: #232323;
+  color: #fff;
+  border: none;
+  border-radius: 2em;
+  padding: 1.05em 2.8em;
+  font-size: 1.13em;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 3px 18px rgba(35,35,35,0.13);
+  transition: background 0.18s, box-shadow 0.18s;
+}
+.portfolio-btn:hover {
+  background: #457b9d;
+  box-shadow: 0 8px 24px rgba(69,123,157,0.18);
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  font-size: 0.96em;
+  color: #888;
+  text-align: center;
+  padding: 1rem 0;
+  flex-shrink: 0;
+}
+.footer a {
+  color: #457b9d;
+  text-decoration: none;
+}
+
+/* ─── DESKTOP VERTICAL CENTERING ───────────────────────── */
+@media (min-width: 768px) {
+  .center-stack .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

@@ -5,145 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Lost In Translation │ Coming Soon</title>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #f6fafd 0%, #d9d9d9 100%);
-      --glass-bg: rgba(255,255,255,0.28);
-      --glass-border: rgba(200,200,200,0.30);
-      --text: #232323;
-      --accent: #1e8547;
-    }
-
-    /* Reset */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    html, body {
-      height: 100%; min-height: 100vh;
-      background: var(--bg-gradient);
-      color: var(--text);
-      font-family: 'Ubuntu', sans-serif;
-      overflow-x: hidden;
-      padding: 5%;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-
-
-    }
-
-    /* Metro background */
-    .metro-lines {
-      position: fixed; inset: 0;
-      pointer-events: none; opacity: 0.17; z-index: 1;
-    }
-    .metro-lines svg {
-      width: 220vw; height: 220vh;
-      position: absolute; top: -70vh; left: -60vw;
-    }
-    .line { fill: none; stroke-width: 7.5; stroke-linecap: round; stroke-linejoin: round; }
-    .red   { stroke: #e63946; }
-    .blue  { stroke: #457b9d; }
-    .yellow{ stroke: #ffbe0b; }
-    .green { stroke: #2a9d8f; }
-    .purple{ stroke: #a259c7; }
-    .orange{ stroke: #fd7e14; }
-    .cyan  { stroke: #17bebb; }
-    .station{ fill: #fff; }
-
-    /* Layout wrappers */
-    .page-flex {
-      flex: 1; display: flex; flex-direction: column;
-    }
-    .center-stack {
-      flex: 1; display: flex; justify-content: center; align-items: center;
-      width: 100%;
-    }
-
-    /* Container & card */
-    .container {
-      width: 100%; max-width: 760px;
-      padding: 0;     /* 3% side margin always */
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .card {
-      background: var(--glass-bg);
-      border: 2.5px solid var(--glass-border);
-      backdrop-filter: blur(32px) saturate(280%);
-      border-radius: 48px;
-      box-shadow: 0 18px 64px rgba(40,60,100,0.16), 0 2px 24px rgba(140,180,220,0.10);
-      padding: 3rem 2.6rem 2.3rem;
-      margin: 0 auto;
-      max-width: 700px;
-      text-align: center;
-      position: relative; z-index: 2;
-    }
-    .card-logo img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      margin-bottom: 1.8rem;
-    }
-
-    /* Typography */
-    .slogan {
-      font-size: 1.15rem;
-      font-weight: 500;
-      margin-bottom: 1em;
-    }
-    .coming-soon {
-      font-size: 1.33rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 1.1em;
-    }
-    .teaser {
-      font-size: 1.11em;
-      color: #444;
-      opacity: 0.9;
-      margin-bottom: 2.1em;
-      max-width: 480px;
-      line-height: 1.4;
-      /* ensure centered text */
-      text-align: center;
-    }
-    .portfolio-btn {
-      display: inline-block;
-      background: #232323;
-      color: #fff;
-      border: none;
-      border-radius: 2em;
-      padding: 1.05em 2.8em;
-      font-size: 1.13em;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 3px 18px rgba(35,35,35,0.13);
-      transition: background 0.18s, box-shadow 0.18s;
-      cursor: pointer;
-    }
-    .portfolio-btn:hover {
-      background: #457b9d;
-      box-shadow: 0 8px 24px rgba(69,123,157,0.18);
-    }
-
-    /* Footer */
-    .footer {
-      font-size: 0.96em;
-      color: #888;
-      text-align: center;
-      padding: 1rem 0;
-    }
-    .footer a {
-      color: #457b9d;
-      text-decoration: none;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/lostintranslation.css"/>
 </head>
 <body>
 
   <div class="metro-lines">
-    <svg viewBox="0 0 1200 1200">
+    <!-- preserveAspectRatio="none" makes it cover the full viewport without any gaps -->
+    <svg viewBox="0 0 1200 1200" preserveAspectRatio="none">
       <polyline class="line red"    points="50 100 300 100 550 300 700 450 900 650 1200 850"/>
       <polyline class="line blue"   points="0 650 150 450 300 300 450 150 650 150 1000 300 1200 400"/>
       <polyline class="line yellow" points="100 1200 100 850 400 650 700 700 950 950 1200 1200"/>
@@ -172,7 +40,6 @@
   <div class="page-flex">
     <div class="center-stack">
       <div class="container">
-
         <section class="card">
           <div class="card-logo">
             <img src="assets/img/logo.png" alt="Lost In Translation Logo">
@@ -187,17 +54,15 @@
               <b>Just mind the language gap while we're at it.</b>
             </em>
           </div>
-
           <a class="portfolio-btn" href="https://bram-peters.com" target="_blank" rel="noopener">
             ← Bram-Peters.com
           </a>
         </section>
-
       </div>
     </div>
-
     <div class="footer">
-      © 2025 Lost In Translation · Part of <a href="https://bram-peters.com" target="_blank" rel="noopener">Bram Peters</a>
+      © 2025 Lost In Translation · Part of 
+      <a href="https://bram-peters.com" target="_blank" rel="noopener">Bram Peters</a>
     </div>
   </div>
 
