@@ -149,9 +149,11 @@ body {
   z-index: 2;
 }
 .card-logo img {
-  width: 70%;
+  width: 100%;
   height: auto;
   margin-bottom: 1.5rem;
+    align-content: center;
+
 }
 .slogan {
   font-size: 1.15rem;
@@ -162,7 +164,6 @@ body {
   font-size: 1.33rem;
   font-weight: 700;
   color: var(--accent);
-  margin-bottom: 1.1em;
 }
 .teaser {
   font-size: 1.11em;
@@ -268,4 +269,13 @@ body {
   font-size: 1.11rem;
   line-height: 1.4;
   color: #232323;
+}
+
+.background {
+  backdrop-filter: blur(1px);    
+}
+
+.background-2 {
+    backdrop-filter: blur(1px);    
+  rotate: 180deg;;
 }
