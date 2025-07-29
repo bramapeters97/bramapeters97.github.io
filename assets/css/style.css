@@ -389,3 +389,22 @@ a:hover { color: #000; }
   object-fit: cover;
   object-position: center;
 }
+
+/* subtle divider above the action link in portfolio items */
+.portfolio-card .article-body a {
+  display: block;               /* make room for the divider */
+  margin: 1rem 0 0;             /* space above the divider */
+  padding: 0.5rem 0 0;          /* space between divider and link text */
+  border-top: 1px solid #e0e0e0;/* light gray thin line */
+  text-decoration: none;        /* keep links un-underlined */
+  color: #333;                  /* dark-gray link color */
+}
+
+.portfolio-card .article-body a:hover {
+  color: #000;                  /* slightly darker on hover */
+}
+
+.portfolio-card .article-body p,
+.portfolio-card .article-body span {
+  font-weight: 300;
+}
