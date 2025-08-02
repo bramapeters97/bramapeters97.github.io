@@ -177,7 +177,7 @@ body {
   display: grid;
   gap: 2%;
 }
-.header-split { grid-template-columns: 70% 30%; }
+.header-split { grid-template-columns: 66% 34%; }
 .horizontal-split { grid-template-columns: 36% 64%; }
 .two-columns { grid-template-columns: 70% 28%; margin-top:10px; align-items:start; }
 
@@ -454,5 +454,10 @@ a:hover { color: #000; }
     max-height: 350px;
     border-radius: 50% !important;
     margin: 0 auto .7em;
+  }
+
+  .html, body {
+    padding: 2%;
+    overflow: scroll;
   }
 }
