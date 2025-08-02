@@ -182,9 +182,9 @@ body {
   display: grid;
   gap: 2%;
 }
-.header-split { grid-template-columns: 66% 34%; }
-.horizontal-split { grid-template-columns: 36% 64%; }
-.two-columns { grid-template-columns: 70% 28%; margin-top:10px; align-items:start; }
+.header-split { grid-template-columns: 64% 34%; }
+.horizontal-split { grid-template-columns: 35% 63%; }
+.two-columns { grid-template-columns: 68% 28%; margin-top:10px; align-items:start; }
 
 @media (max-width: 900px) {
   .header-split,
@@ -465,4 +465,34 @@ a:hover { color: #000; }
     padding: 2%;
     overflow: scroll;
   }
+}
+
+/* Horizontal article layout inside card */
+.article-wrapper.horizontal-layout {
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
+  font-weight: 300;
+}
+
+.article-wrapper.horizontal-layout figure {
+  flex: 0 0 40%;
+  height: auto;
+  max-height: none;
+    object-fit: contain;
+  zoom: 30%;
+  border-radius: 12px;
+
+}
+
+.article-wrapper.horizontal-layout img {
+  width: 100%;
+  height: auto;
+
+
+}
+
+.article-wrapper.horizontal-layout .article-body {
+  flex: 1;
+  padding: 0;
 }
