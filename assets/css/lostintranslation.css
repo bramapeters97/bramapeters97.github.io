@@ -277,3 +277,11 @@ body {
     backdrop-filter: blur(1px);    
   rotate: 180deg;;
 }
+
+.youchoseforthis {
+width: 100%;
+      max-width: 340px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      }
