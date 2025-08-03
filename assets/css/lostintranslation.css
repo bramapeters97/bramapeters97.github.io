@@ -285,3 +285,12 @@ width: 100%;
       display: block;
       object-fit: contain;
       }
+      
+      .titleyouchoseforthis {
+      font-size: 1.15em;
+    text-align: center;
+    line-height: 1.45;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    }
