@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost In Translation™ │ Global Transit, Local Nonsense</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css"/>
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f6fafd 0%, #d9d9d9 100%);
+      --glass-bg: rgba(255,255,255,0.75);
+      --accent: #1e8547;
+      --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+      --metro-red: #e23a2e;
+      --metro-blue: #3682e5;
+      --metro-yellow: #f7c325;
+      --metro-green: #5ec35e;
+      --card-width: 220px;
+      --card-height: 340px;
+      --bubble-bg: #fff;
+      --bubble-shadow: 0 2px 14px 0 rgba(31, 38, 135, 0.10);
+    }
+    html, body {
+      min-height: 100vh;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-gradient);
+      font-family: 'Ubuntu', sans-serif;
+      color: #232323;
+      overflow-x: hidden;
+    }
+    body {
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Metro Lines SVG background */
+    .metro-lines {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.17;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .metro-lines svg {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+    /* Nav-bar */
+    header {
+      position: relative;
+      z-index: 2;
+      background: transparent;
+      padding: 18px 0 0 0;
+      margin-bottom: 24px;
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      justify-content: space-between;
+      padding: 0 36px;
+    }
+    .nav-wrap img {
+      height: 56px;
+      margin-right: 32px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      gap: 32px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #232323;
+      font-weight: 500;
+      font-size: 1.08rem;
+      transition: color 0.18s;
+    }
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    /* Cards Row */
+    .personas-row {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 38px;
+      width: 100%;
+      margin: 60px auto 0 auto;
+      max-width: 1400px;
+      min-height: 400px;
+      height: 400px;
+    }
+    .persona-card {
+      position: relative;
+      width: var(--card-width);
+      height: var(--card-height);
+      background: var(--glass-bg);
+      border-radius: 2rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 32px 18px 28px 18px;
+      opacity: 0;
+      transform: translateX(-80px) scale(0.95);
+      transition: opacity 0.55s cubic-bezier(.62,.09,.32,1.02), 
+                  transform 0.55s cubic-bezier(.62,.09,.32,1.02);
+      overflow: visible;
+      margin-bottom: 0;
+    }
+    .persona-card.visible {
+      opacity: 1;
+      transform: translateX(0) scale(1.0);
+    }
+    /* Persona placeholder avatar */
+    .avatar {
+      position: absolute;
+      top: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(145deg, #ececec 60%, #ccc 100%);
+      border-radius: 50%;
+      border: 4px solid #eaeaea;
+      box-shadow: 0 2px 20px 0 rgba(31,38,135,.11);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      color: #fff;
+      z-index: 2;
+      user-select: none;
+    }
+    .persona-label {
+      font-size: 1.11rem;
+      font-weight: 600;
+      margin-top: 112px;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: #2b2b2b;
+    }
+
+    /* Speech Bubbles */
+    .bubble {
+      position: absolute;
+      left: 50%;
+      min-width: 68px;
+      max-width: 118px;
+      min-height: 28px;
+      background: var(--bubble-bg);
+      border-radius: 2em;
+      padding: 9px 18px;
+      font-size: 1.13rem;
+      font-weight: 400;
+      color: #262626;
+      box-shadow: var(--bubble-shadow);
+      z-index: 10;
+      pointer-events: none;
+      border: 1.5px solid #ededed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      transition: filter 0.2s;
+      filter: drop-shadow(0 4px 14px rgba(31,38,135,0.07));
+      user-select: none;
+    }
+    /* Bubble tail: simple circle */
+    .bubble:after {
+      content: "";
+      position: absolute;
+      bottom: -12px;
+      left: 34%;
+      width: 16px;
+      height: 16px;
+      background: var(--bubble-bg);
+      border-radius: 50%;
+      border: 1.5px solid #ededed;
+      box-shadow: 0 1px 6px 0 rgba(31,38,135,.11);
+      z-index: 1;
+    }
+
+    @media (max-width: 1100px) {
+      .personas-row {
+        gap: 14px;
+        max-width: 94vw;
+      }
+      .persona-card {
+        width: 160px;
+        height: 300px;
+      }
+    }
+    @media (max-width: 800px) {
+      .personas-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 38px;
+        min-height: unset;
+        height: unset;
+      }
+      .persona-card {
+        margin-bottom: 0;
+        width: 78vw;
+        min-width: 160px;
+        max-width: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Metro background SVG -->
+  <div class="metro-lines">
+    <svg viewBox="0 0 1300 900" fill="none">
+      <polyline points="90,120 320,120 650,300 890,410 1200,690" stroke="#e23a2e" stroke-width="15" fill="none" stroke-linecap="round"/>
+      <polyline points="0,600 190,540 420,360 600,230 920,170 1250,420" stroke="#3682e5" stroke-width="15" fill="none" stroke-linecap="round"/>
+      <polyline points="220,760 400,610 610,410 910,210 1150,160" stroke="#f7c325" stroke-width="15" fill="none" stroke-linecap="round"/>
+      <polyline points="110,800 340,800 700,660 900,560 1100,490 1280,810" stroke="#5ec35e" stroke-width="15" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <!-- Navigation bar -->
+  <header>
+    <div class="nav-wrap">
+      <img src="https://lostintranslation.ai/img/Logo/logo_oneline.png" alt="Lost In Translation Logo" />
+      <nav>
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#who">Who we are</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Persona Cards Row -->
+  <main>
+    <div class="personas-row">
+      <!-- Persona cards, avatars, bubbles will be created by JS -->
+    </div>
+  </main>
+
+  <script>
+    // Persona meta data
+    const personas = [
+      { label: "Karin", color: "#ee93ba", icon: "🧁", bubbleCount: 3, flag: "us"},
+      { label: "Clémence", color: "#9088ad", icon: "🚬", bubbleCount: 2, flag: "fr"},
+      { label: "Agnes", color: "#88b6ad", icon: "🧘‍♀️", bubbleCount: 3, flag: "se"},
+      { label: "Dieter", color: "#8cbbdc", icon: "📏", bubbleCount: 1, flag: "de"},
+      { label: "Gerrit", color: "#ffcd79", icon: "🧂", bubbleCount: 2, flag: "nl" }
+    ];
+    const row = document.querySelector('.personas-row');
+
+    // Create cards
+    personas.forEach((persona, idx) => {
+      const card = document.createElement('div');
+      card.className = 'persona-card';
+      card.style.zIndex = 1 + idx;
+      card.innerHTML = `
+        <div class="avatar" style="background:${persona.color};">
+          ${persona.icon}
+        </div>
+          <span class="fi fi-${persona.flag}"></span> <br> ${persona.label}
+      `;
+      row.appendChild(card);
+    });
+
+    // Animate cards in one by one
+    function animateCardsIn() {
+      const cards = document.querySelectorAll('.persona-card');
+      cards.forEach((card, idx) => {
+        setTimeout(() => {
+          card.classList.add('visible');
+        }, idx * 200);
+      });
+    }
+    animateCardsIn();
+
+    // Wait until all cards are visible, then add animated bubbles
+    setTimeout(() => {
+      addSpeechBubbles();
+    }, 200 * personas.length + 400);
+
+    function addSpeechBubbles() {
+      const cards = document.querySelectorAll('.persona-card');
+      cards.forEach((card, idx) => {
+        const persona = personas[idx];
+        const avatar = card.querySelector('.avatar');
+        const cardRect = card.getBoundingClientRect();
+        const avatarRect = avatar.getBoundingClientRect();
+        // Bubbles positions: up/left, up/right, above
+        for (let b = 0; b < persona.bubbleCount; b++) {
+          const bubble = document.createElement('div');
+          bubble.className = 'bubble';
+          bubble.innerText = '_____';
+          // Stagger bubble animation
+          bubble.dataset.persona = idx;
+          bubble.dataset.bubble = b;
+          card.appendChild(bubble);
+        }
+      });
+      startBubbleAnimation();
+    }
+
+    // Animated bubble floating logic
+    const bubbleParams = [
+      // For each persona's bubbles: [radius(px), speed, base angle (offset)]
+      [[34, 1.17, 0], [40, 1.39, 1.4], [38, 0.9, 2.2]],    // Karin
+      [[34, 1.17, 0], [40, 1.27, 1.8]],                   // Clemence
+      [[38, 1.03, 1.1], [42, 1.29, 2.3], [34, 0.89, 3.1]], // Agnes
+      [[35, 1.23, 0.8]],                                  // Dieter
+      [[38, 1.15, 1.2], [34, 0.95, 2.0]]                  // Gerrit
+    ];
+    let startTime;
+    function startBubbleAnimation() {
+      const cards = document.querySelectorAll('.persona-card');
+      function animate(time) {
+        if (!startTime) startTime = time;
+        const t = (time - startTime) / 900; // speed scaling
+        cards.forEach((card, pidx) => {
+          const avatar = card.querySelector('.avatar');
+          const bubbles = card.querySelectorAll('.bubble');
+          const rect = card.getBoundingClientRect();
+          const avatarRect = avatar.getBoundingClientRect();
+          const centerX = card.offsetWidth / 2;
+          const avatarTop = 48;
+          const avatarCenterY = avatarTop + 38;
+
+          bubbles.forEach((bubble, bidx) => {
+            const params = bubbleParams[pidx][bidx];
+            if (!params) return;
+            // Each bubble floats around head in a (vertical sine, horizontal offset) way
+            const radius = params[0], speed = params[1], base = params[2];
+            const angle = base + Math.sin(t * speed + bidx) * 0.9;
+            // Set positions so bubbles never overlap and stay above avatar
+            const bx = centerX + Math.cos(angle) * (radius + bidx * 10);
+            const by = avatarCenterY - 48 + Math.sin(angle) * 18 + bidx * 18;
+
+            bubble.style.left = `${bx}px`;
+            bubble.style.top = `${by}px`;
+            // Add nice z-index layer for stacking above avatar
+            bubble.style.zIndex = 10 + bidx;
+          });
+        });
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+    }
+  </script>
+</body>
+</html>
