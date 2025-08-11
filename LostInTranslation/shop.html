@@ -139,10 +139,10 @@
         <img class="logo" src="img/Logo/flavicon.png">
         <div>
           <div style="font-weight:800; letter-spacing:.2px;">Lost In Translation™</div>
-          <div class="tag">Global Transit, Local Nonsense</div>
+          <div class="tag">Global Transit, Local Nonsense™/div>
         </div>
       </a>
-      <div class="tag">You asked for this. We did it. (sorry)</div>
+      <div class="tag"><b>You asked for this.</b> We did it. (<i>sorry<i/>)</div>
     </div>
   </header>
 
@@ -151,7 +151,7 @@
     <section class="card creator" aria-labelledby="create-title">
       <div>
         <h2 id="create-title" class="section-title">Create your poster</h2>
-        <p class="sub">Pick a city, a language, and which unhinged AI assistant will “help.” We’ll translate every station badly—and beautifully.</p>
+        <p class="sub">Pick a city, pick a language, and pick one of our highly unqualified AI-travel assistants to "help". A map so wrong, it's right.</p>
 
         <form class="form" id="creatorForm" onsubmit="event.preventDefault(); addCreatorToCart();">
           <div class="row">
@@ -172,7 +172,7 @@
           </div>
 
           <div>
-            <label>AI Assistant</label>
+            <label>AI-Travel Assistant</label>
             <div class="chips" role="group" aria-label="Persona">
               <button type="button" class="chip" data-persona="Karen" aria-pressed="true">🇬🇧 Karen</button>
               <button type="button" class="chip" data-persona="Gerrit" aria-pressed="false">🇳🇱 Gerrit</button>
@@ -237,7 +237,7 @@
           <!-- Simple SVG “map” placeholder -->
                        <img src="nyc.png" width="100%">
         </div>
-        <div class="caption" style="margin-top:8px">Real preview will render your city & language with your chosen persona’s voice.</div>
+        <div class="caption" style="margin-top:8px">Real preview will render your city in your language translated by one of our questionable AI-persona's.</div>
       </div>
     </section>
 
@@ -261,7 +261,7 @@
   </main>
 
   <footer>
-    © <span id="year"></span> Lost In Translation™ — A professional shop, tragically supported by terrible translators.
+    © <span id="year"></span> Lost In Translation™ — Wrong Never Looked This Good
   </footer>
 
 <script>
@@ -378,7 +378,7 @@
       el.innerHTML = `
         <div class="thumb">${productThumbSVG(`${p.city} ${p.language}`)}</div>
         <div class="title">${p.city} · ${langName(p.language)} · ${p.persona}</div>
-        <div class="caption">“Beautifully wrong” station names. Printed on demand.</div>
+        <div class="caption">Gorgeously Wrong. Instantly Yours.</div>
         <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px">
           <div class="price">${fmtEUR(p.price)}</div>
           <button class="btn btn-primary" aria-label="Add ${p.city} poster to cart">Add</button>
