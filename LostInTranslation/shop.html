@@ -233,7 +233,7 @@
       <!-- Live preview (placeholder SVG) -->
       <div>
         <div class="preview" aria-label="Poster preview">
-          <div class="badge" id="badge">🇳🇱Amsterdam · 🇺🇸 English by Karen</div>
+          <div class="badge" id="badge">🇳🇱Amsterdam · 🇺🇸 ( Karen</div>
           <!-- Simple SVG “map” placeholder -->
           <img src="nyc.png" width="100%">
         </div>
@@ -354,12 +354,12 @@
 
   // --- Best sellers
   const best = [
-    {city:'🇫🇷Paris', language:'EN', persona:'🙎🏼Karen', price:28, sku:'PAR-EN-CLE'},
-    {city:'🇩🇪Berlin', language:'FR', persona:'🙎🏻‍♀️Clémence', price:36, sku:'BER-NL-DIE'},
-    {city:'🇸🇪Stockholm', language:'NL', persona:'🙋🏼‍♂️Gerrit', price:28, sku:'STO-NL-AGN'},
-    {city:'🇺🇸New York', language:'NL', persona:'🙋🏼‍♂️Gerrit', price:40, sku:'NYC-NL-GER'},
-    {city:'🇳🇱Amsterdam', language:'SE', persona:'🙋🏼‍♀️Agnes', price:28, sku:'AMS-FR-KAR'},
-    {city:'🇬🇧London', language:'DE', persona:'🙎🏻‍♂️Dieter', price:36, sku:'LON-DE-DIE'},
+    {city:'🇫🇷Paris', 🇺🇸language:'EN', persona:'🙎🏼Karen', price:28, sku:'PAR-EN-CLE'},
+    {city:'🇩🇪Berlin', 🇫🇷language:'FR', persona:'🙎🏻‍♀️Clémence', price:36, sku:'BER-NL-DIE'},
+    {city:'🇸🇪Stockholm', 🇳🇱language:'NL', persona:'🙋🏼‍♂️Gerrit', price:28, sku:'STO-NL-AGN'},
+    {city:'🇺🇸New York', 🇳🇱language:'NL', persona:'🙋🏼‍♂️Gerrit', price:40, sku:'NYC-NL-GER'},
+    {city:'🇳🇱Amsterdam', 🇸🇪language:'SE', persona:'🙋🏼‍♀️Agnes', price:28, sku:'AMS-FR-KAR'},
+    {city:'🇬🇧London', 🇩🇪language:'DE', persona:'🙎🏻‍♂️Dieter', price:36, sku:'LON-DE-DIE'},
   ];
 
   function productThumbSVG(title){
@@ -377,7 +377,7 @@
       el.className = 'card product';
       el.innerHTML = `
         <div class="thumb">${productThumbSVG(`${p.city} ${p.language}`)}</div>
-        <div class="title">${p.city} · ${langName(p.language)} · ${p.persona}</div>
+        <div class="title">${p.city} · ${langName(p.language)} by ${p.persona}</div>
         <div class="caption">Gorgeously Wrong. Instantly Yours.</div>
         <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px">
           <div class="price">${fmtEUR(p.price)}</div>
