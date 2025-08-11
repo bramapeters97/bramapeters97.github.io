@@ -148,6 +148,7 @@
   .title{margin:10px 0 2px; font-weight:600}
   .price{font-weight:700}
   .caption{font-size:12px; color:var(--muted);}
+  
 
   /* Cart drawer */
   .cart{position:sticky; top:88px; height:fit-content; padding:16px}
@@ -386,18 +387,18 @@
 
   // --- Best sellers
   const best = [
-    {city:'🇫🇷Paris', language:'🇺🇸English', persona:'Karen', price:28, sku:'PAR-EN-CLE'},
+    {city:'🇳🇱Amsterdam', language:'🇺🇸English', persona:'Karen', price:28, sku:'PAR-EN-CLE'},
     {city:'🇩🇪Berlin', language:'🇫🇷Français', persona:'Clémence', price:36, sku:'BER-NL-DIE'},
     {city:'🇸🇪Stockholm', language:'🇳🇱Nederlands', persona:'Gerrit', price:28, sku:'STO-NL-AGN'},
     {city:'🇺🇸New York', language:'🇳🇱Nederlands', persona:'Gerrit', price:40, sku:'NYC-NL-GER'},
-    {city:'🇳🇱Amsterdam', language: '🇸🇪Svenska', persona:'Agnes', price:28, sku:'AMS-FR-KAR'},
+    {city:'🇫🇷Paris', language: '🇸🇪Svenska', persona:'Agnes', price:28, sku:'AMS-FR-KAR'},
     {city:'🇬🇧London', language:'🇩🇪Deutsch', persona:'Dieter', price:36, sku:'LON-DE-DIE'},
   ];
 
   function productThumbSVG(title){
     // tiny inline SVG placeholder
     return `
-        <img src="img/Map/ChatGPT Image 6 aug 2025, 13_16_48.png" width="100%">
+        <a href="Maps/amsterdam_karen_1.html"><img src="img/Map/ChatGPT Image 6 aug 2025, 13_16_48.png" width="100%"></a>
     `;
   }
 

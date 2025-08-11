@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Metro Map SVG</title>
+</head>
+<body>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <style>
+        @font-face {
+      font-family: 'Helvetica Rounded';
+      src: url('fonts/HelveticaRounded-Bold.woff2') format('woff2'),
+          url('fonts/HelveticaRounded-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    text { 
+      font: 1.2px Helvetica Rounded; /* Increased 20% */
+      font-weight: 600; 
+      white-space: pre; 
+      dominant-baseline: central; 
+    }
+    line { 
+      stroke-width: 1; 
+      fill: none; 
+      stroke-linecap: round; 
+      stroke-linejoin: round; 
+    }
+    .c0 { stroke: #4395D1 }
+    .c1 { stroke: #D3382D }
+    .c2 { stroke: #F7D449 }
+    .c3 { stroke: #439755 }
+    .c4 { stroke: #E7913D }
+    .w1 { stroke-width: 1; }
+  </style>
+
+  <defs>
+    <g id="wm-xf">
+      <circle r="1.2" fill="#000"/>
+      <circle r="0.9" fill="#fff"/>
+      <circle r="0.6" fill="#000"/>
+      <circle r="0.3" fill="#fff"/>
+    </g>
+    <g id="wm">
+      <circle r="0.6" fill="#000"/>
+      <circle r="0.3" fill="#fff"/>
+    </g>
+  </defs>
+
+  <!-- Blue Line -->
+  <line class="c0" x1="67" y1="18" x2="85" y2="0"/>
+  <line class="c0" x1="11" y1="7" x2="13" y2="7"/>
+  <line class="c0" x1="58" y1="48" x2="67" y2="39"/>
+  <line class="c0" x1="67" y1="18" x2="67" y2="39"/>
+  <circle cx="15" cy="7" r="1" fill="#0080ff" />
+
+  <!-- Red Line -->
+  <line class="c1" x1="80" y1="56" x2="95" y2="56"/>
+  <line class="c1" x1="95" y1="56" x2="99" y2="60"/>
+  <line class="c1" x1="99" y1="60" x2="99" y2="69"/>
+  <line class="c1" x1="11" y1="10" x2="13" y2="10"/>
+  <line class="c1" x1="78" y1="10" x2="78" y2="54"/>
+  <line class="c1" x1="78" y1="54" x2="80" y2="56"/>
+  <circle cx="15" cy="10" r="1" fill="#ff0000" />
+
+  <!-- Yellow Line -->
+  <line class="c2" x1="77" y1="10" x2="77" y2="94"/>
+  <line class="c2" x1="11" y1="13" x2="13" y2="13"/>
+  <circle cx="15" cy="13" r="1" fill="#ffff00" />
+
+  <!-- Green Line -->
+  <line class="c3" x1="44" y1="50" x2="75" y2="50"/>
+  <line class="c3" x1="44" y1="19" x2="50" y2="19"/>
+  <line class="c3" x1="42" y1="21" x2="44" y2="19"/>
+  <line class="c3" x1="42" y1="48" x2="44" y2="50"/>
+  <line class="c3" x1="11" y1="1" x2="13" y2="1"/>
+  <line class="c3" x1="42" y1="21" x2="42" y2="48"/>
+  <line class="c3" x1="76" y1="51" x2="76" y2="94"/>
+  <line class="c3" x1="75" y1="50" x2="76" y2="51"/>
+  <circle cx="15" cy="1" r="1" fill="#00ff00" />
+
+  <!-- Orange Line -->
+  <line class="c4" x1="76" y1="10" x2="76" y2="48"/>
+  <line class="c4" x1="34" y1="109" x2="38" y2="105"/>
+  <line class="c4" x1="11" y1="4" x2="13" y2="4"/>
+  <line class="c4" x1="54" y1="105" x2="58" y2="101"/>
+  <line class="c4" x1="58" y1="51" x2="58" y2="101"/>
+  <line class="c4" x1="58" y1="49" x2="75" y2="49"/>
+  <line class="c4" x1="75" y1="49" x2="76" y2="48"/>
+  <line class="c4" x1="38" y1="105" x2="54" y2="105"/>
+  <circle cx="15" cy="4" r="1" fill="#ff8000" />
+
+  <!-- Stations -->
+  <use x="15" y="1" href="#wm-xf"/>
+  <text x="16.5" y="1">50 Isolatorweg-Gein</text>
+
+  <use x="15" y="4" href="#wm-xf"/>
+  <text x="16.5" y="4">51 Centraal Station-Westwijk</text>
+
+  <use x="15" y="7" href="#wm-xf"/>
+  <text x="16.5" y="7">52 Noord-Zuid</text>
+
+  <use x="15" y="10" href="#wm-xf"/>
+  <text x="16.5" y="10">53 Centraal Station-Gaasperplas</text>
+
+  <use x="15" y="13" href="#wm-xf"/>
+  <text x="16.5" y="13">54 Centraal Station-Gein</text>
+
+  <use x="34" y="109" href="#wm-xf"/>
+  <text x="32.5" y="109" text-anchor="end">Westwijk</text>
+
+  <use x="38" y="105" href="#wm"/>
+  <text x="37.25" y="105" text-anchor="end">Sacharovlaan</text>
+
+  <use x="42" y="23" href="#wm"/>
+  <text x="41.25" y="23" text-anchor="end">Station Sloterdijk</text>
+
+  <use x="42" y="27" href="#wm"/>
+  <text x="41.25" y="27" text-anchor="end">De Vlugtlaan</text>
+
+  <use x="42" y="31" href="#wm"/>
+  <text x="41.25" y="31" text-anchor="end">Jan van Galenstraat</text>
+
+  <use x="42" y="35" href="#wm"/>
+  <text x="41.25" y="35" text-anchor="end">Postjesweg</text>
+
+  <use x="42" y="39" href="#wm"/>
+  <text x="41.25" y="39" text-anchor="end">Station Lelylaan</text>
+
+  <use x="42" y="43" href="#wm"/>
+  <text x="41.25" y="43" text-anchor="end">Heemstedestraat</text>
+
+  <use x="42" y="47" href="#wm"/>
+  <text x="41.25" y="47" text-anchor="end">Henk Sneevlietweg</text>
+
+  <use x="42" y="105" href="#wm"/>
+  <text x="42.75" y="105" transform="rotate(45 42, 105)">Poortwachter</text>
+
+  <use x="46" y="105" href="#wm"/>
+  <text x="46.75" y="105" transform="rotate(45 46, 105)">Spinnerij</text>
+
+  <use x="50" y="19" href="#wm-xf"/>
+  <text x="51.5" y="19">Isolatorweg</text>
+
+  <use x="50" y="105" href="#wm"/>
+  <text x="50.75" y="105" transform="rotate(45 50, 105)">Brink</text>
+
+  <use x="52" y="50" href="#wm"/>
+  <text x="51.25" y="50" text-anchor="end" transform="rotate(-45 52, 50)">Amstelveenseweg</text>
+
+  <use x="54" y="105" href="#wm"/>
+  <text x="54.75" y="105" transform="rotate(45 54, 105)">Meent</text>
+
+  <use x="56" y="103" href="#wm"/>
+  <text x="56.75" y="103">Gondel</text>
+
+  <use x="58" y="48" href="#wm"/>
+  <text x="57.25" y="48" text-anchor="end">Zuid</text>
+
+  <use x="58" y="49" href="#wm"/>
+  <use x="58" y="50" href="#wm"/>
+  <use x="58" y="56" href="#wm"/>
+  <text x="58.75" y="56">De Boelelaan VU</text>
+
+  <use x="58" y="60" href="#wm"/>
+  <text x="58.75" y="60">A J Ernststraat</text>
+
+  <use x="58" y="64" href="#wm"/>
+  <text x="58.75" y="64">Van Boshuizenstraat</text>
+
+  <use x="58" y="68" href="#wm"/>
+  <text x="58.75" y="68">Uilenstede</text>
+
+  <use x="58" y="72" href="#wm"/>
+  <text x="58.75" y="72">Kronenburg</text>
+
+  <use x="58" y="76" href="#wm"/>
+  <text x="58.75" y="76">Zonnestein</text>
+
+  <use x="58" y="80" href="#wm"/>
+  <text x="58.75" y="80">Onderuit</text>
+
+  <use x="58" y="84" href="#wm"/>
+  <text x="58.75" y="84">Oranjebaan</text>
+
+  <use x="58" y="88" href="#wm"/>
+  <text x="58.75" y="88">Amstelveen Centrum</text>
+
+  <use x="58" y="92" href="#wm"/>
+  <text x="58.75" y="92">Ouderkerkerlaan</text>
+
+  <use x="58" y="96" href="#wm"/>
+  <text x="58.75" y="96">Sportlaan</text>
+
+  <use x="58" y="100" href="#wm"/>
+  <text x="58.75" y="100">Marne</text>
+
+  <use x="64" y="49" href="#wm"/>
+  <use x="64" y="50" href="#wm"/>
+  <text x="63.25" y="50" text-anchor="end" transform="rotate(-45 64, 50)">Station RAI</text>
+
+  <use x="66" y="40" href="#wm"/>
+  <text x="65.25" y="40" text-anchor="end">Europaplein</text>
+
+  <use x="67" y="24" href="#wm"/>
+  <text x="66.25" y="24" text-anchor="end">Vijzelgracht</text>
+
+  <use x="67" y="33" href="#wm"/>
+  <text x="66.25" y="33" text-anchor="end">De Pijp</text>
+
+  <use x="68" y="17" href="#wm"/>
+  <text x="67.25" y="17" text-anchor="end">Rokin</text>
+
+  <use x="70" y="49" href="#wm"/>
+  <use x="70" y="50" href="#wm"/>
+  <text x="69.25" y="50" text-anchor="end" transform="rotate(-45 70, 50)">Overamstel</text>
+
+  <use x="75" y="10" href="#wm"/>
+  <text x="74.25" y="10" text-anchor="end">Centraal Station</text>
+
+  <use x="75" y="54" href="#wm"/>
+  <use x="75" y="64" href="#wm"/>
+  <use x="75" y="82" href="#wm"/>
+
+  <use x="76" y="10" href="#wm"/>
+  <use x="76" y="16" href="#wm"/>
+  <use x="76" y="22" href="#wm"/>
+  <use x="76" y="28" href="#wm"/>
+  <use x="76" y="34" href="#wm"/>
+  <use x="76" y="40" href="#wm"/>
+  <use x="76" y="46" href="#wm"/>
+  <use x="76" y="52" href="#wm"/>
+  <use x="76" y="58" href="#wm"/>
+  <use x="76" y="64" href="#wm"/>
+  <use x="76" y="70" href="#wm"/>
+  <use x="76" y="76" href="#wm"/>
+  <use x="76" y="82" href="#wm"/>
+  <use x="76" y="88" href="#wm"/>
+  <use x="76" y="94" href="#wm"/>
+
+  <use x="77" y="10" href="#wm"/>
+  <use x="77" y="16" href="#wm"/>
+  <use x="77" y="22" href="#wm"/>
+  <use x="77" y="28" href="#wm"/>
+  <use x="77" y="34" href="#wm"/>
+  <use x="77" y="40" href="#wm"/>
+  <use x="77" y="46" href="#wm"/>
+  <use x="77" y="52" href="#wm"/>
+
+  <use x="77" y="58" href="#wm"/>
+  <text x="77.75" y="58">Station Duivendrecht</text>
+
+  <use x="77" y="64" href="#wm"/>
+  <text x="77.75" y="64">Strandvliet</text>
+
+  <use x="77" y="70" href="#wm"/>
+  <text x="77.75" y="70">Station Bijlmer ArenA</text>
+
+  <use x="77" y="76" href="#wm"/>
+  <text x="77.75" y="76">Bullewijk</text>
+
+  <use x="77" y="82" href="#wm"/>
+  <text x="77.75" y="82">Station Holendrecht</text>
+
+  <use x="77" y="88" href="#wm"/>
+  <text x="77.75" y="88">Reigersbos</text>
+
+  <use x="77" y="94" href="#wm"/>
+  <text x="77.75" y="94">Gein</text>
+
+  <use x="78" y="10" href="#wm"/>
+  <use x="78" y="16" href="#wm"/>
+  <text x="78.75" y="16">Nieuwmarkt</text>
+
+  <use x="78" y="22" href="#wm"/>
+  <text x="78.75" y="22">Waterlooplein</text>
+
+  <use x="78" y="28" href="#wm"/>
+  <text x="78.75" y="28">Weesperplein</text>
+
+  <use x="78" y="34" href="#wm"/>
+  <text x="78.75" y="34">Wibautstraat</text>
+
+  <use x="78" y="40" href="#wm"/>
+  <text x="78.75" y="40">Amstelstation</text>
+
+  <use x="78" y="46" href="#wm"/>
+  <text x="78.75" y="46">Spaklerweg</text>
+
+  <use x="78" y="52" href="#wm"/>
+  <text x="78.75" y="52">Van der Madeweg</text>
+
+  <use x="80" y="5" href="#wm"/>
+  <text x="80.75" y="5">Noorderpark</text>
+
+  <use x="85" y="0" href="#wm-xf"/>
+  <text x="86.5" y="0">Noord</text>
+
+  <use x="88" y="56" href="#wm"/>
+  <text x="88.75" y="56" transform="rotate(-45 88, 56)">Venserpolder</text>
+
+  <use x="94" y="56" href="#wm"/>
+  <text x="94.75" y="56" transform="rotate(-45 94, 56)">Station Diemen-Zuid</text>
+
+  <use x="97" y="58" href="#wm"/>
+  <text x="97.75" y="58">Verrijn Stuartweg</text>
+
+  <use x="99" y="61" href="#wm"/>
+  <text x="99.75" y="61">Ganzenhoef</text>
+
+  <use x="99" y="65" href="#wm"/>
+  <text x="99.75" y="65">Kraaiennest</text>
+
+  <use x="99" y="69" href="#wm-xf"/>
+  <text x="100.5" y="69">Gaasperplas</text>
+
+</svg>
+
+</body>
+</html>
