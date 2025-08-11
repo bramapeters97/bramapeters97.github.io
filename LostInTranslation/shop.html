@@ -31,6 +31,7 @@
     color:var(--text);
     background:var(--bg);
     font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+    background-attachment: fixed;
   }
 
   /* Layout */
@@ -51,7 +52,7 @@
     font-weight:700; letter-spacing:.5px; box-shadow:var(--shadow)
   }
   .tag{font-size:12px; color:var(--muted)}
-  main{max-width:1200px; margin:24px auto; padding:0 20px; display:grid; grid-template-columns: 1fr 360px; gap:24px}
+  main{max-width:1200px; margin:24px auto; padding:0 20px; display:grid; grid-template-columns: 1fr 500px; gap:24px}
   @media (max-width: 980px){ main{grid-template-columns:1fr} }
 
   /* Glass cards */
@@ -108,6 +109,36 @@
   }
   .preview svg{width:100%; height:100%; display:block}
 
+      .metro-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.14;
+      height: 100%;
+    }
+
+    .metro-lines svg {
+      width: 200vw;
+      height: 200vh;
+      position: absolute;
+      top: -50vh;
+      left: -50vw;
+    }
+
+    .line {
+      fill: none;
+      stroke-width: 7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .red { stroke: var(--line-red); }
+    .blue { stroke: var(--line-blue); }
+    .yellow { stroke: var(--line-yellow); }
+    .green { stroke: var(--line-green); }
+
+    .station { fill: #ffffff; }
+
   /* Best sellers grid */
   .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;}
   @media (max-width:900px){ .grid{grid-template-columns:repeat(2, 1fr)} }
@@ -128,10 +159,11 @@
   .totals{border-top:1px dashed #cfd8dc; padding-top:10px; margin-top:10px}
   .row-flex{display:flex; align-items:center; justify-content:space-between}
 
-  footer{max-width:1200px; margin:40px auto 30px; padding:0 20px; color:var(--muted); font-size:13px}
+  footer{max-width:1200px; margin:40px auto 30px; padding:20px 20px; color:var(--muted); font-size:13px}
 </style>
 </head>
 <body>
+
   <header>
     <div class="nav">
       <a class="brand" href="#">
@@ -235,7 +267,7 @@
         <div class="preview" aria-label="Poster preview">
           <div class="badge" id="badge">🇳🇱Amsterdam · 🇺🇸 ( Karen</div>
           <!-- Simple SVG “map” placeholder -->
-          <img src="nyc.png" width="100%">
+          <img src="img/Map/nyc.png" width="100%">
         </div>
         <div class="caption" style="margin-top:8px">Real preview will render your city in your language translated by one of our questionable AI-persona's.</div>
       </div>
@@ -261,7 +293,7 @@
   </main>
 
   <footer>
-    © <span id="year"></span> Lost In Translation™ — Wrong Never Looked This Good
+   © <b> <span id="year"></span> Lost In Translation™</b> — The Smartest Dumb Gift You'll Ever Buy
   </footer>
 
 <script>
