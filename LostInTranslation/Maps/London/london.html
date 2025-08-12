@@ -1,283 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      London Underground, Overground, Docklands Light Railway, and
-      Elizabeth Line — Scalable Vector Graphics Viewer
+        London Underground, Overground, Docklands Light Railway, and
+        Elizabeth Line — Scalable Vector Graphics Viewer
     </title>
-    <meta
-      name="description"
-      content="A single‑file HTML page that displays the Wikimedia Commons SVG map showing the London Underground, London Overground, Docklands Light Railway, and the Elizabeth line (Crossrail), with accessibility, fallback content, and a download link."
-    />
+    <meta name="description"
+        content="A single‑file HTML page that displays the Wikimedia Commons SVG map showing the London Underground, London Overground, Docklands Light Railway, and the Elizabeth line (Crossrail), with accessibility, fallback content, and a download link." />
 
     <style>
-      :root {
-        --page-background-color: #0f0f10;
-        --page-foreground-color: #ffffff;
-        --subdued-foreground-color: #b8bcc3;
-        --interactive-accent-color: #6ea8fe;
-        --focus-outline-color: #86b7fe;
-        --container-max-width: 1200px;
-      }
+        :root {
+            --page-background-color: #0f0f10;
+            --page-foreground-color: #ffffff;
+            --subdued-foreground-color: #b8bcc3;
+            --interactive-accent-color: #6ea8fe;
+            --focus-outline-color: #86b7fe;
+            --container-max-width: 1200px;
+        }
 
-      html, body {
-        height: 100%;
-      }
+        html,
+        body {
+            height: 100%;
+        }
 
-      body {
-        margin: 0;
-        color: var(--page-foreground-color);
-        background-color: var(--page-background-color);
-        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-          Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
-          sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-        line-height: 1.6;
-      }
+        body {
+            margin: 0;
+            color: var(--page-foreground-color);
+            background-color: var(--page-background-color);
+            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+                sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+        }
 
-      .page-wrapper {
-        min-height: 100%;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-      }
+        .page-wrapper {
+            min-height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
 
-      header.page-header,
-      footer.page-footer {
-        padding: 1.25rem;
-        border-block-end: 1px solid #1d1f22;
-      }
+        header.page-header,
+        footer.page-footer {
+            padding: 1.25rem;
+            border-block-end: 1px solid #1d1f22;
+        }
 
-      header.page-header {
-        border-block-end: 1px solid #1d1f22;
-      }
+        header.page-header {
+            border-block-end: 1px solid #1d1f22;
+        }
 
-      footer.page-footer {
-        border-block-start: 1px solid #1d1f22;
-        color: var(--subdued-foreground-color);
-      }
+        footer.page-footer {
+            border-block-start: 1px solid #1d1f22;
+            color: var(--subdued-foreground-color);
+        }
 
-      .header-inner,
-      .footer-inner,
-      .content-inner {
-        width: 100%;
-        max-width: var(--container-max-width);
-        margin-inline: auto;
-        padding-inline: 1rem;
-      }
+        .header-inner,
+        .footer-inner,
+        .content-inner {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin-inline: auto;
+            padding-inline: 1rem;
+        }
 
-      .page-title {
-        margin: 0;
-        font-weight: 700;
-        letter-spacing: 0.2px;
-      }
+        .page-title {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
 
-      main.page-main {
-        padding-block: 1.5rem 2rem;
-      }
+        main.page-main {
+            padding-block: 1.5rem 2rem;
+        }
 
-      .figure-wrapper {
-        display: grid;
-        gap: 0.75rem;
-      }
+        .figure-wrapper {
+            display: grid;
+            gap: 0.75rem;
+        }
 
-      figure.map-figure {
-        margin: 0;
-      }
+        figure.map-figure {
+            margin: 0;
+        }
 
-      .map-object-frame {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        aspect-ratio: 2100 / 1485; /* Keeps layout stable before load; adjust if needed */
-        background: #111215;
-        border: 1px solid #23262a;
-        border-radius: 12px;
-        overflow: hidden;
-      }
+        .map-object-frame {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 2100 / 1485;
+            /* Keeps layout stable before load; adjust if needed */
+            background: #111215;
+            border: 1px solid #23262a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
 
-      /* Make the embedded SVG scale responsively */
-      .map-object-frame object,
-      .map-object-frame img {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
+        /* Make the embedded SVG scale responsively */
+        .map-object-frame object,
+        .map-object-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
 
-      .figure-caption {
-        color: var(--subdued-foreground-color);
-        font-size: 0.95rem;
-      }
+        .figure-caption {
+            color: var(--subdued-foreground-color);
+            font-size: 0.95rem;
+        }
 
-      .actions-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        align-items: center;
-      }
+        .actions-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
 
-      .action-button,
-      .action-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.6rem 0.9rem;
-        border-radius: 10px;
-        border: 1px solid #2a2f36;
-        text-decoration: none;
-        color: var(--page-foreground-color);
-        background: #15171b;
-        cursor: pointer;
-      }
+        .action-button,
+        .action-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 0.9rem;
+            border-radius: 10px;
+            border: 1px solid #2a2f36;
+            text-decoration: none;
+            color: var(--page-foreground-color);
+            background: #15171b;
+            cursor: pointer;
+        }
 
-      .action-button:hover,
-      .action-link:hover {
-        background: #1a1d22;
-        border-color: #343a40;
-      }
+        .action-button:hover,
+        .action-link:hover {
+            background: #1a1d22;
+            border-color: #343a40;
+        }
 
-      .action-button:focus,
-      .action-link:focus {
-        outline: 3px solid var(--focus-outline-color);
-        outline-offset: 2px;
-      }
+        .action-button:focus,
+        .action-link:focus {
+            outline: 3px solid var(--focus-outline-color);
+            outline-offset: 2px;
+        }
 
-      .subtle-note {
-        color: var(--subdued-foreground-color);
-        font-size: 0.95rem;
-      }
+        .subtle-note {
+            color: var(--subdued-foreground-color);
+            font-size: 0.95rem;
+        }
 
-      .visually-hidden {
-        position: absolute !important;
-        width: 1px; height: 1px;
-        padding: 0; margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap; /* added line */
-        border: 0;
-      }
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            /* added line */
+            border: 0;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="page-wrapper">
-      <header class="page-header" role="banner">
-        <div class="header-inner">
-          <h1 class="page-title">
-            London Rapid Transit Network — Scalable Vector Graphics Viewer
-          </h1>
-          <p class="subtle-note" id="page-summary">
-            This page embeds the Wikimedia Commons Scalable Vector Graphics
-            file that displays the London Underground, the London Overground,
-            the Docklands Light Railway, and the Elizabeth line (Crossrail).
-            It is presented with accessible markup and a direct download link.
-          </p>
-        </div>
-      </header>
+        <header class="page-header" role="banner">
+            <div class="header-inner">
+                <h1 class="page-title">
+                    London Rapid Transit Network — Scalable Vector Graphics Viewer
+                </h1>
+                <p class="subtle-note" id="page-summary">
+                    This page embeds the Wikimedia Commons Scalable Vector Graphics
+                    file that displays the London Underground, the London Overground,
+                    the Docklands Light Railway, and the Elizabeth line (Crossrail).
+                    It is presented with accessible markup and a direct download link.
+                </p>
+            </div>
+        </header>
 
-      <main class="page-main" role="main" aria-describedby="page-summary">
-        <div class="content-inner">
-          <section
-            aria-labelledby="map-section-heading"
-            class="figure-wrapper"
-          >
-            <h2 id="map-section-heading" class="visually-hidden">
-              Embedded Scalable Vector Graphics Map
-            </h2>
+        <main class="page-main" role="main" aria-describedby="page-summary">
+            <div class="content-inner">
+                <section aria-labelledby="map-section-heading" class="figure-wrapper">
+                    <h2 id="map-section-heading" class="visually-hidden">
+                        Embedded Scalable Vector Graphics Map
+                    </h2>
 
-            <figure class="map-figure">
-              <div class="map-object-frame" role="img" aria-label="A scalable vector graphics map illustrating the London Underground, the London Overground, the Docklands Light Railway, and the Elizabeth line, including interchanges and line colors.">
-                <!--
+                    <figure class="map-figure">
+                        <div class="map-object-frame" role="img"
+                            aria-label="A scalable vector graphics map illustrating the London Underground, the London Overground, the Docklands Light Railway, and the Elizabeth line, including interchanges and line colors.">
+                            <!--
                   We use <object> with type="image/svg+xml" to preserve the SVG's
                   internal structure, allow zooming via browser, and keep a clean DOM.
                   The fallback <img> is provided within the <object> for user agents
                   that do not support inline SVG rendering.
                 -->
-                <object
-                  id="london-rapid-transit-map"
-                  data="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg"
-                  type="image/svg+xml"
-                  aria-labelledby="map-caption"
-                >
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg"
-                    alt="Static image fallback: London Underground, London Overground, Docklands Light Railway, and Elizabeth line map."
-                    loading="eager"
-                    decoding="sync"
-                  />
-                </object>
-              </div>
+                            <object id="london-rapid-transit-map"
+                                data="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg"
+                                type="image/svg+xml" aria-labelledby="map-caption">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg"
+                                    alt="Static image fallback: London Underground, London Overground, Docklands Light Railway, and Elizabeth line map."
+                                    loading="eager" decoding="sync" />
+                            </object>
+                        </div>
 
-              <figcaption id="map-caption" class="figure-caption">
-                Scalable Vector Graphics map source:
-                <span class="subtle-note">
-                  <a
-                    class="action-link"
-                    href="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg"
-                    rel="noopener"
-                  >
-                    Download the SVG file directly
-                  </a>
-                </span>
-                <br />
-                If the embedded object does not load, use the download link
-                above or the button below to obtain the original file.
-              </figcaption>
-            </figure>
+                        <figcaption id="map-caption" class="figure-caption">
+                            Scalable Vector Graphics map source:
+                            <span class="subtle-note">
+                                <a class="action-link"
+                                    href="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg"
+                                    rel="noopener">
+                                    Download the SVG file directly
+                                </a>
+                            </span>
+                            <br />
+                            If the embedded object does not load, use the download link
+                            above or the button below to obtain the original file.
+                        </figcaption>
+                    </figure>
 
-            <div class="actions-row" role="group" aria-label="Map actions">
-              <a
-                class="action-button"
-                href="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg"
-                download
-              >
-                Download the original Scalable Vector Graphics file
-              </a>
+                    <div class="actions-row" role="group" aria-label="Map actions">
+                        <a class="action-button"
+                            href="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg"
+                            download>
+                            Download the original Scalable Vector Graphics file
+                        </a>
 
-              <a
-                class="action-link"
-                href="https://commons.wikimedia.org/wiki/File:London_Underground_Overground_DLR_Crossrail_map_alt.svg"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open the Wikimedia Commons file information page in a new tab"
-              >
-                Open the file information page on Wikimedia Commons
-              </a>
+                        <a class="action-link"
+                            href="https://commons.wikimedia.org/wiki/File:London_Underground_Overground_DLR_Crossrail_map_alt.svg"
+                            target="_blank" rel="noopener"
+                            aria-label="Open the Wikimedia Commons file information page in a new tab">
+                            Open the file information page on Wikimedia Commons
+                        </a>
+                    </div>
+
+                    <p class="subtle-note" style="margin-top: 0.5rem;">
+                        Note: The Scalable Vector Graphics file is hosted by Wikimedia
+                        Commons. Please review the licensing information on the file
+                        information page before reuse or redistribution.
+                    </p>
+                </section>
             </div>
+        </main>
 
-            <p class="subtle-note" style="margin-top: 0.5rem;">
-              Note: The Scalable Vector Graphics file is hosted by Wikimedia
-              Commons. Please review the licensing information on the file
-              information page before reuse or redistribution.
-            </p>
-          </section>
-        </div>
-      </main>
-
-      <footer class="page-footer" role="contentinfo">
-        <div class="footer-inner">
-          <p>
-            This viewer page does not modify the original Scalable Vector
-            Graphics file. It only embeds and links to the original resource
-            for convenient viewing and downloading.
-          </p>
-        </div>
-      </footer>
+        <footer class="page-footer" role="contentinfo">
+            <div class="footer-inner">
+                <p>
+                    This viewer page does not modify the original Scalable Vector
+                    Graphics file. It only embeds and links to the original resource
+                    for convenient viewing and downloading.
+                </p>
+            </div>
+        </footer>
     </div>
 
     <noscript>
-      <div class="content-inner" style="padding: 1rem;">
-        <p>
-          JavaScript is not required to view this page. If the image above did
-          not load, you can still
-          <a href="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg">
-            download the Scalable Vector Graphics file directly
-          </a>.
-        </p>
-      </div>
+        <div class="content-inner" style="padding: 1rem;">
+            <p>
+                JavaScript is not required to view this page. If the image above did
+                not load, you can still
+                <a
+                    href="https://upload.wikimedia.org/wikipedia/commons/e/e2/London_Underground_Overground_DLR_Crossrail_map_alt.svg">
+                    download the Scalable Vector Graphics file directly
+                </a>.
+            </p>
+        </div>
     </noscript>
-  </body>
+</body>
+
 </html>

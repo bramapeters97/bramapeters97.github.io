@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Lost In Translation" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lost In Translation™ — Shop</title>
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #f6fafd 0%, #d9d9d9 100%);
+      --glass: rgba(255, 255, 255, 0.7);
+      --stroke: rgba(255, 255, 255, 0.35);
+      --text: #222;
+      --muted: #616161;
+      --accent: #1e8547;
+      --accent-2: #0f5a31;
+      --chip: #eef6f0;
+      --danger: #b00020;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+      background-attachment: fixed;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: saturate(1.1) blur(10px);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, .75), rgba(255, 255, 255, .35));
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      letter-spacing: .5px;
+      box-shadow: var(--shadow)
+    }
+
+    .tag {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 24px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 500px;
+      gap: 24px
+    }
+
+    @media (max-width: 980px) {
+      main {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .creator {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px
+    }
+
+    @media (max-width:900px) {
+      .creator {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 22px
+    }
+
+    .sub {
+      margin: 6px 0 18px;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .form {
+      display: grid;
+      gap: 14px
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    @media (max-width:600px) {
+      .row {
+        grid-template-columns: 1fr
+      }
+    }
+
+    label {
+      font-size: 13px;
+      color: #444;
+      display: block;
+      margin: 0 0 6px
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--stroke);
+      background: rgba(255, 255, 255, .75);
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #bcd9c7;
+      box-shadow: 0 0 0 3px #bcd9c766
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid #dfe8e3;
+      cursor: pointer;
+      user-select: none;
+      font-size: 14px;
+    }
+
+    .chip[aria-pressed="true"] {
+      outline: 2px solid #c7e6d3;
+      background: #fff
+    }
+
+    .price-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 8px
+    }
+
+    .price-line .total {
+      font-weight: 700;
+      font-size: 20px
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-2)
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--stroke)
+    }
+
+    .preview {
+      aspect-ratio: 4/5;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+      background: #111;
+      position: relative;
+    }
+
+    .preview .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 12px;
+      color: #fff;
+      background: rgba(0, 0, 0, .45);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .22);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width:900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media (max-width:560px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .product {
+      padding: 12px
+    }
+
+    .thumb {
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: #111
+    }
+
+    .thumb iframe {
+      width: 100%;
+      height: 100%;
+      border: none
+    }
+
+    .title {
+      margin: 10px 0 2px;
+      font-weight: 600
+    }
+
+    .price {
+      font-weight: 700
+    }
+
+    .caption {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .cart {
+      position: sticky;
+      top: 88px;
+      height: fit-content;
+      padding: 16px
+    }
+
+    .cart h3 {
+      margin: 0 0 10px
+    }
+
+    .cart-items {
+      display: grid;
+      gap: 12px;
+      max-height: 420px;
+      overflow: auto;
+      padding-right: 6px
+    }
+
+    .line {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center
+    }
+
+    .thumb-xs {
+      width: 52px;
+      height: 66px;
+      border: 1px solid var(--stroke);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #111
+    }
+
+    .remove {
+      background: none;
+      border: 0;
+      color: var(--danger);
+      cursor: pointer;
+      font-size: 12px
+    }
+
+    .totals {
+      border-top: 1px dashed #cfd8dc;
+      padding-top: 10px;
+      margin-top: 10px
+    }
+
+    .row-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    footer {
+      max-width: 1200px;
+      margin: 40px auto 30px;
+      padding: 20px 20px;
+      color: var(--muted);
+      font-size: 13px
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#">
+        <img class="logo" src="img/Logo/flavicon.png">
+        <div>
+          <div style="font-weight:800; letter-spacing:.2px;">Lost In Translation™</div>
+          <div class="tag">Global Transit, Local Nonsense</div>
+        </div>
+      </a>
+      <div class="tag"><b>You asked for it.</b> We did it. (<i>sorry</i>)</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card creator" aria-labelledby="create-title">
+      <div>
+        <h2 id="create-title" class="section-title">Create your own poster!</h2>
+        <p class="sub">Pick a city, pick a language, and pick one of our highly unqualified AI-travel assistants to
+          "help" you navigate. A map so wrong, it feels just right.</p>
+        <form class="form" id="creatorForm" onsubmit="event.preventDefault(); addCreatorToCart();">
+          <div class="row">
+            <div>
+              <label for="city">City</label>
+              <input id="city" required type="text" placeholder="e.g., Amsterdam, Paris, NYC" />
+            </div>
+            <div>
+              <label for="language">Language</label>
+              <select id="language" required>
+                <option value="EN">English</option>
+                <option value="NL">Dutch</option>
+                <option value="FR">French</option>
+                <option value="DE">German</option>
+                <option value="SV">Swedish</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label>AI-Travel Assistant</label>
+            <div class="chips" role="group" aria-label="Persona">
+              <button type="button" class="chip" data-persona="Karen" aria-pressed="true">🇬🇧 Karen</button>
+              <button type="button" class="chip" data-persona="Gerrit" aria-pressed="false">🇳🇱 Gerrit</button>
+              <button type="button" class="chip" data-persona="Clémence" aria-pressed="false">🇫🇷 Clémence</button>
+              <button type="button" class="chip" data-persona="Dieter" aria-pressed="false">🇩🇪 Dieter</button>
+              <button type="button" class="chip" data-persona="Agnes" aria-pressed="false">🇸🇪 Agnes</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="size">Size</label>
+              <select id="size">
+                <option value="A3" data-upcharge="0">A3 (29.7×42 cm) — +€0</option>
+                <option value="50x70" data-upcharge="8">50×70 cm — +€8</option>
+                <option value="61x91" data-upcharge="12">61×91 cm — +€12</option>
+              </select>
+            </div>
+            <div>
+              <label for="frame">Frame</label>
+              <select id="frame">
+                <option value="none" data-upcharge="0">No frame — +€0</option>
+                <option value="black" data-upcharge="18">Black wood — +€18</option>
+                <option value="white" data-upcharge="18">White wood — +€18</option>
+                <option value="oak" data-upcharge="24">Oak — +€24</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="qty">Quantity</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <div class="price-line">
+                <div>
+                  <div class="muted">Starting at €28</div>
+                  <div class="muted" id="est">Est. ship: 3–5 business days</div>
+                </div>
+                <div class="total" id="creatorTotal">€28</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <button class="btn btn-primary" type="submit">Add to cart</button>
+            <button class="btn btn-ghost" type="button" onclick="randomizePreview()" aria-label="Regenerate preview">
+              Make Dieter Work Harder
+            </button>
+          </div>
+        </form>
+        </div>
+      <div>
+        <div class="preview" aria-label="Poster preview">
+          <div class="badge" id="badge">🇳🇱Amsterdam · 🇺🇸 Karen</div>
+          <img src="img/Map/nyc.png" width="100%">
+        </div>
+        <div class="caption" style="margin-top:8px">Real preview will render your city in your language translated by
+          one of our questionable AI-persona's.</div>
+      </div>
+    </section>
+
+    <section class="card product" aria-labelledby="best-title">
+      <h3 id="best-title" class="section-title" style="padding:12px 12px 0">🚄The <i>Tr<span
+            style="font-weight: 300; margin: 1px;">ai</span>nwreck</i>-Collection</h3>
+      <div class="grid" id="bestGrid" style="padding:0 12px 12px"></div>
+    </section>
+
+    <aside class="card cart" aria-labelledby="cart-title">
+      <h3 id="cart-title">Your cart</h3>
+      <div class="cart-items" id="cartItems" aria-live="polite"></div>
+      <div class="totals">
+        <div class="row-flex"><span>Subtotal</span><strong id="subtotal">€0</strong></div>
+        <div class="row-flex muted"><span>Shipping</span><span>Calculated at checkout</span></div>
+        <div class="row-flex" style="margin-top:6px; font-size:18px"><span>Total</span><strong id="grand">€0</strong>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="margin-top:12px; width:100%" onclick="checkout()">Checkout</button>
+      <div class="caption" style="margin-top:8px">Secure payments • 3–5 biz days • Printed in NL 🇳🇱</div>
+    </aside>
+  </main>
+
+  <footer>
+    © <b><span id="year"></span> Lost In Translation™</b> — The Smartest Dumb Gift You'll Ever Buy
+  </footer>
+
+<script>
+  // --- Utilities
+  const fmtEUR = (n) => `€${n.toFixed(0)}`;
+  const round = (n) => Math.round((n + Number.EPSILON) * 100) / 100;
+
+  // --- State
+  const BASE_PRICE = 28;
+  const cart = [];
+
+  // --- Persona chips
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
+      chip.setAttribute('aria-pressed', 'true');
+      updateBadge();
+      randomizePreview(0); // subtle refresh
+      calcCreatorPrice();
+    });
+  });
+
+  // --- Preview badge & form fields
+  const cityEl = document.getElementById('city');
+  const langEl = document.getElementById('language');
+  const sizeEl = document.getElementById('size');
+  const frameEl = document.getElementById('frame');
+  const qtyEl = document.getElementById('qty');
+  const totalEl = document.getElementById('creatorTotal');
+  const badgeEl = document.getElementById('badge');
+
+  [cityEl, langEl, sizeEl, frameEl, qtyEl].forEach(el => el.addEventListener('input', () => {
+    updateBadge();
+    calcCreatorPrice();
+  }));
+
+  function currentPersona() {
+    const p = [...document.querySelectorAll('.chip')].find(c => c.getAttribute('aria-pressed') === 'true');
+    return p ? p.dataset.persona : 'Karen';
+  }
+
+  function updateBadge() {
+    const city = cityEl.value || 'Amsterdam';
+    const langName = ({
+      EN: '🇬🇧English',
+      NL: '🇳🇱Dutch',
+      FR: '🇫🇷French',
+      DE: '🇩🇪German',
+      SV: '🇸🇪Swedish'
+    })[langEl.value] || 'English';
+    badgeEl.textContent = `${city} · ${langName} by ${currentPersona()}`;
+  }
+
+  function calcCreatorPrice() {
+    const sizeUp = Number(sizeEl.selectedOptions[0].dataset.upcharge || 0);
+    const frameUp = Number(frameEl.selectedOptions[0].dataset.upcharge || 0);
+    const qty = Number(qtyEl.value || 1);
+    const unit = BASE_PRICE + sizeUp + frameUp;
+    totalEl.textContent = fmtEUR(unit * qty);
+    return {
+      unit,
+      qty,
+      total: unit * qty
+    };
+  }
+
+  // --- Simple “randomize preview” (just jogs line coordinates)
+  function randomizePreview(jitter = 10) {
+    const l1 = document.getElementById('L1');
+    const l2 = document.getElementById('L2');
+    const l3 = document.getElementById('L3');
+    [l1, l2, l3].forEach(poly => {
+      const pts = poly.getAttribute('points').trim().split(' ').map(pair => {
+        let [x, y] = pair.split(',').map(Number);
+        x += (Math.random() - .5) * jitter;
+        y += (Math.random() - .5) * jitter;
+        return `${Math.max(20,Math.min(780,x)).toFixed(0)},${Math.max(120,Math.min(960,y)).toFixed(0)}`;
+      });
+      poly.setAttribute('points', pts.join(' '));
+    });
+  }
+
+  // --- Add from creator
+  function addCreatorToCart() {
+    const {
+      unit,
+      qty,
+      total
+    } = calcCreatorPrice();
+    const item = {
+      id: crypto.randomUUID(),
+      type: 'custom',
+      city: cityEl.value || 'Amsterdam',
+      language: langEl.value,
+      persona: currentPersona(),
+      size: sizeEl.value,
+      frame: frameEl.value,
+      qty,
+      unit,
+      total
+    };
+    cart.push(item);
+    renderCart();
+    // simple toast
+    alert('Added to cart!');
+  }
+
+  // --- Best sellers
+  const best = [{
+      city: '🇳🇱Amsterdam',
+      language: '🇺🇸English',
+      persona: 'Karen',
+      price: 28,
+      sku: 'PAR-EN-CLE'
+    },
+    {
+      city: '🇩🇪Berlin',
+      language: '🇫🇷Français',
+      persona: 'Clémence',
+      price: 36,
+      sku: 'BER-NL-DIE'
+    },
+    {
+      city: '🇸🇪Stockholm',
+      language: '🇳🇱Nederlands',
+      persona: 'Gerrit',
+      price: 28,
+      sku: 'STO-NL-AGN'
+    },
+    {
+      city: '🇺🇸New York',
+      language: '🇳🇱Nederlands',
+      persona: 'Gerrit',
+      price: 40,
+      sku: 'NYC-NL-GER'
+    },
+    {
+      city: '🇫🇷Paris',
+      language: '🇸🇪Svenska',
+      persona: 'Agnes',
+      price: 28,
+      sku: 'AMS-FR-KAR'
+    },
+    {
+      city: '🇬🇧London',
+      language: '🇩🇪Deutsch',
+      persona: 'Dieter',
+      price: 36,
+      sku: 'LON-DE-DIE'
+    },
+  ];
+
+  function productThumbSVG(title) {
+    // tiny inline SVG placeholder
+    return `
+        <a href="Maps/Amsterdam/amsterdam.html"> <iframe src="Maps/Amsterdam/amsterdam_dieter.html"
+            style="height: 100%"></iframe>
+</a>
+    `;
+  }
+
+  function renderBest() {
+    const grid = document.getElementById('bestGrid');
+    grid.innerHTML = '';
+    best.forEach(p => {
+      const el = document.createElement('div');
+      el.className = 'card product';
+      el.innerHTML = `
+        <div class="thumb">${productThumbSVG(`${p.city} ${p.language}`)}</div>
+        <div class="title">${p.city} · ${langName(p.language)} by ${p.persona}</div>
+        <div class="caption">Gorgeously Wrong. Instantly Yours.</div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:8px">
+          <div class="price">${fmtEUR(p.price)}</div>
+          <button class="btn btn-primary" aria-label="Add ${p.city} poster to cart">Add</button>
+        </div>
+      `;
+      el.querySelector('button').addEventListener('click', () => {
+        cart.push({
+          id: crypto.randomUUID(),
+          type: 'preset',
+          city: p.city,
+          language: p.language,
+          persona: p.persona,
+          size: 'A3',
+          frame: 'none',
+          qty: 1,
+          unit: p.price,
+          total: p.price
+        });
+        renderCart();
+      });
+      grid.appendChild(el);
+    });
+  }
+
+  function langName(code) {
+    return ({
+      EN: 'English',
+      NL: 'Dutch',
+      FR: 'French',
+      DE: 'German',
+      SV: 'Swedish'
+    })[code] || code;
+  }
+
+  // --- Cart rendering
+  function renderCart() {
+    const wrap = document.getElementById('cartItems');
+    wrap.innerHTML = '';
+    if (cart.length === 0) {
+      wrap.innerHTML = `<div class="caption">Your cart is empty. Start by adding a cultural disaster.</div>`;
+    }
+    let subtotal = 0;
+    cart.forEach(item => {
+      subtotal += item.total;
+      const line = document.createElement('div');
+      line.className = 'line';
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb-xs';
+      thumb.innerHTML = productThumbSVG(`${item.city} ${item.language}`);
+      const info = document.createElement('div');
+      const title = (item.type === 'custom') ?
+        `${item.city} · ${langName(item.language)} · ${item.persona}` :
+        `${item.city} · ${langName(item.language)} · ${item.persona}`;
+      info.innerHTML = `
+        <div style="font-weight:600">${title}</div>
+        <div class="caption">Size: ${item.size} · Frame: ${item.frame} · Qty: ${item.qty}</div>
+        <button class="remove" aria-label="Remove item">Remove</button>
+      `;
+      const price = document.createElement('div');
+      price.style.fontWeight = '700';
+      price.textContent = fmtEUR(item.total);
+
+      info.querySelector('.remove').addEventListener('click', () => {
+        const idx = cart.findIndex(c => c.id === item.id);
+        if (idx > -1) {
+          cart.splice(idx, 1);
+          renderCart();
+        }
+      });
+
+      line.appendChild(thumb);
+      line.appendChild(info);
+      line.appendChild(price);
+      wrap.appendChild(line);
+    });
+    document.getElementById('subtotal').textContent = fmtEUR(subtotal);
+    document.getElementById('grand').textContent = fmtEUR(subtotal);
+  }
+
+  // --- Fake checkout
+  function checkout() {
+    if (cart.length === 0) {
+      alert('Your cart is empty.');
+      return;
+    }
+    // In production: redirect to Shopify/Stripe/etc.
+    alert('Proceeding to checkout… (wire to your provider)');
+  }
+
+  // Init
+  document.getElementById('year').textContent = new Date().getFullYear();
+  renderBest();
+  updateBadge();
+  calcCreatorPrice();
+</script>
+</body>
+</html>
