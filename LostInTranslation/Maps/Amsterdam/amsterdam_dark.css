@@ -1,0 +1,37 @@
+body {
+    background-color: #3E3A47;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+text { 
+  font: 1.2px "Helvetica Rounded", "Arial Rounded MT Bold", Arial, sans-serif; /* Increased 20% */
+  font-weight: 600; 
+  white-space: pre; 
+  dominant-baseline: central;
+  fill: #F4EDE7;
+}
+
+/* Shared stroke styling; round caps & joins produce smooth corners on continuous paths */
+.line, line { 
+  stroke-width: 1; 
+  fill: none; 
+  stroke-linecap: round; 
+  stroke-linejoin: round; 
+}
+
+/* Line colors (GVB-inspired palette from your last file) */
+.c0 { stroke: #7BBDE4 } /* Blue */
+.c1 { stroke: #E56A60 } /* Red */
+.c2 { stroke: #FBE37B } /* Yellow */
+.c3 { stroke: #72B384 } /* Green */
+.c4 { stroke: #F0A45B } /* Orange */
+
+.w1 { stroke-width: 1; }
+/* Embedded Helvetica Rounded (requires your licensed files in /fonts) */ 
+@font-face { 
+  font-family: 'Helvetica Rounded', Arial, Helvetica, sans-serif; 
+  src: url('fonts/HelveticaRounded-Bold.woff2') format('woff2'), 
+  url('fonts/HelveticaRounded-Bold.woff') format('woff'); 
+  font-weight: bold; font-style: normal; font-display: swap; 
+}

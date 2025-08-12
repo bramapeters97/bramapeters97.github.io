@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Amsterdam Metro | Dieter (DE)</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Lost In Translation" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="amsterdam_dark.css" />
+</head>
+
+<body>
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+    <defs>
+      <g id="wm-xf">
+        <circle r="1.2" fill="#000" />
+        <circle r="0.9" fill="#fff" />
+        <circle r="0.6" fill="#000" />
+        <circle r="0.3" fill="#fff" />
+      </g>
+      <g id="wm">
+        <circle r="0.6" fill="#000" />
+        <circle r="0.3" fill="#fff" />
+      </g>
+    </defs>
+
+    <!-- ========================= METRO LINIEN (Runde Ecken) ========================= -->
+    <path class="line c0" d="M85 0 L67 18 L67 39 L58 48" />
+    <path class="line c1" d="M78 10 L78 54 L80 56 L95 56 L99 60 L99 69" />
+    <path class="line c2" d="M77 10 L77 94" />
+    <path class="line c3" d="M50 19 L44 19 L42 21 L42 48 L44 50 L75 50 L76 51 L76 94" />
+    <path class="line c4" d="M50 20 L44 20 L43 21 L43 48" />
+    <path class="line c4" d="M76 10 L76 48 L75 49 L44 49 L43 48" />
+
+    <!-- Legende -->
+    <line class="c0" x1="11" y1="7" x2="13" y2="7" />
+    <line class="c1" x1="11" y1="10" x2="13" y2="10" />
+    <line class="c2" x1="11" y1="13" x2="13" y2="13" />
+    <line class="c3" x1="11" y1="1" x2="13" y2="1" />
+    <line class="c4" x1="11" y1="4" x2="13" y2="4" />
+    <circle cx="15" cy="7" r="1" fill="#0080ff" />
+    <circle cx="15" cy="10" r="1" fill="#ff0000" />
+    <circle cx="15" cy="13" r="1" fill="#ffff00" />
+    <circle cx="15" cy="1" r="1" fill="#00ff00" />
+    <circle cx="15" cy="4" r="1" fill="#ff8000" />
+
+    <!-- ========================= LINIEN (VERSALIEN BEIBEHALTEN) ========================= -->
+    <use x="15" y="10" href="#wm-xf" /> <text x="16.5" y="10">M53 ZENTRALBAHNHOF-GAASPERSEE</text>
+    <use x="15" y="13" href="#wm-xf" /> <text x="16.5" y="13">M54 ZENTRALBAHNHOF-GEIN</text>
+    <use x="15" y="4" href="#wm-xf" /> <text x="16.5" y="4">M51 ZENTRALBAHNHOF-ISOLATORWEG</text>
+    <use x="15" y="1" href="#wm-xf" /> <text x="16.5" y="1">M50 ISOLATORWEG-GEIN</text>
+    <use x="15" y="7" href="#wm-xf" /> <text x="16.5" y="7">M52 NORD-SÜD</text>
+
+    <!-- ========================= NS (VERSALIEN, FUNKTIONAL-DEUTSCH) ========================= -->
+    <use x="42" y="23" href="#wm" />
+    <text x="41.25" y="23" text-anchor="end">BAHNHOF SCHLEUSENDEICH</text>
+
+    <use x="42" y="39" href="#wm" />
+    <text x="41.25" y="39" text-anchor="end">BAHNHOF LELY-ALLEE</text>
+
+    <use x="58" y="48" href="#wm" />
+    <text x="57.25" y="48" text-anchor="end" transform="rotate(-45 62, 49)">BAHNHOF SÜD</text>
+
+    <use x="64" y="50" href="#wm" />
+    <text x="63.25" y="50" text-anchor="end" transform="rotate(-45 66, 49)">BAHNHOF RAI</text>
+
+    <use x="76" y="10" href="#wm" />
+    <text x="74.25" y="10" text-anchor="end">ZENTRALBAHNHOF</text>
+
+    <use x="77" y="58" href="#wm" />
+    <text x="77.75" y="58">BAHNHOF TAUBENFURT</text>
+
+    <use x="77" y="70" href="#wm" />
+    <text x="77.75" y="70">BAHNHOF BIJLMER ARENA</text>
+
+    <use x="77" y="82" href="#wm" />
+    <text x="77.75" y="82">BAHNHOF HOHLFURT</text>
+
+    <use x="78" y="40" href="#wm" />
+    <text x="78.75" y="40">AMSTELBAHNHOF</text>
+
+    <use x="94" y="56" href="#wm" />
+    <text x="94.75" y="56" transform="rotate(-45 94, 56)">BAHNHOF DIEMEN-SÜD</text>
+
+    <!-- ========================= METRO (DIETER: STANDARDISIERT, WÖRTLICH) ========================= -->
+    <use x="42" y="27" href="#wm" />
+    <text x="41.25" y="27" text-anchor="end">Vlugt-Allee</text>
+
+    <use x="42" y="31" href="#wm" />
+    <text x="41.25" y="31" text-anchor="end">Jan-van-Galen-Straße</text>
+
+    <use x="42" y="35" href="#wm" />
+    <text x="41.25" y="35" text-anchor="end">Postjesweg</text>
+
+    <use x="42" y="43" href="#wm" />
+    <text x="41.25" y="43" text-anchor="end">Heemstede-Straße</text>
+
+    <use x="42" y="47" href="#wm" />
+    <text x="41.25" y="47" text-anchor="end">Henk-Sneevliet-Weg</text>
+
+    <use x="50" y="19.5" href="#wm-xf" />
+    <text x="51.5" y="19.5">Isolatorweg</text>
+
+    <use x="52" y="50" href="#wm" />
+    <text x="50.75" y="52" text-anchor="end" transform="rotate(-45, 51.25 50)">Amstelveen-Weg</text>
+
+    <use x="66" y="40" href="#wm" />
+    <text x="65.25" y="40" text-anchor="end">Europa-Platz</text>
+
+    <use x="67" y="24" href="#wm" />
+    <text x="66.25" y="24" text-anchor="end">Mörser-Gracht</text>
+
+    <use x="67" y="33" href="#wm" />
+    <text x="66.25" y="33" text-anchor="end">Die Röhre</text>
+
+    <use x="68" y="17" href="#wm" />
+    <text x="66.25" y="17" text-anchor="end">Rokin</text>
+
+    <use x="70" y="50" href="#wm" />
+    <text x="68.25" y="51" text-anchor="end" transform="rotate(-45 70, 49)">Überamstel</text>
+
+    <use x="77" y="64" href="#wm" />
+    <text x="77.750" y="64">Strand-Fleet</text>
+
+    <use x="77" y="76" href="#wm" />
+    <text x="77.75" y="76">Bullen-Bach</text>
+
+    <use x="77" y="88" href="#wm" />
+    <text x="77.75" y="88">Reiher-Wald</text>
+
+    <use x="76.5" y="94" href="#wm-xf" />
+    <text x="78.25" y="94">Gein</text>
+
+    <use x="78" y="16" href="#wm" />
+    <text x="78.75" y="16">Neumarkt</text>
+
+    <use x="78" y="22" href="#wm" />
+    <text x="78.75" y="22">Waterloo-Platz</text>
+
+    <use x="78" y="28" href="#wm" />
+    <text x="78.75" y="28">Weesper-Platz</text>
+
+    <use x="78" y="34" href="#wm" />
+    <text x="78.75" y="34">Wibaut-Straße</text>
+
+    <use x="78" y="46" href="#wm" />
+    <text x="78.75" y="46">Spakler-Weg</text>
+
+    <use x="78" y="52" href="#wm" />
+    <text x="78.75" y="52">Van-der-Made-Weg</text>
+
+    <use x="80" y="5" href="#wm" />
+    <text x="80.75" y="5">Nordpark</text>
+
+    <use x="85" y="0" href="#wm-xf" />
+    <text x="86.5" y="0">Nord</text>
+
+    <use x="88" y="56" href="#wm" />
+    <text x="88.75" y="56" transform="rotate(-45 88, 56)">Venser-Polder</text>
+
+    <use x="97" y="58" href="#wm" />
+    <text x="97.75" y="58">Verrijn-Stuart-Weg</text>
+
+    <use x="99" y="61" href="#wm" />
+    <text x="99.75" y="61">Gänse-Hof</text>
+
+    <use x="99" y="65" href="#wm" />
+    <text x="99.75" y="65">Krähen-Nest</text>
+
+    <use x="99" y="69" href="#wm-xf" />
+    <text x="100.5" y="69">Gaasper-See</text>
+
+    <!-- Liniensegmente -->
+    <use x="58" y="49" href="#wm" />
+    <use x="58" y="50" href="#wm" />
+    <use x="64" y="49" href="#wm" />
+    <use x="70" y="49" href="#wm" />
+    <use x="76" y="10" href="#wm" />
+    <use x="76" y="16" href="#wm" />
+    <use x="76" y="22" href="#wm" />
+    <use x="76" y="28" href="#wm" />
+    <use x="76" y="34" href="#wm" />
+    <use x="76" y="40" href="#wm" />
+    <use x="76" y="46" href="#wm" />
+    <use x="76" y="52" href="#wm" />
+    <use x="76" y="58" href="#wm" />
+    <use x="76" y="64" href="#wm" />
+    <use x="76" y="70" href="#wm" />
+    <use x="76" y="76" href="#wm" />
+    <use x="76" y="82" href="#wm" />
+    <use x="76" y="88" href="#wm" />
+    <use x="76" y="94" href="#wm" />
+    <use x="77" y="10" href="#wm" />
+    <use x="77" y="16" href="#wm" />
+    <use x="77" y="22" href="#wm" />
+    <use x="77" y="28" href="#wm" />
+    <use x="77" y="34" href="#wm" />
+    <use x="77" y="40" href="#wm" />
+    <use x="77" y="46" href="#wm" />
+    <use x="77" y="52" href="#wm" />
+    <use x="78" y="10" href="#wm" />
+  </svg>
+</body>
+
+</html>
