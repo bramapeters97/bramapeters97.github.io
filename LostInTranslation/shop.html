@@ -204,16 +204,48 @@
             </div>
           </div>
 
-          <div>
-            <label>AI-Travel Assistant</label>
-            <div class="chips" role="group" aria-label="Persona">
-              <button type="button" class="chip" data-persona="Karen" aria-pressed="true">🇬🇧 Karen</button>
-              <button type="button" class="chip" data-persona="Gerrit" aria-pressed="false">🇳🇱 Gerrit</button>
-              <button type="button" class="chip" data-persona="Clémence" aria-pressed="false">🇫🇷 Clémence</button>
-              <button type="button" class="chip" data-persona="Dieter" aria-pressed="false">🇩🇪 Dieter</button>
-              <button type="button" class="chip" data-persona="Agnes" aria-pressed="false">🇸🇪 Agnes</button>
-            </div>
-          </div>
+<!-- ... previous code unchanged ... -->
+<div>
+  <label>AI-Travel Assistant</label>
+  <div class="chips" role="group" aria-label="Persona">
+    <button type="button" class="chip" data-persona="Karen" aria-pressed="true">🇬🇧 Karen</button>
+    <button type="button" class="chip" data-persona="Gerrit" aria-pressed="false">🇳🇱 Gerrit</button>
+    <button type="button" class="chip" data-persona="Clémence" aria-pressed="false">🇫🇷 Clémence</button>
+    <button type="button" class="chip" data-persona="Dieter" aria-pressed="false">🇩🇪 Dieter</button>
+    <button type="button" class="chip" data-persona="Agnes" aria-pressed="false">🇸🇪 Agnes</button>
+  </div>
+</div>
+<!-- New customization options -->
+<div>
+  <label>Customization</label>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start;">
+
+    <div>
+      <span style="font-size:13px; color:#444;">Assistant's signature</span><br>
+      <label><input type="radio" name="signature" value="on" checked> On</label>
+      <label><input type="radio" name="signature" value="off"> Off</label>
+    </div>
+
+    <div>
+      <span style="font-size:13px; color:#444;">Light / Dark</span><br>
+      <label><input type="radio" name="theme" value="light" checked> Light</label>
+      <label><input type="radio" name="theme" value="dark"> Dark</label>
+    </div>
+
+    <div>
+      <span style="font-size:13px; color:#444;">Map legend</span><br>
+      <label><input type="radio" name="legend" value="on" checked> On</label>
+      <label><input type="radio" name="legend" value="off"> Off</label>
+    </div>
+
+    <div>
+      <span style="font-size:13px; color:#444;">Colored lines / B&amp;W</span><br>
+      <label><input type="radio" name="colorlines" value="color" checked> Colored</label>
+      <label><input type="radio" name="colorlines" value="bw"> Black &amp; White</label>
+    </div>
+
+  </div>
+</div>
 
           <div class="row">
             <div>
@@ -268,7 +300,7 @@
         <div class="preview" aria-label="Poster preview">
           <div class="badge" id="badge">🇳🇱Amsterdam · 🇺🇸 ( Karen</div>
           <!-- Simple SVG “map” placeholder -->
-          <img src="img/Map/nyc.png" width="100%">
+          <img src="img/Map/amsterdam.jpg" width="100%">
         </div>
         <div class="caption" style="margin-top:8px">Real preview will render your city in your language translated by one of our questionable AI-persona's.</div>
       </div>
@@ -398,7 +430,7 @@
   function productThumbSVG(title){
     // tiny inline SVG placeholder
     return `
-        <a href="Maps/Amsterdam/amsterdam.html"><img src="img/Map/ChatGPT Image 6 aug 2025, 13_16_48.png" width="100%"></a>
+        <a href="Maps/Amsterdam/amsterdam.html"><img src="img/Map/amsterdam.jpg" width="100%"></a>
     `;
   }
 
