@@ -5,6 +5,9 @@
   <title>Map Poster — Stokhollum</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Thin, authentic handwritten font for the signature -->
+  <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+
   <style>
     /* ---- PRINT SETUP ---- */
     @page { size: A3 portrait; margin: 0; }
@@ -13,8 +16,7 @@
       --m-left: 10%;
       --m-right: 10%;
       --m-top: 10%;
-      --m-bottom: 30%;
-      --footer-top: calc(100% - var(--m-bottom) + 2.2%);
+      --m-bottom: 15%; /* decreased from 30% */
     }
 
     /* Reset */
@@ -26,7 +28,7 @@
       color: #000;
       -webkit-font-smoothing: antialiased;
       font-smooth: always;
-      /* Clean, modern system font stack */
+      /* Clean, modern system stack */
       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
                    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
                    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -52,6 +54,7 @@
       background: #e8e8e8;
       border: 1px solid #bdbdbd;
     }
+    /* Subtle “image placeholder” vibe */
     .map-placeholder::before,
     .map-placeholder::after{
       content: "";
@@ -77,54 +80,54 @@
       letter-spacing: .12em;
     }
     .city {
+      /* ~30% larger than before */
       font-weight: 300;
-      font-size: clamp(16pt, 6.4vw, 38pt);
-      line-height: 1.15;
+      font-size: clamp(21pt, 8.3vw, 50pt);
+      line-height: 1.12;
       text-transform: uppercase;
     }
     .subtitle {
       display: block;
-      margin-top: .25em;
+      margin-top: .3em;
       font-weight: 200;
-      font-size: clamp(8pt, 2.2vw, 14pt);
+      font-size: clamp(11pt, 2.9vw, 18pt); /* ~30% larger */
       letter-spacing: .22em;
       text-transform: lowercase;
     }
 
-    /* ---- BRAND (bottom-left) ---- */
-    .brand {
+    /* ---- LOWER CORNER ELEMENTS (vertical, fully below title) ---- */
+    .corner {
       position: absolute;
-      left: var(--m-left);
-      top: var(--footer-top);
+      bottom: 2.5%;
       width: 10%;
-      min-width: 80px;
-      line-height: 1.25;
+      min-width: 70px;
+      line-height: 1.2;
+      writing-mode: vertical-rl;     /* vertical layout */
+      text-orientation: mixed;
+      text-align: center;
+      letter-spacing: .06em;
+    }
+
+    .brand {
+      left: var(--m-left);
     }
     .brand .name {
-      font-weight: 400;
-      font-size: clamp(8pt, 1.6vw, 12pt);
-      letter-spacing: .06em;
+      font-weight: 500;
+      font-size: clamp(7pt, 1.5vw, 11pt);
     }
     .brand .slogan {
       margin-top: .35em;
       font-weight: 300;
       font-size: clamp(6pt, 1.3vw, 9pt);
-      letter-spacing: .12em;
       opacity: .95;
     }
 
-    /* ---- SIGNATURE (bottom-right) ---- */
     .signature {
-      position: absolute;
       right: var(--m-right);
-      top: var(--footer-top);
-      /* Handwritten-feel without external fonts */
-      font-family: "Bradley Hand", "Segoe Print", "Comic Sans MS", "Apple Chancery",
-                   "Snell Roundhand", cursive;
-      font-weight: 600;
-      font-size: clamp(14pt, 3.6vw, 24pt);
-      transform: translateY(-0.15em);
-      white-space: nowrap;
+      font-family: "Reenie Beanie", cursive; /* thinner, more authentic */
+      font-weight: 400;
+      font-size: clamp(12pt, 3.2vw, 22pt);
+      letter-spacing: 0;
     }
 
     /* Screen helper — center the poster on page */
@@ -145,14 +148,14 @@
       <span id="subtitle" class="subtitle">spoorkaart</span>
     </div>
 
-    <!-- Lower-left brand -->
-    <div class="brand" aria-label="Brand">
+    <!-- Lower-left brand (vertical) -->
+    <div class="corner brand" aria-label="Brand">
       <div class="name">Lost In Translation</div>
       <div class="slogan">Global Transit, Local Nonsense</div>
     </div>
 
-    <!-- Lower-right signature -->
-    <div class="signature" aria-label="Signature">by Gerrit</div>
+    <!-- Lower-right signature (vertical) -->
+    <div class="corner signature" aria-label="Signature">by Gerrit</div>
   </main>
 </body>
 </html>
