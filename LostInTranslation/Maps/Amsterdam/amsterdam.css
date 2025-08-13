@@ -1,8 +1,8 @@
 body {
-      background-color: #3E3A47;
-      margin: 0;
-      font-family: "Helvetica Rounded", "Arial Rounded MT Bold", Arial, sans-serif;
-    }
+    background-color: #FAF1EA; /* Light, warm background */
+    padding-top: 20px;
+    margin-top: 10px;
+}
 
     header {
       display: flex;
@@ -27,13 +27,13 @@ body {
     margin-bottom:20px
     }
 
-    text {
-      font: 1.2px "Helvetica Rounded", "Arial Rounded MT Bold", Arial, sans-serif;
-      font-weight: 600;
-      white-space: pre;
-      dominant-baseline: central;
-      fill: #F4EDE7;
-    }
+    text { 
+  font: 1.2px "Helvetica Rounded", "Arial Rounded MT Bold", Arial, sans-serif; /* Increased 20% */
+  font-weight: 600; 
+  white-space: pre; 
+  dominant-baseline: central; 
+  fill: #222; /* Dark text for light background */
+}
 
     .line,
     line {
@@ -75,20 +75,7 @@ body {
       font-style: normal;
       font-display: swap;
     }
-    
-    body {
-    background-color: #FAF1EA; /* Light, warm background */
-    padding-top: 20px;
-    margin-top: 10px;
-}
 
-text { 
-  font: 1.2px "Helvetica Rounded", "Arial Rounded MT Bold", Arial, sans-serif; /* Increased 20% */
-  font-weight: 600; 
-  white-space: pre; 
-  dominant-baseline: central; 
-  fill: #222; /* Dark text for light background */
-}
 
 /* Shared stroke styling; round caps & joins produce smooth corners on continuous paths */
 .line, line { 
@@ -104,16 +91,4 @@ text {
 .c2 { stroke: #F7D449 } /* Yellow */
 .c3 { stroke: #439755 } /* Green */
 .c4 { stroke: #E7913D } /* Orange */
-
 .w1 { stroke-width: 1; }
-
-/* Embedded Helvetica Rounded (requires your licensed files in /fonts) */ 
-@font-face { 
-  font-family: 'Helvetica Rounded', Arial, Helvetica, sans-serif; 
-  src: url('fonts/HelveticaRounded-Bold.woff2') format('woff2'), 
-       url('fonts/HelveticaRounded-Bold.woff') format('woff'); 
-  font-weight: bold; 
-  font-style: normal; 
-  font-display: swap; 
-}
- 
