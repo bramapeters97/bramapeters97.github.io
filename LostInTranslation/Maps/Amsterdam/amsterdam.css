@@ -1,39 +1,76 @@
 body {
-    background-color: #FAF1EA;
-    padding-top: 20px;
-    margin-top: 10px;
-}
+      background-color: #3E3A47;
+      margin: 0;
+      font-family: "Helvetica Rounded", "Arial Rounded MT Bold", Arial, sans-serif;
+    }
 
-text { 
-  font: 1.2px "Helvetica Rounded", "Arial Rounded MT Bold", Arial, sans-serif; /* Increased 20% */
-  font-weight: 600; 
-  white-space: pre; 
-  dominant-baseline: central; 
-}
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 20px;
+      background-color: transparent;
+    }
 
-/* Shared stroke styling; round caps & joins produce smooth corners on continuous paths */
-.line, line { 
-  stroke-width: 1; 
-  fill: none; 
-  stroke-linecap: round; 
-  stroke-linejoin: round; 
-}
+    header img {
+      height: 48px;
+      width: auto;
+    }
 
-/* Line colors (GVB-inspired palette from your last file) */
-  .c0 { stroke:#4395D1; color:#4395D1; }
-  .c1 { stroke:#D3382D; color:#D3382D; }
-  .c2 { stroke:#F7D449; color:#F7D449; }
-  .c3 { stroke:#439755; color:#439755; }
-  .c4 { stroke:#E7913D; color:#E7913D; }
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #F4EDE7;
+      margin: 0;
+    }
 
-  /* Keep your existing .line styles as-is */
-  .line { stroke-linejoin:round; stroke-linecap:round; }
+    text {
+      font: 1.2px "Helvetica Rounded", "Arial Rounded MT Bold", Arial, sans-serif;
+      font-weight: 600;
+      white-space: pre;
+      dominant-baseline: central;
+      fill: #F4EDE7;
+    }
 
-.w1 { stroke-width: 1; }
-/* Embedded Helvetica Rounded (requires your licensed files in /fonts) */ 
-@font-face { 
-  font-family: 'Helvetica Rounded', Arial, Helvetica, sans-serif; 
-  src: url('fonts/HelveticaRounded-Bold.woff2') format('woff2'), 
-  url('fonts/HelveticaRounded-Bold.woff') format('woff'); 
-  font-weight: bold; font-style: normal; font-display: swap; 
-}
+    .line,
+    line {
+      stroke-width: 1;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .c0 {
+      stroke: #7BBDE4
+    }
+
+    .c1 {
+      stroke: #E56A60
+    }
+
+    .c2 {
+      stroke: #FBE37B
+    }
+
+    .c3 {
+      stroke: #72B384
+    }
+
+    .c4 {
+      stroke: #F0A45B
+    }
+
+    .w1 {
+      stroke-width: 1;
+    }
+
+    @font-face {
+      font-family: 'Helvetica Rounded', Arial, Helvetica, sans-serif;
+      src: url('fonts/HelveticaRounded-Bold.woff2') format('woff2'),
+        url('fonts/HelveticaRounded-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+ 
