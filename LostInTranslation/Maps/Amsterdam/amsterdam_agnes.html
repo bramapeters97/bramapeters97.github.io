@@ -43,28 +43,26 @@
       overflow: hidden;
     }
 
-    /* ---- MAP AREA (replaces the placeholder with an iframe) ---- */
-    .map-frame {
+    /* ---- MAP IMAGE ---- */
+    .map-image {
       position: absolute;
       left: var(--m-left);
       right: var(--m-right);
       top: var(--m-top);
       bottom: var(--m-bottom);
-      background: #e8e8e8;              /* keep the original neutral surface */
-      border: 1px solid #bdbdbd;        /* keep the original border */
-      overflow: hidden;                  /* hide any overflow while scaling */
+      background: #e8e8e8;
+      border: 1px solid #bdbdbd;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* The iframe will be absolutely centered and scaled via transform */
-    .map-frame > iframe {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      border: none;
-      transform-origin: top left;  /* so translate(-50%, -50%) + scale works predictably */
-      /* Width and height will be set dynamically by JS to the iframe content size */
-      /* transform will also be set dynamically by JS */
-      background: transparent;
+    .map-image img {
+      max-width: 100%;
+      max-height: 100%;
+      height: auto;
+      width: auto;
       display: block;
     }
 
@@ -103,7 +101,7 @@
       letter-spacing: .04em;
     }
 
-    /* Lower-left brand block (≈10% width visually) */
+    /* Lower-left brand block */
     .brand {
       left: var(--m-left);
       width: 10%;
@@ -125,7 +123,7 @@
     .signature {
       right: var(--m-right);
       text-align: right;
-      font-family: "Reenie Beanie", cursive; /* thinner, authentic hand */
+      font-family: "Reenie Beanie", cursive;
       font-weight: 400;
       font-size: clamp(12pt, 3.2vw, 22pt);
       letter-spacing: 0.8;
@@ -141,94 +139,25 @@
 </head>
 <body>
   <main class="poster shadow" role="img" aria-label="A3 poster template with embedded Amsterdam map">
-    <!-- Map area (iframe replaces the original placeholder; same size and margins) -->
-    <div class="map-frame" id="mapFrame">
-      <iframe id="mapIframe" src="amsterdam_dieter.html" scrolling="no" title="Amsterdam map by Dieter"></iframe>
-      <noscript>
-        <style>
-          /* Fallback if JS is disabled: make iframe stretch to container */
-          #mapIframe { position: static; width: 100%; height: 100%; transform: none !important; }
-        </style>
-      </noscript>
+    <!-- Map image filling placeholder -->
+    <div class="map-image">
+      <img src="Amsterdam.png" alt="Amsterdam map by Dieter">
     </div>
 
     <!-- Title block -->
     <div class="title" aria-labelledby="city subtitle">
-      <div id="city" class="city">AMSTERDAM</div>
+      <div id="city" class="city">STOKHOLLUM</div>
       <span id="subtitle" class="subtitle">spoorkaart</span>
     </div>
 
-    <!-- Lower-left brand (horizontal, under the title) -->
+    <!-- Lower-left brand -->
     <div class="brand" aria-label="Brand">
       <div class="name">Lost In Translation</div>
       <div class="slogan">Global Transit, Local Nonsense</div>
     </div>
 
-    <!-- Lower-right signature (horizontal, under the title) -->
+    <!-- Lower-right signature -->
     <div class="signature" aria-label="Signature">by Gerrit</div>
   </main>
-
-  <script>
-    (function () {
-      const frame = document.getElementById('mapFrame');
-      const iframe = document.getElementById('mapIframe');
-
-      function fitIframe() {
-        if (!iframe.contentWindow) return;
-
-        const doc = iframe.contentDocument || iframe.contentWindow.document;
-        if (!doc) return;
-
-        // Try to detect intrinsic content size inside the iframe
-        // Priority: SVG viewBox -> SVG bounding box -> document dimensions
-        let intrinsicWidth = 0;
-        let intrinsicHeight = 0;
-
-        const svg = doc.querySelector('svg');
-        if (svg) {
-          try {
-            if (svg.viewBox && svg.viewBox.baseVal && svg.viewBox.baseVal.width && svg.viewBox.baseVal.height) {
-              intrinsicWidth  = svg.viewBox.baseVal.width;
-              intrinsicHeight = svg.viewBox.baseVal.height;
-            } else {
-              const r = svg.getBoundingClientRect();
-              intrinsicWidth  = r.width  || svg.clientWidth  || svg.scrollWidth  || 1000;
-              intrinsicHeight = r.height || svg.clientHeight || svg.scrollHeight || 1000;
-            }
-          } catch(e) {
-            // Fallback to document metrics
-          }
-        }
-
-        if (!intrinsicWidth || !intrinsicHeight) {
-          // Fallback: use document element or body scroll size
-          const de = doc.documentElement;
-          const b  = doc.body;
-          intrinsicWidth  = Math.max(de.scrollWidth,  b ? b.scrollWidth  : 0, de.clientWidth);
-          intrinsicHeight = Math.max(de.scrollHeight, b ? b.scrollHeight : 0, de.clientHeight);
-        }
-
-        // Container size (the placeholder box)
-        const cw = frame.clientWidth;
-        const ch = frame.clientHeight;
-
-        // Compute scale to fit while preserving aspect ratio
-        const scale = Math.max(0.0001, Math.min(cw / intrinsicWidth, ch / intrinsicHeight));
-
-        // Apply exact pixel size of the content to the iframe, then scale and center it
-        iframe.style.width  = intrinsicWidth + 'px';
-        iframe.style.height = intrinsicHeight + 'px';
-        iframe.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
-      }
-
-      // Fit when iframe loads and on window resize
-      iframe.addEventListener('load', fitIframe, { once: false });
-      window.addEventListener('resize', fitIframe);
-
-      // In case fonts/layout inside the iframe shift after load
-      setTimeout(fitIframe, 300);
-      setTimeout(fitIframe, 800);
-    })();
-  </script>
 </body>
 </html>
