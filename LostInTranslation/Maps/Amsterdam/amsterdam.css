@@ -15,8 +15,9 @@ body {
     }
 
     header img {
-      height: 100px;
+      height: 200px;
       width: auto;
+    margin-bottom: 50px;
     }
 
     header h1 {
