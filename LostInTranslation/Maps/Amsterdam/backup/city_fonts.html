@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Lost In Translation — City Wordmarks (EU Metro Capitals + US + UK)</title>
+<title>Lost In Translation — CITY WORDMARKS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Google Fonts (all open‑source) -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@300..700&family=Archivo:wght@300..900&family=Source+Sans+3:wght@300..900&family=Manrope:wght@300..800&family=Epilogue:wght@300..900&family=Jost:wght@300..900&family=Bodoni+Moda:wght@400..900&family=Marcellus&family=Cinzel:wght@400..900&family=Josefin+Sans:wght@300..700&family=Sora:wght@300..800&family=Outfit:wght@300..900&family=Newsreader:opsz,wght@6..72,400..800&family=Merriweather:wght@300..900&family=Cabin:wght@400..700&family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Space+Grotesk:wght@300;500;700&family=Archivo:wght@400;600&family=Source+Sans+3:wght@400;600&family=Manrope:wght@400;600&family=Epilogue:wght@400;600&family=Jost:wght@400;600&family=Bodoni+Moda:wght@400;500&family=Marcellus&family=Cinzel:wght@400;500&family=Josefin+Sans:wght@400;600&family=Sora:wght@400;600&family=Outfit:wght@400;600&family=Newsreader:opsz,wght@6..72,400;600&family=Merriweather:wght@400;600&family=Cabin:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -16,23 +15,18 @@
     --line: rgba(0,0,0,.08);
     --card:#fff;
   }
-
   *{ box-sizing:border-box; }
-
-  html, body{ height:100%; }
-
   body{
     margin:0;
     background: var(--bg);
     color: var(--ink);
-    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-family: Inter, sans-serif;
     line-height:1.35;
     display:flex;
     align-items:center;
     justify-content:center;
     padding: clamp(18px, 4vw, 48px);
   }
-
   .sheet{
     width: min(1100px, 96vw);
     background: var(--card);
@@ -41,41 +35,22 @@
     box-shadow: 0 10px 30px rgba(0,0,0,.06);
     padding: clamp(20px, 4vw, 44px);
   }
-
-  header{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap: 1rem;
-    margin-bottom: clamp(18px, 4vw, 32px);
-  }
-
+  header{ margin-bottom: clamp(18px, 4vw, 32px); }
   h1{
     margin:0;
     font-size: clamp(20px, 3.2vw, 28px);
     letter-spacing:.02em;
     font-weight: 700;
-    color:#17181a;
   }
-
-  .sub{
-    margin:0;
-    color: var(--muted);
-    font-size: clamp(12px, 2vw, 14px);
-  }
-
   .grid{
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(14px, 2.8vw, 22px);
   }
-
   @media (max-width: 720px){
     .grid{ grid-template-columns: 1fr; }
   }
-
   .card{
-    position: relative;
     background:#fff;
     border: 1px solid var(--line);
     border-radius: 12px;
@@ -83,27 +58,23 @@
     display:flex;
     flex-direction:column;
     gap:.5rem;
-    overflow:hidden;
   }
-
   .city{
     white-space: nowrap;
     line-height: .95;
-    letter-spacing: .01em;
-    font-size: clamp(36px, 6vw, 64px);
+    letter-spacing: .02em;
+    font-size: clamp(34px, 6vw, 64px);
+    text-transform: uppercase;
   }
-
   .meta{
     display:flex;
     flex-wrap:wrap;
     gap:.6rem 1rem;
-    align-items:center;
-    color: var(--muted);
     font-size: 12px;
     border-top: 1px dashed var(--line);
     padding-top:.6rem;
+    color: var(--muted);
   }
-
   .tag{
     font-size: 11px;
     padding:.25rem .5rem;
@@ -111,163 +82,48 @@
     border:1px solid var(--line);
     background:#fafafa;
   }
-
-  /* Type classes (picked for city personality) */
-  .spaceg   { font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing:.01em; }
-  .archivo  { font-family: Archivo, sans-serif; font-weight: 800; letter-spacing:.01em; }
-  .source   { font-family: "Source Sans 3", sans-serif; font-weight: 700; }
-  .inter    { font-family: Inter, sans-serif; font-weight: 700; }
-  .manrope  { font-family: Manrope, sans-serif; font-weight: 700; }
-  .epilogue { font-family: Epilogue, sans-serif; font-weight: 700; letter-spacing:.015em; }
-  .jost     { font-family: Jost, sans-serif; font-weight: 700; letter-spacing:.01em; }
-  .bodoni   { font-family: "Bodoni Moda", serif; font-weight: 600; letter-spacing:.01em; }
-  .marcellus{ font-family: Marcellus, serif; font-weight: 400; letter-spacing:.01em; }
-  .cinzel   { font-family: Cinzel, serif; font-weight: 600; letter-spacing:.03em; }
-  .josefin  { font-family: "Josefin Sans", sans-serif; font-weight: 700; letter-spacing:.04em; }
-  .sora     { font-family: Sora, sans-serif; font-weight: 700; }
-  .outfit   { font-family: Outfit, sans-serif; font-weight: 700; letter-spacing:.01em; }
-  .news     { font-family: Newsreader, serif; font-weight: 700; }
-  .merri    { font-family: Merriweather, serif; font-weight: 700; letter-spacing:.005em; }
-
-  /* NEW for UK additions */
-  .cabin    { font-family: Cabin, sans-serif; font-weight: 700; letter-spacing:.02em; } /* Johnston-adjacent humanist feel */
-  .plexcond { font-family: "IBM Plex Sans Condensed", sans-serif; font-weight: 700; letter-spacing:.01em; } /* industrial, compact */
-
-  /* Optional per-city micro-adjustments */
-  .wide { letter-spacing:.05em; }
-  .thin { font-weight:600; }
+  /* Font classes with reduced weights */
+  .spaceg   { font-family: "Space Grotesk", sans-serif; font-weight: 500; }
+  .archivo  { font-family: Archivo, sans-serif; font-weight: 600; }
+  .source   { font-family: "Source Sans 3", sans-serif; font-weight: 600; }
+  .inter    { font-family: Inter, sans-serif; font-weight: 500; }
+  .manrope  { font-family: Manrope, sans-serif; font-weight: 500; }
+  .epilogue { font-family: Epilogue, sans-serif; font-weight: 500; }
+  .jost     { font-family: Jost, sans-serif; font-weight: 500; }
+  .bodoni   { font-family: "Bodoni Moda", serif; font-weight: 500; }
+  .marcellus{ font-family: Marcellus, serif; font-weight: 400; }
+  .cinzel   { font-family: Cinzel, serif; font-weight: 500; }
+  .josefin  { font-family: "Josefin Sans", sans-serif; font-weight: 500; }
+  .sora     { font-family: Sora, sans-serif; font-weight: 500; }
+  .outfit   { font-family: Outfit, sans-serif; font-weight: 500; }
+  .news     { font-family: Newsreader, serif; font-weight: 500; }
+  .merri    { font-family: Merriweather, serif; font-weight: 500; }
+  .cabin    { font-family: Cabin, sans-serif; font-weight: 500; }
+  .plexcond { font-family: "IBM Plex Sans Condensed", sans-serif; font-weight: 500; }
 </style>
 </head>
 <body>
   <main class="sheet">
-    <header>
-      <div>
-        <h1>City Wordmarks — EU Metro Capitals + US Additions + UK Pair</h1>
-        <p class="sub">Only EU capitals that actually have a metro; plus New York, San Francisco, Los Angeles, Boston — and now London & Glasgow. Open‑source fonts with city‑appropriate personality and casing.</p>
-      </div>
-    </header>
-
+    <h1>CITY WORDMARKS</h1>
     <section class="grid">
-      <!-- =========================
-           EU CAPITALS (with metros)
-           ========================= -->
-
-      <!-- Amsterdam — progressive, design-savvy -->
-      <article class="card">
-        <div class="city spaceg">Amsterdam</div>
-        <div class="meta"><span class="tag">Space Grotesk</span><span>clean, design‑forward</span></div>
-      </article>
-
-      <!-- Athens — subtle classical vibe -->
-      <article class="card">
-        <div class="city marcellus">Athens</div>
-        <div class="meta"><span class="tag">Marcellus</span><span>subtle classical chic</span></div>
-      </article>
-
-      <!-- Berlin — pragmatic, modernist -->
-      <article class="card">
-        <div class="city archivo">Berlin</div>
-        <div class="meta"><span class="tag">Archivo</span><span>functional modernism</span></div>
-      </article>
-
-      <!-- Brussels — institutional clarity -->
-      <article class="card">
-        <div class="city source">Brussels</div>
-        <div class="meta"><span class="tag">Source Sans 3</span><span>multilingual official</span></div>
-      </article>
-
-      <!-- Copenhagen — Nordic minimal -->
-      <article class="card">
-        <div class="city inter">Copenhagen</div>
-        <div class="meta"><span class="tag">Inter</span><span>Nordic minimal</span></div>
-      </article>
-
-      <!-- Helsinki — cool precision -->
-      <article class="card">
-        <div class="city manrope">Helsinki</div>
-        <div class="meta"><span class="tag">Manrope</span><span>quiet, precise</span></div>
-      </article>
-
-      <!-- Lisbon — geometric warmth -->
-      <article class="card">
-        <div class="city epilogue">Lisbon</div>
-        <div class="meta"><span class="tag">Epilogue</span><span>sunny modern</span></div>
-      </article>
-
-      <!-- Madrid — crisp contemporary -->
-      <article class="card">
-        <div class="city jost">Madrid</div>
-        <div class="meta"><span class="tag">Jost</span><span>urban & crisp</span></div>
-      </article>
-
-      <!-- Paris — elegant restraint -->
-      <article class="card">
-        <div class="city bodoni">Paris</div>
-        <div class="meta"><span class="tag">Bodoni Moda</span><span>modern classic serif</span></div>
-      </article>
-
-      <!-- Rome — inscriptional gravitas -->
-      <article class="card">
-        <div class="city cinzel">Rome</div>
-        <div class="meta"><span class="tag">Cinzel</span><span>timeless monumentality</span></div>
-      </article>
-
-      <!-- Stockholm — Scandi restraint -->
-      <article class="card">
-        <div class="city manrope">Stockholm</div>
-        <div class="meta"><span class="tag">Manrope</span><span>calm systems</span></div>
-      </article>
-
-      <!-- Vienna — refined modern -->
-      <article class="card">
-        <div class="city josefin">Vienna</div>
-        <div class="meta"><span class="tag">Josefin Sans</span><span>light modernism</span></div>
-      </article>
-
-      <!-- =========================
-           UK ADDITIONS (requested)
-           ========================= -->
-
-      <!-- London — Johnston-adjacent humanist sans (open-source stand‑in: Cabin) -->
-      <article class="card">
-        <div class="city cabin">London</div>
-        <div class="meta"><span class="tag">Cabin</span><span>humanist, TfL‑adjacent vibe</span></div>
-      </article>
-
-      <!-- Glasgow — compact, industrial (Subway / “Clockwork Orange” energy) -->
-      <article class="card">
-        <div class="city plexcond">Glasgow</div>
-        <div class="meta"><span class="tag">IBM Plex Sans Condensed</span><span>compact, industrial</span></div>
-      </article>
-
-      <!-- =========================
-           US ADDITIONS
-           ========================= -->
-
-      <!-- New York — editorial modern serif -->
-      <article class="card">
-        <div class="city news">New York</div>
-        <div class="meta"><span class="tag">Newsreader</span><span>contemporary editorial</span></div>
-      </article>
-
-      <!-- San Francisco — product‑design clean -->
-      <article class="card">
-        <div class="city sora">San Francisco</div>
-        <div class="meta"><span class="tag">Sora</span><span>tech‑clean, optimistic</span></div>
-      </article>
-
-      <!-- Los Angeles — wide, cinematic -->
-      <article class="card">
-        <div class="city outfit wide">Los Angeles</div>
-        <div class="meta"><span class="tag">Outfit</span><span>screen‑title ease</span></div>
-      </article>
-
-      <!-- Boston — heritage serif -->
-      <article class="card">
-        <div class="city merri">Boston</div>
-        <div class="meta"><span class="tag">Merriweather</span><span>academic heritage</span></div>
-      </article>
-
+      <article class="card"><div class="city spaceg">AMSTERDAM</div><div class="meta"><span class="tag">Space Grotesk</span></div></article>
+      <article class="card"><div class="city marcellus">ATHENS</div><div class="meta"><span class="tag">Marcellus</span></div></article>
+      <article class="card"><div class="city archivo">BERLIN</div><div class="meta"><span class="tag">Archivo</span></div></article>
+      <article class="card"><div class="city source">BRUSSELS</div><div class="meta"><span class="tag">Source Sans 3</span></div></article>
+      <article class="card"><div class="city inter">COPENHAGEN</div><div class="meta"><span class="tag">Inter</span></div></article>
+      <article class="card"><div class="city manrope">HELSINKI</div><div class="meta"><span class="tag">Manrope</span></div></article>
+      <article class="card"><div class="city epilogue">LISBON</div><div class="meta"><span class="tag">Epilogue</span></div></article>
+      <article class="card"><div class="city jost">MADRID</div><div class="meta"><span class="tag">Jost</span></div></article>
+      <article class="card"><div class="city bodoni">PARIS</div><div class="meta"><span class="tag">Bodoni Moda</span></div></article>
+      <article class="card"><div class="city cinzel">ROME</div><div class="meta"><span class="tag">Cinzel</span></div></article>
+      <article class="card"><div class="city manrope">STOCKHOLM</div><div class="meta"><span class="tag">Manrope</span></div></article>
+      <article class="card"><div class="city josefin">VIENNA</div><div class="meta"><span class="tag">Josefin Sans</span></div></article>
+      <article class="card"><div class="city cabin">LONDON</div><div class="meta"><span class="tag">Cabin</span></div></article>
+      <article class="card"><div class="city plexcond">GLASGOW</div><div class="meta"><span class="tag">IBM Plex Sans Condensed</span></div></article>
+      <article class="card"><div class="city news">NEW YORK</div><div class="meta"><span class="tag">Newsreader</span></div></article>
+      <article class="card"><div class="city sora">SAN FRANCISCO</div><div class="meta"><span class="tag">Sora</span></div></article>
+      <article class="card"><div class="city outfit">LOS ANGELES</div><div class="meta"><span class="tag">Outfit</span></div></article>
+      <article class="card"><div class="city merri">BOSTON</div><div class="meta"><span class="tag">Merriweather</span></div></article>
     </section>
   </main>
 </body>
