@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,27 +8,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
   <div class="container">
     <!-- HEADER CARD: spans full width -->
-<div class="profile-header">
-  <img class="profile-pic" src="assets/img/Photo.jpg" alt="Profile Picture" />
-  <div class="header-intro">
-    <div class="header-row">
-      <div class="header-name"><span> Bram Peters <a href="https://www.linkedin.com/in/bram-peters/"><i style="color: #222" class="uil uil-linkedin"></i></a></div>
-      <button onclick="downloadPDF()" id="downloadBtnInline" class="resume-btn">
-        <i class="fa-solid fa-file-arrow-down"></i> <b>Resume</b>
-      </button>
+    <div class="profile-header">
+      <img class="profile-pic" src="assets/img/Photo.jpg" alt="Profile Picture" />
+      <div class="header-intro">
+        <div class="header-row">
+          <div class="header-name"><span> Bram Peters <a href="https://www.linkedin.com/in/bram-peters/"><i
+                  style="color: #222" class="uil uil-linkedin"></i></a></div>
+          <button onclick="downloadPDF()" id="downloadBtnInline" class="resume-btn">
+            <i class="fa-solid fa-file-arrow-down"></i> <b>Resume</b>
+          </button>
+        </div>
+        <div class="header-title">
+          Senior Data-/BI‑Specialist and Product Designer<br>
+          MSc Human‑Technology Interaction | UX, UI & Interaction Design & Research
+        </div>
+        <div class="header-tagline">
+          <span class="glass-kw">Designing Data-Driven and User-Centered Experiences at the Intersection of Tech,
+            Psychology and Corporate Impact</span>
+        </div>
+      </div>
     </div>
-    <div class="header-title">
-      Senior Data-/BI‑Specialist and Product Designer<br>
-      MSc Human‑Technology Interaction | UX, UI & Interaction Design & Research
-    </div>
-    <div class="header-tagline">
-      <span class="glass-kw">Designing Data-Driven and User-Centered Experiences at the Intersection of Tech, Psychology and Corporate Impact</span>
-    </div>
-  </div>
-</div>
 
     <!-- Portfolio Highlight
     <div class="card">
@@ -55,19 +59,29 @@
       <div class="card">
         <div class="section-title icon-title about">About Me</div>
         <p style="font-weight:300;">
-          Graduated <em>MSc Human‑Technology Interaction</em>-engineer and Senior Data‑/BI‑Advisor at the Dutch Employee Insurance Agency (UWV), I specialize in creating intuitive, data‑driven solutions with organizational and societal impact.
-          From stakeholder research and conceptual design to prototyping and technical implementation, including designing ETL pipelines, setting up backend infrastructures and developing frontend solutions, I take ownership in what I do up until final release.  
-          I thrive in agile, multidisciplinary teams, so <strong>let's collaborate and build something unique together!</strong>
+          Graduated <em>MSc Human‑Technology Interaction</em>-engineer and Senior Data‑/BI‑Advisor at the Dutch Employee
+          Insurance Agency (UWV), I specialize in creating intuitive, data‑driven solutions with organizational and
+          societal impact.
+          From stakeholder research and conceptual design to prototyping and technical implementation, including
+          designing ETL pipelines, setting up backend infrastructures and developing frontend solutions, I take
+          ownership in what I do up until final release.
+          I thrive in agile, multidisciplinary teams, so <strong>let's collaborate and build something unique
+            together!</strong>
         </p>
         <div class="quote-line"><i class="fa-solid fa-quote-right"></i><em>Bram</em></div>
       </div>
       <div class="card">
         <div class="section-title icon-title contact">Contact Me</div>
-        <div><i class="fa-solid fa-phone" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact">+31 6 30827054</span></div>
-        <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact">bramapeters@outlook.com</span></div>
-        <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact">Amsterdam, Netherlands</span></div>
-        <div><i class="fa-solid fa-globe" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact">bram‑peters.com</span></div>
-        <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact">LinkedIn</span></div>
+        <div><i class="fa-solid fa-phone" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact">+31 6 30827054</span></div>
+        <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact">bramapeters@outlook.com</span></div>
+        <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact">Amsterdam, Netherlands</span></div>
+        <div><i class="fa-solid fa-globe" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact">bram‑peters.com</span></div>
+        <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact">LinkedIn</span></div>
       </div>
     </div>
 
@@ -95,26 +109,39 @@
           <li><strong>Advanced SQL Programmer</strong> – <span>Computrain (2024)</span></li>
         </ul>
       </div>
-            <div class="card">
+      <div class="card">
         <div class="section-title icon-title experience">Professional Experience</div>
         <ul>
-          <li><strong>Senior BI Advisor & Product Designer, UWV SMZ – Amsterdam, Netherlands</strong> (Jul 2025 – Present)
-            <span>Leading development of business intelligence data products within the Division of Social‑Medical Affairs. Responsible for ETL pipelines (SQL, SSIS/SSAS, Oracle), integrating external data sources, and advanced DAX modeling. Designed Power BI dashboards tailored to government services in accordance with Dutch social security legislation.</span>
+          <li><strong>Senior BI Advisor & Product Designer, UWV SMZ – Amsterdam, Netherlands</strong> (Jul 2025 –
+            Present)
+            <span>Leading development of business intelligence data products within the Division of Social‑Medical
+              Affairs. Responsible for ETL pipelines (SQL, SSIS/SSAS, Oracle), integrating external data sources, and
+              advanced DAX modeling. Designed Power BI dashboards tailored to government services in accordance with
+              Dutch social security legislation.</span>
           </li>
           <li><strong>Data Analyst & BI Specialist, UWV SMZ – Amsterdam, Netherlands</strong> (Aug 2024 – Jul 2025)
-            <span>Built and optimized data pipelines and analytics dashboards. Transformed business requirements into data models and managed integration between multiple agency data sources and internal BI tools for a range of stakeholders.</span>
+            <span>Built and optimized data pipelines and analytics dashboards. Transformed business requirements into
+              data models and managed integration between multiple agency data sources and internal BI tools for a range
+              of stakeholders.</span>
           </li>
           <li><strong>Data/BI Specialist, SerenIT – Amsterdam, Netherlands</strong> (Jan 2024 – Aug 2024)
-            <span>Delivered custom dashboards and reporting tools to public and private clients. Led stakeholder workshops, defined KPIs, built DAX measures and SQL‑based backend queries for data‑driven insights.</span>
+            <span>Delivered custom dashboards and reporting tools to public and private clients. Led stakeholder
+              workshops, defined KPIs, built DAX measures and SQL‑based backend queries for data‑driven insights.</span>
           </li>
-          <li><strong>Master Thesis Project – TU/e Security Office – Eindhoven, Netherlands</strong> (Dec 2022 – Oct 2023)
-            <span>Designed and implemented a student dashboard to support self‑regulated learning. Conducted user research, defined requirements with university security officers, iterated wireframes, and implemented the tool using Power BI and UX methodologies.</span>
+          <li><strong>Master Thesis Project – TU/e Security Office – Eindhoven, Netherlands</strong> (Dec 2022 – Oct
+            2023)
+            <span>Designed and implemented a student dashboard to support self‑regulated learning. Conducted user
+              research, defined requirements with university security officers, iterated wireframes, and implemented the
+              tool using Power BI and UX methodologies.</span>
           </li>
           <li><strong>Frontend Developer, TU/e – Eindhoven, Netherlands</strong> (Sep 2022 – Dec 2022)
-            <span>Built modular front‑end components (React/Vue) integrated with Typo3, SharePoint, and educational portals. Supported cross‑team development on internal tools.</span>
+            <span>Built modular front‑end components (React/Vue) integrated with Typo3, SharePoint, and educational
+              portals. Supported cross‑team development on internal tools.</span>
           </li>
           <li><strong>UX Designer & Android Developer, Blue Jay – Eindhoven, Netherlands</strong> (Jun 2018 – Jun 2020)
-            <span>Designed a healthcare‑oriented drone interface and mobile app. Played a full role in UX research, iterative testing and final app delivery, including voice recognition features and mood‑sensitive lighting. Worked in an Agile team using Scrum.</span>
+            <span>Designed a healthcare‑oriented drone interface and mobile app. Played a full role in UX research,
+              iterative testing and final app delivery, including voice recognition features and mood‑sensitive
+              lighting. Worked in an Agile team using Scrum.</span>
           </li>
         </ul>
       </div>
@@ -122,187 +149,216 @@
 
     <div class="two-columns">
       <div>
-<div class="section-title icon-title portfolio" id="portfolio">Portfolio</div>
-<div class="portfolio-grid">
-    <!-- Portfolio Card 3 -->
-     <article class="portfolio-card">
-    <div class="article-wrapper">
-      <figure>
-        <img src="assets/img/logo.png" alt="Lost In Translation"/>
-      </figure>
-      <div class="article-body">
-        <h2>Lost In Translation™</h2>
-								<p>What began as a fun way to practice Swedish while living in Stockholm turned into a design project powered by AI. I built a custom algorithm and a cast of quirky AI travel-assistants, each with their own sass and personality, to generate metro maps with absurdly literal, customizable and perfectly imperfect translations. Soon, anyone can create a personalized, hilariously inaccurate transit map, crafted by my highly incapable bots. Global Transit, Local Nonsense. Just mind the (language) gap while we're at it.</p>        
-        <a href="https://lostintranslation.nl"><b>Create your own poster! →</b></a>
-      </div>
-    </div>
-  </article>
-  <!-- Portfolio Card 1 -->
-  <article class="portfolio-card">
-    <div class="article-wrapper">
-      <figure>
-        <img src="assets/img/dashboard1.jpg" alt="TU/e Learning Dashboard" />
-      </figure>
-      <div class="article-body">
-        <h2>TU/e Learning Dashboard</h2>
-									<p>
-										I laid the groundwork for a new learning dashboard that visualizes 
-										academic performance and provides dynamic recommendations on how students can improve their learning 
-										for TU/e's Canvas-platform. Mapped user journeys, set-up ETL processes, and developed an intuitive data visualization tool that empowers students to track their academic progress in real time.</p>        
-        <a href="" ><b>Read More →</b></a>
-      </div>
-    </div>
-  </article>
-  <!-- Portfolio Card 2 -->
-  <article class="portfolio-card">
-    <div class="article-wrapper">
-      <figure>
-        <img src="assets/img/BlueJay1.jpg" alt="Blue Jay Drone" />
-      </figure>
-      <div class="article-body">
-        <h2>The 'Emotional' Drone</h2>
-								<p>At Blue Jay, my team and I were committed to creating a drone that can assist healthcare workers in their daily tasks and can serve as an an intelligent companion for patients. The goal at Blue Jay is to expand the capabilities of intelligent systems by developing drones that are safe, autonomous, interactive, and helpful.
-				</p> 
-        <a href="" ><b>Read More → </b></a>
-      </div>
-    </div>
-  </article>
+        <div class="section-title icon-title portfolio" id="portfolio">Portfolio</div>
+        <div class="portfolio-grid">
+          <!-- Portfolio Card 3 -->
+          <article class="portfolio-card">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/logo.png" alt="Lost In Translation" />
+              </figure>
+              <div class="article-body">
+                <h2>Lost In Translation™</h2>
+                <p>What began as a fun way to practice Swedish while living in Stockholm turned into a design project
+                  powered by AI. I built a custom algorithm and a cast of quirky AI travel-assistants, each with their
+                  own sass and personality, to generate metro maps with absurdly literal, customizable and perfectly
+                  imperfect translations. Soon, anyone can create a personalized, hilariously inaccurate transit map,
+                  crafted by my highly incapable bots. Global Transit, Local Nonsense. Just mind the (language) gap
+                  while we're at it.</p>
+                <a href="https://lostintranslation.nl"><b>Create your own poster! →</b></a>
+              </div>
+            </div>
+          </article>
+          <!-- Portfolio Card 1 -->
+          <article class="portfolio-card">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/dashboard1.jpg" alt="TU/e Learning Dashboard" />
+              </figure>
+              <div class="article-body">
+                <h2>TU/e Learning Dashboard</h2>
+                <p>
+                  I laid the groundwork for a new learning dashboard that visualizes
+                  academic performance and provides dynamic recommendations on how students can improve their learning
+                  for TU/e's Canvas-platform. Mapped user journeys, set-up ETL processes, and developed an intuitive
+                  data visualization tool that empowers students to track their academic progress in real time.</p>
+                <a href=""><b>Read More →</b></a>
+              </div>
+            </div>
+          </article>
+          <!-- Portfolio Card 2 -->
+          <article class="portfolio-card">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/BlueJay1.jpg" alt="Blue Jay Drone" />
+              </figure>
+              <div class="article-body">
+                <h2>The 'Emotional' Drone</h2>
+                <p>At Blue Jay, my team and I were committed to creating a drone that can assist healthcare workers in
+                  their daily tasks and can serve as an an intelligent companion for patients. The goal at Blue Jay is
+                  to expand the capabilities of intelligent systems by developing drones that are safe, autonomous,
+                  interactive, and helpful.
+                </p>
+                <a href=""><b>Read More → </b></a>
+              </div>
+            </div>
+          </article>
 
 
-  <!-- Portfolio Card 4 -->
-  <article class="portfolio-card">
-    <div class="article-wrapper">
-      <figure>
-        <img src="assets/img/doula_portfolio.png" alt="Doula App" />
-      </figure>
-      <div class="article-body">
-        <h2>Doula | UX/UI Case Study</h2>
-									<p>For a 10-hour time limited UX/UI Case Study, I was given the opportunity to redesign an outdated 
-										pregnancy symptom and contraction tracker app. My process involved in-depth user and usability research to identify and address key pain points within the existing app. The result? A transformation of the app's visual style and a substantial enhancement of the user experience.
-									</p>        
-        <a href="" ><b>Case Study →</b></a>
-      </div>
-    </div>
-  </article>
-  <!-- Portfolio Card 5 -->
-  <article class="portfolio-card">
-    <div class="article-wrapper">
-      <figure>
-        <img src="assets/img/portfolio2.jpg" alt="Vinobo" />
-      </figure>
-      <div class="article-body">
-        <h2>Vinobo</h2>
-								<p>
-									This webtool allows students to watch and annotate YouTube videos
-									and search for keywords in the video's transcript to find relevant parts in the video.
-								Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts.</a></p>
-												</p>        
-        <a href="" ><b>Full Demo →</b></a>
-      </div>
-    </div>
-  </article>
-  <!-- Portfolio Card 6 -->
-  <article class="portfolio-card">
-    <div class="article-wrapper">
-      <figure>
-        <img src="assets/img/spotifyfull.png" alt="Spotify Podcast" />
-      </figure>
-      <div class="article-body">
-        <h2>Reimagining Spotify Podcasts</h2>
-									<p>For a project at KTH, we embarked on a mission to enhance Spotify's Podcast section. Employing the Double Diamond framework, our design approach centered on goal-oriented strategies to uncover and meet user expectations and tap into the strengths and tackle the weakpoints of the current Spotify-app.</a></p>
-        <hr>
-        <a href="" ><b>Read More →</b></a>
-      </div>
-    </div>
-  </article>
-  <!-- Portfolio Card 7 -->
-  <article class="portfolio-card">
-    <div class="article-wrapper">
-      <figure>
-        <img src="assets/img/rodebjer.png" alt="Raspberries Shopping Assistant" />
-      </figure>
-      <div class="article-body">
-        <h2>Raspberries Shopping Assistant</h2>
-									<p>Crowded fitting rooms. Pushy sales staff. Or worse, none at all when you need them. For many, in-store shopping can feel more like a chore than a pleasure.
-That’s why my project-team and I created Rodebjer’s Digital Shopping Assistant — a seamless in-store UX that puts control back in the hands of the customer. </a></p>        
-        <a href="" ><b>View Workbook →</b></a>
-      </div>
-    </div>
-  </article>
-  <!-- Portfolio Card 8 -->
-  <article class="portfolio-card">
-    <div class="article-wrapper">
-      <figure>
-        <img src="assets/img/honeymoon.jpg" alt="The Honeymoon Webshop" />
-      </figure>
-      <div class="article-body">
-        <h2>The Honeymoon Webshop</h2>
-									<p>One of my favorite personal projects is creating "The Honeymoon Webshop" for newlyweds. I built a custom website that lets wedding guests buy and customize honeymoon gifts like activities and hotel stays. Releasing a first version for my own sister's wedding, all the thoughtful presents and messages purchased on the website were beautifully displayed on a bulletin-style collage frame.</a></p>
-        
-        <a href="" ><b>Read More →</b></a>
-      </div>
-    </div>
-  </article>
-  <!-- Portfolio Card 9 -->
-  <article class="portfolio-card">
-    <div class="article-wrapper">
-      <figure>
-        <div style="display:flex;justify-content:center;align-items:center;height:100%;background-color:rgb(233,233,233)">
-          <img src="assets/img/questionmark.png" style="width: 25%; opacity: 80%;" alt="Next Project" />
+          <!-- Portfolio Card 4 -->
+          <article class="portfolio-card">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/doula_portfolio.png" alt="Doula App" />
+              </figure>
+              <div class="article-body">
+                <h2>Doula | UX/UI Case Study</h2>
+                <p>For a 10-hour time limited UX/UI Case Study, I was given the opportunity to redesign an outdated
+                  pregnancy symptom and contraction tracker app. My process involved in-depth user and usability
+                  research to identify and address key pain points within the existing app. The result? A transformation
+                  of the app's visual style and a substantial enhancement of the user experience.
+                </p>
+                <a href=""><b>Case Study →</b></a>
+              </div>
+            </div>
+          </article>
+          <!-- Portfolio Card 5 -->
+          <article class="portfolio-card">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/portfolio2.jpg" alt="Vinobo" />
+              </figure>
+              <div class="article-body">
+                <h2>Vinobo</h2>
+                <p>
+                  This webtool allows students to watch and annotate YouTube videos
+                  and search for keywords in the video's transcript to find relevant parts in the video.
+                  Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user
+                  accounts.</a></p>
+                </p>
+                <a href=""><b>Full Demo →</b></a>
+              </div>
+            </div>
+          </article>
+          <!-- Portfolio Card 6 -->
+          <article class="portfolio-card">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/spotifyfull.png" alt="Spotify Podcast" />
+              </figure>
+              <div class="article-body">
+                <h2>Reimagining Spotify Podcasts</h2>
+                <p>For a project at KTH, we embarked on a mission to enhance Spotify's Podcast section. Employing the
+                  Double Diamond framework, our design approach centered on goal-oriented strategies to uncover and meet
+                  user expectations and tap into the strengths and tackle the weakpoints of the current Spotify-app.</a>
+                </p>
+                <hr>
+                <a href=""><b>Read More →</b></a>
+              </div>
+            </div>
+          </article>
+          <!-- Portfolio Card 7 -->
+          <article class="portfolio-card">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/rodebjer.png" alt="Raspberries Shopping Assistant" />
+              </figure>
+              <div class="article-body">
+                <h2>Raspberries Shopping Assistant</h2>
+                <p>Crowded fitting rooms. Pushy sales staff. Or worse, none at all when you need them. For many,
+                  in-store shopping can feel more like a chore than a pleasure.
+                  That’s why my project-team and I created Rodebjer’s Digital Shopping Assistant — a seamless in-store
+                  UX that puts control back in the hands of the customer. </a></p>
+                <a href=""><b>View Workbook →</b></a>
+              </div>
+            </div>
+          </article>
+          <!-- Portfolio Card 8 -->
+          <article class="portfolio-card">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/honeymoon.jpg" alt="The Honeymoon Webshop" />
+              </figure>
+              <div class="article-body">
+                <h2>The Honeymoon Webshop</h2>
+                <p>One of my favorite personal projects is creating "The Honeymoon Webshop" for newlyweds. I built a
+                  custom website that lets wedding guests buy and customize honeymoon gifts like activities and hotel
+                  stays. Releasing a first version for my own sister's wedding, all the thoughtful presents and messages
+                  purchased on the website were beautifully displayed on a bulletin-style collage frame.</a></p>
+
+                <a href=""><b>Read More →</b></a>
+              </div>
+            </div>
+          </article>
+          <!-- Portfolio Card 9 -->
+          <article class="portfolio-card">
+            <div class="article-wrapper">
+              <figure>
+                <div
+                  style="display:flex;justify-content:center;align-items:center;height:100%;background-color:rgb(233,233,233)">
+                  <img src="assets/img/questionmark.png" style="width: 25%; opacity: 80%;" alt="Next Project" />
+                </div>
+              </figure>
+              <div class="article-body">
+                <h2>My Next Project</h2>
+                <p>I'm always loking for new challenges to combine my design and development expertise. <b>Let’s
+                    connect!</b></p>
+
+                <a href="mailto:bramapeters@outlook.com"><b>→ Contact Me</b></a>
+              </div>
+            </div>
+          </article>
         </div>
-      </figure>
-      <div class="article-body">
-        <h2>My Next Project</h2>
-        <p>I'm always loking for new challenges to combine my design and development expertise. <b>Let’s connect!</b></p>
-        
-        <a href="mailto:bramapeters@outlook.com"><b>→ Contact Me</b></a>
-      </div>
-    </div>
-  </article>
-</div>
       </div>
       <div>
-                <div class="section-title icon-title skills">Skills</div>
+        <div class="section-title icon-title skills">Skills</div>
 
-<div class="skills-card-list">
-  <div class="skill-glass-card">
-    <strong>BI & Data Analytics | </strong>
-    <strong style="color: #6495ED; font-weight: 100">Expert</strong>
-    <span style="font-weight: 300">Power BI, DAX, SQL, Oracle, Azure, SSIS/SSAS, ETL, data mining & modeling, advanced analytics</span>
-  </div>
-  <div class="skill-glass-card">
-    <strong>UX/UI & Interaction Design | </strong>
-    <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-    <span style="font-weight: 300">Figma, Adobe XD, wireframing, prototyping, usability testing, user flows, cognitive walkthroughs, design systems</span>
-  </div>
-  <div class="skill-glass-card">
-    <strong>Frontend Development | </strong>
-    <strong style="color: #6495ED; font-weight: 20;">Proficient</strong>
-    <span style="font-weight: 300">HTML, CSS, JavaScript, TypeScript, React, Vue.js, Kotlin (Android), REST API integration</span>
-  </div>
-  <div class="skill-glass-card">
-    <strong>Cognitive & Behavioral Insight | </strong>
-    <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-    <span style="font-weight: 300">Behavioral research methods, human cognition & perception, human‑robot interaction, persuasive & ethical design</span>
-  </div>
-  <div class="skill-glass-card">
-    <strong>Research & Methodology | </strong>
-    <strong style="color: #6495ED; font-weight: 100">Expert</strong>
-    <span style="font-weight: 300">User research, stakeholder interviews, Double Diamond, self‑regulated learning theory, storytelling, A/B testing</span>
-  </div>
-  <div class="skill-glass-card">
-    <strong>Tools & Platforms | </strong>
-    <strong style="color: #6495ED; font-weight: 20;">Proficient</strong>
-    <span style="font-weight: 300">SharePoint, Typo3, Git, Microsoft Azure, Power Automate, JIRA, Confluence, Databricks</span>
-  </div>
-  <div class="skill-glass-card">
-    <strong>Agile & Scrum Delivery | </strong>
-    <strong style="color: #6495ED; font-weight: 1;">Intermediate</strong>
-    <span style="font-weight: 300">Sprint planning, backlog refinement, iterative development, stakeholder management, cross‑functional teamwork, demos & presentations, user stories</span>
-  </div>
-</div>
+        <div class="skills-card-list">
+          <div class="skill-glass-card">
+            <strong>BI & Data Analytics | </strong>
+            <strong style="color: #6495ED; font-weight: 100">Expert</strong>
+            <span style="font-weight: 300">Power BI, DAX, SQL, Oracle, Azure, SSIS/SSAS, ETL, data mining & modeling,
+              advanced analytics</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>UX/UI & Interaction Design | </strong>
+            <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+            <span style="font-weight: 300">Figma, Adobe XD, wireframing, prototyping, usability testing, user flows,
+              cognitive walkthroughs, design systems</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Frontend Development | </strong>
+            <strong style="color: #6495ED; font-weight: 20;">Proficient</strong>
+            <span style="font-weight: 300">HTML, CSS, JavaScript, TypeScript, React, Vue.js, Kotlin (Android), REST API
+              integration</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Cognitive & Behavioral Insight | </strong>
+            <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+            <span style="font-weight: 300">Behavioral research methods, human cognition & perception, human‑robot
+              interaction, persuasive & ethical design</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Research & Methodology | </strong>
+            <strong style="color: #6495ED; font-weight: 100">Expert</strong>
+            <span style="font-weight: 300">User research, stakeholder interviews, Double Diamond, self‑regulated
+              learning theory, storytelling, A/B testing</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Tools & Platforms | </strong>
+            <strong style="color: #6495ED; font-weight: 20;">Proficient</strong>
+            <span style="font-weight: 300">SharePoint, Typo3, Git, Microsoft Azure, Power Automate, JIRA, Confluence,
+              Databricks</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Agile & Scrum Delivery | </strong>
+            <strong style="color: #6495ED; font-weight: 1;">Intermediate</strong>
+            <span style="font-weight: 300">Sprint planning, backlog refinement, iterative development, stakeholder
+              management, cross‑functional teamwork, demos & presentations, user stories</span>
+          </div>
+        </div>
 
-    </div>
+      </div>
     </div>
   </div>
   <script>
@@ -311,4 +367,5 @@ That’s why my project-team and I created Rodebjer’s Digital Shopping Assista
     }
   </script>
 </body>
+
 </html>
