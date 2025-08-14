@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Lost In Translation — City Wordmarks (EU Metro Capitals + US)</title>
+<title>Lost In Translation — City Wordmarks (EU Metro Capitals + US + UK)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Google Fonts (all open-source) -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@300..700&family=Archivo:wght@300..900&family=Source+Sans+3:wght@300..900&family=Manrope:wght@300..800&family=Epilogue:wght@300..900&family=Jost:wght@300..900&family=Bodoni+Moda:wght@400..900&family=Marcellus&family=Cinzel:wght@400..900&family=Josefin+Sans:wght@300..700&family=Sora:wght@300..800&family=Outfit:wght@300..900&family=Newsreader:opsz,wght@6..72,400..800&family=Merriweather:wght@300..900&display=swap" rel="stylesheet">
+<!-- Google Fonts (all open‑source) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@300..700&family=Archivo:wght@300..900&family=Source+Sans+3:wght@300..900&family=Manrope:wght@300..800&family=Epilogue:wght@300..900&family=Jost:wght@300..900&family=Bodoni+Moda:wght@400..900&family=Marcellus&family=Cinzel:wght@400..900&family=Josefin+Sans:wght@300..700&family=Sora:wght@300..800&family=Outfit:wght@300..900&family=Newsreader:opsz,wght@6..72,400..800&family=Merriweather:wght@300..900&family=Cabin:wght@400..700&family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -129,6 +129,10 @@
   .news     { font-family: Newsreader, serif; font-weight: 700; }
   .merri    { font-family: Merriweather, serif; font-weight: 700; letter-spacing:.005em; }
 
+  /* NEW for UK additions */
+  .cabin    { font-family: Cabin, sans-serif; font-weight: 700; letter-spacing:.02em; } /* Johnston-adjacent humanist feel */
+  .plexcond { font-family: "IBM Plex Sans Condensed", sans-serif; font-weight: 700; letter-spacing:.01em; } /* industrial, compact */
+
   /* Optional per-city micro-adjustments */
   .wide { letter-spacing:.05em; }
   .thin { font-weight:600; }
@@ -138,8 +142,8 @@
   <main class="sheet">
     <header>
       <div>
-        <h1>City Wordmarks — EU Metro Capitals + US Additions</h1>
-        <p class="sub">Only EU capitals that actually have a metro; no Eastern European countries; plus New York, San Francisco, Los Angeles, Boston. Open‑source fonts with city‑appropriate personality.</p>
+        <h1>City Wordmarks — EU Metro Capitals + US Additions + UK Pair</h1>
+        <p class="sub">Only EU capitals that actually have a metro; plus New York, San Francisco, Los Angeles, Boston — and now London & Glasgow. Open‑source fonts with city‑appropriate personality and casing.</p>
       </div>
     </header>
 
@@ -148,104 +152,120 @@
            EU CAPITALS (with metros)
            ========================= -->
 
-      <!-- Amsterdam — progressive, design-savvy; Space Grotesk has that crisp Dutch modernist feel -->
+      <!-- Amsterdam — progressive, design-savvy -->
       <article class="card">
         <div class="city spaceg">Amsterdam</div>
         <div class="meta"><span class="tag">Space Grotesk</span><span>clean, design‑forward</span></div>
       </article>
 
-      <!-- Athens — classical bones, modern system; Marcellus nods to stone-cut inscriptions without getting shouty -->
+      <!-- Athens — subtle classical vibe -->
       <article class="card">
         <div class="city marcellus">Athens</div>
         <div class="meta"><span class="tag">Marcellus</span><span>subtle classical chic</span></div>
       </article>
 
-      <!-- Berlin — engineering-forward, DIN-adjacent utility; Archivo gives pragmatic, modern punch -->
+      <!-- Berlin — pragmatic, modernist -->
       <article class="card">
         <div class="city archivo">Berlin</div>
-        <div class="meta"><span class="tag">Archivo</span><span>functional, modernist</span></div>
+        <div class="meta"><span class="tag">Archivo</span><span>functional modernism</span></div>
       </article>
 
-      <!-- Brussels — institutional, multilingual; Source Sans 3 is sober and official without being dull -->
+      <!-- Brussels — institutional clarity -->
       <article class="card">
         <div class="city source">Brussels</div>
-        <div class="meta"><span class="tag">Source Sans 3</span><span>institutional clarity</span></div>
+        <div class="meta"><span class="tag">Source Sans 3</span><span>multilingual official</span></div>
       </article>
 
-      <!-- Copenhagen — airy Nordic minimalism; Inter is the tech‑clean default for Scandi UI -->
+      <!-- Copenhagen — Nordic minimal -->
       <article class="card">
         <div class="city inter">Copenhagen</div>
         <div class="meta"><span class="tag">Inter</span><span>Nordic minimal</span></div>
       </article>
 
-      <!-- Helsinki — restrained, modern; Manrope feels precise and cool‑toned -->
+      <!-- Helsinki — cool precision -->
       <article class="card">
         <div class="city manrope">Helsinki</div>
-        <div class="meta"><span class="tag">Manrope</span><span>cool precision</span></div>
+        <div class="meta"><span class="tag">Manrope</span><span>quiet, precise</span></div>
       </article>
 
-      <!-- Lisbon — sunlit modern; Epilogue is geometric with warmth -->
+      <!-- Lisbon — geometric warmth -->
       <article class="card">
         <div class="city epilogue">Lisbon</div>
-        <div class="meta"><span class="tag">Epilogue</span><span>geometric warmth</span></div>
+        <div class="meta"><span class="tag">Epilogue</span><span>sunny modern</span></div>
       </article>
 
-      <!-- Madrid — assertive contemporary; Jost is crisp and urban without being sterile -->
+      <!-- Madrid — crisp contemporary -->
       <article class="card">
         <div class="city jost">Madrid</div>
-        <div class="meta"><span class="tag">Jost</span><span>crisp contemporary</span></div>
+        <div class="meta"><span class="tag">Jost</span><span>urban & crisp</span></div>
       </article>
 
-      <!-- Paris — elegant with restraint; Bodoni Moda offers haute serif energy without excessive flourish -->
+      <!-- Paris — elegant restraint -->
       <article class="card">
         <div class="city bodoni">Paris</div>
-        <div class="meta"><span class="tag">Bodoni Moda</span><span>elegant modern serif</span></div>
+        <div class="meta"><span class="tag">Bodoni Moda</span><span>modern classic serif</span></div>
       </article>
 
-      <!-- Rome — timeless monumentality; Cinzel carries inscriptional gravitas in a clean way -->
+      <!-- Rome — inscriptional gravitas -->
       <article class="card">
         <div class="city cinzel">Rome</div>
-        <div class="meta"><span class="tag">Cinzel</span><span>timeless, inscriptional</span></div>
+        <div class="meta"><span class="tag">Cinzel</span><span>timeless monumentality</span></div>
       </article>
 
-      <!-- Stockholm — calm, orderly; Manrope again fits the Swedish 'quiet systems' vibe -->
+      <!-- Stockholm — Scandi restraint -->
       <article class="card">
         <div class="city manrope">Stockholm</div>
-        <div class="meta"><span class="tag">Manrope</span><span>Scandi restraint</span></div>
+        <div class="meta"><span class="tag">Manrope</span><span>calm systems</span></div>
       </article>
 
-      <!-- Vienna — refined modern classic; Josefin Sans hints at Viennese modernism with a light art‑deco flavor -->
+      <!-- Vienna — refined modern -->
       <article class="card">
         <div class="city josefin">Vienna</div>
-        <div class="meta"><span class="tag">Josefin Sans</span><span>refined modern</span></div>
+        <div class="meta"><span class="tag">Josefin Sans</span><span>light modernism</span></div>
+      </article>
+
+      <!-- =========================
+           UK ADDITIONS (requested)
+           ========================= -->
+
+      <!-- London — Johnston-adjacent humanist sans (open-source stand‑in: Cabin) -->
+      <article class="card">
+        <div class="city cabin">London</div>
+        <div class="meta"><span class="tag">Cabin</span><span>humanist, TfL‑adjacent vibe</span></div>
+      </article>
+
+      <!-- Glasgow — compact, industrial (Subway / “Clockwork Orange” energy) -->
+      <article class="card">
+        <div class="city plexcond">Glasgow</div>
+        <div class="meta"><span class="tag">IBM Plex Sans Condensed</span><span>compact, industrial</span></div>
       </article>
 
       <!-- =========================
            US ADDITIONS
            ========================= -->
 
-      <!-- New York — editorial heritage; Newsreader gives contemporary newspaper‑serif energy -->
+      <!-- New York — editorial modern serif -->
       <article class="card">
         <div class="city news">New York</div>
-        <div class="meta"><span class="tag">Newsreader</span><span>editorial modern serif</span></div>
+        <div class="meta"><span class="tag">Newsreader</span><span>contemporary editorial</span></div>
       </article>
 
-      <!-- San Francisco — tech‑clean and optimistic; Sora lands that contemporary product‑design tone -->
+      <!-- San Francisco — product‑design clean -->
       <article class="card">
         <div class="city sora">San Francisco</div>
-        <div class="meta"><span class="tag">Sora</span><span>clean, product‑design</span></div>
+        <div class="meta"><span class="tag">Sora</span><span>tech‑clean, optimistic</span></div>
       </article>
 
-      <!-- Los Angeles — wide, cinematic; Outfit has relaxed geometry with screen‑title confidence -->
+      <!-- Los Angeles — wide, cinematic -->
       <article class="card">
         <div class="city outfit wide">Los Angeles</div>
-        <div class="meta"><span class="tag">Outfit</span><span>wide, cinematic ease</span></div>
+        <div class="meta"><span class="tag">Outfit</span><span>screen‑title ease</span></div>
       </article>
 
-      <!-- Boston — academic heritage; Merriweather keeps it serious but friendly -->
+      <!-- Boston — heritage serif -->
       <article class="card">
         <div class="city merri">Boston</div>
-        <div class="meta"><span class="tag">Merriweather</span><span>heritage serif</span></div>
+        <div class="meta"><span class="tag">Merriweather</span><span>academic heritage</span></div>
       </article>
 
     </section>
