@@ -2,37 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Lost In Translation — City Wordmarks (Europe + US)</title>
+<title>Lost In Translation — City Wordmarks (EU Metro Capitals + US)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Google Fonts (curated, modern & minimal; variable where possible) -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Work+Sans:wght@300..900&family=Space+Grotesk:wght@300..700&family=Jost:wght@300..900&family=Montserrat:wght@300..900&family=IBM+Plex+Sans:wght@300..700&family=Manrope:wght@300..800&family=Source+Sans+3:wght@300..900&family=Exo+2:wght@300..900&family=Raleway:wght@300..900&family=DM+Sans:wght@300..700&family=Urbanist:wght@300..900&family=Nunito+Sans:wght@300..900&family=Quicksand:wght@300..700&family=Playfair+Display:wght@400..800&family=Cormorant+Garamond:wght@400..700&family=Poppins:wght@300..800&family=Merriweather+Sans:wght@300..800&family=Rubik:wght@300..900&family=Archivo:wght@300..900&display=swap" rel="stylesheet">
+<!-- Google Fonts (all open-source) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@300..700&family=Archivo:wght@300..900&family=Source+Sans+3:wght@300..900&family=Manrope:wght@300..800&family=Epilogue:wght@300..900&family=Jost:wght@300..900&family=Bodoni+Moda:wght@400..900&family=Marcellus&family=Cinzel:wght@400..900&family=Josefin+Sans:wght@300..700&family=Sora:wght@300..800&family=Outfit:wght@300..900&family=Newsreader:opsz,wght@6..72,400..800&family=Merriweather:wght@300..900&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --bg: #f6f7f8;
+    --bg: #f5f6f8;
     --ink: #111;
     --muted:#6b6f76;
     --line: rgba(0,0,0,.08);
     --card:#fff;
   }
 
-  * { box-sizing: border-box; }
+  *{ box-sizing:border-box; }
 
-  html, body {
-    height: 100%;
-  }
+  html, body{ height:100%; }
 
   body{
     margin:0;
     background: var(--bg);
     color: var(--ink);
     font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.35;
+    line-height:1.35;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding: clamp(16px, 4vw, 48px);
+    padding: clamp(18px, 4vw, 48px);
   }
 
   .sheet{
@@ -41,7 +39,7 @@
     border-radius: 14px;
     border: 1px solid rgba(0,0,0,.06);
     box-shadow: 0 10px 30px rgba(0,0,0,.06);
-    padding: clamp(18px, 4vw, 42px);
+    padding: clamp(20px, 4vw, 44px);
   }
 
   header{
@@ -78,7 +76,7 @@
 
   .card{
     position: relative;
-    background: #fff;
+    background:#fff;
     border: 1px solid var(--line);
     border-radius: 12px;
     padding: clamp(16px, 3.2vw, 24px);
@@ -92,7 +90,7 @@
     white-space: nowrap;
     line-height: .95;
     letter-spacing: .01em;
-    font-size: clamp(32px, 5.6vw, 56px);
+    font-size: clamp(36px, 6vw, 64px);
   }
 
   .meta{
@@ -109,408 +107,145 @@
   .tag{
     font-size: 11px;
     padding:.25rem .5rem;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: #fafafa;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:#fafafa;
   }
 
-  /* Font mappings (classes apply chosen font) */
-  /* Pan-European modernists */
-  .inter        { font-family: Inter, sans-serif; font-weight: 600; }
-  .worksans     { font-family: "Work Sans", sans-serif; font-weight: 600; }
-  .spaceg       { font-family: "Space Grotesk", sans-serif; font-weight: 600; letter-spacing: .01em; }
-  .jost         { font-family: Jost, sans-serif; font-weight: 600; }
-  .montserrat   { font-family: Montserrat, sans-serif; font-weight: 700; letter-spacing: .015em; }
-  .plex         { font-family: "IBM Plex Sans", sans-serif; font-weight: 600; }
-  .manrope      { font-family: Manrope, sans-serif; font-weight: 700; letter-spacing: .005em; }
-  .source       { font-family: "Source Sans 3", sans-serif; font-weight: 600; }
-  .exo2         { font-family: "Exo 2", sans-serif; font-weight: 700; letter-spacing: .01em; }
-  .raleway      { font-family: Raleway, sans-serif; font-weight: 600; letter-spacing: .04em; }
-  .dm           { font-family: "DM Sans", sans-serif; font-weight: 700; }
-  .urbanist     { font-family: Urbanist, sans-serif; font-weight: 700; }
-  .nunito       { font-family: "Nunito Sans", sans-serif; font-weight: 800; }
-  .quicksand    { font-family: Quicksand, sans-serif; font-weight: 700; letter-spacing: .03em; }
-  .playfair     { font-family: "Playfair Display", serif; font-weight: 600; letter-spacing: .01em; }
-  .cormorant    { font-family: "Cormorant Garamond", serif; font-weight: 600; letter-spacing: .01em; }
-  .poppins      { font-family: Poppins, sans-serif; font-weight: 700; letter-spacing: .015em; }
-  .merrisans    { font-family: "Merriweather Sans", sans-serif; font-weight: 700; }
-  .rubik        { font-family: Rubik, sans-serif; font-weight: 700; letter-spacing: .01em; }
-  .archivo      { font-family: Archivo, sans-serif; font-weight: 700; letter-spacing: .01em; }
+  /* Type classes (picked for city personality) */
+  .spaceg   { font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing:.01em; }
+  .archivo  { font-family: Archivo, sans-serif; font-weight: 800; letter-spacing:.01em; }
+  .source   { font-family: "Source Sans 3", sans-serif; font-weight: 700; }
+  .inter    { font-family: Inter, sans-serif; font-weight: 700; }
+  .manrope  { font-family: Manrope, sans-serif; font-weight: 700; }
+  .epilogue { font-family: Epilogue, sans-serif; font-weight: 700; letter-spacing:.015em; }
+  .jost     { font-family: Jost, sans-serif; font-weight: 700; letter-spacing:.01em; }
+  .bodoni   { font-family: "Bodoni Moda", serif; font-weight: 600; letter-spacing:.01em; }
+  .marcellus{ font-family: Marcellus, serif; font-weight: 400; letter-spacing:.01em; }
+  .cinzel   { font-family: Cinzel, serif; font-weight: 600; letter-spacing:.03em; }
+  .josefin  { font-family: "Josefin Sans", sans-serif; font-weight: 700; letter-spacing:.04em; }
+  .sora     { font-family: Sora, sans-serif; font-weight: 700; }
+  .outfit   { font-family: Outfit, sans-serif; font-weight: 700; letter-spacing:.01em; }
+  .news     { font-family: Newsreader, serif; font-weight: 700; }
+  .merri    { font-family: Merriweather, serif; font-weight: 700; letter-spacing:.005em; }
 
-  /* Gentle per-city tweaks so everything sits nicely */
-  .wide     { letter-spacing: .04em; }
-  .condensed{ letter-spacing: 0; }
-  .thin     { font-weight: 500; }
+  /* Optional per-city micro-adjustments */
+  .wide { letter-spacing:.05em; }
+  .thin { font-weight:600; }
 </style>
 </head>
 <body>
   <main class="sheet">
     <header>
       <div>
-        <h1>City Wordmarks — Europe + US Additions</h1>
-        <p class="sub">Clean, modern, minimal font choices for poster design. Each city is styled with a typeface that fits its character.</p>
+        <h1>City Wordmarks — EU Metro Capitals + US Additions</h1>
+        <p class="sub">Only EU capitals that actually have a metro; no Eastern European countries; plus New York, San Francisco, Los Angeles, Boston. Open‑source fonts with city‑appropriate personality.</p>
       </div>
     </header>
 
     <section class="grid">
+      <!-- =========================
+           EU CAPITALS (with metros)
+           ========================= -->
 
-      <!-- Albania -->
-      <article class="card">
-        <div class="city jost">Tirana</div>
-        <div class="meta"><span class="tag">Jost</span><span>Geometric, fresh</span></div>
-      </article>
-
-      <!-- Andorra -->
-      <article class="card">
-        <div class="city raleway">Andorra la Vella</div>
-        <div class="meta"><span class="tag">Raleway</span><span>Light, elegant</span></div>
-      </article>
-
-      <!-- Armenia -->
-      <article class="card">
-        <div class="city exo2">Yerevan</div>
-        <div class="meta"><span class="tag">Exo 2</span><span>Technical modern</span></div>
-      </article>
-
-      <!-- Austria -->
-      <article class="card">
-        <div class="city jost">Vienna</div>
-        <div class="meta"><span class="tag">Jost</span><span>Calm modernist</span></div>
-      </article>
-
-      <!-- Azerbaijan -->
-      <article class="card">
-        <div class="city exo2">Baku</div>
-        <div class="meta"><span class="tag">Exo 2</span><span>Contemporary</span></div>
-      </article>
-
-      <!-- Belarus -->
-      <article class="card">
-        <div class="city manrope">Minsk</div>
-        <div class="meta"><span class="tag">Manrope</span><span>Neutral, robust</span></div>
-      </article>
-
-      <!-- Belgium -->
-      <article class="card">
-        <div class="city source">Brussels</div>
-        <div class="meta"><span class="tag">Source Sans 3</span><span>Institutional chic</span></div>
-      </article>
-
-      <!-- Bosnia & Herzegovina -->
-      <article class="card">
-        <div class="city rubik">Sarajevo</div>
-        <div class="meta"><span class="tag">Rubik</span><span>Rounded, friendly</span></div>
-      </article>
-
-      <!-- Bulgaria -->
-      <article class="card">
-        <div class="city plex">Sofia</div>
-        <div class="meta"><span class="tag">IBM Plex Sans</span><span>Structured</span></div>
-      </article>
-
-      <!-- Croatia -->
-      <article class="card">
-        <div class="city montserrat">Zagreb</div>
-        <div class="meta"><span class="tag">Montserrat</span><span>Geometric, confident</span></div>
-      </article>
-
-      <!-- Cyprus -->
-      <article class="card">
-        <div class="city dm">Nicosia</div>
-        <div class="meta"><span class="tag">DM Sans</span><span>Warm modern</span></div>
-      </article>
-
-      <!-- Czechia -->
-      <article class="card">
-        <div class="city montserrat">Prague</div>
-        <div class="meta"><span class="tag">Montserrat</span><span>Bold modernist</span></div>
-      </article>
-
-      <!-- Denmark -->
-      <article class="card">
-        <div class="city inter">Copenhagen</div>
-        <div class="meta"><span class="tag">Inter</span><span>Scandi minimal</span></div>
-      </article>
-
-      <!-- Estonia -->
-      <article class="card">
-        <div class="city manrope">Tallinn</div>
-        <div class="meta"><span class="tag">Manrope</span><span>Quiet precision</span></div>
-      </article>
-
-      <!-- Finland -->
-      <article class="card">
-        <div class="city inter">Helsinki</div>
-        <div class="meta"><span class="tag">Inter</span><span>Nordic clarity</span></div>
-      </article>
-
-      <!-- France -->
-      <article class="card">
-        <div class="city cormorant">Paris</div>
-        <div class="meta"><span class="tag">Cormorant Garamond</span><span>Elegant minimal serif</span></div>
-      </article>
-
-      <!-- Georgia -->
-      <article class="card">
-        <div class="city exo2">Tbilisi</div>
-        <div class="meta"><span class="tag">Exo 2</span><span>Contemporary tech</span></div>
-      </article>
-
-      <!-- Germany -->
-      <article class="card">
-        <div class="city worksans">Berlin</div>
-        <div class="meta"><span class="tag">Work Sans</span><span>Functional modernism</span></div>
-      </article>
-
-      <!-- Greece -->
-      <article class="card">
-        <div class="city source">Athens</div>
-        <div class="meta"><span class="tag">Source Sans 3</span><span>Measured, readable</span></div>
-      </article>
-
-      <!-- Hungary -->
-      <article class="card">
-        <div class="city plex">Budapest</div>
-        <div class="meta"><span class="tag">IBM Plex Sans</span><span>Balanced structure</span></div>
-      </article>
-
-      <!-- Iceland -->
-      <article class="card">
-        <div class="city inter">Reykjavík</div>
-        <div class="meta"><span class="tag">Inter</span><span>Cool restraint</span></div>
-      </article>
-
-      <!-- Ireland -->
-      <article class="card">
-        <div class="city worksans">Dublin</div>
-        <div class="meta"><span class="tag">Work Sans</span><span>Approachable modern</span></div>
-      </article>
-
-      <!-- Italy -->
-      <article class="card">
-        <div class="city playfair">Rome</div>
-        <div class="meta"><span class="tag">Playfair Display</span><span>Modern classic serif</span></div>
-      </article>
-
-      <!-- Kosovo -->
-      <article class="card">
-        <div class="city rubik">Pristina</div>
-        <div class="meta"><span class="tag">Rubik</span><span>Rounded utility</span></div>
-      </article>
-
-      <!-- Latvia -->
-      <article class="card">
-        <div class="city manrope">Riga</div>
-        <div class="meta"><span class="tag">Manrope</span><span>Crisp, modern</span></div>
-      </article>
-
-      <!-- Liechtenstein -->
-      <article class="card">
-        <div class="city raleway">Vaduz</div>
-        <div class="meta"><span class="tag">Raleway</span><span>Light elegance</span></div>
-      </article>
-
-      <!-- Lithuania -->
-      <article class="card">
-        <div class="city manrope">Vilnius</div>
-        <div class="meta"><span class="tag">Manrope</span><span>Refined, calm</span></div>
-      </article>
-
-      <!-- Luxembourg -->
-      <article class="card">
-        <div class="city source">Luxembourg</div>
-        <div class="meta"><span class="tag">Source Sans 3</span><span>Corporate neat</span></div>
-      </article>
-
-      <!-- Malta -->
-      <article class="card">
-        <div class="city quicksand">Valletta</div>
-        <div class="meta"><span class="tag">Quicksand</span><span>Soft geometry</span></div>
-      </article>
-
-      <!-- Moldova -->
-      <article class="card">
-        <div class="city source">Chișinău</div>
-        <div class="meta"><span class="tag">Source Sans 3</span><span>Neutral utility</span></div>
-      </article>
-
-      <!-- Monaco -->
-      <article class="card">
-        <div class="city raleway">Monaco</div>
-        <div class="meta"><span class="tag">Raleway</span><span>Sleek luxury-lite</span></div>
-      </article>
-
-      <!-- Montenegro -->
-      <article class="card">
-        <div class="city rubik">Podgorica</div>
-        <div class="meta"><span class="tag">Rubik</span><span>Rounded modern</span></div>
-      </article>
-
-      <!-- Netherlands -->
+      <!-- Amsterdam — progressive, design-savvy; Space Grotesk has that crisp Dutch modernist feel -->
       <article class="card">
         <div class="city spaceg">Amsterdam</div>
-        <div class="meta"><span class="tag">Space Grotesk</span><span>Design-forward</span></div>
+        <div class="meta"><span class="tag">Space Grotesk</span><span>clean, design‑forward</span></div>
       </article>
 
-      <!-- North Macedonia -->
+      <!-- Athens — classical bones, modern system; Marcellus nods to stone-cut inscriptions without getting shouty -->
       <article class="card">
-        <div class="city montserrat">Skopje</div>
-        <div class="meta"><span class="tag">Montserrat</span><span>Geometric bold</span></div>
+        <div class="city marcellus">Athens</div>
+        <div class="meta"><span class="tag">Marcellus</span><span>subtle classical chic</span></div>
       </article>
 
-      <!-- Norway -->
+      <!-- Berlin — engineering-forward, DIN-adjacent utility; Archivo gives pragmatic, modern punch -->
       <article class="card">
-        <div class="city inter">Oslo</div>
+        <div class="city archivo">Berlin</div>
+        <div class="meta"><span class="tag">Archivo</span><span>functional, modernist</span></div>
+      </article>
+
+      <!-- Brussels — institutional, multilingual; Source Sans 3 is sober and official without being dull -->
+      <article class="card">
+        <div class="city source">Brussels</div>
+        <div class="meta"><span class="tag">Source Sans 3</span><span>institutional clarity</span></div>
+      </article>
+
+      <!-- Copenhagen — airy Nordic minimalism; Inter is the tech‑clean default for Scandi UI -->
+      <article class="card">
+        <div class="city inter">Copenhagen</div>
         <div class="meta"><span class="tag">Inter</span><span>Nordic minimal</span></div>
       </article>
 
-      <!-- Poland -->
+      <!-- Helsinki — restrained, modern; Manrope feels precise and cool‑toned -->
       <article class="card">
-        <div class="city plex">Warsaw</div>
-        <div class="meta"><span class="tag">IBM Plex Sans</span><span>Engineered calm</span></div>
+        <div class="city manrope">Helsinki</div>
+        <div class="meta"><span class="tag">Manrope</span><span>cool precision</span></div>
       </article>
 
-      <!-- Portugal -->
+      <!-- Lisbon — sunlit modern; Epilogue is geometric with warmth -->
       <article class="card">
-        <div class="city jost">Lisbon</div>
-        <div class="meta"><span class="tag">Jost</span><span>Sunny modernist</span></div>
+        <div class="city epilogue">Lisbon</div>
+        <div class="meta"><span class="tag">Epilogue</span><span>geometric warmth</span></div>
       </article>
 
-      <!-- Romania -->
-      <article class="card">
-        <div class="city urbanist">Bucharest</div>
-        <div class="meta"><span class="tag">Urbanist</span><span>Contemporary urban</span></div>
-      </article>
-
-      <!-- Russia -->
-      <article class="card">
-        <div class="city worksans">Moscow</div>
-        <div class="meta"><span class="tag">Work Sans</span><span>Strong, modern</span></div>
-      </article>
-
-      <!-- San Marino -->
-      <article class="card">
-        <div class="city raleway">San Marino</div>
-        <div class="meta"><span class="tag">Raleway</span><span>Light, airy</span></div>
-      </article>
-
-      <!-- Serbia -->
-      <article class="card">
-        <div class="city rubik">Belgrade</div>
-        <div class="meta"><span class="tag">Rubik</span><span>Rounded strength</span></div>
-      </article>
-
-      <!-- Slovakia -->
-      <article class="card">
-        <div class="city montserrat">Bratislava</div>
-        <div class="meta"><span class="tag">Montserrat</span><span>Geometric clarity</span></div>
-      </article>
-
-      <!-- Slovenia -->
-      <article class="card">
-        <div class="city montserrat">Ljubljana</div>
-        <div class="meta"><span class="tag">Montserrat</span><span>Clean geometry</span></div>
-      </article>
-
-      <!-- Spain -->
+      <!-- Madrid — assertive contemporary; Jost is crisp and urban without being sterile -->
       <article class="card">
         <div class="city jost">Madrid</div>
-        <div class="meta"><span class="tag">Jost</span><span>Sunny crisp</span></div>
+        <div class="meta"><span class="tag">Jost</span><span>crisp contemporary</span></div>
       </article>
 
-      <!-- Sweden -->
+      <!-- Paris — elegant with restraint; Bodoni Moda offers haute serif energy without excessive flourish -->
       <article class="card">
-        <div class="city inter">Stockholm</div>
-        <div class="meta"><span class="tag">Inter</span><span>Scandi restraint</span></div>
+        <div class="city bodoni">Paris</div>
+        <div class="meta"><span class="tag">Bodoni Moda</span><span>elegant modern serif</span></div>
       </article>
 
-      <!-- Switzerland -->
+      <!-- Rome — timeless monumentality; Cinzel carries inscriptional gravitas in a clean way -->
       <article class="card">
-        <div class="city plex">Bern</div>
-        <div class="meta"><span class="tag">IBM Plex Sans</span><span>Swiss-ish clarity</span></div>
+        <div class="city cinzel">Rome</div>
+        <div class="meta"><span class="tag">Cinzel</span><span>timeless, inscriptional</span></div>
       </article>
 
-      <!-- Turkey -->
+      <!-- Stockholm — calm, orderly; Manrope again fits the Swedish 'quiet systems' vibe -->
       <article class="card">
-        <div class="city source">Ankara</div>
-        <div class="meta"><span class="tag">Source Sans 3</span><span>Neutral official</span></div>
+        <div class="city manrope">Stockholm</div>
+        <div class="meta"><span class="tag">Manrope</span><span>Scandi restraint</span></div>
       </article>
 
-      <!-- Ukraine -->
+      <!-- Vienna — refined modern classic; Josefin Sans hints at Viennese modernism with a light art‑deco flavor -->
       <article class="card">
-        <div class="city manrope">Kyiv</div>
-        <div class="meta"><span class="tag">Manrope</span><span>Modern Ukrainian</span></div>
+        <div class="city josefin">Vienna</div>
+        <div class="meta"><span class="tag">Josefin Sans</span><span>refined modern</span></div>
       </article>
 
-      <!-- United Kingdom -->
+      <!-- =========================
+           US ADDITIONS
+           ========================= -->
+
+      <!-- New York — editorial heritage; Newsreader gives contemporary newspaper‑serif energy -->
       <article class="card">
-        <div class="city poppins">London</div>
-        <div class="meta"><span class="tag">Poppins</span><span>Rounded, TfL-adjacent</span></div>
+        <div class="city news">New York</div>
+        <div class="meta"><span class="tag">Newsreader</span><span>editorial modern serif</span></div>
       </article>
 
-      <!-- Vatican City -->
+      <!-- San Francisco — tech‑clean and optimistic; Sora lands that contemporary product‑design tone -->
       <article class="card">
-        <div class="city raleway">Vatican City</div>
-        <div class="meta"><span class="tag">Raleway</span><span>Fine lines</span></div>
+        <div class="city sora">San Francisco</div>
+        <div class="meta"><span class="tag">Sora</span><span>clean, product‑design</span></div>
       </article>
 
-      <!-- And the rest of the EU/EFTA we haven’t explicitly named above -->
-      <!-- Lithuania/Latvia/Estonia already included; add remaining big ones -->
-
-      <!-- Netherlands done; France done; Germany done; Italy done; Spain done; Portugal done; Ireland done; Belgium done; Luxembourg done; Austria done; Poland done; Greece done; Czechia done; Denmark done; Finland done; Sweden done; Croatia done; Slovenia done; Slovakia done; Romania done; Bulgaria done; Hungary done; Malta done; Cyprus done -->
-
-      <!-- Iceland done; Norway done; Switzerland (Bern) done; Liechtenstein done -->
-      <!-- Monaco done; Andorra done; San Marino done; Vatican done -->
-
-      <!-- Moldova done; Ukraine done; Belarus done; Russia done -->
-      <!-- Armenia, Azerbaijan, Georgia done -->
-      <!-- Bosnia & Herzegovina, Montenegro, North Macedonia, Serbia, Kosovo, Albania done -->
-
-      <!-- Baltic capitals repeated? Already present. -->
-
-      <!-- Extra: European capitals sometimes debated: Luxembourg city, done. -->
-
-      <!-- US ADDITIONS -->
+      <!-- Los Angeles — wide, cinematic; Outfit has relaxed geometry with screen‑title confidence -->
       <article class="card">
-        <div class="city worksans">New York</div>
-        <div class="meta"><span class="tag">Work Sans</span><span>Bold, no‑nonsense</span></div>
+        <div class="city outfit wide">Los Angeles</div>
+        <div class="meta"><span class="tag">Outfit</span><span>wide, cinematic ease</span></div>
       </article>
 
+      <!-- Boston — academic heritage; Merriweather keeps it serious but friendly -->
       <article class="card">
-        <div class="city inter">San Francisco</div>
-        <div class="meta"><span class="tag">Inter</span><span>Clean, techy</span></div>
-      </article>
-
-      <article class="card">
-        <div class="city spaceg">Los Angeles</div>
-        <div class="meta"><span class="tag">Space Grotesk</span><span>Wide, cinematic</span></div>
-      </article>
-
-      <article class="card">
-        <div class="city merrisans">Boston</div>
-        <div class="meta"><span class="tag">Merriweather Sans</span><span>Modern with heritage</span></div>
-      </article>
-
-      <!-- Remaining European capitals to ensure full coverage -->
-
-      <article class="card">
-        <div class="city inter">Lisbon</div>
-        <div class="meta"><span class="tag">Inter</span><span>Alt pick (pairing option)</span></div>
-      </article>
-
-      <article class="card">
-        <div class="city spaceg">Zagreb</div>
-        <div class="meta"><span class="tag">Space Grotesk</span><span>Alt pick</span></div>
-      </article>
-
-      <article class="card">
-        <div class="city jost">Ljubljana</div>
-        <div class="meta"><span class="tag">Jost</span><span>Alt pick</span></div>
-      </article>
-
-      <article class="card">
-        <div class="city archivo">Bratislava</div>
-        <div class="meta"><span class="tag">Archivo</span><span>Alt pick</span></div>
+        <div class="city merri">Boston</div>
+        <div class="meta"><span class="tag">Merriweather</span><span>heritage serif</span></div>
       </article>
 
     </section>
