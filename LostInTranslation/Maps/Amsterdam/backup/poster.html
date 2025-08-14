@@ -2,31 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Lost In Translation — Persona Signatures</title>
+  <title>Lost In Translation — Persona Signatures (Humanized with Stroke Variations)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Fonts -->
-  <!-- Karen: bubbly handwritten (Pacifico) -->
-  <!-- Clémence: elegant, connected script (Parisienne) -->
-  <!-- Agnes: neutral, modern, clean handwritten (Caveat) -->
-  <!-- Dieter: block-lettered, functional handwritten (Amatic SC) -->
-  <!-- Gerrit: boring, practical handwritten (Patrick Hand) -->
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Caveat:wght@400;600&family=Pacifico&family=Parisienne&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Pacifico&family=Parisienne&family=Patrick+Hand+SC&family=Handlee&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg: #f7f7f7;
       --ink: #111;
       --muted: #777;
+      --dash: rgba(0,0,0,.08);
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
     body{
       margin:0;
       background: var(--bg);
       color: var(--ink);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -62,18 +56,20 @@
       display:flex;
       align-items:flex-end;
       gap: 1rem;
+      position: relative;
+      padding-bottom: .25rem;
     }
 
-    /* a faint baseline for alignment (optional, looks like paper) */
     .sig::after{
       content:"";
-      flex:1 1 auto;
-      border-bottom: 1px dashed rgba(0,0,0,.08);
-      transform: translateY(-4px);
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-bottom: 1px dashed var(--dash);
     }
 
-    /* Signature text base */
-    .sig span{
+    .sig .text{
       display:inline-block;
       font-size: clamp(36px, 7vw, 56px);
       color: var(--ink);
@@ -81,49 +77,67 @@
       white-space: nowrap;
     }
 
-    /* Karen – bubbly handwritten */
-    .karen span{
-      font-family: "Pacifico", "Comic Sans MS", "Brush Script MT", cursive;
+    /* Karen */
+    .karen .text{
+      font-family: "Pacifico", cursive;
       letter-spacing: .02em;
       transform: rotate(-1.2deg);
     }
 
-    /* Clémence – elegant, connected */
-    .clemence span{
-      font-family: "Parisienne", "Great Vibes", "Allura", cursive;
+    /* Clémence */
+    .clemence .text{
+      font-family: "Parisienne", cursive;
       font-size: clamp(40px, 7.5vw, 60px);
-      letter-spacing: .02em;
       transform: rotate(0.4deg);
       font-weight: 400;
     }
 
-    /* Agnes – neutral, modern, clean */
-    .agnes span{
-      font-family: "Caveat", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      font-weight: 600;
-      transform: rotate(-0.3deg);
+    /* Agnes */
+    .agnes .text{
+      font-family: "Kalam", sans-serif;
+      font-weight: 400;
+      transform: rotate(-0.4deg);
+      letter-spacing: 0.01em;
     }
 
-    /* Dieter – block-lettered, functional */
-    .dieter span{
-      font-family: "Amatic SC", "Patrick Hand", "Arial Black", Impact, sans-serif;
-      letter-spacing: .06em;
-      font-weight: 700;
-      transform: rotate(0deg);
+    /* Dieter */
+    .dieter .text{
+      font-family: "Patrick Hand SC", sans-serif;
       text-transform: uppercase;
-      /* slightly smaller so caps don't overpower */
+      letter-spacing: .055em;
+      font-weight: 400;
+      transform: rotate(0.2deg);
       font-size: clamp(34px, 6.8vw, 52px);
     }
 
-    /* Gerrit – boring/practical handwritten */
-    .gerrit span{
-      font-family: "Patrick Hand", "Segoe Print", "Bradley Hand", cursive;
-      letter-spacing: .005em;
-      transform: rotate(0.2deg);
+    /* Gerrit */
+    .gerrit .text{
+      font-family: "Handlee", cursive;
+      letter-spacing: .01em;
+      transform: rotate(0.1deg);
       font-weight: 400;
     }
 
-    /* Small helper label under each signature for clarity (can be removed) */
+    /* Per-letter jitter */
+    .glyph{
+      display: inline-block;
+      transform-origin: center;
+      transform:
+        translate(var(--tx, 0), var(--ty, 0))
+        rotate(var(--rot, 0));
+      text-shadow: var(--shadow);
+    }
+
+    .glyph.space{
+      transform: none !important;
+      text-shadow: none !important;
+      width: 0.32em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glyph { transform: none !important; }
+    }
+
     .label{
       font-size: 12px;
       color: var(--muted);
@@ -134,34 +148,79 @@
   </style>
 </head>
 <body>
-  <main class="sheet" role="main" aria-labelledby="title">
-    <h1 id="title">Persona Signatures</h1>
-    <section class="siglist" aria-label="Signatures">
+  <main class="sheet">
+    <h1>Persona Signatures</h1>
+    <section class="siglist">
       <div class="sig karen">
-        <span>by Karen</span>
+        <span class="text">by Karen</span>
       </div>
       <div class="label">Bubbly handwritten</div>
 
       <div class="sig clemence">
-        <span>by Clémence</span>
+        <span class="text">by Clémence</span>
       </div>
       <div class="label">Elegant, connected handwriting</div>
 
-      <div class="sig agnes">
-        <span>by Agnes</span>
+      <div class="sig agnes" data-jitter="letters" data-amp="0.55" data-rotate="0.9" data-thick="0.5">
+        <span class="text">by Agnes</span>
       </div>
-      <div class="label">Neutral, modern, clean handwriting</div>
+      <div class="label">Neutral, modern, clean — humanized</div>
 
-      <div class="sig dieter">
-        <span>by Dieter</span>
+      <div class="sig dieter" data-jitter="letters" data-amp="0.45" data-rotate="0.7" data-thick="0.5">
+        <span class="text">by Dieter</span>
       </div>
-      <div class="label">Block-lettered, functional handwriting</div>
+      <div class="label">Block-lettered, functional — humanized</div>
 
-      <div class="sig gerrit">
-        <span>by Gerrit</span>
+      <div class="sig gerrit" data-jitter="letters" data-amp="0.50" data-rotate="0.8" data-thick="0.5">
+        <span class="text">by Gerrit</span>
       </div>
-      <div class="label">Boring, practical handwriting</div>
+      <div class="label">Boring, practical — humanized</div>
     </section>
   </main>
+
+  <script>
+    (function(){
+      const jittered = document.querySelectorAll('.sig[data-jitter="letters"] .text');
+
+      jittered.forEach(textEl => {
+        const parentSig = textEl.closest('.sig');
+        const amp = parseFloat(parentSig.getAttribute('data-amp') || '0.5');
+        const rot = parseFloat(parentSig.getAttribute('data-rotate') || '0.8');
+        const thick = parseFloat(parentSig.getAttribute('data-thick') || '0.4');
+
+        const raw = textEl.textContent;
+        const frag = document.createDocumentFragment();
+        textEl.textContent = '';
+
+        for (let ch of raw){
+          const span = document.createElement('span');
+          span.className = 'glyph';
+
+          if (ch === ' ') {
+            span.classList.add('space');
+            span.textContent = ' ';
+            frag.appendChild(span);
+            continue;
+          }
+
+          const tx = (Math.random() * 2 - 1) * amp;
+          const ty = (Math.random() * 2 - 1) * amp;
+          const r  = (Math.random() * 2 - 1) * rot;
+
+          const shadowSize = (Math.random() * thick).toFixed(2);
+          const shadow = `0 0 ${shadowSize}px rgba(0,0,0,0.8)`;
+
+          span.style.setProperty('--tx', tx.toFixed(2) + 'px');
+          span.style.setProperty('--ty', ty.toFixed(2) + 'px');
+          span.style.setProperty('--rot', r.toFixed(2) + 'deg');
+          span.style.setProperty('--shadow', shadow);
+
+          span.textContent = ch;
+          frag.appendChild(span);
+        }
+        textEl.appendChild(frag);
+      });
+    })();
+  </script>
 </body>
 </html>
