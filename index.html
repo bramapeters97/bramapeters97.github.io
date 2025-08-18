@@ -21,6 +21,56 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-inner">
+    <div>
+      We use cookies for analytics to improve our site.
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-decline" id="cookie-decline">Decline</button>
+      <button class="cookie-btn cookie-accept" id="cookie-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    const key = 'ga_consent_choice_v1';
+    const banner = document.getElementById('cookie-banner');
+    const saved = localStorage.getItem(key);
+
+    function setConsent(allow) {
+      gtag('consent', 'update', {
+        'analytics_storage': allow ? 'granted' : 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
+    }
+
+    if (saved) {
+      banner.style.display = 'none';
+      setConsent(saved === 'accept');
+    } else {
+      banner.style.display = 'block';
+    }
+
+    document.getElementById('cookie-accept').onclick = function () {
+      localStorage.setItem(key, 'accept');
+      setConsent(true);
+      banner.remove();
+      // Optional: send a page_view now that consent is granted
+      gtag('event', 'page_view');
+    };
+
+    document.getElementById('cookie-decline').onclick = function () {
+      localStorage.setItem(key, 'decline');
+      setConsent(false);
+      banner.remove();
+    };
+  })();
+</script>
+
+
 <body>
   <div class="container">
     <!-- HEADER CARD: spans full width -->
@@ -86,13 +136,13 @@
         <div class="section-title icon-title contact">Contact Me</div>
         <div><i class="fa-solid fa-phone" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
             class="header-contact"><a href="tel:+31 6 30827054">+31 6 30827054</a>
-</span></div>
+          </span></div>
         <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
             class="header-contact"><a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a></span></div>
         <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
-            class="header-contact"><a
-              href="http://maps.google.com/?q=1200 Amsterdam Netherlands">Amsterdam, Netherlands</a>
-</span></div>
+            class="header-contact"><a href="http://maps.google.com/?q=1200 Amsterdam Netherlands">Amsterdam,
+              Netherlands</a>
+          </span></div>
         <div><i class="fa-solid fa-globe" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
             class="header-contact"><a href="https://bram-peters.com">bram‑peters.com</a></span></div>
         <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
