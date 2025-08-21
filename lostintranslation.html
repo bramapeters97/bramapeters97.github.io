@@ -944,3 +944,41 @@
 </div>
 
 </html>
+
+<script>
+  (function () {
+    const key = 'ga_consent_choice_v1';
+    const banner = document.getElementById('cookie-banner');
+    const saved = localStorage.getItem(key);
+
+    function setConsent(allow) {
+      gtag('consent', 'update', {
+        'analytics_storage': allow ? 'granted' : 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
+    }
+
+    if (saved) {
+      banner.style.display = 'none';
+      setConsent(saved === 'accept');
+    } else {
+      banner.style.display = 'block';
+    }
+
+    document.getElementById('cookie-accept').onclick = function () {
+      localStorage.setItem(key, 'accept');
+      setConsent(true);
+      banner.remove();
+      // Optional: send a page_view now that consent is granted
+      gtag('event', 'page_view');
+    };
+
+    document.getElementById('cookie-decline').onclick = function () {
+      localStorage.setItem(key, 'decline');
+      setConsent(false);
+      banner.remove();
+    };
+  })();
+</script>
