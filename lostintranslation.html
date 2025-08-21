@@ -694,26 +694,28 @@
 // Slide-in on scroll for steps (sequential, left to right)
 // Slide-in for steps
 (function () {
-const steps = document.querySelectorAll('.steps .step');
+  const steps = document.querySelectorAll('.steps .step');
 
-// Always show immediately on mobile (<820px) or reduced motion if (window.innerWidth < 820 || !('IntersectionObserver'
-  in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { steps.forEach(s=>
-  s.classList.add('in-view'));
-  return;
+  // Always show immediately on mobile (<820px) or reduced motion
+  if (window.innerWidth < 820 || 
+      !('IntersectionObserver' in window) || 
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    steps.forEach(s => s.classList.add('in-view'));
+    return;
   }
 
   // Desktop: animate in on scroll
   const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-  if (entry.isIntersecting) {
-  entry.target.classList.add('in-view');
-  io.unobserve(entry.target);
-  }
-  });
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
   }, { root: null, threshold: 0.2 });
 
   steps.forEach(s => io.observe(s));
-  })();
+})();
 
 
 
