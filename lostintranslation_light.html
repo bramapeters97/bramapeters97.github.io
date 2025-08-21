@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Lost In Translation™ — Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Lost In Translation" />
+  <meta name="theme-color" content="#faf3e9" />
+  <meta name="description"
+    content="Global Transit, Local Nonsense™ — Choose a city, pick a language, and let one of our gloriously underqualified AI travel assistants detour you with confidence. Coming soon." />
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Fira+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #faf3e9;
+      --bg-elev: #fffdf9;
+      --glass: rgba(255, 255, 255, .55);
+      --stroke: rgba(0, 0, 0, .12);
+      --text: #2e2e2c;
+      --muted: #6b6b65;
+
+      /* Line colors */
+      --line-red: #ff5a68;
+      --line-blue: #5aa6ff;
+      --line-yellow: #ffd166;
+      --line-green: #6dde8c;
+      --line-purple: #c79bff;
+
+      --white: #ffffff;
+
+      --card-blur: 18px;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    }
+
+    /* Reset / base */
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% -10%, #fffdf9 0%, #faf3e9 55%) fixed,
+        radial-gradient(900px 600px at 110% 10%, #fffdf9 0%, #faf3e9 60%) fixed,
+        var(--bg);
+      overflow-x: hidden;
+
+      /* Sticky footer layout */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Background SVG (full-bleed) */
+    .bg-wrap {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    svg#metro-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: .55;
+      filter: none;
+    }
+
+    /* Lines */
+    .line {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 3.5;
+      stroke-dasharray: var(--len, 1000);
+      stroke-dashoffset: var(--len, 1000);
+      animation: draw 3.6s ease-out forwards, glow 6s ease-in-out infinite;
+      animation-delay: var(--delay, 0s), calc(var(--delay, 0s) + 1.2s);
+    }
+
+    .line.red {
+      stroke: var(--line-red);
+    }
+
+    .line.blue {
+      stroke: var(--line-blue);
+    }
+
+    .line.yellow {
+      stroke: var(--line-yellow);
+    }
+
+    .line.green {
+      stroke: var(--line-green);
+    }
+
+    .line.purple {
+      stroke: var(--line-purple);
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+        opacity: .9;
+      }
+
+      50% {
+        filter: drop-shadow(0 0 6px rgba(0, 0, 0, .06));
+        opacity: 1;
+      }
+    }
+
+    /* Stations */
+    .station {
+      fill: var(--white);
+      stroke: rgba(0, 0, 0, .15);
+      stroke-width: 1;
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: stationIn .8s ease-out forwards, stationPulse 3.6s ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes stationIn {
+      to {
+        opacity: .9;
+      }
+    }
+
+    @keyframes stationPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+      }
+
+      50% {
+        transform: scale(1.12);
+        filter: drop-shadow(0 0 6px rgba(0, 0, 0, .1));
+      }
+    }
+
+    /* Shared container width to align header with hero */
+    .container,
+    .hero {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header.site-header {
+      position: relative;
+      z-index: 1;
+      padding: 20px 0;
+    }
+
+    .site-header .container {
+      padding: 0 clamp(16px, 4vw, 40px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 52px;
+    }
+
+    .brand img {
+      height: 40px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, .15));
+    }
+
+    .brand .tn {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand .name {
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .brand .tag {
+      font: 700 12px/1 'Fira Mono', monospace;
+      letter-spacing: .6px;
+      color: var(--muted);
+    }
+
+    .badge {
+      font: 700 12px/1 'Fira Mono', monospace;
+      letter-spacing: .6px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #2e2e2c;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .85), rgba(255, 255, 255, .55));
+      border: 1px solid rgba(0, 0, 0, .1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .badge.online::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #39ff88;
+      box-shadow: 0 0 6px rgba(57, 255, 136, .9), 0 0 14px rgba(57, 255, 136, .4);
+      display: inline-block;
+      animation: pulseDot 1.6s ease-in-out infinite;
+    }
+
+    @keyframes pulseDot {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.25)
+      }
+    }
+
+    /* Main hero */
+    main {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      padding: clamp(24px, 4vw, 48px) 0;
+      padding-top: clamp(16px, 4vw, 24px);
+      width: 100%;
+      flex: 1;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(18px, 3vw, 26px);
+      padding: 0 clamp(16px, 4vw, 40px);
+    }
+
+    .hero-head {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: clamp(18px, 4vw, 28px);
+      background: linear-gradient(180deg, var(--glass), rgba(255, 255, 255, .85));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      backdrop-filter: blur(var(--card-blur));
+      -webkit-backdrop-filter: blur(var(--card-blur));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hero-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-logo img {
+      height: 110px;
+      width: auto;
+      filter: drop-shadow(0 8px 22px rgba(0, 0, 0, .2));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -0.2px;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: clamp(14px, 2.4vw, 16px);
+      margin-top: 6px;
+    }
+
+    .sub {
+      margin: 0;
+      font-size: clamp(14px, 2.5vw, 16px);
+      color: #4a4a44;
+    }
+
+    /* Steps grid */
+    .steps {
+      display: grid;
+      gap: clamp(12px, 2.2vw, 18px);
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 820px) {
+      .steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .step {
+      position: relative;
+      padding: clamp(16px, 2.8vw, 22px);
+      background: linear-gradient(180deg, #fffefc, #faf8f4);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(var(--card-blur));
+      -webkit-backdrop-filter: blur(var(--card-blur));
+      overflow: hidden;
+
+      min-height: auto;
+      opacity: 0;
+      transform: translateX(-28px);
+      transition:
+        opacity 1500ms ease,
+        transform 1500ms cubic-bezier(.22, .61, .36, 1);
+      will-change: opacity, transform;
+    }
+
+    @media (min-width: 820px) {
+      .step {
+        min-height: 180px;
+      }
+    }
+
+    .step.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .steps .step.in-view:nth-child(1) {
+      transition-delay: 0ms;
+    }
+
+    .steps .step.in-view:nth-child(2) {
+      transition-delay: 400ms;
+    }
+
+    .steps .step.in-view:nth-child(3) {
+      transition-delay: 800ms;
+    }
+
+    .step:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 0, 0, .18);
+      background: linear-gradient(180deg, #fffefc, #fdf8f2);
+    }
+
+    .step .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font: 700 12px/1 'Fira Mono', monospace;
+      color: #5aa6ff;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: clamp(18px, 2.6vw, 22px);
+      line-height: 1.2;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(13px, 2.2vw, 15px);
+    }
+
+    /* Persona pills */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255, 255, 255, .7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size: 13px;
+      line-height: 1;
+      color: #2e2e2c;
+      white-space: nowrap;
+    }
+
+    .pill .flag {
+      font-size: 14px;
+      line-height: 1;
+      display: inline-block;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 24px clamp(16px, 4vw, 40px) 48px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, .3));
+      border-top: 1px solid var(--stroke);
+    }
+
+    .legal {
+      font-size: 12px;
+    }
+
+    .slogan {
+      font-weight: 800;
+      letter-spacing: .2px;
+      color: #2e2e2c;
+    }
+
+    /* Accessibility: motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      .line,
+      .station {
+        animation: none;
+      }
+
+      .station {
+        opacity: .7;
+      }
+
+      svg#metro-bg {
+        filter: none;
+      }
+
+      .step {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background -->
+  <div class="bg-wrap" aria-hidden="true">
+    <svg id="metro-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img"
+      aria-label="Animated background of orthogonal metro lines with stations">
+      <!-- Red Line -->
+      <polyline class="line red" style="--delay:.2s"
+        points="-60,120 120,120 240,240 360,240 540,420 780,420 1020,300 1240,300" />
+      <circle class="station" style="--delay:.45s" cx="120" cy="120" r="3.2" />
+      <circle class="station" style="--delay:.65s" cx="240" cy="240" r="3.2" />
+      <circle class="station" style="--delay:.85s" cx="360" cy="240" r="3.2" />
+      <circle class="station" style="--delay:1.05s" cx="540" cy="420" r="3.2" />
+      <circle class="station" style="--delay:1.25s" cx="780" cy="420" r="3.2" />
+      <circle class="station" style="--delay:1.35s" cx="1020" cy="300" r="3.2" />
+
+      <!-- Blue Line -->
+      <polyline class="line blue" style="--delay:.6s"
+        points="-60,560 120,560 240,560 360,440 600,440 840,200 1020,200 1220,380" />
+      <circle class="station" style="--delay:.9s" cx="120" cy="560" r="3.2" />
+      <circle class="station" style="--delay:1.1s" cx="240" cy="560" r="3.2" />
+      <circle class="station" style="--delay:1.3s" cx="360" cy="440" r="3.2" />
+      <circle class="station" style="--delay:1.5s" cx="600" cy="440" r="3.2" />
+      <circle class="station" style="--delay:1.7s" cx="840" cy="200" r="3.2" />
+      <circle class="station" style="--delay:1.9s" cx="1020" cy="200" r="3.2" />
+
+      <!-- Yellow Line -->
+      <polyline class="line yellow" style="--delay:1.0s"
+        points="-40,720 200,720 320,600 560,600 680,720 920,720 1080,620 1240,620" />
+      <circle class="station" style="--delay:1.2s" cx="200" cy="720" r="3.2" />
+      <circle class="station" style="--delay:1.4s" cx="320" cy="600" r="3.2" />
+      <circle class="station" style="--delay:1.6s" cx="560" cy="600" r="3.2" />
+      <circle class="station" style="--delay:1.8s" cx="680" cy="720" r="3.2" />
+      <circle class="station" style="--delay:2.0s" cx="920" cy="720" r="3.2" />
+      <circle class="station" style="--delay:2.2s" cx="1080" cy="620" r="3.2" />
+
+      <!-- Green Line -->
+      <polyline class="line green" style="--delay:1.4s"
+        points="-80,280 120,280 240,400 240,520 480,520 720,640 960,640 1200,520" />
+      <circle class="station" style="--delay:1.6s" cx="120" cy="280" r="3.2" />
+      <circle class="station" style="--delay:1.8s" cx="240" cy="400" r="3.2" />
+      <circle class="station" style="--delay:2.0s" cx="240" cy="520" r="3.2" />
+      <circle class="station" style="--delay:2.2s" cx="480" cy="520" r="3.2" />
+      <circle class="station" style="--delay:2.4s" cx="720" cy="640" r="3.2" />
+      <circle class="station" style="--delay:2.6s" cx="960" cy="640" r="3.2" />
+
+      <!-- Purple Line -->
+      <polyline class="line purple" style="--delay:1.8s"
+        points="-50,400 160,400 280,280 520,280 760,520 1000,520 1160,360 1260,360" />
+      <circle class="station" style="--delay:2.0s" cx="160" cy="400" r="3.2" />
+      <circle class="station" style="--delay:2.2s" cx="280" cy="280" r="3.2" />
+      <circle class="station" style="--delay:2.4s" cx="520" cy="280" r="3.2" />
+      <circle class="station" style="--delay:2.6s" cx="760" cy="520" r="3.2" />
+      <circle class="station" style="--delay:2.8s" cx="1000" cy="520" r="3.2" />
+      <circle class="station" style="--delay:3.0s" cx="1160" cy="360" r="3.2" />
+    </svg>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" role="banner" aria-label="Site header">
+    <div class="container">
+      <div class="brand" aria-label="Lost In Translation">
+        <img src="favicon.png" alt="Lost In Translation logo" />
+        <div class="tn">
+          <div class="name">Lost In Translation™</div>
+          <div class="tag">Global Transit, Local Nonsense™</div>
+        </div>
+      </div>
+      <div class="badge online" aria-label="Status"><span class="sr-only">Status:</span> Coming Soon</div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main role="main">
+    <section class="hero" aria-label="Overview">
+      <div class="hero-head">
+        <div class="hero-top">
+          <div class="hero-logo">
+            <img src="favicon.png" alt="Lost In Translation emblem" />
+            <div>
+              <h1>Are you ready for this <i>tr<span
+                    style="font-weight:100; margin-left: 1px; margin-right: 1px;">ai</span>nwreck</i>?<span
+                  aria-hidden="true"></span></h1>
+              <p class="tagline">Maps so wrong, they feel just right.</p>
+            </div>
+          </div>
+          <span class="badge" aria-label="Announcements">Just mind the language gap</span>
+        </div>
+        <p class="sub">
+          Some very questionably qualified AI-travel assistants have gone off the rails — dramatic, blunt, over-polite,
+          or drunk, depending on who’s helping you navigate the city. From their glorious incompetence comes a gift
+          worth
+          getting lost for...
+        </p>
+      </div>
+
+      <!-- Steps -->
+      <div class="steps" aria-label="How it will work">
+        <!-- Step 1 -->
+        <article class="step">
+          <span class="kicker">
+            <span style="font-size: 20px" aria-hidden="true">📍</span>
+            Step 1
+          </span>
+          <h3>Choose your city</h3>
+          <p>Amsterdam to Tokyo. If there’s a metro, they'll map it beautifully.</p>
+        </article>
+
+        <!-- Step 2 -->
+        <article class="step">
+          <span class="kicker">
+            <span style="font-size: 20px" aria-hidden="true">🗨️</span>
+            Step 2
+          </span>
+          <h3>Pick a language</h3>
+          <p>Watch them butcher it.</p>
+        </article>
+
+        <!-- Step 3 -->
+        <article class="step">
+          <span class="kicker">
+            <span style="font-size: 20px" aria-hidden="true">🧑‍💼</span>
+            Step 3
+          </span>
+          <h3>Select your “AI”-travel assistant</h3>
+          <p>Fully confident. Deeply unqualified. Professional? No. Entertaining? Absolutely.</p>
+          <div class="pill-row" aria-label="Available assistants">
+            <span class="pill" aria-label="Karen, English"><span class="flag" aria-hidden="true"><img
+                  src="https://flagcdn.com/24x18/us.png" alt="flag"
+                  style="width:20px;height:15px;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.08);object-fit:cover;vertical-align:middle;" /></span>
+              Karen</span>
+            <span class="pill" aria-label="Clémence, French"><span class="flag" aria-hidden="true"><img
+                  src="https://flagcdn.com/24x18/fr.png" alt="flag"
+                  style="width:20px;height:15px;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.08);object-fit:cover;vertical-align:middle;" /></span>
+              Clémence</span>
+            <span class="pill" aria-label="Dieter, German"><span class="flag" aria-hidden="true"><img
+                  src="https://flagcdn.com/24x18/de.png" alt="flag"
+                  style="width:20px;height:15px;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.08);object-fit:cover;vertical-align:middle;" /></span>
+              Dieter</span>
+            <span class="pill" aria-label="Gerrit, Dutch"><span class="flag" aria-hidden="true"><img
+                  src="https://flagcdn.com/24x18/nl.png" alt="flag"
+                  style="width:20px;height:15px;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.08);object-fit:cover;vertical-align:middle;" /></span>
+              Gerrit</span>
+            <span class="pill" aria-label="Agnes, Swedish"><span class="flag" aria-hidden="true"><img
+                  src="https://flagcdn.com/24x18/se.png" alt="flag"
+                  style="width:20px;height:15px;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.08);object-fit:cover;vertical-align:middle;" /></span>
+              Agnes</span>
+            <span class="pill" aria-label="More assistants"><span class="flag" aria-hidden="true">... </span>
+              More</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo" aria-label="Site footer">
+    <div class="slogan">© Lost In Translation™ 2025 — Global Transit, Local Nonsense™</div>
+    <div class="legal">part of <a href="https://bram-peters.com" rel="noopener"> <b>BRAM-PETERS.COM</b></a></div>
+  </footer>
+
+  <script>
+    (function () {
+      const lines = document.querySelectorAll('#metro-bg .line');
+      lines.forEach((p, i) => {
+        try {
+          const L = Math.max(1, p.getTotalLength());
+          p.style.setProperty('--len', L);
+          if (!p.style.getPropertyValue('--delay')) {
+            p.style.setProperty('--delay', (0.2 + i * 0.25) + 's');
+          }
+        } catch (e) {}
+      });
+
+      const stations = document.querySelectorAll('#metro-bg .station');
+      stations.forEach((c, i) => {
+        if (!c.style.getPropertyValue('--delay')) {
+          c.style.setProperty('--delay', (0.6 + i * 0.08) + 's');
+        }
+      });
+    })();
+
+    (function () {
+      const steps = document.querySelectorAll('.steps .step');
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        steps.forEach(s => s.classList.add('in-view'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0.4
+      });
+
+      steps.forEach(s => io.observe(s));
+    })();
+  </script>
+</body>
+
+</html>

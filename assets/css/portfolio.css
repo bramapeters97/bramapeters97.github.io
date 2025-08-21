@@ -1,0 +1,227 @@
+    /* NAV — more glassmorphism, aligned center vertically */
+    .nav {
+      position: sticky;
+      top: 12px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .9rem 1.4rem;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .nav .brand {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      letter-spacing: -.3px;
+      color: #1a1a1a;
+    }
+
+    .nav .brand a {
+      display: inline-flex;
+      align-items: center;
+      padding: .35rem .7rem;
+      border-radius: 8px;
+      line-height: 1;
+      font-weight: 700;
+      color: inherit;
+    }
+
+    .nav .brand img {
+      height: 24px;
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.1rem;
+      padding: 0;
+      margin: 0;
+      align-items: center;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      text-decoration: none;
+      color: #2c3757;
+      font-weight: 600;
+      padding: .35rem .7rem;
+      /* consistent with brand link */
+      border-radius: 8px;
+      transition: background .2s, color .2s;
+      line-height: 1;
+      /* avoid baseline creep */
+    }
+
+    .nav a:hover {
+      background: rgba(233, 237, 250, .55);
+      color: #1d2235;
+    }
+
+    .nav a:hover {
+      background: rgba(233, 237, 250, .55);
+      color: #1d2235;
+    }
+
+    /* Header (transparent) */
+    .project-header {
+      padding: 1.2rem 0 0.6rem;
+    }
+
+    .project-header .section-title {
+      margin-bottom: 1.4rem;
+    }
+
+    .project-header h1 {
+      margin: 0 0 .6rem;
+      font-size: 2.1rem;
+      letter-spacing: -0.5px;
+      color: #1a1a1a;
+    }
+
+    .project-header .tagline {
+      font-weight: 300;
+      color: #49536d;
+    }
+
+    /* Content placeholders */
+    .placeholder-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 .4rem;
+      color: #2c3238;
+    }
+
+    .placeholder-muted {
+      color: #555;
+      font-weight: 300;
+    }
+
+    .media-shell {
+      background: #f6f9fd;
+      border: 1px solid rgba(210, 220, 240, .25);
+      border-radius: 12px;
+      box-shadow: 0 10px 26px rgba(45, 50, 90, .1);
+      overflow: hidden;
+    }
+
+    .picture-ph {
+      width: 100%;
+      height: clamp(180px, 38vw, 400px);
+      display: grid;
+      place-items: center;
+      font-weight: 300;
+      color: #6b7280;
+    }
+
+    .video-ph {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: linear-gradient(135deg, #f7fafd 0%, #e8eef9 100%);
+    }
+
+    .video-ph .play {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    .video-ph .play i {
+      font-size: 42px;
+      opacity: .55;
+      margin-bottom: .4rem;
+    }
+
+    .quote-block {
+      background: rgba(255, 255, 255, .42);
+      border: 1px solid rgba(220, 220, 220, .26);
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem;
+      box-shadow: 0 6px 18px rgba(80, 90, 110, .08);
+      font-style: italic;
+      color: #2c3238;
+      position: relative;
+    }
+
+    .quote-block::before {
+      content: "“";
+      position: absolute;
+      left: 12px;
+      top: -8px;
+      font-size: 3rem;
+      color: #e0e4ef;
+      font-style: normal;
+    }
+
+    .quote-cite {
+      display: block;
+      margin-top: .6rem;
+      text-align: right;
+      font-style: normal;
+      font-weight: 300;
+      color: #555;
+    }
+
+    .link-list {
+      display: grid;
+      gap: .55rem;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .link-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      text-decoration: none;
+      color: #2c3757;
+      font-weight: 600;
+    }
+
+    .link-list a i {
+      color: #9094aa;
+    }
+
+    /* Skills card aligned to top, auto-height */
+    aside[aria-label="Skills used"] {
+      align-self: start;
+      height: auto;
+    }
+
+    /* Left column vertical spacing */
+    .left-col {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .page-two-columns {
+      display: grid;
+      gap: 2%;
+      grid-template-columns: 68% 28%;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .page-two-columns {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    /* Normalize icon alignment to avoid extra ascent */
+    .nav i {
+      line-height: 1;
+      display: inline-block;
+    }
