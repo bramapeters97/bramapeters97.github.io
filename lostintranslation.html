@@ -689,37 +689,25 @@
 
   <script>
     // Background line length measuring for draw animation
-// Slide-in for steps
-// Slide-in for steps
-// Slide-in on scroll for steps (sequential, left to right)
-// Slide-in for steps
-(function () {
-  const steps = document.querySelectorAll('.steps .step');
+    (function () {
+      const lines = document.querySelectorAll('#metro-bg .line');
+      lines.forEach((p, i) => {
+        try {
+          const L = Math.max(1, p.getTotalLength());
+          p.style.setProperty('--len', L);
+          if (!p.style.getPropertyValue('--delay')) {
+            p.style.setProperty('--delay', (0.2 + i * 0.25) + 's');
+          }
+        } catch (e) {}
+      });
 
-  // Always show immediately on mobile (<820px) or reduced motion
-  if (window.innerWidth < 820 || 
-      !('IntersectionObserver' in window) || 
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    steps.forEach(s => s.classList.add('in-view'));
-    return;
-  }
-
-  // Desktop: animate in on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { root: null, threshold: 0.2 });
-
-  steps.forEach(s => io.observe(s));
-})();
-
-
-
-
+      const stations = document.querySelectorAll('#metro-bg .station');
+      stations.forEach((c, i) => {
+        if (!c.style.getPropertyValue('--delay')) {
+          c.style.setProperty('--delay', (0.6 + i * 0.08) + 's');
+        }
+      });
+    })();
 
     // Slide-in on scroll for steps (sequential, left to right)
     (function () {
