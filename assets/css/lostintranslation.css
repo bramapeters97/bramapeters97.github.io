@@ -294,3 +294,54 @@ width: 100%;
     margin: 0;
     padding: 0;
     }
+
+    
+      .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, .85);
+    color: #fff;
+    padding: 14px;
+    font: 14px/1.4 system-ui, Segoe UI, Roboto, Helvetica, Arial;
+      opacity: 0.5;
+      }
+
+  .cookie-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap
+  }
+
+  .cookie-actions {
+    display: flex;
+    gap: 8px
+  }
+
+  .cookie-btn {
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer
+  }
+
+  .cookie-accept {
+    background: #3ba55c;
+    color: #fff
+  }
+
+  .cookie-decline {
+    background: #444;
+    color: #fff
+  }
+
+  .cookie-link {
+    color: #fff;
+    text-decoration: underline
+  }
