@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lost In Translation™ — Global Transit, Local Nonsense</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f2ea" />
+  <meta name="description" content="Lost In Translation™ — Choose a city, pick a language, and let one of our gloriously underqualified AI travel assistants detour you with confidence. Glassy UI, light theme." />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Light theme palette (linen-ish luxury off-white) */
+      --bg: #f6f3ec;            /* page background */
+      --paper: #ffffff;         /* card base (used with alpha) */
+      --ink: #121418;           /* main text */
+      --muted: #5d6572;         /* secondary text */
+      --stroke: rgba(18,20,24,.14);
+      --glass: rgba(255,255,255,.55);
+      --blur: 12px;
+
+      /* Brand accents for subtle hints / persona tags */
+      --acc-1: #0ea5e9; /* Karin */
+      --acc-2: #16a34a; /* Gerrit */
+      --acc-3: #f59e0b; /* Dieter */
+      --acc-4: #e11d48; /* Clémence */
+      --acc-5: #6366f1; /* Agnes */
+
+      --card-radius: 18px;
+      --card-shadow: 0 10px 30px rgba(12,12,12,.08);
+      --bubble-shadow: 0 8px 20px rgba(10,12,14,.10);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      color: var(--ink);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
+    /* Fixed Metro Lines Background */
+    .bg-metro{
+      position: fixed;
+      inset: -10vh -10vw;
+      width: 120vw; height: 120vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .65;
+      filter: saturate(.9) contrast(.98);
+    }
+
+    /* Subtle paper grain */
+    .grain{
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+      background-image: radial-gradient(rgba(0,0,0,.03) 1px, transparent 1px);
+      background-size: 2px 2px;
+      mix-blend-mode: multiply;
+    }
+
+    header{
+      position: sticky; top: 0; z-index: 5;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.6);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .nav{
+      max-width: 1200px; margin: 0 auto;
+      padding: 14px 20px; display: flex; gap: 16px;
+      align-items: center; justify-content: space-between;
+    }
+    .brand{
+      display: flex; gap: 12px; align-items: center;
+    }
+    .brand img{
+      height: 32px; width: auto; display: block;
+      filter: none;
+    }
+    .brand .wordmark{
+      font-weight: 800; letter-spacing: .2px; font-size: 1.05rem;
+    }
+    .nav .links{
+      display: flex; gap: 18px; align-items: center;
+    }
+    .nav a{
+      text-decoration: none; color: var(--muted); font-weight: 600;
+    }
+    .nav .cta{
+      padding: 10px 14px; border-radius: 12px; border: 1px solid var(--stroke);
+      background: var(--glass);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      color: var(--ink); font-weight: 700;
+      box-shadow: var(--card-shadow);
+    }
+
+    main{ position: relative; z-index: 1; }
+
+    .wrap{
+      max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px;
+    }
+
+    /* Hero */
+    .hero{
+      display: grid; grid-template-columns: 1.2fr .8fr;
+      gap: 24px; align-items: stretch; margin-top: 24px;
+    }
+    .card{
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+    }
+    .hero-left{
+      padding: 28px 28px 24px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-kicker{
+      display: inline-flex; align-items: center; gap: 8px;
+      font: 700 .8rem/1 Manrope; color: var(--muted);
+      letter-spacing: .6px; text-transform: uppercase;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px; background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34,197,94,.15);
+    }
+    h1{
+      margin: 12px 0 10px; font-size: clamp(2rem, 3.6vw, 3rem);
+      line-height: 1.05; letter-spacing: -.5px;
+    }
+    .hero-sub{
+      color: var(--muted); font-size: clamp(1rem,1.6vw,1.125rem);
+      max-width: 60ch;
+    }
+    .hero-cta{
+      margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .btn{
+      border-radius: 14px; border: 1px solid var(--stroke);
+      background: white; color: var(--ink); font-weight: 800;
+      padding: 12px 16px; cursor: pointer;
+      box-shadow: var(--card-shadow);
+    }
+    .btn.ghost{ background: transparent; color: var(--ink); }
+
+    .hero-right{
+      padding: 20px; display: grid; gap: 10px; grid-template-columns: repeat(4,1fr);
+      align-content: center; justify-items: center;
+    }
+    .chip{
+      border: 1px dashed var(--stroke);
+      background: rgba(255,255,255,.8);
+      border-radius: 999px;
+      padding: 10px 12px; font-weight: 700; font-size: .95rem;
+      color: var(--muted);
+    }
+
+    /* Personas grid */
+    .section-title{
+      margin: 40px 0 14px; font-size: 1.4rem; letter-spacing: .2px;
+      color: var(--muted); font-weight: 800;
+    }
+    .personas{
+      display: grid; gap: 18px; grid-template-columns: repeat(5,1fr);
+    }
+    .persona{
+      position: relative; padding: 18px; overflow: visible;
+      min-height: 210px;
+    }
+    .persona-header{
+      display: flex; align-items: center; gap: 12px;
+    }
+    .avatar{
+      width: 56px; height: 56px; border-radius: 50%;
+      display: grid; place-items: center; font-size: 28px; font-weight: 700;
+      background: white; border: 1px solid var(--stroke);
+      box-shadow: var(--card-shadow);
+    }
+    .persona .meta{
+      display: grid;
+    }
+    .persona .name{ font-weight: 900; letter-spacing: .2px; }
+    .persona .lang{ color: var(--muted); font-weight: 700; font-size: .9rem; }
+
+    .persona .bio{
+      margin-top: 10px; color: var(--muted); font-size: .95rem;
+      min-height: 40px;
+    }
+
+    /* Speech bubbles (absolute inside the persona card) */
+    .bubbles{ position: absolute; inset: 0; pointer-events: none; }
+    .bubble{
+      position: absolute; max-width: 240px; padding: 10px 12px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--stroke); border-radius: 14px;
+      box-shadow: var(--bubble-shadow);
+      color: var(--ink); font-weight: 700; font-size: .95rem;
+      line-height: 1.25;
+      opacity: 0; transform: translateY(6px) scale(.98);
+      will-change: transform, opacity;
+    }
+    .bubble:after{
+      content: ""; position: absolute; left: 18px; bottom: -7px;
+      width: 12px; height: 12px; background: inherit; border-left: 1px solid var(--stroke); border-bottom: 1px solid var(--stroke);
+      transform: rotate(45deg);
+    }
+    .bubble.show{
+      animation: bubbleLife 5s ease-in-out forwards;
+    }
+    @keyframes bubbleLife{
+      0%   { opacity: 0; transform: translateY(6px) scale(.98); }
+      8%   { opacity: 1; transform: translateY(0)   scale(1);   }
+      85%  { opacity: 1; transform: translateY(-2px) scale(1);  }
+      100% { opacity: 0; transform: translateY(-8px) scale(.98);}
+    }
+
+    /* Persona accent rings */
+    .persona[data-persona="karin"] .avatar{ outline: 3px solid color-mix(in oklab, var(--acc-1) 30%, white); }
+    .persona[data-persona="gerrit"] .avatar{ outline: 3px solid color-mix(in oklab, var(--acc-2) 30%, white); }
+    .persona[data-persona="dieter"] .avatar{ outline: 3px solid color-mix(in oklab, var(--acc-3) 30%, white); }
+    .persona[data-persona="clemence"] .avatar{ outline: 3px solid color-mix(in oklab, var(--acc-4) 30%, white); }
+    .persona[data-persona="agnes"] .avatar{ outline: 3px solid color-mix(in oklab, var(--acc-5) 30%, white); }
+
+    /* Footer */
+    footer{
+      margin-top: 64px; padding: 30px 20px 60px; color: var(--muted);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .personas{ grid-template-columns: repeat(3,1fr); }
+      .hero{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      .personas{ grid-template-columns: repeat(2,1fr); }
+      .hero-right{ grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 480px){
+      .personas{ grid-template-columns: 1fr; }
+      .hero-right{ grid-template-columns: repeat(2,1fr); }
+      .bubble{ max-width: 80%; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .bubble{ transition: none; animation: none !important; opacity: 1; }
+      .bg-metro{ position: absolute; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed decorative metro background (straight 45°/90° lines) -->
+  <svg class="bg-metro" viewBox="0 0 1200 800" aria-hidden="true">
+    <defs>
+      <linearGradient id="r" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#e11d48" stop-opacity=".8"/>
+        <stop offset="1" stop-color="#fb7185" stop-opacity=".7"/>
+      </linearGradient>
+      <linearGradient id="b" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#0ea5e9" stop-opacity=".75"/>
+        <stop offset="1" stop-color="#22d3ee" stop-opacity=".7"/>
+      </linearGradient>
+      <linearGradient id="y" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#f59e0b" stop-opacity=".75"/>
+        <stop offset="1" stop-color="#fde047" stop-opacity=".7"/>
+      </linearGradient>
+      <linearGradient id="g" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#16a34a" stop-opacity=".75"/>
+        <stop offset="1" stop-color="#86efac" stop-opacity=".7"/>
+      </linearGradient>
+      <linearGradient id="p" x1="1" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#6366f1" stop-opacity=".8"/>
+        <stop offset="1" stop-color="#a78bfa" stop-opacity=".7"/>
+      </linearGradient>
+      <style>
+        .L{ fill:none; stroke-linecap:square; stroke-width:6; }
+        .S{ fill:#fff; stroke:rgba(0,0,0,.15); stroke-width:1; }
+      </style>
+    </defs>
+
+    <!-- Five crisp lines with stations locked on lines -->
+    <polyline class="L" stroke="url(#b)" points="60,140 260,140 420,300 560,300 720,140 940,140 1080,280"/>
+    <circle class="S" cx="260" cy="140" r="5"/>
+    <circle class="S" cx="420" cy="300" r="5"/>
+    <circle class="S" cx="560" cy="300" r="5"/>
+    <circle class="S" cx="720" cy="140" r="5"/>
+
+    <polyline class="L" stroke="url(#r)" points="80,580 300,580 420,460 600,460 820,460 980,620"/>
+    <circle class="S" cx="300" cy="580" r="5"/>
+    <circle class="S" cx="420" cy="460" r="5"/>
+    <circle class="S" cx="600" cy="460" r="5"/>
+
+    <polyline class="L" stroke="url(#y)" points="120,340 280,340 280,220 420,220 600,220 760,380 960,380"/>
+    <circle class="S" cx="280" cy="340" r="5"/>
+    <circle class="S" cx="420" cy="220" r="5"/>
+    <circle class="S" cx="760" cy="380" r="5"/>
+
+    <polyline class="L" stroke="url(#g)" points="180,120 180,240 320,380 320,560 420,660"/>
+    <circle class="S" cx="180" cy="240" r="5"/>
+    <circle class="S" cx="320" cy="380" r="5"/>
+
+    <polyline class="L" stroke="url(#p)" points="1020,160 840,340 840,520 940,620 1060,740"/>
+    <circle class="S" cx="840" cy="340" r="5"/>
+    <circle class="S" cx="940" cy="620" r="5"/>
+  </svg>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <!-- Swap to your path, e.g. assets/logo_oneline.png -->
+        <img src="assets/logo_oneline.png" alt="Lost In Translation logo" />
+        <div class="wordmark">Lost In Translation™</div>
+      </div>
+      <div class="links">
+        <a href="#personas">Assistants</a>
+        <a href="#how">How it works</a>
+        <a class="cta" href="#waitlist">Join the waitlist</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <div class="hero-left card">
+          <div class="hero-kicker"><span class="dot" aria-hidden="true"></span> Online (barely)</div>
+          <h1>Global Transit, Local Nonsense.</h1>
+          <p class="hero-sub">
+            Pick a city. Pick a language. Then let one of our gloriously underqualified AI travel assistants
+            “translate” every station with total confidence and questionable competence. The result? A poster you
+            didn’t know you needed.
+          </p>
+          <div class="hero-cta">
+            <a href="#personas" class="btn">Meet the 5 assistants</a>
+            <a href="#waitlist" class="btn ghost">Get launch updates</a>
+          </div>
+        </div>
+        <div class="hero-right card" id="how">
+          <div class="chip">1. Choose a city</div>
+          <div class="chip">2. Pick a language</div>
+          <div class="chip">3. Select an assistant</div>
+          <div class="chip">4. Receive a beautiful disaster</div>
+          <div class="chip">Optional: be offended</div>
+          <div class="chip">100% glassy UI</div>
+          <div class="chip">Posters • Mugs • Cases</div>
+          <div class="chip">Made to order</div>
+        </div>
+      </section>
+
+      <h2 class="section-title" id="personas">The Office (a bit chaotic)</h2>
+      <section class="personas">
+        <!-- Karin -->
+        <article class="persona card" data-persona="karin" data-quotes='[
+          "Okay sweetie, let’s use the *real* name — it’s better branding.",
+          "I was in Paris for 48 hours, so trust me on this one.",
+          "We’ll rename it for clarity. You’re welcome.",
+          "If a line could have highlights, this one would.",
+          "Quick vibe check: more sparkle, less accuracy."
+        ]'>
+          <div class="persona-header">
+            <div class="avatar" aria-hidden="true">💄</div>
+            <div class="meta">
+              <div class="name">Karin</div>
+              <div class="lang">EN — PTA mom energy</div>
+            </div>
+          </div>
+          <p class="bio">Bubbly, bossy, and “helpful.” Translates with confidence and a receipt.</p>
+          <div class="bubbles" aria-hidden="true"></div>
+        </article>
+
+        <!-- Gerrit -->
+        <article class="persona card" data-persona="gerrit" data-quotes='[
+          "We call it what it is. Done.",
+          "Ambiguity is theft. Precision is free.",
+          "Is it funny? No. Is it accurate? Yes.",
+          "Shorter name, fewer pixels, better.",
+          "You wanted honesty. Here."
+        ]'>
+          <div class="persona-header">
+            <div class="avatar" aria-hidden="true">🧂</div>
+            <div class="meta">
+              <div class="name">Gerrit</div>
+              <div class="lang">NL — painfully direct</div>
+            </div>
+          </div>
+          <p class="bio">Blunt bureaucrat energy. Will translate and judge your choices.</p>
+          <div class="bubbles" aria-hidden="true"></div>
+        </article>
+
+        <!-- Dieter -->
+        <article class="persona card" data-persona="dieter" data-quotes='[
+          "Precision achieved. Humor optional.",
+          "Form follows function. Also feelings.",
+          "We optimize the station string length.",
+          "Alignment: perfect. Jokes: pending.",
+          "Standardized. Harmonized. Alphabetized."
+        ]'>
+          <div class="persona-header">
+            <div class="avatar" aria-hidden="true">📐</div>
+            <div class="meta">
+              <div class="name">Dieter</div>
+              <div class="lang">DE — functional translator</div>
+            </div>
+          </div>
+          <p class="bio">Efficient, stern, and weirdly soothing. Punctual about comedy.</p>
+          <div class="bubbles" aria-hidden="true"></div>
+        </article>
+
+        <!-- Clémence -->
+        <article class="persona card" data-persona="clemence" data-quotes='[
+          "Every station is a metaphor for departure.",
+          "We translate the feeling, not the word.",
+          "Cigarette in hand, destiny in the other.",
+          "This stop? It is ennui with transfers.",
+          "If you insist on accuracy, be bored."
+        ]'>
+          <div class="persona-header">
+            <div class="avatar" aria-hidden="true">🧿</div>
+            <div class="meta">
+              <div class="name">Clémence</div>
+              <div class="lang">FR — existential chic</div>
+            </div>
+          </div>
+          <p class="bio">Sultry fatalism. Translates like a poem left in a café.</p>
+          <div class="bubbles" aria-hidden="true"></div>
+        </article>
+
+        <!-- Agnes -->
+        <article class="persona card" data-persona="agnes" data-quotes='[
+          "We could definitely do both! (Fairness.)",
+          "Let’s keep it gentle. Weather looks nice.",
+          "Strong opinions? Later. Fika first.",
+          "We rename it… a little. For harmony.",
+          "Eurovision reference inserted tastefully."
+        ]'>
+          <div class="persona-header">
+            <div class="avatar" aria-hidden="true">🧊</div>
+            <div class="meta">
+              <div class="name">Agnes</div>
+              <div class="lang">SE — warm mediator</div>
+            </div>
+          </div>
+          <p class="bio">Unflappably polite. Avoids conflict with beautiful detours.</p>
+          <div class="bubbles" aria-hidden="true"></div>
+        </article>
+      </section>
+
+      <section class="card" id="waitlist" style="margin-top:26px; padding:18px;">
+        <form class="wait" onsubmit="event.preventDefault(); this.reset(); alert('Thanks! We’ll keep you posted.');" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <label for="email" style="font-weight:800; color:var(--muted);">Get launch updates:</label>
+          <input id="email" name="email" type="email" required placeholder="you@domain.com"
+                 style="flex:1 1 260px; min-width:240px; padding:12px 14px; border-radius:12px; border:1px solid var(--stroke); background:white; color:var(--ink); font-weight:700;">
+          <button class="btn" type="submit">Join</button>
+        </form>
+      </section>
+
+      <footer>
+        © <span id="y"></span> Lost In Translation™ — “Beautiful maps. Terrible translations.” Please don’t @ us.
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Bubble engine: show 2–3 bubbles every 5 seconds across random personas
+    const TICK_MS = 5000;
+    const MAX_CONCURRENT = 4; // safety cap
+    let liveBubbles = 0;
+
+    const personaCards = Array.from(document.querySelectorAll('.persona'));
+
+    function pickRandom(array, count){
+      const copy = array.slice();
+      const picked = [];
+      for(let i=0; i<count && copy.length; i++){
+        const idx = Math.floor(Math.random() * copy.length);
+        picked.push(copy.splice(idx,1)[0]);
+      }
+      return picked;
+    }
+
+    function spawnBubble(card){
+      const box = card.getBoundingClientRect();
+      const bubblesLayer = card.querySelector('.bubbles');
+      if(!bubblesLayer) return;
+
+      const quotes = JSON.parse(card.dataset.quotes || '[]');
+      if(!quotes.length) return;
+
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = quotes[Math.floor(Math.random()*quotes.length)];
+
+      // Position near the avatar/upper area with small random offset
+      const pad = 12;
+      const topMin = 50;  // px from top of card
+      const topMax = Math.max(90, box.height * 0.55);
+      const leftMin = 10;
+      const leftMax = Math.max(40, box.width - 180);
+
+      const top = Math.floor(topMin + Math.random() * (topMax - topMin));
+      const left = Math.floor(leftMin + Math.random() * (leftMax - leftMin));
+
+      bubble.style.top = top + 'px';
+      bubble.style.left = left + 'px';
+
+      // Arrow alignment tweak (point down-ish near avatar area)
+      bubble.style.setProperty('--arrow-left', (Math.min(180, Math.max(18, 18 + (Math.random()*80)))) + 'px');
+
+      bubblesLayer.appendChild(bubble);
+
+      // Show with CSS animation; remove after life
+      // Use animationend to clean up; but also a hard timeout fallback
+      requestAnimationFrame(() => bubble.classList.add('show'));
+      liveBubbles++;
+
+      const cleanup = () => {
+        if(!bubble.isConnected) return;
+        bubble.remove();
+        liveBubbles = Math.max(0, liveBubbles - 1);
+      };
+
+      bubble.addEventListener('animationend', cleanup);
+      setTimeout(cleanup, 5500);
+    }
+
+    function tick(){
+      const count = 2 + Math.round(Math.random()); // 2 or 3
+      const available = personaCards.filter(() => true);
+      const targets = pickRandom(available, count);
+
+      targets.forEach(card => {
+        if(liveBubbles >= MAX_CONCURRENT) return;
+        spawnBubble(card);
+      });
+    }
+
+    // Kickstart bubbles soon after load, then every 5s
+    window.addEventListener('load', () => {
+      // Initial burst (2 bubbles), then interval
+      pickRandom(personaCards, 2).forEach(spawnBubble);
+      setInterval(tick, TICK_MS);
+    });
+
+    // Adjust bubble tail if custom property is used
+    const style = document.createElement('style');
+    style.textContent = `.bubble:after{ left: var(--arrow-left, 18px); }`;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
