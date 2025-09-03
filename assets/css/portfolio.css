@@ -1,4 +1,8 @@
-    /* NAV — more glassmorphism, aligned center vertically */
+    /* =========================================================
+       ORIGINAL STYLES (KEPT), WITH NAV REWRITTEN BELOW
+       ========================================================= */
+
+    /* NAV — original rules kept for reference but will be overridden by the new navbar block below */
     .nav {
       position: sticky;
       top: 12px;
@@ -44,6 +48,7 @@
       padding: 0;
       margin: 0;
       align-items: center;
+      width: 400px;
     }
 
     .nav a {
@@ -54,16 +59,9 @@
       color: #2c3757;
       font-weight: 600;
       padding: .35rem .7rem;
-      /* consistent with brand link */
       border-radius: 8px;
       transition: background .2s, color .2s;
       line-height: 1;
-      /* avoid baseline creep */
-    }
-
-    .nav a:hover {
-      background: rgba(233, 237, 250, .55);
-      color: #1d2235;
     }
 
     .nav a:hover {
@@ -145,7 +143,7 @@
     }
 
     .quote-block {
-      background: rgba(255, 255, 255, .42);
+      background: rgba(255, 255, 255, 0.132);
       border: 1px solid rgba(220, 220, 220, .26);
       border-radius: 12px;
       padding: 1.1rem 1.2rem;
@@ -225,3 +223,359 @@
       line-height: 1;
       display: inline-block;
     }
+
+    /* =========================================================
+       NEW: GLOBAL TEXT JUSTIFICATION (AS REQUESTED)
+       Make textual elements fill the full width with justified text.
+       We use inline-block + width:100% to satisfy “inline block” phrasing.
+       ========================================================= */
+    p,
+    .placeholder-muted,
+    .project-header .tagline,
+    li,
+    .link-list a,
+    .placeholder-title {
+      display: inline-block;
+      width: 100%;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    /* =========================================================
+       NEW: REDONE NAVBAR (GLASSMORPHISM, FULL-WIDTH)
+       - Full-bleed glass bar across the top
+       - Brand text “Bram Peters” on the left
+       - Same link structure on the right
+       - Sticky to the top; add spacer to avoid overlap
+       ========================================================= */
+
+    :root{
+      --nav-height: 72px;
+      --maxw: 1160px;
+      --glass-bg: rgba(255,255,255,0.55);             /* glass fill */
+      --glass-grad-1: rgba(255,255,255,0.58);
+      --glass-grad-2: rgba(245,248,255,0.38);
+      --glass-border: rgba(100,110,140,0.25);         /* subtle border */
+      --glass-shadow: 0 8px 28px rgba(20,30,60,0.18); /* soft drop shadow */
+      --link-bg-hover: rgba(233,237,250,.55);
+      --link-fg: #2c3757;
+      --brand-fg: #1a1a1a;
+    }
+
+    /* Full-width glass container */
+    .nav-wrap{
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2000;
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      background: linear-gradient(180deg, var(--glass-grad-1), var(--glass-grad-2));
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+    }
+
+    /* Centered content row inside the full-width bar */
+    .nav-inner{
+      height: var(--nav-height);
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Brand on the left */
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      color: var(--brand-fg);
+      white-space: nowrap;
+    }
+    .brand a{
+      display: inline-flex;
+      align-items: center;
+      padding: .45rem .75rem;
+      border-radius: 10px;
+      line-height: 1;
+      color: inherit;
+      text-decoration: none;
+    }
+    .brand a:hover{
+      background: rgba(255,255,255,0.65);
+      text-decoration: none;
+    }
+    .brand .pulse{
+      width:10px; height:10px; border-radius:50%;
+      background:#6495ED;
+      box-shadow: 0 0 0 0 rgba(100,149,237,0.8);
+      animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(100,149,237,0.55)}
+      70%{box-shadow:0 0 0 10px rgba(100,149,237,0)}
+      100%{box-shadow:0 0 0 0 rgba(100,149,237,0)}
+    }
+
+    /* Right-side links */
+    .nav-links{
+      display:flex; align-items:center; gap:.55rem;
+      list-style:none; margin:0; padding:0;
+    }
+    .nav-links a{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.5rem .75rem;
+      border-radius:10px;
+      font-weight:700;
+      color: var(--link-fg);
+      text-decoration:none;
+      transition: background .2s ease, color .2s ease, transform .06s ease;
+    }
+    .nav-links a:hover{
+      background: var(--link-bg-hover);
+      color:#1d2235;
+      text-decoration:none;
+    }
+    .nav-links a:active{ transform: translateY(1px); }
+    .nav-links i{ font-size:.95rem; line-height:1; }
+
+    /* Prevent content from hiding under sticky nav */
+    .nav-spacer{ height: var(--nav-height); }
+
+    /* Container for page body */
+    .container{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 16px 60px;
+      margin-top: 20px;
+    }
+
+    /* --- ALIGN  CONTENT TO CONTAINER EDGES + KEEP ITEMS ON ONE LINE --- */
+
+/* Use the same horizontal padding as your .container */
+:root{
+  --container-pad: 16px;   /* matches .container padding */
+}
+
+/* Make the inner row full width and keep a single line */
+.nav-inner{
+  /* already full-width from your code; ensure it doesn't constrain content */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;               /* tiny breathing room between left and right groups */
+  white-space: nowrap;     /* keep items on one line */
+}
+
+/* Align the brand with the LEFT edge of the container */
+.brand{
+  /* When viewport is wider than the container, push brand in by half the leftover width + container padding.
+     When viewport is narrower, fall back to just the container padding. */
+  margin-left: max(var(--container-pad), calc((100vw - var(--maxw)) / 2 + var(--container-pad)));
+}
+
+/* Align the nav links with the RIGHT edge of the container */
+.nav-links{
+  margin-right: max(var(--container-pad), calc((100vw - var(--maxw)) / 2 + var(--container-pad)));
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;             /* adjust visual spacing between links */
+  flex-wrap: nowrap;       /* keep on one line on larger screens */
+}
+
+/* Give links a touch less horizontal padding so they fit comfortably in one line on common widths */
+.nav-links a{
+  padding: .5rem .7rem;    /* was .5rem .75rem; tiny trim for fit */
+}
+
+/* Optional: if the viewport gets very narrow, allow gentle horizontal scroll for the links
+   rather than wrapping (keeps your “one line” intent without squishing) */
+@media (max-width: 560px){
+  .nav-links{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .nav-links a{ white-space: nowrap; }
+}
+
+/* === ALIGN NAV CONTENT TO CONTAINER EDGES (NO HTML CHANGES) === */
+
+/* Match your .container side padding */
+:root{
+  --container-pad: 16px;
+}
+
+/* Full-width bar stays; the inner row becomes a 3-column grid:
+   [left gutter][center column same width as container][right gutter] */
+.nav-inner{
+  width: 100%;
+  height: var(--nav-height);
+  padding: 0;            /* gutters handled by the grid columns */
+  margin: 0;             /* don't center with margins anymore */
+  max-width: none;       /* allow full width; we constrain via grid below */
+  display: grid;
+  align-items: center;
+  grid-template-columns:
+    minmax(var(--container-pad), 1fr)
+    minmax(0, var(--maxw))
+    minmax(var(--container-pad), 1fr);
+  column-gap: 0;
+  white-space: nowrap;   /* keep everything on one line */
+}
+
+/* Put both brand and links inside the CENTER column.
+   Brand hugs the left edge of the center column (container left).
+   Links hug the right edge of the center column (container right). */
+
+.nav-links{
+  grid-column: 2;
+  justify-self: end;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;            /* more breathing room so all items fit one line */
+  flex-wrap: nowrap;
+}
+
+/* Slightly trim link padding so they fit at common widths */
+.nav-links a{
+  padding: .5rem .7rem;
+}
+
+/* Optional: on very narrow screens, allow gentle horizontal scroll
+   instead of wrapping (keeps your single-line intent intact). */
+@media (max-width: 560px){
+  .nav-links{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .nav-links a{ white-space: nowrap; }
+}
+
+/* === MOBILE FULL-WIDTH NAV === */
+@media (max-width: 768px){
+  .nav-inner{
+    grid-template-columns: 1fr;   /* drop the left/right gutters */
+    padding: 0 12px;              /* small breathing space inside */
+  }
+  .nav-wrap{
+    border-radius: 20px;
+  }
+  .brand, 
+  .nav-links{
+    grid-column: 1;               /* span the single column */
+  }
+  .brand{ justify-self: start; }
+  .nav-links{ justify-self: end; }
+}
+
+.modal {
+  display: none;  /* ✅ hidden on page load */
+  position: fixed;
+  z-index: 5000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Enlarged image */
+.modal-content {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  transition: background 0.2s;
+}
+.modal-close:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Enlarged image */
+.modal-content {
+  max-width: calc(100vw - 40px);   /* 20px margin left + right */
+  max-height: calc(100vh - 40px);  /* 20px margin top + bottom */
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  object-fit: contain;             /* ensure full image fits without cropping */
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 5000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;  /* keeps the 20px gap around */
+}
+
+/* === MOBILE: place "Skills Used" right under the Screenshot === */
+@media (max-width: 900px){
+  /* Keep a single column grid on mobile (you already have this)
+     but let the left column's children participate at the parent level */
+  .page-two-columns{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+  }
+
+  /* Flatten the left column so its cards become grid items of .page-two-columns */
+  .left-col{
+    display: contents; /* lets its children be placed directly in the parent grid */
+  }
+
+  /* Ensure the first card (your Screenshot article) is row 1 */
+  .left-col > article:first-of-type{
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Put the aside immediately after the screenshot (row 2) */
+  aside[aria-label="Skills used"]{
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  /* Everything else from the left column naturally follows beneath (rows 3+) */
+  .left-col > article:not(:first-of-type){
+    grid-column: 1;
+  }
+}
