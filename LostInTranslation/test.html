@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Minimalist Metro Posters — Concept Gallery</title>
+<style>
+  :root{
+    --bg: #f6f7f9;
+    --fg: #0f1720;
+    --muted:#6b7280;
+    --panel:#ffffff;
+    --line-1:#2563eb; /* Blue */
+    --line-2:#ef4444; /* Red */
+    --line-3:#10b981; /* Green */
+    --line-4:#f59e0b; /* Yellow */
+    --accent:#111827;
+    --grid:#e5e7eb;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0b0f14;
+      --fg:#e5e7eb;
+      --panel:#0f141b;
+      --muted:#93a0ae;
+      --grid:#1b2430;
+      --accent:#e5e7eb;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--fg);
+    font:16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+  }
+  header{
+    position:sticky; top:0; z-index:10;
+    backdrop-filter:saturate(180%) blur(10px);
+    background:color-mix(in oklab, var(--bg) 70%, transparent);
+    border-bottom:1px solid var(--grid);
+  }
+  .wrap{max-width:1200px; margin:0 auto; padding:16px 20px;}
+  h1{font-size: clamp(1.2rem, 2.4vw, 1.8rem); letter-spacing:.2px; margin:0 0 6px}
+  .sub{color:var(--muted); margin:0 0 8px}
+  nav{
+    display:flex; gap:8px; flex-wrap:wrap; padding:10px 0 6px;
+  }
+  nav button{
+    appearance:none;border:1px solid var(--grid); background:var(--panel);
+    color:var(--fg); padding:8px 12px; border-radius:12px; cursor:pointer;
+    font-weight:600; font-size:.9rem;
+  }
+  nav button[aria-current="page"]{border-color:var(--accent)}
+  main{padding:24px 20px}
+  .grid{
+    display:grid; gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--grid);
+    border-radius:16px; padding:16px;
+    display:flex; flex-direction:column; gap:12px;
+    box-shadow:0 1px 0 rgba(0,0,0,.03), 0 8px 30px rgba(0,0,0,.04);
+  }
+  .title{display:flex; justify-content:space-between; align-items:center; gap:8px}
+  .title h2{margin:0; font-size:1rem}
+  .hint{color:var(--muted); font-size:.85rem; margin:0}
+  .poster{
+    aspect-ratio: 3/4; width:100%;
+    background:white; color:black;
+    border-radius:12px; padding:18px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; border:1px solid #eaeaea;
+  }
+  .caption{display:flex; justify-content:space-between; gap:10px; align-items:center}
+  .label{font-size:.85rem; color:var(--muted)}
+  /* SVG helpers */
+  .poster svg{width:100%; height:100%}
+  .signature{
+    position:absolute; left:18px; right:18px; bottom:16px;
+    display:flex; justify-content:space-between; font-weight:700; letter-spacing:.5px;
+    font-size:.8rem;
+  }
+  .dot{paint-order:stroke; stroke:#fff; stroke-width:3}
+  /* Typographic grid (Idea 10) */
+  .typo-grid{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:6px;
+    width:100%; height:100%;
+    align-content:start; padding-top:12px;
+  }
+  .chip{
+    border-radius:10px; padding:6px 8px; font-weight:600; font-size:.86rem;
+    border:1px solid #e5e7eb; background:#fff;
+  }
+  .chip[data-line="1"]{border-color:color-mix(in oklab, var(--line-1) 60%, #e5e7eb); outline:3px solid color-mix(in oklab, var(--line-1) 20%, transparent)}
+  .chip[data-line="2"]{border-color:color-mix(in oklab, var(--line-2) 60%, #e5e7eb); outline:3px solid color-mix(in oklab, var(--line-2) 20%, transparent)}
+  .chip[data-line="3"]{border-color:color-mix(in oklab, var(--line-3) 60%, #e5e7eb); outline:3px solid color-mix(in oklab, var(--line-3) 20%, transparent)}
+  .chip[data-line="4"]{border-color:color-mix(in oklab, var(--line-4) 60%, #e5e7eb); outline:3px solid color-mix(in oklab, var(--line-4) 20%, transparent)}
+  /* Tabs (filters) */
+  .section{display:none}
+  .section[aria-hidden="false"]{display:block}
+  .toolbar{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:6px
+  }
+  .pill{
+    font-size:.83rem; padding:6px 10px; border-radius:999px; border:1px solid var(--grid);
+    background:var(--panel); color:var(--muted)
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Minimalist Metro Poster — Concept Gallery</h1>
+    <p class="sub">Ten directions to turn a functional metro map into a gallery-grade print.</p>
+    <nav id="tabs" aria-label="Poster concepts">
+      <button data-target="s1" aria-current="page">1. Pure Line Geometry</button>
+      <button data-target="s2">2. Typographic Focus</button>
+      <button data-target="s3">3. One-Line Minimalism</button>
+      <button data-target="s4">4. Monochrome Accent</button>
+      <button data-target="s5">5. Circular/Spiral</button>
+      <button data-target="s6">6. Floating Lines</button>
+      <button data-target="s7">7. Blueprint</button>
+      <button data-target="s8">8. Abstract Reduction</button>
+      <button data-target="s9">9. Color-Blocked</button>
+      <button data-target="s10">10. Typographic Grid</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- 1. PURE LINE GEOMETRY -->
+  <section id="s1" class="section" aria-hidden="false">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>Pure Line Geometry</h2>
+          <span class="pill">45° / 90° discipline</span>
+        </div>
+        <p class="hint">Straighten the network into perfect angles, keep dots tiny, let whitespace breathe.</p>
+        <div class="poster" aria-label="Pure Line Geometry Poster">
+          <svg viewBox="0 0 600 800" role="img">
+            <!-- Grid (faint for alignment) -->
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <rect width="40" height="40" fill="white"/>
+                <path d="M40 0V40M0 40H40" stroke="#f2f2f2" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)"/>
+            <!-- Lines -->
+            <path d="M80 600 L260 420 L420 420 L520 320" stroke="var(--line-1)" stroke-width="8" fill="none" stroke-linecap="round" />
+            <path d="M100 260 L260 420 L260 640" stroke="var(--line-2)" stroke-width="8" fill="none" stroke-linecap="round" />
+            <path d="M140 560 L260 420 L440 240" stroke="var(--line-3)" stroke-width="8" fill="none" stroke-linecap="round" />
+            <!-- Stations -->
+            <g fill="var(--line-1)">
+              <circle class="dot" cx="80" cy="600" r="6"/>
+              <circle class="dot" cx="260" cy="420" r="6"/>
+              <circle class="dot" cx="420" cy="420" r="6"/>
+              <circle class="dot" cx="520" cy="320" r="6"/>
+            </g>
+            <g fill="var(--line-2)">
+              <circle class="dot" cx="100" cy="260" r="6"/>
+              <circle class="dot" cx="260" cy="420" r="6"/>
+              <circle class="dot" cx="260" cy="640" r="6"/>
+            </g>
+            <g fill="var(--line-3)">
+              <circle class="dot" cx="140" cy="560" r="6"/>
+              <circle class="dot" cx="260" cy="420" r="6"/>
+              <circle class="dot" cx="440" cy="240" r="6"/>
+            </g>
+            <g class="signature">
+              <text>STOKHOLLUM</text>
+              <text>Line Geometry v1</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span class="label">Less is more: draw only what you must.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 2. TYPOGRAPHIC FOCUS -->
+  <section id="s2" class="section" aria-hidden="true">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>Typographic Focus</h2>
+          <span class="pill">Words as shapes</span>
+        </div>
+        <p class="hint">Treat station names as the composition. The “map” emerges from hierarchy & alignment.</p>
+        <div class="poster" aria-label="Typographic Focus Poster">
+          <svg viewBox="0 0 600 800" role="img">
+            <rect width="100%" height="100%" fill="white"/>
+            <g font-family="ui-sans-serif, system-ui" font-weight="800" letter-spacing=".5">
+              <text x="50" y="160" font-size="60" fill="var(--line-1)">CENTRAL</text>
+              <text x="52" y="220" font-size="26" fill="#777">Old Harbor</text>
+              <text x="52" y="260" font-size="26" fill="#777">North Gate</text>
+              <text x="340" y="230" font-size="38" fill="var(--line-2)">SOUTH</text>
+              <text x="342" y="270" font-size="20" fill="#888">Market</text>
+              <text x="50" y="360" font-size="30" fill="var(--line-3)">RIVER BEND</text>
+              <text x="50" y="405" font-size="18" fill="#aaa" font-weight="600">Canal East • Canal West • Docklands</text>
+            </g>
+            <g class="signature">
+              <text>STOKHOLLUM</text>
+              <text>Typographic Layout</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span class="label">Choose 2 sizes: one hero word, smaller supporting stops.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3. ONE-LINE MINIMALISM -->
+  <section id="s3" class="section" aria-hidden="true">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>One-Line Minimalism</h2>
+          <span class="pill">Single hero line</span>
+        </div>
+        <p class="hint">Focus on one line; label only termini. Everything else whispers.</p>
+        <div class="poster" aria-label="One Line Poster">
+          <svg viewBox="0 0 600 800" role="img">
+            <rect width="100%" height="100%" fill="white"/>
+            <path d="M60 680 C 200 200, 400 600, 540 120" stroke="var(--line-1)" stroke-width="10" fill="none" />
+            <!-- few subtle station ticks -->
+            <g stroke="var(--line-1)" stroke-width="3">
+              <line x1="140" y1="530" x2="150" y2="520"/>
+              <line x1="220" y1="420" x2="230" y2="410"/>
+              <line x1="300" y1="360" x2="310" y2="350"/>
+              <line x1="420" y1="230" x2="430" y2="220"/>
+            </g>
+            <g font-family="ui-sans-serif, system-ui" font-weight="800">
+              <text x="50" y="700" font-size="20" fill="#111">WEST TERMINUS</text>
+              <text x="420" y="140" font-size="20" fill="#111">EAST TERMINUS</text>
+            </g>
+            <g class="signature">
+              <text>STOKHOLLUM — BLUE</text>
+              <text>Minimal Line Study</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span class="label">Gorgeous as a set: one poster per line.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4. MONOCHROME ACCENT -->
+  <section id="s4" class="section" aria-hidden="true">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>Monochrome with Single Accent</h2>
+          <span class="pill">Gallery-grade</span>
+        </div>
+        <p class="hint">Everything in grey/black — one accent color for the hero line or nodes.</p>
+        <div class="poster" aria-label="Monochrome Poster">
+          <svg viewBox="0 0 600 800" role="img">
+            <rect width="100%" height="100%" fill="white"/>
+            <!-- greys -->
+            <path d="M80 640 L500 200" stroke="#c7cdd6" stroke-width="8" />
+            <path d="M120 220 L520 620" stroke="#c7cdd6" stroke-width="8" />
+            <!-- accent line -->
+            <path d="M80 500 C 220 380, 380 420, 520 320" stroke="var(--line-4)" stroke-width="9" />
+            <!-- nodes -->
+            <g fill="#111">
+              <circle class="dot" cx="80" cy="640" r="5"/>
+              <circle class="dot" cx="500" cy="200" r="5"/>
+              <circle class="dot" cx="120" cy="220" r="5"/>
+              <circle class="dot" cx="520" cy="620" r="5"/>
+            </g>
+            <g class="signature">
+              <text>STOKHOLLUM</text>
+              <text>Mono + Accent</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span class="label">Swap the accent per city/series.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 5. CIRCULAR/SPIRAL -->
+  <section id="s5" class="section" aria-hidden="true">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>Circular / Spiral Layout</h2>
+          <span class="pill">Geometric re-compose</span>
+        </div>
+        <p class="hint">Ignore geography; celebrate structure. The ring becomes the composition.</p>
+        <div class="poster" aria-label="Circular Poster">
+          <svg viewBox="0 0 600 800" role="img">
+            <rect width="100%" height="100%" fill="white"/>
+            <!-- ring -->
+            <circle cx="300" cy="380" r="200" stroke="var(--line-2)" stroke-width="10" fill="none"/>
+            <!-- radials -->
+            <path d="M300 180 V 40" stroke="var(--line-1)" stroke-width="6"/>
+            <path d="M500 380 H 560" stroke="var(--line-3)" stroke-width="6"/>
+            <path d="M100 380 H 40" stroke="var(--line-4)" stroke-width="6"/>
+            <path d="M300 580 V 740" stroke="var(--line-1)" stroke-width="6"/>
+            <!-- ticks -->
+            <g stroke="#111" stroke-width="2">
+              <line x1="300" y1="180" x2="300" y2="165"/>
+              <line x1="440" y1="240" x2="452" y2="232"/>
+              <line x1="160" y1="240" x2="148" y2="232"/>
+            </g>
+            <g class="signature">
+              <text>STOKHOLLUM</text>
+              <text>Circle Study</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span class="label">Works great for cities with a belt/ring line.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 6. FLOATING LINES -->
+  <section id="s6" class="section" aria-hidden="true">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>Floating Lines</h2>
+          <span class="pill">Modular islands</span>
+        </div>
+        <p class="hint">Each line as its own “island,” arranged for balance, not geography.</p>
+        <div class="poster" aria-label="Floating Lines Poster">
+          <svg viewBox="0 0 600 800" role="img">
+            <rect width="100%" height="100%" fill="white"/>
+            <!-- line modules -->
+            <g transform="translate(70,140)">
+              <path d="M0 0 L 180 0 L 240 60" stroke="var(--line-1)" stroke-width="8" fill="none"/>
+              <g fill="var(--line-1)"><circle class="dot" cx="0" cy="0" r="6"/><circle class="dot" cx="120" cy="0" r="6"/><circle class="dot" cx="240" cy="60" r="6"/></g>
+            </g>
+            <g transform="translate(70,340)">
+              <path d="M0 0 L 90 90 L 210 90" stroke="var(--line-2)" stroke-width="8" fill="none"/>
+              <g fill="var(--line-2)"><circle class="dot" cx="0" cy="0" r="6"/><circle class="dot" cx="90" cy="90" r="6"/><circle class="dot" cx="210" cy="90" r="6"/></g>
+            </g>
+            <g transform="translate(70,530)">
+              <path d="M0 0 L 220 0" stroke="var(--line-3)" stroke-width="8" fill="none"/>
+              <g fill="var(--line-3)"><circle class="dot" cx="0" cy="0" r="6"/><circle class="dot" cx="110" cy="0" r="6"/><circle class="dot" cx="220" cy="0" r="6"/></g>
+            </g>
+            <!-- captions per module (optional) -->
+            <g font-family="ui-sans-serif, system-ui" font-weight="700" fill="#111">
+              <text x="360" y="200" font-size="16">Line A</text>
+              <text x="360" y="400" font-size="16">Line B</text>
+              <text x="360" y="590" font-size="16">Line C</text>
+            </g>
+            <g class="signature">
+              <text>STOKHOLLUM</text>
+              <text>Floating Lines</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span class="label">Great for posters where balance > accuracy.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 7. BLUEPRINT -->
+  <section id="s7" class="section" aria-hidden="true">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>Architectural Blueprint</h2>
+          <span class="pill">Technical calm</span>
+        </div>
+        <p class="hint">Ultra-thin lines, faint construction grid, tiny measurements as decorative detail.</p>
+        <div class="poster" aria-label="Blueprint Poster" style="background:#0f2547; color:#dbeafe">
+          <svg viewBox="0 0 600 800" role="img">
+            <defs>
+              <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+                <rect width="40" height="40" fill="#0f2547"/>
+                <path d="M40 0V40M0 40H40" stroke="#14335f" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid2)"/>
+            <g stroke="#9cc0ff" stroke-width="2">
+              <path d="M80 620 L300 400 L520 620" fill="none"/>
+              <path d="M120 220 L300 400 L480 220" fill="none"/>
+              <circle cx="300" cy="400" r="140" fill="none" opacity=".5"/>
+            </g>
+            <g fill="#dbeafe" font-family="ui-sans-serif, system-ui" font-size="10">
+              <text x="306" y="260">Ø 280</text>
+              <text x="96" y="620">120</text>
+              <text x="480" y="620">120</text>
+            </g>
+            <g class="signature" style="color:#dbeafe">
+              <text>STOKHOLLUM / PLAN</text>
+              <text>Sheet A-101</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span class="label">Swap background to charcoal for a print-friendly variant.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 8. ABSTRACT REDUCTION -->
+  <section id="s8" class="section" aria-hidden="true">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>Abstract Reduction</h2>
+          <span class="pill">No labels</span>
+        </div>
+        <p class="hint">Only lines & dots. The title carries recognition. Zero typography in the map.</p>
+        <div class="poster" aria-label="Abstract Poster">
+          <svg viewBox="0 0 600 800" role="img">
+            <rect width="100%" height="100%" fill="white"/>
+            <path d="M80 680 C 220 540, 380 600, 520 480" stroke="var(--line-1)" stroke-width="10" fill="none" />
+            <path d="M520 480 L 420 260 L 180 200" stroke="var(--line-2)" stroke-width="10" fill="none" />
+            <path d="M180 200 L 120 360" stroke="var(--line-3)" stroke-width="10" fill="none" />
+            <g fill="#111" font-family="ui-sans-serif, system-ui" font-weight="800">
+              <text x="20" y="760" font-size="18">STOKHOLLUM SPOORKAART — Abstract Series</text>
+              <text x="520" y="760" font-size="14">v0.1</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span class="label">Perfect for “art print” positioning.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 9. COLOR-BLOCKED BACKGROUND -->
+  <section id="s9" class="section" aria-hidden="true">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>Color-Blocked Background</h2>
+          <span class="pill">Bold field</span>
+        </div>
+        <p class="hint">Let a single color field do the heavy lifting. High contrast lines on top.</p>
+        <div class="poster" aria-label="Color Block Poster" style="background:#0f2e7a; color:#fff;">
+          <svg viewBox="0 0 600 800" role="img">
+            <rect width="100%" height="100%" fill="#0f2e7a"/>
+            <path d="M80 640 L520 200" stroke="#ffffff" stroke-width="9"/>
+            <path d="M120 220 L520 620" stroke="#ffd34d" stroke-width="9"/>
+            <g class="signature" style="color:#fff">
+              <text>STOKHOLLUM</text>
+              <text>Field: Deep Blue</text>
+            </g>
+          </svg>
+        </div>
+        <div class="caption"><span class="label">Swap field to NS yellow / Stockholm blue etc.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 10. TYPOGRAPHIC GRID -->
+  <section id="s10" class="section" aria-hidden="true">
+    <div class="grid">
+      <article class="card">
+        <div class="title">
+          <h2>Typographic Grid Poster</h2>
+          <span class="pill">Conceptual matrix</span>
+        </div>
+        <p class="hint">Stations as chips; small bars indicate lines. Conceptual, clean, modular.</p>
+        <div class="poster" aria-label="Typographic Grid Poster">
+          <div class="typo-grid" aria-hidden="false">
+            <div class="chip" data-line="1">Central</div>
+            <div class="chip" data-line="2">Old Harbor</div>
+            <div class="chip" data-line="3">North Gate</div>
+            <div class="chip" data-line="1">Canal East</div>
+            <div class="chip" data-line="4">Canal West</div>
+            <div class="chip" data-line="2">Market</div>
+            <div class="chip" data-line="3">Museum</div>
+            <div class="chip" data-line="1">University</div>
+            <div class="chip" data-line="4">Stadium</div>
+            <div class="chip" data-line="2">Docklands</div>
+            <div class="chip" data-line="1">South Yard</div>
+            <div class="chip" data-line="3">Airport</div>
+          </div>
+          <div class="signature" style="mix-blend-mode:multiply">
+            <span>STOKHOLLUM</span><span>Grid Series</span>
+          </div>
+        </div>
+        <div class="caption"><span class="label">Great when names > geometry.</span></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script>
+  // simple tabs
+  const tabs = document.querySelectorAll('#tabs button');
+  const sections = [...document.querySelectorAll('.section')];
+  tabs.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      tabs.forEach(b=>b.removeAttribute('aria-current'));
+      btn.setAttribute('aria-current','page');
+      const id = btn.getAttribute('data-target');
+      sections.forEach(s=> s.setAttribute('aria-hidden', s.id===id ? 'false' : 'true'));
+      // scroll to top of content on narrow viewports
+      window.scrollTo({top: document.querySelector('header').offsetHeight, behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>
