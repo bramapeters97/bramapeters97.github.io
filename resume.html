@@ -368,6 +368,71 @@
     html {
       overflow-x: hidden;
     }
+
+/* --- Ultra-light Glass Pills --- */
+/* --- LIT pills: lighter glass, ultra-thin gray outline, tiny height --- */
+.pill {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+padding: 2px 8px; /* minimal height */
+border-radius: 999px;
+background: rgba(255,255,255,0.10);
+border: 1px solid rgba(0,0,0,0.10);/* very light gray outline */
+backdrop-filter: blur(6px) saturate(140%);
+-webkit-backdrop-filter: blur(6px) saturate(140%);
+box-shadow: inset 0 1px 0 rgba(255,255,255,0.25),
+0 1px 3px rgba(0,0,0,0.05);
+font-size: 12px;
+line-height: 1.2;
+color: #444;
+white-space: nowrap;
+transition: transform 0.25s ease, background 0.25s ease;
+}
+
+/* remove underline ONLY inside pills */
+.pill a {
+text-decoration: none;
+color: inherit;
+}
+.pill a:hover { text-decoration: underline; }
+
+/* flag alignment + size */
+.pill .flag img {
+display: block; /* kills baseline gap */
+height: 14px; /* matches text height */
+width: auto;
+border-radius: 3px;
+object-fit: cover;
+box-shadow: 0 0 1px rgba(0,0,0,0.15);
+margin-top: -1px; /* tiny optical nudge */
+}
+
+/* 20% zoom on hover */
+.pill:hover {
+transform: scale(1.2);
+background: rgba(255,255,255,0.15);
+border-color: rgba(0,0,0,0.14);
+}
+
+/* --- Title icon: favicon sized to text height --- */
+.exp-title {
+display: inline-flex;
+align-items: center;
+gap: .5rem;
+}
+.exp-title .lit-icon {
+height: 1em; /* exactly matches text height */
+width: auto;
+vertical-align: -0.15em; /* optical baseline alignment */
+flex-shrink: 0;
+}
+
+/* place at end of your stylesheet */
+.languages + ul { list-style: none; padding-left: 0; margin-left: 20px; left: 20px}
+
+
+
   </style>
 </head>
 
@@ -421,37 +486,107 @@
       <div class="card">
         <div class="section-title icon-title experience">Professional Experience</div>
         <ul>
-          <li><strong>Senior BI Advisor & Product Designer, UWV SMZ – Amsterdam, Netherlands</strong> (Jul 2025 –
+                  <li>
+                    <strong class="exp-title">
+                      <img class="lit-icon" src="assets/img/favicon.png" alt="Lost In Translation logo" />
+                      Owner/Founder, Lost In Translation™ – Amsterdam, Netherlands
+                    </strong>
+                    (Sep 2025 – Present)
+                    <span>
+                      I founded Lost In Translation™, a design-led e-commerce brand where dysfunctional AI travel
+                      assistants “run the office” and transform metro and city maps into premium posters with gloriously
+                      wrong translations. With identity branding, strong storytelling, and tailored customization at its
+                      core — powered by cutting-edge technical innovation. Maps so wrong, they feel just right.
+                      Keep an eye on when
+                      <span class="pill" aria-label="Karen, English">
+                        <span class="flag" aria-hidden="true">
+                          <img src="https://flagcdn.com/24x18/us.png" alt="flag" />
+                        </span>
+                        <a href="https://lostintranslation.nl">Karen</a>
+                      </span>
+                      <span class="pill" aria-label="Clémence, French">
+                        <span class="flag" aria-hidden="true">
+                          <img src="https://flagcdn.com/24x18/fr.png" alt="flag" />
+                        </span>
+                        <a href="https://lostintranslation.nl">Clémence</a>
+                      </span>
+                      <span class="pill" aria-label="Dieter, German">
+                        <span class="flag" aria-hidden="true">
+                          <img src="https://flagcdn.com/24x18/de.png" alt="flag" />
+                        </span>
+                        <a href="https://lostintranslation.nl">Dieter</a>
+                      </span>
+                      <span class="pill" aria-label="Gerrit, Dutch">
+                        <span class="flag" aria-hidden="true">
+                          <img src="https://flagcdn.com/24x18/nl.png" alt="flag" />
+                        </span>
+                        <a href="https://lostintranslation.nl">Gerrit</a>
+                      </span>
+                      <span class="pill" aria-label="Agnes, Swedish">
+                        <span class="flag" aria-hidden="true">
+                          <img src="https://flagcdn.com/24x18/se.png" alt="flag" />
+                        </span>
+                        <a href="https://lostintranslation.nl">Agnes</a>
+                      </span>
+                      and
+                      <span class="pill" aria-label="More personas">
+                        <span class="flag" aria-hidden="true"></span>More
+                      </span>
+                      will make a custom map for you that is so wrong, it feels just right. Follow us on
+                      <a href="https://lostintranslation.nl"><b style="font-weight:600">lostintranslation.nl!</b></a>
+                    </span>
+                  </li>
+
+          <li> <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/uwv_logo.png" alt="UWV logo" />
+            Senior BI Advisor & Product Designer, UWV SMZ – Amsterdam, Netherlands</strong> (Jul 2025 –
             Present)
             <span>Leading development of business intelligence data products within the Division of Social‑Medical
               Affairs. Responsible for ETL pipelines (SQL, SSIS/SSAS, Oracle), integrating external data sources, and
               advanced DAX modeling. Designed Power BI dashboards tailored to government services in accordance with
-              Dutch social security legislation.</span>
+              Dutch
+               social security legislation.</span>
           </li>
-          <li><strong>Data Analyst & BI Specialist, UWV SMZ – Amsterdam, Netherlands</strong> (Aug 2024 – Jul 2025)
+          <li> <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/uwv_logo.png" alt="UWV logo" />
+              Data Analyst & BI Specialist, UWV SMZ – Amsterdam, Netherlands </strong> (Aug 2024 – Jul 2025)
+ (Jul 2025 –
+            Present)
             <span>Built and optimized data pipelines and analytics dashboards. Transformed business requirements into
               data models and managed integration between multiple agency data sources and internal BI tools for a range
-              of stakeholders.</span>
+              of stakeholders.
+</span>
           </li>
-          <li><strong>Data/BI Specialist, SerenIT – Amsterdam, Netherlands</strong> (Jan 2024 – Aug 2024)
+          <li> <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/serenit.jpg" alt="SerenIT-logo" />Data/BI Specialist, SerenIT –
+                Amsterdam, Netherlands</strong> (Jan 2024 – Aug 2024)
             <span>Delivered custom dashboards and reporting tools to public and private clients. Led stakeholder
-              workshops, defined KPIs, built DAX measures and SQL‑based backend queries for data‑driven insights.</span>
-          </li>
-          <li><strong>Master Thesis Project – TU/e Security Office – Eindhoven, Netherlands</strong> (Dec 2022 – Oct
-            2023)
-            <span>Designed and implemented a student dashboard to support self‑regulated learning. Conducted user
-              research, defined requirements with university security officers, iterated wireframes, and implemented the
-              tool using Power BI and UX methodologies.</span>
-          </li>
-          <li><strong>Frontend Developer, TU/e – Eindhoven, Netherlands</strong> (Sep 2022 – Dec 2022)
-            <span>Built modular front‑end components (React/Vue) integrated with Typo3, SharePoint, and educational
-              portals. Supported cross‑team development on internal tools.</span>
-          </li>
-          <li><strong>UX Designer & Android Developer, Blue Jay – Eindhoven, Netherlands</strong> (Jun 2018 – Jun 2020)
-            <span>Designed a healthcare‑oriented drone interface and mobile app. Played a full role in UX research,
-              iterative testing and final app delivery, including voice recognition features and mood‑sensitive
-              lighting. Worked in an Agile team using Scrum.</span>
-          </li>
+              workshops, defined KPIs, built DAX measures and SQL‑based backend queries for data‑driven insights.
+</span></li>
+          <li> <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/tue_logo.png" alt="TU/e-logo" />Master Thesis Project · TU/e
+                Security Office – </strong>strong>Eindhoven, Netherlands (Dec 2022 – Oct 2023)
+                <span>Designed and implemented a student dashboard to support self‑regulated learning. Conducted user
+                  research, defined requirements with university security officers, iterated wireframes, and implemented
+                  the tool using Power BI and UX methodologies.
+
+                </span></li>
+          <li> <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/tue_logo.png" alt="Serenit" />Frontend Developer, TU/e –
+                Eindhoven, </strong> Netherlands (Dec 2022 – Oct 2023)
+
+                <span>Built modular front‑end components (React/Vue) integrated with Typo3, SharePoint, and educational
+                  portals. Supported cross‑team development on internal tools.
+
+
+                </span></li>
+          <li> <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/bluejay_logo.png" alt="TU/e" />UX Designer & Android Developer,
+                Blue Jay – Eindhoven, Netherland </strong>(Jun 2018 – Jun 2020)
+                <span>Designed a healthcare‑oriented drone interface and mobile app. Played a full role in UX research,
+                  iterative testing and final app delivery, including voice recognition features and mood‑sensitive
+                  lighting. Worked in an Agile team using Scrum.
+                </span></li>
         </ul>
       </div>
 
@@ -464,11 +599,48 @@
         </ul>
 
         <div class="section-title icon-title languages">Languages</div>
-        <ul>
-          <li><strong>Dutch</strong> <span>Native</span></li>
-          <li><strong>English</strong> <span>Near‑native | Professional</span></li>
-          <li><strong>Swedish</strong> <span>Conversational</span></li>
-        </ul>
+<ul style="list-style: none; padding-left: 0; margin-left: 0;">
+  <li>
+    <span class="pill" aria-label="Dieter, German">
+      <span class="flag" aria-hidden="true">
+        <img src="https://flagcdn.com/24x18/nl.png" alt="flag" />
+      </span>
+      <b>Dutch </b>
+    </span>
+    <p class="placeholder-muted" style="margin: 0; margin-top: 5px; font-size: 12px">Native</p>
+  </li>
+
+  <li>
+    <span class="pill" aria-label="Dieter, German">
+      <span class="flag" aria-hidden="true">
+        <img src="https://flagcdn.com/24x18/us.png" alt="flag" />
+      </span>
+      <b>English </b>
+    </span>
+    <p class="placeholder-muted" style="margin: 0; font-size: 12px">Near-native | Professional</p>
+  </li>
+
+  <li>
+    <span class="pill" aria-label="Dieter, German">
+      <span class="flag" aria-hidden="true">
+        <img src="https://flagcdn.com/24x18/se.png" alt="flag" />
+      </span>
+      <b>Swedish</b>
+    </span>
+    <p class="placeholder-muted" style="margin: 0; margin-top: 5px; font-size: 12px">Convesational</p>
+  </li>
+
+  <li>
+    <span class="pill" aria-label="Dieter, German">
+      <span class="flag" aria-hidden="true">
+        <img src="https://flagcdn.com/24x18/de.png" alt="flag" />
+      </span>
+      <b>German</b>
+    </span>
+    <p style="margin: 0; margin-top: 5px; font-size: 12px">Convesational</p>
+  </li>
+</ul>
+
 
         <div class="section-title icon-title certificates">Certificates</div>
         <ul>
@@ -483,36 +655,48 @@
     <div class="two-columns">
       <div class="card">
         <div class="section-title icon-title projects">Portfolio Highlights</div>
-        <ul>
-          <li><strong><a href="https://lostintranslation.nl">Lost In Translation™</a></strong><br><span>
-              What began as a fun way to practice Swedish while living in Stockholm turned into a design project
-              powered by AI. I built a custom algorithm and a cast of quirky AI travel-assistants, each with their
-              own sass and personality, to generate metro maps with absurdly literal, customizable and perfectly
-              imperfect translations.
-            </span></li>
-          <li><strong><a href="portfolio1.html">TU/e Student Dashboard</a></strong><br><span>A
-              Canvas‑integrated dashboard that fosters self‑regulated learning at TU/e and is validated via scientific
-              A/B‑testing in the context of the Human-Technology Interaction.</span></li>
-          <li><strong><a href="portfolio2.html">Blue Jay – The ‘Emotional’
-                Drone</a></strong><br><span>Designed and developed a healthcare drone with intuitive interfaces
-              including dynamic lighting and expressive LCD “eyes.” Also built an Android app for real‑time tracking,
-              emergency detection and voice control.</span></li>
-          <li><strong><a href="portfolio4.html">Doula | UX/UI Case Study
-                </a></strong><br><span>For a 10-hour time limited UX/UI Case Study, I was given the opportunity to
-                  redesign an outdated pregnancy symptom and contraction tracker app. My process involved in-depth user
-                  and usability research to identify and address key pain points within the existing app. The result? A
-                  transformation of the app's visual style and a substantial enhancement of the user experience.</a></p>
-            </span> </li>
-          <li><strong><a href="portfolio5.html">Rasperries Shopping Assistant</a></strong><br><span>The present-day
-              shopping experience can be stressful and aggravating to some. Especially for introverts shopping may be
-              challenging for a number of reasons, such as invasive staff, crowded clothing stores and a lack of
-              self-efficacy. What about letting the customer decide when they need assistance?
-</span></li>
-        </ul>
+<ul>
+  <li><strong><a href="https://lostintranslation.nl"> <img class="lit-icon" src="assets/img/favicon.png"
+          alt="Lost In Translation logo" />Lost In Translation™ | Global Transit, Local
+        Nonsense™</a></strong><br><span>
+      I created a design-driven travel agency webshop for custom-tailered, gloriously inaccurate and personality-driven metro- and city maps. Powered by personalized-AI, an engaging UX with brand-focused storytelling at its foundation, backed-up by cutting-edge innovation. By whom? One of our questionably qualified AI-travel assistants. Are they professional? No. Entertaining? Absolutely. Keep an eye out on <a href="lostintranslation.nl">lostintranslation.nl</a>!</span></li>
+  <li><strong><a href="portfolio1.html">TU/e Student Dashboard</a></strong><br><span>
+      I designed and validated a Canvas-integrated student dashboard that supports self-regulated learning. The project
+      was tested through scientific A/B-studies in the Human-Technology Interaction context at TU/e.
+    </span></li>
+  <li><strong><a href="portfolio2.html">Blue Jay – The ‘Emotional’ Drone</a></strong><br><span>
+      I co-designed and developed a healthcare drone with intuitive interfaces such as dynamic lighting and expressive
+      LCD “eyes.” I also built an Android app for real-time tracking, emergency detection, and voice control.
+    </span></li>
+  <li><strong><a href="portfolio4.html">Doula | UX/UI Case Study</a></strong><br><span>
+      I completed a 10-hour UX/UI case study to redesign an outdated pregnancy app. Through user research and usability
+      testing, I identified pain points and transformed both the visual design and overall user experience.
+    </span></li>
+  <li><strong><a href="portfolio5.html">Rasperries Shopping Assistant</a></strong><br><span>
+      I designed a shopping assistant concept that empowers customers to choose when to receive help, reducing stress in
+      crowded retail environments and improving accessibility for introverted shoppers.
+    </span></li>
+  <li><strong><a href="portfolio6.html">Reimagining Spotify Podcasts</a></strong><br><span>
+      At KTH, I worked on revamping Spotify’s podcast section using the Double Diamond framework. I conducted user
+      research, defined key challenges, and prototyped solutions that improved navigation, community features, and
+      content discovery.
+    </span></li>
+</ul>
       </div>
       <div class="card">
         <div class="section-title icon-title skills">Skills</div>
         <ul>
+          <li>
+            <div class="skill-glass-card">
+              <strong>Business Intelligence | </strong>
+              <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+              <span style="font-weight: 300">
+                Power BI service & governance, DAX modeling, RLS/OLS, SSIS/SSAS, Azure Data Factory,
+                data quality & lineage, GDPR-compliant reporting, policy-driven KPIs, performance tuning,
+                paginated reports, stakeholder-ready dashboards for agencies
+              </span>
+            </div>
+          </li>
           <li><strong>BI & Data Analytics | </strong><strong
               style="color: #6495ED; font-weight: 100">Expert</strong><span>Power BI, DAX, SQL, Oracle, Azure,
               SSIS/SSAS, ETL, data mining & modeling, advanced analytics</span></li>
@@ -535,6 +719,17 @@
               style="color: #6495ED; font-weight: 1;">Intermediate</strong><span>Sprint planning, backlog refinement,
               iterative development, stakeholder management, cross‑functional teamwork, demos & presentations, user
               stories</span></li>
+              <li>
+                <div class="skill-glass-card">
+                  <strong>Project Start-Up & Stakeholder Management | </strong>
+                  <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+                  <span style="font-weight: 300">
+                    Discovery → scoping → kickoff, stakeholder mapping & RACI, requirements elicitation,
+                    risk/RAID logs, delivery roadmap & milestones, change management & comms plans,
+                    workshop facilitation, exec updates, cross-functional alignment
+                  </span>
+                </div>
+              </li>
         </ul>
       </div>
     </div>

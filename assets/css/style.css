@@ -547,3 +547,73 @@ a:hover { color: #000; }
     color: #fff;
     text-decoration: underline
   }
+/* --- LIT pills: lighter glass, ultra-thin gray outline, tiny height --- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;                 /* minimal height */
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(0,0,0,0.10);/* very light gray outline */
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25),
+              0 1px 3px rgba(0,0,0,0.05);
+  font-size: 12px;
+  line-height: 1.2;
+  color: #444;
+  white-space: nowrap;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+/* remove underline ONLY inside pills */
+.pill a {
+  text-decoration: none;
+  color: inherit;
+}
+.pill a:hover { text-decoration: underline; }
+
+/* flag alignment + size */
+.pill .flag img {
+  display: block;        /* kills baseline gap */
+  height: 14px;          /* matches text height */
+  width: auto;
+  border-radius: 10xp;
+  object-fit: cover;
+  box-shadow: 0 0 1px rgba(0,0,0,0.15);
+  margin-top: -1px;      /* tiny optical nudge */
+}
+
+/* 20% zoom on hover */
+.pill:hover {
+  transform: scale(1.2);
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(0,0,0,0.14);
+}
+
+/* --- Title icon: favicon sized to text height --- */
+.exp-title {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.exp-title .lit-icon {
+  height: 1em;           /* exactly matches text height */
+  width: auto;
+  vertical-align: -0.15em; /* optical baseline alignment */
+  flex-shrink: 0;
+}
+    /* Remove bullets for the Professional Experience list only */
+.card .section-title.experience + ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.card .section-title.experience + ul li {
+  padding-left: 0;
+}
+
+.lit-itcon{
+  border-radius: 10px;
+}

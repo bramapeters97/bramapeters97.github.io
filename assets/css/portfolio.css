@@ -579,3 +579,46 @@
     grid-column: 1;
   }
 }
+
+
+    /* Persona pills */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255, 255, 255, .05);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size: 13px;
+      line-height: 1;
+      color: #e9eef7;
+      white-space: nowrap;
+    }
+
+    .pill .flag {
+      font-size: 14px;
+      line-height: 1;
+      display: inline-block;
+      border-radius: 10px;
+    }
+
+    /* Remove bullets for the Professional Experience list only */
+.card .section-title.experience + ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.card .section-title.experience + ul li {
+  padding-left: 0;
+}
+
