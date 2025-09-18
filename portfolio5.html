@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Bram Peters | Raspberries Shopping Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
+    <link rel="manifest" href="favicon_portfolio/site.webmanifest">
+</head>
+
+<body>
+
+    <!-- Modal Popup -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <video style="width:100%" class="video-round" controls>
+            <source src="assets/img/raspberries.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video> </div>
+    <div class="nav-wrap" role="navigation" aria-label="Primary">
+        <nav class="nav">
+            <div class="brand">
+                <a href="index.html" aria-label="Go to homepage"><i class="fa-solid fa-house"></i> Bram Peters<span
+                        class="dot" aria-hidden="true"></span></a>
+            </div>
+
+        </nav>
+    </div>
+    <div class="container">
+        <!-- NAV -->
+
+        <!-- HEADER -->
+        <section class="project-header" role="banner">
+            <div class="section-title icon-title projects">Portfolio Highlight</div>
+            <h1>Raspberries Shopping Assistant
+            </h1>
+            <p class="tagline"> A newly envisioned Digital Shopping Assistant for Rodebjer that lets the customer decide
+                when, and what for, they need help.
+            </p>
+        </section>
+
+        <!-- MAIN CONTENT -->
+        <main class="page-two-columns" role="main">
+            <!-- LEFT -->
+            <section class="left-col" aria-label="Project content">
+                <!-- Inside your Screenshot card -->
+                <article class="card">
+                    <div class="section-title icon-title portfolio">Demo Video</div>
+                    <div class="media-shell">
+                        <video style="width:100%" class="video-round" controls>
+                            <source src="assets/img/raspberries.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="section-title icon-title about">A new way to shop
+                    </div>
+                    <p class="placeholder-muted">
+                        The present-day shopping experience can be stressful and aggravating to some. Especially for
+                        introverts shopping may be challenging for a number of reasons, such as invasive staff, crowded
+                        clothing stores and a lack of self-efficacy. What about letting the customer decide when they
+                        need assistance?</p>
+                    <p class="placeholder-muted">The Digital Shopping Assistant helps them do just that. The digital
+                        help desk bridges the gap between customers and salespeople by letting the customer decide when,
+                        and what for, they need help. For this project at <a href="kth.se">Kungliga Tekniska Högskolan
+                            (KTH)</a>, we decided
+                        to use the Rodebjer brand as an example product. Below you can find the UX-workbook that takes
+                        you through the Double-Diamond Model that we used to conceptualize Raspberries. The workbook
+                        takes you through the different design phases in that model, from original ideation and
+                        conceptualization to wireframing, prototyping, testing and evaluation.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="section-title icon-title about">Workbook
+                    </div>
+                    <img src="assets/img/rodebjer.jpg" style="width: 100%; border-radius: 20px;">
+                </article>
+
+            </section>
+
+            <!-- RIGHT -->
+            <aside class="card" aria-label="Skills used">
+                <div class="section-title icon-title skills">Skills Used</div>
+                <div class="skills-card-list">
+                    <div class="skill-glass-card">
+                        <strong>UX/UI & Interaction Design | </strong>
+                        <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+                        <span style="font-weight: 300">Figma, Adobe XD, wireframing, prototyping, usability testing,
+                            user flows,
+                            cognitive walkthroughs, design systems</span>
+                    </div>
+                    <div class="skill-glass-card">
+                        <strong>Cognitive & Behavioral Insight | </strong>
+                        <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+                        <span style="font-weight: 300">Behavioral research methods, human cognition & perception,
+                            human‑robot
+                            interaction, persuasive & ethical design</span>
+                    </div>
+                    <div class="skill-glass-card">
+                        <strong>Research & Methodology | </strong>
+                        <strong style="color: #6495ED; font-weight: 100">Expert</strong>
+                        <span style="font-weight: 300">User research, stakeholder interviews, Double Diamond,
+                            self‑regulated
+                            learning theory, storytelling, A/B testing</span>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+</body>
+
+<script>
+    // Get elements
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const triggers = document.querySelectorAll(".popup-trigger");
+    const closeBtn = document.querySelector(".modal-close");
+
+    modal.style.visibility = "hidden";
+
+
+    // Open modal on click
+    triggers.forEach(trigger => {
+        trigger.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            modal.style.visibility = "visible";
+
+        });
+    });
+
+    // Close on button
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on background click
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on Esc key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+</script>
+
+
+</html>
