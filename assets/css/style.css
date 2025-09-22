@@ -3,6 +3,9 @@
 ────────────────────────────────────────────────────────────────────────────*/
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&family=Fira+Sans+Extra+Condensed:ital,wght@1,600&display=swap');
 
+/* On-brand fonts (scoped in .lit-card only) */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Fira+Mono:wght@400;700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -169,11 +172,10 @@ body {
   backdrop-filter: blur(14px);
   transition: transform .3s, box-shadow .3s;
 }
-
- .card:hover {
-      transform: scale(1.01);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    }
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
 
 /*────────────────────────────────────────────────────────────────────────────
   7) LAYOUT GRIDS
@@ -432,7 +434,7 @@ a:hover { color: #000; }
 }
 
 /*────────────────────────────────────────────────────────────────────────────
- 13) MOBILE RESPONSIVE
+  13) MOBILE RESPONSIVE
 ────────────────────────────────────────────────────────────────────────────*/
 @media (max-width: 600px) {
   /* keep 2% margin both sides */
@@ -479,17 +481,14 @@ a:hover { color: #000; }
   flex: 0 0 40%;
   height: auto;
   max-height: none;
-    object-fit: contain;
+  object-fit: contain;
   zoom: 30%;
   border-radius: 12px;
-
 }
 
 .article-wrapper.horizontal-layout img {
   width: 100%;
   height: auto;
-
-
 }
 
 .article-wrapper.horizontal-layout .article-body {
@@ -497,65 +496,43 @@ a:hover { color: #000; }
   padding: 0;
 }
 
+/* Cookie banner (unchanged) */
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, .85);
+  color: #fff;
+  padding: 14px;
+  font: 14px/1.4 system-ui, Segoe UI, Roboto, Helvetica, Arial;
+  opacity: 0.5;
+}
+.cookie-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+.cookie-actions { display: flex; gap: 8px }
+.cookie-btn { border: 0; padding: 8px 12px; border-radius: 6px; cursor: pointer }
+.cookie-accept { background: #3ba55c; color: #fff }
+.cookie-decline { background: #444; color: #fff }
+.cookie-link { color: #fff; text-decoration: underline }
 
-      .cookie-banner {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, .85);
-    color: #fff;
-    padding: 14px;
-    font: 14px/1.4 system-ui, Segoe UI, Roboto, Helvetica, Arial;
-      opacity: 0.5;
-      }
-
-  .cookie-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap
-  }
-
-  .cookie-actions {
-    display: flex;
-    gap: 8px
-  }
-
-  .cookie-btn {
-    border: 0;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer
-  }
-
-  .cookie-accept {
-    background: #3ba55c;
-    color: #fff
-  }
-
-  .cookie-decline {
-    background: #444;
-    color: #fff
-  }
-
-  .cookie-link {
-    color: #fff;
-    text-decoration: underline
-  }
-/* --- LIT pills: lighter glass, ultra-thin gray outline, tiny height --- */
+/* --- LIT pills (legacy from earlier) --- */
 .pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 2px 8px;                 /* minimal height */
+  padding: 2px 8px;
   border-radius: 999px;
   background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(0,0,0,0.10);/* very light gray outline */
+  border: 1px solid rgba(0,0,0,0.10);
   backdrop-filter: blur(6px) saturate(140%);
   -webkit-backdrop-filter: blur(6px) saturate(140%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.25),
@@ -566,54 +543,614 @@ a:hover { color: #000; }
   white-space: nowrap;
   transition: transform 0.25s ease, background 0.25s ease;
 }
-
-/* remove underline ONLY inside pills */
-.pill a {
-  text-decoration: none;
-  color: inherit;
-}
+.pill a { text-decoration: none; color: inherit; }
 .pill a:hover { text-decoration: underline; }
-
-/* flag alignment + size */
 .pill .flag img {
-  display: block;        /* kills baseline gap */
-  height: 14px;          /* matches text height */
+  display: block;
+  height: 14px;
   width: auto;
   border-radius: 10xp;
   object-fit: cover;
   box-shadow: 0 0 1px rgba(0,0,0,0.15);
-  margin-top: -1px;      /* tiny optical nudge */
+  margin-top: -1px;
 }
-
-/* 20% zoom on hover */
 .pill:hover {
   transform: scale(1.2);
   background: rgba(255,255,255,0.15);
   border-color: rgba(0,0,0,0.14);
 }
 
-/* --- Title icon: favicon sized to text height --- */
-.exp-title {
+/* Experience list bullets removed */
+.exp-title { display: inline-flex; align-items: center; gap: .5rem; }
+.exp-title .lit-icon { height: 1em; width: auto; vertical-align: -0.15em; flex-shrink: 0; }
+.card .section-title.experience + ul { list-style: none; padding-left: 0; margin-left: 0; }
+.card .section-title.experience + ul li { padding-left: 0; }
+.lit-itcon{ border-radius: 10px; }
+
+/* ==== Resume button: animated dark fill + enlarge on hover ==== */
+.resume-btn{
+  --btn-fill: #1f2937;
+  --btn-fg: #222;
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: .5rem;
+  padding: .65rem .95rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.14);
+  background: #ffffff;
+  color: var(--btn-fg);
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(0) scale(1);
+  transition:
+    transform .18s ease,
+    box-shadow .22s ease,
+    color .22s ease,
+    border-color .22s ease,
+    background-size .35s ease;
+  background-image: linear-gradient(0deg, var(--btn-fill), var(--btn-fill));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: left center;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
 }
-.exp-title .lit-icon {
-  height: 1em;           /* exactly matches text height */
-  width: auto;
-  vertical-align: -0.15em; /* optical baseline alignment */
-  flex-shrink: 0;
+.resume-btn::after{
+  content: "";
+  position: absolute;
+  inset: -120% -30%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 45%, transparent 60%);
+  transform: translateX(-100%);
+  pointer-events: none;
+  transition: transform .55s ease;
 }
-    /* Remove bullets for the Professional Experience list only */
-.card .section-title.experience + ul {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+.resume-btn:hover{
+  background-size: 100% 100%;
+  color: #fff;
+  transform: translateY(-1px) scale(1.04);
+  border-color: var(--btn-fill);
+  box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
 }
-.card .section-title.experience + ul li {
-  padding-left: 0;
+.resume-btn:hover::after{ transform: translateX(100%); }
+.resume-btn:active{
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+.resume-btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100,149,237,.28), 0 10px 24px rgba(0,0,0,.16);
+  border-color: var(--btn-fill);
+}
+@media (prefers-reduced-motion: reduce){
+  .resume-btn,
+  .resume-btn::after{ transition: none; }
 }
 
-.lit-itcon{
-  border-radius: 10px;
+/* ===== RESUME BUTTON (header row) overrides ===== */
+.header-row .resume-btn{
+  appearance: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem .95rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.14);
+  background: #ffffff;
+  color: #222;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  overflow: hidden;
+  transform: translateY(0) scale(1);
+  transition: transform .18s ease, box-shadow .22s ease, color .22s ease, border-color .22s ease, background-color .22s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.header-row .resume-btn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #1f2937;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .28s ease-in-out;
+  z-index: 0;
+}
+.header-row .resume-btn::after{
+  content: "";
+  position: absolute;
+  inset: -120% -30%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 45%, transparent 60%);
+  transform: translateX(-100%);
+  pointer-events: none;
+  transition: transform .55s ease;
+  z-index: 1;
+}
+.header-row .resume-btn > *{ position: relative; z-index: 2; }
+.header-row .resume-btn:hover{
+  color: #fff;
+  transform: translateY(-1px) scale(1.04);
+  border-color: #1f2937;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
+}
+.header-row .resume-btn:hover::before{ transform: scaleX(1); }
+.header-row .resume-btn:hover::after{  transform: translateX(100%); }
+.header-row .resume-btn:active{
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+.header-row .resume-btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100,149,237,.28), 0 10px 24px rgba(0,0,0,.16);
+  border-color: #1f2937;
+}
+@media (prefers-reduced-motion: reduce){
+  .header-row .resume-btn,
+  .header-row .resume-btn::before,
+  .header-row .resume-btn::after{ transition: none; }
+}
+/* Force text + icon to turn white on hover */
+.header-row .resume-btn:hover,
+.header-row .resume-btn:hover b,
+.header-row .resume-btn:hover i,
+.header-row .resume-btn:hover span {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+}
+/* Ensure layers */
+.header-row .resume-btn{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.header-row .resume-btn > *{ position: relative; z-index: 2; }
+.header-row .resume-btn::before,
+.header-row .resume-btn::after{ z-index: 0; }
+/* Enlarge + brighten on hover (completed) */
+.header-row .resume-btn:hover {
+  color: #fff !important;
+  transform: translateY(-2px) scale(1.08);
+  border-color: #1f2937;
+  box-shadow: 0 14px 32px rgba(0,0,0,.2), 0 3px 10px rgba(0,0,0,.14);
+}
+
+/*────────────────────────────────────────────────────────────────────────────
+  14) TOP PROJECT — LIT BRAND CARD (scoped)
+────────────────────────────────────────────────────────────────────────────*/
+.lit-card {
+  /* keep your site’s glass card container, but swap inner styles */
+  position: relative;
+  overflow: hidden; /* contain background SVG if used later */
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+/* switch to Manrope only inside the card */
+.lit-card, .lit-card * {
+  font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* header row inside the card */
+.lit-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.lit-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lit-brand img {
+  height: 42px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,.25));
+  border-radius: 8px;
+}
+.lit-brand .lit-name {
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: #1a1a1a;
+}
+.lit-brand .lit-tag {
+  font: 700 12px/1 'Fira Mono', monospace;
+  letter-spacing: .6px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* small “badge” on the right */
+.lit-badge {
+  font: 700 11px/1 'Fira Mono', monospace;
+  letter-spacing: .6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: rgba(0, 0, 0, 0.808);
+  background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.45));
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,.10);
+  white-space: nowrap;
+}
+
+/* hero area */
+.lit-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.28));
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  margin-bottom: 14px;
+}
+.lit-hero-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.lit-hero-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lit-hero-title img {
+  height: 64px;
+  width: auto;
+  filter: drop-shadow(0 8px 22px rgba(0,0,0,.18));
+}
+.lit-hero h1 {
+  margin: 0;
+  font-size: clamp(22px, 3.8vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -0.2px;
+  color: #0e1117;
+}
+.lit-hero .lit-tagline {
+  color: #6b7280;
+  font-size: clamp(13px, 2.4vw, 15px);
+  margin: 4px 0 0;
+  font-weight: 600;
+}
+.lit-hero .lit-sub {
+  margin: 4px 0 0;
+  font-size: clamp(13px, 2.4vw, 15px);
+  color: #2b3446;
+}
+
+/* steps */
+.lit-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+@media (min-width: 820px) {
+  .lit-steps { grid-template-columns: repeat(3, 1fr); }
+}
+.lit-step {
+  position: relative;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.4));
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+.lit-step:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0,0,0,.12);
+  background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.5));
+}
+.lit-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 700 11px/1 'Fira Mono', monospace;
+  color: #0e7490;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.lit-step h3 {
+  margin: 0 0 6px;
+  font-size: clamp(16px, 2.3vw, 20px);
+  line-height: 1.2;
+  color: #111827;
+}
+.lit-step p {
+  margin: 0;
+  color: #4b5563;
+  font-size: clamp(13px, 2.2vw, 15px);
+}
+.lit-pillrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.lit-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.8);
+  font-size: 13px;
+  line-height: 1;
+  color: #111827;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+/* make sure this card breathes nicely on mobile */
+@media (max-width: 600px){
+  .lit-card { padding: 1rem; }
+  .lit-hero { padding: 12px; }
+  .lit-hero-title img { height: 54px; }
+}
+/* Ensure the LIT block uses the on-brand font */
+.lit-hero,
+.lit-hero * {
+  font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Header row inside the Top Project card:
+   brand (left) + status badge (right) on the same line */
+.lit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+/* Brand cluster (logo + name/tag) */
+.lit-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lit-brand img {
+  height: 42px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,.25));
+  border-radius: 8px;
+}
+.lit-name {
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: #1a1a1a;
+}
+.lit-tag {
+  font: 700 12px/1 'Fira Mono', monospace;
+  letter-spacing: .6px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* Badge (right side) with pulsing green dot */
+.lit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 12px/1 'Fira Mono', monospace;
+  letter-spacing: .6px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: rgba(0, 0, 0, 0.884);
+  background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.45));
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,.10);
+  white-space: nowrap;
+}
+
+/* Pulsing dot before the text when .lit-online is present */
+.lit-badge.lit-online::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00c04d;
+  box-shadow: 0 0 6px #00c04d(144, 90%, 37%, 0.9), 0 0 14px rgba(57, 255, 136, .4);
+  display: inline-block;
+  animation: litPulseDot 1.6s ease-in-out infinite;
+}
+
+@keyframes litPulseDot {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.25); }
+}
+
+/* Hero container (kept from your earlier scoped design) */
+.lit-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.28));
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  margin-bottom: 14px;
+}
+
+.lit-sub {
+  margin: 0;
+  font-size: clamp(13px, 2.4vw, 15px);
+  color: #2b3446;
+}
+
+/* Steps layout */
+.lit-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+@media (min-width: 820px) {
+  .lit-steps { grid-template-columns: repeat(3, 1fr); }
+}
+.lit-step {
+  position: relative;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.4));
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+  opacity: 0;                 /* for reveal */
+  transform: translateX(-24px);
+}
+.lit-step.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+.lit-step:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0,0,0,.12);
+  background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.5));
+}
+.lit-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 700 11px/1 'Fira Mono', monospace;
+  color: #0e7490;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.lit-step h3 {
+  margin: 0 0 6px;
+  font-size: clamp(16px, 2.3vw, 20px);
+  line-height: 1.2;
+  color: #111827;
+}
+.lit-step p {
+  margin: 0;
+  color: #4b5563;
+  font-size: clamp(13px, 2.2vw, 15px);
+}
+
+/* Persona pills row */
+.lit-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.lit-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.8);
+  font-size: 13px;
+  line-height: 1;
+  color: #111827;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+/* Mobile breathing room */
+@media (max-width: 600px){
+  .lit-hero { padding: 12px; }
+  .lit-brand img { height: 38px; }
+}
+/* Keep lines only inside the card */
+.lit-hero {
+  position: relative;
+  overflow: hidden; /* hide line edges */
+}
+
+/* Background metro lines */
+.lit-map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;          /* behind content */
+  opacity: 0.08;       /* subtle */
+  pointer-events: none;
+}
+
+/* Ensure all content stays above the lines */
+.lit-hero > * {
+  position: relative;
+  z-index: 1;
+}
+.lit-hero {
+  position: relative;
+  overflow: hidden;          /* contain SVG */
+}
+
+.lit-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;                /* send behind */
+  opacity: 0.08;             /* subtle */
+  pointer-events: none;
+}
+
+.lit-hero > * {
+  position: relative;
+  z-index: 1;                /* keep content above lines */
+}
+
+.lit-hero {
+  position: relative;
+  overflow: hidden;
+}
+.lit-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;          /* behind content */
+  opacity: 0.12;       /* stronger for visibility */
+}
+.lit-hero > * {
+  position: relative;
+  z-index: 1;
+}
+.lit-hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  margin-bottom: 14px;
+
+  /* ⬇️ SVG metro lines (45° / 90° turns) as the top background layer */
+  background:
+    url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600'>\
+  <g fill='none' stroke-linecap='round' stroke-linejoin='round'>\
+    <path d='M0 100 L200 100 L300 200 L600 200 L800 400 L1000 400' stroke='%233b82f6' stroke-width='3' stroke-opacity='0.1'/>\
+    <path d='M0 300 L150 300 L250 150 L500 150 L700 350 L1000 350' stroke='%23fb7185' stroke-width='3' stroke-opacity='0.1'/>\
+    <path d='M0 500 L250 500 L400 350 L650 350 L850 200 L1000 200' stroke='%2310b981' stroke-width='3' stroke-opacity='0.1'/>\
+    <path d='M0 200 L100 200 L200 400 L400 400 L700 100 L1000 100' stroke='%23f59e0b' stroke-width='3' stroke-opacity='0.1'/>\
+  </g>\
+</svg>") center/cover no-repeat,
+
+    /* subtle glass gradient UNDER the lines */
+    linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.28));
+}
+
+/* Ensure content paints above the background (default behavior, but explicit is fine) */
+.lit-hero > * {
+  position: relative;
+  z-index: 1;
 }

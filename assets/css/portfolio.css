@@ -622,3 +622,212 @@
   padding-left: 0;
 }
 
+/* ==== Resume button: attention-grabbing hover fill ==== */
+.resume-btn{
+  --btn-fill: #1f2937;         /* dark gray */
+  --btn-fg: #222;              /* default text */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem .95rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.14);
+  background: #ffffff;
+  color: var(--btn-fg);
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(0) scale(1);
+  transition:
+    transform .18s ease,
+    box-shadow .22s ease,
+    color .22s ease,
+    border-color .22s ease,
+    background-size .35s ease;
+
+  /* animated fill (from left -> right) */
+  background-image: linear-gradient(0deg, var(--btn-fill), var(--btn-fill));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: left center;
+
+  /* subtle default elevation */
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+/* shiny sweep on hover */
+.resume-btn::after{
+  content: "";
+  position: absolute;
+  inset: -120% -30%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 45%, transparent 60%);
+  transform: translateX(-100%);
+  pointer-events: none;
+  transition: transform .55s ease;
+}
+
+.resume-btn:hover{
+  background-size: 100% 100%;   /* fills with dark gray */
+  color: #fff;                   /* turn text white */
+  transform: translateY(-1px) scale(1.04);
+  border-color: var(--btn-fill);
+  box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
+}
+.resume-btn:hover::after{
+  transform: translateX(100%);   /* run the sheen across */
+}
+
+/* pressed state */
+.resume-btn:active{
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+
+/* keyboard focus */
+.resume-btn:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(100,149,237,.28),    /* cornflower ring */
+    0 10px 24px rgba(0,0,0,.16);
+  border-color: var(--btn-fill);
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .resume-btn,
+  .resume-btn::after{
+    transition: none;
+  }
+}
+/* ===== RESUME BUTTON: animated dark fill + enlarge on hover ===== */
+.header-row .resume-btn{
+  /* make sure we win specificity */
+  appearance: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem .95rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.14);
+  background: #ffffff;
+  color: #222;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  overflow: hidden;              /* lets the fill stay inside the button */
+  transform: translateY(0) scale(1);
+  transition:
+    transform .18s ease,
+    box-shadow .22s ease,
+    color .22s ease,
+    border-color .22s ease,
+    background-color .22s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+/* the dark fill layer that expands on hover */
+.header-row .resume-btn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #1f2937;          /* dark gray */
+  transform: scaleX(0);
+  transform-origin: left center; /* fill from left to right */
+  transition: transform .28s ease-in-out;
+  z-index: 0;
+}
+
+/* a subtle sheen sweep */
+.header-row .resume-btn::after{
+  content: "";
+  position: absolute;
+  inset: -120% -30%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 45%, transparent 60%);
+  transform: translateX(-100%);
+  pointer-events: none;
+  transition: transform .55s ease;
+  z-index: 1;
+}
+
+/* text/icon sit above the fill */
+.header-row .resume-btn > *{
+  position: relative;
+  z-index: 2;
+}
+
+/* hover effects */
+.header-row .resume-btn:hover{
+  color: #fff;
+  transform: translateY(-1px) scale(1.04);
+  border-color: #1f2937;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
+}
+.header-row .resume-btn:hover::before{ transform: scaleX(1); }
+.header-row .resume-btn:hover::after{  transform: translateX(100%); }
+
+/* pressed + keyboard focus */
+.header-row .resume-btn:active{
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+.header-row .resume-btn:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(100,149,237,.28),
+    0 10px 24px rgba(0,0,0,.16);
+  border-color: #1f2937;
+}
+
+/* motion respect */
+@media (prefers-reduced-motion: reduce){
+  .header-row .resume-btn,
+  .header-row .resume-btn::before,
+  .header-row .resume-btn::after{
+    transition: none;
+  }
+}
+/* Resume button text and icons always above the fill */
+.header-row .resume-btn > * {
+  position: relative;
+  z-index: 2; /* text + icon */
+}
+
+/* Dark fill layer below the text */
+.header-row .resume-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #1f2937;          /* dark gray */
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .28s ease-in-out;
+  z-index: 1;                   /* sits UNDER text */
+}
+
+/* Sheen layer above the fill, still under text */
+.header-row .resume-btn::after {
+  content: "";
+  position: absolute;
+  inset: -120% -30%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,.35) 45%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform .55s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hover state: fill expands + text flips white */
+.header-row .resume-btn:hover {
+  color: #fff;                   /* <-- forces text white */
+  transform: translateY(-1px) scale(1.04);
+  border-color: #1f2937;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
+}
+
