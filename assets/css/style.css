@@ -17,8 +17,18 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden; /* prevent horizontal scroll */
 }
+
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure grid children can shrink (prevents overflow on long lines) */
+.container > * { min-width: 0; }
+.header-split > *, .horizontal-split > *, .two-columns > * { min-width: 0; }
 
 /*────────────────────────────────────────────────────────────────────────────
   2) BASE BODY & CONTAINER
@@ -38,6 +48,7 @@ body {
   display: grid;
   gap: 1.5rem;
   animation: fadeIn 0.6s both;
+  overflow-x: clip; /* keeps scaled children from causing overflow */
 }
 
 @keyframes fadeIn {
@@ -73,7 +84,7 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: .7rem;
-  min-width: 0;
+  min-width: 0; /* allow shrinking */
 }
 .header-row {
   display: flex;
@@ -81,6 +92,8 @@ body {
   justify-content: space-between;
   width: 100%;
   margin-bottom: .25rem;
+  flex-wrap: wrap; /* allow wrap on small screens */
+  gap: .5rem .75rem;
 }
 .header-name {
   font-size: 2.7rem;
@@ -171,10 +184,13 @@ body {
   box-shadow: 0 8px 28px rgba(0,0,0,.12);
   backdrop-filter: blur(14px);
   transition: transform .3s, box-shadow .3s;
+  min-width: 0; /* grid shrink */
 }
-.card:hover {
-  transform: scale(1.01);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+@media (hover:hover) {
+  .card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
 }
 
 /*────────────────────────────────────────────────────────────────────────────
@@ -279,18 +295,13 @@ a:hover { color: #000; }
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   margin-top: 1rem;
+  overflow-x: clip; /* contain hover scale */
 }
 @media (max-width: 900px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+  .portfolio-grid { grid-template-columns: 1fr; gap: 1rem; }
 }
 @media (max-width: 600px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+  .portfolio-grid { grid-template-columns: 1fr; gap: 1rem; }
 }
 
 .portfolio-card {
@@ -303,16 +314,17 @@ a:hover { color: #000; }
   cursor: pointer;
   transition: transform .19s, box-shadow .18s;
   min-height: 320px;
+  min-width: 0; /* grid shrink */
 }
-.portfolio-card:hover,
-.portfolio-card:focus-visible {
-  transform: scale(1.035);
-  box-shadow: 0 12px 30px rgba(50,80,140,.16);
-  z-index: 2;
+@media (hover:hover) {
+  .portfolio-card:hover,
+  .portfolio-card:focus-visible {
+    transform: scale(1.035);
+    box-shadow: 0 12px 30px rgba(50,80,140,.16);
+    z-index: 2;
+  }
 }
-.portfolio-card:active {
-  transform: scale(.99);
-}
+.portfolio-card:active { transform: scale(.99); }
 
 /* remove underline & dark-grey links */
 .portfolio-card a {
@@ -334,21 +346,15 @@ a:hover { color: #000; }
 }
 
 /* images fill/center */
-.portfolio-card .article-wrapper figure {
-  margin: 0;
-  padding: 0;
-}
+.portfolio-card .article-wrapper figure { margin: 0; padding: 0; }
 .portfolio-card .article-wrapper img {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 /* doula focus top */
-.portfolio-card:nth-child(4) .article-wrapper img {
-  object-position: top center;
-}
+.portfolio-card:nth-child(4) .article-wrapper img { object-position: top center; }
 
 /*────────────────────────────────────────────────────────────────────────────
  12) ARTICLE & SKILLS
@@ -372,6 +378,7 @@ a:hover { color: #000; }
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-width: 0;
 }
 .article-body h2 {
   margin: 0 0 .3em;
@@ -401,9 +408,7 @@ a:hover { color: #000; }
   transition: color .14s;
   color: #2c3757;
 }
-.article-body a:hover {
-  color: #4281ff;
-}
+.article-body a:hover { color: #4281ff; }
 
 .skills-card-list {
   display: flex;
@@ -425,29 +430,25 @@ a:hover { color: #000; }
   backdrop-filter: blur(10px);
   transition: border .19s, box-shadow .19s;
 }
-.skill-glass-card:hover {
-  border-color: #82b6ff;
-  box-shadow: 0 4px 22px rgba(120,180,255,.1);
+@media (hover:hover) {
+  .skill-glass-card:hover {
+    border-color: #82b6ff;
+    box-shadow: 0 4px 22px rgba(120,180,255,.1);
+  }
 }
-.skill-glass-card strong {
-  font-weight: 600;
-}
+.skill-glass-card strong { font-weight: 600; }
 
 /*────────────────────────────────────────────────────────────────────────────
   13) MOBILE RESPONSIVE
 ────────────────────────────────────────────────────────────────────────────*/
 @media (max-width: 600px) {
-  /* keep 2% margin both sides */
   .container {
     padding: 0 2%;
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  .card,
-  .portfolio-card {
-    width: 100%;
-    box-sizing: border-box;
-  }
+  .card, .portfolio-card { width: 100%; box-sizing: border-box; }
+
   .profile-header {
     flex-direction: column;
     align-items: center;
@@ -463,10 +464,14 @@ a:hover { color: #000; }
     margin: 0 auto .7em;
   }
 
-  .html, body {
-    padding: 2%;
-    overflow: scroll;
-  }
+  /* Fix caused overflow: remove erroneous scroll + allow wrapping */
+  html, body { padding: 0; overflow-x: hidden; }
+  .header-name { white-space: normal; }
+  .header-row { justify-content: flex-start; }
+
+  /* Avoid hover scale causing overflow on touch */
+  .portfolio-card,
+  .card { transform: none !important; }
 }
 
 /* Horizontal article layout inside card */
@@ -476,32 +481,22 @@ a:hover { color: #000; }
   align-items: flex-start;
   font-weight: 300;
 }
-
 .article-wrapper.horizontal-layout figure {
   flex: 0 0 40%;
   height: auto;
   max-height: none;
   object-fit: contain;
-  zoom: 30%;
-  border-radius: 12px;
+  /* zoom removed for cross-browser safety; use width instead */
 }
+.article-wrapper.horizontal-layout img { width: 100%; height: auto; }
+.article-wrapper.horizontal-layout .article-body { flex: 1; padding: 0; }
 
-.article-wrapper.horizontal-layout img {
-  width: 100%;
-  height: auto;
-}
-
-.article-wrapper.horizontal-layout .article-body {
-  flex: 1;
-  padding: 0;
-}
-
-/* Cookie banner (unchanged) */
+/*────────────────────────────────────────────────────────────────────────────
+  Cookie banner (unchanged)
+────────────────────────────────────────────────────────────────────────────*/
 .cookie-banner {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: 0; right: 0; bottom: 0;
   z-index: 9999;
   background: rgba(0, 0, 0, .85);
   color: #fff;
@@ -554,10 +549,12 @@ a:hover { color: #000; }
   box-shadow: 0 0 1px rgba(0,0,0,0.15);
   margin-top: -1px;
 }
-.pill:hover {
-  transform: scale(1.2);
-  background: rgba(255,255,255,0.15);
-  border-color: rgba(0,0,0,0.14);
+@media (hover:hover) {
+  .pill:hover {
+    transform: scale(1.2);
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(0,0,0,0.14);
+  }
 }
 
 /* Experience list bullets removed */
@@ -605,14 +602,16 @@ a:hover { color: #000; }
   pointer-events: none;
   transition: transform .55s ease;
 }
-.resume-btn:hover{
-  background-size: 100% 100%;
-  color: #fff;
-  transform: translateY(-1px) scale(1.04);
-  border-color: var(--btn-fill);
-  box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
+@media (hover:hover) {
+  .resume-btn:hover{
+    background-size: 100% 100%;
+    color: #fff;
+    transform: translateY(-1px) scale(1.04);
+    border-color: var(--btn-fill);
+    box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
+  }
+  .resume-btn:hover::after{ transform: translateX(100%); }
 }
-.resume-btn:hover::after{ transform: translateX(100%); }
 .resume-btn:active{
   transform: translateY(0) scale(0.98);
   box-shadow: 0 6px 16px rgba(0,0,0,.12);
@@ -668,14 +667,16 @@ a:hover { color: #000; }
   z-index: 1;
 }
 .header-row .resume-btn > *{ position: relative; z-index: 2; }
-.header-row .resume-btn:hover{
-  color: #fff;
-  transform: translateY(-1px) scale(1.04);
-  border-color: #1f2937;
-  box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
+@media (hover:hover) {
+  .header-row .resume-btn:hover{
+    color: #fff;
+    transform: translateY(-1px) scale(1.04);
+    border-color: #1f2937;
+    box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
+  }
+  .header-row .resume-btn:hover::before{ transform: scaleX(1); }
+  .header-row .resume-btn:hover::after{  transform: translateX(100%); }
 }
-.header-row .resume-btn:hover::before{ transform: scaleX(1); }
-.header-row .resume-btn:hover::after{  transform: translateX(100%); }
 .header-row .resume-btn:active{
   transform: translateY(0) scale(0.98);
   box-shadow: 0 6px 16px rgba(0,0,0,.12);
@@ -685,18 +686,15 @@ a:hover { color: #000; }
   box-shadow: 0 0 0 3px rgba(100,149,237,.28), 0 10px 24px rgba(0,0,0,.16);
   border-color: #1f2937;
 }
-@media (prefers-reduced-motion: reduce){
-  .header-row .resume-btn,
-  .header-row .resume-btn::before,
-  .header-row .resume-btn::after{ transition: none; }
-}
 /* Force text + icon to turn white on hover */
-.header-row .resume-btn:hover,
-.header-row .resume-btn:hover b,
-.header-row .resume-btn:hover i,
-.header-row .resume-btn:hover span {
-  color: #fff !important;
-  -webkit-text-fill-color: #fff;
+@media (hover:hover) {
+  .header-row .resume-btn:hover,
+  .header-row .resume-btn:hover b,
+  .header-row .resume-btn:hover i,
+  .header-row .resume-btn:hover span {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff;
+  }
 }
 /* Ensure layers */
 .header-row .resume-btn{
@@ -707,30 +705,22 @@ a:hover { color: #000; }
 .header-row .resume-btn > *{ position: relative; z-index: 2; }
 .header-row .resume-btn::before,
 .header-row .resume-btn::after{ z-index: 0; }
-/* Enlarge + brighten on hover (completed) */
-.header-row .resume-btn:hover {
-  color: #fff !important;
-  transform: translateY(-2px) scale(1.08);
-  border-color: #1f2937;
-  box-shadow: 0 14px 32px rgba(0,0,0,.2), 0 3px 10px rgba(0,0,0,.14);
+/* Enlarge + brighten on hover (desktop only) */
+@media (hover:hover) {
+  .header-row .resume-btn:hover {
+    color: #fff !important;
+    transform: translateY(-2px) scale(1.08);
+    border-color: #1f2937;
+    box-shadow: 0 14px 32px rgba(0,0,0,.2), 0 3px 10px rgba(0,0,0,.14);
+  }
 }
 
 /*────────────────────────────────────────────────────────────────────────────
   14) TOP PROJECT — LIT BRAND CARD (scoped)
 ────────────────────────────────────────────────────────────────────────────*/
-.lit-card {
-  /* keep your site’s glass card container, but swap inner styles */
-  position: relative;
-  overflow: hidden; /* contain background SVG if used later */
-  padding: 1.25rem 1.25rem 1.5rem;
-}
+.lit-card { position: relative; overflow: hidden; padding: 1.25rem 1.25rem 1.5rem; }
+.lit-card, .lit-card * { font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
 
-/* switch to Manrope only inside the card */
-.lit-card, .lit-card * {
-  font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-}
-
-/* header row inside the card */
 .lit-head {
   display: flex;
   align-items: center;
@@ -738,31 +728,15 @@ a:hover { color: #000; }
   gap: 14px;
   margin-bottom: 14px;
 }
-.lit-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+.lit-brand { display: flex; align-items: center; gap: 12px; }
 .lit-brand img {
-  height: 42px;
-  width: auto;
-  display: block;
+  height: 42px; width: auto; display: block;
   filter: drop-shadow(0 6px 16px rgba(0,0,0,.25));
   border-radius: 8px;
 }
-.lit-brand .lit-name {
-  font-weight: 800;
-  letter-spacing: .2px;
-  color: #1a1a1a;
-}
-.lit-brand .lit-tag {
-  font: 700 12px/1 'Fira Mono', monospace;
-  letter-spacing: .6px;
-  color: #6b7280;
-  margin-top: 2px;
-}
+.lit-brand .lit-name { font-weight: 800; letter-spacing: .2px; color: #1a1a1a; }
+.lit-brand .lit-tag { font: 700 12px/1 'Fira Mono', monospace; letter-spacing: .6px; color: #6b7280; margin-top: 2px; }
 
-/* small “badge” on the right */
 .lit-badge {
   font: 700 11px/1 'Fira Mono', monospace;
   letter-spacing: .6px;
@@ -776,226 +750,14 @@ a:hover { color: #000; }
 }
 
 /* hero area */
-.lit-hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  padding: 14px;
-  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.28));
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(0,0,0,.08);
-  margin-bottom: 14px;
-}
-.lit-hero-top {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.lit-hero-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.lit-hero-title img {
-  height: 64px;
-  width: auto;
-  filter: drop-shadow(0 8px 22px rgba(0,0,0,.18));
-}
-.lit-hero h1 {
-  margin: 0;
-  font-size: clamp(22px, 3.8vw, 34px);
-  line-height: 1.1;
-  letter-spacing: -0.2px;
-  color: #0e1117;
-}
-.lit-hero .lit-tagline {
-  color: #6b7280;
-  font-size: clamp(13px, 2.4vw, 15px);
-  margin: 4px 0 0;
-  font-weight: 600;
-}
-.lit-hero .lit-sub {
-  margin: 4px 0 0;
-  font-size: clamp(13px, 2.4vw, 15px);
-  color: #2b3446;
-}
 
-/* steps */
 .lit-steps {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
 }
-@media (min-width: 820px) {
-  .lit-steps { grid-template-columns: repeat(3, 1fr); }
-}
-.lit-step {
-  position: relative;
-  padding: 14px;
-  background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.4));
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(0,0,0,.08);
-  transition: transform .18s ease, border-color .18s ease, background .18s ease;
-}
-.lit-step:hover {
-  transform: translateY(-2px);
-  border-color: rgba(0,0,0,.12);
-  background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.5));
-}
-.lit-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font: 700 11px/1 'Fira Mono', monospace;
-  color: #0e7490;
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.lit-step h3 {
-  margin: 0 0 6px;
-  font-size: clamp(16px, 2.3vw, 20px);
-  line-height: 1.2;
-  color: #111827;
-}
-.lit-step p {
-  margin: 0;
-  color: #4b5563;
-  font-size: clamp(13px, 2.2vw, 15px);
-}
-.lit-pillrow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-.lit-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.10);
-  background: rgba(255,255,255,.8);
-  font-size: 13px;
-  line-height: 1;
-  color: #111827;
-  white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
-}
+@media (min-width: 820px) { .lit-steps { grid-template-columns: repeat(3, 1fr); } }
 
-/* make sure this card breathes nicely on mobile */
-@media (max-width: 600px){
-  .lit-card { padding: 1rem; }
-  .lit-hero { padding: 12px; }
-  .lit-hero-title img { height: 54px; }
-}
-/* Ensure the LIT block uses the on-brand font */
-.lit-hero,
-.lit-hero * {
-  font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-}
-
-/* Header row inside the Top Project card:
-   brand (left) + status badge (right) on the same line */
-.lit-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 10px;
-}
-
-/* Brand cluster (logo + name/tag) */
-.lit-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.lit-brand img {
-  height: 42px;
-  width: auto;
-  display: block;
-  filter: drop-shadow(0 6px 16px rgba(0,0,0,.25));
-  border-radius: 8px;
-}
-.lit-name {
-  font-weight: 800;
-  letter-spacing: .2px;
-  color: #1a1a1a;
-}
-.lit-tag {
-  font: 700 12px/1 'Fira Mono', monospace;
-  letter-spacing: .6px;
-  color: #6b7280;
-  margin-top: 2px;
-}
-
-/* Badge (right side) with pulsing green dot */
-.lit-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font: 700 12px/1 'Fira Mono', monospace;
-  letter-spacing: .6px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  color: rgba(0, 0, 0, 0.884);
-  background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.45));
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 4px 14px rgba(0,0,0,.10);
-  white-space: nowrap;
-}
-
-/* Pulsing dot before the text when .lit-online is present */
-.lit-badge.lit-online::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #00c04d;
-  box-shadow: 0 0 6px #00c04d(144, 90%, 37%, 0.9), 0 0 14px rgba(57, 255, 136, .4);
-  display: inline-block;
-  animation: litPulseDot 1.6s ease-in-out infinite;
-}
-
-@keyframes litPulseDot {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.25); }
-}
-
-/* Hero container (kept from your earlier scoped design) */
-.lit-hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  padding: 14px;
-  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.28));
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(0,0,0,.08);
-  margin-bottom: 14px;
-}
-
-.lit-sub {
-  margin: 0;
-  font-size: clamp(13px, 2.4vw, 15px);
-  color: #2b3446;
-}
-
-/* Steps layout */
-.lit-steps {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-@media (min-width: 820px) {
-  .lit-steps { grid-template-columns: repeat(3, 1fr); }
-}
 .lit-step {
   position: relative;
   padding: 14px;
@@ -1007,14 +769,13 @@ a:hover { color: #000; }
   opacity: 0;                 /* for reveal */
   transform: translateX(-24px);
 }
-.lit-step.in-view {
-  opacity: 1;
-  transform: translateX(0);
-}
-.lit-step:hover {
-  transform: translateY(-2px);
-  border-color: rgba(0,0,0,.12);
-  background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.5));
+.lit-step.in-view { opacity: 1; transform: translateX(0); }
+@media (hover:hover) {
+  .lit-step:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0,0,0,.12);
+    background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.5));
+  }
 }
 .lit-kicker {
   display: inline-flex;
@@ -1032,11 +793,7 @@ a:hover { color: #000; }
   line-height: 1.2;
   color: #111827;
 }
-.lit-step p {
-  margin: 0;
-  color: #4b5563;
-  font-size: clamp(13px, 2.2vw, 15px);
-}
+.lit-step p { margin: 0; color: #4b5563; font-size: clamp(13px, 2.2vw, 15px); }
 
 /* Persona pills row */
 .lit-pill-row {
@@ -1060,80 +817,163 @@ a:hover { color: #000; }
   box-shadow: 0 2px 8px rgba(0,0,0,.06);
 }
 
-/* Mobile breathing room */
+/* Header row inside the Top Project card */
+.lit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+/* Brand cluster (logo + name/tag) — keep from earlier block */
+.lit-brand { display: flex; align-items: center; gap: 12px; }
+.lit-brand img { height: 42px; width: auto; display: block; filter: drop-shadow(0 6px 16px rgba(0,0,0,.25)); border-radius: 8px; }
+.lit-name { font-weight: 800; letter-spacing: .2px; color: #1a1a1a; }
+.lit-tag { font: 700 12px/1 'Fira Mono', monospace; letter-spacing: .6px; color: #6b7280; margin-top: 2px; }
+
+/* Badge (right side) with pulsing green dot */
+.lit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 12px/1 'Fira Mono', monospace;
+  letter-spacing: .6px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: rgba(0, 0, 0, 0.884);
+  background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.45));
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,.10);
+  white-space: nowrap;
+}
+.lit-badge.lit-online::before {
+  content: "";
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #00c04d;
+  box-shadow: 0 0 6px rgba(0,192,77,.9), 0 0 14px rgba(57, 255, 136, .4);
+  display: inline-block;
+  animation: litPulseDot 1.6s ease-in-out infinite;
+}
+@keyframes litPulseDot {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.25); }
+}
+
+/* Mobile tweaks for LIT */
 @media (max-width: 600px){
+  .lit-card { padding: 1rem; }
   .lit-hero { padding: 12px; }
   .lit-brand img { height: 38px; }
+  .lit-hero {visibility: none;}
 }
-/* Keep lines only inside the card */
+
+/* ===== LIT hero — mobile layout fixes ===== */
+@media (max-width: 600px) {
+  /* Make the hero breathe like the rest of the container */
+  .lit-hero {
+    padding: 12px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 14px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* Stack header items and let them align to container edges */
+  .lit-header {
+    display: flex;
+    flex-direction: column;      /* stack brand first, then badge */
+    align-items: stretch;        /* make children fill width */
+    gap: 10px;
+  }
+
+  /* Brand block fills width; text can wrap nicely */
+  .lit-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    min-width: 0;                /* allow text to shrink/wrap */
+  }
+  .lit-brand img {
+    height: 56px;                /* slightly larger for mobile */
+    flex-shrink: 0;
+  }
+  .lit-tn {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;                /* allow line wrap */
+  }
+  .lit-name {
+    font-weight: 800;
+    letter-spacing: .2px;
+    color: #1a1a1a;
+    font-size: clamp(20px, 6vw, 28px);
+    line-height: 1.1;
+  }
+  .lit-tag {
+    font: 700 12px/1.2 'Fira Mono', monospace;
+    color: #6b7280;
+    margin-top: 2px;
+    white-space: normal;         /* allow wrapping on small screens */
+  }
+
+  /* Badge (visit link) goes below and spans full width */
+  .lit-badge {
+    order: 2;
+    width: 100%;
+    justify-content: center;     /* center its content */
+    text-align: center;
+    padding: 12px 14px;
+  }
+  /* Ensure clicking the whole badge feels like a button across the row */
+  .lit-badge a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  /* Keep the Steps grid perfectly aligned with container edges */
+  .lit-steps {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .lit-step {
+    padding: 12px;
+  }
+}
+/* ==== Resume button — mobile left align ==== */
+@media (max-width: 600px) {
+  .header-row {
+    justify-content: flex-start;   /* no space-between on mobile */
+    gap: .5rem .75rem;             /* tidy wrap */
+  }
+
+  /* Kill the default left margin and pin to left */
+  .header-row .resume-btn,
+  #downloadBtnInline {
+    margin-left: 0 !important;
+    align-self: flex-start;        /* ensure it aligns to left edge */
+  }
+
+  /* Allow name to wrap so button can sit right below it */
+  .header-name {
+    white-space: normal;
+    margin-right: 0;
+  }
+}
+
+
 .lit-hero {
   position: relative;
-  overflow: hidden; /* hide line edges */
-}
-
-/* Background metro lines */
-.lit-map {
-  position: absolute;
-  inset: 0;
-  z-index: 0;          /* behind content */
-  opacity: 0.08;       /* subtle */
-  pointer-events: none;
-}
-
-/* Ensure all content stays above the lines */
-.lit-hero > * {
-  position: relative;
-  z-index: 1;
-}
-.lit-hero {
-  position: relative;
-  overflow: hidden;          /* contain SVG */
-}
-
-.lit-map {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;                /* send behind */
-  opacity: 0.08;             /* subtle */
-  pointer-events: none;
-}
-
-.lit-hero > * {
-  position: relative;
-  z-index: 1;                /* keep content above lines */
-}
-
-.lit-hero {
-  position: relative;
-  overflow: hidden;
-}
-.lit-map {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;          /* behind content */
-  opacity: 0.12;       /* stronger for visibility */
-}
-.lit-hero > * {
-  position: relative;
-  z-index: 1;
-}
-.lit-hero {
-  position: relative;
-  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
   padding: 14px;
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(0,0,0,.08);
-  margin-bottom: 14px;
-
-  /* ⬇️ SVG metro lines (45° / 90° turns) as the top background layer */
   background:
     url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600'>\
@@ -1144,13 +984,12 @@ a:hover { color: #000; }
     <path d='M0 200 L100 200 L200 400 L400 400 L700 100 L1000 100' stroke='%23f59e0b' stroke-width='3' stroke-opacity='0.1'/>\
   </g>\
 </svg>") center/cover no-repeat,
-
-    /* subtle glass gradient UNDER the lines */
     linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.28));
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  margin-bottom: 14px;
+  overflow: hidden; /* contain background */
 }
+.lit-hero .lit-sub { margin: 0; font-size: clamp(13px, 2.4vw, 15px); color: #2b3446; }
 
-/* Ensure content paints above the background (default behavior, but explicit is fine) */
-.lit-hero > * {
-  position: relative;
-  z-index: 1;
-}
