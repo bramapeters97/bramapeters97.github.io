@@ -11,14 +11,17 @@
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-
     gtag('config', 'G-VVZK9H0J0T');
   </script>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Bram Peters – Portfolio</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
@@ -28,9 +31,7 @@
 <!--
 <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
   <div class="cookie-inner">
-    <div>
-      We use cookies for analytics to improve our site.
-    </div>
+    <div>We use cookies for analytics to improve our site.</div>
     <div class="cookie-actions">
       <button class="cookie-btn cookie-decline" id="cookie-decline">Decline</button>
       <button class="cookie-btn cookie-accept" id="cookie-accept">Accept</button>
@@ -38,44 +39,6 @@
   </div>
 </div>
 -->
-<script>
-  (function () {
-    const key = 'ga_consent_choice_v1';
-    const banner = document.getElementById('cookie-banner');
-    const saved = localStorage.getItem(key);
-
-    function setConsent(allow) {
-      gtag('consent', 'update', {
-        'analytics_storage': allow ? 'granted' : 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied'
-      });
-    }
-
-    if (saved) {
-      banner.style.display = 'none';
-      setConsent(saved === 'accept');
-    } else {
-      banner.style.display = 'block';
-    }
-
-    document.getElementById('cookie-accept').onclick = function () {
-      localStorage.setItem(key, 'accept');
-      setConsent(true);
-      banner.remove();
-      // Optional: send a page_view now that consent is granted
-      gtag('event', 'page_view');
-    };
-
-    document.getElementById('cookie-decline').onclick = function () {
-      localStorage.setItem(key, 'decline');
-      setConsent(false);
-      banner.remove();
-    };
-  })();
-</script>
-
 
 <body>
   <div class="container">
@@ -84,15 +47,20 @@
       <img class="profile-pic" src="assets/img/Photo.jpg" alt="Profile Picture" />
       <div class="header-intro">
         <div class="header-row">
-          <div class="header-name"><span> Bram Peters <a href="https://www.linkedin.com/in/bram-peters/"><i
-                  style="color: #222" class="uil uil-linkedin"></i></a></div>
+          <div class="header-name">
+            Bram Peters
+            <a href="https://www.linkedin.com/in/bram-peters/" aria-label="LinkedIn">
+              <i style="color:#222" class="uil uil-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
           <button onclick="downloadPDF()" id="downloadBtnInline" class="resume-btn">
-            <i class="fa-solid fa-file-arrow-down"></i> <b>Resume</b>
+            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+            <b style="margin: 5px">Resume</b>
           </button>
         </div>
         <div class="header-title">
-          Senior Data-/BI-Specialist and Product Designer<br>
-          MSc Human-Technology Interaction | UX, UI & Interaction Design & Research
+          Senior Data-/BI-Specialist and Product Designer<br />
+          MSc Human-Technology Interaction | UX, UI &amp; Interaction Design &amp; Research
         </div>
         <!-- <div class="header-tagline">
           <span class="glass-kw">Designing Data-Driven and User-Centered Experiences at the Intersection of Tech,
@@ -102,91 +70,86 @@
     </div>
 
     <!-- ABOUT & CONTACT SIDE BY SIDE -->
-    <div class="header-split">
+    <div class="header-split" id="contact">
       <div class="card">
         <div class="section-title icon-title about">About Me</div>
         <p style="font-weight:300;">
-          MSc Human-Technology Interaction engineer & Senior Data/BI Advisor, turning complex data into intuitive solutions that drive real organizational and societal impact — from research and design to ETL pipelines, backend, and frontend. I thrive in agile teams and own every project from concept to release, so <strong>let's collaborate and build something unique
-            together!</strong>
+          MSc Human-Technology Interaction engineer &amp; Senior Data/BI Advisor, turning complex data into intuitive
+          solutions that drive real organizational and societal impact — from research and design to ETL pipelines,
+          backend, and frontend. I thrive in agile teams and own every project from concept to release, so <strong>let's
+            collaborate and build something unique together!</strong>
         </p>
         <div class="quote-line"><i class="fa-solid fa-quote-right"></i><em>Bram</em></div>
       </div>
       <div class="card">
         <div class="section-title icon-title contact">Contact Me</div>
         <div><i class="fa-solid fa-phone" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
-            class="header-contact"><a href="tel:+31 6 30827054">+31 6 30827054</a>
-          </span></div>
+            class="header-contact"><a href="tel:+31630827054">+31 6 30827054</a></span></div>
         <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
             class="header-contact"><a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a></span></div>
         <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
-            class="header-contact"><a href="http://maps.google.com/?q=1200 Amsterdam Netherlands">Amsterdam,
-              Netherlands</a>
-          </span></div>
+            class="header-contact"><a href="http://maps.google.com/?q=Amsterdam Netherlands">Amsterdam,
+              Netherlands</a></span></div>
         <div><i class="fa-solid fa-globe" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
             class="header-contact"><a href="https://bram-peters.com">bram-peters.com</a></span></div>
         <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
             class="header-contact"><a href="https://www.linkedin.com/in/bram-peters/">LinkedIn</a></span></div>
       </div>
     </div>
-<!-- ===== Top Project (on-brand) ===== -->
-<div class="section-title icon-title portfolio" id="portfolio">Top Project | Lost In Translation™</div>
 
-<div class="lit-hero">
-  <!-- REMOVE the <svg class="lit-map"> … </svg> you had here -->
+    <!-- ===== Top Project (on-brand) ===== -->
+    <div class="section-title icon-title portfolio" id="portfolio" style="margin-bottom: 0px;"><span
+        style="font-weight: 200">Top Project | </span> Lost In Translation™</div>
 
-  <div class="lit-header">
-    <div class="lit-brand" aria-label="Lost In Translation">
-      <img src="assets/img/favicon.png" alt="Lost In Translation logo" />
-      <div class="lit-tn">
-        <div class="lit-name">Lost In Translation™</div>
-        <div class="lit-tag">Global Transit, Local Nonsense™</div>
+    <div class="lit-hero">
+      <div class="lit-header">
+        <div class="lit-brand" aria-label="Lost In Translation">
+          <img src="assets/img/favicon.png" alt="Lost In Translation logo" />
+          <div class="lit-tn">
+            <div class="lit-name">Lost In Translation™</div>
+            <div class="lit-tag">Global Transit, Local Nonsense™</div>
+          </div>
+        </div>
+        <div class="lit-badge lit-online" aria-label="Status"><a href="https://lostintranslation.nl">visit
+            LostInTranslation.nl</a></div>
+      </div>
+
+      <p class="lit-sub">
+        Some very questionable AI-travel assistants have gone off the rails — dramatic, blunt, over-polite,
+        sometimes even a little tipsy, depending on who’s helping you. From their glorious incompetence comes a
+        gift worth getting lost for...
+      </p>
+
+      <div class="lit-steps" aria-label="How it will work">
+        <article class="lit-step">
+          <span class="lit-kicker"><span aria-hidden="true">📍</span> Step 1</span>
+          <h3>Choose your city</h3>
+          <p>Amsterdam to Tokyo, they'll map it beautifully.</p>
+        </article>
+
+        <article class="lit-step">
+          <span class="lit-kicker"><span aria-hidden="true">🗨️</span> Step 2</span>
+          <h3>Pick a language</h3>
+          <p>Watch them butcher it.</p>
+        </article>
+
+        <article class="lit-step">
+          <span class="lit-kicker"><span aria-hidden="true">🧑‍💼</span> Step 3</span>
+          <h3>Select your “AI” travel assistant</h3>
+          <p>Fully confident. Deeply unqualified. Professional? No. Entertaining? Absolutely.</p>
+
+          <div class="lit-pill-row" aria-label="Available assistants">
+            <span class="lit-pill">🇺🇸 Karen</span>
+            <span class="lit-pill">🇫🇷 Clémence</span>
+            <span class="lit-pill">🇩🇪 Dieter</span>
+            <span class="lit-pill">🇳🇱 Gerrit</span>
+            <span class="lit-pill">🇸🇪 Agnes</span>
+            <span class="lit-pill">… More</span>
+          </div>
+        </article>
       </div>
     </div>
-
-    <div class="lit-badge lit-online" aria-label="Status">
-      <span class="lit-sronly"></span><a href="https://lostintranslation.nl">visit LostInTranslation.nl</a>
-    </div>
-  </div>
-<!-- ===== End Top Project ===== -->
-
-
-  <p class="lit-sub">
-    Some very questionable AI-travel assistants have gone off the rails — dramatic, blunt, over-polite,
-    sometimes even a little tipsy, depending on who’s helping you. From their glorious incompetence comes a
-    gift worth getting lost for...
-  </p>
-
-  <div class="lit-steps" aria-label="How it will work">
-    <article class="lit-step">
-      <span class="lit-kicker"><span aria-hidden="true">📍</span> Step 1</span>
-      <h3>Choose your city</h3>
-      <p>Amsterdam to Tokyo, they'll map it beautifully.</p>
-    </article>
-
-    <article class="lit-step">
-      <span class="lit-kicker"><span aria-hidden="true">🗨️</span> Step 2</span>
-      <h3>Pick a language</h3>
-      <p>Watch them butcher it.</p>
-    </article>
-
-    <article class="lit-step">
-      <span class="lit-kicker"><span aria-hidden="true">🧑‍💼</span> Step 3</span>
-      <h3>Select your “AI” travel assistant</h3>
-      <p>Fully confident. Deeply unqualified. Professional? No. Entertaining? Absolutely.</p>
-
-      <div class="lit-pill-row" aria-label="Available assistants">
-        <span class="lit-pill">🇺🇸 Karen</span>
-        <span class="lit-pill">🇫🇷 Clémence</span>
-        <span class="lit-pill">🇩🇪 Dieter</span>
-        <span class="lit-pill">🇳🇱 Gerrit</span>
-        <span class="lit-pill">🇸🇪 Agnes</span>
-        <span class="lit-pill">… More</span>
-      </div>
-    </article>
-  </div>
-</div>
-<!-- ===== End Top Project ===== -->
-
+    <!-- ===== End Top Project ===== -->
 
     <div class="horizontal-split">
       <div class="card">
@@ -195,7 +158,7 @@
           <li><strong>MSc Human-Technology Interaction</strong><br><span>TU/e – Eindhoven, Netherlands</span></li>
           <li><strong>Erasmus MSc Computer Science</strong><br><span>KTH – Stockholm, Sweden</span></li>
           <li><strong>Erasmus MSc Interactive Media Technology</strong><br><span>KTH – Stockholm, Sweden</span></li>
-          <li><strong>BSc Psychology & Technology</strong><br><span>TU/e – Eindhoven, Netherlands</span></li>
+          <li><strong>BSc Psychology &amp; Technology</strong><br><span>TU/e – Eindhoven, Netherlands</span></li>
         </ul>
 
         <div class="section-title icon-title languages">Languages</div>
@@ -207,7 +170,7 @@
 
         <div class="section-title icon-title certificates">Certificates</div>
         <ul>
-          <li><strong>Python for Data Science & Engineering</strong> – <span>IBM (2025)</span></li>
+          <li><strong>Python for Data Science &amp; Engineering</strong> – <span>IBM (2025)</span></li>
           <li><strong>UX Design</strong> – <span>Google (2025)</span></li>
           <li><strong>Advanced BI Developer</strong> – <span>Computrain (2024)</span></li>
           <li><strong>Advanced SQL Programmer</strong> – <span>Computrain (2024)</span></li>
@@ -216,19 +179,22 @@
       <div class="card">
         <div class="section-title icon-title experience">Professional Experience</div>
         <ul>
-          <li><strong>Owner/Founder, Lost In Translation™ | Amsterdam, Netherlands</strong> (Sep 2025 - Present)<br><span>
-            Fully crafted, designed and implemented a design-driven e-commerce platform 'disguised' as a travel agency
-            webshop. Powered by personalized-AI, engaging UX, brand-focused storytelling and backed-up by cutting-edge innovation. Custom-tailered, gloriously inaccurate and
-            personality-driven metro- and city maps. Maps so <b>wrong</b>, they feel just <b>right</b>. From their questionable capabilities comes a gift worth getting lost for. Visit <a
-              href="lostintranslation.nl"><b>lostintranslation.nl</b></a> for more info!</span></li>
-          <li><strong>Senior BI Advisor & Product Designer, UWV SMZ – Amsterdam, Netherlands</strong> (Jul 2025 –
+          <li><strong>Owner/Founder, Lost In Translation™ | Amsterdam, Netherlands</strong> (Sep 2025 -
+            Present)<br><span>
+              Fully crafted, designed and implemented a design-driven e-commerce platform 'disguised' as a travel agency
+              webshop. Powered by personalized-AI, engaging UX, brand-focused storytelling and backed-up by cutting-edge
+              innovation. Custom-tailered, gloriously inaccurate and
+              personality-driven metro- and city maps. Maps so <b>wrong</b>, they feel just <b>right</b>. From their
+              questionable capabilities comes a gift worth getting lost for. Visit <a
+                href="https://lostintranslation.nl"><b>lostintranslation.nl</b></a> for more info!</span></li>
+          <li><strong>Senior BI Advisor &amp; Product Designer, UWV SMZ – Amsterdam, Netherlands</strong> (Jul 2025 –
             Present)
             <span>Leading development of business intelligence data products within the Division of Social-Medical
               Affairs. Responsible for ETL pipelines (SQL, SSIS/SSAS, Oracle), integrating external data sources, and
               advanced DAX modeling. Designed Power BI dashboards tailored to government services in accordance with
               Dutch social security legislation.</span>
           </li>
-          <li><strong>Data Analyst & BI Specialist, UWV SMZ – Amsterdam, Netherlands</strong> (Aug 2024 – Jul 2025)
+          <li><strong>Data Analyst &amp; BI Specialist, UWV SMZ – Amsterdam, Netherlands</strong> (Aug 2024 – Jul 2025)
             <span>Built and optimized data pipelines and analytics dashboards. Transformed business requirements into
               data models and managed integration between multiple agency data sources and internal BI tools for a range
               of stakeholders.</span>
@@ -247,7 +213,8 @@
             <span>Built modular front-end components (React/Vue) integrated with Typo3, SharePoint, and educational
               portals. Supported cross-team development on internal tools.</span>
           </li>
-          <li><strong>UX Designer & Android Developer, Blue Jay – Eindhoven, Netherlands</strong> (Jun 2018 – Jun 2020)
+          <li><strong>UX Designer &amp; Android Developer, Blue Jay – Eindhoven, Netherlands</strong> (Jun 2018 – Jun
+            2020)
             <span>Designed a healthcare-oriented drone interface and mobile app. Played a full role in UX research,
               iterative testing and final app delivery, including voice recognition features and mood-sensitive
               lighting. Worked in an Agile team using Scrum.</span>
@@ -278,6 +245,7 @@
               </div>
             </div>
           </article>
+
           <!-- Portfolio Card 1 -->
           <article class="portfolio-card">
             <div class="article-wrapper">
@@ -290,11 +258,13 @@
                   I laid the groundwork for a new learning dashboard that visualizes
                   academic performance and provides dynamic recommendations on how students can improve their learning
                   for TU/e's Canvas-platform. Mapped user journeys, set-up ETL processes, and developed an intuitive
-                  data visualization tool that empowers students to track their academic progress in real time.</p>
+                  data visualization tool that empowers students to track their academic progress in real time.
+                </p>
                 <a href="portfolio1.html"><b>Read More →</b></a>
               </div>
             </div>
           </article>
+
           <!-- Portfolio Card 2 -->
           <article class="portfolio-card">
             <div class="article-wrapper">
@@ -313,7 +283,6 @@
             </div>
           </article>
 
-
           <!-- Portfolio Card 4 -->
           <article class="portfolio-card">
             <div class="article-wrapper">
@@ -331,6 +300,7 @@
               </div>
             </div>
           </article>
+
           <!-- Portfolio Card 5 -->
           <article class="portfolio-card">
             <div class="article-wrapper">
@@ -343,12 +313,13 @@
                   This webtool allows students to watch and annotate YouTube videos
                   and search for keywords in the video's transcript to find relevant parts in the video.
                   Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user
-                  accounts.</a></p>
+                  accounts.
                 </p>
                 <a href="portfolio3.html"><b>Full Demo →</b></a>
               </div>
             </div>
           </article>
+
           <!-- Portfolio Card 6 -->
           <article class="portfolio-card">
             <div class="article-wrapper">
@@ -359,13 +330,14 @@
                 <h2>Reimagining Spotify Podcasts</h2>
                 <p>For a project at KTH, we embarked on a mission to enhance Spotify's Podcast section. Employing the
                   Double Diamond framework, our design approach centered on goal-oriented strategies to uncover and meet
-                  user expectations and tap into the strengths and tackle the weakpoints of the current Spotify-app.</a>
+                  user expectations and tap into the strengths and tackle the weakpoints of the current Spotify-app.
                 </p>
-                <hr>
+                <hr />
                 <a href="portfolio6.html"><b>Read More →</b></a>
               </div>
             </div>
           </article>
+
           <!-- Portfolio Card 7 -->
           <article class="portfolio-card">
             <div class="article-wrapper">
@@ -377,11 +349,12 @@
                 <p>Crowded fitting rooms. Pushy sales staff. Or worse, none at all when you need them. For many,
                   in-store shopping can feel more like a chore than a pleasure.
                   That’s why my project-team and I created Rodebjer’s Digital Shopping Assistant — a seamless in-store
-                  UX that puts control back in the hands of the customer. </a></p>
+                  UX that puts control back in the hands of the customer. </p>
                 <a href="portfolio5.html"><b>View Workbook →</b></a>
               </div>
             </div>
           </article>
+
           <!-- Portfolio Card 8 -->
           <article class="portfolio-card">
             <div class="article-wrapper">
@@ -393,12 +366,12 @@
                 <p>One of my favorite personal projects is creating "The Honeymoon Webshop" for newlyweds. I built a
                   custom website that lets wedding guests buy and customize honeymoon gifts like activities and hotel
                   stays. Releasing a first version for my own sister's wedding, all the thoughtful presents and messages
-                  purchased on the website were beautifully displayed on a bulletin-style collage frame.</a></p>
-
-                <a href=""><b>Read More →</b></a>
+                  purchased on the website were beautifully displayed on a bulletin-style collage frame.</p>
+                <a href="#"><b>Read More →</b></a>
               </div>
             </div>
           </article>
+
           <!-- Portfolio Card 9 -->
           <article class="portfolio-card">
             <div class="article-wrapper">
@@ -410,7 +383,7 @@
               </figure>
               <div class="article-body">
                 <h2>My Next Project</h2>
-                <p>I'm always loking for new challenges to combine my design and development expertise. <b>Let’s
+                <p>I'm always looking for new challenges to combine my design and development expertise. <b>Let’s
                     connect!</b></p>
 
                 <a href="mailto:bramapeters@outlook.com"><b>→ Contact Me</b></a>
@@ -419,13 +392,15 @@
           </article>
         </div>
       </div>
+
       <div>
         <div class="section-title icon-title skills">Skills</div>
         <div class="skill-glass-card">
           <strong>Business Intelligence Advisor | </strong>
           <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
           <span style="font-weight: 300">
-            Power BI/DAX, SQL, SSIS/SSAS, ETL, RLS/OLS, data quality & lineage, GDPR-compliant reporting, policy-driven
+            Power BI/DAX, SQL, SSIS/SSAS, ETL, RLS/OLS, data quality &amp; lineage, GDPR-compliant reporting,
+            policy-driven
             KPIs, performance tuning,
             paginated reports, stakeholder-ready dashboards for agencies
           </span>
@@ -439,7 +414,7 @@
               advanced analytics, statistical methods, A/B-testing</span>
           </div>
           <div class="skill-glass-card">
-            <strong>UX/UI & Interaction Design | </strong>
+            <strong>UX/UI &amp; Interaction Design | </strong>
             <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
             <span style="font-weight: 300">Figma, Adobe XD, wireframing, prototyping, usability testing, user flows,
               cognitive walkthroughs, design systems</span>
@@ -451,47 +426,47 @@
               integration</span>
           </div>
           <div class="skill-glass-card">
-            <strong>Cognitive & Behavioral Insight | </strong>
+            <strong>Cognitive &amp; Behavioral Insight | </strong>
             <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-            <span style="font-weight: 300">Behavioral research methods, human cognition & perception, human-robot
-              interaction, persuasive & ethical design</span>
+            <span style="font-weight: 300">Behavioral research methods, human cognition &amp; perception, human-robot
+              interaction, persuasive &amp; ethical design</span>
           </div>
           <div class="skill-glass-card">
-            <strong>Research & Methodology | </strong>
+            <strong>Research &amp; Methodology | </strong>
             <strong style="color: #6495ED; font-weight: 100">Expert</strong>
             <span style="font-weight: 300">User research, stakeholder interviews, Double Diamond, self-regulated
               learning theory, storytelling, A/B testing</span>
           </div>
           <div class="skill-glass-card">
-            <strong>Tools & Platforms | </strong>
+            <strong>Tools &amp; Platforms | </strong>
             <strong style="color: #6495ED; font-weight: 20;">Proficient</strong>
             <span style="font-weight: 300">SharePoint, Typo3, Git, Microsoft Azure, Power Automate, JIRA, Confluence,
               Databricks</span>
           </div>
           <div class="skill-glass-card">
-            <strong>Agile & Scrum Delivery | </strong>
+            <strong>Agile &amp; Scrum Delivery | </strong>
             <strong style="color: #6495ED; font-weight: 1;">Intermediate</strong>
             <span style="font-weight: 300">Sprint planning, backlog refinement, iterative development, stakeholder
-              management, cross-functional teamwork, demos & presentations, user stories</span>
+              management, cross-functional teamwork, demos &amp; presentations, user stories</span>
           </div>
           <div class="skill-glass-card">
-            <strong>Project Start-Up & Stakeholder Management | </strong>
+            <strong>Project Start-Up &amp; Stakeholder Management | </strong>
             <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
             <span style="font-weight: 300">
-              Discovery → scoping → kickoff, stakeholder mapping, requirements, delivery roadmap & milestones, change
+              Discovery → scoping → kickoff, stakeholder mapping, requirements, delivery roadmap &amp; milestones,
+              change
               management,
               workshops, executives updating, cross-functional collaboration
             </span>
           </div>
-                    <div class="skill-glass-card">
-                      <strong>Hobbyist Passion: Videography | </strong>
-                      <strong style="color: #6495ED; font-weight: 60">Proficient</strong>
-                      <span style="font-weight: 300">
-                        Cinematography, Directing & Concept Development, Post-Production, Project Management
-                      </span>
-                    </div>
+          <div class="skill-glass-card">
+            <strong>Hobbyist Passion: Videography | </strong>
+            <strong style="color: #6495ED; font-weight: 60">Proficient</strong>
+            <span style="font-weight: 300">
+              Cinematography, Directing &amp; Concept Development, Post-Production, Project Management
+            </span>
+          </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -525,6 +500,58 @@
       });
 
       steps.forEach(s => io.observe(s));
+    })();
+  </script>
+
+  <!-- Cookie consent script: safe if banner is commented out -->
+  <script>
+    (function () {
+      const key = 'ga_consent_choice_v1';
+      const banner = document.getElementById('cookie-banner');
+
+      function setConsent(allow) {
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'analytics_storage': allow ? 'granted' : 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
+          });
+        }
+      }
+
+      if (!banner) {
+        const saved = localStorage.getItem(key);
+        if (saved) setConsent(saved === 'accept');
+        return;
+      }
+
+      const saved = localStorage.getItem(key);
+      if (saved) {
+        banner.style.display = 'none';
+        setConsent(saved === 'accept');
+      } else {
+        banner.style.display = 'block';
+      }
+
+      const acceptBtn = document.getElementById('cookie-accept');
+      const declineBtn = document.getElementById('cookie-decline');
+
+      if (acceptBtn) {
+        acceptBtn.onclick = function () {
+          localStorage.setItem(key, 'accept');
+          setConsent(true);
+          banner.remove();
+          if (typeof gtag === 'function') gtag('event', 'page_view');
+        };
+      }
+      if (declineBtn) {
+        declineBtn.onclick = function () {
+          localStorage.setItem(key, 'decline');
+          setConsent(false);
+          banner.remove();
+        };
+      }
     })();
   </script>
 </body>
