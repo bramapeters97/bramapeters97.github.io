@@ -951,19 +951,19 @@ a:hover { color: #000; }
   .header-row {
     justify-content: flex-start;   /* no space-between on mobile */
     gap: .5rem .75rem;             /* tidy wrap */
+    text-align: center;
+    width: 100%;
   }
 
   /* Kill the default left margin and pin to left */
   .header-row .resume-btn,
   #downloadBtnInline {
-    margin-left: 0 !important;
     align-self: flex-start;        /* ensure it aligns to left edge */
   }
 
   /* Allow name to wrap so button can sit right below it */
   .header-name {
     white-space: normal;
-    margin-right: 0;
   }
 }
 
