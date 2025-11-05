@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Bram Peters | J.Meijer B.V. 40 Jaar 'Een dag in het leven van Luca Orvini'</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
+    <link rel="manifest" href="favicon_portfolio/site.webmanifest">
+</head>
+
+<body>
+
+    <!-- Modal Popup -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Enlarged screenshot" src="assets/img/dashboard1.jpg">
+    </div>
+    <div class="nav-wrap" role="navigation" aria-label="Primary">
+        <nav class="nav">
+            <div class="brand">
+                <a href="index.html" aria-label="Go to homepage"><i class="fa-solid fa-house"></i> Bram Peters<span
+                        class="dot" aria-hidden="true"></span></a>
+            </div>
+
+        </nav>
+    </div>
+    <div class="container">
+        <!-- NAV -->
+
+        <!-- HEADER -->
+        <section class="project-header" role="banner">
+            <div class="section-title icon-title projects">Portfolio Highlight</div>
+            <h1>J.Meijer B.V. 40 Jaar 'Een dag in het leven van Luca Orvini'</h1>
+            <p class="tagline">A playful “day‑in‑the‑life” tribute for the CEO’s 5‑year leadership milestone and the
+                company’s 40‑year anniversary.</p>
+        </section>
+
+        <!-- MAIN CONTENT -->
+        <main class="page-two-columns" role="main">
+            <!-- LEFT -->
+            <section class="left-col" aria-label="Project content">
+                <article class="card">
+                    <div class="section-title icon-title projects">'Een dag in het leven van Luca Orvini'— Director’s Cut (~8:00) Video</div>
+                    <div class="media-shell video-ph">
+                        <div class="play">
+                            <div style="display:grid;place-items:center; width: 100%; height: 100%"><span class="placeholder-muted"> <video
+                                        style="width:100%; height: 100%" class="video-round" controls>
+                                        <source src="assets/img/jmeijerbv.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="section-title icon-title about">Videography Brief
+                    </div>
+                    <p class="placeholder-muted">
+                                                    Outside of my professional work, I enjoy exploring storytelling
+                                                    through <b>videography</b> as a hobby. For
+                                                   <a href="jmeijerbv.nl"><b>J. Meijer B.V.</b></a>, I produced a short celebration film marking a double
+                                                    milestone, the company’s
+                                                    40th anniversary and the CEO’s 5-year leadership anniversary.
+
+                                                    The concept was to create an ironic, lighthearted tribute to the
+                                                    CEO’s daily routine, fully guided by a design brief set-up by the CEO himself. Something
+                                                    playful and personal, that would paint a tongue-in-cheek, satirical
+                                                    portrait of a day in the life of the CEO while celebrating
+                                                    the efforts and contributions to his success by his team of
+                                                    extraordinarily professional co-workers. The film was shown at a large anniversary event, with a build-up to
+                                                    a surprise reveal: the announcement that the entire company was
+                                                    being treated to a trip to
+                                                    Disneyland Paris.
+                                                    </p>
+
+                    <p class="placeholder-muted">What made this project particularly <b>special</b> to me was its personal
+                        nature. It was created as an anniversary gift for the CEO, who also happens to be my
+                        <b>brother-in-law</b>. This gave me the opportunity to produce something deeply personal and playful,
+                        featuring my sister in a leading role and allowing me to experiment with storytelling, humor,
+                        and videography in a way I knew would resonate with him and his team (hence its <b>PG-13</b>
+                        rating; making non-profesionalism professional).
+                    </p>
+                    <p class="placeholder-muted">This was never meant to be a serious
+                    production, just a fun side project that got a little out of hand.
+                    I wrote the script, directed the scenes, and edited everything
+                    myself in <b>Adobe Premiere Pro</b> and <b>After Effects</b>, mostly for the joy of
+                    celebrating Luca and his team
+                    (and maybe to show off a bit). It was a lighthearted experiment in
+                    storytelling, timing, and tone, but honestly, I’m secretly proud of
+                    how it turned out. And here it is, on my portfolio.</p>
+                </article>
+
+            </section>
+
+            <!-- RIGHT -->
+            <aside class="card" aria-label="Skills used">
+                <ul class="link-list">
+                                                            <li><a href="https://www.youtube.com/watch?v=TOFKqdojvsw"><i
+                                                                        class="fa-solid"></i>🎥 4K YouTube </a>
+                                                            </li>
+                    <li><a href="https://www.jmeijerbv.nl"><i class="fa-solid fa-link"></i> J. Meijer B.V. </a></li>
+
+
+                </ul>
+                <div class="section-title icon-title skills">Skills Used</div>
+                <div class="skills-card-list">
+                    
+                    <div class="skill-glass-card"><strong>Hobby Videography
+                            <span
+                            style="font-weight:300">Adobe Premiere Pro, Adobe After Effects, Sound Effects, Post-Editing, Screenwriting, Storyboarding, Planning
+                        </span></div>
+                </div>
+            </aside>
+        </main>
+    </div>
+</body>
+
+<script>
+    // Get elements
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const triggers = document.querySelectorAll(".popup-trigger");
+    const closeBtn = document.querySelector(".modal-close");
+
+    modal.style.visibility = "hidden";
+
+
+    // Open modal on click
+    triggers.forEach(trigger => {
+        trigger.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            modal.style.visibility = "visible";
+
+        });
+    });
+
+    // Close on button
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on background click
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on Esc key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+</script>
+
+
+</html>
