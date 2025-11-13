@@ -186,6 +186,29 @@ body {
   transition: transform .3s, box-shadow .3s;
   min-width: 0; /* grid shrink */
 }
+
+/* Proven slide/fade reveal for cards (enabled when JS marks body.motion-ready) */
+body.motion-ready .motion-fade-up {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity .6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform .6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--motion-delay, var(--motion-stagger, 0ms));
+  will-change: opacity, transform;
+}
+
+body.motion-ready .motion-fade-up.motion-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.motion-ready .motion-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 @media (hover:hover) {
   .card:hover {
     transform: scale(1.01);
@@ -210,6 +233,29 @@ body {
   .two-columns {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .header-intro {
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-row {
+    justify-content: center;
+  }
+
+  .resume-btn,
+  #downloadBtnInline {
+    margin-left: 0;
   }
 }
 
@@ -443,16 +489,19 @@ a:hover { color: #000; }
 ────────────────────────────────────────────────────────────────────────────*/
 @media (max-width: 600px) {
   .container {
-    padding: 0 2%;
+    padding: clamp(18px, 6vw, 28px);
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.1rem;
   }
-  .card, .portfolio-card { width: 100%; box-sizing: border-box; }
+  .card,
+  .portfolio-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.35rem 1.4rem;
+    border-radius: 14px;
+  }
 
   .profile-header {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
     padding-bottom: 1rem;
   }
   .profile-pic {
@@ -466,8 +515,16 @@ a:hover { color: #000; }
 
   /* Fix caused overflow: remove erroneous scroll + allow wrapping */
   html, body { padding: 0; overflow-x: hidden; }
-  .header-name { white-space: normal; }
-  .header-row { justify-content: flex-start; }
+  .header-name {
+    white-space: normal;
+    font-size: clamp(2rem, 8vw, 2.45rem);
+  }
+  .header-title {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .header-intro { align-items: center; text-align: center; }
+  .header-row { justify-content: center; text-align: center; }
 
   /* Avoid hover scale causing overflow on touch */
   .portfolio-card,
