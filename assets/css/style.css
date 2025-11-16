@@ -141,6 +141,21 @@ body {
   border-color: rgba(64,109,223,.55);
 }
 
+.resume-btn {
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(39,48,73,.25);
+  box-shadow: 0 10px 22px rgba(30,40,90,.08);
+  color: #1f2c44;
+}
+
+.resume-btn i { color: inherit; opacity: 1; }
+
+.resume-btn:hover,
+.resume-btn:focus-visible {
+  background: rgba(255,255,255,.95);
+  color: #1f2c44;
+}
+
 .ghost-btn {
   background: rgba(255,255,255,.8);
   border: 1px solid rgba(39,48,73,.25);
@@ -919,6 +934,14 @@ a:hover { color: #000; }
   flex: 0 0 150px;
   max-width: 150px;
   width: 150px;
+  min-width: 200px;
+  border-radius: 12px;
+  flex: 1 1 260px;
+}
+
+.phone-input input {
+  flex: 0 0 220px;
+  max-width: 220px;
 }
 
 @media (max-width: 500px) {
