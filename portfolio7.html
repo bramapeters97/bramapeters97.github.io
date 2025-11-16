@@ -6,8 +6,7 @@
     <title>Bram Peters | J.Meijer B.V. 40 Jaar 'Een dag in het leven van Luca Orvini'</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <script defer src="assets/js/csvStyles.js" data-style-src="assets/styles/style-map.csv"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
@@ -49,8 +48,8 @@
                     <div class="section-title icon-title projects">'Een dag in het leven van Luca Orvini'— Director’s Cut (~8:00) Video</div>
                     <div class="media-shell video-ph">
                         <div class="play">
-                            <div style="display:grid;place-items:center; width: 100%; height: 100%"><span class="placeholder-muted"> <video
-                                        style="width:100%; height: 100%" class="video-round" controls>
+                            <div data-style="inline-style-034"><span class="placeholder-muted"> <video
+                                        data-style="inline-style-035" class="video-round" controls>
                                         <source src="assets/img/jmeijerbv.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video></span></div>
@@ -117,56 +116,15 @@
                     
                     <div class="skill-glass-card"><strong>Videography
                             <span
-                            style="font-weight:300">Adobe Premiere Pro, Adobe After Effects, Sound Effects, Post-Editing, Screenwriting, Storyboarding, Planning
+                            data-style="inline-style-002">Adobe Premiere Pro, Adobe After Effects, Sound Effects, Post-Editing, Screenwriting, Storyboarding, Planning
                         </span></div>
                 </div>
             </aside>
         </main>
     </div>
     <script src="assets/js/reveal.js"></script>
+  <script defer src="assets/js/site.js"></script>
 </body>
-
-<script>
-    // Get elements
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImg");
-    const triggers = document.querySelectorAll(".popup-trigger");
-    const closeBtn = document.querySelector(".modal-close");
-
-    modal.style.visibility = "hidden";
-
-
-    // Open modal on click
-    triggers.forEach(trigger => {
-        trigger.addEventListener("click", function () {
-            modal.style.display = "flex";
-            modalImg.src = this.src;
-            modal.style.visibility = "visible";
-
-        });
-    });
-
-    // Close on button
-    closeBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-        modal.style.visibility = "hidden";
-
-    });
-
-    // Close on background click
-    modal.addEventListener("click", function (e) {
-        if (e.target === modal) modal.style.display = "none";
-        modal.style.visibility = "hidden";
-
-    });
-
-    // Close on Esc key
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") modal.style.display = "none";
-        modal.style.visibility = "hidden";
-
-    });
-</script>
 
 
 </html>

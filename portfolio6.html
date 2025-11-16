@@ -6,8 +6,7 @@
     <title>Bram Peters | Reimagining Spotify Podcasts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <script defer src="assets/js/csvStyles.js" data-style-src="assets/styles/style-map.csv"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
@@ -50,7 +49,7 @@
                                      <div class="section-title icon-title portfolio">A Revamped Podcast Section</div>
                                      <div class="media-shell">
                 <img src="assets/img/spotifyfull.png" alt="Screenshot of My Project" class="popup-trigger"
-                    style="width:100%; height:auto; cursor:pointer;" />
+                    data-style="inline-style-013" />
                                         </div>
                                         </article>
 
@@ -92,9 +91,9 @@
 
                 <article class="card">
                     <div class="section-title icon-title projects">Affinity Diagram</div>
-                    <div style="text-align: center; padding: 20px;">
+                    <div data-style="inline-style-023">
                         <img src="assets/img/affinitydiagram.png" alt="Screenshot of My Project" class="popup-trigger"
-                            style="width:100%; height:auto; cursor:pointer; border-radius: 20px" />
+                            data-style="inline-style-033" />
                     </div>
                 </article>
 
@@ -132,9 +131,9 @@
 
                 <article class="card">
                     <div class="section-title icon-title projects">Information Architecture</div>
-                    <div style="text-align: center; padding: 20px;">
+                    <div data-style="inline-style-023">
                         <img src="assets/img/prototype_2.png" alt="Screenshot of My Project" class="popup-trigger"
-                            style="width:100%; height:auto; cursor:pointer; border-radius: 20px" />
+                            data-style="inline-style-033" />
                     </div>
                 </article>
 
@@ -180,9 +179,9 @@
                 <article class="card">
                     <div class="section-title icon-title projects">
                         Screenshots</div>
-                    <div style="text-align: center; padding: 20px;">
+                    <div data-style="inline-style-023">
                         <img src="assets/img/spotifyfull2.png" alt="Screenshot of My Project" class="popup-trigger"
-                            style="width:100%; height:auto; cursor:pointer; border-radius: 20px" />
+                            data-style="inline-style-033" />
                     </div>
                 </article>
 
@@ -222,22 +221,22 @@ Figma Prototype
                 <div class="skills-card-list">
                     <div class="skill-glass-card">
                         <strong>UX/UI & Interaction Design | </strong>
-                        <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-                        <span style="font-weight: 300">Figma, Adobe XD, wireframing, prototyping, usability testing,
+                        <strong data-style="inline-style-008">Advanced</strong>
+                        <span data-style="inline-style-009">Figma, Adobe XD, wireframing, prototyping, usability testing,
                             user flows,
                             cognitive walkthroughs, design systems</span>
                     </div>
                     <div class="skill-glass-card">
                         <strong>Cognitive & Behavioral Insight | </strong>
-                        <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-                        <span style="font-weight: 300">Behavioral research methods, human cognition & perception,
+                        <strong data-style="inline-style-008">Advanced</strong>
+                        <span data-style="inline-style-009">Behavioral research methods, human cognition & perception,
                             human‑robot
                             interaction, persuasive & ethical design</span>
                     </div>
                     <div class="skill-glass-card">
                         <strong>Research & Methodology | </strong>
-                        <strong style="color: #6495ED; font-weight: 100">Expert</strong>
-                        <span style="font-weight: 300">User research, stakeholder interviews, Double Diamond,
+                        <strong data-style="inline-style-010">Expert</strong>
+                        <span data-style="inline-style-009">User research, stakeholder interviews, Double Diamond,
                             self‑regulated
                             learning theory, storytelling, A/B testing</span>
                     </div>
@@ -246,49 +245,8 @@ Figma Prototype
         </main>
     </div>
     <script src="assets/js/reveal.js"></script>
+  <script defer src="assets/js/site.js"></script>
 </body>
-
-<script>
-    // Get elements
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImg");
-    const triggers = document.querySelectorAll(".popup-trigger");
-    const closeBtn = document.querySelector(".modal-close");
-
-    modal.style.visibility = "hidden";
-
-
-    // Open modal on click
-    triggers.forEach(trigger => {
-        trigger.addEventListener("click", function () {
-            modal.style.display = "flex";
-            modalImg.src = this.src;
-            modal.style.visibility = "visible";
-
-        });
-    });
-
-    // Close on button
-    closeBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-        modal.style.visibility = "hidden";
-
-    });
-
-    // Close on background click
-    modal.addEventListener("click", function (e) {
-        if (e.target === modal) modal.style.display = "none";
-        modal.style.visibility = "hidden";
-
-    });
-
-    // Close on Esc key
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") modal.style.display = "none";
-        modal.style.visibility = "hidden";
-
-    });
-</script>
 
 
 </html>
