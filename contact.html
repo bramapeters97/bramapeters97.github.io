@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Bram Peters</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script defer src="assets/js/csvStyles.js" data-style-src="assets/styles/style-map.csv"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
@@ -75,6 +75,37 @@
   </div>
 
   <script src="assets/js/reveal.js"></script>
-  <script defer src="assets/js/site.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const data = new FormData(form);
+        const name = (data.get('name') || '').trim() || 'Portfolio visitor';
+        const email = (data.get('email') || '').trim();
+        const title = (data.get('title') || '').trim() || 'Project inquiry';
+        const topic = data.get('topic') || 'Project Proposal';
+        const message = (data.get('message') || '').trim();
+        const countryCode = (data.get('countryCode') || '').trim();
+        const phone = (data.get('phone') || '').trim();
+
+        const subjectParts = [topic, title].filter(Boolean).join(', ');
+        const formattedPhone = phone ? [countryCode, phone].filter(Boolean).join(' ') : '';
+        const bodyLines = [
+          `Name: ${name}`,
+          `Email: ${email}`,
+          formattedPhone ? `Phone: ${formattedPhone}` : null,
+          `Topic: ${topic}`,
+          `Title: ${title}`,
+          '',
+          message
+        ].filter(Boolean);
+        const mailto = `mailto:bramapeters@outlook.com?subject=${encodeURIComponent(subjectParts)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+        window.location.href = mailto;
+      });
+    })();
+  </script>
 </body>
 </html>

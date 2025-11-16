@@ -6,7 +6,8 @@
     <title>Bram Peters | Vinobo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <script defer src="assets/js/csvStyles.js" data-style-src="assets/styles/style-map.csv"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
@@ -49,7 +50,7 @@
                     <div class="section-title icon-title portfolio"><b>Vi</b>deo<b>No</b>te<b>Bo</b>ok</div>
                     <div class="media-shell">
                         <img src="assets/img/vinobolarge.jpg" alt="Screenshot of My Project" class="popup-trigger"
-                            data-style="inline-style-013" />
+                            style="width:100%; height:auto; cursor:pointer;" />
                     </div>
                 </article>
 
@@ -79,7 +80,7 @@
                     <div class="section-title icon-title projects">Demo</div>
                     <div class="media-shell video-ph">
                         <div class="play">
-                            <div data-style="inline-style-017"><span class="placeholder-muted"> <iframe
+                            <div style="display:grid;place-items:center;"><span class="placeholder-muted"> <iframe
                                         class="vinobo-frame" frameBorder="0" onload="this.style.visibility='visible'"
                                         allowfullscreen="true" src="https://vinobo-aec42e445297.herokuapp.com/"
                                         title="Vinobo"></iframe>
@@ -107,7 +108,7 @@
                     <p class="placeholder-muted"> <a href="https://vinobo-aec42e445297.herokuapp.com"
                             class="publication-btn"
                             target="_blank">
-                            <i class="fa fa-file-alt" data-style="inline-style-021"></i>
+                            <i class="fa fa-file-alt" style="margin-right: 0.65em"></i>
                             Demo
                         </a>
                     </p>
@@ -124,12 +125,12 @@
                 <div class="section-title icon-title skills">Skills Used</div>
                 <div class="skills-card-list">
                     <div class="skill-glass-card"><strong>Web Development | </strong><strong
-                            data-style="inline-style-020">Advanced</strong><span data-style="inline-style-002">HTML,
+                            style="color:#6495ED;font-weight:60">Advanced</strong><span style="font-weight:300">HTML,
                             CSS, JavaScript, REST API integration, React, Next.js, API integration</span>
                     </div>
                     <div class="skill-glass-card"><strong>UX/UI & Interaction Design
-                            | </strong><strong data-style="inline-style-020">Advanced</strong><span
-                            data-style="inline-style-002">Adobe XD, wireframing, prototyping, usability testing, user flows,
+                            | </strong><strong style="color:#6495ED;font-weight:60">Advanced</strong><span
+                            style="font-weight:300">Adobe XD, wireframing, prototyping, usability testing, user flows,
                             cognitive walkthroughs, design
                             systems, Typography & Color Theory
                         </span></div>
@@ -139,8 +140,49 @@
         </main>
     </div>
     <script src="assets/js/reveal.js"></script>
-  <script defer src="assets/js/site.js"></script>
 </body>
+
+<script>
+    // Get elements
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const triggers = document.querySelectorAll(".popup-trigger");
+    const closeBtn = document.querySelector(".modal-close");
+
+    modal.style.visibility = "hidden";
+
+
+    // Open modal on click
+    triggers.forEach(trigger => {
+        trigger.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            modal.style.visibility = "visible";
+
+        });
+    });
+
+    // Close on button
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on background click
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on Esc key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+</script>
 
 
 </html>

@@ -6,7 +6,8 @@
     <title>Bram Peters | Raspberries Shopping Assistant</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <script defer src="assets/js/csvStyles.js" data-style-src="assets/styles/style-map.csv"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
@@ -18,7 +19,7 @@
     <!-- Modal Popup -->
     <div id="imageModal" class="modal">
         <span class="modal-close">&times;</span>
-        <video data-style="inline-style-018" class="video-round" controls>
+        <video style="width:100%" class="video-round" controls>
             <source src="assets/img/raspberries.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video> </div>
@@ -52,7 +53,7 @@
                 <article class="card">
                     <div class="section-title icon-title portfolio">Demo Video</div>
                     <div class="media-shell">
-                        <video data-style="inline-style-018" class="video-round" controls>
+                        <video style="width:100%" class="video-round" controls>
                             <source src="assets/img/raspberries.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -81,7 +82,7 @@
                 <article class="card">
                     <div class="section-title icon-title about">Workbook
                     </div>
-                    <img src="assets/img/rodebjer.jpg" data-style="inline-style-032">
+                    <img src="assets/img/rodebjer.jpg" style="width: 100%; border-radius: 20px;">
                 </article>
 
             </section>
@@ -92,22 +93,22 @@
                 <div class="skills-card-list">
                     <div class="skill-glass-card">
                         <strong>UX/UI & Interaction Design | </strong>
-                        <strong data-style="inline-style-008">Advanced</strong>
-                        <span data-style="inline-style-009">Figma, Adobe XD, wireframing, prototyping, usability testing,
+                        <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+                        <span style="font-weight: 300">Figma, Adobe XD, wireframing, prototyping, usability testing,
                             user flows,
                             cognitive walkthroughs, design systems</span>
                     </div>
                     <div class="skill-glass-card">
                         <strong>Cognitive & Behavioral Insight | </strong>
-                        <strong data-style="inline-style-008">Advanced</strong>
-                        <span data-style="inline-style-009">Behavioral research methods, human cognition & perception,
+                        <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+                        <span style="font-weight: 300">Behavioral research methods, human cognition & perception,
                             human‑robot
                             interaction, persuasive & ethical design</span>
                     </div>
                     <div class="skill-glass-card">
                         <strong>Research & Methodology | </strong>
-                        <strong data-style="inline-style-010">Expert</strong>
-                        <span data-style="inline-style-009">User research, stakeholder interviews, Double Diamond,
+                        <strong style="color: #6495ED; font-weight: 100">Expert</strong>
+                        <span style="font-weight: 300">User research, stakeholder interviews, Double Diamond,
                             self‑regulated
                             learning theory, storytelling, A/B testing</span>
                     </div>
@@ -116,8 +117,49 @@
         </main>
     </div>
     <script src="assets/js/reveal.js"></script>
-  <script defer src="assets/js/site.js"></script>
 </body>
+
+<script>
+    // Get elements
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const triggers = document.querySelectorAll(".popup-trigger");
+    const closeBtn = document.querySelector(".modal-close");
+
+    modal.style.visibility = "hidden";
+
+
+    // Open modal on click
+    triggers.forEach(trigger => {
+        trigger.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            modal.style.visibility = "visible";
+
+        });
+    });
+
+    // Close on button
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on background click
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on Esc key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+</script>
 
 
 </html>
