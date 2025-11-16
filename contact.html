@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Bram Peters</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
+  <link rel="manifest" href="favicon_portfolio/site.webmanifest">
+</head>
+<body>
+  <div class="container contact-page">
+    <a class="contact-return" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i>Back to portfolio</a>
+
+    <div class="profile-header contact-hero">
+      <img class="profile-pic" src="assets/img/Photo.jpg" alt="Bram Peters" />
+      <div class="header-intro">
+        <div class="header-row">
+          <div class="header-name">Let's build something new together</div>
+        </div>
+        <div class="header-title">
+          Share your idea, brief or opportunity — I'll get back to you with the next steps so we can start creating a meaningful impact.
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="card contact-info-card">
+        <div class="section-title icon-title contact">Direct contact</div>
+        <p class="subtitle">Prefer email or a quick call? Feel free to use the details below or the form on the right.</p>
+        <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact"><a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a></span></div>
+        <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact">Amsterdam, Netherlands</span></div>
+        <div><i class="fa-solid fa-globe" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact"><a href="https://bram-peters.com">bram-peters.com</a></span></div>
+        <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact"><a href="https://www.linkedin.com/in/bram-peters/">LinkedIn</a></span></div>
+
+        <div class="section-title icon-title languages" style="margin-top:1.5rem">Languages</div>
+        <ul class="language-list">
+          <li>
+            <span class="language-label">
+              <img src="https://flagcdn.com/w20/nl.png" alt="Netherlands flag" class="language-flag" />
+              <strong>Dutch</strong>
+            </span>
+            <span>Native</span>
+          </li>
+          <li>
+            <span class="language-label">
+              <img src="https://flagcdn.com/w20/gb.png" alt="UK flag" class="language-flag" />
+              <strong>English</strong>
+            </span>
+            <span>Near-native | Professional</span>
+          </li>
+          <li>
+            <span class="language-label">
+              <img src="https://flagcdn.com/w20/se.png" alt="Sweden flag" class="language-flag" />
+              <strong>Swedish</strong>
+            </span>
+            <span>Conversational</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card contact-form-card">
+        <div class="section-title icon-title contact">Project brief</div>
+        <form class="contact-form" id="contactForm">
+          <div class="contact-form-grid">
+            <label for="fullName">Name
+              <input type="text" id="fullName" name="name" placeholder="Your full name" required />
+            </label>
+            <label for="emailAddress">Email address
+              <input type="email" id="emailAddress" name="email" placeholder="you@example.com" required />
+            </label>
+            <label for="messageTitle">Project title
+              <input type="text" id="messageTitle" name="title" placeholder="e.g. AI dashboard refresh" required />
+            </label>
+            <label for="projectTopic">Opportunity type
+              <select id="projectTopic" name="topic" required>
+                <option value="Vacancy">Vacancy</option>
+                <option value="Assignment">Assignment</option>
+                <option value="Project Proposal">Project Proposal</option>
+                <option value="Networking">Networking</option>
+                <option value="Others">Others</option>
+              </select>
+            </label>
+          </div>
+          <label for="projectDetails">Message
+            <textarea id="projectDetails" name="message" placeholder="Share your goals, timeline or any relevant background" required></textarea>
+          </label>
+          <button type="submit">Send email to Bram</button>
+          <p class="contact-form-note">Submitting the form opens your default email client with all details so your message stays personal — just hit send.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/reveal.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const data = new FormData(form);
+        const name = (data.get('name') || '').trim() || 'Portfolio visitor';
+        const email = (data.get('email') || '').trim();
+        const title = (data.get('title') || '').trim() || 'Project inquiry';
+        const topic = data.get('topic') || 'Project Proposal';
+        const message = (data.get('message') || '').trim();
+
+        const subjectParts = [topic, title].filter(Boolean).join(' – ');
+        const bodyLines = [
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Topic: ${topic}`,
+          `Title: ${title}`,
+          '',
+          message
+        ];
+        const mailto = `mailto:brampeters@outlook.com?subject=${encodeURIComponent(subjectParts)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+        window.location.href = mailto;
+      });
+    })();
+  </script>
+</body>
+</html>
