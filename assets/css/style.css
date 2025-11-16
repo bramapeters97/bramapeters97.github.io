@@ -88,7 +88,7 @@ body {
 }
 .header-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   margin-bottom: .25rem;
@@ -141,21 +141,6 @@ body {
   border-color: rgba(64,109,223,.55);
 }
 
-.resume-btn {
-  background: linear-gradient(130deg, #709bff, #406ddf);
-  color: #fff;
-  border: none;
-  box-shadow: 0 12px 26px rgba(64,109,223,.35);
-}
-
-.resume-btn i { color: inherit; opacity: 1; }
-
-.resume-btn:hover,
-.resume-btn:focus-visible {
-  background: linear-gradient(130deg, #80a9ff, #557eef);
-  color: #fff;
-}
-
 .ghost-btn {
   background: rgba(255,255,255,.8);
   border: 1px solid rgba(39,48,73,.25);
@@ -187,6 +172,12 @@ body {
   flex-wrap: wrap;
   gap: .65rem;
   margin-top: .25rem;
+}
+
+.header-cta-desktop {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 /*────────────────────────────────────────────────────────────────────────────
@@ -422,12 +413,12 @@ a:hover { color: #000; }
 
 .portfolio-filter {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: .5rem;
   margin: .75rem 0 1rem;
-  overflow-x: auto;
   padding-bottom: .35rem;
-  scrollbar-width: thin;
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .portfolio-filter::-webkit-scrollbar {
@@ -447,6 +438,7 @@ a:hover { color: #000; }
   color: #2d364c;
   font-size: .92rem;
   font-weight: 500;
+  font-family: inherit;
   cursor: pointer;
   transition: background .2s ease, color .2s ease, border .2s ease, box-shadow .2s ease;
   flex: 0 0 auto;
@@ -682,10 +674,6 @@ a:hover { color: #000; }
   .portfolio-card,
   .card { transform: none !important; }
 
-  .portfolio-filter {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
 
 @media (max-width: 600px) {
@@ -901,7 +889,7 @@ a:hover { color: #000; }
 .contact-form-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .contact-form label {
@@ -915,17 +903,22 @@ a:hover { color: #000; }
 
 .phone-input {
   display: flex;
-  gap: .65rem;
+  gap: .5rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .phone-input select {
-  min-width: 120px;
+  min-width: 190px;
+  max-width: 230px;
   border-radius: 12px;
+  flex: 1 1 220px;
 }
 
 .phone-input input {
-  flex: 1;
+  flex: 0 0 150px;
+  max-width: 150px;
+  width: 150px;
 }
 
 @media (max-width: 500px) {
@@ -937,6 +930,8 @@ a:hover { color: #000; }
   .phone-input select,
   .phone-input input {
     width: 100%;
+    max-width: 100%;
+    flex: 1 1 auto;
   }
 }
 
@@ -1191,6 +1186,7 @@ a:hover { color: #000; }
     gap: .45rem;
     text-align: center;
     width: 100%;
+    align-items: center;
   }
 
   .header-name {
@@ -1199,6 +1195,10 @@ a:hover { color: #000; }
 
   .header-cta-mobile {
     display: flex;
+  }
+
+  .header-cta-desktop {
+    display: none;
   }
 
   .header-cta-mobile .cta-btn {
