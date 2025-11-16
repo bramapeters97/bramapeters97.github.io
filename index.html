@@ -92,6 +92,8 @@
             class="header-contact"><a href="https://bram-peters.com">bram-peters.com</a></span></div>
         <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
             class="header-contact"><a href="https://www.linkedin.com/in/bram-peters/">LinkedIn</a></span></div>
+        <div><i class="fa-solid fa-paper-plane" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact"><a href="contact.html">Open the full contact form →</a></span></div>
       </div>
     </div>
 
@@ -160,10 +162,28 @@
         </ul>
 
         <div class="section-title icon-title languages">Languages</div>
-        <ul>
-          <li><strong>Dutch</strong> <span>Native</span></li>
-          <li><strong>English</strong> <span>Near-native | Professional</span></li>
-          <li><strong>Swedish</strong> <span>Conversational</span></li>
+        <ul class="language-list">
+          <li>
+            <span class="language-label">
+              <img src="https://flagcdn.com/w20/nl.png" alt="Netherlands flag" class="language-flag" />
+              <strong>Dutch</strong>
+            </span>
+            <span>Native</span>
+          </li>
+          <li>
+            <span class="language-label">
+              <img src="https://flagcdn.com/w20/gb.png" alt="United Kingdom flag" class="language-flag" />
+              <strong>English</strong>
+            </span>
+            <span>Near-native | Professional</span>
+          </li>
+          <li>
+            <span class="language-label">
+              <img src="https://flagcdn.com/w20/se.png" alt="Sweden flag" class="language-flag" />
+              <strong>Swedish</strong>
+            </span>
+            <span>Conversational</span>
+          </li>
         </ul>
 
         <div class="section-title icon-title certificates">Certificates</div>
@@ -222,9 +242,19 @@
     <div class="two-columns">
       <div>
         <div class="section-title icon-title portfolio" id="portfolio">Portfolio</div>
+        <div class="portfolio-filter" data-portfolio-filter aria-label="Portfolio category filter">
+          <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-filter="Web Development" aria-pressed="false">Web Development</button>
+          <button type="button" class="filter-btn" data-filter="AI-Programming" aria-pressed="false">AI-Programming</button>
+          <button type="button" class="filter-btn" data-filter="Data Mining and Analytics" aria-pressed="false">Data Mining and Analytics</button>
+          <button type="button" class="filter-btn" data-filter="Business Intelligence" aria-pressed="false">Business Intelligence</button>
+          <button type="button" class="filter-btn" data-filter="UX/UI-Design" aria-pressed="false">UX/UI-Design</button>
+          <button type="button" class="filter-btn" data-filter="App Development" aria-pressed="false">App Development</button>
+          <button type="button" class="filter-btn" data-filter="Videography" aria-pressed="false">Videography</button>
+        </div>
         <div class="portfolio-grid">
           <!-- Portfolio Card 3 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-categories="Web Development,AI-Programming">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/lostintranslation_web.jpg" alt="Lost In Translation" />
@@ -243,7 +273,7 @@
           </article>
 
           <!-- Portfolio Card 1 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-categories="UX/UI-Design,Business Intelligence,Data Mining and Analytics">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/dashboard1.jpg" alt="TU/e Learning Dashboard" />
@@ -262,7 +292,7 @@
           </article>
 
           <!-- Portfolio Card 2 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-categories="UX/UI-Design,App Development,Data Mining and Analytics">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/BlueJay1.jpg" alt="Blue Jay Drone" />
@@ -280,7 +310,7 @@
           </article>
 
           <!-- Portfolio Card 4 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-categories="UX/UI-Design">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/doula_portfolio.png" alt="Doula App" />
@@ -298,7 +328,7 @@
           </article>
 
           <!-- Portfolio Card 5 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-categories="Web Development,Data Mining and Analytics">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/portfolio2.jpg" alt="Vinobo" />
@@ -317,7 +347,7 @@
           </article>
 
           <!-- Portfolio Card 6 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-categories="UX/UI-Design">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/spotifyfull.png" alt="Spotify Podcast" />
@@ -335,7 +365,7 @@
           </article>
 
           <!-- Portfolio Card 7 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-categories="UX/UI-Design">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/rodebjer.png" alt="Raspberries Shopping Assistant" />
@@ -354,7 +384,7 @@
 
 
           <!-- Portfolio Card 8 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-categories="Web Development">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/honeymoon.jpg" alt="The Honeymoon Webshop" />
@@ -370,7 +400,7 @@
             </div>
           </article>
                     <!-- Portfolio Card 8 -->
-                    <article class="portfolio-card">
+                    <article class="portfolio-card" data-categories="Videography">
                       <div class="article-wrapper">
                         <figure>
                           <img src="assets/img/jmeijer.jpg" alt="J. Meijer BV" />
@@ -387,7 +417,7 @@
                       </div>
                     </article>
           <!-- Portfolio Card 9 -->
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-categories="Web Development">
             <div class="article-wrapper">
               <figure>
                 <div

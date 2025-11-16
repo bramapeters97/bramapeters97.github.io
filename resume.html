@@ -249,21 +249,51 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background-color: rgba(255, 255, 255, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background-color: rgba(255, 255, 255, 0.86);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      padding: 10px 20px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 999px;
+      padding: 10px 18px;
       font-family: 'Ubuntu', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      color: #1f2937;
       cursor: pointer;
       z-index: 9999;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: background 0.2s;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    #downloadBtn i {
+      color: #4f46e5;
+    }
+
+    #downloadBtn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
     }
 
     #downloadBtn:active {
-      background: #dbeafe;
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+      background: #e0e7ff;
+    }
+
+    #downloadBtn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4), 0 10px 24px rgba(15, 23, 42, 0.15);
+    }
+
+    #downloadBtn[disabled] {
+      cursor: progress;
+      opacity: .7;
+    }
+
+    body.pdf-is-generating {
+      cursor: progress;
     }
 
     /* --- Responsive Styles --- */
@@ -369,6 +399,12 @@
       overflow-x: hidden;
     }
 
+    @media print {
+      #downloadBtn {
+        display: none;
+      }
+    }
+
 /* --- Ultra-light Glass Pills --- */
 /* --- LIT pills: lighter glass, ultra-thin gray outline, tiny height --- */
 .pill {
@@ -437,9 +473,10 @@ flex-shrink: 0;
 </head>
 
 <body>
-  <!--<button onclick="downloadPDF()" id="downloadBtn">
-    📄 Download PDF
-  </button>-->
+  <button onclick="downloadPDF()" id="downloadBtn" type="button">
+    <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+    Download as PDF
+  </button>
   <div class="container">
     <div class="flex-grid-header">
       <div class="card">
@@ -688,9 +725,50 @@ flex-shrink: 0;
     </div>
   </div>
   <script src="assets/js/reveal.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-YcsIPY7Q2JQvEE1qD/DPZ9PwVNBlz9YkmPUPcIkyQfZ5ZfJ5IyZ0sQVF/PysJZkUE8hK3UuZ9XgNqKqQbna0Eg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     function downloadPDF() {
-      window.location.href = "";
+      const button = document.getElementById('downloadBtn');
+      const target = document.querySelector('.container');
+      if (!target) {
+        window.print();
+        return;
+      }
+
+      const finish = () => {
+        document.body.classList.remove('pdf-is-generating');
+        if (button) button.disabled = false;
+      };
+
+      if (button) button.disabled = true;
+      document.body.classList.add('pdf-is-generating');
+
+      const width = target.offsetWidth + 60;
+      const height = target.scrollHeight + 120;
+
+      if (typeof html2pdf === 'undefined') {
+        window.print();
+        finish();
+        return;
+      }
+
+      html2pdf().set({
+        filename: 'bram-peters-portfolio.pdf',
+        margin: 0,
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          scrollY: 0,
+          windowWidth: document.documentElement.offsetWidth
+        },
+        jsPDF: { unit: 'px', format: [width, height], orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all'] }
+      }).from(target).save().then(finish).catch(() => {
+        finish();
+        window.print();
+      });
     }
   </script>
 </body>
