@@ -88,7 +88,7 @@ body {
 }
 .header-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   margin-bottom: .25rem;
@@ -689,10 +689,6 @@ a:hover { color: #000; }
   .portfolio-card,
   .card { transform: none !important; }
 
-  .portfolio-filter {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
 
 @media (max-width: 600px) {
@@ -908,7 +904,7 @@ a:hover { color: #000; }
 .contact-form-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .contact-form label {
@@ -922,12 +918,22 @@ a:hover { color: #000; }
 
 .phone-input {
   display: flex;
-  gap: .65rem;
+  gap: .5rem;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .phone-input select {
+  min-width: 190px;
+  max-width: 230px;
+  border-radius: 12px;
+  flex: 1 1 220px;
+}
+
+.phone-input input {
+  flex: 0 0 150px;
+  max-width: 150px;
+  width: 150px;
   min-width: 200px;
   border-radius: 12px;
   flex: 1 1 260px;
@@ -1203,6 +1209,7 @@ a:hover { color: #000; }
     gap: .45rem;
     text-align: center;
     width: 100%;
+    align-items: center;
   }
 
   .header-name {
