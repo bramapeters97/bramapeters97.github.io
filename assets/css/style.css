@@ -106,35 +106,87 @@ body {
 /*────────────────────────────────────────────────────────────────────────────
   4) BUTTONS
 ────────────────────────────────────────────────────────────────────────────*/
-.resume-btn, #downloadBtnInline {
+.cta-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: .45em;
-  margin-left: 2rem;
-  padding: 6px 17px 6px 14px;
-  font-size: 1.04rem;
-  font-weight: 500;
-  letter-spacing: .05em;
-  background: rgba(255,255,255,.42);
-  color: #273049;
-  border: 1px solid rgba(180,180,200,.22);
-  border-radius: 9px;
-  box-shadow: 0 2px 8px rgba(160,170,200,.09);
-  backdrop-filter: blur(7px);
-  transition: background .22s, color .18s, box-shadow .22s;
+  padding: .62rem 1.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  border-radius: 999px;
+  border: 1px solid rgba(39, 48, 73, .18);
+  background: rgba(255,255,255,.65);
+  color: #1f2c44;
+  text-decoration: none;
   cursor: pointer;
+  box-shadow: 0 8px 18px rgba(30,60,120,.12);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.cta-btn i {
+  font-size: 1.05em;
+  opacity: .85;
+}
+
+.cta-btn:hover,
+.cta-btn:focus-visible {
   outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(30,60,120,.18);
 }
-.resume-btn i {
-  font-size: 1.13em;
-  color: #9094aa;
-  opacity: .55;
-  margin-right: 3px;
+
+.cta-btn:focus-visible {
+  border-color: rgba(64,109,223,.55);
 }
-.resume-btn:hover {
-  background: rgba(233,237,250,.55);
-  color: #1d2235;
-  box-shadow: 0 4px 18px rgba(100,110,140,.13);
+
+.resume-btn {
+  background: linear-gradient(130deg, #709bff, #406ddf);
+  color: #fff;
+  border: none;
+  box-shadow: 0 12px 26px rgba(64,109,223,.35);
+}
+
+.resume-btn i { color: inherit; opacity: 1; }
+
+.resume-btn:hover,
+.resume-btn:focus-visible {
+  background: linear-gradient(130deg, #80a9ff, #557eef);
+  color: #fff;
+}
+
+.ghost-btn {
+  background: rgba(255,255,255,.8);
+  border: 1px solid rgba(39,48,73,.25);
+  box-shadow: 0 10px 22px rgba(30,40,90,.08);
+}
+
+.ghost-btn:hover,
+.ghost-btn:focus-visible {
+  background: rgba(255,255,255,.95);
+  border-color: rgba(39,48,73,.45);
+}
+
+.card-cta-row {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.card-cta-row .cta-btn {
+  min-width: 180px;
+  justify-content: center;
+}
+
+.header-cta-mobile {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: .25rem;
 }
 
 /*────────────────────────────────────────────────────────────────────────────
@@ -251,11 +303,6 @@ body.motion-ready .motion-fade-up.motion-visible {
 
   .header-row {
     justify-content: center;
-  }
-
-  .resume-btn,
-  #downloadBtnInline {
-    margin-left: 0;
   }
 }
 
@@ -375,9 +422,21 @@ a:hover { color: #000; }
 
 .portfolio-filter {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: .5rem;
   margin: .75rem 0 1rem;
+  overflow-x: auto;
+  padding-bottom: .35rem;
+  scrollbar-width: thin;
+}
+
+.portfolio-filter::-webkit-scrollbar {
+  height: 6px;
+}
+
+.portfolio-filter::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.15);
+  border-radius: 999px;
 }
 
 .filter-btn {
@@ -390,6 +449,8 @@ a:hover { color: #000; }
   font-weight: 500;
   cursor: pointer;
   transition: background .2s ease, color .2s ease, border .2s ease, box-shadow .2s ease;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .filter-btn.is-active,
@@ -481,12 +542,14 @@ a:hover { color: #000; }
   margin: 0;
   padding: 0;
   width: 100%;
+  flex: 0 0 auto;
 }
 .portfolio-card .article-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 /* doula focus top */
 .portfolio-card:nth-child(4) .article-wrapper img { object-position: top center; }
@@ -502,11 +565,11 @@ a:hover { color: #000; }
 .article-wrapper figure {
   width: 100%;
   aspect-ratio: 16 / 9;
-  min-height: 140px;
-  max-height: 220px;
+  min-height: 160px;
   background: #f6f9fd;
   overflow: hidden;
-  box-shadow: 0 10px 26px rgba(45,50,90,.1);
+  box-shadow: none;
+  display: block;
 }
 .article-body {
   padding: 1.1rem;
@@ -732,156 +795,6 @@ a:hover { color: #000; }
 .card .section-title.experience + ul li { padding-left: 0; }
 .lit-itcon{ border-radius: 10px; }
 
-/* ==== Resume button: animated dark fill + enlarge on hover ==== */
-.resume-btn{
-  --btn-fill: #1f2937;
-  --btn-fg: #222;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .65rem .95rem;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,.14);
-  background: #ffffff;
-  color: var(--btn-fg);
-  font-weight: 800;
-  line-height: 1;
-  cursor: pointer;
-  transform: translateY(0) scale(1);
-  transition:
-    transform .18s ease,
-    box-shadow .22s ease,
-    color .22s ease,
-    border-color .22s ease,
-    background-size .35s ease;
-  background-image: linear-gradient(0deg, var(--btn-fill), var(--btn-fill));
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  background-position: left center;
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
-}
-.resume-btn::after{
-  content: "";
-  position: absolute;
-  inset: -120% -30%;
-  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 45%, transparent 60%);
-  transform: translateX(-100%);
-  pointer-events: none;
-  transition: transform .55s ease;
-}
-@media (hover:hover) {
-  .resume-btn:hover{
-    background-size: 100% 100%;
-    color: #fff;
-    transform: translateY(-1px) scale(1.04);
-    border-color: var(--btn-fill);
-    box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
-  }
-  .resume-btn:hover::after{ transform: translateX(100%); }
-}
-.resume-btn:active{
-  transform: translateY(0) scale(0.98);
-  box-shadow: 0 6px 16px rgba(0,0,0,.12);
-}
-.resume-btn:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(100,149,237,.28), 0 10px 24px rgba(0,0,0,.16);
-  border-color: var(--btn-fill);
-}
-@media (prefers-reduced-motion: reduce){
-  .resume-btn,
-  .resume-btn::after{ transition: none; }
-}
-
-/* ===== RESUME BUTTON (header row) overrides ===== */
-.header-row .resume-btn{
-  appearance: none;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .65rem .95rem;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,.14);
-  background: #ffffff;
-  color: #222;
-  font-weight: 800;
-  line-height: 1;
-  cursor: pointer;
-  overflow: hidden;
-  transform: translateY(0) scale(1);
-  transition: transform .18s ease, box-shadow .22s ease, color .22s ease, border-color .22s ease, background-color .22s ease;
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
-}
-.header-row .resume-btn::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #1f2937;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform .28s ease-in-out;
-  z-index: 0;
-}
-.header-row .resume-btn::after{
-  content: "";
-  position: absolute;
-  inset: -120% -30%;
-  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 45%, transparent 60%);
-  transform: translateX(-100%);
-  pointer-events: none;
-  transition: transform .55s ease;
-  z-index: 1;
-}
-.header-row .resume-btn > *{ position: relative; z-index: 2; }
-@media (hover:hover) {
-  .header-row .resume-btn:hover{
-    color: #fff;
-    transform: translateY(-1px) scale(1.04);
-    border-color: #1f2937;
-    box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
-  }
-  .header-row .resume-btn:hover::before{ transform: scaleX(1); }
-  .header-row .resume-btn:hover::after{  transform: translateX(100%); }
-}
-.header-row .resume-btn:active{
-  transform: translateY(0) scale(0.98);
-  box-shadow: 0 6px 16px rgba(0,0,0,.12);
-}
-.header-row .resume-btn:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(100,149,237,.28), 0 10px 24px rgba(0,0,0,.16);
-  border-color: #1f2937;
-}
-/* Force text + icon to turn white on hover */
-@media (hover:hover) {
-  .header-row .resume-btn:hover,
-  .header-row .resume-btn:hover b,
-  .header-row .resume-btn:hover i,
-  .header-row .resume-btn:hover span {
-    color: #fff !important;
-    -webkit-text-fill-color: #fff;
-  }
-}
-/* Ensure layers */
-.header-row .resume-btn{
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.header-row .resume-btn > *{ position: relative; z-index: 2; }
-.header-row .resume-btn::before,
-.header-row .resume-btn::after{ z-index: 0; }
-/* Enlarge + brighten on hover (desktop only) */
-@media (hover:hover) {
-  .header-row .resume-btn:hover {
-    color: #fff !important;
-    transform: translateY(-2px) scale(1.08);
-    border-color: #1f2937;
-    box-shadow: 0 14px 32px rgba(0,0,0,.2), 0 3px 10px rgba(0,0,0,.14);
-  }
-}
 
 /*────────────────────────────────────────────────────────────────────────────
   14) TOP PROJECT — LIT BRAND CARD (scoped)
@@ -968,20 +881,15 @@ a:hover { color: #000; }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
-}
-
-@media (max-width: 900px) {
-  .contact-grid { grid-template-columns: 1fr; }
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .contact-page .card {
   animation: contactFloat .85s ease forwards;
-}
-
-.contact-grid .card:nth-of-type(2) {
-  animation-delay: .1s;
 }
 
 .contact-form {
@@ -1003,6 +911,33 @@ a:hover { color: #000; }
   display: flex;
   flex-direction: column;
   gap: .35rem;
+}
+
+.phone-input {
+  display: flex;
+  gap: .65rem;
+  align-items: center;
+}
+
+.phone-input select {
+  min-width: 120px;
+  border-radius: 12px;
+}
+
+.phone-input input {
+  flex: 1;
+}
+
+@media (max-width: 500px) {
+  .phone-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .phone-input select,
+  .phone-input input {
+    width: 100%;
+  }
 }
 
 .contact-form input,
@@ -1250,24 +1185,29 @@ a:hover { color: #000; }
     padding: 12px;
   }
 }
-/* ==== Resume button — mobile left align ==== */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .header-row {
-    justify-content: flex-start;   /* no space-between on mobile */
-    gap: .5rem .75rem;             /* tidy wrap */
+    justify-content: center;
+    gap: .45rem;
     text-align: center;
     width: 100%;
   }
 
-  /* Kill the default left margin and pin to left */
-  .header-row .resume-btn,
-  #downloadBtnInline {
-    align-self: flex-start;        /* ensure it aligns to left edge */
-  }
-
-  /* Allow name to wrap so button can sit right below it */
   .header-name {
     white-space: normal;
+  }
+
+  .header-cta-mobile {
+    display: flex;
+  }
+
+  .header-cta-mobile .cta-btn {
+    flex: 1 1 45%;
+    min-width: 140px;
+  }
+
+  .desktop-cta {
+    display: none;
   }
 }
 
