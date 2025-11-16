@@ -6,7 +6,8 @@
     <title>Bram Peters | The 'Emotional' Drone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <script defer src="assets/js/csvStyles.js" data-style-src="assets/styles/style-map.csv"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
@@ -51,7 +52,7 @@
                     <div class="section-title icon-title portfolio">Meet Blue Jay</div>
                     <div class="media-shell">
                         <img src="assets/img/BlueJay1.jpg" alt="Screenshot of My Project" class="popup-trigger"
-                            data-style="inline-style-013" />
+                            style="width:100%; height:auto; cursor:pointer;" />
                     </div>
                 </article>
 
@@ -93,8 +94,8 @@
                     <div class="section-title icon-title projects">Promo Video</div>
                     <div class="media-shell video-ph">
                         <div class="play">
-                            <div data-style="inline-style-017"><span class="placeholder-muted"> <video
-                                        data-style="inline-style-018" class="video-round" controls>
+                            <div style="display:grid;place-items:center;"><span class="placeholder-muted"> <video
+                                        style="width:100%" class="video-round" controls>
                                         <source src="assets/img/bluejay_promo.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video></span></div>
@@ -141,7 +142,7 @@
                     <div class="section-title icon-title portfolio">Demo Event</div>
                     <div class="media-shell">
                         <img src="assets/img/BlueJay2.jpg" alt="Screenshot of My Project" class="popup-trigger"
-                            data-style="inline-style-013" />
+                            style="width:100%; height:auto; cursor:pointer;" />
                     </div>
                 </article>
 
@@ -168,7 +169,7 @@
                     <div class="section-title icon-title portfolio">Demo Event</div>
                     <div class="media-shell">
                         <img src="assets/img/bluejayapp.png" alt="Screenshot of My Project" class="popup-trigger"
-                            data-style="inline-style-013" />
+                            style="width:100%; height:auto; cursor:pointer;" />
                     </div>
                 </article>
 
@@ -177,7 +178,7 @@
                     <div class="section-title icon-title certificates">Links</div>
                     <p class="placeholder-muted"> <a href="https://www.aeroteameindhoven.nl" class="publication-btn"
                             target="_blank">
-                            <i class="fa fa-file-alt" data-style="inline-style-021"></i>
+                            <i class="fa fa-file-alt" style="margin-right: 0.65em"></i>
                             Blue Jay | Aero Team Eindhoven
                         </a>
                     </p>
@@ -193,27 +194,27 @@
                 <div class="section-title icon-title skills">Skills Used</div>
                 <div class="skills-card-list">
                     <div class="skill-glass-card"><strong>BI & Data Analytics | </strong><strong
-                            data-style="inline-style-019">Expert</strong><span data-style="inline-style-002">Power BI,
+                            style="color:#6495ED;font-weight:100">Expert</strong><span style="font-weight:300">Power BI,
                             DAX, SQL, Azure, data mining & modeling, advanced statistical analytics</span></div>
                     <div class="skill-glass-card"><strong>Frontend Development | </strong><strong
-                            data-style="inline-style-020">Advanced</strong><span data-style="inline-style-002">HTML,
+                            style="color:#6495ED;font-weight:60">Advanced</strong><span style="font-weight:300">HTML,
                             CSS, JavaScript, Kotlin (Android), REST API integration</span>
                     </div>
                     <div class="skill-glass-card"><strong>UX/UI & Interaction Design
-                            | </strong><strong data-style="inline-style-020">Advanced</strong><span
-                            data-style="inline-style-002">Adobe XD, wireframing, prototyping, usability testing, user flows,
+                            | </strong><strong style="color:#6495ED;font-weight:60">Advanced</strong><span
+                            style="font-weight:300">Adobe XD, wireframing, prototyping, usability testing, user flows,
                             cognitive walkthroughs, design
                             systems
                         </span></div>
                     <div class="skill-glass-card"><strong>Cognitive & Behavioral Insight
-                            | </strong><strong data-style="inline-style-020">Advanced</strong><span
-                            data-style="inline-style-002">Behavioral research methods, human cognition & perception,
+                            | </strong><strong style="color:#6495ED;font-weight:60">Advanced</strong><span
+                            style="font-weight:300">Behavioral research methods, human cognition & perception,
                             human‑robot interaction, persuasive &
                             ethical design
                         </span></div>
                     <div class="skill-glass-card"><strong>Agile & Scrum Delivery
-                            | </strong><strong data-style="inline-style-020">Advanced</strong><span
-                            data-style="inline-style-002">Sprint planning, backlog refinement,
+                            | </strong><strong style="color:#6495ED;font-weight:60">Advanced</strong><span
+                            style="font-weight:300">Sprint planning, backlog refinement,
                             iterative development, stakeholder management, cross‑functional
                             teamwork, demos & presentations, user stories
                         </span></div>
@@ -222,8 +223,49 @@
         </main>
     </div>
     <script src="assets/js/reveal.js"></script>
-  <script defer src="assets/js/site.js"></script>
 </body>
+
+<script>
+    // Get elements
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const triggers = document.querySelectorAll(".popup-trigger");
+    const closeBtn = document.querySelector(".modal-close");
+
+    modal.style.visibility = "hidden";
+
+
+    // Open modal on click
+    triggers.forEach(trigger => {
+        trigger.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            modal.style.visibility = "visible";
+
+        });
+    });
+
+    // Close on button
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on background click
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+
+    // Close on Esc key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") modal.style.display = "none";
+        modal.style.visibility = "hidden";
+
+    });
+</script>
 
 
 </html>

@@ -4,20 +4,476 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G7LJQ6YRP1"></script>
-  <script src="assets/js/analytics.js" data-gtag="G-G7LJQ6YRP1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-G7LJQ6YRP1');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bram Peters – Curriculum Vitae</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script defer src="assets/js/csvStyles.js" data-style-src="assets/styles/style-map.csv"></script>
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
   <link rel="manifest" href="favicon_portfolio/site.webmanifest">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 2%;
+      font-family: 'Ubuntu', sans-serif;
+      background: linear-gradient(135deg, #f5fafd 0%, #dfe6f2 100%);
+      background-attachment: fixed;
+      color: #333333;
+      margin: 0;
+      padding: 2rem;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    a {
+      color: #333333;
+      text-decoration: underline 0.5px;
+      text-underline-offset: 2px;
+      transition: color 0.3s ease;
+      word-break: break-all;
+    }
+
+    a:hover {
+      color: #000000;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.5rem;
+      animation: fadeIn 0.6s ease-in-out both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.40);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      color: #1a1a1a;
+    }
+
+    .section-title {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #3a3a3a;
+      border-bottom: 1px solid #cccccc;
+      padding-bottom: 0.25rem;
+    }
+
+    ul {
+      padding-left: 1rem;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 1rem;
+      word-break: break-word;
+    }
+
+    li span {
+      color: #555555;
+      font-weight: 300;
+      font-size: 0.95rem;
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    .subtitle,
+    .header-contact {
+      color: #555555;
+      font-size: 0.95rem;
+      padding-left: 0.4rem;
+      word-break: break-word;
+    }
+
+    .flex-header {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .header-name {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .header-title {
+      font-size: 1rem;
+      color: #444444;
+      margin-top: 0.2rem;
+    }
+
+    .profile-pic {
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    .horizontal-split {
+      display: grid;
+      grid-template-columns: 64% 34%;
+      gap: 2%;
+    }
+
+    .icon-title::before {
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      margin-right: 0.5rem;
+      color: #444444;
+    }
+
+    .about::before {
+      content: '\f007';
+    }
+
+    .experience::before {
+      content: '\f0b1';
+    }
+
+    .education::before {
+      content: '\f19d';
+    }
+
+    .projects::before {
+      content: '\f0ae';
+    }
+
+    .skills::before {
+      content: '\f121';
+    }
+
+    .certificates::before {
+      content: '\f02d';
+    }
+
+    .languages::before {
+      content: '\f1ab';
+    }
+
+    .contact::before {
+      content: '\f2b9';
+    }
+
+    .flex-grid-header {
+      display: grid;
+      grid-template-columns: 63% 35%;
+      gap: 2%;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 44% 54%;
+      gap: 2%;
+    }
+
+    .quote-line {
+      text-align: right;
+      font-style: italic;
+      font-weight: 300;
+      color: #666666;
+      margin-top: 0.8rem;
+    }
+
+    .quote-line i {
+      margin-right: 0.4rem;
+      color: #888888;
+    }
+
+    .languages li {
+      margin-bottom: 0.5rem;
+    }
+
+    .languages li strong,
+    .languages li span {
+      display: inline;
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: #555555;
+      margin-right: 0.5rem;
+    }
+
+    #downloadBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background-color: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 0.92rem;
+      color: #1f2937;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    #downloadBtn i {
+      color: #4f46e5;
+    }
+
+    #downloadBtn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    }
+
+    #downloadBtn:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+      background: #e0e7ff;
+    }
+
+    #downloadBtn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4), 0 10px 24px rgba(15, 23, 42, 0.15);
+    }
+
+    #downloadBtn[disabled] {
+      cursor: progress;
+      opacity: .7;
+    }
+
+    body.pdf-is-generating {
+      cursor: progress;
+    }
+
+    /* --- Responsive Styles --- */
+    @media (max-width: 1024px) {
+      .container {
+        max-width: 98vw;
+        padding: 0 1vw;
+      }
+
+      .flex-grid-header,
+      .horizontal-split,
+      .two-columns {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .flex-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .profile-pic {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 0.5rem;
+      }
+
+      .container {
+        padding: 0.5rem;
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 1rem 1rem;
+      }
+
+      .header-name {
+        font-size: 1.3rem;
+      }
+
+      .profile-pic {
+        width: 75px;
+        height: 75px;
+      }
+
+      #downloadBtn {
+        top: 10px;
+        right: 10px;
+        padding: 7px 14px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      html,
+      body {
+        padding: 0;
+      }
+
+      .container {
+        max-width: 100vw;
+        padding: 0;
+        gap: 0.7rem;
+      }
+
+      .card {
+        padding: 0.85rem 0.7rem;
+        border-radius: 10px;
+      }
+
+      .section-title {
+        font-size: 1.08rem;
+      }
+
+      .profile-pic {
+        width: 60px;
+        height: 60px;
+      }
+
+      #downloadBtn {
+        top: 5px;
+        right: 5px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        border-radius: 7px;
+      }
+
+      .header-name {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Prevent horizontal scroll */
+    body,
+    html {
+      overflow-x: hidden;
+    }
+
+    @media print {
+      #downloadBtn {
+        display: none;
+      }
+    }
+
+/* --- Ultra-light Glass Pills --- */
+/* --- LIT pills: lighter glass, ultra-thin gray outline, tiny height --- */
+.pill {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+padding: 2px 8px; /* minimal height */
+border-radius: 999px;
+background: rgba(255,255,255,0.10);
+border: 1px solid rgba(0,0,0,0.10);/* very light gray outline */
+backdrop-filter: blur(6px) saturate(140%);
+-webkit-backdrop-filter: blur(6px) saturate(140%);
+box-shadow: inset 0 1px 0 rgba(255,255,255,0.25),
+0 1px 3px rgba(0,0,0,0.05);
+font-size: 12px;
+line-height: 1.2;
+color: #444;
+white-space: nowrap;
+transition: transform 0.25s ease, background 0.25s ease;
+}
+
+/* remove underline ONLY inside pills */
+.pill a {
+text-decoration: none;
+color: inherit;
+}
+.pill a:hover { text-decoration: underline; }
+
+/* flag alignment + size */
+.pill .flag img {
+display: block; /* kills baseline gap */
+height: 14px; /* matches text height */
+width: auto;
+border-radius: 3px;
+object-fit: cover;
+box-shadow: 0 0 1px rgba(0,0,0,0.15);
+margin-top: -1px; /* tiny optical nudge */
+}
+
+/* 20% zoom on hover */
+.pill:hover {
+transform: scale(1.2);
+background: rgba(255,255,255,0.15);
+border-color: rgba(0,0,0,0.14);
+}
+
+/* --- Title icon: favicon sized to text height --- */
+.exp-title {
+display: inline-flex;
+align-items: center;
+gap: .5rem;
+}
+.exp-title .lit-icon {
+height: 1em; /* exactly matches text height */
+width: auto;
+vertical-align: -0.15em; /* optical baseline alignment */
+flex-shrink: 0;
+}
+
+/* place at end of your stylesheet */
+.languages + ul { list-style: none; padding-left: 0; margin-left: 20px; left: 20px}
+
+
+
+  </style>
 </head>
 
 <body>
-  <button id="downloadBtn" type="button">
+  <button onclick="downloadPDF()" id="downloadBtn" type="button">
     <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
     Download as PDF
   </button>
@@ -35,20 +491,20 @@
       </div>
       <div class="card">
         <div class="section-title icon-title contact">Contact Me</div>
-        <div><i class="fa-solid fa-envelope" data-style="inline-style-036"></i><span
+        <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:0.6rem;"></i><span
             class="header-contact">bramapeters@outlook.com</span></div>
-        <div><i class="fa-solid fa-location-dot" data-style="inline-style-036"></i><span
+        <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:0.6rem;"></i><span
             class="header-contact">Amsterdam, Netherlands</span></div>
-        <div><i class="fa-solid fa-globe" data-style="inline-style-036"></i><span
+        <div><i class="fa-solid fa-globe" style="color:#555; margin-right:0.6rem;"></i><span
             class="header-contact">bram‑peters.com</span></div>
-        <div><i class="fa-brands fa-linkedin" data-style="inline-style-036"></i><span
+        <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem;"></i><span
             class="header-contact">LinkedIn</span></div>
       </div>
     </div>
 
     <div class="card">
       <div class="section-title icon-title about">About Me</div>
-      <p data-style="inline-style-002">
+      <p style="font-weight:300;">
         Graduated <em>MSc Human‑Technology Interaction</em>-engineer and Senior Data‑/BI‑Advisor at the Dutch Employee
         Insurance Agency (UWV), I specialize in creating intuitive, data‑driven solutions with organizational and
         societal impact.
@@ -76,7 +532,7 @@
                       assistants “run the office” and transform metro and city maps into premium posters with gloriously
                       wrong translations. With identity branding, strong storytelling, and tailored customization at its
                       core — powered by cutting-edge technical innovation. Maps so wrong, they feel just right. Follow us on
-                      <a href="https://lostintranslation.nl"><b data-style="inline-style-037">lostintranslation.nl!</b></a>
+                      <a href="https://lostintranslation.nl"><b style="font-weight:600">lostintranslation.nl!</b></a>
                     </span>
                   </li>
 
@@ -143,7 +599,7 @@
         </ul>
 
         <div class="section-title icon-title languages">Languages</div>
-<ul data-style="inline-style-038">
+<ul style="list-style: none; padding-left: 0; margin-left: 0;">
   <li>
     <span class="pill" aria-label="Dieter, German">
       <span class="flag" aria-hidden="true">
@@ -151,7 +607,7 @@
       </span>
       <b>Dutch </b>
     </span>
-    <p class="placeholder-muted" data-style="inline-style-039">Native</p>
+    <p class="placeholder-muted" style="margin: 0; margin-top: 5px; font-size: 12px">Native</p>
   </li>
 
   <li>
@@ -161,7 +617,7 @@
       </span>
       <b>English </b>
     </span>
-    <p class="placeholder-muted" data-style="inline-style-040">Near-native | Professional</p>
+    <p class="placeholder-muted" style="margin: 0; font-size: 12px">Near-native | Professional</p>
   </li>
 
   <li>
@@ -171,7 +627,7 @@
       </span>
       <b>Swedish</b>
     </span>
-    <p class="placeholder-muted" data-style="inline-style-039">Convesational</p>
+    <p class="placeholder-muted" style="margin: 0; margin-top: 5px; font-size: 12px">Convesational</p>
   </li>
 
 </ul>
@@ -223,8 +679,8 @@
           <li>
             <div class="skill-glass-card">
               <strong>Business Intelligence | </strong>
-              <strong data-style="inline-style-008">Advanced</strong>
-              <span data-style="inline-style-009">
+              <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+              <span style="font-weight: 300">
                 Power BI service & governance, DAX modeling, RLS/OLS, SSIS/SSAS, Azure Data Factory,
                 data quality & lineage, GDPR-compliant reporting, policy-driven KPIs, performance tuning,
                 paginated reports, stakeholder-ready dashboards for agencies
@@ -232,32 +688,32 @@
             </div>
           </li>
           <li><strong>BI & Data Analytics | </strong><strong
-              data-style="inline-style-010">Expert</strong><span>Power BI, DAX, SQL, Oracle, Azure,
+              style="color: #6495ED; font-weight: 100">Expert</strong><span>Power BI, DAX, SQL, Oracle, Azure,
               SSIS/SSAS, ETL, data mining & modeling, advanced analytics</span></li>
           <li><strong>UX/UI & Interaction Design | </strong><strong
-              data-style="inline-style-008">Advanced</strong><span>Figma, Adobe XD, wireframing, prototyping,
+              style="color: #6495ED; font-weight: 60">Advanced</strong><span>Figma, Adobe XD, wireframing, prototyping,
               usability testing, user flows, cognitive walkthroughs, design systems</span></li>
           <li><strong>Frontend Development | </strong><strong
-              data-style="inline-style-011">Proficient</strong><span>HTML, CSS, JavaScript, TypeScript,
+              style="color: #6495ED; font-weight: 20;">Proficient</strong><span>HTML, CSS, JavaScript, TypeScript,
               React, Vue.js, Kotlin (Android), REST API integration</span></li>
           <li><strong>Cognitive & Behavioral Insight | </strong><strong
-              data-style="inline-style-008">Advanced</strong><span>Behavioral research methods, human
+              style="color: #6495ED; font-weight: 60">Advanced</strong><span>Behavioral research methods, human
               cognition & perception, human‑robot interaction, persuasive & ethical design</span></li>
           <li><strong>Research & Methodology | </strong><strong
-              data-style="inline-style-010">Expert</strong><span>User research, stakeholder interviews,
+              style="color: #6495ED; font-weight: 100">Expert</strong><span>User research, stakeholder interviews,
               Double Diamond, self‑regulated learning theory, storytelling, A/B testing</span></li>
           <li><strong>Tools & Platforms | </strong><strong
-              data-style="inline-style-011">Proficient</strong><span>SharePoint, Typo3, Git, Microsoft Azure,
+              style="color: #6495ED; font-weight: 20;">Proficient</strong><span>SharePoint, Typo3, Git, Microsoft Azure,
               Power Automate, JIRA, Confluence, Databricks</span></li>
           <li><strong>Agile & Scrum Delivery | </strong><strong
-              data-style="inline-style-012">Intermediate</strong><span>Sprint planning, backlog refinement,
+              style="color: #6495ED; font-weight: 1;">Intermediate</strong><span>Sprint planning, backlog refinement,
               iterative development, stakeholder management, cross‑functional teamwork, demos & presentations, user
               stories</span></li>
               <li>
                 <div class="skill-glass-card">
                   <strong>Project Start-Up & Stakeholder Management | </strong>
-                  <strong data-style="inline-style-008">Advanced</strong>
-                  <span data-style="inline-style-009">
+                  <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+                  <span style="font-weight: 300">
                     Discovery → scoping → kickoff, stakeholder mapping & RACI, requirements elicitation,
                     risk/RAID logs, delivery roadmap & milestones, change management & comms plans,
                     workshop facilitation, exec updates, cross-functional alignment
@@ -269,11 +725,52 @@
     </div>
   </div>
   <script src="assets/js/reveal.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
     integrity="sha512-YcsIPY7Q2JQvEE1qD/DPZ9PwVNBlz9YkmPUPcIkyQfZ5ZfJ5IyZ0sQVF/PysJZkUE8hK3UuZ9XgNqKqQbna0Eg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script defer src="assets/js/site.js"></script>
-  <script defer src="assets/js/resume.js"></script>
+  <script>
+    function downloadPDF() {
+      const button = document.getElementById('downloadBtn');
+      const target = document.querySelector('.container');
+      if (!target) {
+        window.print();
+        return;
+      }
+
+      const finish = () => {
+        document.body.classList.remove('pdf-is-generating');
+        if (button) button.disabled = false;
+      };
+
+      if (button) button.disabled = true;
+      document.body.classList.add('pdf-is-generating');
+
+      const width = target.offsetWidth + 60;
+      const height = target.scrollHeight + 120;
+
+      if (typeof html2pdf === 'undefined') {
+        window.print();
+        finish();
+        return;
+      }
+
+      html2pdf().set({
+        filename: 'bram-peters-portfolio.pdf',
+        margin: 0,
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          scrollY: 0,
+          windowWidth: document.documentElement.offsetWidth
+        },
+        jsPDF: { unit: 'px', format: [width, height], orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all'] }
+      }).from(target).save().then(finish).catch(() => {
+        finish();
+        window.print();
+      });
+    }
+  </script>
 </body>
 
 </html>
