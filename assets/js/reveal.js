@@ -82,6 +82,11 @@
 
   const applyFilter = (category) => {
     cards.forEach(card => {
+      if (card.hasAttribute('data-always-visible')) {
+        card.classList.remove('is-hidden');
+        return;
+      }
+
       const categories = card.dataset.categories || '';
       const matches = category === 'all' || categories.split(',').map(str => str.trim()).includes(category);
       card.classList.toggle('is-hidden', !matches);
@@ -104,4 +109,21 @@
   });
 
   applyFilter('all');
+})();
+
+(function () {
+  const nextProjectCard = document.querySelector('[data-next-project-card]');
+  if (!nextProjectCard) return;
+
+  const goToContact = () => {
+    window.location.href = 'contact.html';
+  };
+
+  nextProjectCard.addEventListener('click', goToContact);
+  nextProjectCard.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      goToContact();
+    }
+  });
 })();

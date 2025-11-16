@@ -40,13 +40,8 @@
             </label>
             <label for="phoneNumber">Phone number
               <div class="phone-input">
-                <select id="countryCode" name="countryCode" aria-label="Country code">
-                  <option value="+31" selected>+31 (NL)</option>
-                  <option value="+44">+44 (UK)</option>
-                  <option value="+46">+46 (SE)</option>
-                  <option value="+1">+1 (US/CA)</option>
-                  <option value="+33">+33 (FR)</option>
-                  <option value="+49">+49 (DE)</option>
+                <select id="countryCode" name="countryCode" aria-label="Country code" data-default="+31">
+                  <option value="" disabled selected>Loading country codes…</option>
                 </select>
                 <input type="tel" id="phoneNumber" name="phone" placeholder="612 345 678" />
               </div>
@@ -54,8 +49,9 @@
             <label for="messageTitle">Project title
               <input type="text" id="messageTitle" name="title" placeholder="e.g. AI dashboard refresh" required />
             </label>
-            <label for="projectTopic">Opportunity type
+            <label for="projectTopic">Topic
               <select id="projectTopic" name="topic" required>
+                <option value="Just saying hi!">Just saying hi!</option>
                 <option value="Vacancy">Vacancy</option>
                 <option value="Assignment">Assignment</option>
                 <option value="Project Proposal">Project Proposal</option>
@@ -74,8 +70,22 @@
     </div>
   </div>
 
+  <script src="assets/js/country-codes.js"></script>
   <script src="assets/js/reveal.js"></script>
   <script>
+    (function () {
+      const select = document.getElementById('countryCode');
+      if (!select || !Array.isArray(window.COUNTRY_CALLING_CODES)) return;
+
+      const preferredDefault = select.dataset.default;
+      select.innerHTML = window.COUNTRY_CALLING_CODES.map(({ code, display, country, flag }) => {
+        const optionCode = code;
+        const optionDisplay = display || code;
+        const isSelected = preferredDefault && preferredDefault === optionCode ? ' selected' : '';
+        return `<option value="${optionCode}"${isSelected}>${flag} ${country} (${optionDisplay})</option>`;
+      }).join('');
+    })();
+
     (function () {
       const form = document.getElementById('contactForm');
       if (!form) return;
@@ -86,7 +96,7 @@
         const name = (data.get('name') || '').trim() || 'Portfolio visitor';
         const email = (data.get('email') || '').trim();
         const title = (data.get('title') || '').trim() || 'Project inquiry';
-        const topic = data.get('topic') || 'Project Proposal';
+        const topic = data.get('topic') || 'Just saying hi!';
         const message = (data.get('message') || '').trim();
         const countryCode = (data.get('countryCode') || '').trim();
         const phone = (data.get('phone') || '').trim();
