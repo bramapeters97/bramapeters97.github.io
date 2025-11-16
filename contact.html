@@ -22,48 +22,14 @@
           <div class="header-name">Let's build something new together</div>
         </div>
         <div class="header-title">
-          Share your idea, brief or opportunity — I'll get back to you with the next steps so we can start creating a meaningful impact.
+          Share your idea, brief or opportunity, I will get back to you with the next steps so we can start creating a meaningful impact.
         </div>
       </div>
     </div>
 
     <div class="contact-grid">
-      <div class="card contact-info-card">
-        <div class="section-title icon-title contact">Direct contact</div>
-        <p class="subtitle">Prefer email or a quick call? Feel free to use the details below or the form on the right.</p>
-        <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact"><a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a></span></div>
-        <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact">Amsterdam, Netherlands</span></div>
-        <div><i class="fa-solid fa-globe" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact"><a href="https://bram-peters.com">bram-peters.com</a></span></div>
-        <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem; width: 20px"></i><span class="header-contact"><a href="https://www.linkedin.com/in/bram-peters/">LinkedIn</a></span></div>
-
-        <div class="section-title icon-title languages" style="margin-top:1.5rem">Languages</div>
-        <ul class="language-list">
-          <li>
-            <span class="language-label">
-              <img src="https://flagcdn.com/w20/nl.png" alt="Netherlands flag" class="language-flag" />
-              <strong>Dutch</strong>
-            </span>
-            <span>Native</span>
-          </li>
-          <li>
-            <span class="language-label">
-              <img src="https://flagcdn.com/w20/gb.png" alt="UK flag" class="language-flag" />
-              <strong>English</strong>
-            </span>
-            <span>Near-native | Professional</span>
-          </li>
-          <li>
-            <span class="language-label">
-              <img src="https://flagcdn.com/w20/se.png" alt="Sweden flag" class="language-flag" />
-              <strong>Swedish</strong>
-            </span>
-            <span>Conversational</span>
-          </li>
-        </ul>
-      </div>
-
       <div class="card contact-form-card">
-        <div class="section-title icon-title contact">Project brief</div>
+        <div class="section-title icon-title contact">Get in touch!</div>
         <form class="contact-form" id="contactForm">
           <div class="contact-form-grid">
             <label for="fullName">Name
@@ -71,6 +37,19 @@
             </label>
             <label for="emailAddress">Email address
               <input type="email" id="emailAddress" name="email" placeholder="you@example.com" required />
+            </label>
+            <label for="phoneNumber">Phone number
+              <div class="phone-input">
+                <select id="countryCode" name="countryCode" aria-label="Country code">
+                  <option value="+31" selected>+31 (NL)</option>
+                  <option value="+44">+44 (UK)</option>
+                  <option value="+46">+46 (SE)</option>
+                  <option value="+1">+1 (US/CA)</option>
+                  <option value="+33">+33 (FR)</option>
+                  <option value="+49">+49 (DE)</option>
+                </select>
+                <input type="tel" id="phoneNumber" name="phone" placeholder="612 345 678" />
+              </div>
             </label>
             <label for="messageTitle">Project title
               <input type="text" id="messageTitle" name="title" placeholder="e.g. AI dashboard refresh" required />
@@ -89,7 +68,7 @@
             <textarea id="projectDetails" name="message" placeholder="Share your goals, timeline or any relevant background" required></textarea>
           </label>
           <button type="submit">Send email to Bram</button>
-          <p class="contact-form-note">Submitting the form opens your default email client with all details so your message stays personal — just hit send.</p>
+          <p class="contact-form-note">Submitting the form opens your default email client with all details so your message stays personal, just hit send.</p>
         </form>
       </div>
     </div>
@@ -109,17 +88,21 @@
         const title = (data.get('title') || '').trim() || 'Project inquiry';
         const topic = data.get('topic') || 'Project Proposal';
         const message = (data.get('message') || '').trim();
+        const countryCode = (data.get('countryCode') || '').trim();
+        const phone = (data.get('phone') || '').trim();
 
-        const subjectParts = [topic, title].filter(Boolean).join(' – ');
+        const subjectParts = [topic, title].filter(Boolean).join(', ');
+        const formattedPhone = phone ? [countryCode, phone].filter(Boolean).join(' ') : '';
         const bodyLines = [
           `Name: ${name}`,
           `Email: ${email}`,
+          formattedPhone ? `Phone: ${formattedPhone}` : null,
           `Topic: ${topic}`,
           `Title: ${title}`,
           '',
           message
-        ];
-        const mailto = `mailto:brampeters@outlook.com?subject=${encodeURIComponent(subjectParts)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+        ].filter(Boolean);
+        const mailto = `mailto:bramapeters@outlook.com?subject=${encodeURIComponent(subjectParts)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
         window.location.href = mailto;
       });
     })();
