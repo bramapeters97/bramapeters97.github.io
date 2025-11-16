@@ -53,9 +53,15 @@
               <i style="color:#222" class="uil uil-linkedin" aria-hidden="true"></i>
             </a>
           </div>
+          <div class="header-cta-desktop" aria-label="Primary actions">
+            <button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()">
+              <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+              <span>Resume</span>
+            </button>
+          </div>
         </div>
         <div class="header-cta-mobile" aria-label="Primary actions">
-          <button type="button" class="cta-btn resume-btn" onclick="downloadPDF()">
+          <button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()">
             <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
             <span>Resume</span>
           </button>
@@ -85,12 +91,6 @@
           backend, and frontend. I thrive in agile teams and own every project from concept to release, so <strong>let's
             collaborate and build something unique together!</strong>
         </p>
-        <div class="card-cta-row desktop-cta">
-          <button type="button" class="cta-btn resume-btn" onclick="downloadPDF()">
-            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
-            <span>Resume</span>
-          </button>
-        </div>
         <div class="quote-line"><i class="fa-solid fa-quote-right"></i><em>Bram</em></div>
       </div>
       <div class="card">
@@ -260,17 +260,16 @@
         <div class="section-title icon-title portfolio" id="portfolio">Portfolio</div>
         <div class="portfolio-filter" data-portfolio-filter aria-label="Portfolio category filter">
           <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" class="filter-btn" data-filter="Web Development" aria-pressed="false">Web Development</button>
-          <button type="button" class="filter-btn" data-filter="AI-Programming" aria-pressed="false">AI-Programming</button>
-          <button type="button" class="filter-btn" data-filter="Data Mining and Analytics" aria-pressed="false">Data Mining and Analytics</button>
+          <button type="button" class="filter-btn" data-filter="Web programming" aria-pressed="false">Web programming</button>
+          <button type="button" class="filter-btn" data-filter="Data Analytics" aria-pressed="false">Data Analytics</button>
+          <button type="button" class="filter-btn" data-filter="UX/UI-design" aria-pressed="false">UX/UI-design</button>
           <button type="button" class="filter-btn" data-filter="Business Intelligence" aria-pressed="false">Business Intelligence</button>
-          <button type="button" class="filter-btn" data-filter="UX/UI-Design" aria-pressed="false">UX/UI-Design</button>
           <button type="button" class="filter-btn" data-filter="App Development" aria-pressed="false">App Development</button>
           <button type="button" class="filter-btn" data-filter="Videography" aria-pressed="false">Videography</button>
         </div>
         <div class="portfolio-grid">
           <!-- Portfolio Card 3 -->
-          <article class="portfolio-card" data-categories="Web Development,AI-Programming,App Development,Business Intelligence">
+          <article class="portfolio-card" data-categories="Web programming,Data Analytics,App Development,Business Intelligence">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/lostintranslation_web.jpg" alt="Lost In Translation" />
@@ -289,7 +288,7 @@
           </article>
 
           <!-- Portfolio Card 1 -->
-          <article class="portfolio-card" data-categories="UX/UI-Design,Business Intelligence,Data Mining and Analytics">
+          <article class="portfolio-card" data-categories="UX/UI-design,Business Intelligence,Data Analytics">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/dashboard1.jpg" alt="TU/e Learning Dashboard" />
@@ -308,7 +307,7 @@
           </article>
 
           <!-- Portfolio Card 2 -->
-          <article class="portfolio-card" data-categories="UX/UI-Design,App Development,Data Mining and Analytics">
+          <article class="portfolio-card" data-categories="UX/UI-design,App Development,Data Analytics">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/BlueJay1.jpg" alt="Blue Jay Drone" />
@@ -326,7 +325,7 @@
           </article>
 
           <!-- Portfolio Card 4 -->
-          <article class="portfolio-card" data-categories="UX/UI-Design">
+          <article class="portfolio-card" data-categories="UX/UI-design">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/doula_portfolio.png" alt="Doula App" />
@@ -344,7 +343,7 @@
           </article>
 
           <!-- Portfolio Card 5 -->
-          <article class="portfolio-card" data-categories="Web Development,Data Mining and Analytics">
+          <article class="portfolio-card" data-categories="Web programming,Data Analytics">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/portfolio2.jpg" alt="Vinobo" />
@@ -363,7 +362,7 @@
           </article>
 
           <!-- Portfolio Card 6 -->
-          <article class="portfolio-card" data-categories="UX/UI-Design">
+          <article class="portfolio-card" data-categories="UX/UI-design">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/spotifyfull.png" alt="Spotify Podcast" />
@@ -381,7 +380,7 @@
           </article>
 
           <!-- Portfolio Card 7 -->
-          <article class="portfolio-card" data-categories="UX/UI-Design">
+          <article class="portfolio-card" data-categories="UX/UI-design">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/rodebjer.png" alt="Raspberries Shopping Assistant" />
@@ -400,7 +399,7 @@
 
 
           <!-- Portfolio Card 8 -->
-          <article class="portfolio-card" data-categories="Web Development">
+          <article class="portfolio-card" data-categories="Web programming">
             <div class="article-wrapper">
               <figure>
                 <img src="assets/img/honeymoon.jpg" alt="The Honeymoon Webshop" />
@@ -433,7 +432,7 @@
                       </div>
                     </article>
           <!-- Portfolio Card 9 -->
-          <article class="portfolio-card" data-categories="Web Development">
+          <article class="portfolio-card" data-categories="Web programming" data-always-visible data-next-project-card tabindex="0" role="link" aria-label="Contact Bram about the next project">
             <div class="article-wrapper">
               <figure>
                 <div
@@ -446,7 +445,7 @@
                 <p>I'm always looking for new challenges to combine my design and development expertise. <b>Let’s
                     connect!</b></p>
 
-                <a href="mailto:bramapeters@outlook.com"><b>→ Contact Me</b></a>
+                <a href="contact.html"><b>→ Contact Me</b></a>
               </div>
             </div>
           </article>
