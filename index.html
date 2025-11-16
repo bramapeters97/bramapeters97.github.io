@@ -4,15 +4,7 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VVZK9H0J0T"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-VVZK9H0J0T');
-  </script>
+  <script src="assets/js/analytics.js" data-gtag="G-VVZK9H0J0T"></script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,7 +12,7 @@
   <title>Bram Peters – Portfolio</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/csvStyles.js" data-style-src="assets/styles/style-map.csv"></script>
 
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
@@ -50,12 +42,12 @@
           <div class="header-name">
             Bram Peters
             <a href="https://www.linkedin.com/in/bram-peters/" aria-label="LinkedIn">
-              <i style="color:#222" class="uil uil-linkedin" aria-hidden="true"></i>
+              <i data-style="inline-style-001" class="uil uil-linkedin" aria-hidden="true"></i>
             </a>
           </div>
         </div>
         <div class="header-cta-mobile" aria-label="Primary actions">
-          <button type="button" class="cta-btn resume-btn" onclick="downloadPDF()">
+          <button type="button" class="cta-btn resume-btn" data-navigate="resume.html">
             <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
             <span>Resume</span>
           </button>
@@ -79,14 +71,14 @@
     <div class="header-split" id="contact">
       <div class="card">
         <div class="section-title icon-title about">About Me</div>
-        <p style="font-weight:300;">
+        <p data-style="inline-style-002">
           MSc Human Technology Interaction engineer &amp; Senior Data and BI Advisor, turning complex data into intuitive
           solutions that drive real organizational and societal impact, from research and design to ETL pipelines,
           backend, and frontend. I thrive in agile teams and own every project from concept to release, so <strong>let's
             collaborate and build something unique together!</strong>
         </p>
         <div class="card-cta-row desktop-cta">
-          <button type="button" class="cta-btn resume-btn" onclick="downloadPDF()">
+          <button type="button" class="cta-btn resume-btn" data-navigate="resume.html">
             <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
             <span>Resume</span>
           </button>
@@ -95,14 +87,14 @@
       </div>
       <div class="card">
         <div class="section-title icon-title contact">Contact Me</div>
-        <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+        <div><i class="fa-solid fa-envelope" data-style="inline-style-003"></i><span
             class="header-contact"><a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a></span></div>
-        <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+        <div><i class="fa-solid fa-location-dot" data-style="inline-style-003"></i><span
             class="header-contact"><a href="http://maps.google.com/?q=Amsterdam Netherlands">Amsterdam,
               Netherlands</a></span></div>
-        <div><i class="fa-solid fa-globe" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+        <div><i class="fa-solid fa-globe" data-style="inline-style-003"></i><span
             class="header-contact"><a href="https://bram-peters.com">bram-peters.com</a></span></div>
-        <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+        <div><i class="fa-brands fa-linkedin" data-style="inline-style-003"></i><span
             class="header-contact"><a href="https://www.linkedin.com/in/bram-peters/">LinkedIn</a></span></div>
         <div class="card-cta-row desktop-cta">
           <a class="cta-btn ghost-btn" href="contact.html">
@@ -114,8 +106,8 @@
     </div>
 
     <!-- ===== Top Project (on-brand) ===== -->
-    <div class="section-title icon-title portfolio" id="portfolio" style="margin-bottom: 0px;"><span
-        style="font-weight: 200">Top Project | </span> Lost In Translation™</div>
+    <div class="section-title icon-title portfolio" id="portfolio" data-style="inline-style-004"><span
+        data-style="inline-style-005">Top Project | </span> Lost In Translation™</div>
 
     <div class="lit-hero">
       <div class="lit-header">
@@ -437,8 +429,8 @@
             <div class="article-wrapper">
               <figure>
                 <div
-                  style="display:flex;justify-content:center;align-items:center;height:100%;background-color:rgb(233,233,233)">
-                  <img src="assets/img/questionmark.png" style="width: 25%; opacity: 80%;" alt="Next Project" />
+                  data-style="inline-style-006">
+                  <img src="assets/img/questionmark.png" data-style="inline-style-007" alt="Next Project" />
                 </div>
               </figure>
               <div class="article-body">
@@ -457,8 +449,8 @@
         <div class="section-title icon-title skills">Skills</div>
         <div class="skill-glass-card">
           <strong>Business Intelligence Advisor | </strong>
-          <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-          <span style="font-weight: 300">
+          <strong data-style="inline-style-008">Advanced</strong>
+          <span data-style="inline-style-009">
             Power BI/DAX, SQL, SSIS/SSAS, ETL, RLS/OLS, data quality &amp; lineage, GDPR-compliant reporting,
             policy-driven
             KPIs, performance tuning,
@@ -468,51 +460,51 @@
         <div class="skills-card-list">
           <div class="skill-glass-card">
             <strong>Data Analytics | </strong>
-            <strong style="color: #6495ED; font-weight: 100">Expert</strong>
-            <span style="font-weight: 300">R, Stata, data mining, data engineering, scientific research methods, machine
+            <strong data-style="inline-style-010">Expert</strong>
+            <span data-style="inline-style-009">R, Stata, data mining, data engineering, scientific research methods, machine
               learning, AI-programming
               advanced analytics, statistical methods, A/B-testing</span>
           </div>
           <div class="skill-glass-card">
             <strong>UX/UI &amp; Interaction Design | </strong>
-            <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-            <span style="font-weight: 300">Figma, Adobe XD, wireframing, prototyping, usability testing, user flows,
+            <strong data-style="inline-style-008">Advanced</strong>
+            <span data-style="inline-style-009">Figma, Adobe XD, wireframing, prototyping, usability testing, user flows,
               cognitive walkthroughs, design systems</span>
           </div>
           <div class="skill-glass-card">
             <strong>Frontend Development | </strong>
-            <strong style="color: #6495ED; font-weight: 20;">Proficient</strong>
-            <span style="font-weight: 300">HTML, CSS, JavaScript, TypeScript, React, Vue.js, Kotlin (Android), REST API
+            <strong data-style="inline-style-011">Proficient</strong>
+            <span data-style="inline-style-009">HTML, CSS, JavaScript, TypeScript, React, Vue.js, Kotlin (Android), REST API
               integration</span>
           </div>
           <div class="skill-glass-card">
             <strong>Cognitive &amp; Behavioral Insight | </strong>
-            <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-            <span style="font-weight: 300">Behavioral research methods, human cognition &amp; perception, human-robot
+            <strong data-style="inline-style-008">Advanced</strong>
+            <span data-style="inline-style-009">Behavioral research methods, human cognition &amp; perception, human-robot
               interaction, persuasive &amp; ethical design</span>
           </div>
           <div class="skill-glass-card">
             <strong>Research &amp; Methodology | </strong>
-            <strong style="color: #6495ED; font-weight: 100">Expert</strong>
-            <span style="font-weight: 300">User research, stakeholder interviews, Double Diamond, self-regulated
+            <strong data-style="inline-style-010">Expert</strong>
+            <span data-style="inline-style-009">User research, stakeholder interviews, Double Diamond, self-regulated
               learning theory, storytelling, A/B testing</span>
           </div>
           <div class="skill-glass-card">
             <strong>Tools &amp; Platforms | </strong>
-            <strong style="color: #6495ED; font-weight: 20;">Proficient</strong>
-            <span style="font-weight: 300">SharePoint, Typo3, Git, Microsoft Azure, Power Automate, JIRA, Confluence,
+            <strong data-style="inline-style-011">Proficient</strong>
+            <span data-style="inline-style-009">SharePoint, Typo3, Git, Microsoft Azure, Power Automate, JIRA, Confluence,
               Databricks</span>
           </div>
           <div class="skill-glass-card">
             <strong>Agile &amp; Scrum Delivery | </strong>
-            <strong style="color: #6495ED; font-weight: 1;">Intermediate</strong>
-            <span style="font-weight: 300">Sprint planning, backlog refinement, iterative development, stakeholder
+            <strong data-style="inline-style-012">Intermediate</strong>
+            <span data-style="inline-style-009">Sprint planning, backlog refinement, iterative development, stakeholder
               management, cross-functional teamwork, demos &amp; presentations, user stories</span>
           </div>
           <div class="skill-glass-card">
             <strong>Project Start-Up &amp; Stakeholder Management | </strong>
-            <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-            <span style="font-weight: 300">
+            <strong data-style="inline-style-008">Advanced</strong>
+            <span data-style="inline-style-009">
               Discovery → scoping → kickoff, stakeholder mapping, requirements, delivery roadmap &amp; milestones,
               change
               management,
@@ -521,8 +513,8 @@
           </div>
           <div class="skill-glass-card">
             <strong>Hobbyist Passion: Videography | </strong>
-            <strong style="color: #6495ED; font-weight: 60">Proficient</strong>
-            <span style="font-weight: 300">
+            <strong data-style="inline-style-008">Proficient</strong>
+            <span data-style="inline-style-009">
               Cinematography, Directing &amp; Concept Development, Post-Production, Project Management
             </span>
           </div>
@@ -532,89 +524,7 @@
   </div>
 
   <script src="assets/js/reveal.js"></script>
-  <script>
-    function downloadPDF() {
-      window.location.href = "resume.html";
-    }
-  </script>
-
-  <!-- LIT step reveal (scoped) -->
-  <script>
-    (function () {
-      const steps = document.querySelectorAll('.lit-steps .lit-step');
-      if (!steps.length) return;
-
-      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        steps.forEach(s => s.classList.add('in-view'));
-        return;
-      }
-
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            io.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.35
-      });
-
-      steps.forEach(s => io.observe(s));
-    })();
-  </script>
-
-  <!-- Cookie consent script: safe if banner is commented out -->
-  <script>
-    (function () {
-      const key = 'ga_consent_choice_v1';
-      const banner = document.getElementById('cookie-banner');
-
-      function setConsent(allow) {
-        if (typeof gtag === 'function') {
-          gtag('consent', 'update', {
-            'analytics_storage': allow ? 'granted' : 'denied',
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied'
-          });
-        }
-      }
-
-      if (!banner) {
-        const saved = localStorage.getItem(key);
-        if (saved) setConsent(saved === 'accept');
-        return;
-      }
-
-      const saved = localStorage.getItem(key);
-      if (saved) {
-        banner.style.display = 'none';
-        setConsent(saved === 'accept');
-      } else {
-        banner.style.display = 'block';
-      }
-
-      const acceptBtn = document.getElementById('cookie-accept');
-      const declineBtn = document.getElementById('cookie-decline');
-
-      if (acceptBtn) {
-        acceptBtn.onclick = function () {
-          localStorage.setItem(key, 'accept');
-          setConsent(true);
-          banner.remove();
-          if (typeof gtag === 'function') gtag('event', 'page_view');
-        };
-      }
-      if (declineBtn) {
-        declineBtn.onclick = function () {
-          localStorage.setItem(key, 'decline');
-          setConsent(false);
-          banner.remove();
-        };
-      }
-    })();
-  </script>
+  <script defer src="assets/js/site.js"></script>
 </body>
 
 </html>

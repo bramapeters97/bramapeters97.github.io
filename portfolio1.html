@@ -6,8 +6,7 @@
   <title>Bram Peters | TU/e Learning Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/portfolio.css" />
+  <script defer src="assets/js/csvStyles.js" data-style-src="assets/styles/style-map.csv"></script>
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
@@ -51,7 +50,7 @@
           <div class="section-title icon-title portfolio">Screenshot</div>
           <div class="media-shell">
             <img src="assets/img/dashboard1.jpg" alt="Screenshot of My Project" class="popup-trigger"
-              style="width:100%; height:auto; cursor:pointer;" />
+              data-style="inline-style-013" />
           </div>
         </article>
 
@@ -68,7 +67,7 @@
             experiences that adapt to real student needs.</p>
           <p class="placeholder-muted">In my <a target="_blank"
               href="https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin"><b>Master
-                Thesis Project</b> <i class="fa fa-file-lines" style="font-size:0.92em"></i></a>, I focused on how we
+                Thesis Project</b> <i class="fa fa-file-lines" data-style="inline-style-014"></i></a>, I focused on how we
             can develop a learning dashboard for <a target="_blank" href="https://www.tue.nl"><b>TU/e's</b></a>
             Canvas-platform in a way that is grounded in learning sciences and truly facilitates online learning.
             Through an iterative user-centered design approach—using frameworks from self-regulated learning theory—I
@@ -106,9 +105,9 @@
         </article>
 
 
-        <span style="margin-top: 10px; margin-bottom: 10px; width: 100%; text-align: center"> <img
+        <span data-style="inline-style-015"> <img
             src="assets/img/selfregulatedlearning.png" alt="Screenshot of My Project"
-            style="width:50%; border-radius: 190px; height:auto; background-color: rgba(245, 245, 220, 0);" /></span>
+            data-style="inline-style-016" /></span>
 
 
         <article class="card">
@@ -144,7 +143,7 @@
           <div class="section-title icon-title projects">Demo Video</div>
           <div class="media-shell video-ph">
             <div class="play">
-              <div style="display:grid;place-items:center;"><span class="placeholder-muted"> <video style="width:100%"
+              <div data-style="inline-style-017"><span class="placeholder-muted"> <video data-style="inline-style-018"
                     class="video-round" controls>
                     <source src="assets/img/soft_demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -196,20 +195,20 @@
         <div class="section-title icon-title skills">Skills Used</div>
         <div class="skills-card-list">
           <div class="skill-glass-card"><strong>BI & Data Analytics | </strong><strong
-              style="color:#6495ED;font-weight:100">Expert</strong><span style="font-weight:300">Power BI, DAX, SQL,
+              data-style="inline-style-019">Expert</strong><span data-style="inline-style-002">Power BI, DAX, SQL,
               ETL</span></div>
           <div class="skill-glass-card"><strong>UX/UI Design | </strong><strong
-              style="color:#6495ED;font-weight:60">Advanced</strong><span style="font-weight:300">Wireframing,
+              data-style="inline-style-020">Advanced</strong><span data-style="inline-style-002">Wireframing,
               Prototyping, Research, Stakeholder Management, Double Diamond, Storytelling</span></div>
           <div class="skill-glass-card"><strong>Cognitive & Behavioral Insight
-              | </strong><strong style="color:#6495ED;font-weight:60">Advanced</strong><span
-              style="font-weight:300">Behavioral
+              | </strong><strong data-style="inline-style-020">Advanced</strong><span
+              data-style="inline-style-002">Behavioral
               research methods, human cognition & perception, human‑robot interaction, persuasive & ethical
               design
             </span></div>
           <div class="skill-glass-card"><strong>Research & Methodology
-              | </strong><strong style="color:#6495ED;font-weight:60">Advanced</strong><span
-              style="font-weight:300">Scientific
+              | </strong><strong data-style="inline-style-020">Advanced</strong><span
+              data-style="inline-style-002">Scientific
               Writing, Empirical Research, Self‑Regulated Learning Theory, A/B-testing
             </span></div>
         </div>
@@ -217,49 +216,7 @@
     </main>
   </div>
   <script src="assets/js/reveal.js"></script>
+  <script defer src="assets/js/site.js"></script>
 </body>
-
-<script>
-  // Get elements
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImg");
-  const triggers = document.querySelectorAll(".popup-trigger");
-  const closeBtn = document.querySelector(".modal-close");
-
-  modal.style.visibility = "hidden";
-
-
-  // Open modal on click
-  triggers.forEach(trigger => {
-    trigger.addEventListener("click", function () {
-      modal.style.display = "flex";
-      modalImg.src = this.src;
-      modal.style.visibility = "visible";
-
-    });
-  });
-
-  // Close on button
-  closeBtn.addEventListener("click", function () {
-    modal.style.display = "none";
-    modal.style.visibility = "hidden";
-
-  });
-
-  // Close on background click
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) modal.style.display = "none";
-    modal.style.visibility = "hidden";
-
-  });
-
-  // Close on Esc key
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") modal.style.display = "none";
-    modal.style.visibility = "hidden";
-
-  });
-</script>
-
 
 </html>
