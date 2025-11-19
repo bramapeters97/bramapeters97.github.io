@@ -296,6 +296,29 @@
       cursor: progress;
     }
 
+    @media print {
+    /* Remove sticky elements */
+    header, nav, footer, .sticky, .fixed {
+    position: static !important;
+    }
+
+    /* Expand page width */
+    body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    }
+
+    /* Prevent cropping */
+    * {
+    overflow: visible !important;
+    }
+
+    /* Avoid page breaks in awkward places */
+    .section, .card, .container {
+    page-break-inside: avoid;
+    }
+    }
+
     /* --- Responsive Styles --- */
     @media (max-width: 1024px) {
       .container {
