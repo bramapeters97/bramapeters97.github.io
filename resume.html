@@ -319,6 +319,57 @@
     }
     }
 
+    @media print {
+    /* Basic readable typography */
+    body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff !important;
+    margin: 0;
+    }
+
+    /* Make sure text stays as text + colors print decently */
+    * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transform: none !important;
+    filter: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    }
+
+    /* Links: keep them visible and readable on paper */
+    a {
+    color: #000;
+    text-decoration: underline;
+    }
+
+    /* Show the URL after the link text so it’s readable in print */
+    a::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    }
+
+    /* Remove nav, buttons, etc. that don’t make sense on paper */
+    nav,
+    .no-print,
+    button,
+    .sticky,
+    .fixed {
+    display: none !important;
+    }
+
+    /* Avoid breaking important blocks mid-page */
+    .section,
+    .card,
+    article {
+    page-break-inside: avoid;
+    }
+    }
+
+
     /* --- Responsive Styles --- */
     @media (max-width: 1024px) {
       .container {
@@ -580,14 +631,14 @@ flex-shrink: 0;
 </span>
           </li>
           <li> <strong class="exp-title">
-              <img class="lit-icon" src="assets/img/serenit.jpg" alt="SerenIT-logo" />Data/BI Specialist, SerenIT –
+              <img class="lit-icon" src="assets/img/serenit.png" alt="SerenIT-logo" />Data/BI Specialist, SerenIT –
                 Amsterdam, Netherlands</strong> (Jan 2024 – Aug 2024)
             <span>Delivered custom dashboards and reporting tools to public and private clients. Led stakeholder
               workshops, defined KPIs, built DAX measures and SQL‑based backend queries for data‑driven insights.
 </span></li>
           <li> <strong class="exp-title">
               <img class="lit-icon" src="assets/img/tue_logo.png" alt="TU/e-logo" />Master Thesis Project · TU/e
-                Security Office – </strong>strong>Eindhoven, Netherlands (Dec 2022 – Oct 2023)
+                Security Office – </strong>Eindhoven, Netherlands (Dec 2022 – Oct 2023)
                 <span>Designed and implemented a student dashboard to support self‑regulated learning. Conducted user
                   research, defined requirements with university security officers, iterated wireframes, and implemented
                   the tool using Power BI and UX methodologies.
@@ -595,7 +646,7 @@ flex-shrink: 0;
                 </span></li>
           <li> <strong class="exp-title">
               <img class="lit-icon" src="assets/img/tue_logo.png" alt="Serenit" />Frontend Developer, TU/e –
-                Eindhoven, </strong> Netherlands (Dec 2022 – Oct 2023)
+                Eindhoven, Netherlands </strong>(Dec 2022 – Oct 2023)
 
                 <span>Built modular front‑end components (React/Vue) integrated with Typo3, SharePoint, and educational
                   portals. Supported cross‑team development on internal tools.
