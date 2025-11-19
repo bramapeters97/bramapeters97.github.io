@@ -156,6 +156,19 @@ body {
   color: #1f2c44;
 }
 
+/* --- Title icon: favicon sized to text height --- */
+.exp-title {
+display: inline-flex;
+align-items: center;
+gap: .5rem;
+}
+.exp-title .lit-icon {
+height: 1em; /* exactly matches text height */
+width: auto;
+vertical-align: -0.15em; /* optical baseline alignment */
+flex-shrink: 0;
+}
+
 .ghost-btn {
   background: rgba(255,255,255,.8);
   border: 1px solid rgba(39,48,73,.25);
