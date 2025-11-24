@@ -1,0 +1,21 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "My Website Connector",
+  "name_for_model": "my_website",
+  "description_for_human": "Connector for my website.",
+  "description_for_model": "Use this to access my site's API.",
+  "api": {
+    "type": "openapi",
+    "url": "https://bram-peters.com/openapi.yaml"
+  },
+  "auth": {
+    "type": "service_http",
+    "authorization_type": "header",
+    "verification_tokens": {
+      "openai": "openai-domain-verification=dv-g82IDdOzUlc18pi5wAkMH0dQ"
+    }
+  },
+  "contact_email": "bramapeters@hotmail.com",
+  "legal_info_url": "https://bram-peters.com/contact.html",
+  "logo_url": "https://bram-peters.com/assets/favicon/favicon.png"
+}
