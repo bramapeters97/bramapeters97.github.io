@@ -1,0 +1,22 @@
+openapi: 3.0.1
+info:
+  title: My Website API
+  version: 1.0.0
+
+paths:
+  /hello:
+    get:
+      summary: Test endpoint
+      operationId: helloWorld
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: "Hello! Your connector works."
