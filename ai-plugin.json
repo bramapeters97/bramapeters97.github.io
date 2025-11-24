@@ -12,7 +12,7 @@
     "type": "service_http",
     "authorization_type": "header",
     "verification_tokens": {
-      "openai": "openai-domain-verification=dv-g82IDdOzUlc18pi5wAkMH0dQ"
+      "openai": "openai-domain-verification=dv-risbQy7a3VCHLGwIDWi5dGV2"
     }
   },
   "contact_email": "bramapeters@hotmail.com",
