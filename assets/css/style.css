@@ -286,6 +286,62 @@ body {
   min-width: 0;
 }
 
+/*────────────────────────────────────────────────────────────────────────────
+  6B) NAVIGATION TILES (404)
+────────────────────────────────────────────────────────────────────────────*/
+.notfound-title {
+  font-size: clamp(2.1rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: #2a2a2a;
+  margin: 0.2rem 0 0.7rem;
+  letter-spacing: -0.01em;
+}
+
+.nav-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.nav-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  padding: 1.25rem 1rem;
+  text-decoration: none;
+  color: #222;
+  font-weight: 700;
+  font-size: 1.05rem;
+  background: rgba(255, 255, 255, .38);
+  border: 1.5px solid rgba(255, 255, 255, .55);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+  backdrop-filter: blur(12px);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, color .22s ease;
+}
+
+.nav-tile i {
+  font-size: 1.5rem;
+  color: #3c4b6b;
+  opacity: .9;
+}
+
+@media (hover:hover) {
+  .nav-tile:hover {
+    transform: translateY(-2px);
+    border-color: rgba(130, 182, 255, .8);
+    box-shadow: 0 12px 30px rgba(60, 90, 140, .12);
+    color: #1f2c44;
+  }
+
+  .nav-tile:hover i {
+    color: #1f2c44;
+  }
+}
+
 /* Proven slide/fade reveal for cards (enabled when JS marks body.motion-ready) */
 body.motion-ready .motion-fade-up {
   opacity: 0;
