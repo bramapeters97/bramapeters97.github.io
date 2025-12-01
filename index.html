@@ -582,6 +582,34 @@
     }
   </script>
 
+  <script>
+    (function () {
+      const cards = document.querySelectorAll('.portfolio-card');
+      cards.forEach(card => {
+        const link = card.querySelector('.article-body a');
+        if (!link || !link.href) return;
+
+        if (!card.hasAttribute('tabindex')) {
+          card.setAttribute('tabindex', '0');
+        }
+        card.setAttribute('role', 'link');
+
+        function followLink() {
+          window.location.href = link.href;
+        }
+
+        card.addEventListener('click', followLink);
+
+        card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            followLink();
+          }
+        });
+      });
+    })();
+  </script>
+
   <!-- LIT step reveal (scoped) -->
   <script>
     (function () {
