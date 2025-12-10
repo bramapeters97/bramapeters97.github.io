@@ -473,11 +473,10 @@ flex-shrink: 0;
 </head>
 
 <body>
-  <!--
   <button onclick="downloadPDF()" id="downloadBtn" type="button">
     <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
     Download as PDF
-  </button>-->
+  </button>
   <div class="container">
     <div class="flex-grid-header">
       <div class="card">
@@ -737,8 +736,8 @@ flex-shrink: 0;
       const button = document.getElementById('downloadBtn');
       const target = document.querySelector('.container');
       if (!target) {
-        window.print();
-        return;
+var pdf = assets/pdf/bapeters_cv.pdf;
+window.open(pdf);        return;
       }
 
       const finish = () => {
@@ -753,26 +752,9 @@ flex-shrink: 0;
       const height = target.scrollHeight + 120;
 
       if (typeof html2pdf === 'undefined') {
-        window.print();
-        finish();
-        return;
+var pdf = assets/pdf/bapeters_cv.pdf;
+window.open(pdf);        return; 
       }
-
-      html2pdf().set({
-        filename: 'bram-peters-portfolio.pdf',
-        margin: 0,
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          scrollY: 0,
-          windowWidth: document.documentElement.offsetWidth
-        },
-        jsPDF: { unit: 'px', format: [width, height], orientation: 'portrait' },
-        pagebreak: { mode: ['avoid-all'] }
-      }).from(target).save().then(finish).catch(() => {
-        finish();
-        window.print();
-      });
     }
   </script>
 </body>
