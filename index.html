@@ -24,16 +24,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
   <link rel="manifest" href="favicon_portfolio/site.webmanifest">
 </head>
-
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
-  <div class="cookie-inner">
-    <div>We use cookies to better understand how visitors use this site including page views, anonymised demographics, and which portfolio items receive the most interest.</div>
-    <div class="cookie-actions">
-      <button class="cookie-btn cookie-decline" id="cookie-decline">Decline</button>
-      <button class="cookie-btn cookie-accept" id="cookie-accept">Accept</button>
-    </div>
-  </div>
-</div>
   
 <body>
   <div class="container">
@@ -626,57 +616,7 @@
     })();
   </script>
 
-  <!-- Cookie consent script: safe if banner is commented out -->
-  <script>
-    (function () {
-      const key = 'ga_consent_choice_v1';
-      const banner = document.getElementById('cookie-banner');
-
-      function setConsent(allow) {
-        if (typeof gtag === 'function') {
-          gtag('consent', 'update', {
-            'analytics_storage': allow ? 'granted' : 'denied',
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied'
-          });
-        }
-      }
-
-      if (!banner) {
-        const saved = localStorage.getItem(key);
-        if (saved) setConsent(saved === 'accept');
-        return;
-      }
-
-      const saved = localStorage.getItem(key);
-      if (saved) {
-        banner.style.display = 'none';
-        setConsent(saved === 'accept');
-      } else {
-        banner.style.display = 'block';
-      }
-
-      const acceptBtn = document.getElementById('cookie-accept');
-      const declineBtn = document.getElementById('cookie-decline');
-
-      if (acceptBtn) {
-        acceptBtn.onclick = function () {
-          localStorage.setItem(key, 'accept');
-          setConsent(true);
-          banner.remove();
-          if (typeof gtag === 'function') gtag('event', 'page_view');
-        };
-      }
-      if (declineBtn) {
-        declineBtn.onclick = function () {
-          localStorage.setItem(key, 'decline');
-          setConsent(false);
-          banner.remove();
-        };
-      }
-    })();
-  </script>
+  <script src="assets/js/cookie-banner.js"></script>
 </body>
 
 </html>
