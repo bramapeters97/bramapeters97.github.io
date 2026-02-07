@@ -1,6 +1,7 @@
 (function () {
   const key = 'ga_consent_choice_v1';
   const bannerId = 'cookie-banner';
+  const storage = window.sessionStorage;
 
   function setConsent(allow) {
     if (typeof gtag === 'function') {
@@ -42,7 +43,13 @@
   function mountBanner() {
     if (document.getElementById(bannerId)) return;
 
-    const saved = sessionStorage.getItem(key);
+    try {
+      window.localStorage.removeItem(key);
+    } catch (error) {
+      // Ignore storage access errors (e.g., privacy mode).
+    }
+
+    const saved = storage.getItem(key);
     if (saved) {
       setConsent(saved === 'accept');
       return;
@@ -56,7 +63,7 @@
 
     if (acceptBtn) {
       acceptBtn.addEventListener('click', function () {
-        sessionStorage.setItem(key, 'accept');
+        storage.setItem(key, 'accept');
         setConsent(true);
         banner.remove();
         if (typeof gtag === 'function') gtag('event', 'page_view');
@@ -65,7 +72,7 @@
 
     if (declineBtn) {
       declineBtn.addEventListener('click', function () {
-        sessionStorage.setItem(key, 'decline');
+        storage.setItem(key, 'decline');
         setConsent(false);
         banner.remove();
       });
