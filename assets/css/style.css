@@ -960,7 +960,7 @@ a:hover {
 }
 
 /*────────────────────────────────────────────────────────────────────────────
-  Cookie banner (unchanged)
+  Cookie banner
 ────────────────────────────────────────────────────────────────────────────*/
 .cookie-banner {
   position: fixed;
@@ -968,48 +968,85 @@ a:hover {
   right: 0;
   bottom: 0;
   z-index: 9999;
-  background: rgba(0, 0, 0, .85);
-  color: #fff;
-  padding: 14px;
-  font: 14px/1.4 system-ui, Segoe UI, Roboto, Helvetica, Arial;
-  opacity: 0.5;
+  padding: 0.75rem 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
 }
 
-.cookie-inner {
-  max-width: 900px;
-  margin: 0 auto;
+.cookie-card {
+  width: min(980px, 92vw);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 0.85rem 1rem;
   display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #1f2c44;
+  pointer-events: auto;
+}
+
+.cookie-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+}
+
+.cookie-copy {
+  font-weight: 300;
+  color: #24334f;
 }
 
 .cookie-actions {
   display: flex;
-  gap: 8px
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .cookie-btn {
-  border: 0;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer
+  border-radius: 999px;
+  border: 1px solid rgba(39, 48, 73, 0.18);
+  background: rgba(255, 255, 255, 0.8);
+  color: #1f2c44;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(30, 60, 120, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.cookie-btn:hover,
+.cookie-btn:focus-visible {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(30, 60, 120, 0.18);
 }
 
 .cookie-accept {
-  background: #3ba55c;
-  color: #fff
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .cookie-decline {
-  background: #444;
-  color: #fff
+  background: rgba(245, 248, 255, 0.85);
 }
 
-.cookie-link {
-  color: #fff;
-  text-decoration: underline
+@media (max-width: 600px) {
+  .cookie-banner {
+    padding: 0.5rem 0.75rem 0.75rem;
+  }
+
+  .cookie-card {
+    font-size: 0.78rem;
+    padding: 0.75rem 0.85rem;
+  }
 }
 
 /* --- LIT pills (legacy from earlier) --- */
