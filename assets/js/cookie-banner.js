@@ -42,7 +42,7 @@
   function mountBanner() {
     if (document.getElementById(bannerId)) return;
 
-    const saved = localStorage.getItem(key);
+    const saved = sessionStorage.getItem(key);
     if (saved) {
       setConsent(saved === 'accept');
       return;
@@ -56,7 +56,7 @@
 
     if (acceptBtn) {
       acceptBtn.addEventListener('click', function () {
-        localStorage.setItem(key, 'accept');
+        sessionStorage.setItem(key, 'accept');
         setConsent(true);
         banner.remove();
         if (typeof gtag === 'function') gtag('event', 'page_view');
@@ -65,7 +65,7 @@
 
     if (declineBtn) {
       declineBtn.addEventListener('click', function () {
-        localStorage.setItem(key, 'decline');
+        sessionStorage.setItem(key, 'decline');
         setConsent(false);
         banner.remove();
       });
