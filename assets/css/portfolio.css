@@ -86,7 +86,7 @@
     }
 
     .project-header .tagline {
-      font-weight: 300;
+      font-weight: 400;
       color: #49536d;
     }
 
@@ -100,7 +100,7 @@
 
     .placeholder-muted {
       color: #555;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .media-shell {
@@ -116,7 +116,7 @@
       height: clamp(180px, 38vw, 400px);
       display: grid;
       place-items: center;
-      font-weight: 300;
+      font-weight: 400;
       color: #6b7280;
     }
 
@@ -168,7 +168,7 @@
       margin-top: .6rem;
       text-align: right;
       font-style: normal;
-      font-weight: 300;
+      font-weight: 400;
       color: #555;
     }
 
@@ -831,3 +831,23 @@
   box-shadow: 0 12px 28px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
 }
 
+
+/* Project-page typography uses the shared scale while retaining case-study layouts. */
+.project-header h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.08;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+.project-header .tagline {
+  font-size: clamp(1.125rem, 1.8vw, 1.3125rem);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.project-content :where(p, li),
+.left-col :where(p, li) {
+  font-size: var(--text-base);
+  line-height: var(--line-height-body);
+}
