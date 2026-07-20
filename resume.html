@@ -27,12 +27,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bram Peters – Curriculum Vitae</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
   <link rel="manifest" href="favicon_portfolio/site.webmanifest">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Ubuntu:wght@300;400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap');
 
     html,
     body {
@@ -44,7 +45,7 @@
 
     body {
       margin: 2%;
-      font-family: 'Gowun Dodum', 'Ubuntu', sans-serif;
+      font-family: var(--font-sans);
       background: linear-gradient(135deg, #f5fafd 0%, #dfe6f2 100%);
       background-attachment: fixed;
       color: #333333;
@@ -131,7 +132,7 @@
 
     li span {
       color: #555555;
-      font-weight: 300;
+      font-weight: 400;
       font-size: 0.95rem;
       display: block;
       margin-top: 0.25rem;
@@ -231,7 +232,7 @@
     .quote-line {
       text-align: right;
       font-style: italic;
-      font-weight: 300;
+      font-weight: 400;
       color: #666666;
       margin-top: 0.8rem;
     }
@@ -248,7 +249,7 @@
     .languages li strong,
     .languages li span {
       display: inline;
-      font-weight: 300;
+      font-weight: 400;
       font-size: 0.95rem;
       color: #555555;
       margin-right: 0.5rem;
@@ -266,7 +267,7 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 999px;
       padding: 10px 18px;
-      font-family: 'Gowun Dodum', 'Ubuntu', sans-serif;
+      font-family: var(--font-sans);
       font-size: 0.92rem;
       color: #1f2937;
       cursor: pointer;
@@ -478,6 +479,48 @@ flex-shrink: 0;
 
 
 
+
+
+    /* CV-specific hierarchy: compact enough for scanning without sacrificing readability. */
+    .resume-page, body {
+      font-size: var(--text-base);
+      line-height: var(--line-height-body);
+    }
+
+    .header-name {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      line-height: 1.08;
+      font-weight: 650;
+      letter-spacing: -0.035em;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    li span,
+    .subtitle,
+    .header-contact,
+    .languages li strong,
+    .languages li span {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    #downloadBtn {
+      min-height: 2.75rem;
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+
+    @media (max-width: 500px) {
+      .header-name { font-size: clamp(2.25rem, 10vw, 2.75rem); }
+      .section-title { font-size: 1.5rem; }
+      #downloadBtn { font-size: var(--text-sm); }
+    }
   </style>
 </head>
 
@@ -513,7 +556,7 @@ flex-shrink: 0;
 
     <div class="card">
       <div class="section-title icon-title about">About Me</div>
-      <p style="font-weight:300;">
+      <p style="font-weight: 400;">
           👋 Hi, I'm <b>Bram</b>! I am a <i>Sr. Data-/BI-Specialist</i> currently working at UWV with a MSc background in <i>Human-Technology Interaction</i> engineering. I turn raw data into intuitive user-focused products that drive real organizational and societal impact. From ideation to constructing ETL pipelines, and developing front-end solutions, the projects that thrill me the most are those where I got to keep my stakeholders in the loop using UCD-methods and deliver <i>real</i> impactful products to them. I thrive in agile teams and take pride in every project I do, so <strong>let’s collaborate and create something powerful together!</strong>
       </p>
       <div class="quote-line"><i class="fa-solid fa-quote-right"></i><em>Bram</em></div>
@@ -618,7 +661,7 @@ flex-shrink: 0;
       </span>
       <b>Dutch </b>
     </span>
-    <p class="placeholder-muted" style="margin: 0; margin-top: 5px; font-size: 12px">Native</p>
+    <p class="placeholder-muted" style="margin: 0; margin-top: 5px; font-size: 0.875rem">Native</p>
   </li>
 
   <li>
@@ -628,7 +671,7 @@ flex-shrink: 0;
       </span>
       <b>English </b>
     </span>
-    <p class="placeholder-muted" style="margin: 0; font-size: 12px">Near-native | Professional</p>
+    <p class="placeholder-muted" style="margin: 0; font-size: 0.875rem">Near-native | Professional</p>
   </li>
 
   <li>
@@ -638,7 +681,7 @@ flex-shrink: 0;
       </span>
       <b>Swedish</b>
     </span>
-    <p class="placeholder-muted" style="margin: 0; margin-top: 5px; font-size: 12px">Convesational</p>
+    <p class="placeholder-muted" style="margin: 0; margin-top: 5px; font-size: 0.875rem">Convesational</p>
   </li>
 
 </ul>
@@ -691,8 +734,8 @@ flex-shrink: 0;
           <li>
             <div class="skill-glass-card">
               <strong>Business Intelligence | </strong>
-              <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-              <span style="font-weight: 300">
+              <strong style="color: #6495ED;">Advanced</strong>
+              <span style="font-weight: 400;">
                 Power BI service & governance, DAX modeling, RLS/OLS, SSIS/SSAS, Azure Data Factory,
                 data quality & lineage, GDPR-compliant reporting, policy-driven KPIs, performance tuning,
                 paginated reports, stakeholder-ready dashboards for agencies
@@ -700,32 +743,32 @@ flex-shrink: 0;
             </div>
           </li>
           <li><strong>BI & Data Analytics | </strong><strong
-              style="color: #6495ED; font-weight: 100">Expert</strong><span>Power BI, DAX, SQL, Oracle, Azure,
+              style="color: #6495ED; font-weight: 600">Expert</strong><span>Power BI, DAX, SQL, Oracle, Azure,
               SSIS/SSAS, ETL, data mining & modeling, advanced analytics</span></li>
           <li><strong>UX/UI & Interaction Design | </strong><strong
-              style="color: #6495ED; font-weight: 60">Advanced</strong><span>Figma, Adobe XD, wireframing, prototyping,
+              style="color: #6495ED;">Advanced</strong><span>Figma, Adobe XD, wireframing, prototyping,
               usability testing, user flows, cognitive walkthroughs, design systems</span></li>
           <li><strong>Frontend Development | </strong><strong
-              style="color: #6495ED; font-weight: 20;">Proficient</strong><span>HTML, CSS, JavaScript, TypeScript,
+              style="color: #6495ED;">Proficient</strong><span>HTML, CSS, JavaScript, TypeScript,
               React, Vue.js, Kotlin (Android), REST API integration</span></li>
           <li><strong>Cognitive & Behavioral Insight | </strong><strong
-              style="color: #6495ED; font-weight: 60">Advanced</strong><span>Behavioral research methods, human
+              style="color: #6495ED;">Advanced</strong><span>Behavioral research methods, human
               cognition & perception, human‑robot interaction, persuasive & ethical design</span></li>
           <li><strong>Research & Methodology | </strong><strong
-              style="color: #6495ED; font-weight: 100">Expert</strong><span>User research, stakeholder interviews,
+              style="color: #6495ED; font-weight: 600">Expert</strong><span>User research, stakeholder interviews,
               Double Diamond, self‑regulated learning theory, storytelling, A/B testing</span></li>
           <li><strong>Tools & Platforms | </strong><strong
-              style="color: #6495ED; font-weight: 20;">Proficient</strong><span>SharePoint, Typo3, Git, Microsoft Azure,
+              style="color: #6495ED;">Proficient</strong><span>SharePoint, Typo3, Git, Microsoft Azure,
               Power Automate, JIRA, Confluence, Databricks</span></li>
           <li><strong>Agile & Scrum Delivery | </strong><strong
-              style="color: #6495ED; font-weight: 1;">Intermediate</strong><span>Sprint planning, backlog refinement,
+              style="color: #6495ED;">Intermediate</strong><span>Sprint planning, backlog refinement,
               iterative development, stakeholder management, cross‑functional teamwork, demos & presentations, user
               stories</span></li>
               <li>
                 <div class="skill-glass-card">
                   <strong>Project Start-Up & Stakeholder Management | </strong>
-                  <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
-                  <span style="font-weight: 300">
+                  <strong style="color: #6495ED;">Advanced</strong>
+                  <span style="font-weight: 400;">
                     Discovery → scoping → kickoff, stakeholder mapping & RACI, requirements elicitation,
                     risk/RAID logs, delivery roadmap & milestones, change management & comms plans,
                     workshop facilitation, exec updates, cross-functional alignment
