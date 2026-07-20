@@ -1,125 +1,10 @@
 /*────────────────────────────────────────────────────────────────────────────
   1) IMPORTS & RESET
 ────────────────────────────────────────────────────────────────────────────*/
-/* Inter is loaded once as a variable font for every route using this stylesheet. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Ubuntu:wght@300;400;700&family=Fira+Sans+Extra+Condensed:ital,wght@1,600&display=swap');
 
-:root {
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --text-xs: 0.8125rem;
-  --text-sm: 0.9375rem;
-  --text-base: 1.0625rem;
-  --text-lg: 1.1875rem;
-  --text-xl: 1.375rem;
-  --text-2xl: 1.75rem;
-  --text-3xl: 2.25rem;
-  --text-4xl: 3rem;
-  --text-5xl: 4rem;
-  --line-height-tight: 1.12;
-  --line-height-heading: 1.25;
-  --line-height-body: 1.65;
-}
-
-/*────────────────────────────────────────────────────────────────────────────
-  GLOBAL TYPOGRAPHY
-  Shared, accessible type defaults for pages, cards, controls and dynamic UI.
-────────────────────────────────────────────────────────────────────────────*/
-:where(body, button, input, select, textarea, dialog, [role="button"], [role="dialog"]) {
-  font-family: var(--font-sans);
-}
-
-:where(h1, h2, h3, h4, h5, h6) {
-  margin-block-start: 0;
-  color: #1a1a1a;
-  text-wrap: balance;
-  overflow-wrap: anywhere;
-}
-
-h1,
-.header-name {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.08;
-  font-weight: 650;
-  letter-spacing: -0.035em;
-}
-
-h2,
-.section-title {
-  font-size: clamp(1.75rem, 3vw, 2.375rem);
-  line-height: 1.18;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-h3,
-.card h3,
-.placeholder-title {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  line-height: 1.3;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-}
-
-h4,
-h5,
-h6 {
-  font-size: var(--text-lg);
-  line-height: var(--line-height-heading);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-:where(p, li, blockquote, dd) {
-  line-height: var(--line-height-body);
-}
-
-:where(p, blockquote) {
-  max-width: 72ch;
-}
-
-:where(.tagline, .lead, .intro, .header-intro > p) {
-  font-size: clamp(1.125rem, 1.8vw, 1.3125rem);
-  line-height: 1.6;
-  font-weight: 400;
-  color: #49536d;
-}
-
-:where(a, button, input, select, textarea, label, .cta-btn, .nav a) {
-  font-size: max(var(--text-sm), 1em);
-  line-height: 1.35;
-}
-
-:where(button, input, select, textarea, .cta-btn, .nav a) {
-  font-weight: 500;
-  letter-spacing: normal;
-}
-
-:where(small, figcaption, .metadata, .caption, .quote-cite) {
-  font-size: var(--text-sm);
-  line-height: 1.5;
-  font-weight: 400;
-  color: #505867;
-}
-
-:where(.placeholder-muted, .card p, .card li, footer, footer a) {
-  font-weight: 400;
-}
-
-strong,
-b {
-  font-weight: 600;
-}
-
-@media (max-width: 600px) {
-  body {
-    font-size: 1rem;
-  }
-
-  h1,
-  .header-name {
-    font-size: clamp(2.25rem, 10vw, 2.75rem);
-  }
-}
+/* On-brand fonts (scoped in .lit-card only) */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Fira+Mono:wght@400;700&display=swap');
 
 *,
 *::before,
@@ -160,14 +45,7 @@ canvas {
   2) BASE BODY & CONTAINER
 ────────────────────────────────────────────────────────────────────────────*/
 body {
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  line-height: var(--line-height-body);
-  font-weight: 400;
-  font-optical-sizing: auto;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Gowun Dodum', 'Ubuntu', sans-serif;
   background: linear-gradient(135deg, #f5fafd 0%, #dfe6f2 100%) fixed;
   color: #333;
   min-height: 100vh;
@@ -400,7 +278,7 @@ body {
   width: 100%;
   padding: 7px 16px;
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 200;
   font-style: italic;
   letter-spacing: .01em;
   line-height: 1.45;
@@ -643,7 +521,7 @@ li span {
   display: block;
   margin-top: .25rem;
   font-size: .95rem;
-  font-weight: 400;
+  font-weight: 300;
   color: #555;
 }
 
@@ -673,7 +551,7 @@ a:hover {
   margin-top: .8rem;
   text-align: right;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 300;
   color: #666;
 }
 
@@ -693,7 +571,7 @@ a:hover {
   justify-content: space-between;
   gap: .75rem;
   margin-bottom: .4rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .language-label {
@@ -729,7 +607,7 @@ a:hover {
   margin: .75rem 0 1rem;
   padding-bottom: .35rem;
   width: 100%;
-  font-family: var(--font-sans);
+  font-family: 'Gowun Dodum', 'Ubuntu', sans-serif;
 }
 
 .portfolio-filter::-webkit-scrollbar {
@@ -849,7 +727,7 @@ a:hover {
 /* light text inside */
 .portfolio-card .article-body p,
 .portfolio-card .article-body span {
-  font-weight: 400;
+  font-weight: 300;
 }
 
 /* images fill/center */
@@ -1061,7 +939,7 @@ a:hover {
   flex-direction: row;
   gap: 1.5rem;
   align-items: flex-start;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .article-wrapper.horizontal-layout figure {
@@ -1121,7 +999,7 @@ a:hover {
 }
 
 .cookie-copy {
-  font-weight: 400;
+  font-weight: 300;
   color: #24334f;
 }
 
@@ -1230,7 +1108,7 @@ a:hover {
 
 .lit-card,
 .lit-card * {
-  font-family: var(--font-sans);
+  font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
 
 .lit-head {
@@ -1871,44 +1749,4 @@ a:hover {
   box-shadow: 0 8px 22px rgba(0, 0, 0, .08);
   margin-bottom: 14px;
   overflow: hidden;
-}
-
-/* Final cascade layer: normalizes legacy component rules against the tokens above. */
-body h1,
-body .header-name {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.08;
-  font-weight: 650;
-  letter-spacing: -0.035em;
-}
-
-body h2,
-body .section-title {
-  font-size: clamp(1.75rem, 3vw, 2.375rem);
-  line-height: 1.18;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-body h3,
-body .placeholder-title {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  line-height: 1.3;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-}
-
-body :where(p, li, blockquote) {
-  font-weight: 400;
-}
-
-body :where(button, input, select, textarea) {
-  min-height: 2.75rem;
-}
-
-@media (max-width: 600px) {
-  body h1,
-  body .header-name {
-    font-size: clamp(2.25rem, 10vw, 2.75rem);
-  }
 }
