@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title description">
+  <title id="title">Lelibrambas+ wordmark</title>
+  <desc id="description">Original Lelibrambas wordmark with a luminous archive-marker plus sign.</desc>
+  <defs>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7F9FE"/>
+      <stop offset="1" stop-color="#C2CBDC"/>
+    </linearGradient>
+    <radialGradient id="marker" cx="50%" cy="50%" r="60%">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#70D8FF"/>
+      <stop offset="1" stop-color="#8275FF"/>
+    </radialGradient>
+    <filter id="bloom" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M42 43v94h76" stroke="#E9C778" stroke-width="14"/>
+    <path d="M84 43v94h48c26 0 42-13 42-34 0-13-7-23-20-29 9-7 14-16 14-28 0-18-14-31-37-31H84" stroke="#E9C778" stroke-width="14"/>
+  </g>
+  <text x="208" y="119" fill="url(#ink)" font-family="Manrope, Inter, Arial, sans-serif" font-size="78" font-weight="750" letter-spacing="-4">Lelibrambas</text>
+  <circle cx="665" cy="66" r="28" fill="#70D8FF" opacity="0.25" filter="url(#bloom)"/>
+  <path d="M665 43v46M642 66h46" stroke="url(#marker)" stroke-width="11" stroke-linecap="round"/>
+</svg>

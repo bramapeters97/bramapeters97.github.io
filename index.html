@@ -154,6 +154,106 @@
         animation: none;
       }
     }
+
+    .portfolio-card.portfolio-card--disabled {
+      cursor: default;
+      background: rgba(83, 94, 113, .34);
+      border-color: rgba(77, 88, 108, .28);
+      box-shadow: inset 0 0 0 999px rgba(37, 45, 60, .08);
+      filter: brightness(.86) saturate(.72);
+    }
+
+    .portfolio-card.portfolio-card--disabled::after {
+      display: none;
+    }
+
+    .portfolio-card.portfolio-card--disabled:active {
+      transform: none;
+    }
+
+    .portfolio-card--disabled .article-wrapper img {
+      opacity: .82;
+    }
+
+    .portfolio-card.portfolio-card--disabled .article-body .project-status {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      gap: .35rem;
+      margin-top: auto;
+      padding: .32rem .62rem;
+      border: 1px solid rgba(44, 54, 72, .25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .32);
+      color: #3a4354;
+      font-size: .86rem;
+      font-weight: 600;
+    }
+
+    @media (hover: hover) {
+      .portfolio-card.portfolio-card--disabled:hover,
+      .portfolio-card.portfolio-card--disabled:focus-visible {
+        transform: none;
+        box-shadow: inset 0 0 0 999px rgba(37, 45, 60, .08);
+        z-index: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .65rem;
+      }
+
+      .portfolio-grid .portfolio-card {
+        width: 100%;
+        min-height: 0;
+        padding: 0;
+        border-radius: 11px;
+      }
+
+      .portfolio-grid .article-wrapper figure {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+      }
+
+      .portfolio-grid .article-body {
+        padding: .7rem;
+      }
+
+      .portfolio-grid .article-body h2 {
+        display: -webkit-box;
+        min-height: 2.35em;
+        margin-bottom: .35rem;
+        overflow: hidden;
+        font-size: .82rem;
+        line-height: 1.18;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .portfolio-grid .article-body p {
+        display: -webkit-box;
+        margin: 0 0 .65rem;
+        overflow: hidden;
+        font-size: .72rem;
+        line-height: 1.35;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+      }
+
+      .portfolio-grid .article-body a,
+      .portfolio-grid .article-body b,
+      .portfolio-card.portfolio-card--disabled .article-body .project-status {
+        font-size: .72rem;
+        line-height: 1.25;
+      }
+
+      .portfolio-card.portfolio-card--disabled .article-body .project-status {
+        gap: .25rem;
+        padding: .26rem .48rem;
+      }
+    }
   </style>
 </head>
   
@@ -627,6 +727,26 @@
                   What started with a simple design brief by Luca himself, quickly turned into a playful short
                   film with a PG-13 rating that was received surprisingly well.</p>
                 <a href="jmeijerbv40jaareendaginhetlevenvanlucaorvini.html"><b>→ Video</b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lelibrambas+ — intentionally disabled until publication -->
+          <article class="portfolio-card portfolio-card--disabled"
+            data-categories="Web programming,UX/UI-design,App Development" role="group" aria-disabled="true"
+            aria-labelledby="lelibrambas-card-title"
+            aria-describedby="lelibrambas-card-summary lelibrambas-card-status">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/lelibrambas-plus/screenshots/03-home.webp" width="1920" height="1080" loading="lazy"
+                  decoding="async" alt="Lelibrambas+ television home screen with archive categories and film rails" />
+              </figure>
+              <div class="article-body">
+                <h2 id="lelibrambas-card-title">Lelibrambas+ | Private Family Streaming</h2>
+                <p id="lelibrambas-card-summary">A television-first streaming experience that turns a family video archive into an inviting,
+                  private place for rediscovering shared memories.</p>
+                <span class="project-status" id="lelibrambas-card-status"><i class="fa-solid fa-lock"
+                    aria-hidden="true"></i> Case study coming soon</span>
               </div>
             </div>
           </article>

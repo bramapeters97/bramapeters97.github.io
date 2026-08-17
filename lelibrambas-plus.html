@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Lelibrambas+ is a private television-first streaming prototype that makes a family video archive accessible without exposing private footage."
+    />
+    <title>
+      Lelibrambas+ — Turning a Family Archive Into a Private Streaming Service
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link
+      rel="stylesheet"
+      href="assets/lelibrambas-plus/portfolio/case-study.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon_portfolio/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon_portfolio/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon_portfolio/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon_portfolio/site.webmanifest" />
+  </head>
+  <body class="lelibrambas-case">
+    <a class="case-skip" href="#case-content">Skip to case study</a>
+    <div class="nav-wrap">
+      <nav class="nav">
+        <div class="brand">
+          <a href="index.html" aria-label="Go to homepage"
+            ><i class="fa-solid fa-house" aria-hidden="true"></i> Bram
+            Peters<span class="dot" aria-hidden="true"></span
+          ></a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <header class="project-header">
+        <span class="case-eyebrow"
+          ><i class="fa-solid fa-film" aria-hidden="true"></i> Portfolio
+          highlight · Private prototype</span
+        >
+        <h1>
+          Lelibrambas+ — Turning a Family Archive Into a Private Streaming
+          Service
+        </h1>
+        <p class="tagline">
+          A television-first hobby project that turns preserved but
+          hard-to-reach home videos into a private, browsable family archive.
+        </p>
+        <figure>
+          <div class="case-hero-frame">
+            <img
+              src="assets/lelibrambas-plus/screenshots/03-home.webp"
+              alt="Lelibrambas+ television home screen with a Swedish family-film feature and curated archive rails"
+              width="1920"
+              height="1080"
+            />
+          </div>
+          <figcaption class="case-hero-caption">
+            <span>Actual 1920 × 1080 prototype capture</span
+            ><span>All visible media and artwork are synthetic</span>
+          </figcaption>
+        </figure>
+      </header>
+
+      <main class="page-two-columns" id="case-content">
+        <section class="left-col" aria-label="Lelibrambas+ case study">
+          <article class="card" id="archive-problem">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-box-archive" aria-hidden="true"></i> The
+              archive problem
+            </h2>
+            <p class="case-lead">
+              I have been fascinated by videography for as long as I can
+              remember. I was also lucky to grow up with parents who recorded
+              almost everything, leaving our family with an unusually rich
+              archive of ordinary days, holidays, birthdays and small moments
+              that would otherwise have disappeared.
+            </p>
+            <p>
+              The footage was technically preserved, but it did not feel
+              accessible. Much of it lived inside OneDrive folders, old exports
+              and VIDEO_TS directories. Finding something meant knowing that it
+              existed, remembering where it was stored and then opening it on a
+              computer. The archive was safe, but psychologically almost
+              invisible.
+            </p>
+            <div class="case-pair">
+              <div class="summary-tile">
+                <small>Problem</small
+                ><strong>Preserved is not the same as present.</strong>
+                <p>
+                  Folders protected the files, but made casual rediscovery and
+                  living-room viewing unlikely.
+                </p>
+              </div>
+              <div class="summary-tile">
+                <small>Opportunity</small
+                ><strong>Give memories an inviting front door.</strong>
+                <p>
+                  Familiar streaming patterns can make dates, people, places and
+                  collections feel immediately browsable.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" id="idea">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-lightbulb" aria-hidden="true"></i> The idea
+            </h2>
+            <p>
+              We are an Apple family — I will admit that — and I kept thinking
+              about how different the material would feel if it were available
+              in the living room with the same sense of occasion as a film or
+              series. That became Lelibrambas+: a private streaming experience
+              for our own home videos, presented under the deliberately
+              over-serious banner of LeliBrambas Studios™.
+            </p>
+            <blockquote class="case-quote">
+              The goal was not to pretend our home videos were blockbusters. It
+              was to make them easy enough to watch that they could become part
+              of family life again.
+            </blockquote>
+          </article>
+
+          <article class="card" id="why-tv">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-tv" aria-hidden="true"></i> Why television
+            </h2>
+            <p>
+              The television is a shared, low-friction place. A ten-foot
+              interface lets someone choose a memory from the sofa, then watch
+              together without navigating folder trees or moving a laptop
+              around. The prototype targets Apple TV and Android TV through Expo
+              and React Native TV. Its high-fidelity browser implementation
+              supports rapid Windows validation; the smaller native entry
+              validates the TV stack and focus primitives, but does not yet
+              mirror every browser discovery surface.
+            </p>
+            <div class="case-triad">
+              <div class="principle-tile">
+                <small>Shared</small><strong>Designed for a room</strong>
+                <p>
+                  Large type, strong contrast and restrained density support
+                  viewing from a distance.
+                </p>
+              </div>
+              <div class="principle-tile">
+                <small>Familiar</small><strong>Streaming conventions</strong>
+                <p>
+                  Heroes, rails, details and Continue Watching reduce the
+                  learning curve.
+                </p>
+              </div>
+              <div class="principle-tile">
+                <small>Respectful</small><strong>Archive first</strong>
+                <p>
+                  Original aspect ratios, approximate dates and restoration
+                  notes remain visible.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" id="viewing-experience">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-circle-play" aria-hidden="true"></i> The
+              viewing experience
+            </h2>
+            <p>
+              The viewer opens with a short LeliBrambas Studios™ ident, moves
+              to profiles, then presents one featured memory and curated rails.
+              Details explain when and where footage was recorded, who appears
+              in it and whether a date is approximate. Progress belongs to a
+              profile, so leaving halfway creates a meaningful Continue Watching
+              row and Resume action.
+            </p>
+            <div class="device-frame">
+              <img
+                src="assets/lelibrambas-plus/screenshots/05-video-details.webp"
+                alt="Lelibrambas+ details page showing title, synopsis, archive metadata, playback and watchlist actions"
+                width="1920"
+                height="1080"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
+
+          <article class="card" id="remote-design">
+            <h2 class="case-section-heading">
+              <i
+                class="fa-solid fa-arrows-up-down-left-right"
+                aria-hidden="true"
+              ></i>
+              Designing for a remote
+            </h2>
+            <p>
+              A television app cannot depend on hover, a cursor or tiny touch
+              targets. Every actionable element participates in deterministic
+              spatial navigation. Arrow keys or a directional pad choose the
+              nearest candidate in the requested direction; Enter activates it;
+              Back restores the prior screen and focus context.
+            </p>
+            <div class="case-pair">
+              <div class="summary-tile">
+                <small>Focus</small><strong>Impossible to miss</strong>
+                <p>
+                  A white outline, offset halo, small scale change and elevation
+                  communicate both position and depth.
+                </p>
+              </div>
+              <div class="summary-tile">
+                <small>Motion</small><strong>Fast and optional</strong>
+                <p>
+                  Focus transitions stay around 180 ms and respect
+                  reduced-motion preferences.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" id="organising-memories">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+              Organising memories
+            </h2>
+            <p>
+              Folders are useful for storage; people remember stories. The
+              catalogue therefore supports search, collections and episodes,
+              decades, people, places, dates, themes and a private watchlist.
+              Missing artwork receives an intentional generated gradient instead
+              of a broken placeholder. Unavailable conversions stay
+              understandable without hiding the catalogue record.
+            </p>
+            <div class="device-frame">
+              <img
+                src="assets/lelibrambas-plus/screenshots/07-timeline.webp"
+                alt="Lelibrambas+ timeline screen arranging fictional family films by decade and recording year"
+                width="1920"
+                height="1080"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
+
+          <article class="card" id="video-ts">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-compact-disc" aria-hidden="true"></i>
+              Restoring old VIDEO_TS footage
+            </h2>
+            <p>
+              Old DVD structures are treated as source material, not disposable
+              clutter. The implemented importer is designed to scan without
+              changing the archive, identify title-set candidates, suggest a
+              safe main title and create a resumable viewing-copy job. Its tests
+              cover detection, planning and recovery. HandBrakeCLI can improve
+              title discovery when installed, while FFmpeg is required to
+              produce the H.264/AAC MP4 derivative; neither executable was
+              available for a real family-source conversion on this Windows
+              ARM64 host.
+            </p>
+            <div class="workflow" aria-label="Legacy video workflow">
+              <div>
+                <strong>Scan</strong
+                ><span
+                  >Read regular videos and VIDEO_TS structures without writing
+                  to the source.</span
+                >
+              </div>
+              <div>
+                <strong>Review</strong
+                ><span
+                  >Compare candidate duration, cells and size before selecting a
+                  title.</span
+                >
+              </div>
+              <div>
+                <strong>Convert</strong
+                ><span
+                  >Write a temporary derivative in a separate output
+                  directory.</span
+                >
+              </div>
+              <div>
+                <strong>Validate</strong
+                ><span
+                  >Probe the copy, checksum it, then atomically publish the
+                  viewing file and manifest.</span
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="card" id="onedrive">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-cloud-arrow-down" aria-hidden="true"></i>
+              From OneDrive to the living room
+            </h2>
+            <p>
+              The importer is designed to leave OneDrive as the preservation
+              layer and accept only files that are actually synchronised to
+              disk. Its tested placeholder-file path produces a clear error
+              instead of a damaged or partial copy. Relative source references
+              stay in ignored local state. The viewer reads generated demo media
+              today and can later switch to short-lived private streaming URLs
+              through the same provider interface.
+            </p>
+          </article>
+
+          <article class="card" id="privacy">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              Privacy and family access
+            </h2>
+            <p>
+              This is a private family prototype, not a public streaming service
+              and not a claim of DRM. No real home video, personal filename,
+              OneDrive path or secret appears in the repository or case-study
+              captures. A production deployment would use expiring pairing
+              codes, approved devices, revocable tokens, short-lived signed
+              playback URLs and least-privilege Cloudflare bindings.
+            </p>
+            <blockquote class="case-quote">
+              The public-facing story demonstrates the interaction and
+              architecture; the family material remains private.
+            </blockquote>
+          </article>
+
+          <article class="card" id="architecture">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+              Technical architecture
+            </h2>
+            <p>
+              The system keeps preservation, management and viewing
+              responsibilities separate. Shared schemas and provider interfaces
+              let the prototype run entirely locally while keeping a
+              production-shaped path to private cloud delivery.
+            </p>
+            <div
+              class="architecture-map"
+              role="img"
+              aria-label="Archive sources flow through a non-destructive importer and catalogue into local or private cloud media providers, then to television and Windows viewers"
+            >
+              <div class="architecture-node">
+                <i class="fa-solid fa-hard-drive" aria-hidden="true"></i
+                ><strong>Archive sources</strong
+                ><span>Synchronised files and read-only VIDEO_TS folders</span>
+              </div>
+              <i
+                class="fa-solid fa-arrow-right architecture-arrow"
+                aria-hidden="true"
+              ></i>
+              <div class="architecture-node">
+                <i class="fa-solid fa-gears" aria-hidden="true"></i
+                ><strong>Importer + catalogue</strong
+                ><span
+                  >Resumable derivatives, validation and metadata review</span
+                >
+              </div>
+              <i
+                class="fa-solid fa-arrow-right architecture-arrow"
+                aria-hidden="true"
+              ></i>
+              <div class="architecture-node">
+                <i class="fa-solid fa-display" aria-hidden="true"></i
+                ><strong>Private viewers</strong
+                ><span>Expo TV, web and a sandboxed Electron shell</span>
+              </div>
+            </div>
+            <ul class="technology-list" aria-label="Technologies used">
+              <li>Expo SDK 57</li>
+              <li>React Native TV</li>
+              <li>React + Vite</li>
+              <li>Electron</li>
+              <li>TypeScript</li>
+              <li>FFmpeg</li>
+              <li>Cloudflare Workers</li>
+              <li>D1 · R2 · Stream</li>
+              <li>Vitest</li>
+              <li>Playwright</li>
+            </ul>
+          </article>
+
+          <article class="card" id="windows">
+            <h2 class="case-section-heading">
+              <i class="fa-brands fa-windows" aria-hidden="true"></i> Windows
+              prototype
+            </h2>
+            <p>
+              The browser build is the fastest full-fidelity development surface
+              on Windows. A separate Electron shell packages that production
+              bundle with context isolation, sandboxing, no Node integration, a
+              strict Content Security Policy and blocked external navigation.
+              Its policy tests and hidden production smoke passed, and a
+              portable Windows x64 artifact was built and smoke-launched
+              successfully on this Windows ARM64 host through emulation.
+              Interactive distribution and the optional NSIS installer remain
+              unvalidated. Keyboard controls mirror a television remote, which
+              makes focus and playback behaviour testable without specialist
+              hardware.
+            </p>
+            <div class="device-frame">
+              <img
+                src="assets/lelibrambas-plus/screenshots/08-library-manager.webp"
+                alt="Lelibrambas+ Library Manager dashboard showing catalogue health, conversion jobs and archive review tasks"
+                width="1920"
+                height="1080"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
+
+          <article class="card" id="learning">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-compass" aria-hidden="true"></i> What I
+              learned
+            </h2>
+            <p>
+              The most important design decision was to treat uncertainty as
+              archive metadata rather than failure. A date can be approximate.
+              Artwork can be missing. A DVD conversion can need review. A file
+              can be preserved but temporarily unavailable. Explaining those
+              states calmly creates more trust than forcing every memory into a
+              perfectly polished content model.
+            </p>
+            <p>
+              The project also reinforced that television design is a systems
+              problem: focus geometry, back behaviour, player persistence, media
+              provenance, legacy conversion and device access all shape the
+              experience as much as the visual interface.
+            </p>
+          </article>
+
+          <article class="card" id="gallery">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-images" aria-hidden="true"></i> Screenshot
+              gallery
+            </h2>
+            <p class="screen-reader-only">
+              Each image opens the original WebP capture.
+            </p>
+            <div class="screenshot-gallery">
+              <figure>
+                <a
+                  href="assets/lelibrambas-plus/screenshots/01-studio-ident.webp"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    src="assets/lelibrambas-plus/screenshots/01-studio-ident.webp"
+                    alt="Original LeliBrambas Studios ident made from a gold LB monogram and small points of light"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>01 · Studio ident</figcaption>
+              </figure>
+              <figure>
+                <a
+                  href="assets/lelibrambas-plus/screenshots/02-profile-picker.webp"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    src="assets/lelibrambas-plus/screenshots/02-profile-picker.webp"
+                    alt="Profile picker for four fictional family viewing profiles"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>02 · Profile picker</figcaption>
+              </figure>
+              <figure>
+                <a
+                  href="assets/lelibrambas-plus/screenshots/03-home.webp"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    src="assets/lelibrambas-plus/screenshots/03-home.webp"
+                    alt="Television home screen with featured film and curated archive rails"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>03 · Home</figcaption>
+              </figure>
+              <figure>
+                <a
+                  href="assets/lelibrambas-plus/screenshots/04-category-hubs.webp"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    src="assets/lelibrambas-plus/screenshots/04-category-hubs.webp"
+                    alt="Six cinematic category hubs for exploring the fictional archive"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>04 · Category hubs</figcaption>
+              </figure>
+              <figure>
+                <a
+                  href="assets/lelibrambas-plus/screenshots/05-video-details.webp"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    src="assets/lelibrambas-plus/screenshots/05-video-details.webp"
+                    alt="Video details with archive metadata, playback, restart, watchlist and watched controls"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>05 · Video details</figcaption>
+              </figure>
+              <figure>
+                <a
+                  href="assets/lelibrambas-plus/screenshots/06-player.webp"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    src="assets/lelibrambas-plus/screenshots/06-player.webp"
+                    alt="Television video player with progress, pause and ten-second seek controls"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>06 · Player</figcaption>
+              </figure>
+              <figure>
+                <a
+                  href="assets/lelibrambas-plus/screenshots/07-timeline.webp"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    src="assets/lelibrambas-plus/screenshots/07-timeline.webp"
+                    alt="Timeline discovery view with decades, years and an On This Day feature"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>07 · Timeline</figcaption>
+              </figure>
+              <figure>
+                <a
+                  href="assets/lelibrambas-plus/screenshots/08-library-manager.webp"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    src="assets/lelibrambas-plus/screenshots/08-library-manager.webp"
+                    alt="Library Manager dashboard with review, conversion and catalogue status"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>08 · Library Manager</figcaption>
+              </figure>
+              <figure>
+                <a
+                  href="assets/lelibrambas-plus/screenshots/09-video-ts-import.webp"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    src="assets/lelibrambas-plus/screenshots/09-video-ts-import.webp"
+                    alt="VIDEO_TS review screen comparing non-destructive DVD title candidates"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                /></a>
+                <figcaption>09 · VIDEO_TS review</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="card" id="status">
+            <h2 class="case-section-heading">
+              <i class="fa-solid fa-flag-checkered" aria-hidden="true"></i>
+              Project status
+            </h2>
+            <p>
+              Lelibrambas+ is a private hobby prototype completed as a
+              functioning local vertical slice in 2026. The web viewer, Library
+              Manager, synthetic demo playback, progress, discovery, importer
+              workflow and production-shaped API are implemented; the hardened
+              Electron shell also passed a hidden packaged-artifact smoke test.
+              Android TV is prepared through generated native configuration;
+              tvOS requires macOS and Xcode for runtime validation. No
+              Cloudflare resources were created, no private videos were uploaded
+              and this page is intentionally not linked from the public
+              portfolio.
+            </p>
+            <p>
+              For me, success is not a bigger catalogue or a more theatrical
+              interface. It is the possibility that an ordinary afternoon
+              recorded years ago becomes easy enough to rediscover together —
+              without asking the archive to stop being private, imperfect or
+              genuinely ours.
+            </p>
+          </article>
+        </section>
+
+        <aside class="card case-meta" aria-label="Project overview">
+          <h2 class="case-section-heading">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i> Overview
+          </h2>
+          <dl>
+            <div>
+              <dt>Type</dt>
+              <dd>Hobby project</dd>
+            </div>
+            <div>
+              <dt>Role</dt>
+              <dd>Product design, UX/UI, front-end and media architecture</dd>
+            </div>
+            <div>
+              <dt>Platforms</dt>
+              <dd>Apple TV, Android TV and Windows prototype</dd>
+            </div>
+            <div>
+              <dt>Year</dt>
+              <dd>2026</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Private prototype</dd>
+            </div>
+            <div>
+              <dt>Brand</dt>
+              <dd>LeliBrambas Studios™</dd>
+            </div>
+          </dl>
+          <ul class="case-tags">
+            <li>Television UX</li>
+            <li>Media tooling</li>
+            <li>Legacy video</li>
+            <li>Private access</li>
+          </ul>
+          <p class="status-note">
+            <strong>Public-asset note:</strong> the interface uses fictional
+            titles, generated gradients and small synthetic video clips. No real
+            family material is included.
+          </p>
+        </aside>
+      </main>
+    </div>
+
+    <script src="assets/js/reveal.js"></script>
+  </body>
+</html>
