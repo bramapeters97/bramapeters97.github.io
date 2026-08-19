@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07090f" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="A fictional, synthetic preview of the LeliBramBas+ private archive interface."
+    />
+    <title>LeliBramBas+ — Synthetic Archive Preview</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to archive</a>
+
+    <aside class="sidebar" aria-label="Primary navigation">
+      <button class="brand-button" type="button" data-route="home" aria-label="LeliBramBas+ home">
+        <span class="brand-letter">L</span><span class="brand-plus">+</span>
+      </button>
+
+      <nav class="side-nav" aria-label="Archive sections">
+        <button type="button" data-route="home" data-nav="home" aria-label="Home">
+          <span class="nav-icon" aria-hidden="true">⌂</span><span class="nav-label">Home</span>
+        </button>
+        <button type="button" data-route="browse" data-nav="browse" aria-label="Collections">
+          <span class="nav-icon" aria-hidden="true">▦</span><span class="nav-label">Collections</span>
+        </button>
+        <button type="button" data-route="search" data-nav="search" aria-label="Search">
+          <span class="nav-icon" aria-hidden="true">⌕</span><span class="nav-label">Search</span>
+        </button>
+        <button type="button" data-route="timeline" data-nav="timeline" aria-label="Timeline">
+          <span class="nav-icon" aria-hidden="true">◷</span><span class="nav-label">Timeline</span>
+        </button>
+        <button type="button" data-route="saved" data-nav="saved" aria-label="Saved">
+          <span class="nav-icon" aria-hidden="true">♡</span><span class="nav-label">Saved</span>
+        </button>
+      </nav>
+
+      <button class="profile-button" type="button" data-action="profile" aria-label="Open preview profile">
+        <span>PV</span>
+      </button>
+    </aside>
+
+    <header class="mobile-header">
+      <button class="mobile-wordmark" type="button" data-route="home" aria-label="LeliBramBas+ home">
+        LeliBramBas<span>+</span>
+      </button>
+      <button class="mobile-profile" type="button" data-action="profile" aria-label="Open preview profile">
+        PV
+      </button>
+    </header>
+
+    <main id="main-content" class="app-main" tabindex="-1">
+      <div id="view" class="view" aria-live="polite"></div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+      <button type="button" data-route="home" data-nav="home">
+        <span aria-hidden="true">⌂</span><small>Home</small>
+      </button>
+      <button type="button" data-route="browse" data-nav="browse">
+        <span aria-hidden="true">▦</span><small>Collections</small>
+      </button>
+      <button type="button" data-route="search" data-nav="search">
+        <span aria-hidden="true">⌕</span><small>Search</small>
+      </button>
+      <button type="button" data-route="timeline" data-nav="timeline">
+        <span aria-hidden="true">◷</span><small>Timeline</small>
+      </button>
+      <button type="button" data-route="saved" data-nav="saved">
+        <span aria-hidden="true">♡</span><small>Saved</small>
+      </button>
+    </nav>
+
+    <dialog id="details-dialog" class="details-dialog" aria-labelledby="details-title">
+      <div id="details-content"></div>
+    </dialog>
+
+    <dialog id="player-dialog" class="player-dialog" aria-labelledby="player-title">
+      <div id="player-content"></div>
+    </dialog>
+
+    <dialog id="profile-dialog" class="profile-dialog" aria-labelledby="profile-title">
+      <button class="dialog-close" type="button" data-close="profile" aria-label="Close profile">×</button>
+      <div class="profile-mark" aria-hidden="true">PV</div>
+      <p class="eyebrow">LOCAL PREVIEW PROFILE</p>
+      <h2 id="profile-title">Preview viewer</h2>
+      <p>
+        Saved titles and playback positions stay only in this browser. This public demo contains
+        fictional catalogue entries and no private media.
+      </p>
+      <button class="button secondary full-width" type="button" data-action="reset-demo">
+        Reset demo activity
+      </button>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
