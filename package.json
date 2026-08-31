@@ -1,0 +1,8 @@
+{
+  "name": "bramapeters97.github.io",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-lelibrambas-icons.mjs",
+    "generate:lelibrambas-icons": "node scripts/generate-lelibrambas-icons.mjs"
+  }
+}
