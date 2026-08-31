@@ -1,0 +1,31 @@
+{
+  "name": "LELIBRAMBAS+",
+  "short_name": "LELIBRAMBAS+",
+  "description": "A private, cinematic family archive experience.",
+  "id": "/projects/lelibrambas/",
+  "start_url": "/projects/lelibrambas/",
+  "scope": "/projects/lelibrambas/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/projects/lelibrambas/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/projects/lelibrambas/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/projects/lelibrambas/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
