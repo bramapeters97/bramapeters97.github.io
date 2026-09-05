@@ -1,150 +1,91 @@
 <!doctype html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta
-  name="description"
-  content="LELIBRAMBAS+ is a private television-first tvOS | AndroidTV streaming platform that securely makes your home video archive accessible and manageable using CloudFlare 2FA and an experience-driven UI-design."
-/>
-
-<title>
-  LELIBRAMBAS+ — Turning a Family Archive Into a Private Streaming Service
-</title>
-
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
-<link rel="stylesheet" href="assets/css/style.css" />
-<link rel="stylesheet" href="assets/css/portfolio.css" />
-<link
-  rel="stylesheet"
-  href="assets/lelibrambas-plus/portfolio/case-study.css"
-/>
-
-<link
-  rel="apple-touch-icon"
-  sizes="180x180"
-  href="favicon_portfolio/apple-touch-icon.png"
-/>
-
-<link
-  rel="icon"
-  type="image/png"
-  sizes="32x32"
-  href="favicon_portfolio/favicon-32x32.png"
-/>
-
-<link
-  rel="icon"
-  type="image/png"
-  sizes="16x16"
-  href="favicon_portfolio/favicon-16x16.png"
-/>
-
-<link rel="manifest" href="favicon_portfolio/site.webmanifest" />
-
-<style>
+    <meta
+      name="description"
+      content="LELIBRAMBAS+ is a private television-first tvOS | AndroidTV streaming platform that securely makes your home video archive accessible and manageable using CloudFlare 2FA and an experience-driven UI-design."
+    />
+    <title>
+      LELIBRAMBAS+ — Turning a Family Archive Into a Private Streaming Service
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link
+      rel="stylesheet"
+      href="assets/lelibrambas-plus/portfolio/case-study.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon_portfolio/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon_portfolio/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon_portfolio/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon_portfolio/site.webmanifest" />
+    
+  <style>
   /* =========================================
-     LELIBRAMBAS+ HERO
+     DESKTOP — WIDER LIVE DEMO ONLY
      ========================================= */
 
   .lelibrambas-case .case-hero-frame {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: #000;
-    border-radius: 16px;
     overflow: hidden;
+    border-radius: 16px;
+    background: #000;
   }
 
-
-  /* =========================================
-     DESKTOP
-     ========================================= */
-
+  /* Make ONLY the hero wider than the normal content */
   @media (min-width: 768px) {
-
-    /*
-     * Make ONLY the demo wider than the
-     * normal portfolio content.
-     */
     .lelibrambas-case .case-hero-frame {
       width: 85vw;
       max-width: 1800px;
       margin-left: 50%;
       transform: translateX(-50%);
-
-      /*
-       * TV-style outer frame
-       */
-      padding: 6px;
-      box-sizing: border-box;
-
-      background: #111;
-      border-radius: 20px;
-
-      /*
-       * Allow the embedded page to scroll
-       * inside the TV frame.
-       */
-      overflow: auto;
-
-      /*
-       * Subtle shadow to separate the
-       * TV from the page.
-       */
-      box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.18),
-        0 2px 8px rgba(0, 0, 0, 0.08);
     }
+  }
 
+  /* Desktop: live iframe */
+  .lelibrambas-case .case-hero-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
 
-    /*
-     * Live demo iframe
-     */
-    .lelibrambas-case .case-hero-frame iframe {
-      position: relative;
-      width: 100%;
-      height: 100%;
+  /* Desktop: don't show screenshot */
+  .lelibrambas-case .case-hero-frame img {
+    display: none;
+  }
 
-      min-width: 0;
-      min-height: 0;
+  /* Desktop caption */
+  .lelibrambas-case .case-hero-caption-desktop {
+    display: flex;
+  }
 
-      display: block;
-
-      border: 0;
-      border-radius: 14px;
-
-      background: #000;
-    }
-
-
-    /*
-     * Hide screenshot on desktop
-     */
-    .lelibrambas-case .case-hero-frame img {
-      display: none;
-    }
-
-
-    /*
-     * Desktop caption
-     */
-    .lelibrambas-case .case-hero-caption-desktop {
-      display: flex;
-    }
-
-
-    /*
-     * Hide mobile caption on desktop
-     */
-    .lelibrambas-case .case-hero-caption-mobile {
-      display: none;
-    }
+  /* Mobile caption hidden */
+  .lelibrambas-case .case-hero-caption-mobile {
+    display: none;
   }
 
 
@@ -154,232 +95,108 @@
 
   @media (max-width: 767px) {
 
-    /*
-     * Keep the hero at the normal mobile
-     * content width.
-     */
+    /* Keep the original mobile frame width */
     .lelibrambas-case .case-hero-frame {
       width: 100%;
       aspect-ratio: 16 / 9;
-
       border-radius: 12px;
-      overflow: hidden;
-
-      padding: 0;
-      background: #000;
-
-      box-shadow: none;
     }
 
-
-    /*
-     * Hide live desktop demo
-     */
+    /* Hide live demo */
     .lelibrambas-case .case-hero-frame iframe {
       display: none;
     }
 
-
-    /*
-     * Make screenshot fill the frame
-     */
+    /* Show screenshot */
     .lelibrambas-case .case-hero-frame img {
       display: block;
-
       position: absolute;
       inset: 0;
-
       width: 100%;
       height: 100%;
-
       object-fit: cover;
     }
 
-
-    /*
-     * Make the ENTIRE screenshot clickable.
-     */
-    .lelibrambas-case .case-hero-link {
-      position: absolute;
-      inset: 0;
-
-      display: block;
-
-      width: 100%;
-      height: 100%;
-
-      z-index: 2;
-    }
-
-
-    /*
-     * Slight interaction feedback
-     * when the image is tapped.
-     */
-    .lelibrambas-case .case-hero-link img {
-      transition: transform 0.2s ease,
-                  opacity 0.2s ease;
-    }
-
-
-    .lelibrambas-case .case-hero-link:active img {
-      transform: scale(0.99);
-      opacity: 0.9;
-    }
-
-
-    /*
-     * Hide desktop caption
-     */
+    /* Hide desktop caption */
     .lelibrambas-case .case-hero-caption-desktop {
       display: none;
     }
 
-
-    /*
-     * Show mobile caption
-     */
+    /* Show mobile caption */
     .lelibrambas-case .case-hero-caption-mobile {
       display: block;
       text-align: center;
     }
 
-
-    /*
-     * DEMO link
-     */
     .lelibrambas-case .case-hero-caption-mobile a {
       text-decoration: underline;
       font-weight: 600;
     }
   }
-</style>
+  </style>
   </head>
-
   <body class="lelibrambas-case">
-<a class="case-skip" href="#case-content">
-  Skip to case study
-</a>
-
-
-<div class="nav-wrap">
-  <nav class="nav">
-
-    <div class="brand">
-      <a
-        href="index.html"
-        aria-label="Go to homepage"
-      >
-        <i
-          class="fa-solid fa-house"
-          aria-hidden="true"
-        ></i>
-
-        Bram Peters
-
-        <span
-          class="dot"
-          aria-hidden="true"
-        ></span>
-      </a>
+    <a class="case-skip" href="#case-content">Skip to case study</a>
+    <div class="nav-wrap">
+      <nav class="nav">
+        <div class="brand">
+          <a href="index.html" aria-label="Go to homepage"
+            ><i class="fa-solid fa-house" aria-hidden="true"></i> Bram
+            Peters<span class="dot" aria-hidden="true"></span
+          ></a>
+        </div>
+      </nav>
     </div>
 
-  </nav>
-</div>
-
-
-<div class="container">
-
-  <header class="project-header">
-
-    <span class="case-eyebrow">
-      <i
-        class="fa-solid fa-film"
-        aria-hidden="true"
-      ></i>
-
-      Portfolio highlight · Private prototype
-    </span>
-
-
-    <h1>
-      LELIBRAMBAS+ | AppleTV Family Archive
-    </h1>
-
-
-    <p class="tagline">
-      A television-first hobby project that turns home videos into a private, security-first, browsable family archive.
-    </p>
-
-
-    <figure>
-
-      <div class="case-hero-frame">
-        <iframe
-          src="https://bram-peters.com/lelibrambas"
-          title="LELIBRAMBAS+ DEMO"
-        ></iframe>
-          MOBILE:
-          Clickable screenshot
-        <a
-          class="case-hero-link"
-          href="https://bram-peters.com/lelibrambas"
-          target="_blank"
-          rel="noopener"
-          aria-label="Open LELIBRAMBAS+ demo"
+    <div class="container">
+      <header class="project-header">
+        <span class="case-eyebrow"
+          ><i class="fa-solid fa-film" aria-hidden="true"></i> Portfolio
+          highlight · Private prototype</span
         >
+        <h1>
+          LELIBRAMBAS+ | AppleTV Family Archive
+        </h1>
+        <p class="tagline">
+          A television-first hobby project that turns home videos into a private, security-first, browsable family archive.
+        </p>
 
-          <img
-            src="assets/lelibrambas-plus/screenshots/03-home.webp"
-            alt="LELIBRAMBAS+ television home screen — click to open demo"
-            width="1920"
-            height="980"
-          />
+<figure>
+  <div class="case-hero-frame">
 
-        </a>
+    <iframe
+      src="https://bram-peters.com/lelibrambas"
+      title="LELIBRAMBAS+ DEMO"
+      style="transform: scale(0.3333); border: none"
+    ></iframe>
 
-      </div>
+    <img
+      src="assets/lelibrambas-plus/screenshots/03-home.webp"
+      alt="LELIBRAMBAS+ television home screen"
+      width="1920"
+      height="1080"
+    />
 
+  </div>
 
-      <!--
-        DESKTOP CAPTION
-      -->
-      <figcaption
-        class="case-hero-caption case-hero-caption-desktop"
-      >
-        <span>
-          Live LELIBRAMBAS+ prototype
-        </span>
+  <!-- Desktop caption -->
+  <figcaption class="case-hero-caption case-hero-caption-desktop">
+    <span>Live LELIBRAMBAS+ prototype</span>
+    <span>All visible media and artwork are synthetic</span>
+  </figcaption>
 
-        <span>
-          All visible media and artwork are synthetic
-        </span>
-      </figcaption>
+  <!-- Mobile caption -->
+  <figcaption class="case-hero-caption case-hero-caption-mobile">
+    Click to open
+    <a
+      href="https://bram-peters.com/lelibrambas"
+      target="_blank"
+      rel="noopener"
+    >DEMO</a>
+  </figcaption>
 
-
-      <!--
-        MOBILE CAPTION
-      -->
-      <figcaption
-        class="case-hero-caption case-hero-caption-mobile"
-      >
-        Click to open
-
-        <a
-          href="https://bram-peters.com/lelibrambas"
-          target="_blank"
-          rel="noopener"
-        >
-          DEMO
-        </a>
-      </figcaption>
-
-    </figure>
-
-  </header>
-
-</div>
-
+</figure>
+      </header>
 
       <main class="page-two-columns" id="case-content">
         <section class="left-col" aria-label="Lelibrambas+ case study">
