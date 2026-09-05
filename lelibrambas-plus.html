@@ -38,54 +38,127 @@
       href="favicon_portfolio/favicon-16x16.png"
     />
     <link rel="manifest" href="favicon_portfolio/site.webmanifest" />
-    
-  <style>
+    <style>
   /* =========================================
-     DESKTOP — WIDER LIVE DEMO ONLY
+     LELIBRAMBAS+ HERO
      ========================================= */
 
   .lelibrambas-case .case-hero-frame {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 16px;
     background: #000;
+    border-radius: 16px;
   }
 
-  /* Make ONLY the hero wider than the normal content */
+
+  /* =========================================
+     DESKTOP
+     ========================================= */
+
   @media (min-width: 768px) {
+
+    /*
+     * ONLY the demo becomes wider.
+     * The rest of the page stays exactly
+     * the same width.
+     */
     .lelibrambas-case .case-hero-frame {
       width: 85vw;
       max-width: 1800px;
       margin-left: 50%;
       transform: translateX(-50%);
+
+      /*
+       * TV bezel
+       */
+      padding: 6px;
+      box-sizing: border-box;
+
+      background: #111;
+      border-radius: 20px;
+
+      /*
+       * Subtle TV-like shadow
+       */
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.18),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+      /*
+       * Do NOT put overflow:auto here.
+       */
+      overflow: hidden;
     }
-  }
 
-  /* Desktop: live iframe */
-  .lelibrambas-case .case-hero-frame iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
-  }
 
-  /* Desktop: don't show screenshot */
-  .lelibrambas-case .case-hero-frame img {
-    display: none;
-  }
+    /*
+     * Inner TV screen / viewport
+     */
+    .lelibrambas-case .case-demo-viewport {
+      position: relative;
 
-  /* Desktop caption */
-  .lelibrambas-case .case-hero-caption-desktop {
-    display: flex;
-  }
+      width: 100%;
+      height: 100%;
 
-  /* Mobile caption hidden */
-  .lelibrambas-case .case-hero-caption-mobile {
-    display: none;
+      overflow: auto;
+
+      background: #000;
+
+      border-radius: 14px;
+
+      /*
+       * Make scrollbar visible when needed
+       */
+      scrollbar-width: auto;
+    }
+
+
+    /*
+     * Live demo iframe
+     */
+    .lelibrambas-case .case-demo-viewport iframe {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      min-width: 0;
+      min-height: 0;
+
+      border: 0;
+      border-radius: 14px;
+
+      /*
+       * IMPORTANT:
+       * No transform / scale here.
+       */
+      transform: none;
+    }
+
+
+    /*
+     * Hide mobile screenshot on desktop
+     */
+    .lelibrambas-case .case-hero-frame img {
+      display: none;
+    }
+
+
+    /*
+     * Desktop caption
+     */
+    .lelibrambas-case .case-hero-caption-desktop {
+      display: flex;
+    }
+
+
+    /*
+     * Hide mobile caption
+     */
+    .lelibrambas-case .case-hero-caption-mobile {
+      display: none;
+    }
   }
 
 
@@ -95,45 +168,107 @@
 
   @media (max-width: 767px) {
 
-    /* Keep the original mobile frame width */
+    /*
+     * Normal mobile frame.
+     * The page width itself is unchanged.
+     */
     .lelibrambas-case .case-hero-frame {
       width: 100%;
       aspect-ratio: 16 / 9;
+
       border-radius: 12px;
+
+      overflow: hidden;
+
+      padding: 0;
+      background: #000;
+
+      box-shadow: none;
     }
 
-    /* Hide live demo */
-    .lelibrambas-case .case-hero-frame iframe {
+
+    /*
+     * Hide desktop live demo
+     */
+    .lelibrambas-case .case-demo-viewport {
       display: none;
     }
 
-    /* Show screenshot */
+
+    /*
+     * Show screenshot
+     */
     .lelibrambas-case .case-hero-frame img {
       display: block;
+
       position: absolute;
       inset: 0;
+
       width: 100%;
       height: 100%;
+
       object-fit: cover;
     }
 
-    /* Hide desktop caption */
+
+    /*
+     * Make the entire screenshot clickable
+     */
+    .lelibrambas-case .case-hero-link {
+      position: absolute;
+      inset: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      z-index: 2;
+    }
+
+
+    /*
+     * Mobile tap feedback
+     */
+    .lelibrambas-case .case-hero-link img {
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+
+    .lelibrambas-case .case-hero-link:active img {
+      transform: scale(0.99);
+      opacity: 0.9;
+    }
+
+
+    /*
+     * Hide desktop caption
+     */
     .lelibrambas-case .case-hero-caption-desktop {
       display: none;
     }
 
-    /* Show mobile caption */
+
+    /*
+     * Show mobile caption
+     */
     .lelibrambas-case .case-hero-caption-mobile {
       display: block;
       text-align: center;
     }
 
+
+    /*
+     * DEMO link
+     */
     .lelibrambas-case .case-hero-caption-mobile a {
       text-decoration: underline;
       font-weight: 600;
     }
   }
-  </style>
+</style>
   </head>
   <body class="lelibrambas-case">
     <a class="case-skip" href="#case-content">Skip to case study</a>
@@ -167,7 +302,6 @@
     <iframe
       src="https://bram-peters.com/lelibrambas"
       title="LELIBRAMBAS+ DEMO"
-      style="transform: scale(0.3333); border: none"
     ></iframe>
 
     <img
