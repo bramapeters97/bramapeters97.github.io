@@ -38,6 +38,106 @@
       href="favicon_portfolio/favicon-16x16.png"
     />
     <link rel="manifest" href="favicon_portfolio/site.webmanifest" />
+    
+  <style>
+    /* =========================================
+       LELIBRAMBAS+ HERO
+       ========================================= */
+
+    /* Desktop: make the case-study container wider */
+    .lelibrambas-case .container {
+      max-width: 1800px;
+      width: calc(100% - 80px);
+      margin: 0 auto;
+    }
+
+    /* Hero frame */
+    .lelibrambas-case .case-hero-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #000;
+    }
+
+    /* Desktop: show live iframe */
+    .lelibrambas-case .case-hero-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* Desktop: hide screenshot */
+    .lelibrambas-case .case-hero-frame img {
+      display: none;
+    }
+
+    /* Desktop caption */
+    .lelibrambas-case .case-hero-caption-desktop {
+      display: flex;
+    }
+
+    /* Mobile caption hidden on desktop */
+    .lelibrambas-case .case-hero-caption-mobile {
+      display: none;
+    }
+
+
+    /* =========================================
+       MOBILE
+       ========================================= */
+
+    @media (max-width: 767px) {
+
+      /* Normal mobile page width */
+      .lelibrambas-case .container {
+        width: calc(100% - 32px);
+        max-width: none;
+      }
+
+      /* Keep 16:9 frame */
+      .lelibrambas-case .case-hero-frame {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+      }
+
+      /* Hide live demo */
+      .lelibrambas-case .case-hero-frame iframe {
+        display: none;
+      }
+
+      /* Show screenshot */
+      .lelibrambas-case .case-hero-frame img {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Hide desktop caption */
+      .lelibrambas-case .case-hero-caption-desktop {
+        display: none;
+      }
+
+      /* Show mobile caption */
+      .lelibrambas-case .case-hero-caption-mobile {
+        display: block;
+        text-align: center;
+      }
+
+      .lelibrambas-case .case-hero-caption-mobile a {
+        text-decoration: underline;
+        font-weight: 600;
+      }
+    }
+  </style>
   </head>
   <body class="lelibrambas-case">
     <a class="case-skip" href="#case-content">Skip to case study</a>
@@ -65,26 +165,40 @@
           A television-first hobby project that turns home videos into a private, security-first, browsable family archive.
         </p>
 
-        <figure>
-          <div class="case-hero-frame">
-            <iframe 
-              src="https://bram-peters.com/lelibrambas" 
-              title="LELIBRAMBAS+ DEMO"
-              width="1920"
-              height="1080"
-              ></iframe>
-            <img
-              src="assets/lelibrambas-plus/screenshots/03-home.webp"
-              alt="LELIBRAMBAS+ television home screen with a Swedish family-film feature and curated archive rails"
-              width="1920"
-              height="1080"
-            />
-          </div>
-          <figcaption class="case-hero-caption">
-            <span>Actual 1920 × 1080 prototype capture</span
-            ><span>All visible media and artwork are synthetic</span>
-          </figcaption>
-        </figure>
+<figure>
+  <div class="case-hero-frame">
+
+    <iframe
+      src="https://bram-peters.com/lelibrambas"
+      title="LELIBRAMBAS+ DEMO"
+    ></iframe>
+
+    <img
+      src="assets/lelibrambas-plus/screenshots/03-home.webp"
+      alt="LELIBRAMBAS+ television home screen"
+      width="1920"
+      height="1080"
+    />
+
+  </div>
+
+  <!-- Desktop caption -->
+  <figcaption class="case-hero-caption case-hero-caption-desktop">
+    <span>Live LELIBRAMBAS+ prototype</span>
+    <span>All visible media and artwork are synthetic</span>
+  </figcaption>
+
+  <!-- Mobile caption -->
+  <figcaption class="case-hero-caption case-hero-caption-mobile">
+    Click to open
+    <a
+      href="https://bram-peters.com/lelibrambas"
+      target="_blank"
+      rel="noopener"
+    >DEMO</a>
+  </figcaption>
+
+</figure>
       </header>
 
       <main class="page-two-columns" id="case-content">
