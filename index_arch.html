@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VVZK9H0J0T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VVZK9H0J0T');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Bram Peters – Portfolio</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
+  <link rel="manifest" href="favicon_portfolio/site.webmanifest">
+
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .collapsible-card {
+      position: relative;
+    }
+
+    .collapsible-card .section-title {
+      padding-right: 3rem;
+    }
+
+    .collapse-toggle {
+      position: absolute;
+      top: 1.18rem;
+      right: 1.35rem;
+      z-index: 2;
+      width: 2rem;
+      height: 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: #2d3b54;
+      cursor: pointer;
+      filter: drop-shadow(0 2px 4px rgba(28, 38, 60, .18));
+      transition: transform .22s ease, color .22s ease, filter .22s ease;
+    }
+
+    .collapse-toggle:hover,
+    .collapse-toggle:focus-visible {
+      outline: none;
+      transform: translateY(-1px) scale(1.08);
+      color: #182337;
+      filter: drop-shadow(0 4px 7px rgba(28, 38, 60, .24));
+    }
+
+    .collapse-toggle i {
+      font-size: 1.08rem;
+      transition: transform .24s ease;
+    }
+
+    .collapsible-card.is-open .collapse-toggle i {
+      transform: rotate(180deg);
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height .35s ease, opacity .24s ease;
+    }
+
+    .collapsible-card.is-open .collapsible-content {
+      max-height: var(--collapse-height, 1600px);
+      opacity: 1;
+    }
+
+
+    @media (min-width: 901px) and (hover: hover) {
+      .collapsible-card:not(.is-open) {
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .collapsible-card:not(.is-open)::before,
+      .collapsible-card:not(.is-open)::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity .28s ease;
+      }
+
+      .collapsible-card:not(.is-open)::before {
+        background:
+          linear-gradient(120deg, transparent 0%, rgba(214, 225, 238, .08) 36%, rgba(246, 249, 252, .32) 47%, rgba(174, 193, 213, .13) 56%, transparent 70%),
+          linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(178, 199, 222, .10));
+        transform: translateX(-115%);
+      }
+
+      .collapsible-card:not(.is-open)::after {
+        inset: 1px;
+        border-radius: inherit;
+        background: radial-gradient(circle at 50% 0%, rgba(238, 244, 250, .22), transparent 58%);
+      }
+
+      .collapsible-card:not(.is-open):hover::before,
+      .collapsible-card:not(.is-open):focus-within::before {
+        opacity: 1;
+        animation: collapsed-card-gloss 1.45s ease-in-out infinite;
+      }
+
+      .collapsible-card:not(.is-open):hover::after,
+      .collapsible-card:not(.is-open):focus-within::after {
+        opacity: 1;
+        animation: collapsed-card-pulse 1.45s ease-in-out infinite;
+      }
+    }
+
+    @keyframes collapsed-card-gloss {
+      0% { transform: translateX(-115%); }
+      58%, 100% { transform: translateX(115%); }
+    }
+
+    @keyframes collapsed-card-pulse {
+      0%, 100% { opacity: .16; }
+      50% { opacity: .34; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .collapsible-card:not(.is-open):hover::before,
+      .collapsible-card:not(.is-open):focus-within::before,
+      .collapsible-card:not(.is-open):hover::after,
+      .collapsible-card:not(.is-open):focus-within::after {
+        animation: none;
+      }
+    }
+
+    .portfolio-card.portfolio-card--disabled {
+      cursor: default;
+      background: rgba(83, 94, 113, .34);
+      border-color: rgba(77, 88, 108, .28);
+      box-shadow: inset 0 0 0 999px rgba(37, 45, 60, .08);
+      filter: brightness(.86) saturate(.72);
+    }
+
+    .portfolio-card.portfolio-card--disabled::after {
+      display: none;
+    }
+
+    .portfolio-card.portfolio-card--disabled:active {
+      transform: none;
+    }
+
+    .portfolio-card--disabled .article-wrapper img {
+      opacity: .82;
+    }
+
+    .portfolio-card.portfolio-card--disabled .article-body .project-status {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      gap: .35rem;
+      margin-top: auto;
+      padding: .32rem .62rem;
+      border: 1px solid rgba(44, 54, 72, .25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .32);
+      color: #3a4354;
+      font-size: .86rem;
+      font-weight: 600;
+    }
+
+    @media (hover: hover) {
+      .portfolio-card.portfolio-card--disabled:hover,
+      .portfolio-card.portfolio-card--disabled:focus-visible {
+        transform: none;
+        box-shadow: inset 0 0 0 999px rgba(37, 45, 60, .08);
+        z-index: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .65rem;
+      }
+
+      .portfolio-grid .portfolio-card {
+        width: 100%;
+        min-height: 0;
+        padding: 0;
+        border-radius: 11px;
+      }
+
+      .portfolio-grid .article-wrapper figure {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+      }
+
+      .portfolio-grid .article-body {
+        padding: .7rem;
+      }
+
+      .portfolio-grid .article-body h2 {
+        display: -webkit-box;
+        min-height: 2.35em;
+        margin-bottom: .35rem;
+        overflow: hidden;
+        font-size: .82rem;
+        line-height: 1.18;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .portfolio-grid .article-body p {
+        display: -webkit-box;
+        margin: 0 0 .65rem;
+        overflow: hidden;
+        font-size: .72rem;
+        line-height: 1.35;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+      }
+
+      .portfolio-grid .article-body a,
+      .portfolio-grid .article-body b,
+      .portfolio-card.portfolio-card--disabled .article-body .project-status {
+        font-size: .72rem;
+        line-height: 1.25;
+      }
+
+      .portfolio-card.portfolio-card--disabled .article-body .project-status {
+        gap: .25rem;
+        padding: .26rem .48rem;
+      }
+    }
+  </style>
+</head>
+  
+<body>
+  <div class="container">
+    <!-- HEADER CARD: spans full width -->
+    <div class="profile-header">
+      <img class="profile-pic" src="assets/img/Photo.png" alt="Profile Picture" />
+      <div class="header-intro">
+        <div class="header-row">
+          <div class="header-name">
+            <b>BRAM PETERS</b>
+            <a href="https://www.linkedin.com/in/bram-peters/" aria-label="LinkedIn">
+              <i style="color:#222" class="uil uil-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="header-cta-desktop" aria-label="Primary actions">
+            <button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()">
+              <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+              <span>Resume</span>
+            </button>
+          </div>
+        </div>
+        <div class="header-cta-mobile" aria-label="Primary actions">
+          <button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()">
+            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+            <span>Resume</span>
+          </button>
+          <a class="cta-btn ghost-btn" href="contact.html">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            <span>Get in touch!</span>
+          </a>
+        </div>
+        <div class="header-title">
+          Senior Data and BI Specialist, Product Designer<br />
+          MSc Human Technology Interaction | UX, UI &amp; Interaction Design &amp; Research
+        </div>
+        <!-- <div class="header-tagline">
+          <span class="glass-kw">Designing Data-Driven and User-Centered Experiences at the Intersection of Tech,
+            Psychology and Corporate Impact</span>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- ABOUT & CONTACT SIDE BY SIDE -->
+    <div class="header-split" id="contact">
+      <div class="card">
+        <div class="section-title icon-title about"><b>ABOUT ME</b></div>
+        <p style="font-weight:300;">
+          👋 Hi, I'm <b>Bram</b>! I am a <i>Business Intelligence Specialist </i> currently working at KLM Royal Dutch Airlines✈️ with a MSc background in <i>Human-Technology Interaction</i> engineering. I turn raw data into intuitive user-focused products that drive real organizational and societal impact. From ideation to constructing ETL pipelines, and developing front-end solutions, the projects that thrill me the most are those where I got to keep my stakeholders in the loop using UCD-methods and deliver <i>real</i> impactful products to them. I thrive in agile teams and take pride in every project I do, so <strong>let’s collaborate and create something powerful together!</strong>
+        </p>
+        <div class="quote-line"><i class="fa-solid fa-quote-right"></i><em>Bram</em></div>
+      </div>
+      <div class="card">
+        <div class="section-title icon-title contact"><b>CONTACT ME</b></div>
+        <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact"><a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a></span></div>
+        <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact"><a href="http://maps.google.com/?q=Amsterdam Netherlands">Amsterdam,
+              Netherlands</a></span></div>
+        <div><i class="fa-solid fa-globe" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact"><a href="https://bram-peters.com">bram-peters.com</a></span></div>
+        <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:0.6rem; width: 20px"></i><span
+            class="header-contact"><a href="https://www.linkedin.com/in/bram-peters/">LinkedIn</a></span></div>
+        <div class="card-cta-row desktop-cta">
+          <a class="cta-btn ghost-btn" href="contact.html">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            <span>Get in touch!</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Top Project (on-brand) ===== -->
+    <div class="section-title icon-title portfolio" id="portfolio" style="margin-bottom: 0px;"><span
+        style="font-weight: 200">Top Project | </span> Lost In Translation™</div>
+
+    <div class="lit-hero">
+      <div class="lit-header">
+        <div class="lit-brand" aria-label="Lost In Translation">
+          <img src="assets/img/favicon.png" alt="Lost In Translation logo" />
+          <div class="lit-tn">
+            <div class="lit-name">Lost In Translation™</div>
+            <div class="lit-tag">Global Transit, Local Nonsense™</div>
+          </div>
+        </div>
+        <div class="lit-badge lit-online" aria-label="Status"><a href="https://lostintranslation.nl">visit
+            <b>LostInTranslation.nl</b></a></div>
+      </div>
+
+      <p class="lit-sub">
+        Some very questionable AI-travel assistants have gone off the rails, dramatic, blunt, over-polite,
+        sometimes even a little tipsy, depending on who’s helping you. From their glorious incompetence comes a
+        gift worth getting lost for...
+      </p>
+
+      <div class="lit-steps" aria-label="How it will work">
+        <article class="lit-step">
+          <span class="lit-kicker"><span aria-hidden="true">📍</span> Step 1</span>
+          <h3>Choose your city</h3>
+          <p>Amsterdam to Tokyo, they'll map it beautifully.</p>
+        </article>
+
+        <article class="lit-step">
+          <span class="lit-kicker"><span aria-hidden="true">🗨️</span> Step 2</span>
+          <h3>Pick a language</h3>
+          <p>Watch them butcher it.</p>
+        </article>
+
+        <article class="lit-step">
+          <span class="lit-kicker"><span aria-hidden="true">🧑‍💼</span> Step 3</span>
+          <h3>Select your “AI” travel assistant</h3>
+          <p>Fully confident. Deeply unqualified. Professional? No. Entertaining? Absolutely.</p>
+
+          <div class="lit-pill-row" aria-label="Available assistants">
+            <span class="lit-pill">🇺🇸 Karen</span>
+            <span class="lit-pill">🇩🇪 Dieter</span>
+            <span class="lit-pill">🇳🇱 Gerrit</span>
+            <span class="lit-pill">🇸🇪 Agnes</span>
+            <span class="lit-pill">… More</span>
+          </div>
+        </article>
+      </div>
+    </div>
+    <!-- ===== End Top Project ===== -->
+
+    <div class="horizontal-split">
+      <div class="card collapsible-card" data-collapsible-panel="education">
+        <div class="section-title icon-title education" id="education-title">Education</div>
+        <button type="button" class="collapse-toggle" aria-expanded="false" aria-controls="education-content" aria-labelledby="education-title education-toggle-label">
+          <span id="education-toggle-label" class="sr-only">Toggle Education panel</span>
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="collapsible-content" id="education-content">
+        <ul>
+          <li><strong>MSc Human-Technology Interaction</strong><br><span>TU/e – Eindhoven, Netherlands</span></li>
+          <li><strong>Erasmus MSc Computer Science</strong><br><span>KTH – Stockholm, Sweden</span></li>
+          <li><strong>Erasmus MSc Interactive Media Technology</strong><br><span>KTH – Stockholm, Sweden</span></li>
+          <li><strong>BSc Psychology &amp; Technology</strong><br><span>TU/e – Eindhoven, Netherlands</span></li>
+        </ul>
+
+        <div class="section-title icon-title languages">Languages</div>
+        <ul class="language-list">
+          <li>
+            <span class="language-label">
+              <img src="https://flagcdn.com/w20/nl.png" alt="Netherlands flag" class="language-flag" />
+              <strong>Dutch</strong>
+            </span>
+            <span>Native</span>
+          </li>
+          <li>
+            <span class="language-label">
+              <img src="https://flagcdn.com/w20/gb.png" alt="United Kingdom flag" class="language-flag" />
+              <strong>English</strong>
+            </span>
+            <span>Near-native | Professional</span>
+          </li>
+          <li>
+            <span class="language-label">
+              <img src="https://flagcdn.com/w20/se.png" alt="Sweden flag" class="language-flag" />
+              <strong>Swedish</strong>
+            </span>
+            <span>Conversational</span>
+          </li>
+        </ul>
+
+        <div class="section-title icon-title certificates">Certificates</div>
+        <ul>
+          <li><strong>Data Storytelling with PowerBI &amp; Python </strong> – <span>Edureka (2025)</span></li>
+          <li><strong>Python for Data Science &amp; Engineering</strong> – <span>IBM (2025)</span></li>
+          <li><strong>UX Design</strong> – <span>Google (2025)</span></li>
+          <li><strong>Advanced BI Developer</strong> – <span>Computrain (2024)</span></li>
+          <li><strong>Advanced SQL Programmer</strong> – <span>Computrain (2024)</span></li>
+        </ul>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE CARD WITH TIMELINE -->
+      <div class="card card-experience collapsible-card" data-collapsible-panel="experience">
+        <div class="section-title icon-title experience" id="experience-title">Professional Experience</div>
+        <button type="button" class="collapse-toggle" aria-expanded="false" aria-controls="experience-content" aria-labelledby="experience-title experience-toggle-label">
+          <span id="experience-toggle-label" class="sr-only">Toggle Professional Experience panel</span>
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="collapsible-content" id="experience-content">
+        <ul class="experience-list">
+                    <li class="experience-item">
+            <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/KLM_logo.svg.png
+" alt="KLM logo" />
+              Business Intelligence-Specialist, KLM – Amsterdam Airport Schiphol, Netherlands
+            </strong> (Jun 2026 -
+            Present)
+            <span>Data, Transformation & Continuous Improvement | Airframe @ <b>Engineering & Maintenance</b>✈️</span>
+          </li>
+          
+          <li class="experience-item">
+            <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/favicon.png" alt="Lost In Translation logo" />
+              Owner/Founder, Lost In Translation™ | Amsterdam, Netherlands
+            </strong> (Sep 2025 -
+            Present)
+            <br>
+            <span>
+              Fully crafted, designed and implemented a design-driven e-commerce platform 'disguised' as a travel agency
+              webshop. Powered by personalized-AI, engaging UX, brand-focused storytelling and backed-up by cutting-edge
+              innovation. Maps so <b>wrong</b>, they feel just <b>right</b>. Visit
+              <a href="https://lostintranslation.nl"><b>lostintranslation.nl</b></a> for more info!
+            </span>
+          </li>
+
+          <li class="experience-item">
+            <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/uwv_logo.png" alt="UWV logo" />
+              Senior BI Advisor &amp; Product Designer, UWV SMZ – Amsterdam, Netherlands
+            </strong> (Jul 2025 – May 2026)
+            <span>Leading development of business intelligence data products within the Division of Social-Medical
+              Affairs. Responsible for ETL pipelines (SQL, SSIS/SSAS, Oracle), integrating external data sources, and
+              advanced DAX modeling. Designed Power BI dashboards tailored to government services in accordance with
+              Dutch social security legislation.</span>
+          </li>
+
+          <li class="experience-item">
+            <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/uwv_logo.png" alt="UWV logo" />
+              Data Analyst &amp; BI Specialist, UWV SMZ – Amsterdam, Netherlands
+            </strong> (Aug 2024 – Jul 2025)
+            <span>Built and optimized data pipelines and analytics dashboards. Transformed business requirements into
+              data models and managed integration between multiple agency data sources and internal BI tools for a range
+              of stakeholders.</span>
+          </li>
+
+          <li class="experience-item">
+            <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/serenit.png" alt="SerenIT-logo" />
+              Data/BI Specialist, SerenIT – Amsterdam, Netherlands
+            </strong> (Jan 2024 – Aug 2024)
+            <span>Delivered custom dashboards and reporting tools to public and private clients. Led stakeholder
+              workshops, defined KPIs, built DAX measures and SQL-based backend queries for data-driven insights.</span>
+          </li>
+
+          <li class="experience-item">
+            <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/tue_logo.png" alt="TU/e-logo" />
+              Master Thesis Project – TU/e Security Office – Eindhoven, Netherlands
+            </strong> (Dec 2022 – Oct 2023)
+            <span>Designed and implemented a student dashboard to support self-regulated learning. Conducted user
+              research, defined requirements with university security officers, iterated wireframes, and implemented the
+              tool using Power BI and UX methodologies.</span>
+          </li>
+
+          <li class="experience-item">
+            <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/tue_logo.png" alt="TU/e-logo" />
+              Frontend Developer, TU/e – Eindhoven, Netherlands
+            </strong> (Sep 2022 – Dec 2022)
+            <span>Built modular front-end components (React/Vue) integrated with Typo3, SharePoint, and educational
+              portals. Supported cross-team development on internal tools.</span>
+          </li>
+
+          <li class="experience-item">
+            <strong class="exp-title">
+              <img class="lit-icon" src="assets/img/bluejay_logo.png" alt="TU/e" />
+              UX Designer &amp; Android Developer, Blue Jay – Eindhoven, Netherlands
+            </strong> (Jun 2018 – Jun 2020)
+            <span>Designed a healthcare-oriented drone interface and mobile app. Played a full role in UX research,
+              iterative testing and final app delivery, including voice recognition features and mood-sensitive
+              lighting. Worked in an Agile team using Scrum.</span>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-columns">
+      <div>
+        <div class="section-title icon-title portfolio" id="portfolio">Portfolio</div>
+        <div class="portfolio-filter" data-portfolio-filter aria-label="Portfolio category filter">
+          <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-filter="Web Development" aria-pressed="false">Web
+            Development</button>
+          <button type="button" class="filter-btn" data-filter="Data Analytics" aria-pressed="false">Data
+            Analytics</button>
+          <button type="button" class="filter-btn" data-filter="UX/UI-design" aria-pressed="false">UX/UI-design</button>
+          <button type="button" class="filter-btn" data-filter="Business Intelligence" aria-pressed="false">Business
+            Intelligence</button>
+          <button type="button" class="filter-btn" data-filter="App Development" aria-pressed="false">App
+            Development</button>
+                                <button type="button" class="filter-btn" data-filter="Data Privacy"
+                                  aria-pressed="false">Data Governance</button>
+          <button type="button" class="filter-btn" data-filter="Videography" aria-pressed="false">Videography</button>
+
+
+        </div>
+        <div class="portfolio-grid">
+                    <!-- Portfolio Card 3 -->
+                    <article class="portfolio-card"
+                      data-categories="Data Analytics,App Development,Business Intelligence, UX/UI-design, Data Privacy">
+                      <div class="article-wrapper">
+                        <figure>
+                          <img src="assets/img/UWV3.png" alt="Lost In Translation" />
+                        </figure>
+                        <div class="article-body">
+                          <h2>UWV Monitor Arbeid & Gezondheid</h2>
+                          <p>A responsible BI project within UWV’s Socio-Medical Affairs division, designed to make the
+                            WIA process more transparent and understandable. The monitor turns sensitive socio-medical
+                            data into clear public insight on assessments, diagnoses, outcomes and regional trends.
+                            Built as part of a broader mission to support accountability, trust and better-informed
+                            conversations around work, health and reintegration.</p>
+                          <a href="uwvmonitorarbeidgezondheid.html"><b>Read my blogpost →</b></a>
+                        </div>
+                      </div>
+                    </article>
+          <!-- Portfolio Card 3 -->
+          <article class="portfolio-card"
+            data-categories="Web Development,Data Analytics,App Development,Business Intelligence">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/lostintranslation_web.jpg" alt="Lost In Translation" />
+              </figure>
+              <div class="article-body">
+                <h2>Lost In Translation™</h2>
+                <p>What began as a fun way to practice Swedish while living in Stockholm turned into a design project
+                  powered by AI. I built a custom algorithm and a cast of quirky AI travel-assistants, each with their
+                  own sass and personality, to generate metro maps with absurdly literal, customizable and perfectly
+                  imperfect translations. Soon, anyone can create a personalized, hilariously inaccurate transit map,
+                  crafted by my highly incapable bots. Global Transit, Local Nonsense. Just mind the (language) gap
+                  while we're at it.</p>
+                <a href="https://lostintranslation.nl"><b>Create your own poster! →</b></a>
+              </div>
+            </div>
+          </article>
+
+                    <!-- Lelibrambas+ -->
+          <article class="portfolio-card"
+            data-categories="Web Development,Videography,UX/UI-design,App Development,Data Privacy">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/lelibrambas-plus/screenshots/03-home.webp" width="1920" height="1080" loading="lazy"
+                  decoding="async" alt="Lelibrambas+ television home screen with archive categories and film rails" />
+              </figure>
+              <div class="article-body">
+                <h2 id="lelibrambas-card-title">LELIBRAMBAS+ | Family Archive Streaming</h2>
+                <p id="lelibrambas-card-summary">Designed and built LELIBRAMBAS+, a premium Netflix-inspired family streaming platform for preserving and sharing personal video archives on Apple TV, desktop and mobile. End-to-end product development spanning UX/UI, data architecture, web development, cloud infrastructure, APIs, and responsive media experiences.
+</p>
+                <a href="https://bram-peters.com/lelibrambas-plus.html"><b>DEMO → </b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio Card 1 -->
+          <article class="portfolio-card" data-categories="UX/UI-design,Business Intelligence,Data Analytics, Data Privacy">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/dashboard1.jpg" alt="TU/e Learning Dashboard" />
+              </figure>
+              <div class="article-body">
+                <h2>TU/e Learning Dashboard</h2>
+                <p>
+                  I laid the groundwork for a new learning dashboard that visualizes
+                  academic performance and provides dynamic recommendations on how students can improve their learning
+                  for TU/e's Canvas-platform. Mapped user journeys, set-up ETL processes, and developed an intuitive
+                  data visualization tool that empowers students to track their academic progress in real time.
+                </p>
+                <a href="tuelearningdashboard.html"><b>Read More →</b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio Card 2 -->
+          <article class="portfolio-card" data-categories="UX/UI-design,App Development,Data Analytics">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/BlueJay1.jpg" alt="Blue Jay Drone" />
+              </figure>
+              <div class="article-body">
+                <h2>The 'Emotional' Drone</h2>
+                <p>At Blue Jay, my team and I were committed to creating a drone that can assist healthcare workers in
+                  their daily tasks and can serve as an an intelligent companion for patients. The goal at Blue Jay is
+                  to expand the capabilities of intelligent systems by developing drones that are safe, autonomous,
+                  interactive, and helpful.
+                </p>
+                <a href="theemotionaldrone.html"><b>Read More → </b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio Card 4 -->
+          <article class="portfolio-card" data-categories="UX/UI-design">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/doula_portfolio.png" alt="Doula App" />
+              </figure>
+              <div class="article-body">
+                <h2>Doula | UX/UI Case Study</h2>
+                <p>For a 10-hour time limited UX/UI Case Study, I was given the opportunity to redesign an outdated
+                  pregnancy symptom and contraction tracker app. My process involved in-depth user and usability
+                  research to identify and address key pain points within the existing app. The result? A transformation
+                  of the app's visual style and a substantial enhancement of the user experience.
+                </p>
+                <a href="doulauxuicasestudy.html"><b>Case Study →</b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio Card 5 -->
+          <article class="portfolio-card" data-categories="Web Development,Data Analytics">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/portfolio2.jpg" alt="Vinobo" />
+              </figure>
+              <div class="article-body">
+                <h2>Vinobo</h2>
+                <p>
+                  This webtool allows students to watch and annotate YouTube videos
+                  and search for keywords in the video's transcript to find relevant parts in the video.
+                  Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user
+                  accounts.
+                </p>
+                <a href="vinobo.html"><b>Full Demo →</b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio Card 6 -->
+          <article class="portfolio-card" data-categories="UX/UI-design">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/spotifyfull.png" alt="Spotify Podcast" />
+              </figure>
+              <div class="article-body">
+                <h2>Reimagining Spotify Podcasts</h2>
+                <p>For a project at KTH, we embarked on a mission to enhance Spotify's Podcast section. Employing the
+                  Double Diamond framework, our design approach centered on goal-oriented strategies to uncover and meet
+                  user expectations and tap into the strengths and tackle the weakpoints of the current Spotify-app.
+                </p>
+                <hr />
+                <a href="reimaginingspotifypodcasts.html"><b>Read More →</b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio Card 7 -->
+          <article class="portfolio-card" data-categories="UX/UI-design">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/rodebjer.png" alt="Raspberries Shopping Assistant" />
+              </figure>
+              <div class="article-body">
+                <h2>Raspberries Shopping Assistant</h2>
+                <p>Crowded fitting rooms. Pushy sales staff. Or worse, none at all when you need them. For many,
+                  in-store shopping can feel more like a chore than a pleasure.
+                  That’s why my project-team and I created Rodebjer’s Digital Shopping Assistant, a seamless in-store
+                  UX that puts control back in the hands of the customer. </p>
+                <a href="raspberriesshoppingassistant.html"><b>View Workbook →</b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio Card 8 -->
+          <article class="portfolio-card" data-categories="Web Development">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/honeymoon.jpg" alt="The Honeymoon Webshop" />
+              </figure>
+              <div class="article-body">
+                <h2>The Honeymoon Webshop</h2>
+                <p>One of my favorite personal projects is creating "The Honeymoon Webshop" for newlyweds. I built a
+                  custom website that lets wedding guests buy and customize honeymoon gifts like activities and hotel
+                  stays. Releasing a first version for my own sister's wedding, all the thoughtful presents and messages
+                  purchased on the website were beautifully displayed on a bulletin-style collage frame.</p>
+                <a href="mailto:bramapeters@outlook.com"><b>→ Contact Me</b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio Card 9 -->
+          <article class="portfolio-card" data-categories="Videography">
+            <div class="article-wrapper">
+              <figure>
+                <img src="assets/img/jmeijer.jpg" alt="J. Meijer BV" />
+              </figure>
+              <div class="article-body">
+                <h2>J. Meijer B.V. 40 Jaar</h2>
+                <p>“A Day in the Life of Luca Orvini” was a lighthearted side project that let me explore my
+                  interest in videography in the form of a company anniversy gift for my brother-in-law Luca
+                  Orvini, celebrating his and his team's 5 years in business together.
+                  What started with a simple design brief by Luca himself, quickly turned into a playful short
+                  film with a PG-13 rating that was received surprisingly well.</p>
+                <a href="jmeijerbv40jaareendaginhetlevenvanlucaorvini.html"><b>→ Video</b></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio Card 10 -->
+          <article class="portfolio-card" data-categories="Web Development" data-always-visible data-next-project-card
+            tabindex="0" role="link" aria-label="Contact Bram about the next project">
+            <div class="article-wrapper">
+              <figure>
+                <div
+                  style="display:flex;justify-content:center;align-items:center;height:100%;background-color:rgb(233,233,233)">
+                  <img src="assets/img/questionmark.png" style="width: 25%; opacity: 80%;" alt="Next Project" />
+                </div>
+              </figure>
+              <div class="article-body">
+                <h2>My Next Project</h2>
+                <p>I'm always looking for new challenges to combine my design and development expertise. <b>Let’s
+                    connect!</b></p>
+                <a href="contact.html"><b>→ Contact Me</b></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title icon-title skills">Skills</div>
+        <div class="skill-glass-card">
+          <strong>Business Intelligence Advisor | </strong>
+          <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+          <span style="font-weight: 300">
+            Power BI/DAX, SQL, SSIS/SSAS, ETL, RLS/OLS, data quality &amp; lineage, GDPR-compliant reporting,
+            policy-driven
+            KPIs, performance tuning,
+            paginated reports, stakeholder-ready dashboards for agencies
+          </span>
+        </div>
+        
+        <div class="skills-card-list">
+          <div class="skill-glass-card">
+            <strong>Data Analytics | </strong>
+            <strong style="color: #6495ED; font-weight: 100">Expert</strong>
+            <span style="font-weight: 300">R, Stata, data mining, data engineering, scientific research methods, machine
+              learning, AI-programming
+              advanced analytics, statistical methods, A/B-testing</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>UX/UI &amp; Interaction Design | </strong>
+            <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+            <span style="font-weight: 300">Figma, Adobe XD, wireframing, prototyping, usability testing, user flows,
+              cognitive walkthroughs, design systems</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Frontend Development | </strong>
+            <strong style="color: #6495ED; font-weight: 20;">Proficient</strong>
+            <span style="font-weight: 300">HTML, CSS, JavaScript, TypeScript, React, Vue.js, Kotlin (Android), REST API
+              integration</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Cognitive &amp; Behavioral Insight | </strong>
+            <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+            <span style="font-weight: 300">Behavioral research methods, human cognition &amp; perception, human-robot
+              interaction, persuasive &amp; ethical design</span>
+          </div>
+                  <div class="skill-glass-card">
+                    <strong>Data Privacy & Governance | </strong>
+                    <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+                    <span style="font-weight: 300">
+                      GDPR, privacy-by-design, anonymisation, aggregation, data definitions, access
+                      control, RLS
+                    </span>
+                  </div>
+          <div class="skill-glass-card">
+            <strong>Research &amp; Methodology | </strong>
+            <strong style="color: #6495ED; font-weight: 100">Expert</strong>
+            <span style="font-weight: 300">User research, stakeholder interviews, Double Diamond, self-regulated
+              learning theory, storytelling, A/B testing</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Tools &amp; Platforms | </strong>
+            <strong style="color: #6495ED; font-weight: 20;">Proficient</strong>
+            <span style="font-weight: 300">SharePoint, Typo3, Git, Microsoft Azure, Power Automate, JIRA, Confluence,
+              Databricks</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Agile &amp; Scrum Delivery | </strong>
+            <strong style="color: #6495ED; font-weight: 1;">Intermediate</strong>
+            <span style="font-weight: 300">Sprint planning, backlog refinement, iterative development, stakeholder
+              management, cross-functional teamwork, demos &amp; presentations, user stories</span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Project Start-Up &amp; Stakeholder Management | </strong>
+            <strong style="color: #6495ED; font-weight: 60">Advanced</strong>
+            <span style="font-weight: 300">
+              Discovery → scoping → kickoff, stakeholder mapping, requirements, delivery roadmap &amp; milestones,
+              change
+              management,
+              workshops, executives updating, cross-functional collaboration
+            </span>
+          </div>
+          <div class="skill-glass-card">
+            <strong>Hobbyist Passion: Videography | </strong>
+            <strong style="color: #6495ED; font-weight: 60">Proficient</strong>
+            <span style="font-weight: 300">
+              Cinematography, Directing &amp; Concept Development, Post-Production, Project Management
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/reveal.js"></script>
+
+  <script>
+    (function () {
+      const panels = Array.from(document.querySelectorAll('[data-collapsible-panel]'));
+      if (!panels.length) return;
+
+      const desktopQuery = window.matchMedia('(min-width: 901px)');
+
+      function setPanelOpen(panel, isOpen) {
+        const content = panel.querySelector('.collapsible-content');
+        const button = panel.querySelector('.collapse-toggle');
+        panel.classList.toggle('is-open', isOpen);
+        button.setAttribute('aria-expanded', String(isOpen));
+        if (content) {
+          content.style.setProperty('--collapse-height', `${content.scrollHeight}px`);
+        }
+      }
+
+      function syncHeights() {
+        panels.forEach(panel => {
+          const content = panel.querySelector('.collapsible-content');
+          if (content) {
+            content.style.setProperty('--collapse-height', `${content.scrollHeight}px`);
+          }
+        });
+      }
+
+      panels.forEach(panel => {
+        setPanelOpen(panel, false);
+        const button = panel.querySelector('.collapse-toggle');
+        function togglePanel() {
+          const shouldOpen = !panel.classList.contains('is-open');
+          if (desktopQuery.matches) {
+            panels.forEach(item => setPanelOpen(item, shouldOpen));
+          } else {
+            setPanelOpen(panel, shouldOpen);
+          }
+        }
+
+        button.addEventListener('click', togglePanel);
+
+        panel.addEventListener('click', event => {
+          const clickedControl = event.target.closest('button, a, input, select, textarea');
+          if (clickedControl || panel.classList.contains('is-open') || !desktopQuery.matches) return;
+          togglePanel();
+        });
+      });
+
+      window.addEventListener('resize', syncHeights);
+    })();
+  </script>
+  <script>
+    function downloadPDF() {
+      window.location.href = "assets/pdf/bapeters_cv.pdf";
+    }
+  </script>
+
+  <script>
+    (function () {
+      const cards = document.querySelectorAll('.portfolio-card');
+      cards.forEach(card => {
+        const link = card.querySelector('.article-body a');
+        if (!link || !link.href) return;
+
+        if (!card.hasAttribute('tabindex')) {
+          card.setAttribute('tabindex', '0');
+        }
+        card.setAttribute('role', 'link');
+
+        function followLink() {
+          window.location.href = link.href;
+        }
+
+        card.addEventListener('click', followLink);
+
+        card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            followLink();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <!-- LIT step reveal (scoped) -->
+  <script>
+    (function () {
+      const steps = document.querySelectorAll('.lit-steps .lit-step');
+      if (!steps.length) return;
+
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        steps.forEach(s => s.classList.add('in-view'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.35
+      });
+
+      steps.forEach(s => io.observe(s));
+    })();
+  </script>
+
+  <script src="assets/js/cookie-banner.js"></script>
+</body>
+
+</html>
