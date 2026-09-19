@@ -17,13 +17,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/case-study.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
     <link rel="manifest" href="favicon_portfolio/site.webmanifest">
 </head>
 
-<body>
+<body class="portfolio-case">
+    <a class="case-skip" href="#case-content">Skip to case study</a>
 
     <!-- Modal Popup -->
     <div id="imageModal" class="modal">
@@ -43,23 +45,22 @@
         <!-- NAV -->
 
         <!-- HEADER -->
-        <section class="project-header" role="banner">
-            <div class="section-title icon-title projects">Portfolio Highlight</div>
+        <header class="project-header">
+            <span class="case-eyebrow"><i class="fa-solid fa-star" aria-hidden="true"></i> Portfolio highlight</span>
             <h1>Redesigning Doula</h1>
             <p class="tagline">From Outdated to Empathetic: Redesigning a Pregnancy Symptom & Contraction Tracker </p>                <img src="assets/img/doula.png" alt="Screenshot of My Project" class="popup-trigger"
                     style="width:100%; height:auto; cursor:pointer;" />
-</section>
+</header>
 
         <!-- MAIN CONTENT -->
-        <main class="page-two-columns" role="main">
+        <main class="page-two-columns" id="case-content">
             <!-- LEFT -->
             <section class="left-col" aria-label="Project content">
                 <!-- Inside your Screenshot card -->
 
                 <article class="card">
-                    <div class="section-title icon-title about">A UX/UI-Design Case Study
-                    </div>
-                    <p class="placeholder-muted">
+                    <h2 class="case-section-heading"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>A UX/UI-Design Case Study</span></h2>
+                    <p class="placeholder-muted case-lead">
                         For a 10-hour time limited UX/UI Case Study, I was given the opportunity to redesign the design
                         for an outdated pregnancy symptom and contraction tracker app built in 2014. My process involved
                         in-depth user and usability research to identify and address key pain points within the existing
@@ -75,15 +76,14 @@
                     </p>
                 </article>
                 <article class="card">
-                    <div class="section-title icon-title projects">The Original App</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-image" aria-hidden="true"></i><span>The Original App</span></h2>
                     <div style="text-align: center; padding: 20px;">
                         <img src="assets/img/doulaold.png" alt="Screenshot of My Project" class="popup-trigger"
                             style="width:50%; height:auto; cursor:pointer; border-radius: 20px" />
                     </div>
                 </article>
                 <article class="card">
-                    <div class="section-title icon-title about">User Research
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i><span>User Research</span></h2>
                     <p class="placeholder-muted">
                         While my ideal approach would involve in-depth user interviews, think-aloud sessions, and data
                         analytics, the 10-hour time limit was the greatest rival. So, I pivoted, focusing on
@@ -117,8 +117,7 @@
                     </span></blockquote>
 
                 <article class="card">
-                    <div class="section-title icon-title portfolio">Competitor Analysis
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i><span>Competitor Analysis</span></h2>
                     <span style="width: 100%; text-align: center">
                         <img src="assets/img/otherapps.png" alt="Screenshot of My Project" class="popup-trigger"
                             style="width:75%; height:auto; cursor:pointer;" />
@@ -140,9 +139,8 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title portfolio">Usability Test | Jakob Nielson's Principles of
-                        Interaction Design
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i><span>Usability Test | Jakob Nielson's Principles of
+                        Interaction Design</span></h2>
                     <p class="placeholder-muted">
                         <ul style="font-weight: 200">
                             <li><b>• Visibility of System Status</b>: The app provides clear feedback on the homescreen
@@ -188,7 +186,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title portfolio">Screenshot</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Screenshot</span></h2>
                     <div class="media-shell">
                         <img src="assets/img/doulafull.png" alt="Screenshot of My Project" class="popup-trigger"
                             style="width:100%; height:auto; cursor:pointer;" />
@@ -202,10 +200,7 @@
                     ”<span class="quote-cite">— User Story</span></blockquote>
 
                 <article class="card">
-                    <div class="section-title icon-title portfolio">
-                        Acceptance Criteria:
-
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Acceptance Criteria:</span></h2>
                     <p class="placeholder-muted">
                         <ul style="font-weight: 200">
                             <li><b>• </b>Given that I am using the Doula
@@ -252,9 +247,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title portfolio">
-                        Rebranding
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Rebranding</span></h2>
                     <p class="placeholder-muted"><b style="font-weight: 400;">Updating the visual style</b><br><br>
                         I overhauled the color schemes, typography, and iconography to create a visually captivating and
                         modern interface that resonates with the app's purpose. By employing a clean color palette with
@@ -304,7 +297,7 @@
                 </article>
 
                                 <article class="card">
-                                    <div class="section-title icon-title projects">Figma Prototype</div>
+                                    <h2 class="case-section-heading"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span>Figma Prototype</span></h2>
                                 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="600px"
                                     src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FIdbZoPTBYvutOuIlQLhI9u%2FDoula%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D14-147%26viewport%3D192%252C210%252C0.24%26t%3DYvtLBLYoMpkqtCKi-1%26scaling%3Dscale-down%26starting-point-node-id%3D14%253A147%26mode%3Ddesign"
                                     allowfullscreen></iframe>
@@ -314,7 +307,7 @@
 
 
                 <article class="card">
-                    <div class="section-title icon-title certificates">Links</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Links</span></h2>
                     <p class="placeholder-muted"> <a
                             href="https://www.figma.com/proto/IdbZoPTBYvutOuIlQLhI9u/Doula?page-id=0%3A1&type=design&node-id=14-147&viewport=192%2C210%2C0.24&t=nrbYNOIpKkHOBmep-1&scaling=scale-down&starting-point-node-id=14%3A147"
                             class="publication-btn"
@@ -328,13 +321,13 @@
             </section>
 
             <!-- RIGHT -->
-            <aside class="card" aria-label="Skills used">
+            <aside class="card case-meta" aria-label="Project overview and skills">
                 <ul class="link-list">
                     <li><a
                             href="https://www.figma.com/proto/IdbZoPTBYvutOuIlQLhI9u/Doula?page-id=0%3A1&type=design&node-id=14-147&viewport=192%2C210%2C0.24&t=nrbYNOIpKkHOBmep-1&scaling=scale-down&starting-point-node-id=14%3A147"><i
                                 class="fa-solid fa-link"></i> Figma </a></li>
                 </ul>
-                <div class="section-title icon-title skills">Skills Used</div>
+                <h2 class="case-section-heading"><i class="fa-solid fa-shapes" aria-hidden="true"></i><span>Skills Used</span></h2>
                 <div class="skills-card-list">
           <div class="skill-glass-card">
               <strong>UX/UI & Interaction Design | </strong>

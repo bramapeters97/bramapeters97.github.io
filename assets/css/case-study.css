@@ -1,0 +1,398 @@
+.portfolio-case {
+  --case-ink: #20263a;
+  --case-muted: #5c667c;
+  --case-accent: #536dfe;
+  --case-accent-soft: rgba(83, 109, 254, 0.09);
+  --case-line: rgba(72, 88, 132, 0.16);
+  --case-surface: rgba(255, 255, 255, 0.72);
+  --case-surface-soft: rgba(246, 249, 255, 0.68);
+}
+
+.portfolio-case .container {
+  max-width: 1240px;
+}
+
+.portfolio-case .project-header {
+  padding: 2rem 0 1.4rem;
+}
+
+.portfolio-case .project-header h1 {
+  max-width: 960px;
+  margin: 0 0 0.8rem;
+  color: var(--case-ink);
+  font-size: clamp(2.15rem, 4.2vw, 3.65rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.portfolio-case .project-header .tagline {
+  display: block;
+  max-width: 830px;
+  margin: 0 0 1.75rem;
+  color: #4f5a72;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.65;
+  text-align: left;
+  hyphens: none;
+}
+
+.case-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: auto;
+  margin-bottom: 1.25rem;
+  color: #445075;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.case-skip {
+  position: fixed;
+  top: 8px;
+  left: 12px;
+  z-index: 6000;
+  padding: 0.7rem 0.9rem;
+  border-radius: 9px;
+  color: #fff;
+  background: #26304c;
+  transform: translateY(-160%);
+  transition: transform 0.15s ease;
+}
+
+.case-skip:focus {
+  transform: translateY(0);
+}
+
+.portfolio-case .page-two-columns {
+  grid-template-columns: minmax(0, 1fr) minmax(255px, 320px);
+  gap: 1.5rem;
+}
+
+.portfolio-case .left-col {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.portfolio-case .card {
+  scroll-margin-top: 95px;
+  border: 1px solid var(--case-line);
+  border-radius: 18px;
+  background: var(--case-surface);
+  box-shadow: 0 16px 45px rgba(37, 48, 82, 0.075);
+}
+
+.portfolio-case .left-col > .card {
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.portfolio-case .left-col > .quote-block {
+  margin: 0;
+}
+
+.portfolio-case .left-col .card > p,
+.portfolio-case .left-col .card li,
+.portfolio-case .placeholder-muted {
+  display: block;
+  width: auto;
+  color: #505a70;
+  line-height: 1.7;
+  text-align: left;
+  hyphens: none;
+}
+
+.portfolio-case .left-col .card > p:first-of-type {
+  margin-top: 0;
+}
+
+.portfolio-case .case-lead {
+  color: #394158;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.case-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: auto;
+  margin: 0 0 1rem;
+  color: var(--case-ink);
+  font-size: 1.12rem;
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.case-section-heading i {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 10px;
+  color: var(--case-accent);
+  background: var(--case-accent-soft);
+  font-size: 0.92rem;
+}
+
+.portfolio-case .media-shell,
+.portfolio-case .project-header > img,
+.portfolio-case .left-col .card > img,
+.portfolio-case .left-col .card > span > img,
+.portfolio-case .left-col .card > div:not(.section-title) > img {
+  border: 8px solid #151a28;
+  border-radius: 17px !important;
+  background: #090b12;
+  box-shadow: 0 24px 55px rgba(28, 39, 72, 0.18);
+}
+
+.portfolio-case .project-header > img {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  box-sizing: border-box;
+}
+
+.portfolio-case .media-shell {
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.portfolio-case .media-shell img,
+.portfolio-case .media-shell video,
+.portfolio-case .media-shell iframe {
+  display: block;
+  width: 100% !important;
+  max-width: none;
+  height: auto;
+  border: 0;
+  border-radius: 9px !important;
+  background: #090b12;
+}
+
+.portfolio-case .media-shell iframe {
+  min-height: 560px;
+}
+
+.portfolio-case .video-ph {
+  padding-top: 0;
+}
+
+.portfolio-case .video-ph .play,
+.portfolio-case .video-ph .play > div {
+  position: static;
+  width: 100%;
+  height: auto;
+}
+
+.portfolio-case .video-ph video {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.portfolio-case .quote-block {
+  position: relative;
+  padding: 1.2rem 1.35rem 1.2rem 1.55rem;
+  border: 1px solid rgba(83, 109, 254, 0.14);
+  border-left: 4px solid var(--case-accent);
+  border-radius: 0 14px 14px 0;
+  color: #36405a;
+  background: rgba(83, 109, 254, 0.055);
+  box-shadow: none;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.portfolio-case .quote-block::before {
+  display: none;
+}
+
+.portfolio-case .quote-cite {
+  margin-top: 0.65rem;
+  color: #68738a;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.portfolio-case .publication-btn,
+.portfolio-case .link-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: auto;
+  padding: 0.62rem 0.85rem;
+  border: 1px solid rgba(83, 109, 254, 0.16);
+  border-radius: 10px;
+  color: #3e4a69;
+  background: rgba(83, 109, 254, 0.055);
+  font-weight: 650;
+  line-height: 1.35;
+  text-align: left;
+  text-decoration: none;
+}
+
+.portfolio-case .publication-btn:hover,
+.portfolio-case .link-list a:hover {
+  color: #273355;
+  background: rgba(83, 109, 254, 0.11);
+}
+
+.portfolio-case .link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0;
+  margin: 0 0 1.2rem;
+  list-style: none;
+}
+
+.portfolio-case .link-list li {
+  width: auto;
+}
+
+.portfolio-case .case-meta {
+  position: sticky;
+  top: 92px;
+  align-self: start;
+  height: auto;
+  padding: 1.35rem;
+}
+
+.portfolio-case .skills-card-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.portfolio-case .skill-glass-card {
+  padding: 0.95rem;
+  border: 1px solid var(--case-line);
+  border-radius: 12px;
+  background: var(--case-surface-soft);
+  box-shadow: none;
+}
+
+.portfolio-case .skill-glass-card strong,
+.portfolio-case .skill-glass-card span {
+  display: block;
+}
+
+.portfolio-case .skill-glass-card strong:first-child {
+  margin-bottom: 0.25rem;
+  color: #2b344b;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.portfolio-case .skill-glass-card strong[style] {
+  margin-bottom: 0.35rem;
+  color: var(--case-accent) !important;
+  font-size: 0.68rem;
+  font-weight: 750 !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.portfolio-case .skill-glass-card span {
+  color: #677188;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.portfolio-case .left-col ul:not(.link-list) {
+  display: grid;
+  gap: 0.7rem;
+  padding-left: 1.2rem;
+}
+
+.portfolio-case .left-col li {
+  padding-left: 0.2rem;
+}
+
+.portfolio-case .left-col a:not(.publication-btn) {
+  color: #425bc7;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.portfolio-case iframe:not(.vinobo-frame) {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 14px;
+}
+
+.portfolio-case .vinobo-frame {
+  width: 100%;
+  min-height: 680px;
+}
+
+.portfolio-case.motion-ready .card.motion-fade-up {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  .portfolio-case .page-two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-case .case-meta {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-height: 850px) {
+  .portfolio-case .case-meta {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-case .project-header h1 {
+    font-size: 2.25rem;
+  }
+
+  .portfolio-case .left-col > .card,
+  .portfolio-case .case-meta {
+    padding: 1.1rem;
+  }
+
+  .portfolio-case .media-shell,
+  .portfolio-case .project-header > img,
+  .portfolio-case .left-col .card > img,
+  .portfolio-case .left-col .card > span > img,
+  .portfolio-case .left-col .card > div:not(.section-title) > img {
+    border-width: 5px;
+    border-radius: 13px !important;
+  }
+
+  .portfolio-case .media-shell iframe,
+  .portfolio-case .vinobo-frame {
+    min-height: 480px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-skip,
+  .portfolio-case * {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .portfolio-case .case-meta {
+    position: static;
+  }
+
+  .portfolio-case .motion-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

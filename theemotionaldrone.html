@@ -17,13 +17,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/case-study.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
     <link rel="manifest" href="favicon_portfolio/site.webmanifest">
 </head>
 
-<body>
+<body class="portfolio-case">
+    <a class="case-skip" href="#case-content">Skip to case study</a>
 
     <!-- Modal Popup -->
     <div id="imageModal" class="modal">
@@ -43,22 +45,22 @@
         <!-- NAV -->
 
         <!-- HEADER -->
-        <section class="project-header" role="banner">
-            <div class="section-title icon-title projects">Portfolio Highlight</div>
+        <header class="project-header">
+            <span class="case-eyebrow"><i class="fa-solid fa-star" aria-hidden="true"></i> Portfolio highlight</span>
             <h1>The 'Emotional' Drone</h1>
             <p class="tagline"> An intelligent drone companion that empowers and assists healthcare workers in their
                 daily tasks.
 
             </p>
-        </section>
+        </header>
 
         <!-- MAIN CONTENT -->
-        <main class="page-two-columns" role="main">
+        <main class="page-two-columns" id="case-content">
             <!-- LEFT -->
             <section class="left-col" aria-label="Project content">
                 <!-- Inside your Screenshot card -->
                 <article class="card">
-                    <div class="section-title icon-title portfolio">Meet Blue Jay</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Meet Blue Jay</span></h2>
                     <div class="media-shell">
                         <img src="assets/img/BlueJay1.jpg" alt="Screenshot of My Project" class="popup-trigger"
                             style="width:100%; height:auto; cursor:pointer;" />
@@ -68,9 +70,8 @@
 
 
                 <article class="card">
-                    <div class="section-title icon-title about">Our Health-Care Assistant
-                    </div>
-                    <p class="placeholder-muted">
+                    <h2 class="case-section-heading"><i class="fa-solid fa-robot" aria-hidden="true"></i><span>Our Health-Care Assistant</span></h2>
+                    <p class="placeholder-muted case-lead">
                         At Blue Jay, my team and I were committed to creating a drone that can assist healthcare workers
                         in their
                         daily tasks and can serve as an an intelligent companion for patients. The goal at Blue Jay is
@@ -100,7 +101,7 @@
                         that back to the nurses efficiently, effectively and intuitively.</p>
                 </article>
                 <article class="card">
-                    <div class="section-title icon-title projects">Promo Video</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><span>Promo Video</span></h2>
                     <div class="media-shell video-ph">
                         <div class="play">
                             <div style="display:grid;place-items:center;"><span class="placeholder-muted"> <video
@@ -112,8 +113,7 @@
                     </div>
                 </article>
                 <article class="card">
-                    <div class="section-title icon-title about">Programming Thought and Emotion
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-code" aria-hidden="true"></i><span>Programming Thought and Emotion</span></h2>
                     <p class="placeholder-muted">
                         This meant that the Blue Jay-drone had to be visibly present and approachable, yet perceived as
                         safe,
@@ -148,7 +148,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title portfolio">Demo Event</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><span>Demo Event</span></h2>
                     <div class="media-shell">
                         <img src="assets/img/BlueJay2.jpg" alt="Screenshot of My Project" class="popup-trigger"
                             style="width:100%; height:auto; cursor:pointer;" />
@@ -156,8 +156,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title about">The Blue Jay App
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-image" aria-hidden="true"></i><span>The Blue Jay App</span></h2>
 
                     <p class="placeholder-muted">Additionally, I worked as a Mobile App Developer for Blue Jay and
                         developed the Blue Jay Android-app, which
@@ -175,7 +174,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title portfolio">Demo Event</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><span>Demo Event</span></h2>
                     <div class="media-shell">
                         <img src="assets/img/bluejayapp.png" alt="Screenshot of My Project" class="popup-trigger"
                             style="width:100%; height:auto; cursor:pointer;" />
@@ -184,7 +183,7 @@
 
 
                 <article class="card">
-                    <div class="section-title icon-title certificates">Links</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Links</span></h2>
                     <p class="placeholder-muted"> <a href="https://www.aeroteameindhoven.nl" class="publication-btn"
                             target="_blank">
                             <i class="fa fa-file-alt" style="margin-right: 0.65em"></i>
@@ -196,11 +195,11 @@
             </section>
 
             <!-- RIGHT -->
-            <aside class="card" aria-label="Skills used">
+            <aside class="card case-meta" aria-label="Project overview and skills">
                 <ul class="link-list">
                     <li><a href="https://www.aeroteameindhoven.nl"><i class="fa-solid fa-link"></i> Blue Jay </a></li>
                 </ul>
-                <div class="section-title icon-title skills">Skills Used</div>
+                <h2 class="case-section-heading"><i class="fa-solid fa-shapes" aria-hidden="true"></i><span>Skills Used</span></h2>
                 <div class="skills-card-list">
                     <div class="skill-glass-card"><strong>BI & Data Analytics | </strong><strong
                             style="color:#6495ED;font-weight:100">Expert</strong><span style="font-weight:300">Power BI,

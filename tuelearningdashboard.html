@@ -17,13 +17,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/case-study.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
   <link rel="manifest" href="favicon_portfolio/site.webmanifest">
 </head>
 
-<body>
+<body class="portfolio-case">
+    <a class="case-skip" href="#case-content">Skip to case study</a>
 
   <!-- Modal Popup -->
   <div id="imageModal" class="modal">
@@ -43,21 +45,21 @@
     <!-- NAV -->
 
     <!-- HEADER -->
-    <section class="project-header" role="banner">
-      <div class="section-title icon-title projects">Portfolio Highlight</div>
+    <header class="project-header">
+      <span class="case-eyebrow"><i class="fa-solid fa-star" aria-hidden="true"></i> Portfolio highlight</span>
       <h1>TU/e Learning Dashboard</h1>
       <p class="tagline">Design and Evaluation of a Student-Facing Learning Dashboard Using Self-Regulated Learning
         Theory
       </p>
-    </section>
+    </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="page-two-columns" role="main">
+        <!-- MAIN CONTENT -->
+    <main class="page-two-columns" id="case-content">
       <!-- LEFT -->
       <section class="left-col" aria-label="Project content">
         <!-- Inside your Screenshot card -->
         <article class="card">
-          <div class="section-title icon-title portfolio">Screenshot</div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Screenshot</span></h2>
           <div class="media-shell">
             <img src="assets/img/dashboard1.jpg" alt="Screenshot of My Project" class="popup-trigger"
               style="width:100%; height:auto; cursor:pointer;" />
@@ -67,9 +69,8 @@
 
 
         <article class="card">
-          <div class="section-title icon-title about">Empowering Students: Data to Insights
-          </div>
-          <p class="placeholder-muted">
+          <h2 class="case-section-heading"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span>Empowering Students: Data to Insights</span></h2>
+          <p class="placeholder-muted case-lead">
             As online learning transforms into a powerful tool for institutions to reduce costs and expand access, it
             also opens the door to rich behavioral insights. Every click, scroll, and interaction reveals how students
             engage, struggle, and succeed—turning learning platforms into a goldmine of data. As a UX-/Product
@@ -96,8 +97,7 @@
           when I’m all in!”<span class="quote-cite">— Bram</span></blockquote>
 
         <article class="card">
-          <div class="section-title icon-title about">Self-Regulated Learning
-          </div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span>Self-Regulated Learning</span></h2>
           <p class="placeholder-muted">
             Self-regulated learning is about taking control of your learning journey. It involves
             setting goals and planning how to achieve them. As you work towards your goals, you
@@ -121,8 +121,7 @@
 
 
         <article class="card">
-          <div class="section-title icon-title about">The Design Process
-          </div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i><span>The Design Process</span></h2>
 
           <p class="placeholder-muted">Through an iterative user-centered design process—including several phases of
             user interviews,
@@ -150,7 +149,7 @@
         </article>
 
         <article class="card">
-          <div class="section-title icon-title projects">Demo Video</div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><span>Demo Video</span></h2>
           <div class="media-shell video-ph">
             <div class="play">
               <div style="display:grid;place-items:center;"><span class="placeholder-muted"> <video style="width:100%"
@@ -163,8 +162,7 @@
         </article>
 
         <article class="card">
-          <div class="section-title icon-title about">Final Product
-          </div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i><span>Final Product</span></h2>
           <p class="placeholder-muted">
             I designed and implemented a data-rich learning dashboard that supports self-regulated
             learning (SRL) for
@@ -179,7 +177,7 @@
         </article>
 
         <article class="card">
-          <div class="section-title icon-title certificates">Links</div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Links</span></h2>
           <p class="placeholder-muted">The project was such a success that it's currently being implemented at the
             Eindhoven University of Technology for students to use within their Canvas-environment. The research paper
             —which discusses in detail a literature review of self-regulated learning theory and an extensive
@@ -196,13 +194,13 @@
       </section>
 
       <!-- RIGHT -->
-      <aside class="card" aria-label="Skills used">
+      <aside class="card case-meta" aria-label="Project overview and skills">
         <ul class="link-list">
           <li><a
               href="https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin"><i
                 class="fa-solid fa-link"></i> Research Paper</a></li>
         </ul>
-        <div class="section-title icon-title skills">Skills Used</div>
+        <h2 class="case-section-heading"><i class="fa-solid fa-shapes" aria-hidden="true"></i><span>Skills Used</span></h2>
         <div class="skills-card-list">
           <div class="skill-glass-card"><strong>BI & Data Analytics | </strong><strong
               style="color:#6495ED;font-weight:100">Expert</strong><span style="font-weight:300">Power BI, DAX, SQL,

@@ -17,13 +17,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/case-study.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
   <link rel="manifest" href="favicon_portfolio/site.webmanifest">
 </head>
 
-<body>
+<body class="portfolio-case">
+    <a class="case-skip" href="#case-content">Skip to case study</a>
 
   <!-- Modal Popup -->
   <div id="imageModal" class="modal">
@@ -43,20 +45,20 @@
     <!-- NAV -->
 
     <!-- HEADER -->
-    <section class="project-header" role="banner">
-      <div class="section-title icon-title projects">Portfolio Highlight</div>
+    <header class="project-header">
+      <span class="case-eyebrow"><i class="fa-solid fa-star" aria-hidden="true"></i> Portfolio highlight</span>
       <h1>UWV Monitor Arbeid & Gezondheid</h1>
       <p class="tagline">Making one of The Netherland's most vital social safety nets transparent and publically accesible.
       </p>
-    </section>
+    </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="page-two-columns" role="main">
+        <!-- MAIN CONTENT -->
+    <main class="page-two-columns" id="case-content">
       <!-- LEFT -->
       <section class="left-col" aria-label="Project content">
         <!-- Inside your Screenshot card -->
         <article class="card">
-          <div class="section-title icon-title portfolio">Home Page</div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Home Page</span></h2>
           <div class="media-shell">
             <img src="assets/img/UWV2.png" alt="Screenshot of My Project" class="popup-trigger"
               style="width:100%; height:auto; cursor:pointer;" />
@@ -64,9 +66,8 @@
         </article>
 
         <article class="card">
-          <div class="section-title icon-title about">When illness becomes more than a sick day
-          </div>
-          <p class="placeholder-muted">
+          <h2 class="case-section-heading"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span>When illness becomes more than a sick day</span></h2>
+          <p class="placeholder-muted case-lead">
             Everyone gets sick once in a while. You wake up with a runny nose, blocked ears and that familiar thought:
             <i>'here we go again'</i>. You call in sick, stay in bed for a few days and wait for it to pass. Luckily, in the
             Netherlands, employees working under a regular employment contract do not immediately have to worry about
@@ -93,8 +94,7 @@
                     possible.</span></blockquote>
 
         <article class="card">
-          <div class="section-title icon-title about">Public Scrutiny and Distrust in UWV's WIA-services
-          </div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span>Public Scrutiny and Distrust in UWV's WIA-services</span></h2>
           <p class="placeholder-muted">
             A public safety net matters most when people’s health, ability to work and
               financial security are under pressure. In recent years, UWV’s delivery of the WIA has faced intense, justified public
@@ -114,7 +114,7 @@
  
 
                   <article class="card">
-                    <div class="section-title icon-title about">Transparency as a Form of Responsibility                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Transparency as a Form of Responsibility</span></h2>
                     <p class="placeholder-muted">
                                   UWV has invested in recovery activities, improvements to
                                     quality management,
@@ -152,8 +152,7 @@
 
 
         <article class="card">
-          <div class="section-title icon-title about">UWV Monitor Arbeid & Gezondheid
-          </div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span>UWV Monitor Arbeid & Gezondheid</span></h2>
           <p class="placeholder-muted">
             During my time as Senior Business Intelligence Advisor at the Socio-Medical Affairs Division, I developed the <b>UWV Monitor Arbeid & Gezondheid</b> which was part of UWV's broader strategy to both facilitate data-driven decision making internally as well as provide transparency externally. This dashboard provides a coherent view of UWV’s performance in it's execution of the WIA-law. It brings
             together complex medical, operational and administrative information and presents it in a structured,
@@ -172,7 +171,7 @@
       href="https://www.uwv.nl/nl/wia/zorgen-over-mogelijke-fouten-bij-arbeidsongeschiktheid"><B>🏛️UWV Hulp: Hersteloperatie WIA</B></a></span></blockquote>
 
         <article class="card">
-          <div class="section-title icon-title portfolio">WIA Medical Assessments-Page</div>
+          <h2 class="case-section-heading"><i class="fa-solid fa-image" aria-hidden="true"></i><span>WIA Medical Assessments-Page</span></h2>
             <img src="assets/img/UWV3.png" alt="Screenshot of My Project" class="popup-trigger"
               style="width:100%; height:auto; cursor:pointer;" />
                                       <i style="font-weight:200">Selected information has been blurred to protect
@@ -181,9 +180,8 @@
                                         publication.</i>
         </article>
 
-        <article class="card" style="margin-top: 25px">
-          <div class="section-title icon-title about">From Sensitive Operational Data to Public Transparency
-          </div>
+        <article class="card">
+          <h2 class="case-section-heading"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span>From Sensitive Operational Data to Public Transparency</span></h2>
           <p class="placeholder-muted">
             The
             original idea came from a key stakeholder who worked close to the operational process as an insurance
@@ -191,7 +189,7 @@
             a way that was clear, clean, transparent and consistent. Together we worked out an idea where the initial objective was to provide internal UWV
             employees with a shared and reliable view of the figures.</p>
           <p class="placeholder-muted">As the project developed, the <b>ambition</b> grew. Rather than limiting the monitor to
-            internal use, we began exploring how it could eventually be published on <a href="UWV.nl">UWV.nl</a>, making the information
+                        internal use, we began exploring how it could eventually be published on <a href="https://www.uwv.nl">UWV.nl</a>, making the information
             available to citizens, researchers, journalists. As well, it was intended to be a means to report back to the <b>Ministry of Social Affairs and Employment</b> in The Hague.          </p>
           <p class="placeholder-muted">That change in ambition fundamentally expanded the scope of the project. An
             internal management dashboard can rely on organisational context and specialist knowledge. A public monitor
@@ -205,9 +203,8 @@
 
 
 
-        <article class="card" style="margin-top: 25px">
-          <div class="section-title icon-title about">Technical Development, Privacy and Security
-          </div>
+        <article class="card">
+          <h2 class="case-section-heading"><i class="fa-solid fa-code" aria-hidden="true"></i><span>Technical Development, Privacy and Security</span></h2>
           <p class="placeholder-muted">
             On a technical level, I designed, developed, implemented and maintained the <b>complete BI solution</b>. My
             responsibilities covered the full data chain: integrating multiple source systems, developing and managing
@@ -225,8 +222,8 @@
             <p class="placeholder-muted"><b>The objective was to reveal meaningful patterns, never individual people.</b>
         </article>
 
-                <article class="card" style="margin-top: 25px">
-                  <div class="section-title icon-title portfolio">'First time here?'-Tour</div>
+                <article class="card">
+                  <h2 class="case-section-heading"><i class="fa-solid fa-image" aria-hidden="true"></i><span>'First time here?'-Tour</span></h2>
                   <div class="media-shell">
                     <img src="assets/img/UWV1.png" alt="Screenshot of My Project" class="popup-trigger"
                       style="width:100%; height:auto; cursor:pointer;" />
@@ -235,9 +232,8 @@
 
                 </article>
 
-        <article class="card" style="margin-top: 25px">
-          <div class="section-title icon-title about">BI as the <i>Right</i> Tool
-          </div>
+        <article class="card">
+          <h2 class="case-section-heading"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span>BI as the <i>Right</i> Tool</span></h2>
 
           <p class="placeholder-muted">The Monitor Arbeid & Gezondheid is one of the projects I am most proud of because
             it demonstrates what <b>business intelligence</b> can mean in a <b>societal context</b>.
@@ -256,8 +252,8 @@
             <b>rebuilding trust</b>.</p>
         </article>
 
-        <article class="card" style="margin-top: 25px">
-          <div class="section-title icon-title certificates">Links</div>
+        <article class="card">
+          <h2 class="case-section-heading"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Links</span></h2>
           <ul class="link-list">
             <li><a
                 href="https://www.uwv.nl/nl/arbeidsmarktinformatie/dashboards">📊UWV Public Dashboards</a></li>
@@ -271,8 +267,8 @@
       </section>
 
       <!-- RIGHT -->
-      <aside class="card" aria-label="Skills used">
-                <div class="section-title icon-title skills">Links</div>
+      <aside class="card case-meta" aria-label="Project overview and skills">
+                <h2 class="case-section-heading"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Links</span></h2>
            <ul class="link-list">
              <li><a href="https://www.uwv.nl/nl/arbeidsmarktinformatie/dashboards">📊UWV Public Dashboards</a></li>
              <li><a
@@ -280,7 +276,7 @@
                  <li><a
                      href="https://www.rijksoverheid.nl/actueel/nieuws/2025/03/24/uwv-controleert-43.000-uitkeringen-op-fouten">🏛️UWV Hersteloperatie</a></li>
            </ul>
-        <div class="section-title icon-title skills">Skills Used</div>
+        <h2 class="case-section-heading"><i class="fa-solid fa-shapes" aria-hidden="true"></i><span>Skills Used</span></h2>
 <div class="skills-card-list">
   <div class="skill-glass-card">
     <strong>BI & Data Analytics | </strong>

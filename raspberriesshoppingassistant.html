@@ -17,13 +17,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/case-study.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
     <link rel="manifest" href="favicon_portfolio/site.webmanifest">
 </head>
 
-<body>
+<body class="portfolio-case">
+    <a class="case-skip" href="#case-content">Skip to case study</a>
 
     <!-- Modal Popup -->
     <div id="imageModal" class="modal">
@@ -45,22 +47,22 @@
         <!-- NAV -->
 
         <!-- HEADER -->
-        <section class="project-header" role="banner">
-            <div class="section-title icon-title projects">Portfolio Highlight</div>
+        <header class="project-header">
+            <span class="case-eyebrow"><i class="fa-solid fa-star" aria-hidden="true"></i> Portfolio highlight</span>
             <h1>Raspberries Shopping Assistant
             </h1>
             <p class="tagline"> A newly envisioned Digital Shopping Assistant for Rodebjer that lets the customer decide
                 when, and what for, they need help.
             </p>
-        </section>
+        </header>
 
         <!-- MAIN CONTENT -->
-        <main class="page-two-columns" role="main">
+        <main class="page-two-columns" id="case-content">
             <!-- LEFT -->
             <section class="left-col" aria-label="Project content">
                 <!-- Inside your Screenshot card -->
                 <article class="card">
-                    <div class="section-title icon-title portfolio">Demo Video</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><span>Demo Video</span></h2>
                     <div class="media-shell">
                         <video style="width:100%" class="video-round" controls>
                             <source src="assets/img/raspberries.mp4" type="video/mp4">
@@ -70,16 +72,15 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title about">A new way to shop
-                    </div>
-                    <p class="placeholder-muted">
+                    <h2 class="case-section-heading"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>A new way to shop</span></h2>
+                    <p class="placeholder-muted case-lead">
                         The present-day shopping experience can be stressful and aggravating to some. Especially for
                         introverts shopping may be challenging for a number of reasons, such as invasive staff, crowded
                         clothing stores and a lack of self-efficacy. What about letting the customer decide when they
                         need assistance?</p>
                     <p class="placeholder-muted">The Digital Shopping Assistant helps them do just that. The digital
                         help desk bridges the gap between customers and salespeople by letting the customer decide when,
-                        and what for, they need help. For this project at <a href="kth.se">Kungliga Tekniska Högskolan
+                        and what for, they need help. For this project at <a href="https://www.kth.se">Kungliga Tekniska Högskolan
                             (KTH)</a>, we decided
                         to use the Rodebjer brand as an example product. Below you can find the UX-workbook that takes
                         you through the Double-Diamond Model that we used to conceptualize Raspberries. The workbook
@@ -89,16 +90,15 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title about">Workbook
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Workbook</span></h2>
                     <img src="assets/img/rodebjer.jpg" style="width: 100%; border-radius: 20px;">
                 </article>
 
             </section>
 
             <!-- RIGHT -->
-            <aside class="card" aria-label="Skills used">
-                <div class="section-title icon-title skills">Skills Used</div>
+            <aside class="card case-meta" aria-label="Project overview and skills">
+                <h2 class="case-section-heading"><i class="fa-solid fa-shapes" aria-hidden="true"></i><span>Skills Used</span></h2>
                 <div class="skills-card-list">
                     <div class="skill-glass-card">
                         <strong>UX/UI & Interaction Design | </strong>

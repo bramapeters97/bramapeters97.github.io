@@ -17,13 +17,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/case-study.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
     <link rel="manifest" href="favicon_portfolio/site.webmanifest">
 </head>
 
-<body>
+<body class="portfolio-case">
+    <a class="case-skip" href="#case-content">Skip to case study</a>
 
     <!-- Modal Popup -->
     <div id="imageModal" class="modal">
@@ -43,20 +45,20 @@
         <!-- NAV -->
 
         <!-- HEADER -->
-        <section class="project-header" role="banner">
-            <div class="section-title icon-title projects">Portfolio Highlight</div>
+        <header class="project-header">
+            <span class="case-eyebrow"><i class="fa-solid fa-star" aria-hidden="true"></i> Portfolio highlight</span>
             <h1>Reimagining Spotify Podcasts</h1>
             <p class="tagline">Elevating Spotify's Podcast Experience: Applying the Double Diamond Framework to
                 User-Centric Design</p>
-        </section>
+        </header>
 
         <!-- MAIN CONTENT -->
-        <main class="page-two-columns" role="main">
+        <main class="page-two-columns" id="case-content">
             <!-- LEFT -->
             <section class="left-col" aria-label="Project content">
                 <!-- Inside your Screenshot card -->
                                  <article class="card">
-                                     <div class="section-title icon-title portfolio">A Revamped Podcast Section</div>
+                                     <h2 class="case-section-heading"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span>A Revamped Podcast Section</span></h2>
                                      <div class="media-shell">
                 <img src="assets/img/spotifyfull.png" alt="Screenshot of My Project" class="popup-trigger"
                     style="width:100%; height:auto; cursor:pointer;" />
@@ -64,11 +66,10 @@
                                         </article>
 
                 <article class="card">
-                    <div class="section-title icon-title about">Designing for Listeners: A Double Diamond Redesign of
-                        Spotify Podcasts
-                    </div>
-                    <p class="placeholder-muted">
-                        For a project at <a href="kth.se">Kungliga Tekniska Högskolan (KTH)</a> in Stockholm, Sweden, In
+                    <h2 class="case-section-heading"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i><span>Designing for Listeners: A Double Diamond Redesign of
+                        Spotify Podcasts</span></h2>
+                    <p class="placeholder-muted case-lead">
+                        For a project at <a href="https://www.kth.se">Kungliga Tekniska Högskolan (KTH)</a> in Stockholm, Sweden, In
                         this project, we
                         employed the Double Diamond framework to revamp Spotify's podcast section. Our design approach
                         was goal-oriented, primarily centered on uncovering and meeting user expectations. The
@@ -78,8 +79,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title about">The Discovery Phase: <i>Think-Aloud & Interviews</i>
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i><span>The Discovery Phase: <i>Think-Aloud & Interviews</i></span></h2>
                     <p class="placeholder-muted">
                         Our project was centered on enhancing the podcast section of Spotify, and Thinking Aloud emerged
                         as the natural choice to delve into users' thought processes and identify pain points within the
@@ -100,7 +100,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title projects">Affinity Diagram</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i><span>Affinity Diagram</span></h2>
                     <div style="text-align: center; padding: 20px;">
                         <img src="assets/img/affinitydiagram.png" alt="Screenshot of My Project" class="popup-trigger"
                             style="width:100%; height:auto; cursor:pointer; border-radius: 20px" />
@@ -108,9 +108,8 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title about">The Define Phase: <i>Affinity Diagram</i>
-                        </i>
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i><span>The Define Phase: <i>Affinity Diagram</i>
+                        </i></span></h2>
                     <p class="placeholder-muted">
                         After gathering a large volume of qualitative data from our interviews and Think-Aloud sessions,
                         we needed a structured
@@ -140,7 +139,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title projects">Information Architecture</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Information Architecture</span></h2>
                     <div style="text-align: center; padding: 20px;">
                         <img src="assets/img/prototype_2.png" alt="Screenshot of My Project" class="popup-trigger"
                             style="width:100%; height:auto; cursor:pointer; border-radius: 20px" />
@@ -148,10 +147,9 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title about">The
+                    <h2 class="case-section-heading"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>The
                         Evaluation Phase: <i>Cooperative Evaluation
-                        </i>
-                    </div>
+                        </i></span></h2>
                     <p class="placeholder-muted">
                         To assess the prototype's usability, efficiency,
                         and effectiveness, cooperative evaluation was
@@ -187,8 +185,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title projects">
-                        Screenshots</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Screenshots</span></h2>
                     <div style="text-align: center; padding: 20px;">
                         <img src="assets/img/spotifyfull2.png" alt="Screenshot of My Project" class="popup-trigger"
                             style="width:100%; height:auto; cursor:pointer; border-radius: 20px" />
@@ -196,10 +193,7 @@
                 </article>
 
                 <article class="card">
-                    <div class="section-title icon-title about">
-Figma Prototype
-
-                    </div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span>Figma Prototype</span></h2>
                     <p class="placeholder-muted">
                         After successfully completing the double-diamond stages, we are proud to unveil our final
                         Spotify interface prototype. Our project aimed to enhance the Spotify Podcast section based on
@@ -226,8 +220,8 @@ Figma Prototype
             </section>
 
             <!-- RIGHT -->
-            <aside class="card" aria-label="Skills used">
-                <div class="section-title icon-title skills">Skills Used</div>
+            <aside class="card case-meta" aria-label="Project overview and skills">
+                <h2 class="case-section-heading"><i class="fa-solid fa-shapes" aria-hidden="true"></i><span>Skills Used</span></h2>
                 <div class="skills-card-list">
                     <div class="skill-glass-card">
                         <strong>UX/UI & Interaction Design | </strong>

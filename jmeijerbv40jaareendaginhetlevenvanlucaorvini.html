@@ -17,13 +17,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/case-study.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png">
     <link rel="manifest" href="favicon_portfolio/site.webmanifest">
 </head>
 
-<body>
+<body class="portfolio-case">
+    <a class="case-skip" href="#case-content">Skip to case study</a>
 
     <!-- Modal Popup -->
     <div id="imageModal" class="modal">
@@ -43,19 +45,19 @@
         <!-- NAV -->
 
         <!-- HEADER -->
-        <section class="project-header" role="banner">
-            <div class="section-title icon-title projects">Portfolio Highlight</div>
+        <header class="project-header">
+            <span class="case-eyebrow"><i class="fa-solid fa-star" aria-hidden="true"></i> Portfolio highlight</span>
             <h1>J.Meijer B.V. 40 Jaar 'Een dag in het leven van Luca Orvini'</h1>
             <p class="tagline">A playful “day‑in‑the‑life” tribute for the CEO’s 5‑year leadership milestone and the
                 company’s 40‑year anniversary.</p>
-        </section>
+        </header>
 
         <!-- MAIN CONTENT -->
-        <main class="page-two-columns" role="main">
+        <main class="page-two-columns" id="case-content">
             <!-- LEFT -->
             <section class="left-col" aria-label="Project content">
                 <article class="card">
-                    <div class="section-title icon-title projects">'Een dag in het leven van Luca Orvini'— Director’s Cut (~8:00) Video</div>
+                    <h2 class="case-section-heading"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><span>'Een dag in het leven van Luca Orvini'— Director’s Cut (~8:00) Video</span></h2>
                     <div class="media-shell video-ph">
                         <div class="play">
                             <div style="display:grid;place-items:center; width: 100%; height: 100%"><span class="placeholder-muted"> <video
@@ -67,12 +69,11 @@
                     </div>
                 </article>
                 <article class="card">
-                    <div class="section-title icon-title about">Videography Brief
-                    </div>
-                    <p class="placeholder-muted">
+                    <h2 class="case-section-heading"><i class="fa-solid fa-circle-play" aria-hidden="true"></i><span>Videography Brief</span></h2>
+                    <p class="placeholder-muted case-lead">
                                                     Outside of my professional work, I enjoy exploring storytelling
                                                     through <b>videography</b> as a hobby. For
-                                                   <a href="jmeijerbv.nl"><b>J. Meijer B.V.</b></a>, I produced a short celebration film marking a double
+                                                   <a href="https://www.jmeijerbv.nl"><b>J. Meijer B.V.</b></a>, I produced a short celebration film marking a double
                                                     milestone, the company’s
                                                     40th anniversary and the CEO’s 5-year leadership anniversary.
 
@@ -112,7 +113,7 @@
             </section>
 
             <!-- RIGHT -->
-            <aside class="card" aria-label="Skills used">
+            <aside class="card case-meta" aria-label="Project overview and skills">
                 <ul class="link-list">
                                                             <li><a href="https://www.youtube.com/watch?v=TOFKqdojvsw"><i
                                                                         class="fa-solid"></i>🎥 4K YouTube </a>
@@ -121,7 +122,7 @@
 
 
                 </ul>
-                <div class="section-title icon-title skills">Skills Used</div>
+                <h2 class="case-section-heading"><i class="fa-solid fa-shapes" aria-hidden="true"></i><span>Skills Used</span></h2>
                 <div class="skills-card-list">
                     
                     <div class="skill-glass-card"><strong>Videography

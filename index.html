@@ -89,6 +89,24 @@ body.portfolio-home {
   background: rgba(255,255,255,.38); border: 1px solid rgba(130,150,180,.16); font-size: .78rem; line-height: 1.4;
 }
 .certificates-grid li span { margin-top: .25rem; font-size: .73rem; font-weight: 400; }
+.experience-sidebar { display: grid; gap: 1rem; min-width: 0; }
+.education-card { display: grid; gap: .55rem; }
+.profile-disclosure { border-bottom: 1px solid rgba(130,150,180,.18); }
+.profile-disclosure:last-child { border-bottom: 0; }
+.profile-disclosure summary {
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+  padding: .25rem 0 .7rem; cursor: pointer; list-style: none;
+}
+.profile-disclosure summary::-webkit-details-marker { display: none; }
+.profile-disclosure summary .section-title { margin: 0; }
+.profile-disclosure summary:focus-visible { outline: 2px solid #426aa7; outline-offset: 3px; border-radius: 4px; }
+.disclosure-chevron { width: 17px; height: 17px; transition: transform .2s ease; color: #5c6879; }
+.profile-disclosure[open] .disclosure-chevron { transform: rotate(180deg); }
+.profile-disclosure-content { padding-bottom: .45rem; }
+.experience-sidebar .skills-section { min-width: 0; }
+.experience-sidebar .skills-card-list { margin-top: .55rem; }
+.portfolio-layout { display: block; }
+.portfolio-layout .portfolio-section { width: 100%; min-width: 0; }
 .portfolio-filter { gap: .45rem; }
 .portfolio-filter .filter-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
@@ -100,6 +118,30 @@ body.portfolio-home {
 .skill-title { display: block; font-size: .94rem; line-height: 1.3; }
 .skill-level { display: block; margin-top: .15rem; font-size: .79rem; font-weight: 500; color: #426aa7; }
 .skill-description { display: block; font-size: .85rem; font-weight: 400; line-height: 1.5; overflow-wrap: break-word; }
+.skill-glass-card.is-collapsible { cursor: pointer; }
+.skill-glass-card.is-collapsible:not(.is-expanded) .card-preview {
+  display: block; overflow: hidden; white-space: nowrap;
+}
+.skill-glass-card.is-collapsible:not(.is-expanded)::after {
+  content: "..."; display: block; align-self: flex-start; margin-top: -.05rem;
+  font-weight: 800; line-height: .8; letter-spacing: .08em; color: #2c3238;
+}
+.skill-glass-card.is-expanded .card-preview { white-space: normal; }
+.skill-glass-card:focus-visible { outline: 2px solid #426aa7; outline-offset: 3px; }
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.18), rgba(210,229,255,.07)),
+    rgba(255,255,255,.04);
+  border: 1.5px solid rgba(190,214,247,.28);
+  box-shadow: 0 8px 26px rgba(92,128,184,.07), inset 0 1px 0 rgba(255,255,255,.34);
+  backdrop-filter: blur(24px) saturate(135%);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+}
+@media (hover:hover) {
+  .portfolio-home .contact-card:hover {
+    border-color: rgba(130,182,255,.7);
+    box-shadow: 0 12px 30px rgba(92,128,184,.18), inset 0 1px 0 rgba(255,255,255,.78);
+  }
+}
 .preview-toggle {
   display: none; align-items: center; gap: .3rem; width: fit-content;
   margin: .25rem 0 0; padding: .15rem 0; min-height: 28px;
@@ -127,8 +169,17 @@ body.portfolio-home {
     transform: none; box-shadow: inset 0 0 0 999px rgba(37,45,60,.08); z-index: auto;
   }
 }
+@media (min-width:901px) {
+  .portfolio-home .portfolio-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+}
 @media (max-width:900px) {
   .horizontal-split.experience-layout { grid-template-columns: minmax(0,1fr); }
+  .experience-sidebar { display: contents; }
+  .profile-disclosure { border-bottom: 0; }
+  .profile-disclosure summary { cursor: default; padding: 0; }
+  .profile-disclosure summary .disclosure-chevron { display: none; }
+  .profile-disclosure:not([open]) > .profile-disclosure-content { display: block; }
+  .profile-disclosure-content { padding-bottom: 0; }
   .skills-card-list { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .65rem; }
   .skill-glass-card { padding: .8rem; border-radius: 12px; }
   .skill-title { font-size: .87rem; }
@@ -136,6 +187,9 @@ body.portfolio-home {
   [data-expandable].is-collapsible { cursor: pointer; }
   [data-expandable].is-collapsible:not(.is-expanded) .card-preview {
     display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden;
+  }
+  .skill-glass-card.is-collapsible:not(.is-expanded) .card-preview {
+    display: block; white-space: nowrap; -webkit-line-clamp: unset; line-clamp: unset;
   }
   [data-expandable].is-collapsible > .preview-toggle { display: inline-flex; }
   [data-expandable].is-expanded { border-color: rgba(66,106,167,.4); }
@@ -167,6 +221,8 @@ body.portfolio-home {
 }
 @media (prefers-reduced-motion:reduce) { .preview-toggle .ui-icon { transition: none; } }
 @media print {
+  .profile-disclosure-content { display: block !important; }
+  .disclosure-chevron { display: none !important; }
   [data-expandable] .card-preview { display: block !important; -webkit-line-clamp: unset !important; line-clamp: unset !important; overflow: visible !important; }
   .preview-toggle { display: none !important; }
 }
@@ -209,7 +265,7 @@ body.portfolio-home {
         <p style="font-weight:300;">&#128075; Hi, I'm <b>Bram</b>! I am a <i>Business Intelligence Specialist </i> currently working at KLM Royal Dutch Airlines&#9992;&#65039; with a MSc background in <i>Human-Technology Interaction</i> engineering. I turn raw data into intuitive user-focused products that drive real organizational and societal impact. From ideation to constructing ETL pipelines, and developing front-end solutions, the projects that thrill me the most are those where I got to keep my stakeholders in the loop using UCD-methods and deliver <i>real</i> impactful products to them. I thrive in agile teams and take pride in every project I do, so <strong>let&rsquo;s collaborate and create something powerful together!</strong></p>
         <div class="quote-line"><i class="fa-solid fa-quote-right" aria-hidden="true"></i><em>Bram</em></div>
       </div>
-      <div class="card">
+      <div class="card contact-card">
         <div class="section-title icon-title contact"><b>CONTACT ME</b></div>
 <div><i class="fa-solid fa-envelope" style="color:#555; margin-right:.6rem; width:20px" aria-hidden="true"></i><span class="header-contact"><a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a></span></div>
 <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:.6rem; width:20px" aria-hidden="true"></i><span class="header-contact"><a href="https://maps.google.com/?q=Amsterdam Netherlands">Amsterdam, Netherlands</a></span></div>
@@ -287,22 +343,32 @@ body.portfolio-home {
           </li>
         </ul></div>
       </section>
-      <section class="card education-card" aria-labelledby="education-title">
-        <div class="section-title icon-title education" id="education-title">Education</div>
-        <div id="education-content">
+      <div class="experience-sidebar">
+      <section class="card education-card" aria-label="Education, languages and certificates">
+        <details class="profile-disclosure" data-desktop-disclosure>
+          <summary><span class="section-title icon-title education" id="education-title">Education</span><svg class="ui-icon disclosure-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-chevron"></use></svg></summary>
+        <div class="profile-disclosure-content" id="education-content">
           <ul class="education-list" role="list">
             <li><strong>MSc Human-Technology Interaction</strong><span>TU/e &ndash; Eindhoven, Netherlands</span></li>
             <li><strong>Erasmus MSc Computer Science</strong><span>KTH &ndash; Stockholm, Sweden</span></li>
             <li><strong>Erasmus MSc Interactive Media Technology</strong><span>KTH &ndash; Stockholm, Sweden</span></li>
             <li><strong>BSc Psychology &amp; Technology</strong><span>TU/e &ndash; Eindhoven, Netherlands</span></li>
           </ul>
-          <div class="section-title icon-title languages">Languages</div>
+        </div>
+        </details>
+        <details class="profile-disclosure" data-desktop-disclosure>
+          <summary><span class="section-title icon-title languages">Languages</span><svg class="ui-icon disclosure-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-chevron"></use></svg></summary>
+          <div class="profile-disclosure-content">
           <ul class="language-list" role="list">
             <li><span class="language-label"><img src="https://flagcdn.com/w20/nl.png" alt="Netherlands flag" class="language-flag" /><strong>Dutch</strong></span><span>Native</span></li>
             <li><span class="language-label"><img src="https://flagcdn.com/w20/gb.png" alt="United Kingdom flag" class="language-flag" /><strong>English</strong></span><span>Near-native | Professional</span></li>
             <li><span class="language-label"><img src="https://flagcdn.com/w20/se.png" alt="Sweden flag" class="language-flag" /><strong>Swedish</strong></span><span>Conversational</span></li>
           </ul>
-          <div class="section-title icon-title certificates">Certificates</div>
+          </div>
+        </details>
+        <details class="profile-disclosure" data-desktop-disclosure>
+          <summary><span class="section-title icon-title certificates">Certificates</span><svg class="ui-icon disclosure-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-chevron"></use></svg></summary>
+          <div class="profile-disclosure-content">
           <ul class="certificates-grid" role="list">
             <li><strong>Data Storytelling with PowerBI &amp; Python</strong><span>Edureka (2025)</span></li>
             <li><strong>Python for Data Science &amp; Engineering</strong><span>IBM (2025)</span></li>
@@ -310,10 +376,13 @@ body.portfolio-home {
             <li><strong>Advanced BI Developer</strong><span>Computrain (2024)</span></li>
             <li><strong>Advanced SQL Programmer</strong><span>Computrain (2024)</span></li>
           </ul>
-        </div>
+          </div>
+        </details>
       </section>
+      <div id="desktop-skills-slot"></div>
+      </div>
     </div>
-    <div class="two-columns">
+    <div class="portfolio-layout">
       <section class="portfolio-section" aria-labelledby="portfolio">
         <div class="section-title icon-title portfolio" id="portfolio">Portfolio</div>
         <div class="portfolio-filter" data-portfolio-filter aria-label="Portfolio category filter">
@@ -452,7 +521,7 @@ body.portfolio-home {
           </article>
         </div>
       </section>
-      <section class="skills-section" aria-labelledby="skills-title">
+      <div id="mobile-skills-slot"><section class="skills-section" aria-labelledby="skills-title">
         <div class="section-title icon-title skills" id="skills-title">Skills</div>
         <div class="skills-card-list">
           <div class="skill-glass-card" data-expandable>
@@ -468,7 +537,11 @@ body.portfolio-home {
             <span class="skill-description card-preview">Figma, Adobe XD, wireframing, prototyping, usability, flows, cognitive walkthroughs, design systems, IA, user research, stakeholder interviews, Double Diamond, self-regulated learning theory, storytelling, A/B testing</span>
           </div>
           <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Frontend Development</strong><span class="skill-level">Proficient</span></div>
+            <div class="skill-heading"><strong class="skill-title">App Development</strong><span class="skill-level">Proficient</span></div>
+            <span class="skill-description card-preview">Android, Kotlin, Apple tvOS, Power Apps</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">Web Development</strong><span class="skill-level">Proficient</span></div>
             <span class="skill-description card-preview">Core Web Tech, TypeScript, React, Vue.js, responsiveness, PWAs, Web Dev, Android, tvOS, PowerApps</span>
           </div>
           <div class="skill-glass-card" data-expandable>
@@ -476,19 +549,11 @@ body.portfolio-home {
             <span class="skill-description card-preview">Cloudflare D1, SQL database setup, Google Cloud, API authentication &amp; access control, REST APIs, full-stack integration, dynamic data synchronisation</span>
           </div>
           <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">AI-Assisted Software Development</strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">AI coding tools, 'vibe coding', constructing constrained and targeted prompts, context management, iterative prototyping, code review &amp; refinement, debugging, testing, integration</span>
+            <div class="skill-heading"><strong class="skill-title">AI Software Development</strong><span class="skill-level">Proficient</span></div>
+            <span class="skill-description card-preview">AI coding tools, 'vibe coding', constructing constrained and targeted prompts, context management, iterative prototyping, code review &amp; refinement, debugging, testing, integration, AI agent design, system instructions, persona &amp; behaviour design, knowledge integration, AI-powered websites &amp; applications, workflow orchestration, connected AI services, automated summarisation, structured outputs, output evaluation &amp; guardrails</span>
           </div>
           <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Applied AI &amp; Agent Development</strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">AI agent design, system instructions, persona &amp; behaviour design, knowledge integration, AI-powered websites &amp; applications, workflow orchestration, connected AI services, automated summarisation, structured outputs, output evaluation &amp; guardrails</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">App Development</strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">Android, Kotlin, Apple tvOS, Power Apps</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Cognitive &amp; Behavioral Insight</strong><span class="skill-level">Advanced</span></div>
+            <div class="skill-heading"><strong class="skill-title">Cognitive &amp; Behavioral Research</strong><span class="skill-level">Advanced</span></div>
             <span class="skill-description card-preview">Behavioral research methods, human cognition &amp; perception, human-robot interaction, persuasive &amp; ethical design</span>
           </div>
           <div class="skill-glass-card" data-expandable>
@@ -496,27 +561,45 @@ body.portfolio-home {
             <span class="skill-description card-preview">GDPR, privacy-by-design, anonymisation, aggregation, data definitions, access control, RLS</span>
           </div>
           <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Tools &amp; Platforms</strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">SharePoint, Typo3, Git, Microsoft Azure, Power Automate, JIRA, Confluence, Databricks</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
             <div class="skill-heading"><strong class="skill-title">Agile &amp; Scrum </strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">Sprint planning, backlog refinement, iterative development, stakeholder management, cross-functional teamwork, demos &amp; presentations, user stories</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Project Start-Up &amp; Stakeholder Management</strong><span class="skill-level">Advanced</span></div>
-            <span class="skill-description card-preview">Discovery → scoping → kickoff, stakeholder mapping, requirements, delivery roadmap &amp; milestones, change management, workshops, executives updating, cross-functional collaboration</span>
+            <span class="skill-description card-preview">Sprint planning, JIRA, Confluence, backlog refinement, iterative development, stakeholder management, cross-functional teamwork, demos &amp; presentations, user stories, discovery → scoping → kickoff, stakeholder mapping, requirements, delivery roadmap &amp; milestones, change management, workshops, executives updating, cross-functional collaboration</span>
           </div>
           <div class="skill-glass-card" data-expandable>
             <div class="skill-heading"><strong class="skill-title">Hobbyist Passion: Videography</strong><span class="skill-level">Proficient</span></div>
             <span class="skill-description card-preview">Cinematography, Directing &amp; Concept Development, Post-Production, Project Management</span>
           </div>
         </div>
-      </section>
+      </section></div>
     </div>
   </div>
-  <script src="assets/js/reveal.js"></script>
-  <script>
+<script src="assets/js/reveal.js"></script>
+<script>
+// Desktop uses a right-hand CV rail; mobile retains the original Portfolio-then-Skills flow.
+(function () {
+  const desktopQuery = window.matchMedia('(min-width: 901px)');
+  const skills = document.querySelector('.skills-section');
+  const desktopSlot = document.getElementById('desktop-skills-slot');
+  const mobileSlot = document.getElementById('mobile-skills-slot');
+  const disclosures = Array.from(document.querySelectorAll('[data-desktop-disclosure]'));
+  function syncDesktopLayout() {
+    const desktop = desktopQuery.matches;
+    const skillsTarget = desktop ? desktopSlot : mobileSlot;
+    if (skills.parentElement !== skillsTarget) skillsTarget.appendChild(skills);
+    disclosures.forEach(disclosure => {
+      disclosure.open = !desktop;
+      const summary = disclosure.querySelector('summary');
+      summary.setAttribute('aria-disabled', String(!desktop));
+    });
+  }
+  disclosures.forEach(disclosure => {
+    disclosure.addEventListener('click', event => {
+      if (!desktopQuery.matches && event.target.closest('summary')) event.preventDefault();
+    });
+  });
+  if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', syncDesktopLayout);
+  else desktopQuery.addListener(syncDesktopLayout);
+  syncDesktopLayout();
+})();
 // Match the shared stylesheet's single-column breakpoint.
 (function () {
   const mobileQuery = window.matchMedia('(max-width: 900px)');
@@ -549,6 +632,7 @@ body.portfolio-home {
 (function () {
   const mobileQuery = window.matchMedia('(max-width: 900px)');
   const items = Array.from(document.querySelectorAll('[data-expandable]')).map((card, index) => {
+    const isSkill = card.classList.contains('skill-glass-card');
     const preview = card.querySelector('.card-preview');
     const title = card.querySelector('.exp-title, .skill-title').textContent.trim();
     preview.id = `card-description-${index + 1}`;
@@ -560,16 +644,25 @@ body.portfolio-home {
     button.setAttribute('aria-expanded', 'false');
     button.innerHTML = '<span class="preview-toggle-label">More</span><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-chevron"></use></svg>';
     card.appendChild(button);
-    return { card, preview, button, title };
+    if (isSkill) {
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-controls', preview.id);
+    }
+    return { card, preview, button, title, isSkill };
   });
   function syncButton(item) {
     const expanded = item.card.classList.contains('is-expanded');
     item.button.setAttribute('aria-expanded', String(expanded));
     item.button.setAttribute('aria-label', `${expanded ? 'Collapse' : 'Expand'} description: ${item.title}`);
     item.button.querySelector('.preview-toggle-label').textContent = expanded ? 'Less' : 'More';
+    if (item.isSkill) {
+      item.card.setAttribute('aria-expanded', String(expanded));
+      item.card.setAttribute('aria-label', `${expanded ? 'Collapse' : 'Expand'} skill: ${item.title}`);
+    }
   }
   function toggle(item) {
-    if (!mobileQuery.matches || !item.card.classList.contains('is-collapsible')) return;
+    if ((!item.isSkill && !mobileQuery.matches) || !item.card.classList.contains('is-collapsible')) return;
     item.card.classList.toggle('is-expanded');
     syncButton(item);
   }
@@ -578,11 +671,11 @@ body.portfolio-home {
     items.forEach(item => item.card.classList.remove('is-collapsible'));
     const overflow = items.map(item => {
       const lineHeight = parseFloat(window.getComputedStyle(item.preview).lineHeight);
-      return mobileQuery.matches && item.preview.scrollHeight > lineHeight * 3 + 1;
+      return item.isSkill || (mobileQuery.matches && item.preview.scrollHeight > lineHeight * 3 + 1);
     });
     items.forEach((item, index) => {
       item.card.classList.toggle('is-collapsible', overflow[index]);
-      item.button.hidden = !overflow[index];
+      item.button.hidden = item.isSkill || !overflow[index];
       if (!overflow[index]) item.card.classList.remove('is-expanded');
       syncButton(item);
     });
@@ -593,6 +686,11 @@ body.portfolio-home {
       // Preserve embedded links and the native keyboard-accessible button.
       if (event.target.closest('a, button, input, select, textarea, label')) return;
       if (window.getSelection().toString()) return;
+      toggle(item);
+    });
+    item.card.addEventListener('keydown', event => {
+      if (!item.isSkill || event.target !== item.card || (event.key !== 'Enter' && event.key !== ' ')) return;
+      event.preventDefault();
       toggle(item);
     });
   });
