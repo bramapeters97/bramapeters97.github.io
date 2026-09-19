@@ -8,7 +8,8 @@
   const nodes = selectors
     .map(selector => Array.from(document.querySelectorAll(selector)))
     .reduce((acc, list) => acc.concat(list), [])
-    .filter((element, index, array) => array.indexOf(element) === index);
+    .filter((element, index, array) => array.indexOf(element) === index)
+    .filter(element => !element.hasAttribute('data-reveal-skip'));
 
   if (!nodes.length) {
     return;
