@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="favicon_portfolio/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_portfolio/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_portfolio/favicon-16x16.png" />
   <link rel="manifest" href="favicon_portfolio/site.webmanifest" />
@@ -115,8 +116,9 @@ body.portfolio-home {
 .portfolio-filter .ui-icon { width: 15px; height: 15px; }
 .skills-card-list { display: grid; grid-template-columns: minmax(0,1fr); gap: .7rem; margin-top: 0; align-items: start; }
 .skill-glass-card { min-width: 0; padding: .85rem 1rem; gap: .35rem; }
-.skill-title { display: block; font-size: .94rem; line-height: 1.3; }
-.skill-level { display: block; margin-top: .15rem; font-size: .79rem; font-weight: 500; color: #426aa7; }
+.skill-heading { display: block; line-height: 1.3; }
+.skill-title { display: inline; font-size: .94rem; line-height: 1.3; }
+.skill-level { display: inline; margin: 0 0 0 .45rem; font-size: .79rem; font-weight: 500; color: #426aa7; }
 .skill-description { display: block; font-size: .85rem; font-weight: 400; line-height: 1.5; overflow-wrap: break-word; }
 .skill-glass-card.is-collapsible { cursor: pointer; }
 .skill-glass-card.is-collapsible:not(.is-expanded) .card-preview {
@@ -128,18 +130,21 @@ body.portfolio-home {
 }
 .skill-glass-card.is-expanded .card-preview { white-space: normal; }
 .skill-glass-card:focus-visible { outline: 2px solid #426aa7; outline-offset: 3px; }
+.portfolio-home .contact-card,
+.portfolio-home .education-card {
   background:
-    linear-gradient(145deg, rgba(255,255,255,.18), rgba(210,229,255,.07)),
-    rgba(255,255,255,.04);
-  border: 1.5px solid rgba(190,214,247,.28);
-  box-shadow: 0 8px 26px rgba(92,128,184,.07), inset 0 1px 0 rgba(255,255,255,.34);
-  backdrop-filter: blur(24px) saturate(135%);
-  -webkit-backdrop-filter: blur(24px) saturate(135%);
+    linear-gradient(145deg, rgba(255,255,255,.22), rgba(210,229,255,.06)),
+    rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.42);
+  box-shadow: 0 10px 34px rgba(92,128,184,.08), inset 0 1px 0 rgba(255,255,255,.58);
+  backdrop-filter: blur(30px) saturate(155%);
+  -webkit-backdrop-filter: blur(30px) saturate(155%);
 }
 @media (hover:hover) {
-  .portfolio-home .contact-card:hover {
-    border-color: rgba(130,182,255,.7);
-    box-shadow: 0 12px 30px rgba(92,128,184,.18), inset 0 1px 0 rgba(255,255,255,.78);
+  .portfolio-home .contact-card:hover,
+  .portfolio-home .education-card:hover {
+    border-color: rgba(255,255,255,.62);
+    box-shadow: 0 14px 38px rgba(92,128,184,.12), inset 0 1px 0 rgba(255,255,255,.82);
   }
 }
 .preview-toggle {
@@ -196,6 +201,8 @@ body.portfolio-home {
   #mobile-top-project-slot:not(:empty) { margin: .85rem 0 1rem; }
 }
 @media (max-width:600px) {
+  .portfolio-home .contact-card { display: none; }
+  .portfolio-home .top-project { display: none; }
   .header-name { gap: .4rem; letter-spacing: -.035em; }
   .header-linkedin { width: 34px; height: 34px; border-radius: 9px; }
   .experience-layout > .card { padding: 1rem; }
