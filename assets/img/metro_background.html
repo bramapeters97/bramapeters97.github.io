@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>Decorative metro background</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="metro-background.css?v=20260919-3" />
+</head>
+<body>
+  <div class="metro-stage" aria-hidden="true">
+    <svg
+      id="metro-world"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <mask id="metro-content-relief" maskUnits="userSpaceOnUse" style="mask-type: luminance">
+          <g id="metro-safe-zone-mask"></g>
+        </mask>
+      </defs>
+      <g id="metro-camera">
+        <g mask="url(#metro-content-relief)">
+          <g id="metro-routes-aging"></g>
+          <g id="metro-routes-active"></g>
+          <g id="metro-routes-building"></g>
+        </g>
+        <g id="metro-stations"></g>
+        <g id="metro-events"></g>
+      </g>
+    </svg>
+  </div>
+  <script type="module" src="metro-background.js?v=20260919-3"></script>
+</body>
+</html>
