@@ -3,16 +3,10 @@
   "short_name": "Bram Peters",
   "icons": [
     {
-      "src": "android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "/assets/img/bram-peters-studio.png",
+      "sizes": "1254x1254",
       "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "theme_color": "#ffffff",

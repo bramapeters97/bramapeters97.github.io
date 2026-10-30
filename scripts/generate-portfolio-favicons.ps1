@@ -1,5 +1,5 @@
 param(
-  [string]$Source = (Join-Path $PSScriptRoot '..\favicon_portfolio\favicon.png'),
+  [string]$Source = (Join-Path $PSScriptRoot '..\assets\img\bram-peters-studio.png'),
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '..\favicon_portfolio')
 )
 

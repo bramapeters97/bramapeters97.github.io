@@ -414,12 +414,14 @@
   border: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1199px) {
   .case-meta {
     position: static;
-    order: -1;
+    order: 1;
   }
+}
 
+@media (max-width: 900px) {
   .architecture-map {
     grid-template-columns: 1fr;
   }
