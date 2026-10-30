@@ -11,7 +11,7 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bram Peters &ndash; Portfolio</title>
+  <title>Bram Peters | Studio &ndash; Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_portfolio/apple-touch-icon.png" />
@@ -51,18 +51,30 @@ body.portfolio-home::before {
   fill: none; stroke: currentColor; stroke-width: 1.8;
   stroke-linecap: round; stroke-linejoin: round; vertical-align: -.125em;
 }
-.header-name { display: flex; align-items: center; gap: .55rem; font-weight: 700; }
-.header-name b { font-weight: 750; }
-.header-linkedin {
-  display: inline-flex; align-items: center; justify-content: center;
-  flex: 0 0 auto; width: 36px; height: 36px; border-radius: 10px;
-  background: rgba(120,125,135,.1); border: 1px solid rgba(120,125,135,.18);
-  color: #737880; text-decoration: none; transition: background .2s ease, color .2s ease;
+.header-name {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .2em;
+  margin: 0; font-family: inherit; font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  line-height: 1.15; font-weight: 700;
 }
-.header-linkedin .ui-icon { width: 18px; height: 18px; stroke: none; fill: currentColor; }
-.header-linkedin:hover { background: rgba(120,125,135,.18); color: #42474f; }
-.header-linkedin:focus-visible, .preview-toggle:focus-visible,
+.header-name b { font-weight: 750; }
+.header-name b, .header-studio { white-space: nowrap; }
+.header-studio { font-family: inherit; font-size: inherit; font-weight: 300; }
+.header-socials { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .25rem; }
+.header-social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: .5rem; min-height: 44px; padding: .6rem .9rem; border-radius: 10px;
+  font-size: .88rem; font-weight: 550;
+  background: rgba(120,125,135,.1); border: 1px solid rgba(120,125,135,.18);
+  color: #424b5b; text-decoration: none; transition: background .2s ease, color .2s ease;
+}
+.header-social-link .ui-icon { width: 18px; height: 18px; stroke: none; fill: currentColor; }
+.header-social-link:hover { background: rgba(120,125,135,.18); color: #1f2c44; }
+.header-social-link:focus-visible, .preview-toggle:focus-visible,
 .portfolio-filter .filter-btn:focus-visible { outline: 2px solid #426aa7; outline-offset: 3px; }
+@media (max-width: 768px) {
+  .header-name { justify-content: center; font-size: clamp(1.55rem, 6.8vw, 2.45rem); }
+  .header-socials { justify-content: center; }
+}
 .top-project-slot:empty { display: none; }
 .top-project { display: grid; gap: 1rem; min-width: 0; }
 .top-project .section-title { margin: 0; }
@@ -447,7 +459,7 @@ body.portfolio-home::before {
 @media (max-width:600px) {
   .portfolio-home .contact-card { display: none; }
   .header-name { gap: .4rem; letter-spacing: -.035em; }
-  .header-linkedin { width: 34px; height: 34px; border-radius: 9px; }
+  .header-social-link { padding: .6rem .7rem; font-size: .82rem; }
   .experience-layout > .card { padding: 1rem; }
   .experience-item { padding: .75rem; }
   .experience-item .exp-title { font-size: .9rem; }
@@ -523,13 +535,16 @@ body.portfolio-home::before {
       <img class="profile-pic" src="assets/img/Photo.png" alt="Profile Picture" />
       <div class="header-intro">
         <div class="header-row">
-          <div class="header-name">
-<a class="header-linkedin" href="https://www.linkedin.com/in/bram-peters/" target="_blank" rel="noopener noreferrer" aria-label="Bram Peters on LinkedIn (opens in a new tab)"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-linkedin"></use></svg></a><b>Bram Peters</b>
-</div><div class="header-cta-desktop" aria-label="Primary actions"><button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Resume</span></button></div></div>
+          <h1 class="header-name"><b>Bram Peters</b><span class="header-studio">| Studio</span></h1>
+<div class="header-cta-desktop" aria-label="Primary actions"><button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Resume</span></button></div></div>
 <div class="header-cta-mobile" aria-label="Primary actions"><button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Resume</span></button><a class="cta-btn ghost-btn" href="contact.html"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i><span>Get in touch!</span></a></div>
         <div class="header-title">
           🧩 I make sense of data, and data make sense.<br>
           <span style="font-weight: 300"><i>Bridging Business Intelligence and User-Centered Design.</i></span></div>
+        <div class="header-socials" aria-label="LinkedIn profiles">
+          <a class="header-social-link" href="https://www.linkedin.com/in/bram-peters/" target="_blank" rel="noopener noreferrer"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-linkedin"></use></svg><span>Bram Peters</span></a>
+          <a class="header-social-link" href="https://www.linkedin.com/company/bram-peters-studio/" target="_blank" rel="noopener noreferrer"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-linkedin"></use></svg><span>Bram Peters Studios</span></a>
+        </div>
       </div>
     </div>
     <!-- ABOUT & CONTACT -->
@@ -695,9 +710,9 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
         </div>
         <div id="mobile-top-project-slot" class="top-project-slot"></div>
         <div class="portfolio-grid">
-          <article class="portfolio-card" data-project="uwv-monitor" data-categories="Data Analytics,App Development,Business Intelligence,UX/UI-design,Data Privacy,Cloud Data">
+          <article class="portfolio-card" data-project="uwv-monitor" id="project-uwv-monitor" data-categories="Data Analytics,App Development,Business Intelligence,UX/UI-design,Data Privacy,Cloud Data">
             <div class="article-wrapper">
-              <figure><img src="assets/img/UWV3.png" alt="UWV Monitor Arbeid &amp; Gezondheid" /></figure>
+              <figure><img src="assets/img/ÙWV3.png" alt="UWV Monitor Arbeid &amp; Gezondheid" /></figure>
               <div class="article-body">
                 <h2>UWV Monitor Arbeid &amp; Gezondheid</h2>
                 <p>A responsible BI project within UWV&rsquo;s Socio-Medical Affairs division, designed to make the WIA process more transparent and understandable. The monitor turns sensitive socio-medical data into clear public insight on assessments, diagnoses, outcomes and regional trends. Built as part of a broader mission to support accountability, trust and better-informed conversations around work, health and reintegration.</p>
@@ -705,7 +720,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="lost-in-translation" data-categories="Web Development,Data Analytics,App Development,Business Intelligence,AI,Cloud Data">
+          <article class="portfolio-card" data-project="lost-in-translation" id="project-lost-in-translation" data-categories="Web Development,Data Analytics,App Development,Business Intelligence,AI,Cloud Data">
             <div class="article-wrapper">
               <figure><img src="assets/img/lostintranslation.png" alt="Lost In Translation" /></figure>
               <div class="article-body">
@@ -715,7 +730,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="lelibrambas" data-categories="Web Development,Videography,UX/UI-design,App Development,Data Privacy,Cloud Data">
+          <article class="portfolio-card" data-project="lelibrambas" id="project-lelibrambas" data-categories="Web Development,Videography,UX/UI-design,App Development,Data Privacy,Cloud Data">
             <div class="article-wrapper">
               <figure><img src="assets/lelibrambas-plus/screenshots/03-home.webp" alt="Lelibrambas+ television home screen with archive categories and film rails" width="1920" height="1080" loading="lazy" decoding="async" /></figure>
               <div class="article-body">
@@ -725,7 +740,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="tue-learning-dashboard" data-categories="UX/UI-design,Business Intelligence,Data Analytics,Data Privacy,Cloud Data">
+          <article class="portfolio-card" data-project="tue-learning-dashboard" id="project-tue-learning-dashboard" data-categories="UX/UI-design,Business Intelligence,Data Analytics,Data Privacy,Cloud Data">
             <div class="article-wrapper">
               <figure><img src="assets/img/dashboard1.jpg" alt="TU/e Learning Dashboard" /></figure>
               <div class="article-body">
@@ -735,7 +750,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="emotional-drone" data-categories="UX/UI-design,App Development,Data Analytics,AI">
+          <article class="portfolio-card" data-project="emotional-drone" id="project-emotional-drone" data-categories="UX/UI-design,App Development,Data Analytics,AI">
             <div class="article-wrapper">
               <figure><img src="assets/img/BlueJay1.jpg" alt="Blue Jay Drone" /></figure>
               <div class="article-body">
@@ -745,7 +760,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-                  <article class="portfolio-card" data-project="klm-powerplatform" data-categories="Data Analytics,App Development,Business Intelligence,UX/UI-design,Data Privacy,Cloud Data">
+                  <article class="portfolio-card" data-project="klm-powerplatform" id="project-klm-powerplatform" data-categories="Data Analytics,App Development,Business Intelligence,UX/UI-design,Data Privacy,Cloud Data">
             <div class="article-wrapper">
               <figure><img src="assets/img/klm-powerapp.png" alt="klm-powerapp" /></figure>
               <div class="article-body">
@@ -755,7 +770,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="doula" data-categories="UX/UI-design">
+          <article class="portfolio-card" data-project="doula" id="project-doula" data-categories="UX/UI-design">
             <div class="article-wrapper">
               <figure><img src="assets/img/doula.png" alt="Doula App" /></figure>
               <div class="article-body">
@@ -765,7 +780,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="vinobo" data-categories="Web Development,Data Analytics,Cloud Data">
+          <article class="portfolio-card" data-project="vinobo" id="project-vinobo" data-categories="Web Development,Data Analytics,Cloud Data">
             <div class="article-wrapper">
               <figure><img src="assets/img/vinobolarge.jpg" alt="Vinobo" /></figure>
               <div class="article-body">
@@ -775,7 +790,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="spotify" data-categories="UX/UI-design">
+          <article class="portfolio-card" data-project="spotify" id="project-spotify" data-categories="UX/UI-design">
             <div class="article-wrapper">
               <figure><img src="assets/img/spotifyfull.png" alt="Spotify Podcast" /></figure>
               <div class="article-body">
@@ -785,7 +800,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="raspberries" data-categories="UX/UI-design">
+          <article class="portfolio-card" data-project="raspberries" id="project-raspberries" data-categories="UX/UI-design">
             <div class="article-wrapper">
               <figure><img src="assets/img/rodebjer.png" alt="Raspberries Shopping Assistant" /></figure>
               <div class="article-body">
@@ -795,7 +810,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="honeymoon" data-categories="Web Development">
+          <article class="portfolio-card" data-project="honeymoon" id="project-honeymoon" data-categories="Web Development">
             <div class="article-wrapper">
               <figure><img src="assets/img/honeymoon.jpg" alt="The Honeymoon Webshop" /></figure>
               <div class="article-body">
@@ -805,7 +820,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="j-meijer" data-categories="Videography">
+          <article class="portfolio-card" data-project="j-meijer" id="project-j-meijer" data-categories="Videography">
             <div class="article-wrapper">
               <figure><img src="assets/img/jmeijer.jpg" alt="J. Meijer BV" /></figure>
               <div class="article-body">
@@ -815,7 +830,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
               </div>
             </div>
           </article>
-          <article class="portfolio-card" data-project="next-project" data-categories="Web Development,Data Analytics,UX/UI-design,Business Intelligence,App Development,Data Privacy,Videography,AI">
+          <article class="portfolio-card" data-project="next-project" id="project-next-project" data-categories="Web Development,Data Analytics,UX/UI-design,Business Intelligence,App Development,Data Privacy,Videography,AI">
             <div class="article-wrapper">
               <figure><div style="display:flex;justify-content:center;align-items:center;height:100%;background-color:rgb(233,233,233)"><img src="assets/img/questionmark.png" style="width:25%;opacity:80%" alt="Next Project" /></div></figure>
               <div class="article-body">

@@ -12,6 +12,9 @@
   max-width: 1240px;
 }
 
+/* Start closed before scripts run, including when JavaScript is unavailable. */
+.portfolio-case #imageModal { visibility: hidden; }
+
 .portfolio-case .project-header {
   padding: 2rem 0 1.4rem;
 }
