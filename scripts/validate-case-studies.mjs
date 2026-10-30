@@ -57,7 +57,10 @@ for (const file of files) {
 
   for (const reference of localReferences) {
     const cleanReference = reference.split("?")[0].split("#")[0];
-    if (cleanReference && !fs.existsSync(path.resolve(path.dirname(file), cleanReference))) {
+    const assetPath = cleanReference.startsWith("/")
+      ? path.resolve(cleanReference.slice(1))
+      : path.resolve(path.dirname(file), cleanReference);
+    if (cleanReference && !fs.existsSync(assetPath)) {
       failures.push(`${file}: missing local asset ${reference}`);
     }
   }

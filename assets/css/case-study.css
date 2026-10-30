@@ -339,14 +339,14 @@
   transform: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1199px) {
   .portfolio-case .page-two-columns {
     grid-template-columns: 1fr;
   }
 
   .portfolio-case .case-meta {
     position: static;
-    order: -1;
+    order: 1;
   }
 }
 

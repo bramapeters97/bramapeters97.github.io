@@ -15,11 +15,11 @@
 .project-nav-inner {
   display: flex;
   align-items: center;
-  gap: clamp(.6rem, 1.2vw, 1.25rem);
+  gap: clamp(.5rem, .8vw, 1rem);
   max-width: 1600px;
   min-height: 72px;
   margin: 0 auto;
-  padding: .65rem clamp(1rem, 2vw, 2rem);
+  padding: .65rem clamp(1rem, 1.5vw, 1.5rem);
 }
 .project-nav a, .project-nav summary, .project-nav-toggle {
   display: inline-flex;
@@ -63,10 +63,13 @@
   stroke-linejoin: round;
 }
 .project-nav-icon--linkedin { fill: currentColor; stroke: none; width: 15px; height: 15px; }
+.project-nav-item-icon { width: 16px; height: 16px; }
 .project-nav-panel { display: flex; align-items: center; flex: 1; min-width: 0; gap: .5rem; }
 .project-nav-projects, .project-nav-actions { display: flex; align-items: center; gap: .15rem; }
 .project-nav-projects { margin: 0; padding: 0; list-style: none; }
 .project-nav-projects > li { margin: 0; padding: 0; }
+.project-nav-projects > li > a, .project-nav summary { padding-inline: .4rem; }
+.project-nav-projects a > span { margin: 0; color: inherit; font: inherit; }
 .project-nav-actions {
   margin-left: auto;
   padding-left: .7rem;
@@ -99,7 +102,7 @@
 .project-nav-toggle[aria-expanded="true"] .project-nav-menu-top { d: path("M5 5 19 19"); }
 .project-nav-toggle[aria-expanded="true"] .project-nav-menu-bottom { d: path("M5 19 19 5"); }
 
-@media (max-width: 1099px) {
+@media (max-width: 1199px) {
   .project-nav-inner { flex-wrap: wrap; justify-content: space-between; gap: 0; min-height: 64px; }
   .project-nav[data-nav-ready] .project-nav-toggle { display: inline-flex; }
   .project-nav-panel {

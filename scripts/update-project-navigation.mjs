@@ -9,28 +9,39 @@ const pages = [
   'jmeijerbv40jaareendaginhetlevenvanlucaorvini.html',
 ];
 const featured = [
-  ['UWV Monitor', 'uwvmonitorarbeidgezondheid.html'],
-  ['Lost In Translation', 'https://lostintranslation.nl'],
-  ['LELIBRAMBAS+', 'lelibrambas-plus.html'],
-  ['TU/e Dashboard', 'tuelearningdashboard.html'],
+  ['UWV Monitor', 'uwvmonitorarbeidgezondheid.html', 'dashboard'],
+  ['Lost In Translation™', 'https://lostintranslation.nl', 'bot'],
+  ['LELIBRAMBAS+', 'lelibrambas-plus.html', 'tv'],
+  ['TU/e Dashboard', 'tuelearningdashboard.html', 'graduation'],
 ];
 const additional = [
-  ["The 'Emotional' Drone", 'theemotionaldrone.html'],
-  ['KLM · Coming soon', 'index.html#project-klm-powerplatform'],
-  ['Doula UX/UI', 'doulauxuicasestudy.html'],
-  ['Vinobo', 'vinobo.html'],
-  ['Spotify Podcasts', 'reimaginingspotifypodcasts.html'],
-  ['Raspberries', 'raspberriesshoppingassistant.html'],
-  ['The Honeymoon Webshop', 'index.html#project-honeymoon'],
-  ['J. Meijer B.V. 40 Jaar', 'jmeijerbv40jaareendaginhetlevenvanlucaorvini.html'],
-  ['My Next Project', 'index.html#project-next-project'],
+  ["The 'Emotional' Drone", 'theemotionaldrone.html', 'drone'],
+  ['Doula UX/UI', 'doulauxuicasestudy.html', 'heart'],
+  ['Vinobo', 'vinobo.html', 'video'],
+  ['Spotify Podcasts', 'reimaginingspotifypodcasts.html', 'headphones'],
+  ['Raspberries', 'raspberriesshoppingassistant.html', 'shopping'],
+  ['The Honeymoon Webshop', 'index.html#project-honeymoon', 'gift'],
+  ['J. Meijer B.V. 40 Jaar', 'jmeijerbv40jaareendaginhetlevenvanlucaorvini.html', 'camera'],
 ];
 const icon = (path, extra = '') => `<svg class="project-nav-icon${extra}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${path}</svg>`;
 const home = icon('<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/>');
 const linkedin = icon('<path d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/>', ' project-nav-icon--linkedin');
 const envelope = icon('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>');
+const projectIcons = {
+  dashboard: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12m4-4 2-3 3 1"/>',
+  bot: '<rect x="4" y="7" width="16" height="14" rx="3"/><path d="M12 3v4M1 11v6m22-6v6M9 17h6"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/>',
+  tv: '<rect x="3" y="7" width="18" height="14" rx="3"/><path d="m8 3 4 4 4-4"/>',
+  graduation: '<path d="m2 9 10-5 10 5-10 5-10-5Zm4 2v6c4 3 8 3 12 0v-6m4-2v7"/>',
+  drone: '<rect x="8" y="8" width="8" height="8" rx="2"/><path d="m6 6 3 3m6 6 3 3M6 18l3-3m6-6 3-3"/><circle cx="4" cy="4" r="3"/><circle cx="20" cy="4" r="3"/><circle cx="4" cy="20" r="3"/><circle cx="20" cy="20" r="3"/>',
+  heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',
+  video: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m9 8 6 4-6 4V8Z"/>',
+  headphones: '<path d="M3 14v-3a9 9 0 0 1 18 0v3"/><rect x="3" y="12" width="4" height="9" rx="2"/><rect x="17" y="12" width="4" height="9" rx="2"/>',
+  shopping: '<path d="M6 7h12l1 14H5L6 7Zm3 0V5a3 3 0 0 1 6 0v2"/>',
+  gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13m0-13H8a3 3 0 1 1 3-3l1 3Zm0 0h4a3 3 0 1 0-3-3l-1 3Z"/>',
+  camera: '<rect x="2" y="6" width="13" height="12" rx="2"/><path d="m15 10 7-4v12l-7-4"/>',
+};
 const escape = text => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;');
-const link = ([label, href], page) => `<a href="${href}"${href === page ? ' aria-current="page"' : ''}>${escape(label)}</a>`;
+const link = ([label, href, kind], page) => `<a href="${href}"${href === page ? ' aria-current="page"' : ''}>${icon(projectIcons[kind], ' project-nav-item-icon')}<span>${escape(label)}</span></a>`;
 
 function navigation(page) {
   const currentInMore = additional.some(([, href]) => href === page);

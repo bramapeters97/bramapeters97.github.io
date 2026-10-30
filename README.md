@@ -27,3 +27,8 @@ Regenerate the three-page résumé with `python3 scripts/generate-resume.py`
 education, certificates, languages, skills and project images; concise print
 descriptions live in the generator. The homepage Resume button opens the result
 at `assets/pdf/bapeters_cv.pdf`.
+
+All pages and the web manifest use `assets/img/bram-peters-studio.png` for the
+site icon. After replacing that image, run
+`python3 scripts/generate-studio-favicon.py` (Pillow) to refresh the legacy
+browser fallback at `favicon.ico`.

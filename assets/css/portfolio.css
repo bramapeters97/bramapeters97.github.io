@@ -211,7 +211,7 @@
       align-items: start;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1199px) {
       .page-two-columns {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -546,37 +546,21 @@
   padding: 20px;  /* keeps the 20px gap around */
 }
 
-/* === MOBILE: place "Skills Used" right under the Screenshot === */
-@media (max-width: 900px){
-  /* Keep a single column grid on mobile (you already have this)
-     but let the left column's children participate at the parent level */
+/* Mobile: keep the full case study before its links and skills sidebar. */
+@media (max-width: 1199px){
   .page-two-columns{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-auto-rows: auto;
     grid-auto-flow: row;
   }
-
-  /* Flatten the left column so its cards become grid items of .page-two-columns */
-  .left-col{
-    display: contents; /* lets its children be placed directly in the parent grid */
-  }
-
-  /* Ensure the first card (your Screenshot article) is row 1 */
-  .left-col > article:first-of-type{
+  .page-two-columns > .left-col{
     grid-column: 1;
-    grid-row: 1;
   }
-
-  /* Put the aside immediately after the screenshot (row 2) */
-  aside[aria-label="Skills used"]{
+  .page-two-columns > aside{
     grid-column: 1;
-    grid-row: 2;
-  }
-
-  /* Everything else from the left column naturally follows beneath (rows 3+) */
-  .left-col > article:not(:first-of-type){
-    grid-column: 1;
+    grid-row: auto;
+    order: 1;
   }
 }
 

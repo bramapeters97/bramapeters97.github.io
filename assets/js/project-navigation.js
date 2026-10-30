@@ -4,7 +4,7 @@
   const toggle = navigation.querySelector('.project-nav-toggle');
   const panel = navigation.querySelector('.project-nav-panel');
   const more = navigation.querySelector('.project-nav-more');
-  const compact = window.matchMedia('(max-width: 1099px)');
+  const compact = window.matchMedia('(max-width: 1199px)');
   const hover = window.matchMedia('(hover: hover) and (pointer: fine)');
   navigation.setAttribute('data-nav-ready', '');
 
