@@ -54,10 +54,14 @@ body.portfolio-home::before {
 .header-name b { font-weight: 750; }
 .header-name b, .header-studio { white-space: nowrap; }
 .header-studio { font-family: inherit; font-size: inherit; font-weight: 300; }
-.portfolio-home .header-cta-desktop, .portfolio-home .header-cta-mobile { flex-direction: column; align-items: stretch; gap: .65rem; }
+.portfolio-home .header-row { align-items: center; }
+.portfolio-home .header-cta-desktop { align-self: center; }
 .portfolio-home .header-cta-desktop .cta-btn, .portfolio-home .header-cta-mobile .cta-btn { width: 100%; min-height: 44px; flex: 0 1 auto; }
-.portfolio-home .idea-btn .fa-lightbulb { color: #4b5563; font-size: .95em; opacity: 1; }
-.portfolio-home .idea-btn:focus-visible { outline: 2px solid #426aa7; outline-offset: 3px; }
+.portfolio-home .resume-btn { background: rgba(255, 255, 255, .1); border-color: rgba(39, 48, 73, .65); }
+.portfolio-home .contact-actions { flex-direction: column; align-items: stretch; }
+.portfolio-home .contact-actions .cta-btn { width: 100%; min-width: 0; }
+.portfolio-home .contact-actions .cta-btn i { color: #4b5563; font-size: .95em; opacity: 1; }
+.portfolio-home .resume-btn:focus-visible, .portfolio-home .contact-actions .cta-btn:focus-visible { outline: 2px solid #426aa7; outline-offset: 3px; }
 .header-socials { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .25rem; }
 .header-social-link {
   display: inline-flex; align-items: center; justify-content: center;
@@ -456,7 +460,6 @@ body.portfolio-home::before {
   #mobile-top-project-slot:not(:empty) { margin: .85rem 0 1rem; }
 }
 @media (max-width:600px) {
-  .portfolio-home .contact-card { display: none; }
   .header-name { gap: .4rem; letter-spacing: -.035em; }
   .header-social-link { padding: .6rem .7rem; font-size: .82rem; }
   .experience-layout > .card { padding: 1rem; }
@@ -541,8 +544,8 @@ body.portfolio-home::before {
       <div class="header-intro">
         <div class="header-row">
           <h1 class="header-name"><b>Bram Peters</b><span class="header-studio">| Studio</span></h1>
-<div class="header-cta-desktop" aria-label="Primary actions"><button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Resume</span></button><a class="cta-btn ghost-btn idea-btn" href="contact.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Have an Idea?</span></a></div></div>
-<div class="header-cta-mobile" aria-label="Primary actions"><button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Resume</span></button><a class="cta-btn ghost-btn idea-btn" href="contact.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Have an Idea?</span></a></div>
+<div class="header-cta-desktop" aria-label="Primary actions"><button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Resume</span></button></div></div>
+<div class="header-cta-mobile" aria-label="Primary actions"><button type="button" class="cta-btn resume-btn ghost-btn" onclick="downloadPDF()"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span>Resume</span></button></div>
         <div class="header-title">
           🧩 I make sense of data, and data make sense.<br>
           <span style="font-weight: 300"><i>Bridging Business Intelligence and User-Centered Design.</i></span></div>
@@ -556,7 +559,7 @@ body.portfolio-home::before {
     <div class="header-split" id="contact">
       <div class="card">
         <div class="section-title icon-title about"><b>ABOUT ME</b></div>
-        <p style="font-weight:300;">👋 Hi, I'm <b>Bram</b>! A Business Intelligence Specialist at <span style="font-family: 'Manrope', sans-serif; font-weight: 800; color: #0099D9; letter-spacing: -0.025em;">KLM</span>, with a background in UX/UI design and an MSc in Human-Technology Interaction. I believe data should tell a story, technology should make life easier, and good design shouldn't require an instruction manual. Making sense of data. And making data make sense. That's where my experience in BI meets my passion for Human-Centred Design.
+        <p style="font-weight:300;">👋 Hi, I'm <b>Bram</b>! A Business Intelligence Specialist at <span style="font-family: 'Manrope', sans-serif; font-weight: 800; color: #0099D9; letter-spacing: -0.025em;">KLM</span>, with a background in UX/UI design and an MSc in Human-Technology Interaction. I believe data should tell a story, technology should make life easier, and good design shouldn't require an instruction manual. Making sense of data. And making data make sense. That's where my experience in BI meets my passion for Human-Centred Design. <br><br>
 From untangling messy datasets and building data pipelines to designing intuitive interfaces and developing complete digital solutions, I enjoy turning complex challenges into products that actually make a difference. Preferably ones people <i>want</i> to use.
 A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessary complexity. <b>Let's make something that makes sense.</b> 🚀</strong></p>
         <div class="quote-line"><i class="fa-solid fa-quote-right" aria-hidden="true"></i><em>Bram</em></div>
@@ -567,7 +570,10 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
 <div><i class="fa-solid fa-location-dot" style="color:#555; margin-right:.6rem; width:20px" aria-hidden="true"></i><span class="header-contact"><a href="https://maps.google.com/?q=Amsterdam Netherlands">Amsterdam, Netherlands</a></span></div>
 <div><i class="fa-solid fa-globe" style="color:#555; margin-right:.6rem; width:20px" aria-hidden="true"></i><span class="header-contact"><a href="https://bram-peters.com">bram-peters.com</a></span></div>
 <div><i class="fa-brands fa-linkedin" style="color:#555; margin-right:.6rem; width:20px" aria-hidden="true"></i><span class="header-contact"><a href="https://www.linkedin.com/in/bram-peters/">LinkedIn</a></span></div>
-<div class="card-cta-row desktop-cta"><a class="cta-btn ghost-btn" href="contact.html"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i><span>Get in touch!</span></a></div></div></div>
+<div class="card-cta-row contact-actions">
+  <a class="cta-btn ghost-btn" href="contact.html"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i><span>Send a Message</span></a>
+  <a class="cta-btn ghost-btn idea-btn" href="contact.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Have an Idea?</span></a>
+</div></div></div>
 
     <!-- One featured project: moved into the portfolio on mobile, never duplicated. -->
     <div id="desktop-top-project-slot" class="top-project-slot">
@@ -617,11 +623,11 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
             <span class="experience-dates">Jun 2026 – Present</span>
             <p class="experience-description card-preview">A natural next step in my career, leveraging BI with user-centred design. Together with a young, ambitious team, we've already delivered significant organisational value through full-stack, Microsoft-native Power Platform solutions that help KLM stay on top of complex operational processes. Building impactful digital products in the tightly regulated world of aviation engineering, where safety, efficiency and precision are essential to keeping KLM's fleet airworthy and its flight schedules running daily.✈️</p>
           </li>
-          <li class="experience-item" data-expandable>
+          <!-- <li class="experience-item" data-expandable>
             <strong class="exp-title"><img class="lit-icon" src="assets/img/favicon.png" alt="Lost In Translation logo" />Owner/Founder, Lost In Translation™ | Amsterdam, Netherlands</strong>
             <span class="experience-dates">Sep 2025 – Present</span>
             <p class="experience-description card-preview">Fully crafted, designed and implemented a design-driven e-commerce platform 'disguised' as a travel agency webshop. Powered by personalized-AI, engaging UX, brand-focused storytelling and backed-up by cutting-edge innovation. Maps so <b>wrong</b>, they feel just <b>right</b>. Visit <a href="https://lostintranslation.nl"><b>lostintranslation.nl</b></a> for more info!</p>
-          </li>
+          </li> -->
           <li class="experience-item" data-expandable>
             <strong class="exp-title"><img class="lit-icon" src="assets/img/bram-peters-studio.png" alt="Bram Peters Studio" />Freelancing, Bram Peters Studio™ | Amsterdam, Netherlands</strong>
             <span class="experience-dates">Okt 2025 – Present</span>

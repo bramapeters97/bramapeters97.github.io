@@ -208,7 +208,7 @@ try {
       }
       if (file === 'index.html') {
         const columns = normalize(computed('.portfolio-grid').gridTemplateColumns);
-        assert.equal(columns, width <= 480 ? 'minmax(0,1fr)' : width <= 900 ? 'repeat(2,minmax(0,1fr))' : 'repeat(3,minmax(0,1fr))');
+        assert.equal(columns, width <= 900 ? 'repeat(2,minmax(0,1fr))' : 'repeat(3,minmax(0,1fr))');
         if (width <= 480) assert.ok(singleColumn(computed('.skills-card-list').gridTemplateColumns));
         if (width <= 900) assert.ok(parseFloat(computed('.filter-btn').minHeight) >= 44);
       }

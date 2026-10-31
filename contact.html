@@ -37,6 +37,7 @@
     <symbol id="intake-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
     <symbol id="intake-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
     <symbol id="intake-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="intake-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
   </svg>
   <div class="container intake-shell">
     <header class="intake-topbar">
@@ -90,10 +91,13 @@
           </aside>
           <aside class="intake-sidebar" data-mode="general" hidden aria-labelledby="general-aside-title">
             <div class="card intake-general-aside" data-reveal-skip>
-              <img src="assets/img/profile.png" width="56" height="56" alt="Bram Peters" />
+              <img src="assets/img/profile.png" width="112" height="112" alt="Bram Peters" />
               <h2 id="general-aside-title">A conversation starts here.</h2>
               <p>Networking, an opportunity, a collaboration, or just saying hi. I'd love to hear from you.</p>
-              <a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a>
+              <div class="intake-socials" role="group" aria-label="LinkedIn profiles">
+                <a class="intake-social-link" href="https://www.linkedin.com/in/bram-peters/" target="_blank" rel="noopener noreferrer"><svg class="intake-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#intake-linkedin"></use></svg><span>Bram Peters</span></a>
+                <a class="intake-social-link" href="https://www.linkedin.com/company/bram-peters-studio/" target="_blank" rel="noopener noreferrer"><svg class="intake-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#intake-linkedin"></use></svg><span>Bram Peters Studio</span></a>
+              </div>
             </div>
           </aside>
           <div class="card intake-main" data-reveal-skip>
@@ -147,7 +151,7 @@
             <fieldset class="intake-section" data-mode="general" hidden disabled>
               <legend>Your message</legend>
               <div class="intake-fields">
-                <div class="intake-field"><label for="generalTopic">Topic <span aria-hidden="true">*</span></label><select id="generalTopic" name="generalTopic" required><option>General enquiry</option><option>Networking</option><option>Vacancy</option><option>Collaboration</option><option>Assignment</option><option>Project Proposal</option><option>Just saying hi!</option><option>Other matters</option></select></div>
+                <div class="intake-field"><label for="generalTopic">Topic <span aria-hidden="true">*</span></label><input id="generalTopic" name="generalTopic" type="text" autocomplete="off" required data-validate data-error="generalTopicError" data-required-message="Enter a topic for your message." aria-describedby="generalTopicError" /><p id="generalTopicError" class="intake-field-error" hidden></p></div>
                 <div class="intake-field"><label for="generalTitle">Subject <span class="intake-optional">Optional</span></label><input id="generalTitle" name="generalTitle" type="text" placeholder="What's on your mind?" /></div>
                 <div class="intake-field"><label for="generalMessage">Message <span aria-hidden="true">*</span></label><textarea id="generalMessage" name="generalMessage" rows="6" required data-validate data-error="generalMessageError" data-required-message="What's on your mind?" aria-describedby="generalMessageError" placeholder="Tell me what you're thinking."></textarea><p id="generalMessageError" class="intake-field-error" hidden></p></div>
               </div>

@@ -55,6 +55,7 @@
   .container { padding-inline: clamp(16px, 3vw, 24px); }
   .header-split, .horizontal-split, .two-columns, .page-two-columns { grid-template-columns: minmax(0, 1fr); }
   :is(.portfolio-home, .portfolio-archive) .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .portfolio-home .portfolio-grid .article-body a { display: inline-flex; align-items: center; min-height: 44px; }
   :is(.portfolio-home, .portfolio-archive) .portfolio-filter .filter-btn { min-height: 44px; white-space: normal; }
   :is(.portfolio-home, .portfolio-archive) .preview-toggle { min-height: 44px; padding: 8px 4px; font-size: .85rem; }
   .profile-disclosure summary { min-height: 44px; }
@@ -84,6 +85,13 @@
   :is(.portfolio-home, .portfolio-archive) .skills-card-list { gap: 12px; }
   :is(.portfolio-home, .portfolio-archive) .skill-title { font-size: .95rem; }
   :is(.portfolio-home, .portfolio-archive) .skill-description { font-size: .9rem; }
+  .portfolio-home .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .portfolio-home .portfolio-grid .article-body { padding: 12px; }
+  .portfolio-home .portfolio-grid .article-body h2 { display: block; min-height: 0; overflow: visible; font-size: .95rem; line-height: 1.35; -webkit-line-clamp: unset; }
+  .portfolio-home .portfolio-grid .article-body p { font-size: .875rem; line-height: 1.5; -webkit-line-clamp: 4; }
+  .portfolio-home .portfolio-grid .article-body a,
+  .portfolio-home .portfolio-grid .article-body b { font-size: .85rem; line-height: 1.4; }
+  .portfolio-home .portfolio-card--disabled .article-body .project-status { max-width: 100%; font-size: .78rem; }
   .portfolio-case .project-header h1, .lelibrambas-case .project-header h1 { font-size: clamp(1.75rem, 7.2vw, 2.35rem); line-height: 1.15; }
   .case-section-heading { font-size: 1rem; line-height: 1.45; letter-spacing: .01em; }
   .case-eyebrow { font-size: .7rem; letter-spacing: .08em; }
@@ -101,18 +109,18 @@
   .cookie-card { font-size: .85rem; }
 }
 
-/* One readable card per row on phones; two on larger phones/tablets; three on desktop. */
+/* Keep supporting cards stacked on phones and preserve the archive layout. */
 @media screen and (max-width: 480px) {
-  :is(.portfolio-home, .portfolio-archive) .portfolio-grid,
+  .portfolio-archive .portfolio-grid,
   :is(.portfolio-home, .portfolio-archive) .skills-card-list,
   :is(.portfolio-home, .portfolio-archive) .certificates-grid { grid-template-columns: minmax(0, 1fr); }
-  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body { padding: 16px; }
-  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body h2 { font-size: 1.12rem; line-height: 1.35; min-height: 0; }
-  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body p { font-size: .92rem; line-height: 1.55; }
-  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body a,
-  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body b { font-size: .9rem; line-height: 1.4; }
-  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body a { display: inline-flex; align-items: center; min-height: 44px; }
-  :is(.portfolio-home, .portfolio-archive) .portfolio-card--disabled .article-body .project-status { font-size: .8rem; }
+  .portfolio-archive .portfolio-grid .article-body { padding: 16px; }
+  .portfolio-archive .portfolio-grid .article-body h2 { font-size: 1.12rem; line-height: 1.35; min-height: 0; }
+  .portfolio-archive .portfolio-grid .article-body p { font-size: .92rem; line-height: 1.55; }
+  .portfolio-archive .portfolio-grid .article-body a,
+  .portfolio-archive .portfolio-grid .article-body b { font-size: .9rem; line-height: 1.4; }
+  .portfolio-archive .portfolio-grid .article-body a { display: inline-flex; align-items: center; min-height: 44px; }
+  .portfolio-archive .portfolio-card--disabled .article-body .project-status { font-size: .8rem; }
   .card-cta-row .cta-btn { width: 100%; min-width: 0; }
 }
 

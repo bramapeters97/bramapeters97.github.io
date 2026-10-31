@@ -64,12 +64,12 @@ body.studio-contact {
 .studio-contact .intake-selected .intake-icon { width: 14px; height: 14px; }
 .studio-contact .intake-vat { margin: 18px 10px 8px; padding-top: 17px; border-top: 1px solid var(--intake-border); color: var(--intake-ink); font-size: .76rem; font-weight: 550; }
 .studio-contact .intake-disclaimer { margin: 0 10px; color: var(--intake-muted); font-size: .76rem; line-height: 1.65; }
-.studio-contact .intake-general-aside { padding: 28px; }
-.studio-contact .intake-general-aside img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin-bottom: 14px; }
+.studio-contact .intake-general-aside { padding: 28px; align-items: flex-start; text-align: left; }
+.studio-contact .intake-general-aside img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin: 0 0 14px; }
 .studio-contact .intake-general-aside p { color: var(--intake-muted); font-size: .9rem; }
-.studio-contact .intake-socials { display: grid; grid-template-columns: minmax(0, 1fr); gap: .6rem; margin-top: .25rem; }
+.studio-contact .intake-socials { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr); gap: .6rem; margin-top: .25rem; }
 .studio-contact .intake-social-link {
-  display: inline-flex; align-items: center; justify-content: center;
+  display: inline-flex; align-items: center; justify-content: flex-start; text-align: left;
   gap: .5rem; min-height: 44px; padding: .6rem .9rem; border-radius: 10px;
   font-size: .88rem; font-weight: 550; overflow-wrap: anywhere;
   background: rgba(120,125,135,.1); border: 1px solid rgba(120,125,135,.18);
