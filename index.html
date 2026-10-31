@@ -440,7 +440,49 @@ body.portfolio-home::before {
 }
   .horizontal-split.experience-layout { grid-template-columns: minmax(0,1fr); }
   .experience-sidebar { display: contents; }
-  .profile-disclosure summary { cursor: pointer; padding: .25rem 0 .7rem; }
+  .portfolio-home .education-card {
+    grid-template-columns: minmax(0,1fr); justify-content: stretch; justify-items: stretch;
+  }
+  .profile-disclosure { width: 100%; min-width: 0; }
+  .profile-disclosure summary {
+    width: 100%; box-sizing: border-box; cursor: pointer; padding: .25rem 0 .7rem;
+  }
+  .profile-disclosure summary .disclosure-chevron { margin-left: auto; }
+  .mobile-section-disclosure { width: 100%; min-width: 0; }
+  .mobile-section-disclosure > summary {
+    display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+    min-height: 44px; width: 100%; cursor: pointer; list-style: none;
+  }
+  .mobile-section-disclosure > summary::-webkit-details-marker { display: none; }
+  .mobile-section-disclosure > summary .section-title {
+    flex: 1; min-width: 0; margin: 0; padding: 0; border: 0;
+  }
+  .mobile-section-disclosure > summary:focus-visible {
+    outline: 2px solid #426aa7; outline-offset: 3px; border-radius: 4px;
+  }
+  .mobile-section-disclosure[open] > summary .disclosure-chevron { transform: rotate(180deg); }
+  .contact-menu-dots { width: 18px; height: 22px; color: #5c6879; flex: 0 0 auto; }
+  .portfolio-home .contact-card { padding: 1rem; justify-content: flex-start; cursor: pointer; }
+  .contact-disclosure .mobile-disclosure-content { display: grid; gap: .6rem; padding-top: .5rem; }
+  .portfolio-home .contact-actions {
+    display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem; margin-top: .6rem;
+  }
+  .portfolio-home .contact-actions .cta-btn {
+    min-width: 0; width: 100%; box-sizing: border-box; padding: .6rem .25rem; gap: .3rem; font-size: .75rem;
+  }
+  .portfolio-home .experience-item { position: relative; }
+  .portfolio-home .experience-item .exp-title { width: calc(100% - max(15%, 44px)); }
+  .portfolio-home .experience-item.is-collapsible > .preview-toggle {
+    position: absolute; top: .15rem; right: .45rem; width: 15%; min-width: 44px; min-height: 44px;
+    justify-content: center; margin: 0; padding: 0;
+  }
+  .experience-item .preview-toggle-label { display: none; }
+  .experience-item .preview-toggle .ui-icon { width: 17px; height: 17px; }
+  .portfolio-home .portfolio-grid .article-body { flex: 0 0 auto; }
+  .portfolio-home .portfolio-grid .article-body p { flex: none; margin-bottom: .25rem; }
+  .portfolio-home .portfolio-grid .article-body hr { margin: .25rem 0 .15rem; }
+  .portfolio-home .portfolio-grid .article-body > a { margin-top: 0; }
+
   .profile-disclosure-content { padding-bottom: 0; }
   .portfolio-home .skills-section .skills-card-list { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .65rem; }
   .portfolio-home .skills-section .skill-title { font-size: .85rem; overflow-wrap: anywhere; }
@@ -922,6 +964,53 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
   if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', syncDesktopLayout);
   else desktopQuery.addListener(syncDesktopLayout);
   syncDesktopLayout();
+})();
+// Wrap contact details and skills only on mobile, preserving the desktop DOM.
+(function () {
+  const mobileQuery = window.matchMedia('(max-width: 900px)');
+  const contactCard = document.querySelector('.contact-card');
+  const contactHeading = contactCard.querySelector('.section-title');
+  const contactRows = Array.from(contactCard.children).filter(child =>
+    child !== contactHeading && !child.classList.contains('contact-actions'));
+  const skills = document.querySelector('.skills-section');
+  const skillsHeading = skills.querySelector('.section-title');
+  const skillsGrid = skills.querySelector('.skills-card-list');
+  function mobileDisclosure(container, heading, content, initiallyOpen, indicator, className) {
+    const details = document.createElement('details');
+    details.className = `mobile-section-disclosure ${className}`;
+    const summary = document.createElement('summary');
+    summary.innerHTML = indicator;
+    const body = document.createElement('div');
+    body.className = 'mobile-disclosure-content';
+    details.append(summary, body);
+    return {
+      details,
+      sync() {
+        if (mobileQuery.matches) {
+          summary.prepend(heading);
+          body.append(...content);
+          container.prepend(details);
+          details.open = initiallyOpen;
+        } else {
+          container.prepend(heading, ...content);
+          details.remove();
+        }
+      }
+    };
+  }
+  const contact = mobileDisclosure(contactCard, contactHeading, contactRows, false,
+    '<svg class="contact-menu-dots" viewBox="0 0 18 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="5" r="1.8"/><circle cx="9" cy="12" r="1.8"/><circle cx="9" cy="19" r="1.8"/></svg>', 'contact-disclosure');
+  const skillSection = mobileDisclosure(skills, skillsHeading, [skillsGrid], true,
+    '<svg class="ui-icon disclosure-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-chevron"></use></svg>', 'skills-disclosure');
+  contactCard.addEventListener('click', event => {
+    if (!mobileQuery.matches || event.target.closest('summary, a, button, input, select, textarea, label')) return;
+    if (window.getSelection().toString()) return;
+    contact.details.open = !contact.details.open;
+  });
+  function syncMobileSections() { contact.sync(); skillSection.sync(); }
+  if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', syncMobileSections);
+  else mobileQuery.addListener(syncMobileSections);
+  syncMobileSections();
 })();
 // Match the shared stylesheet's single-column breakpoint.
 (function () {
