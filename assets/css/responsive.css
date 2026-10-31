@@ -89,7 +89,7 @@
   :is(.portfolio-home, .portfolio-archive) .skills-card-list { gap: 12px; }
   :is(.portfolio-home, .portfolio-archive) .skill-title { font-size: .95rem; }
   :is(.portfolio-home, .portfolio-archive) .skill-description { font-size: .9rem; }
-  .portfolio-home .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .portfolio-home .portfolio-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .portfolio-home .portfolio-grid .article-body { padding: 12px; }
   .portfolio-home .portfolio-grid .article-body h2 { display: block; min-height: 0; overflow: visible; font-size: .95rem; line-height: 1.35; -webkit-line-clamp: unset; }
   .portfolio-home .portfolio-grid .article-body p { font-size: .875rem; line-height: 1.5; }
