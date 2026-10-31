@@ -44,6 +44,11 @@
   margin: 0;
 }
 
+.case-beta-banner .cta-btn {
+  min-width: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, "Segoe UI", sans-serif;
+}
+
 .case-beta-banner .cta-btn i {
   color: #4b5563;
   font-size: 0.95em;
