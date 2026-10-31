@@ -9,6 +9,64 @@
   padding-top: 2rem;
 }
 
+.case-beta-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 2rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.case-beta-banner h2 {
+  margin: 0 0 0.5rem;
+  color: var(--leli-ink);
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  line-height: 1.3;
+}
+
+.case-beta-banner p {
+  margin: 0;
+  color: var(--leli-muted);
+  line-height: 1.65;
+  text-align: left;
+}
+
+.case-beta-banner .card-cta-row {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.case-beta-banner .cta-btn i {
+  color: #4b5563;
+  font-size: 0.95em;
+  opacity: 1;
+}
+
+.case-beta-banner .cta-btn:focus-visible {
+  outline: 2px solid #426aa7;
+  outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .case-beta-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .case-beta-banner .cta-btn {
+    width: 100%;
+  }
+}
+
 .lelibrambas-case .project-header h1 {
   max-width: 900px;
   font-size: clamp(2.1rem, 3.2vw, 3.1rem);
