@@ -9,8 +9,8 @@ const pages = [
   'jmeijerbv40jaareendaginhetlevenvanlucaorvini.html',
 ];
 const featured = [
-  ['UWV Monitor', 'uwvmonitorarbeidgezondheid.html', 'dashboard'],
   ['Lost In Translation™', 'https://lostintranslation.nl', 'bot'],
+  ['UWV Monitor', 'uwvmonitorarbeidgezondheid.html', 'dashboard'],
   ['LELIBRAMBAS+', 'lelibrambas-plus.html', 'tv'],
   ['TU/e Dashboard', 'tuelearningdashboard.html', 'graduation'],
 ];
