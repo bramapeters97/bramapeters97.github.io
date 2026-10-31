@@ -520,6 +520,8 @@ body.portfolio-home::before {
   <link rel="manifest" href="/favicon_portfolio/site.webmanifest" />
   <meta name="msapplication-TileImage" content="/assets/img/bram-peters-studio.png" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/lit-departure.css" />
+  <script src="assets/js/lit-departure.js" defer></script>
 </head>
 <body class="portfolio-home">
   <!-- Inline icons require no additional font or network request. -->
@@ -1098,13 +1100,14 @@ function downloadPDF() { window.location.href = 'assets/pdf/bapeters_cv.pdf'; }
     card.setAttribute('role', 'link');
     card.setAttribute('aria-label', card.querySelector('h2').textContent);
     card.addEventListener('click', event => {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       if (event.target.closest('a, button') || window.getSelection().toString()) return;
-      window.location.href = link.href;
+      link.click();
     });
     card.addEventListener('keydown', event => {
       if (event.target !== card) return;
       if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault(); window.location.href = link.href;
+        event.preventDefault(); link.click();
       }
     });
   });

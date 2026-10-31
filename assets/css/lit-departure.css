@@ -1,0 +1,47 @@
+/* Created only during a Lost In Translation departure; never affects layout. */
+.lit-departure {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  margin: 0;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: auto;
+  will-change: backdrop-filter;
+  /* Fade the background's alpha so the filtered backdrop remains visible.
+     Unsupported backdrop filters leave this same black opacity fade. */
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+  animation: lit-departure 1000ms cubic-bezier(.4, 0, .2, 1) both;
+}
+
+@keyframes lit-departure {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+  }
+  30% {
+    background-color: rgba(0, 0, 0, .18);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+  70% {
+    background-color: rgba(0, 0, 0, .72);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+  90%, 100% {
+    background-color: #000;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lit-departure {
+    animation: none;
+    background-color: #000;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

@@ -55,6 +55,10 @@
   .container { padding-inline: clamp(16px, 3vw, 24px); }
   .header-split, .horizontal-split, .two-columns, .page-two-columns { grid-template-columns: minmax(0, 1fr); }
   :is(.portfolio-home, .portfolio-archive) .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  /* Let complete homepage descriptions size each row; stretch its cards equally. */
+  .portfolio-home .portfolio-grid { align-items: stretch; }
+  .portfolio-home .portfolio-grid .article-wrapper { height: auto; flex: 1; }
+  .portfolio-home .portfolio-grid .article-body p { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; }
   .portfolio-home .portfolio-grid .article-body a { display: inline-flex; align-items: center; min-height: 44px; }
   :is(.portfolio-home, .portfolio-archive) .portfolio-filter .filter-btn { min-height: 44px; white-space: normal; }
   :is(.portfolio-home, .portfolio-archive) .preview-toggle { min-height: 44px; padding: 8px 4px; font-size: .85rem; }
@@ -88,7 +92,7 @@
   .portfolio-home .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .portfolio-home .portfolio-grid .article-body { padding: 12px; }
   .portfolio-home .portfolio-grid .article-body h2 { display: block; min-height: 0; overflow: visible; font-size: .95rem; line-height: 1.35; -webkit-line-clamp: unset; }
-  .portfolio-home .portfolio-grid .article-body p { font-size: .875rem; line-height: 1.5; -webkit-line-clamp: 4; }
+  .portfolio-home .portfolio-grid .article-body p { font-size: .875rem; line-height: 1.5; }
   .portfolio-home .portfolio-grid .article-body a,
   .portfolio-home .portfolio-grid .article-body b { font-size: .85rem; line-height: 1.4; }
   .portfolio-home .portfolio-card--disabled .article-body .project-status { max-width: 100%; font-size: .78rem; }
