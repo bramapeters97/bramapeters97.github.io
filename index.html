@@ -431,6 +431,7 @@ body.portfolio-home::before {
   }
 }
 @media (min-width:901px) {
+  #mobile-skills-slot { display: none; }
   .portfolio-home .portfolio-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
 }
 @media (max-width:900px) {
@@ -439,21 +440,21 @@ body.portfolio-home::before {
 }
   .horizontal-split.experience-layout { grid-template-columns: minmax(0,1fr); }
   .experience-sidebar { display: contents; }
-  .profile-disclosure { border-bottom: 0; }
-  .profile-disclosure summary { cursor: default; padding: 0; }
-  .profile-disclosure summary .disclosure-chevron { display: none; }
-  .profile-disclosure:not([open]) > .profile-disclosure-content { display: block; }
+  .profile-disclosure summary { cursor: pointer; padding: .25rem 0 .7rem; }
   .profile-disclosure-content { padding-bottom: 0; }
-  .skills-card-list { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .65rem; }
+  .portfolio-home .skills-section .skills-card-list { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .65rem; }
+  .portfolio-home .skills-section .skill-title { font-size: .85rem; overflow-wrap: anywhere; }
+  .portfolio-home .skills-section .skill-level { display: block; margin: .2rem 0 0; font-size: .75rem; }
   .skill-glass-card { padding: .8rem; border-radius: 12px; }
   .skill-title { font-size: .87rem; }
   .skill-description { font-size: .8rem; }
   [data-expandable].is-collapsible { cursor: pointer; }
   [data-expandable].is-collapsible:not(.is-expanded) .card-preview {
-    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden;
+    display: none;
   }
-  .skill-glass-card.is-collapsible:not(.is-expanded) .card-preview {
-    display: block; white-space: nowrap; -webkit-line-clamp: unset; line-clamp: unset;
+  .skill-glass-card.is-collapsible::after {
+    content: "..."; display: block; align-self: flex-start;
+    font-weight: 800; line-height: .8; letter-spacing: .08em; color: #2c3238;
   }
   [data-expandable].is-collapsible > .preview-toggle { display: inline-flex; }
   [data-expandable].is-expanded { border-color: rgba(66,106,167,.4); }
@@ -615,7 +616,7 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
         </div>
       </section>
     </div>
-    <!-- Always visible: professional experience first, education second. -->
+    <!-- Mobile order: professional experience, skills, then supporting CV sections. -->
     <div class="horizontal-split experience-layout">
       <section class="card card-experience" aria-labelledby="experience-title" data-reveal-skip>
         <div class="section-title icon-title experience" id="experience-title">Professional Experience</div>
@@ -667,6 +668,51 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
           </li>
         </ul></div>
       </section>
+      <div id="mobile-skills-slot"><section class="skills-section" aria-labelledby="skills-title">
+        <div class="section-title icon-title skills" id="skills-title">Skills</div>
+        <div class="skills-card-list">
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">Business Intelligence </strong><span class="skill-level">Advanced</span></div>
+            <span class="skill-description card-preview">PowerBI/DAX, PowerApps|Automate, Stakeholder-management, policy-driven KPI-reporting, data-driven decision-making, Cloud ETL, data quality &amp; lineage, GDPR-compliancy, performance tuning, paginated reports</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">Data Analytics</strong><span class="skill-level">Expert</span></div>
+            <span class="skill-description card-preview">R, Stata, Python, (statistical) data mining/engineering/analytics, scientific research methods, machine learning</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">UX/UI &amp; Interaction Design</strong><span class="skill-level">Advanced</span></div>
+            <span class="skill-description card-preview">Figma, Adobe XD, wireframing, prototyping, usability, flows, cognitive walkthroughs, design systems, IA, user research, stakeholder interviews, Double Diamond, self-regulated learning theory, storytelling, A/B testing, Behavioral research methods, human cognition &amp; perception, human-robot interaction, persuasive &amp; ethical design.</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">App Development</strong><span class="skill-level">Proficient</span></div>
+            <span class="skill-description card-preview">Android, Kotlin, Apple tvOS, iOS, Power Apps</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">MS Power Platform</strong><span class="skill-level">Proficient</span></div>
+            <span class="skill-description card-preview">M365 Copilot Ecosystems using Power Apps, Power Automate, Power BI, SharePoint, full-stack low-code application development, Microsoft-native integrations, enterprise workflow automation, data modelling & integration, SharePoint Lists & data management, custom connectors, responsive UX/UI design, role-based access control, permissions & governance, approval workflows, cross-platform integration, scalable enterprise applications.</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">Web Development</strong><span class="skill-level">Proficient</span></div>
+            <span class="skill-description card-preview">Core Web Tech, TypeScript, React, Vue.js, responsiveness, PWAs, Web Dev, Android, tvOS, PowerApps</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">Cloud Databases &amp; API Integration</strong><span class="skill-level">Proficient</span></div>
+            <span class="skill-description card-preview">Cloudflare D1, SQL database setup, Google Cloud, API authentication &amp; access control, REST APIs, full-stack integration, dynamic data synchronisation</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">AI Software Development</strong><span class="skill-level">Proficient</span></div>
+            <span class="skill-description card-preview">AI coding tools, 'vibe coding', constructing constrained and targeted prompts, context management, iterative prototyping, code review &amp; refinement, debugging, testing, integration, AI agent design, system instructions, persona &amp; behaviour design, knowledge integration, AI-powered websites &amp; applications, workflow orchestration, connected AI services, automated summarisation, structured outputs, output evaluation &amp; guardrails</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">Data Governance</strong><span class="skill-level">Advanced</span></div>
+            <span class="skill-description card-preview">GDPR, privacy-by-design, anonymisation, aggregation, data definitions, access control, RLS</span>
+          </div>
+          <div class="skill-glass-card" data-expandable>
+            <div class="skill-heading"><strong class="skill-title">Agile &amp; Scrum </strong><span class="skill-level">Proficient</span></div>
+            <span class="skill-description card-preview">Sprint planning, JIRA, Confluence, backlog refinement, iterative development, stakeholder management, cross-functional teamwork, demos &amp; presentations, user stories, discovery → scoping → kickoff, stakeholder mapping, requirements, delivery roadmap &amp; milestones, change management, workshops, executives updating, cross-functional collaboration</span>
+          </div>
+        </div>
+      </section></div>
       <div class="experience-sidebar">
       <section class="card education-card" aria-label="Education, languages and certificates" data-reveal-skip>
         <details class="profile-disclosure" data-desktop-disclosure>
@@ -855,56 +901,12 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
           </article>
         </div>
       </section>
-      <div id="mobile-skills-slot"><section class="skills-section" aria-labelledby="skills-title">
-        <div class="section-title icon-title skills" id="skills-title">Skills</div>
-        <div class="skills-card-list">
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Business Intelligence </strong><span class="skill-level">Advanced</span></div>
-            <span class="skill-description card-preview">PowerBI/DAX, PowerApps|Automate, Stakeholder-management, policy-driven KPI-reporting, data-driven decision-making, Cloud ETL, data quality &amp; lineage, GDPR-compliancy, performance tuning, paginated reports</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Data Analytics</strong><span class="skill-level">Expert</span></div>
-            <span class="skill-description card-preview">R, Stata, Python, (statistical) data mining/engineering/analytics, scientific research methods, machine learning</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">UX/UI &amp; Interaction Design</strong><span class="skill-level">Advanced</span></div>
-            <span class="skill-description card-preview">Figma, Adobe XD, wireframing, prototyping, usability, flows, cognitive walkthroughs, design systems, IA, user research, stakeholder interviews, Double Diamond, self-regulated learning theory, storytelling, A/B testing, Behavioral research methods, human cognition &amp; perception, human-robot interaction, persuasive &amp; ethical design.</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">App Development</strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">Android, Kotlin, Apple tvOS, iOS, Power Apps</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">MS Power Platform</strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">M365 Copilot Ecosystems using Power Apps, Power Automate, Power BI, SharePoint, full-stack low-code application development, Microsoft-native integrations, enterprise workflow automation, data modelling & integration, SharePoint Lists & data management, custom connectors, responsive UX/UI design, role-based access control, permissions & governance, approval workflows, cross-platform integration, scalable enterprise applications.</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Web Development</strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">Core Web Tech, TypeScript, React, Vue.js, responsiveness, PWAs, Web Dev, Android, tvOS, PowerApps</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Cloud Databases &amp; API Integration</strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">Cloudflare D1, SQL database setup, Google Cloud, API authentication &amp; access control, REST APIs, full-stack integration, dynamic data synchronisation</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">AI Software Development</strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">AI coding tools, 'vibe coding', constructing constrained and targeted prompts, context management, iterative prototyping, code review &amp; refinement, debugging, testing, integration, AI agent design, system instructions, persona &amp; behaviour design, knowledge integration, AI-powered websites &amp; applications, workflow orchestration, connected AI services, automated summarisation, structured outputs, output evaluation &amp; guardrails</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Data Governance</strong><span class="skill-level">Advanced</span></div>
-            <span class="skill-description card-preview">GDPR, privacy-by-design, anonymisation, aggregation, data definitions, access control, RLS</span>
-          </div>
-          <div class="skill-glass-card" data-expandable>
-            <div class="skill-heading"><strong class="skill-title">Agile &amp; Scrum </strong><span class="skill-level">Proficient</span></div>
-            <span class="skill-description card-preview">Sprint planning, JIRA, Confluence, backlog refinement, iterative development, stakeholder management, cross-functional teamwork, demos &amp; presentations, user stories, discovery → scoping → kickoff, stakeholder mapping, requirements, delivery roadmap &amp; milestones, change management, workshops, executives updating, cross-functional collaboration</span>
-          </div>
-        </div>
-      </section></div>
+
     </div>
   </div>
 <script src="assets/js/reveal.js"></script>
 <script>
-// Desktop uses a right-hand CV rail; mobile retains the original Portfolio-then-Skills flow.
+// Desktop uses a right-hand CV rail; mobile places skills directly after experience.
 (function () {
   const desktopQuery = window.matchMedia('(min-width: 901px)');
   const skills = document.querySelector('.skills-section');
@@ -915,17 +917,8 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
     const desktop = desktopQuery.matches;
     const skillsTarget = desktop ? desktopSlot : mobileSlot;
     if (skills.parentElement !== skillsTarget) skillsTarget.appendChild(skills);
-    disclosures.forEach(disclosure => {
-      disclosure.open = !desktop;
-      const summary = disclosure.querySelector('summary');
-      summary.setAttribute('aria-disabled', String(!desktop));
-    });
+    disclosures.forEach(disclosure => { disclosure.open = false; });
   }
-  disclosures.forEach(disclosure => {
-    disclosure.addEventListener('click', event => {
-      if (!desktopQuery.matches && event.target.closest('summary')) event.preventDefault();
-    });
-  });
   if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', syncDesktopLayout);
   else desktopQuery.addListener(syncDesktopLayout);
   syncDesktopLayout();
@@ -1056,12 +1049,8 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
     syncButton(item);
   }
   function refreshPreviews() {
-    // Measure natural text height rather than previously clamped height.
-    items.forEach(item => item.card.classList.remove('is-collapsible'));
-    const overflow = items.map(item => {
-      const lineHeight = parseFloat(window.getComputedStyle(item.preview).lineHeight);
-      return item.isSkill || (mobileQuery.matches && item.preview.scrollHeight > lineHeight * 3 + 1);
-    });
+    // Every mobile description can expand, including short job descriptions.
+    const overflow = items.map(item => item.isSkill || mobileQuery.matches);
     items.forEach((item, index) => {
       item.card.classList.toggle('is-collapsible', overflow[index]);
       item.button.hidden = item.isSkill || !overflow[index];
