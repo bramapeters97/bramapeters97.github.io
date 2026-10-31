@@ -10,7 +10,7 @@ const pages = [
 ];
 const featured = [
   ['UWV Monitor', 'uwvmonitorarbeidgezondheid.html', 'dashboard'],
-  ['Lost In Translation™', 'https://lostintranslation.nl/?lit_arrival=train', 'bot'],
+  ['Lost In Translation™', 'https://lostintranslation.nl', 'bot'],
   ['LELIBRAMBAS+', 'lelibrambas-plus.html', 'tv'],
   ['TU/e Dashboard', 'tuelearningdashboard.html', 'graduation'],
 ];
