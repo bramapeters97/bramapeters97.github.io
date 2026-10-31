@@ -67,7 +67,16 @@ body.studio-contact {
 .studio-contact .intake-general-aside { padding: 28px; }
 .studio-contact .intake-general-aside img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin-bottom: 14px; }
 .studio-contact .intake-general-aside p { color: var(--intake-muted); font-size: .9rem; }
-.studio-contact .intake-general-aside a { font-size: .87rem; overflow-wrap: anywhere; }
+.studio-contact .intake-socials { display: grid; grid-template-columns: minmax(0, 1fr); gap: .6rem; margin-top: .25rem; }
+.studio-contact .intake-social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: .5rem; min-height: 44px; padding: .6rem .9rem; border-radius: 10px;
+  font-size: .88rem; font-weight: 550; overflow-wrap: anywhere;
+  background: rgba(120,125,135,.1); border: 1px solid rgba(120,125,135,.18);
+  color: #424b5b; text-decoration: none; transition: background .2s ease, color .2s ease;
+}
+.studio-contact .intake-social-link .intake-icon { width: 18px; height: 18px; stroke: none; fill: currentColor; }
+.studio-contact .intake-social-link:hover { background: rgba(120,125,135,.18); color: #1f2c44; }
 .studio-contact .intake-required-note { color: var(--intake-muted); font-size: .78rem; margin: 0 0 26px; line-height: 1.65; }
 .studio-contact .intake-required-note > span { display: block; }
 .studio-contact .intake-section > legend { width: 100%; display: flex; align-items: center; gap: 10px; margin-bottom: 24px; font-size: 1.22rem; font-weight: 650; letter-spacing: -.025em; }
@@ -140,6 +149,9 @@ body.studio-contact {
 .studio-contact .intake-footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 30px; padding: 20px 0; color: var(--intake-muted); font-size: .78rem; }
 .studio-contact .intake-footer a { color: var(--intake-muted); }
 .studio-contact .intake-notice { padding: 20px; margin-bottom: 24px; border: 1px solid var(--intake-border); border-radius: 12px; background: white; }
+@media (min-width: 901px) {
+  .studio-contact .intake-general-aside img { width: 112px; height: 112px; }
+}
 @media (max-width: 1000px) {
   .studio-contact .intake-shell { padding-inline: 24px; }
   .studio-contact .intake-layout { gap: 20px; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); }

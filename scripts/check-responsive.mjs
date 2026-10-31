@@ -25,7 +25,13 @@ for (const file of routes) {
   }
   if (file !== 'contact.html') assert.doesNotMatch(html, /href=["']mailto:/i, `${file}: contact must use contact.html`);
   const original = execFileSync('git', ['show', `HEAD:${file}`], { cwd: root, encoding: 'utf8' });
-  assert.deepEqual(linkedinLinks(html), linkedinLinks(original), `${file}: LinkedIn destinations changed`);
+  if (file === 'contact.html') {
+    const homeProfiles = read('index.html').match(/<div class="header-socials"[^>]*>([\s\S]*?)<\/div>/);
+    assert.ok(homeProfiles, 'Homepage LinkedIn profile buttons are missing');
+    assert.deepEqual(linkedinLinks(html), linkedinLinks(homeProfiles[1]), 'Contact LinkedIn buttons must match the homepage');
+  } else {
+    assert.deepEqual(linkedinLinks(html), linkedinLinks(original), `${file}: LinkedIn destinations changed`);
+  }
 }
 assert.match(read('scripts/update-project-navigation.mjs'), /class="project-nav-contact" href="contact.html"/);
 assert.match(read('assets/js/reveal.js'), /window.location.href = 'contact.html'/);
