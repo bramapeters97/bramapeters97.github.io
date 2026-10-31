@@ -1,132 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VVZK9H0J0T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-VVZK9H0J0T');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Bram Peters</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta name="description" content="Have something in mind? Tell Bram Peters Studio about your website, app, design or film project, or get in touch for a general enquiry." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Let's build something together | Bram Peters Studio</title>
+  <!-- Keep the shared consent UI, but disable GA collection on this intake page.
+       This also prevents enhanced measurement from collecting form or mailto data. -->
+  <script>
+    window['ga-disable-G-VVZK9H0J0T'] = true;
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    gtag('js', new Date());
+    gtag('config', 'G-VVZK9H0J0T', { send_page_view: false });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VVZK9H0J0T"></script>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/contact.css" />
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" href="/assets/img/bram-peters-studio.png" />
   <link rel="apple-touch-icon" href="/assets/img/bram-peters-studio.png" />
   <link rel="manifest" href="/favicon_portfolio/site.webmanifest" />
   <meta name="msapplication-TileImage" content="/assets/img/bram-peters-studio.png" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
-<body>
-  <div class="container contact-page">
-    <a class="contact-return" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i>Back to portfolio</a>
-
-    <div class="profile-header contact-hero">
-      <img class="profile-pic" src="assets/img/Photo.jpg" alt="Bram Peters" />
-      <div class="header-intro">
-        <div class="header-row">
-          <div class="header-name">Let's build something new together</div>
+<body class="studio-contact">
+  <svg class="intake-icons" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="intake-arrow" viewBox="0 0 24 24"><path d="m12 5-7 7 7 7M5 12h14" /></symbol>
+    <symbol id="intake-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13" /></symbol>
+    <symbol id="intake-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></symbol>
+    <symbol id="intake-app" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4M11 18h2"/></symbol>
+    <symbol id="intake-design" viewBox="0 0 24 24"><path d="m15 5 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15l-1 6Z"/></symbol>
+    <symbol id="intake-video" viewBox="0 0 24 24"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="m15 10 7-4v12l-7-4"/></symbol>
+    <symbol id="intake-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="intake-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="intake-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+  </svg>
+  <div class="container intake-shell">
+    <header class="intake-topbar">
+      <a class="intake-back" href="index.html"><svg class="intake-icon" aria-hidden="true"><use href="#intake-arrow"/></svg>Back to portfolio</a>
+      <a class="intake-wordmark" href="index.html" aria-label="Bram Peters Studio portfolio"><strong>Bram Peters</strong><span>| Studio</span></a>
+    </header>
+    <main id="main-content">
+      <section class="intake-hero" aria-labelledby="contact-title">
+        <img class="intake-logo" src="assets/img/bram-peters-studio.png" width="72" height="72" alt="Bram Peters Studio" />
+        <div>
+          <h1 id="contact-title">Let's build something <span>new together.</span></h1>
+          <p class="intake-intro">Whether you've got a fully developed brief or just an idea that won't leave you alone, tell me what you're thinking. I'll help figure out how to turn it into something worth building.</p>
+          <p class="intake-reply">I'll usually get back to you within <strong>1–3 business days.</strong></p>
         </div>
-        <div class="header-title">
-          Share your idea, brief or opportunity, I will get back to you with the next steps so we can start creating a meaningful impact.
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-grid">
-      <div class="card contact-form-card">
-        <div class="section-title icon-title contact">Get in touch!</div>
-        <form class="contact-form" id="contactForm">
-          <div class="contact-form-grid">
-            <label for="fullName">Name
-              <input type="text" id="fullName" name="name" placeholder="Your full name" required />
-            </label>
-            <label for="emailAddress">Email address
-              <input type="email" id="emailAddress" name="email" placeholder="you@example.com" required />
-            </label>
-            <label for="phoneNumber">Phone number
-              <div class="phone-input">
-                <select id="countryCode" name="countryCode" aria-label="Country code" data-default="+31">
-                  <option value="" disabled selected>Loading country codes…</option>
-                </select>
-                <input type="tel" id="phoneNumber" name="phone" placeholder="612 345 678" />
-              </div>
-            </label>
-            <label for="messageTitle">Project title
-              <input type="text" id="messageTitle" name="title" placeholder="e.g. AI dashboard refresh" required />
-            </label>
-            <label for="projectTopic">Topic
-              <select id="projectTopic" name="topic" required>
-                <option value="Just saying hi!">Just saying hi!</option>
-                <option value="Vacancy">Vacancy</option>
-                <option value="Assignment">Assignment</option>
-                <option value="Project Proposal">Project Proposal</option>
-                <option value="Networking">Networking</option>
-                <option value="Others">Others</option>
-              </select>
-            </label>
+      </section>
+      <noscript><div class="intake-notice">This form needs JavaScript to prepare your email. You can also write directly to <a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a>.</div></noscript>
+      <form id="contactForm" class="intake-form" action="mailto:bramapeters@outlook.com" method="post" enctype="text/plain" novalidate>
+        <fieldset class="intake-mode">
+          <legend>What brings you here?</legend>
+          <div class="intake-mode-options">
+            <label><input type="radio" name="enquiryMode" value="project" checked /><span><svg class="intake-icon" aria-hidden="true"><use href="#intake-design"/></svg>Request a project</span></label>
+            <label><input type="radio" name="enquiryMode" value="general" /><span><svg class="intake-icon" aria-hidden="true"><use href="#intake-send"/></svg>General enquiry</span></label>
           </div>
-          <label for="projectDetails">Message
-            <textarea id="projectDetails" name="message" placeholder="Share your goals, timeline or any relevant background" required></textarea>
-          </label>
-          <button type="submit">Send email to Bram</button>
-          <p class="contact-form-note">Submitting the form opens your default email client with all details so your message stays personal, just hit send.</p>
-        </form>
-      </div>
-    </div>
+        </fieldset>
+        <p id="modeAnnouncement" class="intake-sr-only" role="status"></p>
+        <div class="intake-layout">
+          <aside class="intake-sidebar" data-mode="project" aria-labelledby="services-heading">
+            <div class="card intake-services" data-reveal-skip>
+              <div class="intake-sidebar-heading"><span class="intake-eyebrow">A little direction</span><h2 id="services-heading">An idea of the investment.</h2><p>Four ways we can make it happen.</p></div>
+              <ul class="intake-service-list">
+                <li class="intake-service" data-service="web">
+                  <svg class="intake-service-icon intake-icon" aria-hidden="true"><use href="#intake-web"/></svg>
+                  <div><h3>Web Design &amp; Development</h3><p>Full-stack websites, interactive platforms and custom web applications.</p><div class="intake-service-footer"><strong>From €875</strong><span class="intake-selected" hidden>Selected <svg class="intake-icon" aria-hidden="true"><use href="#intake-check"/></svg></span></div></div>
+                </li>
+                <li class="intake-service" data-service="app">
+                  <svg class="intake-service-icon intake-icon" aria-hidden="true"><use href="#intake-app"/></svg>
+                  <div><h3>App &amp; Software Development</h3><p>Digital products for web, mobile (iOS/Android), desktop and Apple TV (tvOS).</p><div class="intake-service-footer"><strong>From €1,575</strong><span class="intake-selected" hidden>Selected <svg class="intake-icon" aria-hidden="true"><use href="#intake-check"/></svg></span></div></div>
+                </li>
+                <li class="intake-service" data-service="design">
+                  <svg class="intake-service-icon intake-icon" aria-hidden="true"><use href="#intake-design"/></svg>
+                  <div><h3>UX/UI Design Guidance</h3><p>UX audits, interface redesigns, user journeys, interactive prototypes, design systems and human-centred product guidance.</p><div class="intake-service-footer"><strong>From €315</strong><span class="intake-selected" hidden>Selected <svg class="intake-icon" aria-hidden="true"><use href="#intake-check"/></svg></span></div></div>
+                </li>
+                <li class="intake-service" data-service="video">
+                  <svg class="intake-service-icon intake-icon" aria-hidden="true"><use href="#intake-video"/></svg>
+                  <div><h3>Video Production &amp; Editing</h3><p>Filming, editing and delivery for creative productions such as weddings, personal milestones, company anniversaries and other special occasions.</p><div class="intake-service-footer"><strong>From €525</strong><span class="intake-selected" hidden>Selected <svg class="intake-icon" aria-hidden="true"><use href="#intake-check"/></svg></span></div></div>
+                </li>
+              </ul>
+              <p class="intake-vat">All starting prices are in EUR and include VAT.</p>
+              <p class="intake-disclaimer">Prices are indicative starting points and may vary depending on your project's scope, complexity and specific requirements. A personalised quotation will always be provided before any work begins.</p>
+            </div>
+          </aside>
+          <aside class="intake-sidebar" data-mode="general" hidden aria-labelledby="general-aside-title">
+            <div class="card intake-general-aside" data-reveal-skip>
+              <img src="assets/img/Photo.jpg" width="56" height="56" alt="Bram Peters" />
+              <h2 id="general-aside-title">A conversation starts here.</h2>
+              <p>Networking, an opportunity, a collaboration, or just saying hi. I'd love to hear from you.</p>
+              <a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a>
+            </div>
+          </aside>
+          <div class="card intake-main" data-reveal-skip>
+            <p class="intake-required-note">A starting point, not a perfect brief. <span>Fields marked <span aria-hidden="true">*</span> are required.</span></p>
+            <div id="formErrors" class="intake-error-summary" role="alert" hidden></div>
+            <fieldset class="intake-section" data-mode="project">
+              <legend><span class="intake-step" aria-hidden="true">01</span>Your project</legend>
+              <div class="intake-fields">
+                <div class="intake-field">
+                  <label for="productType">Type of Product <span aria-hidden="true">*</span></label>
+                  <select id="productType" name="productType" required data-validate data-error="productTypeError" data-required-message="Choose a product type." aria-describedby="productPrice productTypeError">
+                    <option value="">What would you like to create?</option>
+                    <option value="Web Design &amp; Development" data-service="web" data-price="From €875">Web Design &amp; Development</option>
+                    <option value="App &amp; Software Development" data-service="app" data-price="From €1,575">App &amp; Software Development</option>
+                    <option value="UX/UI Design Guidance" data-service="design" data-price="From €315">UX/UI Design Guidance</option>
+                    <option value="Video Production &amp; Editing" data-service="video" data-price="From €525">Video Production &amp; Editing</option>
+                  </select>
+                  <p id="productPrice" class="intake-price-hint" role="status">Select a service to see its starting price.</p>
+                  <p id="productTypeError" class="intake-field-error" hidden></p>
+                </div>
+                <div class="intake-field"><label for="projectTitle">Project title <span class="intake-optional">Optional</span></label><input id="projectTitle" name="projectTitle" type="text" placeholder="A name for your idea" /></div>
+                <div class="intake-field">
+                  <label for="projectDescription">Project description <span aria-hidden="true">*</span></label>
+                  <textarea id="projectDescription" name="projectDescription" rows="5" required data-validate data-error="projectDescriptionError" data-required-message="Tell me a little about your project." aria-describedby="projectDescriptionError" placeholder="Tell me what you'd like to create, improve or solve. No need for a perfectly polished brief."></textarea>
+                  <p id="projectDescriptionError" class="intake-field-error" hidden></p>
+                </div>
+                <div class="intake-field">
+                  <label id="similarLabel" for="similarProject">Similar to <span class="intake-optional">Optional</span></label>
+                  <div class="intake-combobox" id="portfolioPicker">
+                    <button type="button" id="similarProject" class="intake-combobox-trigger" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="portfolioOptions" aria-labelledby="similarLabel" aria-describedby="similarHelp">
+                      <span id="portfolioSelection" class="intake-reference-content">Choose a portfolio reference</span><svg class="intake-icon" aria-hidden="true"><use href="#intake-chevron"/></svg>
+                    </button>
+                    <ul id="portfolioOptions" class="intake-options" role="listbox" aria-labelledby="similarLabel" hidden></ul>
+                    <input type="hidden" id="similarProjectValue" name="similarProject" />
+                  </div>
+                  <p id="similarHelp" class="intake-help">Something in my portfolio caught your eye? Use it as a starting point.</p>
+                </div>
+                <div class="intake-field"><label for="additionalInformation">Additional information <span class="intake-optional">Optional</span></label><textarea id="additionalInformation" name="additionalInformation" rows="3" placeholder="Deadlines, technical requirements, existing systems, special requests, reference links or anything else worth knowing."></textarea></div>
+                <fieldset class="intake-radio-group" data-validate data-error="brandGuidelinesError" data-required-message="Choose a brand-guidelines answer.">
+                  <legend>Does your project need to follow existing brand guidelines? <span aria-hidden="true">*</span></legend>
+                  <p id="brandHelp" class="intake-help">For example, an existing company logo, colour palette, typography, corporate identity or design system.</p>
+                  <div class="intake-radio-options">
+                    <label><input type="radio" name="brandGuidelines" value="Yes" required aria-describedby="brandHelp brandGuidelinesError" /><span>Yes</span></label>
+                    <label><input type="radio" name="brandGuidelines" value="No" required aria-describedby="brandHelp brandGuidelinesError" /><span>No</span></label>
+                    <label><input type="radio" name="brandGuidelines" value="Not sure yet" required aria-describedby="brandHelp brandGuidelinesError" /><span>Not sure yet</span></label>
+                  </div>
+                  <p id="brandGuidelinesError" class="intake-field-error" hidden></p>
+                </fieldset>
+              </div>
+            </fieldset>
+            <fieldset class="intake-section" data-mode="general" hidden disabled>
+              <legend>Your message</legend>
+              <div class="intake-fields">
+                <div class="intake-field"><label for="generalTopic">Topic <span aria-hidden="true">*</span></label><select id="generalTopic" name="generalTopic" required><option>General enquiry</option><option>Networking</option><option>Vacancy</option><option>Collaboration</option><option>Assignment</option><option>Project Proposal</option><option>Just saying hi!</option><option>Other matters</option></select></div>
+                <div class="intake-field"><label for="generalTitle">Subject <span class="intake-optional">Optional</span></label><input id="generalTitle" name="generalTitle" type="text" placeholder="What's on your mind?" /></div>
+                <div class="intake-field"><label for="generalMessage">Message <span aria-hidden="true">*</span></label><textarea id="generalMessage" name="generalMessage" rows="6" required data-validate data-error="generalMessageError" data-required-message="Write a message for your enquiry." aria-describedby="generalMessageError" placeholder="Tell me what you're thinking."></textarea><p id="generalMessageError" class="intake-field-error" hidden></p></div>
+              </div>
+            </fieldset>
+            <fieldset class="intake-section intake-section-divided">
+              <legend><span class="intake-step" data-mode="project" aria-hidden="true">02</span>About you</legend>
+              <div class="intake-fields">
+                <div class="intake-field-pair">
+                  <div class="intake-field"><label for="fullName">Name <span aria-hidden="true">*</span></label><input id="fullName" name="name" type="text" autocomplete="name" required data-validate data-error="fullNameError" data-required-message="Enter your name." aria-describedby="fullNameError" placeholder="Your name" /><p id="fullNameError" class="intake-field-error" hidden></p></div>
+                  <div class="intake-field"><label for="emailAddress">Email <span aria-hidden="true">*</span></label><input id="emailAddress" name="email" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" required data-validate data-error="emailAddressError" data-required-message="Enter your email address." aria-describedby="emailAddressError" placeholder="you@example.com" /><p id="emailAddressError" class="intake-field-error" hidden></p></div>
+                </div>
+                <div class="intake-field">
+                  <label for="phoneNumber">Phone Number <span class="intake-optional">Optional</span></label>
+                  <div class="intake-phone"><select id="countryCode" name="countryCode" autocomplete="tel-country-code" aria-label="Phone country calling code"><option value="+31">Netherlands (+31)</option></select><input id="phoneNumber" name="phone" type="tel" autocomplete="tel-national" placeholder="6 1234 5678" /></div>
+                </div>
+                <fieldset class="intake-radio-group" data-mode="project" data-validate data-error="clientTypeError" data-required-message="Choose Business or Private.">
+                  <legend>I'm requesting this as <span aria-hidden="true">*</span></legend>
+                  <div class="intake-radio-options"><label><input type="radio" name="clientType" value="Business" required aria-describedby="clientTypeError" /><span>Business</span></label><label><input type="radio" name="clientType" value="Private" required aria-describedby="clientTypeError" /><span>Private</span></label></div>
+                  <p id="clientTypeError" class="intake-field-error" hidden></p>
+                </fieldset>
+              </div>
+            </fieldset>
+            <details class="intake-address" data-mode="project">
+              <summary><span>Address details <span class="intake-optional">Optional</span></span><svg class="intake-icon" aria-hidden="true"><use href="#intake-chevron"/></svg></summary>
+              <p id="addressHelp" class="intake-help">Useful for on-site work, travel planning or preparing a quotation. You can also provide these details later.</p>
+              <fieldset aria-describedby="addressHelp"><legend class="intake-sr-only">Address details</legend>
+                <div class="intake-fields">
+                  <div class="intake-street-pair"><div class="intake-field"><label for="street">Street</label><input id="street" name="street" type="text" autocomplete="address-line1" /></div><div class="intake-field"><label for="streetNumber">Number</label><input id="streetNumber" name="number" type="text" autocomplete="address-line2" placeholder="12A" /></div></div>
+                  <div class="intake-field-pair"><div class="intake-field"><label for="postalCode">ZIP / Postal Code</label><input id="postalCode" name="postalCode" type="text" autocomplete="postal-code" /></div><div class="intake-field"><label for="addressCountry">Country</label><select id="addressCountry" name="country" autocomplete="country-name"><option value="">Select a country</option></select></div></div>
+                </div>
+              </fieldset>
+            </details>
+            <div class="intake-submit-area">
+              <p class="intake-response">I'll get back to you as soon as possible — usually within <strong>1–3 business days.</strong></p>
+              <p class="intake-help" data-mode="project">I'll review your brief first and get in touch if I need any additional details before preparing a quotation or discussing the next steps.</p>
+              <button type="submit" id="prepareRequest" class="intake-primary" disabled><span id="submitLabel">Prepare my request</span><svg class="intake-icon" aria-hidden="true"><use href="#intake-send"/></svg></button>
+              <p class="intake-help" id="submissionHelp">Your email application will open with your request filled in. Simply review the details and press Send.</p>
+              <p class="intake-privacy">Your details stay in this page until you open or copy your email. This form doesn't store your details or send them to analytics.</p>
+              <p class="intake-help" data-mode="project">A request is a conversation starter. It does not constitute acceptance of a paid assignment.</p>
+            </div>
+            <section id="emailResult" class="intake-result" aria-labelledby="resultTitle" hidden>
+              <h2 id="resultTitle" tabindex="-1">Almost there!</h2>
+              <p id="resultMessage">Your email application should now open. Review your request and press Send to submit it.</p>
+              <p id="longRequestWarning" class="intake-length-warning" hidden>This request is long, so an email application may cut it short or fail to open. Copy the complete request below and paste it into a new email. Nothing has been shortened.</p>
+              <div class="intake-fallback-actions"><button id="openEmailAgain" type="button" class="intake-secondary">Open email application again</button><button id="copyRequest" type="button" class="intake-secondary"><svg class="intake-icon" aria-hidden="true"><use href="#intake-copy"/></svg>Copy request to clipboard</button></div>
+              <p class="intake-help">No email application configured? Compose a new email to <a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a> and paste your request.</p>
+              <p id="copyStatus" class="intake-help" role="status"></p>
+              <details id="manualCopy" class="intake-manual-copy"><summary>View or manually copy your request</summary><label class="intake-sr-only" for="requestPreview">Complete prepared email, including recipient and subject</label><textarea id="requestPreview" rows="12" readonly spellcheck="false"></textarea></details>
+            </section>
+          </div>
+        </div>
+      </form>
+    </main>
+    <footer class="intake-footer"><span><strong>Bram Peters</strong> | Studio</span><a href="mailto:bramapeters@outlook.com">bramapeters@outlook.com</a></footer>
   </div>
-
-  <script src="assets/js/country-codes.js"></script>
-  <script src="assets/js/reveal.js"></script>
-  <script>
-    (function () {
-      const select = document.getElementById('countryCode');
-      if (!select || !Array.isArray(window.COUNTRY_CALLING_CODES)) return;
-
-      const preferredDefault = select.dataset.default;
-      select.innerHTML = window.COUNTRY_CALLING_CODES.map(({ code, display, country, flag }) => {
-        const optionCode = code;
-        const optionDisplay = display || code;
-        const isSelected = preferredDefault && preferredDefault === optionCode ? ' selected' : '';
-        return `<option value="${optionCode}"${isSelected}>${flag} ${country} (${optionDisplay})</option>`;
-      }).join('');
-    })();
-
-    (function () {
-      const form = document.getElementById('contactForm');
-      if (!form) return;
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const data = new FormData(form);
-        const name = (data.get('name') || '').trim() || 'Portfolio visitor';
-        const email = (data.get('email') || '').trim();
-        const title = (data.get('title') || '').trim() || 'Project inquiry';
-        const topic = data.get('topic') || 'Just saying hi!';
-        const message = (data.get('message') || '').trim();
-        const countryCode = (data.get('countryCode') || '').trim();
-        const phone = (data.get('phone') || '').trim();
-
-        const subjectParts = [topic, title].filter(Boolean).join(', ');
-        const formattedPhone = phone ? [countryCode, phone].filter(Boolean).join(' ') : '';
-        const bodyLines = [
-          `Name: ${name}`,
-          `Email: ${email}`,
-          formattedPhone ? `Phone: ${formattedPhone}` : null,
-          `Topic: ${topic}`,
-          `Title: ${title}`,
-          '',
-          message
-        ].filter(Boolean);
-        const mailto = `mailto:bramapeters@outlook.com?subject=${encodeURIComponent(subjectParts)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-        window.location.href = mailto;
-      });
-    })();
-  </script>
-  <script src="assets/js/cookie-banner.js"></script>
+  <script src="assets/js/country-codes.js" defer></script>
+  <script src="assets/js/contact.js" defer></script>
+  <script src="assets/js/cookie-banner.js" defer></script>
 </body>
 </html>

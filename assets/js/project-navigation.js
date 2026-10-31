@@ -4,7 +4,7 @@
   const toggle = navigation.querySelector('.project-nav-toggle');
   const panel = navigation.querySelector('.project-nav-panel');
   const more = navigation.querySelector('.project-nav-more');
-  const compact = window.matchMedia('(max-width: 1199px)');
+  const compact = window.matchMedia('(max-width: 1279px)');
   const hover = window.matchMedia('(hover: hover) and (pointer: fine)');
   navigation.setAttribute('data-nav-ready', '');
 
@@ -42,7 +42,13 @@
       if (!compact.matches && !more.contains(document.activeElement)) more.open = false;
     }, 0);
   });
-  const sync = () => setExpanded(false);
+  const sync = () => {
+    const focused = document.activeElement;
+    setExpanded(false);
+    // Resizing/rotating must not leave keyboard focus inside hidden navigation.
+    if (compact.matches && panel.contains(focused)) toggle.focus();
+    else if (!compact.matches && focused === toggle) navigation.querySelector('.project-nav-home').focus();
+  };
   if (compact.addEventListener) compact.addEventListener('change', sync);
   else compact.addListener(sync);
   sync();

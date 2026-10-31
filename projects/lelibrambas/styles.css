@@ -1683,3 +1683,51 @@ dialog::backdrop {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Reflow and touch safeguards for the public demo, including landscape phones. */
+html, body { min-width: 0; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+.app-main, .view, .hero-copy, .search-panel > *, .details-layout > *,
+.timeline-item > *, .player-title-group, .section-heading > *, .page-header > * { min-width: 0; }
+h1, h2, h3, .film-title, .timeline-copy, .player-title-group { overflow-wrap: anywhere; }
+.hero-actions > .button, .details-actions > .button { min-width: 0; white-space: normal; }
+.profile-dialog { max-width: calc(100% - 32px); max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; }
+.dialog-close, .chip, .decade-button { min-width: 44px; min-height: 44px; }
+
+@media (max-width: 720px) {
+  .mobile-header { padding-left: max(18px, env(safe-area-inset-left)); padding-right: max(18px, env(safe-area-inset-right)); }
+  .mobile-profile { width: 44px; height: 44px; }
+  .mobile-wordmark { min-height: 44px; }
+  .bottom-nav { grid-template-columns: repeat(5, minmax(0, 1fr)); padding-left: max(4px, env(safe-area-inset-left)); padding-right: max(4px, env(safe-area-inset-right)); }
+  .bottom-nav button small { font-size: .65rem; line-height: 1.25; white-space: normal; overflow: visible; text-overflow: clip; }
+  .view:not(.home-view) { padding-left: max(17px, env(safe-area-inset-left)); padding-right: max(17px, env(safe-area-inset-right)); }
+  .home-sections { padding-left: max(17px, env(safe-area-inset-left)); padding-right: max(17px, env(safe-area-inset-right)); }
+  .hero-actions, .details-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .details-copy h2, .page-header h1 { font-size: clamp(2.1rem, 10vw, 3.5rem); }
+  .details-dialog, .player-dialog { max-width: 100%; }
+  .details-copy .dialog-close { top: max(12px, env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right)); }
+}
+
+@media (max-width: 390px) {
+  .timeline-item { grid-template-columns: 46px 80px minmax(0, 1fr); gap: 10px; }
+  .timeline-list::before { left: 45px; }
+  .timeline-copy strong { font-size: .85rem; }
+}
+
+@media (min-width: 721px) and (max-height: 600px) {
+  .sidebar { overflow-y: auto; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
+  .side-nav { flex: 1 0 auto; justify-content: flex-start; padding-block: 8px; }
+  .brand-button, .profile-button { flex-shrink: 0; }
+}
+
+@media (min-width: 721px) and (orientation: landscape) and (pointer: coarse) {
+  .sidebar { width: calc(var(--sidebar-width) + env(safe-area-inset-left)); padding-left: env(safe-area-inset-left); }
+  .app-main { margin-left: calc(var(--sidebar-width) + env(safe-area-inset-left)); }
+}
+
+@media (max-height: 500px) {
+  .player-shell { min-height: calc(100vh - 30px); min-height: calc(100dvh - 30px); }
+  .player-topbar { padding: max(12px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 24px max(16px, env(safe-area-inset-left)); }
+  .player-controls { padding: 24px max(16px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
+  .player-buttons { margin-top: 4px; }
+  .round-control.main { width: 48px; height: 48px; }
+}

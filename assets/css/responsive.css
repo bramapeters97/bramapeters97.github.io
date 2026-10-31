@@ -1,0 +1,130 @@
+/* Shared screen-layout safeguards. Loaded after each page's existing styles. */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 88px; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { height: auto; min-height: 100vh; }
+  [hidden] { display: none !important; }
+  .container { width: 100%; min-width: 0; }
+  .container :is(main, section, article, aside, header, footer, figure, fieldset),
+  .page-two-columns > *, .left-col > *, .profile-header > *, .flex-header > *,
+  .header-split > *, .horizontal-split > *, .two-columns > *, .flex-grid-header > *,
+  .case-pair > *, .case-triad > *, .workflow > *, .screenshot-gallery > * { min-width: 0; }
+  .container :is(h1, h2, h3, p, li, dd, a, .header-title, .header-contact, .skill-title) { overflow-wrap: anywhere; }
+  .container :is(button, input, select, textarea) { max-width: 100%; min-width: 0; }
+  iframe { max-width: 100%; }
+  .project-header > figure { margin-inline: 0; max-width: 100%; }
+  .card-cta-row .cta-btn { max-width: 100%; min-height: 44px; }
+  /* Percentages plus a gap exceeded the available featured-project width. */
+  :is(.portfolio-home, .portfolio-archive) .top-project .lit-hero { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+  :is(.portfolio-home, .portfolio-archive) .lit-step-copy { white-space: normal; }
+  :is(.portfolio-home, .portfolio-archive) .lit-cta { white-space: normal; text-align: center; }
+
+  /* Keep the consent decision reachable in landscape and with large text. */
+  .cookie-banner {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  .cookie-card { max-width: 100%; max-height: 70vh; max-height: 70dvh; overflow-y: auto; overscroll-behavior: contain; }
+  .cookie-btn { min-height: 44px; min-width: 90px; }
+  .cookie-btn:focus-visible { outline: 2px solid #4338ca; outline-offset: 3px; }
+
+  .modal { padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
+  .modal .modal-content { width: auto; height: auto; max-width: 100%; max-height: calc(100vh - 96px); max-height: calc(100dvh - 96px); object-fit: contain; }
+  .modal .modal-close {
+    display: grid; place-items: center; min-width: 44px; min-height: 44px;
+    top: max(12px, env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right));
+    border: 1px solid rgba(255,255,255,.25); line-height: 1;
+  }
+  .modal-close:focus-visible { outline: 3px solid white; outline-offset: 3px; }
+}
+
+@media screen and (max-width: 1024px) {
+  .resume-page { padding: 16px; }
+  .resume-page .container { max-width: 1000px; padding: 0; }
+  .resume-page #downloadBtn { position: static; width: fit-content; min-height: 44px; margin: 0 0 16px auto; font-size: .9rem; }
+  .resume-page .flex-grid-header,
+  .resume-page .horizontal-split,
+  .resume-page .two-columns { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media screen and (max-width: 900px) {
+  .container { padding-inline: clamp(16px, 3vw, 24px); }
+  .header-split, .horizontal-split, .two-columns, .page-two-columns { grid-template-columns: minmax(0, 1fr); }
+  :is(.portfolio-home, .portfolio-archive) .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  :is(.portfolio-home, .portfolio-archive) .portfolio-filter .filter-btn { min-height: 44px; white-space: normal; }
+  :is(.portfolio-home, .portfolio-archive) .preview-toggle { min-height: 44px; padding: 8px 4px; font-size: .85rem; }
+  .profile-disclosure summary { min-height: 44px; }
+  :is(.portfolio-home, .portfolio-archive) .top-project .lit-hero { grid-template-columns: minmax(0, 1fr); }
+  :is(.portfolio-home, .portfolio-archive) .lit-name { white-space: normal; }
+  .pill, .lit-badge { max-width: 100%; white-space: normal; }
+  .notfound-page .container { width: 100%; }
+  .nav { flex-wrap: wrap; gap: 8px; padding: 8px 0; }
+  .nav .brand { margin-left: 0; }
+  .nav ul { width: 100%; min-width: 0; flex-wrap: wrap; gap: 8px; }
+  .nav li { width: auto; }
+  .nav a { min-height: 44px; white-space: normal; }
+  .publication-btn, .link-list a { min-height: 44px; max-width: 100%; }
+  .case-hero-caption { flex-wrap: wrap; }
+  .case-hero-caption span:last-child { text-align: left; }
+}
+
+@media screen and (max-width: 600px) {
+  .container { padding: 20px 16px; }
+  .portfolio-case .container, .lelibrambas-case .container { width: 100%; margin-top: 0; padding-top: 8px; }
+  .profile-header .profile-pic { width: clamp(120px, 40vw, 180px) !important; height: clamp(120px, 40vw, 180px) !important; }
+  .header-cta-mobile .cta-btn { flex: 1 1 140px; min-width: 0; min-height: 44px; }
+  .profile-header .header-name { line-height: 1.2; }
+  :is(.portfolio-home, .portfolio-archive) .header-name b, :is(.portfolio-home, .portfolio-archive) .header-studio { white-space: normal; }
+  :is(.portfolio-home, .portfolio-archive) .header-socials { width: 100%; }
+  :is(.portfolio-home, .portfolio-archive) .header-social-link { flex: 1 1 140px; min-width: 0; }
+  :is(.portfolio-home, .portfolio-archive) .skills-card-list { gap: 12px; }
+  :is(.portfolio-home, .portfolio-archive) .skill-title { font-size: .95rem; }
+  :is(.portfolio-home, .portfolio-archive) .skill-description { font-size: .9rem; }
+  .portfolio-case .project-header h1, .lelibrambas-case .project-header h1 { font-size: clamp(1.75rem, 7.2vw, 2.35rem); line-height: 1.15; }
+  .case-section-heading { font-size: 1rem; line-height: 1.45; letter-spacing: .01em; }
+  .case-eyebrow { font-size: .7rem; letter-spacing: .08em; }
+  .portfolio-case .left-col > .card, .portfolio-case .case-meta, .lelibrambas-case .left-col > .card, .lelibrambas-case .case-meta { padding: 18px 16px; }
+  .portfolio-case .media-shell video { object-fit: contain; }
+  .portfolio-case .media-shell iframe, .portfolio-case .vinobo-frame { height: 480px; height: clamp(320px, 65svh, 560px); min-height: 320px; }
+  .lelibrambas-case .case-hero-caption-mobile a { display: inline-flex; align-items: center; min-height: 44px; }
+  .resume-page .container { padding: 0; }
+  .resume-page .card { padding: 18px 16px; }
+  .resume-page .header-name { font-size: 1.6rem; }
+  .resume-page .section-title { font-size: 1.1rem; }
+  .resume-page a { word-break: normal; overflow-wrap: anywhere; }
+  .resume-page .exp-title { display: block; }
+  .resume-page .exp-title .lit-icon { display: inline-block; }
+  .cookie-card { font-size: .85rem; }
+}
+
+/* One readable card per row on phones; two on larger phones/tablets; three on desktop. */
+@media screen and (max-width: 480px) {
+  :is(.portfolio-home, .portfolio-archive) .portfolio-grid,
+  :is(.portfolio-home, .portfolio-archive) .skills-card-list,
+  :is(.portfolio-home, .portfolio-archive) .certificates-grid { grid-template-columns: minmax(0, 1fr); }
+  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body { padding: 16px; }
+  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body h2 { font-size: 1.12rem; line-height: 1.35; min-height: 0; }
+  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body p { font-size: .92rem; line-height: 1.55; }
+  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body a,
+  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body b { font-size: .9rem; line-height: 1.4; }
+  :is(.portfolio-home, .portfolio-archive) .portfolio-grid .article-body a { display: inline-flex; align-items: center; min-height: 44px; }
+  :is(.portfolio-home, .portfolio-archive) .portfolio-card--disabled .article-body .project-status { font-size: .8rem; }
+  .card-cta-row .cta-btn { width: 100%; min-width: 0; }
+}
+
+@media screen and (max-width: 360px) {
+  .studio-contact .intake-service-list { grid-template-columns: minmax(0, 1fr); }
+  .studio-contact .intake-service { flex-direction: row; }
+  .studio-contact .intake-topbar { flex-wrap: wrap; }
+  .studio-contact .intake-mode-options span { flex-direction: column; gap: 5px; }
+  .studio-contact .intake-street-pair { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media screen and (hover: none), screen and (pointer: coarse) {
+  .card:hover, .portfolio-card:hover, .skill-glass-card:hover, .pill:hover { transform: none; }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html, body, .container, .card, .profile-header, .profile-pic { animation: none !important; scroll-behavior: auto !important; transition: none !important; }
+}
