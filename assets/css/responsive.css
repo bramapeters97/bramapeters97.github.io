@@ -1,6 +1,9 @@
 /* Shared screen-layout safeguards. Loaded after each page's existing styles. */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 88px; }
+  /* Hide horizontal spill without creating a nested body scroll container.
+     overflow-x: hidden also makes overflow-y: auto and can trap gestures. */
+  html, body { overflow-x: clip; }
   *, *::before, *::after { box-sizing: border-box; }
   body { height: auto; min-height: 100vh; }
   [hidden] { display: none !important; }
