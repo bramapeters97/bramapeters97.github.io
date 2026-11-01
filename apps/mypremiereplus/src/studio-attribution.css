@@ -1,0 +1,45 @@
+.studio-attribution,
+.mpp-public .studio-attribution {
+  margin: 22px 0 0;
+  color: #899bb3;
+  font:
+    400 11px/1.7 Inter,
+    system-ui,
+    sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.studio-attribution a,
+.mpp-public .studio-attribution a {
+  color: #d9bc81;
+  text-decoration: none;
+  font-weight: 550;
+}
+.studio-attribution a:hover,
+.mpp-public .studio-attribution a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.studio-attribution a:focus-visible {
+  outline: 2px solid #e8c986;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.device-access > .studio-attribution {
+  text-align: center;
+}
+.account-screen > .studio-attribution {
+  margin-top: 18px;
+}
+.admin-app .studio-attribution {
+  font-size: 10px;
+  margin-top: 15px;
+}
+.admin-app .studio-attribution a {
+  display: inline;
+  color: #d9bc81;
+}
+.access-form > .studio-attribution {
+  text-align: center;
+  font-size: 10px;
+}

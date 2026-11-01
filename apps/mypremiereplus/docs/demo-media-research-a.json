@@ -1,0 +1,259 @@
+{
+  "checkedAt": "2026-11-01",
+  "purpose": "Read-only stock-media research candidates. No application/UI, working database or seed changed.",
+  "provider": "Pexels",
+  "licensePage": "https://www.pexels.com/license/",
+  "licenseSummary": "Pexels permits free downloading, modification and use on websites/apps; attribution is optional. Do not imply endorsement, sell unaltered copies, or redistribute stock on another stock/wallpaper platform. This is a candidate for a family-cinema product demonstration, not a stock-download service. The license does not provide a CDN availability or hotlink service guarantee.",
+  "hotlinkLimit": "Public direct URLs worked without account/API key and returned CORS * and byte ranges at check time; future availability and permanent hotlink permission are not guaranteed by this HTTP check.",
+  "verification": "Official source/license pages browsed. Quality choices inspected in the official rendered page; selected 720p download hrefs and actual redirects extracted. HEAD and bounded first-128-KiB Range checks verify each selected URL, CORS, seeking and MP4 duration. Actual provider previews inspected at multiple timestamps through visible seek controls. No original/full video file saved; browser streamed provider previews for review.",
+  "items": [
+    {
+      "id": "pexels-ocean-4631568",
+      "sourceTitle": "Aerial View Of Ocean Waves",
+      "creator": "ArtHouse Studio",
+      "url": "https://videos.pexels.com/video-files/4631568/4631568-hd_1280_720_24fps.mp4",
+      "sourcePage": "https://www.pexels.com/video/aerial-view-of-ocean-waves-4631568/",
+      "posterUrl": "https://images.pexels.com/videos/4631568/pexels-photo-4631568.jpeg?auto=compress&dpr=1&h=750&w=1260",
+      "category": "nature-coast",
+      "description": "Overhead waves rolling onto pale sand.",
+      "whyNoRecognizablePeople": "Actual sampled preview frames show only distant shore, sand and waves; no recognizable people or faces observed.",
+      "reportedDurationSeconds": 12,
+      "durationSeconds": 12.436666666666667,
+      "durationMethod": "Actual selected 720p MP4 mvhd, corroborated by rendered official preview duration.",
+      "bytes": 4596861,
+      "licensePage": "https://www.pexels.com/license/",
+      "license": "Pexels License",
+      "urlExtraction": "Official source-page quality menu: HD 1280x720 selected, its rendered Download Selected Size href read, then actual HTTP 302 redirect followed. No path/ID guessed.",
+      "http": {
+        "headStatus": 200,
+        "rangeStatus": 206,
+        "contentType": "video/mp4",
+        "accessControlAllowOrigin": "*",
+        "contentRange": "bytes 0-131071/4596861",
+        "rangeBytesRead": 131072,
+        "authenticated": false
+      },
+      "visualInspection": {
+        "method": "Actual official video preview played, then visible timeline UI used to inspect rendered frames. Official poster also inspected.",
+        "seekFractions": [
+          0.25,
+          0.75
+        ],
+        "approximateVideoTimesSeconds": [
+          3.11,
+          9.33
+        ],
+        "result": "No recognizable people, faces or obvious signage/branding visible in inspected video frames.",
+        "limit": "Multiple sampled frames, not an exhaustive frame-by-frame audit."
+      },
+      "downloadPage": "https://www.pexels.com/download/video/4631568/?fps=23.98&h=720&w=1280",
+      "approved": true,
+      "resolution": {
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "id": "pexels-mountain-clouds-11998311",
+      "sourceTitle": "Time Lapse of Moving Clouds over the Mountains at Sunset",
+      "creator": "Erhan Dayı",
+      "url": "https://videos.pexels.com/video-files/11998311/11998311-hd_1280_720_24fps.mp4",
+      "sourcePage": "https://www.pexels.com/video/time-lapse-of-moving-clouds-over-the-mountains-at-sunset-11998311/",
+      "posterUrl": "https://images.pexels.com/videos/11998311/pexels-photo-11998311.jpeg?auto=compress&dpr=1&h=750&w=1260",
+      "category": "nature-mountains",
+      "description": "Pink clouded sky over wooded hills with a weathered tree in the foreground.",
+      "whyNoRecognizablePeople": "Actual sampled preview frames show only trees, wooded hills and clouds; no recognizable people or faces observed.",
+      "reportedDurationSeconds": 14,
+      "durationSeconds": 14.25,
+      "durationMethod": "Actual selected 720p MP4 mvhd, corroborated by rendered official preview duration.",
+      "bytes": 5696617,
+      "licensePage": "https://www.pexels.com/license/",
+      "license": "Pexels License",
+      "urlExtraction": "Official source-page quality menu: HD 1280x720 selected, its rendered Download Selected Size href read, then actual HTTP 302 redirect followed. No path/ID guessed.",
+      "http": {
+        "headStatus": 200,
+        "rangeStatus": 206,
+        "contentType": "video/mp4",
+        "accessControlAllowOrigin": "*",
+        "contentRange": "bytes 0-131071/5696617",
+        "rangeBytesRead": 131072,
+        "authenticated": false
+      },
+      "visualInspection": {
+        "method": "Actual official video preview played, then visible timeline UI used to inspect rendered frames. Official poster also inspected.",
+        "seekFractions": [
+          0.25,
+          0.5,
+          0.75
+        ],
+        "approximateVideoTimesSeconds": [
+          3.56,
+          7.35,
+          10.91
+        ],
+        "result": "No recognizable people, faces or obvious signage/branding visible in inspected video frames.",
+        "limit": "Multiple sampled frames, not an exhaustive frame-by-frame audit."
+      },
+      "downloadPage": "https://www.pexels.com/download/video/11998311/?fps=24.0&h=720&w=1280",
+      "approved": true,
+      "resolution": {
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "id": "pexels-waterfall-13071923",
+      "sourceTitle": "Flowing Water in Waterfall",
+      "creator": "Ambient_Nature_ Atmosphere",
+      "url": "https://videos.pexels.com/video-files/13071923/13071923-hd_1280_720_30fps.mp4",
+      "sourcePage": "https://www.pexels.com/video/flowing-water-in-waterfall-13071923/",
+      "posterUrl": "https://images.pexels.com/videos/13071923/acqua-lago-fiume-torrente-cascata-onde-ruscello-dolomiti-montagne-valli-alpi-alpino-natura-italia-paesaggio-panorama-sole-luna-tramonto-13071923.jpeg?auto=compress&dpr=1&h=750&w=1260",
+      "category": "nature-waterfall",
+      "description": "Small rocky cascade pouring into a turquoise pool.",
+      "whyNoRecognizablePeople": "Actual sampled preview frames show only cascade, rocks and water; no recognizable people or faces observed.",
+      "reportedDurationSeconds": 30,
+      "durationSeconds": 31.018333333333334,
+      "durationMethod": "Actual selected 720p MP4 mvhd, corroborated by rendered official preview duration.",
+      "bytes": 11782914,
+      "licensePage": "https://www.pexels.com/license/",
+      "license": "Pexels License",
+      "urlExtraction": "Official source-page quality menu: HD 1280x720 selected, its rendered Download Selected Size href read, then actual HTTP 302 redirect followed. No path/ID guessed.",
+      "http": {
+        "headStatus": 200,
+        "rangeStatus": 206,
+        "contentType": "video/mp4",
+        "accessControlAllowOrigin": "*",
+        "contentRange": "bytes 0-131071/11782914",
+        "rangeBytesRead": 131072,
+        "authenticated": false
+      },
+      "visualInspection": {
+        "method": "Actual official video preview played, then visible timeline UI used to inspect rendered frames. Official poster also inspected.",
+        "seekFractions": [
+          0.25,
+          0.5,
+          0.75
+        ],
+        "approximateVideoTimesSeconds": [
+          7.75,
+          15.51,
+          23.27
+        ],
+        "result": "No recognizable people, faces or obvious signage/branding visible in inspected video frames.",
+        "limit": "Multiple sampled frames, not an exhaustive frame-by-frame audit."
+      },
+      "downloadPage": "https://www.pexels.com/download/video/13071923/?fps=29.97&h=720&w=1280",
+      "approved": true,
+      "resolution": {
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "id": "pexels-forest-5367420",
+      "sourceTitle": "A Footage of a Forest",
+      "creator": "Cristina Verceles",
+      "url": "https://videos.pexels.com/video-files/5367420/5367420-hd_1280_720_24fps.mp4",
+      "sourcePage": "https://www.pexels.com/video/a-footage-of-a-forest-5367420/",
+      "posterUrl": "https://images.pexels.com/videos/5367420/nature-5367420.jpeg?auto=compress&dpr=1&h=750&w=1260",
+      "category": "nature-forest",
+      "description": "Sunlit dense trees, hanging vines and green woodland vegetation.",
+      "whyNoRecognizablePeople": "Actual sampled preview frames show only trees, leaves and sky; no recognizable people or faces observed.",
+      "reportedDurationSeconds": 15,
+      "durationSeconds": 14.933333333333334,
+      "durationMethod": "Actual selected 720p MP4 mvhd, corroborated by rendered official preview duration.",
+      "bytes": 5799911,
+      "licensePage": "https://www.pexels.com/license/",
+      "license": "Pexels License",
+      "urlExtraction": "Official source-page quality menu: HD 1280x720 selected, its rendered Download Selected Size href read, then actual HTTP 302 redirect followed. No path/ID guessed.",
+      "http": {
+        "headStatus": 200,
+        "rangeStatus": 206,
+        "contentType": "video/mp4",
+        "accessControlAllowOrigin": "*",
+        "contentRange": "bytes 0-131071/5799911",
+        "rangeBytesRead": 131072,
+        "authenticated": false
+      },
+      "visualInspection": {
+        "method": "Actual official video preview played, then visible timeline UI used to inspect rendered frames. Official poster also inspected.",
+        "seekFractions": [
+          0.25,
+          0.5,
+          0.75
+        ],
+        "approximateVideoTimesSeconds": [
+          3.73,
+          7.68,
+          11.21
+        ],
+        "result": "No recognizable people, faces or obvious signage/branding visible in inspected video frames.",
+        "limit": "Multiple sampled frames, not an exhaustive frame-by-frame audit."
+      },
+      "downloadPage": "https://www.pexels.com/download/video/5367420/?fps=23.98&h=720&w=1280",
+      "approved": true,
+      "resolution": {
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "id": "pexels-misty-lake-5511816",
+      "sourceTitle": "Scenic View of a Placid Lake",
+      "creator": "Mehmet Ali Turan",
+      "sourcePage": "https://www.pexels.com/video/scenic-view-of-a-placid-lake-5511816/",
+      "url": "https://videos.pexels.com/video-files/5511816/5511816-hd_1280_720_25fps.mp4",
+      "downloadPage": "https://www.pexels.com/download/video/5511816/?fps=25.0&h=720&w=1280",
+      "category": "nature-lake",
+      "description": "A quiet autumn lake and misty tree-covered hills behind an empty rustic railing.",
+      "whyNoRecognizablePeople": "Actual sampled preview frames around one quarter and three quarters show only empty railing, lake, mist and forest; no people, faces or obvious signage.",
+      "reportedDurationSeconds": 15,
+      "durationSeconds": 15.486666666666666,
+      "durationMethod": "Actual selected 720p MP4 mvhd (15.4866667s), corroborated by official rendered preview mediaduration (15.486667s).",
+      "bytes": 3176842,
+      "approved": true,
+      "resolution": {
+        "width": 1280,
+        "height": 720
+      },
+      "licensePage": "https://www.pexels.com/license/",
+      "license": "Pexels License",
+      "urlExtraction": "Official source-page quality menu: HD 1280x720 selected, its rendered Download Selected Size href read, then actual HTTP 302 redirect followed. No path/ID guessed.",
+      "http": {
+        "headStatus": 200,
+        "rangeStatus": 206,
+        "contentType": "video/mp4",
+        "accessControlAllowOrigin": "*",
+        "contentRange": "bytes 0-131071/3176842",
+        "rangeBytesRead": 131072,
+        "authenticated": false
+      },
+      "visualInspection": {
+        "method": "Actual official video preview played; visible timeline UI used to inspect rendered frames.",
+        "seekFractions": [
+          0.25,
+          0.75
+        ],
+        "approximateVideoTimesSeconds": [
+          3.87,
+          11.84
+        ],
+        "result": "No recognizable people, faces or obvious signage/branding in inspected frames.",
+        "limit": "Multiple sampled frames, not an exhaustive frame-by-frame audit."
+      }
+    }
+  ],
+  "revision": 2,
+  "status": "Five approved landscape candidates, all officially selected 720p; city candidate removed.",
+  "approvalCriteria": "License permits app use; public unauthenticated MP4; Range/CORS supported; duration <=60 seconds; actual sampled frames show no recognizable people or clear branding/signage. Sampling is not a full frame-by-frame audit.",
+  "rejectedCandidates": [
+    {
+      "sourcePage": "https://www.pexels.com/video/modern-city-skyline-aerial-view-36736128/",
+      "reason": "Removed in refinement: visible building signage; fragmented MP4 header duration zero. A signage-free landscape is preferable."
+    },
+    {
+      "sourcePage": "https://www.pexels.com/video/footage-of-the-lake-and-the-mountain-3808907/",
+      "reason": "Rejected after actual preview inspection: clip starts on pebbles but pans to a dock with people around 11.7 seconds. Landscape title/poster alone was insufficient."
+    }
+  ]
+}

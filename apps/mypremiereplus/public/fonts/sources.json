@@ -1,0 +1,95 @@
+{
+  "notice": "Redistributable Google Fonts Latin variable subsets from the Fontsource font-files archive. Used because the official Google Fonts CSS host refused TLS connections in the development environment. Upstream and accompanying OFL licenses are retained.",
+  "fonts": [
+    {
+      "slug": "inter",
+      "family": "Inter",
+      "file": "inter-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/inter/files/inter-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "bytes": 48256
+    },
+    {
+      "slug": "manrope",
+      "family": "Manrope",
+      "file": "manrope-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/manrope/files/manrope-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt",
+      "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972",
+      "bytes": 24836
+    },
+    {
+      "slug": "dm-sans",
+      "family": "DM Sans",
+      "file": "dm-sans-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/dm-sans/files/dm-sans-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/OFL.txt",
+      "sha256": "9fea608a947e67020c33cad9a6fe3d60c54119dfb8cff87768a8117a15ed7543",
+      "bytes": 36932
+    },
+    {
+      "slug": "jakarta",
+      "family": "Plus Jakarta Sans",
+      "file": "jakarta-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/plusjakartasans/OFL.txt",
+      "sha256": "153fc85b70298beeb1d61a5f723331649e7f23bb77302a66e61cb3e2fbdb5e79",
+      "bytes": 27348
+    },
+    {
+      "slug": "outfit",
+      "family": "Outfit",
+      "file": "outfit-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/outfit/files/outfit-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/OFL.txt",
+      "sha256": "6c18d579fd87c3776be068b762cbc83fde3acb543d49eabd3ade842eb987e887",
+      "bytes": 32292
+    },
+    {
+      "slug": "sora",
+      "family": "Sora",
+      "file": "sora-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/sora/files/sora-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/sora/OFL.txt",
+      "sha256": "fa26406eeda9a3c6ec3d9ea8813c3045d6dc755e30c716d5c094e8ef43be5a7f",
+      "bytes": 33652
+    },
+    {
+      "slug": "lora",
+      "family": "Lora",
+      "file": "lora-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/lora/files/lora-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/lora/OFL.txt",
+      "sha256": "ddb8c66035104e233fc024669183aad3738b6daa16deee2ebb1241bd0f98ace1",
+      "bytes": 37788
+    },
+    {
+      "slug": "playfair",
+      "family": "Playfair Display",
+      "file": "playfair-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/playfair-display/files/playfair-display-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/OFL.txt",
+      "sha256": "e0c764a8e9e1cce92163c55bac4b2ad6cd4cf8c696ce2289ab5c41565e65b7e2",
+      "bytes": 38404
+    },
+    {
+      "slug": "cormorant",
+      "family": "Cormorant Garamond",
+      "file": "cormorant-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/OFL.txt",
+      "sha256": "d80df8ff5aecd299a61549f9e29ab1ed0b9b05f4ea71d50fe978e07d5240b235",
+      "bytes": 37640
+    },
+    {
+      "slug": "baskerville",
+      "family": "Libre Baskerville",
+      "file": "baskerville-latin.woff2",
+      "source": "https://raw.githubusercontent.com/fontsource/font-files/main/fonts/variable/libre-baskerville/files/libre-baskerville-latin-wght-normal.woff2",
+      "upstreamLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/librebaskerville/OFL.txt",
+      "sha256": "22219fb90e3b9bd28debd1825fe8d9a0154a0e31f8b3fa601ac1a0a5aa5e6d1b",
+      "bytes": 33872
+    }
+  ]
+}

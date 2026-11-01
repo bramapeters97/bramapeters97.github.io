@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1815" viewBox="0 0 2200 1815" role="img" aria-labelledby="title description">
+<title id="title">MyPremierePlus physical database schema overview</title>
+<desc id="description">Grouped overview of schema version 2: archive identity, catalogue and media, memories, Family TV, shared programmes, personal viewing, billing, archive operations and cloud provider boundaries. Labelled arrows highlight tenant, account, profile, film, moment and media links. The records compatibility view stores no duplicate data. Cloud demo providers remain unconfigured. Full foreign-key details are in SCHEMA.md.</desc>
+<defs>
+ <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081321"/><stop offset="1" stop-color="#030a13"/></linearGradient>
+ <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102033"/><stop offset="1" stop-color="#0a1726"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#eed39a"/><stop offset="1" stop-color="#bb9250"/></linearGradient>
+ <filter id="shadow" x="-12%" y="-12%" width="124%" height="136%"><feDropShadow dx="0" dy="8" stdDeviation="13" flood-color="#000" flood-opacity=".22"/></filter>
+ <marker id="arrow-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1L8 5L1 9" fill="none" stroke="#d3b474" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+ <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1L8 5L1 9" fill="none" stroke="#7ba4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+ <style>
+  text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;fill:#f0f4fa}
+  .mono{font-family:"Cascadia Code",Consolas,monospace}
+  .muted{fill:#9eafc4}.gold{fill:#e3c48a}.blue{fill:#96bbd4}
+  .link{fill:none;stroke:#c9aa6c;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow-gold)}
+  .reference{fill:none;stroke:#719bb8;stroke-width:2;stroke-dasharray:7 7;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow-blue)}
+  .label{font-size:16px;fill:#d8bd87;paint-order:stroke;stroke:#071220;stroke-width:7;stroke-linejoin:round}
+  .label-blue{font-size:16px;fill:#98bad1;paint-order:stroke;stroke:#071220;stroke-width:7;stroke-linejoin:round}
+ </style>
+</defs>
+<rect width="2200" height="1815" fill="url(#canvas)"/>
+<rect x="64" y="56" width="5" height="61" rx="2.5" fill="url(#gold)"/>
+<text x="88" y="78" class="gold" font-size="15" font-weight="650" letter-spacing="3">MYPREMIEREPLUS</text>
+<text x="86" y="121" font-size="39" font-weight="650" letter-spacing="-.7">A private archive, connected by design</text>
+<rect x="1878" y="70" width="258" height="42" rx="21" fill="#17283a" stroke="#4a4434"/>
+<circle cx="1903" cy="91" r="4" fill="#e4c17b"/>
+<text x="1920" y="97" class="gold mono" font-size="16">PHYSICAL SCHEMA · V2</text>
+<path d="M64 147H2136" stroke="#223246"/>
+
+<!-- Primary links route through the spaces between grouped tables. -->
+<path class="link" d="M207 370V412H384V465"/>
+<path class="link" d="M207 370V424H1100V465"/>
+<path class="link" d="M207 370V436H1816V465"/>
+<text x="403" y="452" class="label mono">tenant_id</text>
+<text x="1119" y="452" class="label mono">tenant_id</text>
+<text x="1835" y="452" class="label mono">tenant_id</text>
+<path class="reference" d="M973 370V394H1458V866H1100V920"/>
+<text x="1176" y="853" class="label-blue mono">account_id + profile_id</text>
+<path class="link" d="M2136 280H2176V1085H2136"/>
+<text x="2192" y="765" transform="rotate(-90 2192 765)" class="label mono">tenant_id</text>
+<path class="link" d="M64 280H24V1540H64"/>
+<text x="17" y="1190" transform="rotate(-90 17 1190)" class="label mono">tenant_id</text>
+<path class="link" d="M704 600H780"/>
+<text x="742" y="588" text-anchor="middle" class="label mono" style="font-size:14px">video_id</text>
+<path class="link" d="M384 795V920"/>
+<text x="400" y="885" class="label mono">video_id</text>
+<path class="reference" d="M780 720H760V852H600V920"/>
+<text x="650" y="841" class="label-blue mono">moment_id</text>
+<path class="link" d="M704 720H728V824H1816V795"/>
+<text x="1570" y="810" text-anchor="middle" class="label mono">collection_id · eligible films</text>
+<path class="reference" d="M780 1540H736V881H680V795"/>
+<text x="724" y="1215" transform="rotate(-90 724 1215)" class="label-blue mono">media_asset_id</text>
+
+<!-- Archive identity and account permissions are separate from viewing profiles. -->
+<rect x="64" y="178" width="2072" height="192" rx="18" fill="url(#panel)" stroke="#48503f" filter="url(#shadow)"/>
+<text x="88" y="216" class="gold" font-size="15" font-weight="650" letter-spacing="2.4">TENANT CORE &amp; IDENTITY</text>
+<text x="88" y="247" class="muted" font-size="18">An authenticated membership selects the archive. A viewing profile never grants permissions.</text>
+<rect x="88" y="274" width="239" height="60" rx="9" fill="#11263a" stroke="#2c4259"/><rect x="88" y="284" width="3" height="40" rx="1.5" fill="#bba16d"/><text x="102" y="299" class="mono" font-size="18">tenants</text><text x="102" y="320" class="muted" font-size="12.5">archive identity</text>
+<rect x="343" y="274" width="239" height="60" rx="9" fill="#11263a" stroke="#2c4259"/><rect x="343" y="284" width="3" height="40" rx="1.5" fill="#bba16d"/><text x="357" y="299" class="mono" font-size="18">accounts</text><text x="357" y="320" class="muted" font-size="12.5">authenticated people</text>
+<rect x="598" y="274" width="239" height="60" rx="9" fill="#11263a" stroke="#2c4259"/><rect x="598" y="284" width="3" height="40" rx="1.5" fill="#bba16d"/><text x="612" y="299" class="mono" font-size="18">memberships</text><text x="612" y="320" class="muted" font-size="12.5">owner · editor · viewer</text>
+<rect x="853" y="274" width="239" height="60" rx="9" fill="#11263a" stroke="#2c4259"/><rect x="853" y="284" width="3" height="40" rx="1.5" fill="#bba16d"/><text x="867" y="299" class="mono" font-size="18">profiles</text><text x="867" y="320" class="muted" font-size="12.5">viewing choices</text>
+<rect x="1108" y="274" width="239" height="60" rx="9" fill="#11263a" stroke="#2c4259"/><rect x="1108" y="284" width="3" height="40" rx="1.5" fill="#bba16d"/><text x="1122" y="299" class="mono" font-size="18">sessions</text><text x="1122" y="320" class="muted" font-size="12.5">scoped browser cookies</text>
+<rect x="1363" y="274" width="239" height="60" rx="9" fill="#11263a" stroke="#2c4259"/><rect x="1363" y="284" width="3" height="40" rx="1.5" fill="#bba16d"/><text x="1377" y="299" class="mono" font-size="18">devices</text><text x="1377" y="320" class="muted" font-size="12.5">approved browsers</text>
+<rect x="1618" y="274" width="239" height="60" rx="9" fill="#11263a" stroke="#2c4259"/><rect x="1618" y="284" width="3" height="40" rx="1.5" fill="#bba16d"/><text x="1632" y="299" class="mono" font-size="18">device_codes</text><text x="1632" y="320" class="muted" font-size="12.5">one-time hashed codes</text>
+<rect x="1873" y="274" width="239" height="60" rx="9" fill="#11263a" stroke="#2c4259"/><rect x="1873" y="284" width="3" height="40" rx="1.5" fill="#bba16d"/><text x="1887" y="299" class="mono" font-size="18">consents</text><text x="1887" y="320" class="muted" font-size="12.5">explicit sharing choices</text>
+<g id="catalogue"><rect x="64" y="465" width="640" height="330" rx="17" fill="url(#panel)" stroke="#263b50" filter="url(#shadow)"/><text x="88" y="501" font-size="25" font-weight="620">Catalogue &amp; media</text><text x="88" y="530" class="muted" font-size="16">Films, collections and private file metadata</text><text x="676" y="500" class="gold mono" text-anchor="end" font-size="13">01</text>
+<rect x="88" y="559" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="577" r="2.5" fill="#c9b078"/><text x="113" y="583" class="mono" font-size="17">videos</text>
+<rect x="392" y="559" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="405" cy="577" r="2.5" fill="#c9b078"/><text x="417" y="583" class="mono" font-size="17">collections</text>
+<rect x="88" y="603" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="621" r="2.5" fill="#c9b078"/><text x="113" y="627" class="mono" font-size="17">video_collections</text>
+<rect x="392" y="603" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="405" cy="621" r="2.5" fill="#c9b078"/><text x="417" y="627" class="mono" font-size="17">assets</text>
+<rect x="88" y="647" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="665" r="2.5" fill="#c9b078"/><text x="113" y="671" class="mono" font-size="17">media_assets</text>
+<text x="88" y="746" class="muted" font-size="16">video_collections links films to collections.</text>
+<text x="88" y="770" class="muted" font-size="16">Provider descriptors stay separate from local files.</text>
+</g>
+<g id="memories"><rect x="780" y="465" width="640" height="330" rx="17" fill="url(#panel)" stroke="#263b50" filter="url(#shadow)"/><text x="804" y="501" font-size="25" font-weight="620">Memories &amp; discovery</text><text x="804" y="530" class="muted" font-size="16">Context and excerpts reference the original film</text><text x="1392" y="500" class="gold mono" text-anchor="end" font-size="13">02</text>
+<rect x="804" y="559" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="817" cy="577" r="2.5" fill="#c9b078"/><text x="829" y="583" class="mono" font-size="17">moments</text>
+<rect x="1108" y="559" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="1121" cy="577" r="2.5" fill="#c9b078"/><text x="1133" y="583" class="mono" font-size="17">stories</text>
+<rect x="804" y="603" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="817" cy="621" r="2.5" fill="#c9b078"/><text x="829" y="627" class="mono" font-size="17">transcripts</text>
+<rect x="1108" y="603" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="1121" cy="621" r="2.5" fill="#c9b078"/><text x="1133" y="627" class="mono" font-size="17">chapters</text>
+<text x="804" y="746" class="muted" font-size="16">video_id points to a film in the same archive.</text>
+<text x="804" y="770" class="muted" font-size="16">Moments keep start / end boundaries, not copies.</text>
+</g>
+<g id="television"><rect x="1496" y="465" width="640" height="330" rx="17" fill="url(#panel)" stroke="#263b50" filter="url(#shadow)"/><text x="1520" y="501" font-size="25" font-weight="620">Family TV</text><text x="1520" y="530" class="muted" font-size="16">Published channels, selection rules and saved mixes</text><text x="2108" y="500" class="gold mono" text-anchor="end" font-size="13">03</text>
+<rect x="1520" y="559" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="1533" cy="577" r="2.5" fill="#c9b078"/><text x="1545" y="583" class="mono" font-size="17">channels</text>
+<rect x="1824" y="559" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="1837" cy="577" r="2.5" fill="#c9b078"/><text x="1849" y="583" class="mono" font-size="17">channel_collections</text>
+<rect x="1520" y="603" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="1533" cy="621" r="2.5" fill="#c9b078"/><text x="1545" y="627" class="mono" font-size="17">queues</text>
+<text x="1520" y="746" class="muted" font-size="16">Queues belong to their authenticated account.</text>
+<text x="1520" y="770" class="muted" font-size="16">TV viewing stays apart from personal progress.</text>
+</g>
+<g id="programmes"><rect x="64" y="920" width="640" height="330" rx="17" fill="url(#panel)" stroke="#263b50" filter="url(#shadow)"/><text x="88" y="956" font-size="25" font-weight="620">Shared evenings</text><text x="88" y="985" class="muted" font-size="16">Hosts, ordered programmes and scheduled premieres</text><text x="676" y="955" class="gold mono" text-anchor="end" font-size="13">04</text>
+<rect x="88" y="1014" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="1032" r="2.5" fill="#c9b078"/><text x="113" y="1038" class="mono" font-size="17">programmes</text>
+<rect x="392" y="1014" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="405" cy="1032" r="2.5" fill="#c9b078"/><text x="417" y="1038" class="mono" font-size="17">programme_items</text>
+<rect x="88" y="1058" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="1076" r="2.5" fill="#c9b078"/><text x="113" y="1082" class="mono" font-size="17">programme_profiles</text>
+<rect x="392" y="1058" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="405" cy="1076" r="2.5" fill="#c9b078"/><text x="417" y="1082" class="mono" font-size="17">premieres</text>
+<text x="88" y="1201" class="muted" font-size="16">Items link films or exact saved moments.</text>
+<text x="88" y="1225" class="muted" font-size="16">Premiere availability uses the server clock.</text>
+</g>
+<g id="viewing"><rect x="780" y="920" width="640" height="330" rx="17" fill="url(#panel)" stroke="#263b50" filter="url(#shadow)"/><text x="804" y="956" font-size="25" font-weight="620">Personal viewing</text><text x="804" y="985" class="muted" font-size="16">An account and viewing profile scope saved activity</text><text x="1392" y="955" class="gold mono" text-anchor="end" font-size="13">05</text>
+<rect x="804" y="1014" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="817" cy="1032" r="2.5" fill="#c9b078"/><text x="829" y="1038" class="mono" font-size="17">progress</text>
+<rect x="1108" y="1014" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="1121" cy="1032" r="2.5" fill="#c9b078"/><text x="1133" y="1038" class="mono" font-size="17">watchlists</text>
+<rect x="804" y="1058" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="817" cy="1076" r="2.5" fill="#c9b078"/><text x="829" y="1082" class="mono" font-size="17">watchlist_items</text>
+<text x="804" y="1201" class="muted" font-size="16">Watchlists persist per account and profile.</text>
+<text x="804" y="1225" class="muted" font-size="16">watchlist_items references permitted videos.</text>
+</g>
+<g id="billing"><rect x="1496" y="920" width="640" height="330" rx="17" fill="url(#panel)" stroke="#263b50" filter="url(#shadow)"/><text x="1520" y="956" font-size="25" font-weight="620">Plans &amp; invoices</text><text x="1520" y="985" class="muted" font-size="16">Owner-only fictional billing details</text><text x="2108" y="955" class="gold mono" text-anchor="end" font-size="13">06</text>
+<rect x="1520" y="1014" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="1533" cy="1032" r="2.5" fill="#c9b078"/><text x="1545" y="1038" class="mono" font-size="17">billing</text>
+<rect x="1824" y="1014" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="1837" cy="1032" r="2.5" fill="#c9b078"/><text x="1849" y="1038" class="mono" font-size="17">invoices</text>
+<text x="1520" y="1201" class="muted" font-size="16">Plan summaries are visible to archive members.</text>
+<text x="1520" y="1225" class="muted" font-size="16">Demo invoices only; no payment processor.</text>
+</g>
+<g id="operations"><rect x="64" y="1375" width="640" height="330" rx="17" fill="url(#panel)" stroke="#263b50" filter="url(#shadow)"/><text x="88" y="1411" font-size="25" font-weight="620">Archive operations</text><text x="88" y="1440" class="muted" font-size="16">Uploads, approvals, portability and recovery</text><text x="676" y="1410" class="gold mono" text-anchor="end" font-size="13">07</text>
+<rect x="88" y="1469" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="1487" r="2.5" fill="#c9b078"/><text x="113" y="1493" class="mono" font-size="17">contributions</text>
+<rect x="392" y="1469" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="405" cy="1487" r="2.5" fill="#c9b078"/><text x="417" y="1493" class="mono" font-size="17">contribution_links</text>
+<rect x="88" y="1513" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="1531" r="2.5" fill="#c9b078"/><text x="113" y="1537" class="mono" font-size="17">uploads</text>
+<rect x="392" y="1513" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="405" cy="1531" r="2.5" fill="#c9b078"/><text x="417" y="1537" class="mono" font-size="17">notifications</text>
+<rect x="88" y="1557" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="1575" r="2.5" fill="#c9b078"/><text x="113" y="1581" class="mono" font-size="17">recovery_records</text>
+<rect x="392" y="1557" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="405" cy="1575" r="2.5" fill="#c9b078"/><text x="417" y="1581" class="mono" font-size="17">exports</text>
+<rect x="88" y="1601" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="1619" r="2.5" fill="#c9b078"/><text x="113" y="1625" class="mono" font-size="17">history</text>
+<rect x="392" y="1601" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="405" cy="1619" r="2.5" fill="#c9b078"/><text x="417" y="1625" class="mono" font-size="17">settings</text>
+<rect x="88" y="1645" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="101" cy="1663" r="2.5" fill="#c9b078"/><text x="113" y="1669" class="mono" font-size="17">tokens</text>
+<rect x="392" y="1645" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="405" cy="1663" r="2.5" fill="#c9b078"/><text x="417" y="1669" class="mono" font-size="17">asset_ownership</text>
+</g>
+<g id="cloud"><rect x="780" y="1375" width="640" height="330" rx="17" fill="url(#panel)" stroke="#263b50" filter="url(#shadow)"/><text x="804" y="1411" font-size="25" font-weight="620">Cloud boundaries</text><text x="804" y="1440" class="muted" font-size="16">Explicit provider and protection configuration</text><text x="1392" y="1410" class="gold mono" text-anchor="end" font-size="13">08</text>
+<rect x="804" y="1469" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="817" cy="1487" r="2.5" fill="#c9b078"/><text x="829" y="1493" class="mono" font-size="17">provider_configs</text>
+<rect x="1108" y="1469" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="1121" cy="1487" r="2.5" fill="#c9b078"/><text x="1133" y="1493" class="mono" font-size="17">playback_licenses</text>
+<rect x="804" y="1513" width="288" height="36" rx="7" fill="#102337" stroke="#233d53"/><circle cx="817" cy="1531" r="2.5" fill="#c9b078"/><text x="829" y="1537" class="mono" font-size="17">access_policies</text>
+<text x="804" y="1656" class="gold" font-size="16">Demo rows say configured = false.</text>
+<text x="804" y="1680" class="gold" font-size="16">No credentials or cloud provisioning are implied.</text>
+</g>
+<g id="legend"><rect x="1496" y="1375" width="640" height="330" rx="17" fill="#0c1b2c" stroke="#5a503a"/><text x="1520" y="1411" font-size="25" font-weight="620">How to read this map</text>
+<path d="M1521 1446H1564" class="link"/><text x="1580" y="1452" class="muted" font-size="16">Primary ownership and source links</text>
+<path d="M1521 1480H1564" class="reference"/><text x="1580" y="1486" class="muted" font-size="16">Account, profile and provider references</text>
+<text x="1520" y="1524" class="mono gold" font-size="18">records = compatibility VIEW</text>
+<text x="1520" y="1554" class="muted" font-size="16">Named tables hold the data; no duplicate record store.</text>
+<text x="1520" y="1585" class="muted" font-size="16">Generated columns expose readable typed metadata.</text>
+<a href="SCHEMA.md"><text x="1520" y="1620" class="blue" font-size="17">Full foreign-key reference → SCHEMA.md</text></a>
+<a href="schema.sql"><text x="1520" y="1651" class="blue" font-size="17">Complete fresh-database DDL → schema.sql</text></a>
+<text x="1520" y="1683" class="muted mono" font-size="12.5">Bookkeeping: schema_migrations · demo_fixture · other_records</text></g>
+<path d="M64 1746H2136" stroke="#233448"/>
+<text x="64" y="1780" class="muted" font-size="16">Grouped overview · all private data remains scoped to its authenticated archive · detailed constraints and migration guidance in SCHEMA.md</text>
+<text x="2136" y="1780" text-anchor="end" class="gold" font-size="15">LOCAL DEMO / CLOUD ADAPTERS REQUIRE CONFIGURATION</text>
+</svg>
