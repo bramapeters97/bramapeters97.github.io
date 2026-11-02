@@ -21,6 +21,7 @@ function visibleText(html) {
     .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
     .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
     .replace(/<header class="project-nav"[\s\S]*?<\/header>/gi, " ")
+    .replace(/<aside class="case-beta-banner"[\s\S]*?<\/aside>/gi, " ")
     .replace(/<div class="nav-wrap"[^>]*>[\s\S]*?<\/nav>\s*<\/div>/gi, " ")
     .replace(/<a class="case-skip"[\s\S]*?<\/a>/i, " ")
     .replace(/<[^>]+>/g, " ")
