@@ -14,6 +14,9 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const pages = fs.readdirSync(root).filter(file => file.endsWith('.html'));
 const routes = [...pages, 'lelibrambas/index.html', 'projects/lelibrambas/index.html'];
 const linkedinLinks = html => [...html.matchAll(/href=["'](https:\/\/(?:www\.)?linkedin\.com\/[^"']+)["']/g)].map(match => match[1]);
+const historicalFiles = new Set(execFileSync('git', ['ls-tree', '-r', '--name-only', 'HEAD'], {
+  cwd: root, encoding: 'utf8'
+}).trim().split(/\r?\n/));
 
 for (const file of routes) {
   const html = read(file);
@@ -24,12 +27,12 @@ for (const file of routes) {
     assert.ok(html.lastIndexOf('assets/css/responsive.css') > html.lastIndexOf('</style>'), `${file}: safeguards must follow inline styles`);
   }
   if (file !== 'contact.html') assert.doesNotMatch(html, /href=["']mailto:/i, `${file}: contact must use contact.html`);
-  const original = execFileSync('git', ['show', `HEAD:${file}`], { cwd: root, encoding: 'utf8' });
   if (file === 'contact.html') {
     const homeProfiles = read('index.html').match(/<div class="header-socials"[^>]*>([\s\S]*?)<\/div>/);
     assert.ok(homeProfiles, 'Homepage LinkedIn profile buttons are missing');
     assert.deepEqual(linkedinLinks(html), linkedinLinks(homeProfiles[1]), 'Contact LinkedIn buttons must match the homepage');
-  } else {
+  } else if (historicalFiles.has(file)) {
+    const original = execFileSync('git', ['show', `HEAD:${file}`], { cwd: root, encoding: 'utf8' });
     assert.deepEqual(linkedinLinks(html), linkedinLinks(original), `${file}: LinkedIn destinations changed`);
   }
 }

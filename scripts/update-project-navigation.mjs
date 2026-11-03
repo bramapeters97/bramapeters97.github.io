@@ -2,6 +2,9 @@ import fs from 'node:fs';
 
 // Static markup keeps navigation usable before JavaScript loads and without it.
 const pages = [
+  'amstroll.html',
+  'honeymoon.html',
+  'lostintranslation.html',
   'uwvmonitorarbeidgezondheid.html', 'lelibrambas-plus.html',
   'tuelearningdashboard.html', 'theemotionaldrone.html',
   'doulauxuicasestudy.html', 'vinobo.html',
@@ -9,18 +12,19 @@ const pages = [
   'jmeijerbv40jaareendaginhetlevenvanlucaorvini.html',
 ];
 const featured = [
-  ['Lost In Translation™', 'https://lostintranslation.nl', 'bot'],
+  ['Lost In Translation™', 'lostintranslation.html', 'bot'],
   ['UWV Monitor', 'uwvmonitorarbeidgezondheid.html', 'dashboard'],
   ['LELIBRAMBAS+', 'lelibrambas-plus.html', 'tv'],
   ['TU/e Dashboard', 'tuelearningdashboard.html', 'graduation'],
 ];
 const additional = [
+  ['Amstroll', 'amstroll.html', 'route'],
   ["The 'Emotional' Drone", 'theemotionaldrone.html', 'drone'],
   ['Doula UX/UI', 'doulauxuicasestudy.html', 'heart'],
   ['Vinobo', 'vinobo.html', 'video'],
   ['Spotify Podcasts', 'reimaginingspotifypodcasts.html', 'headphones'],
   ['Raspberries', 'raspberriesshoppingassistant.html', 'shopping'],
-  ['The Honeymoon Webshop', 'index.html#project-honeymoon', 'gift'],
+  ['The Honeymoon Webshop', 'honeymoon.html', 'gift'],
   ['J. Meijer B.V. 40 Jaar', 'jmeijerbv40jaareendaginhetlevenvanlucaorvini.html', 'camera'],
 ];
 const icon = (path, extra = '') => `<svg class="project-nav-icon${extra}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${path}</svg>`;
@@ -28,6 +32,7 @@ const home = icon('<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1
 const linkedin = icon('<path d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/>', ' project-nav-icon--linkedin');
 const envelope = icon('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>');
 const projectIcons = {
+  route: '<circle cx="6" cy="5" r="3"/><circle cx="18" cy="19" r="3"/><path d="M6 8v4a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V9m-3 3 3-3 3 3"/>',
   dashboard: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12m4-4 2-3 3 1"/>',
   bot: '<rect x="4" y="7" width="16" height="14" rx="3"/><path d="M12 3v4M1 11v6m22-6v6M9 17h6"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/>',
   tv: '<rect x="3" y="7" width="18" height="14" rx="3"/><path d="m8 3 4 4 4-4"/>',

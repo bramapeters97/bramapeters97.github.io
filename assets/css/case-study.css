@@ -317,6 +317,218 @@
   padding-left: 0.2rem;
 }
 
+/* Semantic project facts and source comparisons share the case-study tokens. */
+.portfolio-case .case-facts,
+.portfolio-case .case-comparison {
+  margin: 0 0 1.5rem;
+}
+
+/* An overview plus four skill cards can exceed the viewport height. */
+.portfolio-case .case-meta:has(.case-facts) {
+  position: static;
+}
+
+.portfolio-case .case-facts > div,
+.portfolio-case .case-comparison > div {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--case-line);
+}
+
+.portfolio-case .case-facts dt,
+.portfolio-case .case-comparison dt {
+  color: var(--case-ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.portfolio-case .case-facts dd,
+.portfolio-case .case-comparison dd {
+  margin: 0.25rem 0 0;
+  color: var(--case-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.portfolio-case .case-steps {
+  display: grid;
+  gap: 0.85rem;
+  padding-left: 1.2rem;
+}
+
+.portfolio-case .left-col .case-steps li {
+  display: list-item;
+}
+
+.portfolio-case .left-col .case-process {
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-case .left-col .case-process li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0;
+}
+
+.portfolio-case .case-step-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  margin-top: 0.1rem;
+  border-radius: 10px;
+  color: var(--case-accent);
+  background: var(--case-accent-soft);
+  font-size: 0.92rem;
+}
+
+.portfolio-case .case-caption {
+  margin: 0.75rem 0 0;
+  color: var(--case-muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  text-align: left;
+  hyphens: none;
+}
+
+.portfolio-case .case-montage-frame {
+  margin: 0;
+  padding: clamp(12px, 2.4vw, 28px);
+  overflow: hidden;
+  border: 1px solid rgba(82, 96, 112, 0.24);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #fbf6e8 0%, #e4ecdf 100%);
+  box-shadow: 0 24px 60px rgba(37, 48, 82, 0.18), 0 4px 14px rgba(37, 48, 82, 0.08);
+}
+
+.portfolio-case .case-montage-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: none;
+}
+
+.portfolio-case .case-project-wordmark img {
+  width: min(100%, 356px);
+  height: auto;
+}
+
+.portfolio-case .case-intro-heading {
+  text-transform: uppercase;
+}
+
+.portfolio-case .case-brand {
+  margin: 1.5rem 0 0;
+}
+
+.portfolio-case .case-brand img {
+  width: min(100%, 356px);
+  height: auto;
+}
+
+.portfolio-case .case-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.portfolio-case .case-gallery figure {
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.portfolio-case .case-gallery .case-caption {
+  max-width: 28ch;
+  margin: 0.6rem auto 0;
+  text-align: center;
+}
+
+.portfolio-case .case-gallery a {
+  display: block;
+}
+
+.portfolio-case .case-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.portfolio-case .case-gallery a:focus-visible,
+.portfolio-case .case-gallery:focus-visible {
+  outline: 2px solid var(--case-accent);
+  outline-offset: 4px;
+}
+
+.portfolio-case .case-context {
+  font-style: normal;
+}
+
+.portfolio-case .case-context p {
+  margin: 0 0 0.85rem;
+  color: #505a70;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.portfolio-case .case-context p:last-child {
+  margin-bottom: 0;
+}
+
+.portfolio-case .left-col .case-tech-stack li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--case-line);
+  border-radius: 10px;
+  background: var(--case-accent-soft);
+  color: var(--case-ink);
+  font-size: 0.82rem;
+}
+
+.portfolio-case .case-tech-stack i {
+  color: var(--case-accent);
+  font-size: 1rem;
+}
+
+.portfolio-case .case-actions {
+  margin: 1.25rem 0 0;
+}
+
+.portfolio-case .case-prototype {
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+}
+
+.portfolio-case .case-prototype iframe {
+  display: block;
+  width: 100%;
+  height: min(900px, calc(100svh - 110px));
+  min-height: 0;
+  aspect-ratio: auto;
+  border: 0;
+  background: transparent;
+}
+
+@media (max-width: 600px) {
+  .portfolio-case .case-gallery {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding: 0.3rem 0 0.8rem;
+  }
+}
+
 .portfolio-case .left-col a:not(.publication-btn) {
   color: #425bc7;
   text-decoration-thickness: 1px;

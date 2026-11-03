@@ -717,6 +717,24 @@ a:hover {
   color: #333;
 }
 
+/* Keep the visible project CTA as the native link for the entire card. */
+.portfolio-card .portfolio-card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.portfolio-card:has(.portfolio-card-link:focus-visible) {
+  outline: 2px solid #426aa7;
+  outline-offset: 3px;
+}
+
+.portfolio-card .preview-toggle {
+  position: relative;
+  z-index: 2;
+}
+
 /* divider above link */
 .portfolio-card .article-body hr {
   border: none;

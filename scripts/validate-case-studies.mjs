@@ -3,6 +3,9 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 
 const files = [
+  "amstroll.html",
+  "honeymoon.html",
+  "lostintranslation.html",
   "doulauxuicasestudy.html",
   "jmeijerbv40jaareendaginhetlevenvanlucaorvini.html",
   "raspberriesshoppingassistant.html",
@@ -15,6 +18,9 @@ const files = [
 
 const failures = [];
 const summaries = [];
+const historicalFiles = new Set(execFileSync("git", ["ls-tree", "-r", "--name-only", "HEAD"], {
+  encoding: "utf8"
+}).trim().split(/\r?\n/));
 
 function visibleText(html) {
   return html
@@ -32,7 +38,6 @@ function visibleText(html) {
 
 for (const file of files) {
   const html = fs.readFileSync(file, "utf8");
-  const originalHtml = execFileSync("git", ["show", `HEAD:${file}`], { encoding: "utf8" });
   const required = [
     'href="assets/css/case-study.css"',
     '<body class="portfolio-case">',
@@ -72,8 +77,11 @@ for (const file of files) {
     if (opens !== closes) failures.push(`${file}: unbalanced <${tag}> (${opens} open, ${closes} close)`);
   }
 
-  if (visibleText(html) !== visibleText(originalHtml)) {
-    failures.push(`${file}: visible narrative text changed unexpectedly`);
+  if (historicalFiles.has(file)) {
+    const originalHtml = execFileSync("git", ["show", `HEAD:${file}`], { encoding: "utf8" });
+    if (visibleText(html) !== visibleText(originalHtml)) {
+      failures.push(`${file}: visible narrative text changed unexpectedly`);
+    }
   }
 
   summaries.push({

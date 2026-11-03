@@ -18,9 +18,17 @@ before serving the repository locally as well.
 
 ## Portfolio maintenance
 
-The nine portfolio case studies share navigation generated from
+The twelve portfolio case studies share navigation generated from
 `scripts/update-project-navigation.mjs`. After changing its project list, run
 `npm run update:project-navigation`, then `npm run check:portfolio`.
+
+Amstroll uses the self-contained export in `projects/amstroll/portfolio-embed/`.
+Its six transparent phone images (`assets/img/am1.png` through `am6.png`) are
+generated from the original prototype captures on Windows with
+`pwsh scripts/generate-amstroll-media.ps1`. The supplied cover
+(`assets/img/amstroll.png`, 2200×900) is preserved unchanged; the generator
+validates it but never overwrites it. Photo and font attribution are under
+`assets/amstroll/`.
 
 Regenerate the three-page résumé with `python3 scripts/generate-resume.py`
 (requires ReportLab and Pillow). It reads the homepage's current roles, dates,

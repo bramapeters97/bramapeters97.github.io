@@ -42,6 +42,15 @@ for (const [markup, id] of cards) {
   assert.ok(fs.existsSync(path.join(root, item.image)), `Missing thumbnail: ${item.image}`);
 }
 passed(`${cards.length} real published portfolio references and thumbnail files; fallback matches index.html`);
+const projectTitle = id => fallback.find(project => project.id === id)?.title;
+function portfolioOption(doc, id) {
+  const title = projectTitle(id);
+  assert.ok(title, `Missing portfolio fixture: ${id}`);
+  const option = Array.from(doc.querySelectorAll('#portfolioOptions [role="option"]'))
+    .find(option => option.querySelector('.intake-reference-name')?.textContent === title);
+  assert.ok(option, `Missing portfolio option: ${id}`);
+  return option;
+}
 assert.doesNotMatch(script, /localStorage|sessionStorage|sendBeacon|gtag\(|dataLayer|XMLHttpRequest/);
 assert.equal((script.match(/\bfetch\(/g) || []).length, 1);
 assert.match(script, /fetch\('index\.html'/);
@@ -146,7 +155,7 @@ try {
   assert.equal(get('formErrors').hidden, true);
   passed('Six required project fields, whitespace/email errors, inline recovery and focus');
 
-  assert.equal(get('portfolioOptions').children.length, 12);
+  assert.equal(get('portfolioOptions').children.length, cards.length + 1);
   assert.ok(!get('portfolioOptions').textContent.includes('Coming Soon'));
   assert.ok(!get('portfolioOptions').textContent.includes('My Next Project'));
   get('similarProject').focus();
@@ -154,22 +163,22 @@ try {
   assert.equal(get('similarProject').getAttribute('aria-expanded'), 'true');
   assert.equal(get('similarProject').getAttribute('aria-activedescendant'), 'portfolio-option-1');
   key('Enter');
-  assert.equal(get('similarProjectValue').value, 'UWV Monitor Arbeid & Gezondheid');
+  assert.equal(get('similarProjectValue').value, projectTitle(cards[0][1]));
   key('ArrowDown');
   key('Escape');
-  assert.equal(get('similarProjectValue').value, 'UWV Monitor Arbeid & Gezondheid');
+  assert.equal(get('similarProjectValue').value, projectTitle(cards[0][1]));
   key('End');
   key('Enter');
-  assert.equal(get('similarProjectValue').value, 'J. Meijer B.V. 40 Jaar');
+  assert.equal(get('similarProjectValue').value, projectTitle(cards.at(-1)[1]));
   key('l');
   key('Enter');
-  assert.equal(get('similarProjectValue').value, 'Lost In Translation™');
+  assert.equal(get('similarProjectValue').value, projectTitle('lost-in-translation'));
   key(' ');
   key('Tab');
   assert.equal(get('portfolioOptions').hidden, true);
   get('similarProject').click();
-  get('portfolioOptions').children[3].click();
-  assert.match(get('similarProjectValue').value, /LELIBRAMBAS/);
+  portfolioOption(doc, 'lelibrambas').click();
+  assert.equal(get('similarProjectValue').value, projectTitle('lelibrambas'));
   key('Home');
   key('Enter');
   assert.equal(get('similarProjectValue').value, '');
@@ -217,7 +226,7 @@ try {
   fill('addressCountry', 'Netherlands');
   fill('phoneNumber', '+31 6 1234 5678');
   get('similarProject').click();
-  get('portfolioOptions').children[2].click();
+  portfolioOption(doc, 'lost-in-translation').click();
   fill('additionalInformation', 'Line one.\nLine two: https://example.com/?a=1&b=2');
   submit();
   const fullDraft = get('requestPreview').value;
@@ -274,7 +283,7 @@ try {
   assert.equal(denied.get('manualCopy').open, true);
   assert.equal(denied.get('requestPreview').selectionEnd, denied.get('requestPreview').value.length);
   assert.match(denied.get('copyStatus').textContent, /unavailable/);
-  assert.equal(denied.get('portfolioOptions').children.length, 12);
+  assert.equal(denied.get('portfolioOptions').children.length, cards.length + 1);
   passed('Denied clipboard permission selects complete manual fallback; offline portfolio snapshot works');
 
   const maliciousIndex = homepage.replace('data-project="doula"', 'hidden data-project="doula"')
@@ -282,7 +291,8 @@ try {
     .replace('data-project="spotify"', 'style="display:none" data-project="spotify"')
     .replace(/(<article[^>]*data-project="raspberries"[\s\S]*?<\/article>)/, '<!-- $1 -->');
   const filtered = await setup({ index: maliciousIndex });
-  assert.equal(filtered.get('portfolioOptions').children.length, 8);
+  const excludedProjects = new Set(['doula', 'vinobo', 'spotify', 'raspberries']);
+  assert.equal(filtered.get('portfolioOptions').children.length, cards.filter(([, id]) => !excludedProjects.has(id)).length + 1);
   passed('Live homepage parsing excludes hidden, disabled, commented and placeholder projects');
 
   w.eval(read('assets/js/cookie-banner.js'));
