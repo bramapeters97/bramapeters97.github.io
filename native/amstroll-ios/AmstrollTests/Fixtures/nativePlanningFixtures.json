@@ -1,0 +1,447 @@
+{
+  "now": "2026-11-03T14:00:00Z",
+  "fixtures": [
+    {
+      "name": "zero",
+      "id": "jordaan-pocket",
+      "prefs": {
+        "minutes": 0,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 45,
+        "strictBudget": false
+      },
+      "context": {},
+      "expected": {
+        "total": 44,
+        "travelMinutes": 26,
+        "walking": 31,
+        "waiting": 0,
+        "cost": 0,
+        "knownCost": 0,
+        "status": "more-time",
+        "minimumMinutes": 44,
+        "endpointTravel": 0,
+        "stopIds": [
+          "westerkerk",
+          "prinsengracht"
+        ]
+      }
+    },
+    {
+      "name": "default",
+      "id": "centre-first-light",
+      "prefs": {
+        "minutes": 47,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 45,
+        "strictBudget": false
+      },
+      "context": {},
+      "expected": {
+        "total": 47,
+        "travelMinutes": 18,
+        "walking": 24,
+        "waiting": 0,
+        "cost": 0,
+        "knownCost": 0,
+        "status": "fits",
+        "minimumMinutes": 47,
+        "endpointTravel": 0,
+        "stopIds": [
+          "beurs",
+          "dam",
+          "palace"
+        ]
+      }
+    },
+    {
+      "name": "cycle-return",
+      "id": "jordaan-quiet",
+      "prefs": {
+        "minutes": 720,
+        "start": "central",
+        "endpoint": "start",
+        "mood": "any",
+        "transport": "cycle",
+        "budget": 20,
+        "walking": 45,
+        "strictBudget": false
+      },
+      "context": {},
+      "expected": {
+        "total": 70,
+        "travelMinutes": 33,
+        "walking": 25,
+        "waiting": 0,
+        "cost": 0,
+        "knownCost": 0,
+        "status": "fits",
+        "minimumMinutes": 70,
+        "endpointTravel": 9,
+        "stopIds": [
+          "egelantiersgracht",
+          "lindengracht",
+          "noordermarkt"
+        ]
+      }
+    },
+    {
+      "name": "ferry",
+      "id": "noord-waterfront",
+      "prefs": {
+        "minutes": 240,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 90,
+        "strictBudget": false
+      },
+      "context": {},
+      "expected": {
+        "total": 62,
+        "travelMinutes": 29,
+        "walking": 25,
+        "waiting": 8,
+        "cost": 0,
+        "knownCost": 0,
+        "status": "check",
+        "minimumMinutes": 62,
+        "endpointTravel": 0,
+        "stopIds": [
+          "eye-exterior",
+          "adam",
+          "buiksloterweg"
+        ]
+      }
+    },
+    {
+      "name": "ferry-fixture",
+      "id": "noord-waterfront",
+      "prefs": {
+        "minutes": 240,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 90,
+        "strictBudget": false
+      },
+      "context": {
+        "demoFerry": true
+      },
+      "expected": {
+        "total": 62,
+        "travelMinutes": 29,
+        "walking": 25,
+        "waiting": 8,
+        "cost": 0,
+        "knownCost": 0,
+        "status": "fits",
+        "minimumMinutes": 62,
+        "endpointTravel": 0,
+        "stopIds": [
+          "eye-exterior",
+          "adam",
+          "buiksloterweg"
+        ]
+      }
+    },
+    {
+      "name": "strict-unknown",
+      "id": "jordaan-coffee",
+      "prefs": {
+        "minutes": 240,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 45,
+        "strictBudget": true
+      },
+      "context": {},
+      "expected": {
+        "total": 52,
+        "travelMinutes": 19,
+        "walking": 26,
+        "waiting": 0,
+        "cost": 6,
+        "knownCost": 6,
+        "status": "check",
+        "minimumMinutes": 52,
+        "endpointTravel": 0,
+        "stopIds": [
+          "winkel43",
+          "noordermarkt"
+        ]
+      }
+    },
+    {
+      "name": "known-zero-budget",
+      "id": "centre-old-stones",
+      "prefs": {
+        "minutes": 240,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 0,
+        "walking": 45,
+        "strictBudget": false
+      },
+      "context": {},
+      "expected": {
+        "total": 44,
+        "travelMinutes": 15,
+        "walking": 25,
+        "waiting": 0,
+        "cost": 0,
+        "knownCost": 0,
+        "status": "fits",
+        "minimumMinutes": 44,
+        "endpointTravel": 0,
+        "stopIds": [
+          "oudekerk",
+          "nieuwmarkt",
+          "waag"
+        ]
+      }
+    },
+    {
+      "name": "endpoint",
+      "id": "jordaan-pocket",
+      "prefs": {
+        "minutes": 240,
+        "start": "central",
+        "endpoint": "central",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 45,
+        "strictBudget": false
+      },
+      "context": {},
+      "expected": {
+        "total": 69,
+        "travelMinutes": 51,
+        "walking": 56,
+        "waiting": 0,
+        "cost": 0,
+        "knownCost": 0,
+        "status": "check",
+        "minimumMinutes": 69,
+        "endpointTravel": 25,
+        "stopIds": [
+          "westerkerk",
+          "prinsengracht"
+        ]
+      }
+    },
+    {
+      "name": "ns-return",
+      "id": "ns-haarlem-halfday",
+      "prefs": {
+        "minutes": 720,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 90,
+        "strictBudget": false
+      },
+      "context": {},
+      "expected": {
+        "total": 263,
+        "travelMinutes": 148,
+        "walking": 73,
+        "waiting": 30,
+        "cost": null,
+        "knownCost": 0,
+        "status": "check",
+        "minimumMinutes": 263,
+        "endpointTravel": 73,
+        "stopIds": [
+          "exc-haarlem-markt",
+          "exc-haarlem-spaarne"
+        ]
+      }
+    },
+    {
+      "name": "tinywalk",
+      "id": "centre-first-light",
+      "prefs": {
+        "minutes": 720,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 0,
+        "strictBudget": false
+      },
+      "context": {},
+      "expected": {
+        "total": 47,
+        "travelMinutes": 18,
+        "walking": 24,
+        "waiting": 0,
+        "cost": 0,
+        "knownCost": 0,
+        "status": "check",
+        "minimumMinutes": 47,
+        "endpointTravel": 0,
+        "stopIds": [
+          "beurs",
+          "dam",
+          "palace"
+        ]
+      }
+    },
+    {
+      "name": "transit",
+      "id": "pijp-green",
+      "prefs": {
+        "minutes": 240,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "transit",
+        "budget": 20,
+        "walking": 45,
+        "strictBudget": false
+      },
+      "context": {},
+      "expected": {
+        "total": 62,
+        "travelMinutes": 32,
+        "walking": 29,
+        "waiting": 8,
+        "cost": null,
+        "knownCost": 4,
+        "status": "check",
+        "minimumMinutes": 62,
+        "endpointTravel": 0,
+        "stopIds": [
+          "sarphati",
+          "gerarddou"
+        ]
+      }
+    }
+  ],
+  "suggestions": [
+    {
+      "prefs": {
+        "minutes": 0,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 45,
+        "strictBudget": false
+      },
+      "ids": [
+        "centre-old-stones",
+        "centre-water-books",
+        "centre-first-light",
+        "jordaan-pocket",
+        "westerpark-islands",
+        "centre-bookish",
+        "noord-waterfront",
+        "jordaan-browncafe",
+        "jordaan-windows",
+        "vondel-green",
+        "centre-pinto",
+        "oudwest-markets",
+        "plantage-river",
+        "ndsm-shortair",
+        "oost-green",
+        "jordaan-coffee",
+        "noord-culturalgarden",
+        "sloterdijk-short",
+        "oost-refreshment",
+        "pijp-green"
+      ]
+    },
+    {
+      "prefs": {
+        "minutes": 47,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 45,
+        "strictBudget": false
+      },
+      "ids": [
+        "centre-old-stones",
+        "centre-first-light",
+        "jordaan-pocket",
+        "centre-water-books",
+        "centre-five-facades",
+        "noord-waterfront",
+        "centre-bookish",
+        "westerpark-islands",
+        "jordaan-browncafe",
+        "jordaan-windows",
+        "centre-pinto",
+        "plantage-water",
+        "vondel-green",
+        "oudwest-markets",
+        "jordaan-coffee",
+        "oost-windmill",
+        "ndsm-shortair",
+        "plantage-river",
+        "pijp-green",
+        "noord-culturalgarden"
+      ]
+    },
+    {
+      "prefs": {
+        "minutes": 720,
+        "start": "central",
+        "endpoint": "none",
+        "mood": "any",
+        "transport": "walk",
+        "budget": 20,
+        "walking": 45,
+        "strictBudget": false
+      },
+      "ids": [
+        "centre-five-facades",
+        "centre-old-stones",
+        "jordaan-pocket",
+        "westerpark-islands",
+        "plantage-water",
+        "centre-first-light",
+        "long-centre-jordaan",
+        "long-noord-public",
+        "ndsm-industrial",
+        "long-two-museums",
+        "long-west-green",
+        "centre-water-books",
+        "long-ndsm-art",
+        "oost-refreshment",
+        "jordaan-windows",
+        "centre-bookish",
+        "westergas-openair",
+        "jordaan-quiet",
+        "long-west-lake",
+        "oudwest-depotfilm"
+      ]
+    }
+  ]
+}

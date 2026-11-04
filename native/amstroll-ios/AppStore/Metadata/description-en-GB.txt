@@ -1,0 +1,19 @@
+Amstroll helps you find a small outing in Amsterdam that fits the time you have and what you feel like doing.
+
+Start with an Amsterdam area, a time window and a mood. Adjust travel, walking, budget and where you want to finish. Explore nearby open-data places with credited photographs, or choose the bundled Amsterdam collection for authored outing ideas you can browse offline.
+
+• Choose from a little time to a longer day out.
+• Separate total duration from walking effort.
+• See what fits, what needs more time and what still needs checking.
+• Browse five photographed places at a time and ask for more.
+• Save ideas, manually progress through an outing and skip a stop.
+• Keep an optional local journal note or photograph.
+• Use manual starting areas without location permission.
+
+The core app needs no account. Saved ideas and journal memories stay in the app's local storage. Optional current-location, route and live place features use external services.
+
+Open places means open-data discovery, not confirmation that a venue is currently open. Authored plans use estimates. Routes, prices, opening information and disruptions must be checked with the relevant source. Optional Haarlem and Zandvoort ideas start in Amsterdam and account for the return journey.
+
+A little time. A little more Amsterdam.
+
+DRAFT: remove this final preparation note only after the owner confirms that every described feature is present in the tested release build and the public support/privacy URLs are live.

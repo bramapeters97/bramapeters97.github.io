@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080e17" />
+    <meta name="description" content="Explore the MyPremiere+ Apple TV design in an interactive, viewer-only browser demo." />
+    <title>MyPremiere+ · Apple TV demo</title>
+    <link rel="icon" href="../../../assets/mypremiereplus/artwork/icon.svg" />
+    <link rel="stylesheet" href="../../../assets/mypremiereplus/demo.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#tv-content">Skip to cinema</a>
+    <main class="preview-shell">
+      <header class="preview-top">
+        <div>
+          <a class="preview-brand" href="../../../mypremiereplus/">MyPremiere<span>+</span></a>
+          <h1>A little closer. On the biggest screen.</h1>
+          <p>Apple TV · interactive browser demo</p>
+        </div>
+        <div class="preview-links">
+          <a href="../../../mypremiereplus/">All three demos</a>
+          <a href="../../../mypremiereplus.html">Read the case study <span aria-hidden="true">↗</span></a>
+        </div>
+      </header>
+      <section class="tv-shell" aria-label="Apple TV browser demo">
+        <div class="tv-screen" id="tv-app"></div>
+      </section>
+      <footer class="preview-footer">
+        <p><strong>Make yourself at home.</strong> Arrow keys move focus · Enter selects · Escape goes back · Space plays/pauses in the player. Mouse and touch work too.</p>
+        <div><span>One fictional account · synthetic artwork</span><button type="button" id="reset-demo">Reset demo</button></div>
+      </footer>
+      <p class="demo-note">A browser study of the Apple TV experience. These are fictional films with a short demonstration clip, not personal recordings.</p>
+    </main>
+    <div class="toast" id="tv-toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

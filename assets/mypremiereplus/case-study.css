@@ -1,0 +1,48 @@
+.mpp-case .container { max-width: 1360px; }
+.mpp-case .project-header h1 { max-width: 1100px; }
+.mpp-case .project-header .tagline { max-width: 910px; }
+.mpp-case .card { min-width: 0; }
+.mpp-case .mpp-intro-actions { margin-bottom: 1.8rem; align-items: center; }
+.mpp-caption-note { color: #657088; font-size: .8rem; }
+.mpp-showcase { margin: 0 0 1.4rem; padding: clamp(22px, 3.5vw, 48px); border-radius: 22px; background: radial-gradient(ellipse at 70% 0, #273a56, #0b1423 68%); color: #e9eef6; box-shadow: 0 26px 60px #1c274833; overflow: hidden; }
+.mpp-showcase-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 30px; }
+.mpp-showcase-heading > span { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(22px, 2.4vw, 34px); font-weight: 650; letter-spacing: -.07em; }
+.mpp-plus { color: #edc77d; }
+.mpp-showcase-heading small { color: #c4cddd; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 10px; letter-spacing: .18em; }
+.mpp-device-lineup { display: grid; grid-template-columns: .56fr 1.18fr 1.5fr; gap: clamp(12px, 2vw, 28px); align-items: end; }
+.mpp-hero-device { color: #e9eef6; text-decoration: none; min-width: 0; display: block; }
+.mpp-hero-device > span { display: block; margin-bottom: 12px; color: #ccd5e3; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: .06em; }
+.mpp-hero-device img { width: 100%; height: auto; border: 5px solid #20242b; border-radius: 12px; background: #0b1019; box-shadow: 0 15px 30px #0006; }
+.mpp-hero-phone img { aspect-ratio: 375/835; object-fit: contain; border-radius: 23px; }
+.mpp-hero-tablet img { aspect-ratio: 1268/809; object-fit: contain; }
+.mpp-hero-tv img { aspect-ratio: 16/9; object-fit: contain; border-radius: 6px; }
+.mpp-hero-tv::after { display: block; content: ""; width: 28%; height: 8px; background: #343f4f; margin: 0 auto; border-radius: 0 0 3px 3px; }
+.mpp-hero-device:hover img { border-color: #a79265; }
+.mpp-hero-device:focus-visible { outline: 3px solid #edc77d; outline-offset: 7px; border-radius: 8px; }
+.mpp-showcase figcaption { margin-top: 26px; color: #b0bbcd; font-size: .76rem; line-height: 1.6; text-align: left; }
+.mpp-platform-label { display: block; color: #536dfe; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: .6rem; }
+.mpp-platform-figure { margin: 1.6rem 0 1rem; }
+.mpp-platform-figure > a { display: block; padding: 8px; border: 1px solid #202a4838; border-radius: 16px; background: linear-gradient(145deg, #20263a, #090c14 70%); box-shadow: 0 14px 30px #1c274826; overflow: hidden; }
+.mpp-platform-figure img { display: block; width: 100%; height: auto; border-radius: 9px; }
+.mpp-platform-figure figcaption { margin-top: .8rem; color: #657088; font-size: .8rem; line-height: 1.6; text-align: left; }
+.mpp-phone-figure { max-width: 310px; margin-inline: auto; }
+.mpp-phone-figure > a { padding: 7px; border-radius: 28px; }
+.mpp-phone-figure img { border-radius: 21px; }
+.mpp-case .mpp-section-nav { display: grid; gap: .65rem; border-top: 1px solid #48588429; padding-top: 1.1rem; margin-top: 1.2rem; }
+.mpp-section-nav a { color: #47536e; font-size: .85rem; text-decoration: none; }
+.mpp-section-nav a:hover { text-decoration: underline; }
+.mpp-case .mpp-sidebar-cta { margin-top: 1.4rem; min-width: 0; width: 100%; text-align: center; }
+.mpp-case a:focus-visible { outline: 3px solid #536dfe; outline-offset: 4px; }
+@media (max-width: 767px) {
+  .mpp-case .container { width: calc(100% - 32px); padding-inline: 0; }
+  .mpp-showcase { border-radius: 16px; padding: 20px 16px; }
+  .mpp-showcase-heading { display: block; margin-bottom: 24px; }
+  .mpp-showcase-heading small { display: block; font-size: 8px; margin-top: 8px; letter-spacing: .13em; }
+  .mpp-device-lineup { grid-template-columns: .62fr 1.12fr 1.3fr; gap: 9px; }
+  .mpp-hero-device img { border-width: 3px; border-radius: 6px; }
+  .mpp-hero-phone img { border-radius: 12px; }
+  .mpp-hero-device > span { font-size: 9px; letter-spacing: 0; margin-bottom: 7px; }
+  .mpp-showcase figcaption { font-size: .7rem; margin-top: 20px; }
+  .mpp-caption-note { display: block; }
+  .mpp-case .case-pair { grid-template-columns: 1fr; }
+}

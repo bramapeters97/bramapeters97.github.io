@@ -1,0 +1,44 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const id=s=>crypto.createHash('sha1').update(s).digest('hex').slice(0,24).toUpperCase();
+const q=s=>JSON.stringify(s);
+const objects=new Map();const add=(key,value)=>{objects.set(id(key),value);return id(key);};
+const walk=d=>fs.existsSync(path.join(root,d))?fs.readdirSync(path.join(root,d),{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(d+'/'+e.name):[d+'/'+e.name]):[];
+const products=['Amstroll','AmstrollTests','AmstrollUITests'];
+const appSource=walk('Amstroll').filter(p=>p.endsWith('.swift'));
+const unitSource=walk('AmstrollTests').filter(p=>p.endsWith('.swift'));
+const uiSource=walk('AmstrollUITests').filter(p=>p.endsWith('.swift'));
+const resources=walk('Amstroll/Resources').filter(p=>!p.includes('Assets.xcassets/')&&!p.endsWith('.swift'));
+resources.push('Amstroll/Resources/Assets.xcassets');
+const testResources=walk('AmstrollTests').filter(p=>p.endsWith('.json'));
+function reference(file){const ext=path.extname(file),type=ext==='.swift'?'sourcecode.swift':ext==='.xcassets'?'folder.assetcatalog':ext==='.xcconfig'?'text.xcconfig':ext==='.json'?'text.json':ext==='.ttf'?'file':ext==='.xcprivacy'?'text.xml':'text';return add('file:'+file,`{isa = PBXFileReference; lastKnownFileType = ${q(type)}; path = ${q(file)}; sourceTree = SOURCE_ROOT; }`);}
+const allFiles=[...new Set([...appSource,...unitSource,...uiSource,...resources,...testResources,'Amstroll/Info.plist','Configuration.xcconfig'])].sort();allFiles.forEach(reference);
+const productRefs=products.map((name,i)=>add('product:'+name,`{isa = PBXFileReference; explicitFileType = ${i===0?'wrapper.application':'wrapper.cfbundle'}; includeInIndex = 0; path = ${name}.${i===0?'app':'xctest'}; sourceTree = BUILT_PRODUCTS_DIR; }`));
+add('group:Products',`{isa = PBXGroup; children = (${productRefs.join(',')}); name = Products; sourceTree = "<group>"; }`);
+add('group:Main',`{isa = PBXGroup; children = (${allFiles.map(f=>id('file:'+f)).join(',')},${id('group:Products')}); sourceTree = "<group>"; }`);
+const configs=(key,base)=>{
+ const refs=['Debug','Release'].map(name=>add(key+':'+name,`{isa = XCBuildConfiguration; ${key==='app'?'baseConfigurationReference = '+id('file:Configuration.xcconfig')+';':''}buildSettings = {${Object.entries({...base,...(name==='Debug'?{SWIFT_ACTIVE_COMPILATION_CONDITIONS:'DEBUG',SWIFT_OPTIMIZATION_LEVEL:'-Onone',ENABLE_TESTABILITY:'YES'}:{SWIFT_OPTIMIZATION_LEVEL:'-O',SWIFT_COMPILATION_MODE:'wholemodule',ENABLE_TESTABILITY:'NO'})}).map(([k,v])=>k+' = '+q(v)+';').join('')}}; name = ${name}; }`));
+ return add(key+':configlist',`{isa = XCConfigurationList; buildConfigurations = (${refs.join(',')}); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; }`);
+};
+const projectSettings={ALWAYS_SEARCH_USER_PATHS:'NO',CLANG_ENABLE_MODULES:'YES',CLANG_ENABLE_OBJC_ARC:'YES',IPHONEOS_DEPLOYMENT_TARGET:'17.0',SDKROOT:'iphoneos',SWIFT_VERSION:'5.0',SWIFT_STRICT_CONCURRENCY:'targeted',DEBUG_INFORMATION_FORMAT:'dwarf-with-dsym'};
+const projectConfig=configs('project',projectSettings);
+function phase(name,type,files){const refs=files.map(file=>add('build:'+name+':'+file,`{isa = PBXBuildFile; fileRef = ${id('file:'+file)}; }`));return add('phase:'+name,`{isa = ${type}; buildActionMask = 2147483647; files = (${refs.join(',')}); runOnlyForDeploymentPostprocessing = 0; }`);}
+const targetIds=[];
+for(let i=0;i<products.length;i++){
+ const name=products[i],key=i===0?'app':name;
+ const base=i===0?{PRODUCT_NAME:'Amstroll',PRODUCT_BUNDLE_IDENTIFIER:'$(AMSTROLL_BUNDLE_IDENTIFIER)',INFOPLIST_FILE:'Amstroll/Info.plist',GENERATE_INFOPLIST_FILE:'NO',ASSETCATALOG_COMPILER_APPICON_NAME:'AppIcon',ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME:'',CODE_SIGN_STYLE:'Automatic',DEVELOPMENT_TEAM:'$(AMSTROLL_DEVELOPMENT_TEAM)',CURRENT_PROJECT_VERSION:'1',MARKETING_VERSION:'1.0.0',TARGETED_DEVICE_FAMILY:'1',SUPPORTED_PLATFORMS:'iphoneos iphonesimulator',SUPPORTS_MACCATALYST:'NO',SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD:'NO',ENABLE_PREVIEWS:'YES',LD_RUNPATH_SEARCH_PATHS:'$(inherited) @executable_path/Frameworks',SWIFT_EMIT_LOC_STRINGS:'YES'}:{PRODUCT_NAME:name,PRODUCT_BUNDLE_IDENTIFIER:'com.brampeters.amstroll.'+name,GENERATE_INFOPLIST_FILE:'YES',CODE_SIGN_STYLE:'Automatic',TARGETED_DEVICE_FAMILY:'1',SWIFT_VERSION:'5.0',IPHONEOS_DEPLOYMENT_TARGET:'17.0',...(i===1?{TEST_HOST:'$(BUILT_PRODUCTS_DIR)/Amstroll.app/Amstroll',BUNDLE_LOADER:'$(TEST_HOST)'}:{TEST_TARGET_NAME:'Amstroll'})};
+ const config=configs(key,base);
+ const phases=[phase(name+':sources','PBXSourcesBuildPhase',i===0?appSource:i===1?unitSource:uiSource),phase(name+':frameworks','PBXFrameworksBuildPhase',[]),phase(name+':resources','PBXResourcesBuildPhase',i===0?resources:i===1?testResources:[])];
+ const deps=[];
+ if(i>0){const proxy=add('proxy:'+name,`{isa = PBXContainerItemProxy; containerPortal = ${id('project')}; proxyType = 1; remoteGlobalIDString = ${id('target:Amstroll')}; remoteInfo = Amstroll; }`);deps.push(add('dependency:'+name,`{isa = PBXTargetDependency; target = ${id('target:Amstroll')}; targetProxy = ${proxy}; }`));}
+ targetIds.push(add('target:'+name,`{isa = PBXNativeTarget; buildConfigurationList = ${config}; buildPhases = (${phases.join(',')}); buildRules = (); dependencies = (${deps.join(',')}); name = ${name}; productName = ${name}; productReference = ${productRefs[i]}; productType = ${q(i===0?'com.apple.product-type.application':i===1?'com.apple.product-type.bundle.unit-test':'com.apple.product-type.bundle.ui-testing')}; }`));
+}
+add('project',`{isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = YES; LastUpgradeCheck = 1600; TargetAttributes = {${targetIds.map((v,i)=>v+' = {CreatedOnToolsVersion = 16.0; '+(i>0?'TestTargetID = '+targetIds[0]+';':'')+'};').join('')}}; }; buildConfigurationList = ${projectConfig}; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en,Base); mainGroup = ${id('group:Main')}; productRefGroup = ${id('group:Products')}; projectDirPath = ""; projectRoot = ""; targets = (${targetIds.join(',')}); }`);
+const projectDir=path.join(root,'Amstroll.xcodeproj');fs.mkdirSync(path.join(projectDir,'xcshareddata/xcschemes'),{recursive:true});
+fs.writeFileSync(path.join(projectDir,'project.pbxproj'),'// !$*UTF8*$!\n{ archiveVersion = 1; classes = {}; objectVersion = 56; objects = {\n'+[...objects].map(([key,value])=>key+' = '+value+';').join('\n')+'\n}; rootObject = '+id('project')+'; }\n');
+const buildable=(name,i)=>`<BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="${targetIds[i]}" BuildableName="${name}.${i===0?'app':'xctest'}" BlueprintName="${name}" ReferencedContainer="container:Amstroll.xcodeproj"/>`;
+fs.writeFileSync(path.join(projectDir,'xcshareddata/xcschemes/Amstroll.xcscheme'),`<?xml version="1.0" encoding="UTF-8"?>\n<Scheme LastUpgradeVersion="1600" version="1.3"><BuildAction parallelizeBuildables="YES" buildImplicitDependencies="YES"><BuildActionEntries>${products.map((name,i)=>`<BuildActionEntry buildForTesting="YES" buildForRunning="${i===0?'YES':'NO'}" buildForProfiling="${i===0?'YES':'NO'}" buildForArchiving="${i===0?'YES':'NO'}" buildForAnalyzing="YES">${buildable(name,i)}</BuildActionEntry>`).join('')}</BuildActionEntries></BuildAction><TestAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.IDEFoundation.Launcher.LLDB" shouldUseLaunchSchemeArgsEnv="YES"><Testables>${products.slice(1).map((name,i)=>`<TestableReference skipped="NO">${buildable(name,i+1)}</TestableReference>`).join('')}</Testables></TestAction><LaunchAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.IDEFoundation.Launcher.LLDB" launchStyle="0" useCustomWorkingDirectory="NO" ignoresPersistentStateOnLaunch="NO" debugDocumentVersioning="YES" debugServiceExtension="internal" allowLocationSimulation="YES"><BuildableProductRunnable runnableDebuggingMode="0">${buildable('Amstroll',0)}</BuildableProductRunnable></LaunchAction><ProfileAction buildConfiguration="Release" shouldUseLaunchSchemeArgsEnv="YES" savedToolIdentifier="" useCustomWorkingDirectory="NO" debugDocumentVersioning="YES"><BuildableProductRunnable runnableDebuggingMode="0">${buildable('Amstroll',0)}</BuildableProductRunnable></ProfileAction><AnalyzeAction buildConfiguration="Debug"/><ArchiveAction buildConfiguration="Release" revealArchiveInOrganizer="YES"/></Scheme>\n`);
+console.log(`Generated project: ${appSource.length} app sources, ${unitSource.length} unit test sources, ${uiSource.length} UI test sources, ${resources.length} app resource entries. Re-run after adding/removing source files.`);

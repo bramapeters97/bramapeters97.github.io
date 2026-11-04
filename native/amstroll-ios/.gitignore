@@ -1,0 +1,12 @@
+Build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+.build/
+.swiftpm/
+*.ipa
+*.p8
+*.p12
+*.mobileprovision
+ExportOptions.plist

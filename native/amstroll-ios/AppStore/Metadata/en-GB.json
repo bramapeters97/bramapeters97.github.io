@@ -1,0 +1,17 @@
+{
+  "name": "Amstroll",
+  "subtitle": "A little more Amsterdam",
+  "primaryLanguage": "en-GB",
+  "promotionalText": "Find a small Amsterdam outing that suits your moment. Set your time, starting area and mood, then explore an idea and leave room for the journey back.",
+  "keywords": "Amsterdam,walks,explore,city,outing,journal,local,discovery,canals,leisure",
+  "primaryCategorySuggested": "Travel",
+  "secondaryCategorySuggested": "Lifestyle",
+  "copyrightDraft": "2026 Bram Peters Studio — owner to confirm legal rights holder",
+  "supportURLCandidate": "https://bram-peters.com/contact.html",
+  "privacyPolicyURL": null,
+  "marketingURL": "https://bram-peters.com/amstroll",
+  "version": "1.0.0",
+  "build": "1",
+  "availability": "Owner to choose territories; Amsterdam is the product setting, not an App Store distribution restriction.",
+  "status": "DRAFT — names, category choices, rights, URLs, age rating and release capability need owner review and Mac verification. Not submitted."
+}
