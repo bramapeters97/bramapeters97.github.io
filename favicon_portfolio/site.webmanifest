@@ -1,15 +1,14 @@
 {
   "name": "Bram Peters Portfolio",
   "short_name": "Bram Peters",
+  "start_url": "../index.html",
+  "display": "standalone",
   "icons": [
     {
-      "src": "/assets/img/bram-peters-studio.png",
-      "sizes": "1254x1254",
+      "src": "favicon.png",
+      "sizes": "237x244",
       "type": "image/png",
       "purpose": "any"
     }
-  ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  ]
 }
