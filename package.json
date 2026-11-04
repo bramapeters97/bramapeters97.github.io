@@ -6,6 +6,7 @@
     "generate:lelibrambas-icons": "node scripts/generate-lelibrambas-icons.mjs",
     "update:project-navigation": "node scripts/update-project-navigation.mjs",
     "check:portfolio": "node scripts/update-project-navigation.mjs --check && node scripts/validate-case-studies.mjs",
+    "check:amstroll": "node scripts/check-amstroll.mjs",
     "check:contact": "node scripts/check-contact.mjs",
     "check:responsive": "node scripts/check-responsive.mjs"
   }

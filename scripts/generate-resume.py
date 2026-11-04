@@ -245,7 +245,7 @@ link('bramapeters@outlook.com', 'mailto:bramapeters@outlook.com', contact_x + 12
 para('Amsterdam, Netherlands', contact_x + 12, y - 15, contact_w - 24, 8)
 link('bram-peters.com', SITE, contact_x + 12, y - 29, 8)
 link('LinkedIn: Bram Peters', 'https://www.linkedin.com/in/bram-peters/', contact_x + 12, y - 43, 8)
-link('LinkedIn: Bram Peters Studios', 'https://www.linkedin.com/company/bram-peters-studio/', contact_x + 12, y - 57, 8)
+link('LinkedIn: Bram Peters Studio', 'https://www.linkedin.com/company/bram-peters-studio/', contact_x + 12, y - 57, 8)
 
 section_top = about_top - about_height - 12
 side_w, gutter = 160, 12

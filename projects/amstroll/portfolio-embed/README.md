@@ -1,26 +1,32 @@
 # Amstroll portfolio embed
 
-Copy this folder into your GitHub Pages repository. The single index.html contains all essential code, fonts, licensed photography and authored Amsterdam data. No build step or API key is needed for the core demo. It opens directly in the fictional demo account inside a responsive iPhone mockup.
+The self-contained `index.html` bundles the interface, fonts, authored Amsterdam catalogue and offline collection photography. It opens directly in the fictional demo account. No backend or API key is required.
 
-Example, from a portfolio page beside a folder named amstroll-demo:
+## Discovery and sources
+
+Open places is selected by default and requests nearby OpenStreetMap/Wikipedia places plus licensed photographs linked through Wikipedia, Wikidata or an explicit Commons image tag. The pool targets 50 distinct places, each with a different source photograph. Five shuffled results appear at a time; **More of these** replaces them with the next five. After the pool has been browsed, it reshuffles. A smaller pool is reported honestly when the sources cannot supply 50 photographed places. Missing or failed images never become generic venue photographs.
+
+Author, original Commons file and licence remain available from each card's photo credit. Open results remain candidates: routes, prices, access and availability are unverified. No reviews, fares or departure data are invented. Provider errors and partial-source failures stay visible. Requests use bounded batches, session caching and cancellation. No private credentials are included.
+
+Open places needs a network connection. Visitors can explicitly choose **Amsterdam collection** for the bundled offline sample plans, including the progress and journal journey. It is never silently substituted for a failed provider. Weather and the municipal stop inventory also need a connection. GVB/NS links open official planners, not live departure feeds. Google Places/Routes need owner configuration and remain unverified in this prototype.
+
+## Embedding
+
+Use the repository-relative URL and keep a standalone link:
 
 ```html
-<iframe src="./amstroll-demo/index.html"
+<iframe src="projects/amstroll/portfolio-embed/index.html"
   title="Amstroll — interactive Amsterdam discovery prototype"
-  loading="lazy"
-  width="512" height="1052"
-  style="display:block;width:100%;max-width:512px;height:auto;aspect-ratio:512/1052;border:0;margin:auto;background:transparent">
+  loading="lazy" width="430" height="868"
+  style="display:block;width:100%;max-width:430px;height:min(900px,calc(100svh - 110px));border:0;background:transparent">
 </iframe>
-<a href="./amstroll-demo/index.html" target="_blank" rel="noopener">Open Amstroll prototype</a>
+<a href="projects/amstroll/portfolio-embed/index.html" target="_blank" rel="noopener">Open prototype</a>
 ```
 
-Use a repository-relative URL. The iframe's responsive 512:1052 aspect ratio includes the phone and a transparent gutter of 3.125% on each side, capped at 16px. The phone retains its original 409:868 proportions, uses 93.75% of the viewport width and grows naturally to a maximum of 480px; smaller hosts reflow its interface at the available width. No transform, zoom or viewport-height scaling is used. The app scrolls internally. The document canvas and presentation background are transparent; the interface's own gradients remain inside the phone. No parent scripts, resize messaging, account service or bundler is required. Keep a direct-link alternative. Current browser storage policies can partition or deny iframe persistence; the prototype reports this and continues in memory.
+The phone keeps its 409:868 proportions, fits the available width and height, and never exceeds 409×868px. Content scrolls inside `.screen`; the outer canvas is transparent and clipped. The portfolio adds a mobile-only fullscreen/minimize control without replacing the iframe or losing its current state. Desktop presentation stays inline.
 
-Optional municipal stop data, open-place discovery and weather require a network connection. GVB and NS buttons open official operator planners; they are not a live timetable. Google live verification remains pending owner credentials. No private key is included.
+Manual Amsterdam area selection works without location permission. The portfolio does not delegate geolocation. Browser storage policies can partition or deny saved data; the demo reports this and continues in memory. Notes use localStorage and optional journal photos use IndexedDB.
 
-Manual Amsterdam area selection works without location permission. If you want optional geolocation inside the iframe, add allow="geolocation 'src'" and host over HTTPS with a compatible parent Permissions Policy. No other permissions are needed.
+## Maintenance
 
-This file retains font licenses and photo attribution. The app’s photo credits provide original source links. This portfolio copy has a small presentation-only CSS adjustment for the larger proportional frame and transparent outer canvas. Preserve that adjustment when rebuilding from the parent source project with node build.mjs. Application and provider JavaScript are unchanged.
-
-
-Current portfolio viewport: the host is at most 430px wide and its height is capped by the browser viewport (up to 900px). The phone is bounded to its original 409:868 proportions and never exceeds 409x868px. The internal .screen is the scrolling region; the outer presentation remains clipped and transparent. This replaces the earlier enlarged 512:1052 host sizing.
+This copy includes local application, provider and viewport changes beyond the supplied export. Replacing it with a fresh source export would overwrite them. Preserve these changes, font licences and source attributions when rebuilding. The case-study screenshots are frozen captures of the authored collection, so their states differ from current live discovery results.

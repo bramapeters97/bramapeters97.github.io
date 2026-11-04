@@ -16,11 +16,8 @@ The generator checks the six cutouts' dimensions, transparent corner alpha, opaq
 
 Image-generation previews were rejected because they changed interface text. None are used in the six cutouts; they retain the genuine captures. The cover is the attachment specifically selected by the user.
 
-The self-contained `projects/amstroll/portfolio-embed/index.html` comes from the supplied export, with presentation-only CSS adjusted for a larger, proportionate iPhone and a transparent outer canvas. Its application and provider scripts are unchanged. The responsive host uses a 512:1052 ratio; the phone keeps its original 409:868 ratio without transform or zoom. It opens directly in the fictional demo account and bundles its essential code, fonts, photographs and catalogue. The case-study page does not delegate geolocation; manual Amsterdam area selection works without permission.
+The self-contained `projects/amstroll/portfolio-embed/index.html` includes local viewport, application and provider refinements. Open places is the default: up to 50 real places with distinct licensed source photographs, shown in shuffled batches of five. The bundled Amsterdam collection remains explicitly available offline. The phone keeps its 409:868 proportions inside a host capped by the viewport height; content scrolls internally. The mobile-only fullscreen toggle preserves the same iframe and its state. The case-study page does not delegate geolocation.
 
-Photo authors, original sources, licences and derivative details are in `photo-credits.md` and `photo-credits.md`. Font notices and complete SIL OFL texts are in `FONT-LICENSES.md` and `fonts/`. The identity uses the original bridge-like A, rather than any earlier project mark.
+Photo authors, original sources, licences and derivative details are in `photo-credits.md`. Font notices and complete SIL OFL texts are in `FONT-LICENSES.md` and `fonts/`. The identity uses the original bridge-like A, rather than any earlier project mark.
 
-To update the demo, rebuild the original project and replace the standalone export. Refresh the screenshots and this page's factual implementation descriptions together. Keep Google verification marked pending until owner configuration is supplied and tested.
-
-
-Current portfolio viewport: the host is at most 430px wide and its height is capped by the browser viewport (up to 900px). The phone is bounded to its original 409:868 proportions and never exceeds 409x868px. The internal .screen is the scrolling region; the outer presentation remains clipped and transparent. This replaces the earlier enlarged 512:1052 host sizing.
+When updating the demo, preserve the local application, provider and viewport changes documented in `projects/amstroll/portfolio-embed/README.md`. Refresh the screenshots and this page's factual implementation descriptions together. Keep Google verification marked pending until owner configuration is supplied and tested.

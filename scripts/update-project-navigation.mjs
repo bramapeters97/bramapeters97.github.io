@@ -4,7 +4,6 @@ import fs from 'node:fs';
 const pages = [
   'amstroll.html',
   'honeymoon.html',
-  'lostintranslation.html',
   'uwvmonitorarbeidgezondheid.html', 'lelibrambas-plus.html',
   'tuelearningdashboard.html', 'theemotionaldrone.html',
   'doulauxuicasestudy.html', 'vinobo.html',
@@ -12,7 +11,7 @@ const pages = [
   'jmeijerbv40jaareendaginhetlevenvanlucaorvini.html',
 ];
 const featured = [
-  ['Lost In Translation™', 'lostintranslation.html', 'bot'],
+  ['Lost In Translation™', 'https://lostintranslation.nl', 'bot'],
   ['UWV Monitor', 'uwvmonitorarbeidgezondheid.html', 'dashboard'],
   ['LELIBRAMBAS+', 'lelibrambas-plus.html', 'tv'],
   ['TU/e Dashboard', 'tuelearningdashboard.html', 'graduation'],
@@ -71,7 +70,7 @@ function navigation(page) {
           </ul>
           <div class="project-nav-actions">
             <a href="https://www.linkedin.com/in/bram-peters/" target="_blank" rel="noopener noreferrer">${linkedin}<span>Bram Peters</span></a>
-            <a href="https://www.linkedin.com/company/bram-peters-studio/" target="_blank" rel="noopener noreferrer">${linkedin}<span>Bram Peters Studios</span></a>
+            <a href="https://www.linkedin.com/company/bram-peters-studio/" target="_blank" rel="noopener noreferrer">${linkedin}<span>Bram Peters Studio</span></a>
             <a class="project-nav-contact" href="contact.html">${envelope}<span>Contact Me</span></a>
           </div>
         </div>
