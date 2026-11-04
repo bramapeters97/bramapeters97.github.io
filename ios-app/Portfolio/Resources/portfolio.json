@@ -1,0 +1,1631 @@
+{
+  "schemaVersion": 1,
+  "source": "Bundled from this repository's index.html, local case studies and contact.html. Updates require rebuilding the app.",
+  "profile": {
+    "name": "Bram Peters | Studio",
+    "tagline": "🧩 I make sense of data, and data make sense. Bridging Business Intelligence and User-Centered Design.",
+    "bio": "👋 Hi, I'm Bram! A Business Intelligence Specialist at KLM, with a background in UX/UI design and an MSc in Human-Technology Interaction. I believe data should tell a story, technology should make life easier, and good design shouldn't require an instruction manual. Making sense of data. And making data make sense. That's where my experience in BI meets my passion for Human-Centred Design. From untangling messy datasets and building data pipelines to designing intuitive interfaces and developing complete digital solutions, I enjoy turning complex challenges into products that actually make a difference. Preferably ones people want to use. A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessary complexity. Let's make something that makes sense. 🚀",
+    "image": "Media/30d1a81ed04c1fa1.jpg",
+    "location": "Amsterdam, Netherlands",
+    "website": "https://bram-peters.com",
+    "email": "bramapeters@outlook.com",
+    "links": [
+      {
+        "title": "Bram Peters",
+        "url": "https://www.linkedin.com/in/bram-peters/"
+      },
+      {
+        "title": "Bram Peters Studio",
+        "url": "https://www.linkedin.com/company/bram-peters-studio/"
+      }
+    ],
+    "skills": [
+      {
+        "title": "Business Intelligence",
+        "detail": "PowerBI/DAX, PowerApps|Automate, Stakeholder-management, policy-driven KPI-reporting, data-driven decision-making, Cloud ETL, data quality & lineage, GDPR-compliancy, performance tuning, paginated reports"
+      },
+      {
+        "title": "Data Analytics",
+        "detail": "R, Stata, Python, (statistical) data mining/engineering/analytics, scientific research methods, machine learning"
+      },
+      {
+        "title": "UX/UI & Interaction Design",
+        "detail": "Figma, Adobe XD, wireframing, prototyping, usability, flows, cognitive walkthroughs, design systems, IA, user research, stakeholder interviews, Double Diamond, self-regulated learning theory, storytelling, A/B testing, Behavioral research methods, human cognition & perception, human-robot interaction, persuasive & ethical design."
+      },
+      {
+        "title": "App Development",
+        "detail": "Android, Kotlin, Apple tvOS, iOS, Power Apps"
+      },
+      {
+        "title": "MS Power Platform",
+        "detail": "M365 Copilot Ecosystems using Power Apps, Power Automate, Power BI, SharePoint, full-stack low-code application development, Microsoft-native integrations, enterprise workflow automation, data modelling & integration, SharePoint Lists & data management, custom connectors, responsive UX/UI design, role-based access control, permissions & governance, approval workflows, cross-platform integration, scalable enterprise applications."
+      },
+      {
+        "title": "Web Development",
+        "detail": "Core Web Tech, TypeScript, React, Vue.js, responsiveness, PWAs, Web Dev, Android, tvOS, PowerApps"
+      },
+      {
+        "title": "Cloud Databases & API Integration",
+        "detail": "Cloudflare D1, SQL database setup, Google Cloud, API authentication & access control, REST APIs, full-stack integration, dynamic data synchronisation"
+      },
+      {
+        "title": "AI Software Development",
+        "detail": "AI coding tools, 'vibe coding', constructing constrained and targeted prompts, context management, iterative prototyping, code review & refinement, debugging, testing, integration, AI agent design, system instructions, persona & behaviour design, knowledge integration, AI-powered websites & applications, workflow orchestration, connected AI services, automated summarisation, structured outputs, output evaluation & guardrails"
+      },
+      {
+        "title": "Data Governance",
+        "detail": "GDPR, privacy-by-design, anonymisation, aggregation, data definitions, access control, RLS"
+      },
+      {
+        "title": "Agile & Scrum",
+        "detail": "Sprint planning, JIRA, Confluence, backlog refinement, iterative development, stakeholder management, cross-functional teamwork, demos & presentations, user stories, discovery → scoping → kickoff, stakeholder mapping, requirements, delivery roadmap & milestones, change management, workshops, executives updating, cross-functional collaboration"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Business Intelligence-Specialist, KLM – Amsterdam Airport Schiphol, Netherlands",
+        "organization": "",
+        "period": "Jun 2026 – Present",
+        "description": "A natural next step in my career, leveraging BI with user-centred design. Together with a young, ambitious team, we've already delivered significant organisational value through full-stack, Microsoft-native Power Platform solutions that help KLM stay on top of complex operational processes. Building impactful digital products in the tightly regulated world of aviation engineering, where safety, efficiency and precision are essential to keeping KLM's fleet airworthy and its flight schedules running daily.✈️"
+      },
+      {
+        "title": "Freelancing, Bram Peters Studio™ | Amsterdam, Netherlands",
+        "organization": "",
+        "period": "Okt 2025 – Present",
+        "description": "As Founder & Owner of Bram Peters Studio™, I independently design and develop branded digital products and creative experiences for businesses and individuals. My freelance work ranges from websites, custom applications (incl. Android & Apple iOS/tvOS) and UX/UI design to corporate BI, data analytics and full-stack Power Platform solutions. I also specialise in creative video production and editing for personal and corporate occasions. Combining human-centered design with hands-on technical expertise, thoughtfully designed, beautifully crafted"
+      },
+      {
+        "title": "Senior BI Advisor & Product Designer, UWV SMZ – Amsterdam, Netherlands",
+        "organization": "",
+        "period": "Jul 2025 – May 2026",
+        "description": "Leading development of business intelligence data products within the Division of Social-Medical Affairs. Responsible for ETL pipelines (SQL, SSIS/SSAS, Oracle), integrating external data sources, and advanced DAX modeling. Designed Power BI dashboards tailored to government services in accordance with Dutch social security legislation."
+      },
+      {
+        "title": "Data Analyst & BI Specialist, UWV SMZ – Amsterdam, Netherlands",
+        "organization": "",
+        "period": "Aug 2024 – Jul 2025",
+        "description": "Built and optimized data pipelines and analytics dashboards. Transformed business requirements into data models and managed integration between multiple agency data sources and internal BI tools for a range of stakeholders."
+      },
+      {
+        "title": "Data/BI Specialist, SerenIT – Amsterdam, Netherlands",
+        "organization": "",
+        "period": "Jan 2024 – Aug 2024",
+        "description": "Delivered custom dashboards and reporting tools to public and private clients. Led stakeholder workshops, defined KPIs, built DAX measures and SQL-based backend queries for data-driven insights."
+      },
+      {
+        "title": "Master Thesis Project – TU/e Security Office – Eindhoven, Netherlands",
+        "organization": "",
+        "period": "Dec 2022 – Oct 2023",
+        "description": "Designed and implemented a student dashboard to support self-regulated learning. Conducted user research, defined requirements with university security officers, iterated wireframes, and implemented the tool using Power BI and UX methodologies."
+      },
+      {
+        "title": "Frontend Developer, TU/e – Eindhoven, Netherlands",
+        "organization": "",
+        "period": "Sep 2022 – Dec 2022",
+        "description": "Built modular front-end components (React/Vue) integrated with Typo3, SharePoint, and educational portals. Supported cross-team development on internal tools."
+      },
+      {
+        "title": "UX Designer & Android Developer, Blue Jay – Eindhoven, Netherlands",
+        "organization": "",
+        "period": "Jun 2018 – Jun 2020",
+        "description": "Designed a healthcare-oriented drone interface and mobile app. Played a full role in UX research, iterative testing and final app delivery, including voice recognition features and mood-sensitive lighting. Worked in an Agile team using Scrum."
+      }
+    ],
+    "education": [
+      "MSc Human-Technology Interaction TU/e – Eindhoven, Netherlands",
+      "Erasmus MSc Computer Science KTH – Stockholm, Sweden",
+      "Erasmus MSc Interactive Media Technology KTH – Stockholm, Sweden",
+      "BSc Psychology & Technology TU/e – Eindhoven, Netherlands"
+    ],
+    "languages": [
+      "Dutch Native",
+      "English Near-native | Professional",
+      "Swedish Conversational"
+    ],
+    "certificates": [
+      "Data Storytelling with PowerBI & Python Edureka (2025)",
+      "Python for Data Science & Engineering IBM (2025)",
+      "UX Design Google (2025)",
+      "Advanced BI Developer Computrain (2024)",
+      "Advanced SQL Programmer Computrain (2024)"
+    ],
+    "resumeURL": "https://bram-peters.com/assets/pdf/bapeters_cv.pdf"
+  },
+  "projects": [
+    {
+      "id": "lost-in-translation",
+      "title": "Lost In Translation™ | Global Transit, Local Nonsense™",
+      "summary": "What began as a fun way to practice Swedish while living in Stockholm turned into a design project powered by AI. I built a custom algorithm and a cast of quirky AI travel-assistants, each with their own sass and personality, to generate metro maps with absurdly literal, customizable and perfectly imperfect translations. Soon, anyone can create a personalized, hilariously inaccurate transit map, crafted by my highly incapable bots. Global Transit, Local Nonsense. Just mind the (language) gap while we're at it.",
+      "categories": [
+        "Web Development",
+        "Data Analytics",
+        "App Development",
+        "Business Intelligence",
+        "AI",
+        "Cloud Data"
+      ],
+      "image": "Media/c7a52dcb0fe638e3.jpg",
+      "imageAlt": "Lost In Translation",
+      "sections": [],
+      "url": "https://lostintranslation.nl"
+    },
+    {
+      "id": "mypremiereplus",
+      "title": "MyPremiere+ | IN APP STORE SOON",
+      "summary": "Turn digitized VHS tapes, ancient AVI-videos in your Dropbox, or unorganized iCloud memories into your own Netflix-style home cinema. MyPremiere+ let's you customize your own private archive, build themed collections, provide movie recommendations tailored to members of your family, or switch between TV-style channels broadcasting your personal archive. MyPremiere+ is Apple approved and available soon on iPhone, iPad and Apple TV. Your own streaming platform, casting you.",
+      "categories": [
+        "Web Development",
+        "App Development",
+        "UX/UI-design",
+        "Videography",
+        "Data Privacy",
+        "Cloud Data"
+      ],
+      "image": "Media/c38e37074246958d.jpg",
+      "imageAlt": "MyPremiere+ streaming app on iPhone, iPad and Apple TV, coming soon to the App Store",
+      "sections": [],
+      "status": "Coming soon"
+    },
+    {
+      "id": "uwv-monitor",
+      "title": "UWV Monitor Arbeid & Gezondheid",
+      "summary": "A responsible BI project within UWV’s Socio-Medical Affairs division, designed to make the WIA process more transparent and understandable. The monitor turns sensitive socio-medical data into clear public insight on assessments, diagnoses, outcomes and regional trends. Built as part of a broader mission to support accountability, trust and better-informed conversations around work, health and reintegration.",
+      "categories": [
+        "Data Analytics",
+        "App Development",
+        "Business Intelligence",
+        "UX/UI-design",
+        "Data Privacy",
+        "Cloud Data"
+      ],
+      "image": "Media/61d2f2ba0413f8a6.jpg",
+      "imageAlt": "UWV Monitor Arbeid & Gezondheid",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "Home Page",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/cf3b1b6710ead8aa.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-3",
+          "title": "When illness becomes more than a sick day",
+          "paragraphs": [
+            "Everyone gets sick once in a while. You wake up with a runny nose, blocked ears and that familiar thought: 'here we go again'. You call in sick, stay in bed for a few days and wait for it to pass. Luckily, in the Netherlands, employees working under a regular employment contract do not immediately have to worry about losing their income when they are temporarily unable to work. Once you feel better, you return to your job.",
+            "But what if recovery takes longer than expected? What if it was not just a cold, but a signal of something more serious? What if your health gradually gets worse instead of better, and despite reintegration efforts from both you and your employer, you are still unable to return to work after two years? At that point, your employer is no longer legally responsible for continuing your salary payments. Under certain conditions, this is when you can apply for a WIA-uitkering at UWV.",
+            "UWV is the Dutch Employee Insurance Agency: an executive public organisation working under the mandate of the Ministry of Social Affairs and Employment, responsible for implementing employee insurance schemes and supporting people with reintegration into the working society after unemployment, illness and disability-related income support. The law 'Wet Werk en Inkomen naar Arbeidsvermogen' (WIA) is the Dutch work-incapacity benefit scheme for people who, after two years of illness, are still partly or fully unable to earn their previous income, combining income protection with a focus on reintegration where possible."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "UWV",
+              "url": "https://www.uwv.nl"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "Public Scrutiny and Distrust in UWV's WIA-services",
+          "paragraphs": [
+            "A public safety net matters most when people’s health, ability to work and financial security are under pressure. In recent years, UWV’s delivery of the WIA has faced intense, justified public and media scrutiny (📰NOS). Clients have had to wait too long for socio-medical assessments, leaving them in uncertainty about their income, future and opportunities for reintegration. UWV also acknowledged errors in the calculation of the daily wage used to determine the right to (and height of) safety benefits that began between 2020 and 2024 (🏛️UWV Statement). As a result, some clients, whom UWV had sometimes already deemed too ill to work, may have only partially (or never) received the help they were entitled to. These were not merely administrative inaccuracies: they affected people’s financial security, wellbeing and trust in public institutions."
+          ],
+          "images": [
+            {
+              "path": "Media/1b4ffaaaf48fd838.jpg",
+              "alt": "UWV Office"
+            }
+          ],
+          "links": [
+            {
+              "title": "📰NOS",
+              "url": "https://nos.nl/nieuwsuur/artikel/2614746-wanhoop-door-de-wia-een-serie-over-de-arbeidsongeschiktheidsuitkering"
+            },
+            {
+              "title": "🏛️UWV Statement",
+              "url": "https://www.uwv.nl/nl/wia/herstel-wia"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "Transparency as a Form of Responsibility",
+          "paragraphs": [
+            "UWV has invested in recovery activities, improvements to quality management, programmes centred on the human dimension in public service, and broader organisational changes intended to strengthen its ability to identify, discuss and learn from problems (🏛️ Rijksoverheid: Hersteloperatie). Complexity may help explain how risks arise, but it does not remove responsibility. Meaningful improvement requires both: acknowledging what went wrong and creating the conditions to prevent it from happening again.",
+            "Accountability is not only about taking action behind the scenes; it is also about making that action visible, understandable and open to scrutiny through transparency. People should be able to understand how UWV operates, how many clients request its support, what the figures mean and which developments can be observed over time. Part of our wider ambition was to communicate factually, carefully and respectfully what was happening in the Netherlands at the intersection of health, employment and work incapacity, and how those societal developments translated into pressure on UWV’s services.",
+            "I take particular pride in having had the opportunity to develop this project from beginning to end. Not only because I got to develop personally and professionally very quickly, but more so because it served something that was much bigger than just that. UWV's shortcomings should not be minimised. At the same time, I feel that media rarely tell the complete story. In my experience, the organisation was full of committed people working in good faith to provide a dependable safety net for those who needed it. The mistakes UWV made did not reflect the intentions of the colleagues I worked with. On the contrary, I saw how seriously people took their social responsibility and how hard they worked to help clients in all different kinds of roles, often moving within a highly complex legal and operational environment. I believe that transparency, with products like these, also allows public debate to shift from exposing flaws to identifying structural improvements."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "🏛️ Rijksoverheid: Hersteloperatie",
+              "url": "https://www.rijksoverheid.nl/actueel/nieuws/2025/03/24/uwv-controleert-43.000-uitkeringen-op-fouten"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": "UWV Monitor Arbeid & Gezondheid",
+          "paragraphs": [
+            "During my time as Senior Business Intelligence Advisor at the Socio-Medical Affairs Division, I developed the UWV Monitor Arbeid & Gezondheid which was part of UWV's broader strategy to both facilitate data-driven decision making internally as well as provide transparency externally. This dashboard provides a coherent view of UWV’s performance in it's execution of the WIA-law. It brings together complex medical, operational and administrative information and presents it in a structured, accessible and unambiguous way.",
+            "The monitor made it possible to explore key patterns in WIA service delivery, such as which health conditions occur most frequently, how assessment volumes develop over time, and whether and how specific diagnose/age/region combinations were tied to specific assessment outcomes. Its longer-term ambition was to connect these insights to employment-sector data, helping UWV better understand which industries and demographic groups may face a higher risk of long-term work incapacity and how reintegration pathways develop after illness. Rather than drawing simplistic conclusions from complex medical and social data, the monitor provided a reliable evidence base for better questions, better conversations and more transparent decision-making.",
+            "Heb je zelf een WIA-uitkering en maak je je zorgen over een mogelijke fout in de berekening? Raadpleeg dan de officiële informatie van UWV over het herstel van WIA-uitkeringen: 🏛️UWV Hulp: Hersteloperatie WIA"
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "🏛️UWV Hulp: Hersteloperatie WIA",
+              "url": "https://www.uwv.nl/nl/wia/zorgen-over-mogelijke-fouten-bij-arbeidsongeschiktheid"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": "WIA Medical Assessments-Page",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/61d2f2ba0413f8a6.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-8",
+          "title": "From Sensitive Operational Data to Public Transparency",
+          "paragraphs": [
+            "The original idea came from a key stakeholder who worked close to the operational process as an insurance physician. From his daily experience, he recognised the need to bring the available information together in a way that was clear, clean, transparent and consistent. Together we worked out an idea where the initial objective was to provide internal UWV employees with a shared and reliable view of the figures.",
+            "As the project developed, the ambition grew. Rather than limiting the monitor to internal use, we began exploring how it could eventually be published on UWV.nl, making the information available to citizens, researchers, journalists. As well, it was intended to be a means to report back to the Ministry of Social Affairs and Employment in The Hague.",
+            "That change in ambition fundamentally expanded the scope of the project. An internal management dashboard can rely on organisational context and specialist knowledge. A public monitor must stand on its own. Its definitions must be understandable, its visual language must be accessible, its figures must be unambiguous and its treatment of sensitive information must withstand extensive public, legal and ethical scrutiny.",
+            "We therefore had to get it right."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "UWV.nl",
+              "url": "https://www.uwv.nl"
+            }
+          ]
+        },
+        {
+          "id": "section-9",
+          "title": "Technical Development, Privacy and Security",
+          "paragraphs": [
+            "On a technical level, I designed, developed, implemented and maintained the complete BI solution. My responsibilities covered the full data chain: integrating multiple source systems, developing and managing ETL processes, creating the underlying data model, defining business logic and DAX measures, and building the final Power BI report.",
+            "With my UX/UI background, a great portion of my time I invested in understanding which story needed to be told, and what the best way is to make that story accessible to as many people as possible. In collaboration with dedicated UX-designers, we accomplished this by following WCAG-guidelines to allow anyone with certain limitations to use the dashboard to navigate it intuitively in a way that catored to them. In addition, we added a full 'First time here?'-tour to guide new users through all the features in the dashboard. All of which we implemented according to UWV-branding.",
+            "I also worked closely together with Public-Affairs and Public-Relations colleagues, as well as Communications and Legal Advisors. The underlying datasets contained millions of records relating to highly sensitive medical and socio-economic information. Privacy and security therefore had to be built into the solution from the beginning, rather than treated as a final compliance check.",
+            "The objective was to reveal meaningful patterns, never individual people."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-10",
+          "title": "'First time here?'-Tour",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/6634f966b5d942fb.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-11",
+          "title": "BI as the Right Tool",
+          "paragraphs": [
+            "The Monitor Arbeid & Gezondheid is one of the projects I am most proud of because it demonstrates what business intelligence can mean in a societal context.",
+            "It was not simply about building another dashboard or making large amounts of data visually attractive. It was about using data to make a complex public service more transparent, to support accountability and to create a shared understanding of developments affecting people’s health, employment and financial security.",
+            "For me, that is what responsible BI should do: not present data merely because it is available or to report back-up, but turn it into information that helps the operation and that makes difficult processes more understandable, discussable and ultimately more manageable.",
+            "The project also reinforced something I strongly believe: transparency is not a threat to public organisations. When it is approached carefully and responsibly, it is an essential part of rebuilding trust."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-12",
+          "title": "Links",
+          "paragraphs": [
+            "📊UWV Public Dashboards",
+            "📰NOS-serie: Wanhoop in de WIA",
+            "🏛️Rijksoverheid: UWV Hersteloperatie"
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "📊UWV Public Dashboards",
+              "url": "https://www.uwv.nl/nl/arbeidsmarktinformatie/dashboards"
+            },
+            {
+              "title": "📰NOS-serie: Wanhoop in de WIA",
+              "url": "https://nos.nl/nieuwsuur/artikel/2614746-wanhoop-door-de-wia-een-serie-over-de-arbeidsongeschiktheidsuitkering"
+            },
+            {
+              "title": "🏛️Rijksoverheid: UWV Hersteloperatie",
+              "url": "https://www.rijksoverheid.nl/actueel/nieuws/2025/03/24/uwv-controleert-43.000-uitkeringen-op-fouten"
+            }
+          ]
+        },
+        {
+          "id": "section-13",
+          "title": "Links",
+          "paragraphs": [
+            "📊UWV Public Dashboards",
+            "📰NOS: Wanhoop in de WIA",
+            "🏛️UWV Hersteloperatie"
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "📊UWV Public Dashboards",
+              "url": "https://www.uwv.nl/nl/arbeidsmarktinformatie/dashboards"
+            },
+            {
+              "title": "📰NOS: Wanhoop in de WIA",
+              "url": "https://nos.nl/nieuwsuur/artikel/2614746-wanhoop-door-de-wia-een-serie-over-de-arbeidsongeschiktheidsuitkering"
+            },
+            {
+              "title": "🏛️UWV Hersteloperatie",
+              "url": "https://www.rijksoverheid.nl/actueel/nieuws/2025/03/24/uwv-controleert-43.000-uitkeringen-op-fouten"
+            }
+          ]
+        },
+        {
+          "id": "section-14",
+          "title": "Skills Used",
+          "paragraphs": [
+            "BI & Data Analytics | Expert Power BI, DAX, SQL, PowerQuery",
+            "UX/UI Design | Advanced Wireframing, prototyping, research, stakeholder management, double diamond, storytelling",
+            "WIA Legislation & Public Sector | Advanced Socio-medical assessments, WIA processes, reintegration, public accountability, policy context",
+            "Data Modelling & ETL | Expert Data pipelines, source integration, star schema, business logic, performance optimisation",
+            "Data Privacy & Governance | Advanced GDPR, privacy-by-design, anonymisation, aggregation, data definitions, access control, RLS",
+            "Communication & Stakeholder Management | Advanced Requirements translation, cross-functional alignment, documentation, public communication"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/uwvmonitorarbeidgezondheid.html"
+    },
+    {
+      "id": "lelibrambas",
+      "title": "LELIBRAMBAS+ | Family Archive Streaming",
+      "summary": "Designed and built LELIBRAMBAS+, a premium Netflix-inspired family streaming platform for preserving and sharing personal video archives on Apple TV, desktop and mobile. End-to-end product development spanning UX/UI, data architecture, web development, cloud infrastructure, APIs, and responsive media experiences.",
+      "categories": [
+        "Web Development",
+        "Videography",
+        "UX/UI-design",
+        "App Development",
+        "Data Privacy",
+        "Cloud Data"
+      ],
+      "image": "Media/3d7f40cd5bbcba36.jpg",
+      "imageAlt": "Lelibrambas+ television home screen with archive categories and film rails",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "An Invisible 'Archive'",
+          "paragraphs": [
+            "I have been fascinated by videography for as long as I can remember (🎬J.Meijer B.V. Jubileum). I was also lucky to grow up with parents who recorded almost everything, leaving our family with an unusually rich archive of ordinary days, holidays, birthdays and small moments that would otherwise have disappeared.",
+            "The footage was technically preserved, but it did not feel accessible. Much of it lived inside random OneDrive folders, old DVD exports and VIDEO_TS directories. Finding something meant knowing that it existed, remembering where it was stored and then opening it on a desktop computer that had the latest version of VLC player installed. The archive was safe, but psychologically almost invisible (and incredibly frustrating to access).",
+            "Folders protected the files, but made casual rediscovery and family living-room viewing unlikely.",
+            "Familiar streaming patterns can make dates, people, places and collections feel immediately browsable."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "🎬J.Meijer B.V. Jubileum",
+              "url": "https://bram-peters.com/jmeijerbv40jaareendaginhetlevenvanlucaorvini.html"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": "The Idea",
+          "paragraphs": [
+            "We are an Apple family (copping to it) and I kept thinking about how different the material would feel if it were available in the living room with the same sense of occasion as a film or series. That became LELIBRAMBAS+: a private streaming experience for our own home videos, presented under the deliberately over-serious, satirical banner of LeliBrambas Studios™.",
+            "The goal was not to pretend our home videos were blockbusters. It was to make them easy enough to watch that they could become part of family life again."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-4",
+          "title": "Why television",
+          "paragraphs": [
+            "The television is a shared, low-friction place. A ten-foot interface lets someone choose a memory from the sofa, then watch together without navigating folder trees or moving a laptop around. The prototype targets Apple TV and Android TV through Expo and React Native TV. Its high-fidelity browser implementation supports rapid Windows validation; the smaller native entry validates the TV stack and focus primitives, but does not yet mirror every browser discovery surface.",
+            "Large type, strong contrast and restrained density support viewing from a distance.",
+            "Heroes, rails, details and Continue Watching reduce the learning curve.",
+            "Original aspect ratios, approximate dates and restoration notes remain visible."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-5",
+          "title": "The viewing experience",
+          "paragraphs": [
+            "The viewer opens with a short LELIBRAMBAS+ splash, moves to profiles, then presents one featured memory and curated rails. Details explain when and where footage was recorded, who appears in it and whether a date is approximate. Progress belongs to a profile, so leaving halfway creates a meaningful Continue Watching row and Resume action."
+          ],
+          "images": [
+            {
+              "path": "Media/c67e0d6c86f42284.jpg",
+              "alt": "Six cinematic category hubs for exploring the fictional archive"
+            }
+          ],
+          "links": [
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/lelibrambas-plus/screenshots/04-category-hubs.webp"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": "Designing for a Remote",
+          "paragraphs": [
+            "A television app cannot depend on hover, a cursor or tiny touch targets. Every actionable element participates in deterministic spatial navigation. Arrow keys or a directional pad choose the nearest candidate in the requested direction; Enter activates it; Back restores the prior screen and focus context.",
+            "A white outline, offset halo, small scale change and elevation communicate both position and depth.",
+            "Focus transitions stay around 180 ms and respect reduced-motion preferences."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-7",
+          "title": "Organising Memories",
+          "paragraphs": [
+            "Folders are useful for storage; people remember stories. The catalogue therefore supports search, collections and episodes, decades, people, places, dates, themes and a private watchlist. Missing artwork receives an intentional generated gradient instead of a broken placeholder. Unavailable conversions stay understandable without hiding the catalogue record."
+          ],
+          "images": [
+            {
+              "path": "Media/b5078a88ef81a70c.jpg",
+              "alt": "Lelibrambas+ timeline screen arranging fictional family films by decade and recording year"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-8",
+          "title": "Restoring old VIDEO_TS footage",
+          "paragraphs": [
+            "Old DVD structures are treated as source material, not disposable clutter. The implemented importer is designed to scan without changing the archive, identify title-set candidates, suggest a safe main title and create a resumable viewing-copy job. Its tests cover detection, planning and recovery. HandBrakeCLI can improve title discovery when installed, while FFmpeg is required to produce the H.264/AAC MP4 derivative; neither executable was available for a real family-source conversion on this Windows ARM64 host."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-9",
+          "title": "From OneDrive to the Living Room",
+          "paragraphs": [
+            "The CloudFlare 2FA importer is designed to leave OneDrive as the preservation layer, upload videos to a Streaming-database and grant access based on email-accounts and Apple 2FA. Accepted video-files are numerous (.mov for Apple, .mkv for older digital video recorders, .VOB for DVD encoding and traditional .mp4 for generic platforms). Its tested placeholder-file path produces a clear error instead of a damaged or partial copy. Relative source references stay in ignored local state. The viewer reads generated demo media today and can later switch to short-lived private streaming URLs through the same provider interface."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-10",
+          "title": "Technical Architecture",
+          "paragraphs": [
+            "The system keeps preservation, management and viewing responsibilities separate. Shared schemas and provider interfaces let the prototype run entirely locally while keeping a production-shaped path to private cloud delivery.",
+            "Expo SDK 57",
+            "React Native TV",
+            "React + Vite",
+            "Electron",
+            "TypeScript",
+            "FFmpeg",
+            "Cloudflare Workers",
+            "D1 · R2 · Stream",
+            "Vitest",
+            "Playwright"
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-11",
+          "title": "Admin | One Upload > Available Everywhere",
+          "paragraphs": [
+            "The family archive is managed through a dedicated upload portal, accessible only to the family administrator. From there, new videos can be securely uploaded directly to the cloud infrastructure behind LELIBRAMBAS+. The portal connects directly with the Cloudflare API, allowing uploaded content to move from the administrator’s workspace into the archive without requiring manual file management or separate publishing steps. Once a video is uploaded and added to the catalogue, it becomes immediately available within the LELIBRAMBAS+ experience. This creates a simple pipeline: upload once, and the memory becomes part of the archive everywhere. Whether a family member is watching through the web experience, a mobile browser with app installation, or the tvOS app, the same central archive serves the content. The result is a streaming platform that feels less like a collection of stored family videos and more like a private, continuously evolving version of a modern streaming service."
+          ],
+          "images": [
+            {
+              "path": "Media/bf92ec7bdebd7e64.jpg",
+              "alt": "Lelibrambas+ Library Manager dashboard showing catalogue health, conversion jobs and archive review tasks"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-12",
+          "title": "Screenshot gallery",
+          "paragraphs": [
+            "Each image opens the original WebP capture."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "LELIBRAMBAS+ DEMO",
+              "url": "https://bram-peters.com/lelibrambas"
+            }
+          ]
+        },
+        {
+          "id": "section-13",
+          "title": "Project Status",
+          "paragraphs": [
+            "A fully functioning family archive is now live, with the web viewer, Library Manager, secure upload workflow, playback, progress tracking, discovery and production-shaped API all implemented. The family archive is fully populated with my own family’s content, and the native tvOS Apple TV app has been deployed to TestFlight, making the archive accessible as a true streaming experience across platforms. This is the foundation for a much larger ambition: to evolve LELIBRAMBAS+ from a personal family archive into a customizable private streaming platform that anyone can own. In the long term, I want to make the product available through the App Store, allowing families to create their own branded, private streaming archive, upload and organize their memories, and experience them across Apple TV, mobile and web—essentially their own personal Netflix for family memories.",
+            "For me, success is not a bigger catalogue or a more theatrical interface. It is the possibility that an ordinary afternoon recorded years ago becomes easy enough to rediscover together, without asking the archive to stop being private, imperfect or genuinely ours."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-14",
+          "title": "Overview",
+          "paragraphs": [
+            "Type",
+            "Hobby project",
+            "Role",
+            "Product design, UX/UI, front-end and media architecture",
+            "Platforms",
+            "Apple TV, Android TV and Windows prototype",
+            "Year",
+            "2026",
+            "Status",
+            "Private Prototype",
+            "Brand",
+            "LELIBRAMBAS+™",
+            "Television UX",
+            "Media tooling",
+            "Legacy video",
+            "Private access",
+            "Public-asset note: the interface uses fictional titles, generated gradients and small synthetic video clips. No real family material is included."
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/lelibrambas-plus.html"
+    },
+    {
+      "id": "tue-learning-dashboard",
+      "title": "TU/e Learning Dashboard",
+      "summary": "I laid the groundwork for a new learning dashboard that visualizes academic performance and provides dynamic recommendations on how students can improve their learning for TU/e's Canvas-platform. Mapped user journeys, set-up ETL processes, and developed an intuitive data visualization tool that empowers students to track their academic progress in real time.",
+      "categories": [
+        "UX/UI-design",
+        "Business Intelligence",
+        "Data Analytics",
+        "Data Privacy",
+        "Cloud Data"
+      ],
+      "image": "Media/da5447c6736e87a9.jpg",
+      "imageAlt": "TU/e Learning Dashboard",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "Screenshot",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/da5447c6736e87a9.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-3",
+          "title": "Empowering Students: Data to Insights",
+          "paragraphs": [
+            "As online learning transforms into a powerful tool for institutions to reduce costs and expand access, it also opens the door to rich behavioral insights. Every click, scroll, and interaction reveals how students engage, struggle, and succeed—turning learning platforms into a goldmine of data. As a UX-/Product Designer and a Data Analist, this data becomes the key to crafting smarter, more intuitive educational experiences that adapt to real student needs.",
+            "In my Master Thesis Project , I focused on how we can develop a learning dashboard for TU/e's Canvas-platform in a way that is grounded in learning sciences and truly facilitates online learning. Through an iterative user-centered design approach—using frameworks from self-regulated learning theory—I designed and implemented a learning dashboard for TU/e's (Eindhoven University of Technology) online learning platform Canvas. The dashboard visualizes academic performance and provides dynamic, course-level recommendations on how students can improve their learning (i.e., based on aggregate models of clickstream-data and historical academic results).",
+            "“This project represents the pinnacle of my growth as a UX designer—not just because of the outcome, but because of the journey. From concept to release, I took full ownership of the design process while collaborating with an incredible, multidisciplinary team. What truly sets this project apart is how it allowed me to bring my full skill set to the table: blending UX design with data analytics, engineering, and stakeholder management. It challenged me, pushed my capabilities, and ultimately became a true reflection of what I can deliver when I’m all in!”— Bram"
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Master Thesis Project",
+              "url": "https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin"
+            },
+            {
+              "title": "TU/e's",
+              "url": "https://www.tue.nl"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "Self-Regulated Learning",
+          "paragraphs": [
+            "Self-regulated learning is about taking control of your learning journey. It involves setting goals and planning how to achieve them. As you work towards your goals, you monitor your progress and adjust your strategies to improve. After each learning experience, you reflect on how well you did and use that insight to set new goals and improve your learning methods. These skills, like goal-setting and self-assessment, are crucial for academic success and skill development. Knowing this, how can we facilitate self-regulated learning for students that are learning online?",
+            "Learning dashboards are often built around the principles of self-regulated learning (SRL), yet their implementations vary widely—and so do their results. In this research-driven UX project, I explored how different interpretations of SRL theory in dashboard design affect students’ cognition, emotions, and academic outcomes over time."
+          ],
+          "images": [
+            {
+              "path": "Media/973f898afff444fc.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-5",
+          "title": "The Design Process",
+          "paragraphs": [
+            "Through an iterative user-centered design process—including several phases of user interviews, creating personas, storytelling, wireframing, and prototyping—I created several designs in AdobeXD that differed in the extent to which they theoretically supported self-regulated learning and how they met the needs as proposed by students themselves. I then compared and further improved these designs through A/B- and usability-testing, and I presented my work to all stakeholders involved in the project continuously while using their feedback to steer course when necessary.",
+            "Eventually, I implemented the dashboard fully in PowerBI and HTML/CSS/JavaScript using real clickstream data that was generated from students' use of university's learning management system as well as records of their academic progress such as their grades and submissions. The dashboard is also fully designed according to the TU/e house style and branding regulations. Eventually, the dashboard was enrolled for all participating students in one of the university's Bachelor programs. The dashboard used real-time data from students using an Azure Databricks connection and single sign-on with the TU/e's learning management system. The different versions of the dashboard were then evaluated and compared using a variety of usability metrics as well as cognitive and affective learning outcomes."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-6",
+          "title": "Demo Video",
+          "paragraphs": [],
+          "images": [],
+          "links": [
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/soft_demo.mp4"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": "Final Product",
+          "paragraphs": [
+            "I designed and implemented a data-rich learning dashboard that supports self-regulated learning (SRL) for students at Eindhoven University of Technology (TU/e). By integrating behavioral data, academic performance records, and SRL theory, the dashboard delivers actionable insights to students and supports long-term academic success. This project allowed me to blend UX design, data mining, and dashboard engineering to create an end-to-end solution—from research and ideation to implementation and evaluation."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-8",
+          "title": "Links",
+          "paragraphs": [
+            "The project was such a success that it's currently being implemented at the Eindhoven University of Technology for students to use within their Canvas-environment. The research paper —which discusses in detail a literature review of self-regulated learning theory and an extensive illustration of the design and research methodologies (i.e., including the results from the qualitative and quantitative analyses)—will be published in the Learning Analytics and Knowledge Conference-journal and has been used as inspiration for multiple MSc Human-Technology Interaction theses after my original publication.",
+            "Research Paper"
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Research Paper",
+              "url": "https://research.tue.nl/en/studentTheses/design-and-evaluation-of-a-student-facing-learning-dashboard-usin"
+            }
+          ]
+        },
+        {
+          "id": "section-9",
+          "title": "Skills Used",
+          "paragraphs": [
+            "BI & Data Analytics | ExpertPower BI, DAX, SQL, ETL",
+            "UX/UI Design | AdvancedWireframing, Prototyping, Research, Stakeholder Management, Double Diamond, Storytelling",
+            "Cognitive & Behavioral Insight | AdvancedBehavioral research methods, human cognition & perception, human‑robot interaction, persuasive & ethical design",
+            "Research & Methodology | AdvancedScientific Writing, Empirical Research, Self‑Regulated Learning Theory, A/B-testing"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/tuelearningdashboard.html"
+    },
+    {
+      "id": "emotional-drone",
+      "title": "The 'Emotional' Drone",
+      "summary": "At Blue Jay, my team and I were committed to creating a drone that can assist healthcare workers in their daily tasks and can serve as an an intelligent companion for patients. The goal at Blue Jay is to expand the capabilities of intelligent systems by developing drones that are safe, autonomous, interactive, and helpful.",
+      "categories": [
+        "UX/UI-design",
+        "App Development",
+        "Data Analytics",
+        "AI"
+      ],
+      "image": "Media/4500def463384a69.jpg",
+      "imageAlt": "Blue Jay Drone",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "Meet Blue Jay",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/4500def463384a69.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-3",
+          "title": "Our Health-Care Assistant",
+          "paragraphs": [
+            "At Blue Jay, my team and I were committed to creating a drone that can assist healthcare workers in their daily tasks and can serve as an an intelligent companion for patients. The goal at Blue Jay is to expand the capabilities of intelligent systems by developing drones that are safe, autonomous, interactive, and helpful.",
+            "At the time, my role as an Interaction Designer was specifically created to assist the Blue Jay-team in its early days as a start-up student-team. During my time there, we worked on many different scenarios to explore the possibilities of using drones in healthcare and beyond. One of the scenarios we focused on was the use of drones to support nurses in time-consuming routine tasks, such as distributing medicines in healthcare facilities and doing simple checks. By using drones for these tasks, healthcare workers could focus more on personal patient care, and patients would have more time to interact with workers. Given the environment in which Blue Jay would operate, the drone and its interaction interfaces had to be carefully and sensibly designed in a way that balanced trust, predictability and approachability with a subtle and non-invasive presence. The core underlying idea of Blue Jay is that the drone should be able to do operate autonomously, meaning that it should therefore also be able to detect emergencies happening around the facility and report that back to the nurses efficiently, effectively and intuitively."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-4",
+          "title": "Promo Video",
+          "paragraphs": [],
+          "images": [],
+          "links": [
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/bluejay_promo.mp4"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "Programming Thought and Emotion",
+          "paragraphs": [
+            "This meant that the Blue Jay-drone had to be visibly present and approachable, yet perceived as safe, trustworthy and non-invasive to the personal space and privacy of patients and worker's. That is where my role as an Interaction Designer came in, as we had to innovate and find new ways in which healthcare workers and patients could interact with the drone intuitively and without a traditional controller. My team and I achieved this by installing a dynamic lighting scheme and a responsive LCD-screen with eyes on the drone. The state of the eyes and the lights corresponded to the current state of the drone (e.g., if it was performing a task or if it was responding to an event it had detected). For example, the drone would turn green and smile at a patient or worker once it had processed a command succesfully and proceeded with executing it. The drone also responded to input from patients through emotion detection and speech recognition using a camera and a microphone.",
+            "Through an iterative user-centered design process - including several phases of user interviews, creating personas, storytelling, and prototyping - we created different lighting- and 'eye'-schemes for the drone that represented different 'emotional' states for the drone. As part of the conceptualization of these 'emotional states', these schemes were presented to patients and workers in different scenarios, and through a collaborative process we finetuned the responsiveness of the drone to a large variety of different situations."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-6",
+          "title": "Demo Event",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/bbb662eab853bc04.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-7",
+          "title": "The Blue Jay App",
+          "paragraphs": [
+            "Additionally, I worked as a Mobile App Developer for Blue Jay and developed the Blue Jay Android-app, which simplifies communication between users and drones. The app allows real-time tracking of drones, easy commands for the drone's operations, and archives all historical data on emergencies detected by the drone. The Blue Jay App makes it easier for inexperienced users to interact with drones safely, efficiently, and intuitively. I tested the Blue Jay using a variety of methods, including think-aloud interviews with healthcare and emergency staff and A/B-testing."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-8",
+          "title": "Demo Event",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/8223cb237bf69b77.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-9",
+          "title": "Links",
+          "paragraphs": [
+            "Blue Jay | Aero Team Eindhoven",
+            "Blue Jay"
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Blue Jay | Aero Team Eindhoven",
+              "url": "https://www.aeroteameindhoven.nl"
+            }
+          ]
+        },
+        {
+          "id": "section-10",
+          "title": "Skills Used",
+          "paragraphs": [
+            "BI & Data Analytics | ExpertPower BI, DAX, SQL, Azure, data mining & modeling, advanced statistical analytics",
+            "Frontend Development | AdvancedHTML, CSS, JavaScript, Kotlin (Android), REST API integration",
+            "UX/UI & Interaction Design | AdvancedAdobe XD, wireframing, prototyping, usability testing, user flows, cognitive walkthroughs, design systems",
+            "Cognitive & Behavioral Insight | AdvancedBehavioral research methods, human cognition & perception, human‑robot interaction, persuasive & ethical design",
+            "Agile & Scrum Delivery | AdvancedSprint planning, backlog refinement, iterative development, stakeholder management, cross‑functional teamwork, demos & presentations, user stories"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/theemotionaldrone.html"
+    },
+    {
+      "id": "amstroll",
+      "title": "Amstroll | Vibe-Coding Experiment",
+      "summary": "Amstroll helps people already in Amsterdam find a small outing that fits their mood, available time and budget, with travel and the journey back considered. Built in just under two hours, this vibe-coding experiment shows what AI-assisted development can deliver quickly: a tangible starting point for ideation, wireframing, mockups and interactive prototyping.",
+      "categories": [
+        "UX/UI-design",
+        "App Development",
+        "AI"
+      ],
+      "image": "Media/0e5707d7f7af4831.jpg",
+      "imageAlt": "Amstroll montage with five iPhone views of planning, suggestions, outings and the journal",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "📱 Less scrolling, more Amstrolling 🚶‍♂️",
+          "paragraphs": [
+            "Proof that AI-assisted coding doesn’t guarantee good slogans. The rest of this article is handwritten. Promise. 😉",
+            "I’ve lived in Amsterdam for three years now, and I’m still finding places I’ve somehow walked past before. I live in the city centre, but I haven’t come close to running out of new corners to explore.",
+            "What feels right, right now? Well, it depends. Do I want to wind down? Do I feel like exploring? Or are we having espresso martinis? Some days I want a quiet walk beside the water; on others, I want to follow my curiosity and see where I end up. Amstroll grew out of that very ordinary question: what would make this moment a little better?",
+            "This is my first portfolio project experimenting with vibe coding. I used natural-language instructions to turn a product brief into an interactive prototype in just under two hours. For me, the value of this experiment is in ideation: making an idea tangible early enough to question it, explore alternatives and learn what people need.",
+            "In a business context, that means putting a prototype in front of stakeholders while the brief is still taking shape. A screen or working flow gives people something concrete to respond to, helping a team uncover assumptions, clarify needs and agree on the design direction. Thorough development can then build on a shared, agreed design brief. I’m using vibe coding here to support that conversation and alignment, rather than treating a quickly generated prototype as a finished product."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-3",
+          "title": "The interactive prototype",
+          "paragraphs": [
+            "Choose an Amsterdam starting area and explore Open places: nearby suggestions with their own source photographs, five at a time. Adjust the time slider, exact editor and preferences, then try “More of these” for another selection. To explore a complete sample outing, switch to Amsterdam collection, open a fitting plan and progress manually or skip a stop. Finish with an optional journal memory. The fictional Alex account opens directly. No backend or API key is needed; Open places needs an internet connection, while the authored collection works offline.",
+            "Open prototype",
+            "If the embed cannot load, open the standalone prototype above or use the screenshots on this page. Manual area selection works without location permission. Storage restrictions may make saved ideas session-only."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Open prototype",
+              "url": "https://bram-peters.com/projects/amstroll/portfolio-embed/index.html"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "Visual identity & interaction",
+          "paragraphs": [
+            "I wanted Amstroll to feel like permission to take a small detour. Warm neutrals, muted green, gentle gradients and soft shadows support real Amsterdam photography. At Centraal, the location banner fades into the planning card; rounded, glass-like navigation keeps the identity and demo profile readable. Exploring this in a working prototype let me consider the visual direction alongside the interactions, rather than treating either as settled too early.",
+            "The rounded, bridge-like A has a detour crossbar and a yellow endpoint. Custom vector lettering sits alongside Plus Jakarta Sans headings and DM Sans interface text. An illustrated path suggests exploration. Motion provides feedback and orientation, with reduced-motion preferences respected.",
+            "The supplied Amstroll identity, with custom vector lettering."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Amstroll wordmark with a green bridge-like A, detour crossbar and yellow endpoint",
+              "url": "https://bram-peters.com/assets/amstroll/brand/wordmark.svg"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "The product concept",
+          "paragraphs": [
+            "You’ve got an hour in Amsterdam. Let’s not spend forty-five minutes deciding what to do with it.",
+            "Amstroll turns that familiar “we should do something” into a small outing worth putting your shoes on for. A wander along the canals, a quiet park, a trip across the IJ: something that suits your mood and makes good use of the time you actually have.",
+            "Tell it where you’re starting, how much time you have and what you feel like doing. Then adjust how you want to travel, how far you fancy walking, your budget and where you need to finish. Your chosen time and budget stay exactly where you set them until you change them. The app respects a firm “I’ve only got an hour.”",
+            "There are always 20+ curated outing ideas to browse, with clear labels showing what fits, what needs a little longer and what still needs checking. Just looking for inspiration? Browse away. You can explore the options without committing to an outing. Sometimes “let’s see what’s around” is quite enough commitment for one afternoon.",
+            "And when a little stroll starts looking more like a day out, Haarlem and Zandvoort are on the menu too. Those excursions account for getting there, spending time there and getting back to Amsterdam. Even spontaneity needs a return journey. Apparently.",
+            "Set your time and starting point.",
+            "Explore suggestions and eligibility.",
+            "Inspect the outing and travel options."
+          ],
+          "images": [
+            {
+              "path": "Media/8d1abd5f293279f4.jpg",
+              "alt": "Amstroll planning screen in an iPhone mockup, with Amsterdam Centraal photography, a forty-seven-minute slider, time presets and Amsterdam starting area"
+            },
+            {
+              "path": "Media/a78ca4959f6e7523.jpg",
+              "alt": "Amstroll suggestions screen in an iPhone mockup, showing a canal outing and visible sample-plan eligibility"
+            },
+            {
+              "path": "Media/492a9ddca5165772.jpg",
+              "alt": "Amstroll outing-detail screen in an iPhone mockup, separating duration, walking effort and spending for a Jordaan canal walk"
+            }
+          ],
+          "links": [
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/am1.png"
+            },
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/am2.png"
+            },
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/am3.png"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": "Design process",
+          "paragraphs": [
+            "Framing the decision. I defined the essential inputs and separated an inspiring idea from a plan someone can confidently start.",
+            "Mapping the journey. Set time → choose an Amsterdam starting point → explore → inspect → start → progress or skip → keep a memory. I considered short windows, longer outings, missing information, denied location access and unavailable services.",
+            "Establishing the direction. Rounded cards, soft gradients, restrained shadows, readable type and generous space make the invitation feel comfortable. Amsterdam photography establishes place.",
+            "Prototyping behaviour. I used vibe coding to explore time controls, suggestion states and the outing-to-journal flow in HTML. Having something interactive made it easier to question the idea and try alternatives while the design brief was still open.",
+            "Refining through inspection. I checked narrow layouts, larger text, keyboard access, contrast, focus, reduced motion and failure states. These are design and implementation checks, not a formal user study."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-7",
+          "title": "Competitors & patterns",
+          "paragraphs": [
+            "I looked at Google Maps for places and navigation, I amsterdam for local inspiration, and GVB and NS for journey planning. Komoot approaches exploration through routes; Atlas Obscura through distinctive places and stories.",
+            "The opportunity I chose was a focused decision: what sounds good, what is practical from here, and what fits the time I have?",
+            "Progress, skip a stop or finish early.",
+            "Keep an optional note or photograph.",
+            "Revisit a saved memory."
+          ],
+          "images": [
+            {
+              "path": "Media/85f57ee717bb0dbc.jpg",
+              "alt": "Amstroll progress screen in an iPhone mockup, with manual stop completion and a control to skip a stop"
+            },
+            {
+              "path": "Media/dc17882aeebb76a4.jpg",
+              "alt": "Amstroll memory screen in an iPhone mockup, with an optional journal note, mood choice and photo field"
+            },
+            {
+              "path": "Media/f9e1aca6f211ec07.jpg",
+              "alt": "Amstroll journal screen in an iPhone mockup, showing a saved canal-walk memory alongside a labelled sample entry"
+            }
+          ],
+          "links": [
+            {
+              "title": "Google Maps",
+              "url": "https://support.google.com/maps/answer/144349?hl=en"
+            },
+            {
+              "title": "I amsterdam",
+              "url": "https://www.iamsterdam.com/en/see-and-do/attractions-and-sights"
+            },
+            {
+              "title": "GVB",
+              "url": "https://www.gvb.nl/en"
+            },
+            {
+              "title": "NS",
+              "url": "https://www.ns.nl/en/journeyplanner/"
+            },
+            {
+              "title": "Komoot",
+              "url": "https://www.komoot.com/help/routeplanner"
+            },
+            {
+              "title": "Atlas Obscura",
+              "url": "https://www.atlasobscura.com/about.html"
+            },
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/am4.png"
+            },
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/am5.png"
+            },
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/am6.png"
+            }
+          ]
+        },
+        {
+          "id": "section-8",
+          "title": "The tech part",
+          "paragraphs": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "localStorage",
+            "IndexedDB",
+            "I built the prototype with HTML, CSS and JavaScript so I could explore the whole journey in a browser and share it directly. Here, AI-assisted coding helped turn design questions into interactions I could inspect and refine. Its value at this stage is a more concrete discussion about what to build, rather than a claim that the engineering work is complete. Separate modules handle the place catalogue, planning rules, provider requests, local state and interface.",
+            "The standalone export bundles the essential assets and authored catalogue for static hosting. localStorage keeps saved ideas and notes in the browser; optional journal photos use IndexedDB. The core experience needs no backend or API key.",
+            "Authored Amsterdam plans stay separate from optional OpenStreetMap, Wikipedia, Wikidata and Commons context, and weather from MET Norway. Attribution and visible errors preserve those boundaries. The municipal connection requests Amsterdam’s Tramhaltes en metrostations 2026 inventory, showing straight-line proximity, not departures or verified routes.",
+            "GVB and NS buttons open official planners; they are not authenticated timetable feeds. Google Places and Routes are optional, owner-configured connections. No key was supplied during this phase, so external live verification remains pending."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Amsterdam’s Tramhaltes en metrostations 2026 inventory",
+              "url": "https://maps.amsterdam.nl/open_geodata/?k=649"
+            }
+          ]
+        },
+        {
+          "id": "section-9",
+          "title": "Leaving room to explore",
+          "paragraphs": [
+            "The next step would be to use feedback on this prototype to refine and agree the design brief before committing to a fuller build. A future native implementation could use SwiftUI, Core Location, a transport-aware route model, deliberate permissions and protected server handling of private provider credentials. This is a direction, not completed native code or a shipped iOS app.",
+            "Prototype",
+            "Back to portfolio",
+            "Request app idea",
+            "Try Amstroll"
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Prototype",
+              "url": "https://bram-peters.com/projects/amstroll/portfolio-embed/index.html"
+            }
+          ]
+        },
+        {
+          "id": "section-10",
+          "title": "Skills Used",
+          "paragraphs": [
+            "UX/UI DESIGN | ADVANCED Time controls, user flows, eligibility states and interaction design",
+            "COGNITIVE & BEHAVIOURAL INSIGHT | ADVANCED Decision framing, progressive preferences, visible constraints and user control",
+            "WEB DEVELOPMENT | ADVANCED HTML, CSS, JavaScript, static hosting and API boundaries",
+            "iOS NATIVE APP DEVELOPMENT | PROFICIENT Native interaction design, app flows and SwiftUI exploration",
+            "VIBE CODING | ADVANCED AI-assisted prototyping, prompt iteration, debugging and validation"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/amstroll.html"
+    },
+    {
+      "id": "vinobo",
+      "title": "Vinobo",
+      "summary": "This webtool allows students to watch and annotate YouTube videos and search for keywords in the video's transcript to find relevant parts in the video. Notes can be saved to specific timestamps in the video and notebooks can be saved to personal user accounts.",
+      "categories": [
+        "Web Development",
+        "Data Analytics",
+        "Cloud Data"
+      ],
+      "image": "Media/72684f369093c68e.jpg",
+      "imageAlt": "Vinobo",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "VideoNoteBook",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/72684f369093c68e.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-3",
+          "title": "Webtool for Students",
+          "paragraphs": [
+            "For a project at Kungliga Tekniska Högskolan (KTH) in Stockholm, Sweden, I designed a web tool that empowers students to watch, annotate, and search for keywords within lecture transcripts, enabling them to locate relevant sections efficiently. With advanced features, including keyword search within lecture transcripts, precise note-saving at specific timestamps, and personalized notebooks stored securely in user accounts, this tool has the potential to optimize how students engage with their educational content online.",
+            "The core feature of the web tool is its seamless integration with YouTube videos. Students can easily watch their desired videos within the application by simply pasting the YouTube link. This integration eliminates the need to switch between multiple platforms, ensuring a streamlined learning process. One of the standout features is the intelligent search functionality within the video's transcript. transcript, swiftly identifying the most relevant parts of the video. This powerful search capability saves valuable time and enhances the overall effectiveness of the learning process. Furthermore, the application includes auto-scrolling of both the transcript and notes while the video is playing, ensuring a synchronized learning experience.",
+            "To facilitate comprehensive note-taking, the application allows students to annotate videos with personal notes. These notes can be attached to specific timestamps within the video, enabling precise referencing and enhancing comprehension. Students have the flexibility to add and delete notes as needed, ensuring a personalized and dynamic learning environment. In addition, the application incorporates a user account system. By signing in, students gain the ability to save their videos and notes securely within their accounts. This persistence feature ensures that students can easily access their content from any device, eliminating the risk of data loss and promoting continuity in their studies."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-4",
+          "title": "Demo",
+          "paragraphs": [],
+          "images": [],
+          "links": [
+            {
+              "title": "Vinobo",
+              "url": "https://vinobo-aec42e445297.herokuapp.com/"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "Frameworks",
+          "paragraphs": [
+            "Throughout the development process, I utilized a variety of web-development frameworks to build this tool. The application was built using React while Next.js, a React wrapper, was used to accelerate development. I integrated the youtube-transcript library, enabling server-side fetching of YouTube transcripts. Additionally, I incorporated Firebase to store user-data and a memory-cache for efficient API response caching."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-6",
+          "title": "Links",
+          "paragraphs": [
+            "Demo"
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Demo",
+              "url": "https://vinobo-aec42e445297.herokuapp.com"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": "Skills Used",
+          "paragraphs": [
+            "Web Development | AdvancedHTML, CSS, JavaScript, REST API integration, React, Next.js, API integration",
+            "UX/UI & Interaction Design | AdvancedAdobe XD, wireframing, prototyping, usability testing, user flows, cognitive walkthroughs, design systems, Typography & Color Theory"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/vinobo.html"
+    },
+    {
+      "id": "doula",
+      "title": "Doula | UX/UI Case Study",
+      "summary": "For a 10-hour time limited UX/UI Case Study, I was given the opportunity to redesign an outdated pregnancy symptom and contraction tracker app. My process involved in-depth user and usability research to identify and address key pain points within the existing app. The result? A transformation of the app's visual style and a substantial enhancement of the user experience.",
+      "categories": [
+        "UX/UI-design"
+      ],
+      "image": "Media/6a4b5d2488ea3756.jpg",
+      "imageAlt": "Doula App",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "A UX/UI-Design Case Study",
+          "paragraphs": [
+            "For a 10-hour time limited UX/UI Case Study, I was given the opportunity to redesign the design for an outdated pregnancy symptom and contraction tracker app built in 2014. My process involved in-depth user and usability research to identify and address key pain points within the existing app. The result? A transformation of the app's visual style and a substantial enhancement of the user experience.",
+            "Doula is a pregnancy app which provides audio guidance in the final phase of pregnancy for managing the pain during contractions. Additionally, users can view statistics of their contractions. The app is missing a symptom tracker that expectant mothers can use to log their symptoms and monitor changes throughout their pregnancy. Additionally, the visual style of the app is outdated and not very engaging. Users have also reported feeling disconnected from the app and are looking for a more personal and supportive experience."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-3",
+          "title": "The Original App",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/f28c90b0f48444be.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-4",
+          "title": "User Research",
+          "paragraphs": [
+            "While my ideal approach would involve in-depth user interviews, think-aloud sessions, and data analytics, the 10-hour time limit was the greatest rival. So, I pivoted, focusing on understanding our audience: expectant mothers and their incredible doulas. These doula superheroes offer emotional support, information, physical comfort, advocacy, continuous presence, and postpartum care. I dived into uncovering what expectant mothers need during the final phases of pregnancy, including emotional reassurance, information, comfort, advocacy, continuous presence, and postpartum preparation. But that's not all – I delved into understanding pregnancy symptoms, diligently cataloging the essentials that expectant mothers often want to track, from weight gain and morning sickness to mood changes and fetal movements.",
+            "User feedback for the Doula app in the App Store and Google Play Store paints a mixed picture. Many users express positivity, finding it comforting during labor. However, challenges exist, including occasional freezing or crashing issues. Some appreciate the free features, while others express frustration over in-app purchases.",
+            "“Seems a bit too basic and no general walk-through. Everything is for purchase or \"do this task to access content\" nice option. The music is nice but I wish there were better options. ”— ✩✩✩✩ - May 27, 2021",
+            "“\"I both love and hate this app.i tested it before my labour and liked the sounds so was happy to use it. However I didn't let it run long enough so didn't test it properly. when it came to labour I was listening to it but every time or got to the end of the audio it crashed and closed the app which infuriated me as I was in agony.\" ”— ✩✩✩ - March 24, 2019"
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-5",
+          "title": "Competitor Analysis",
+          "paragraphs": [
+            "In the world of pregnancy and labor support apps, you'll find a range of options. Some, like the Contraction Timer & Counter and Full Term - Labor Contraction Timer, focus solely on tracking contractions with no audio coaching or music features. Others, such as Pregnancy+ and Ovia Pregnancy Tracker, offer comprehensive pregnancy tracking and information but lack dedicated contraction coaching. Additionally, there are wearable devices like Bloomlife for real-time contraction tracking, while apps like Mama Natural Birth Course prioritize childbirth education and natural birth support over contraction tracking."
+          ],
+          "images": [
+            {
+              "path": "Media/8397f8e76ee97fd7.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-6",
+          "title": "Usability Test | Jakob Nielson's Principles of Interaction Design",
+          "paragraphs": [
+            "• Visibility of System Status: The app provides clear feedback on the homescreen but lacks loading indicators in certain areas, potentially causing confusion. • Match Between System and the Real World: The app effectively uses familiar language and concepts, avoiding confusing jargon. • User Control and Freedom: Users may encounter challenges in undoing actions, with a lack of clear exit options, potentially leading to data loss. • Consistency and Standards: The app does not consistently follow established OS guidelines, leading to inconsistencies in design and icon placement. • Error Prevention: While structurally clean, the use of fancy fonts in instructions may reduce readability and increase the chance of users skipping important information. • Recognition Rather Than Recall: Inconsistent icon usage and placement make it challenging for users to remember information across different parts of the interface. • Aesthetic and Minimalist Design: The outdated and inconsistent design, including long instructional texts and color choices, hinders user experience and readability. • Help and Documentation: While some help is available, its effectiveness is limited due to other design issues within the app."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-7",
+          "title": "Screenshot",
+          "paragraphs": [
+            "““As an expectant mother, I want to easily track my pregnancy symptoms and monitor changes throughout my pregnancy using the Doula app, so I can receive personalized support and feel more connected to the app's features and content.” ”— User Story"
+          ],
+          "images": [
+            {
+              "path": "Media/60337b053beee108.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-8",
+          "title": "Acceptance Criteria:",
+          "paragraphs": [
+            "• Given that I am using the Doula app, when I open the app, I should be presented with a clear and inviting home screen. • When I want to log my pregnancy symptoms, I can navigate to the new \"Symptom Tracker\" feature from the home screen. • In the \"Symptom Tracker,\" I should see a user-friendly interface with options to log common symptoms such as morning sickness, fatigue, cramping, and more. • Each symptom should have a dedicated input field for recording its severity or frequency. • I should be able to add additional notes or comments related to each symptom if I choose to. • The app should allow me to save and date-stamp my symptom entries. • Once I've logged my symptoms, I can easily access a history or log of my previous entries for reference."
+          ],
+          "images": [
+            {
+              "path": "Media/6d8d8b238f8aa4eb.jpg",
+              "alt": "Screenshot of My Project"
+            },
+            {
+              "path": "Media/f18a0cdef7f70bfb.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-9",
+          "title": "Rebranding",
+          "paragraphs": [
+            "Updating the visual style I overhauled the color schemes, typography, and iconography to create a visually captivating and modern interface that resonates with the app's purpose. By employing a clean color palette with soothing gradients and harmonious shades, I directed users' attention towards vital content. I struck a balance between playful branding elements and professional clarity by adopting a clean and neutral font for instructional text, aligning with iOS guidelines. Additionally, I adhered to iOS standards for iconography, placing them in a user-friendly nav-bar at the bottom for intuitive navigation, ensuring users always know their location within the app. Consistency reigns supreme across screens, unifying typography, color coding, and iconography for a seamless user journey.",
+            "Improving the homescreen The redesigned homescreen not only embodies Doula's new visual identity but also offers a dynamic 'pulsing' play button, evoking the essence of breathing techniques within Mary's instructions. Users are now greeted with personalized messages and customizable profile pictures, making the app feel uniquely theirs. I've introduced a handy volume control panel, allowing users to tailor their audio experience, while a user-friendly nav-bar at the bottom ensures quick access to the app's full functionality. To make the symptom tracker more engaging, a notification icon encourages users to log their daily symptoms, enhancing their overall experience. Plus, I've incorporated a dedicated premium package screen, addressing user preferences for a simplified payment model.",
+            "Symptom tracker feature I introduced a user-friendly symptom tracker to the app, enabling users to log and monitor their pregnancy symptoms, rate their severity, and add notes. Users are prompted to input their daily symptoms, and only the 'Save' button becomes active once at least one symptom is selected, ensuring data accuracy. The tracker offers a calendar view with color-coded bars for symptom submissions and a graph displaying symptom progression over time, enhancing users' ability to visualize their pregnancy journey.Additionally, I added a back-button on all non-home screens, providing users with a convenient way to return to the home screen without data loss, addressing a missing feature from the original app."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-10",
+          "title": "Figma Prototype",
+          "paragraphs": [],
+          "images": [],
+          "links": [
+            {
+              "title": "View media online",
+              "url": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FIdbZoPTBYvutOuIlQLhI9u%2FDoula%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D14-147%26viewport%3D192%252C210%252C0.24%26t%3DYvtLBLYoMpkqtCKi-1%26scaling%3Dscale-down%26starting-point-node-id%3D14%253A147%26mode%3Ddesign"
+            }
+          ]
+        },
+        {
+          "id": "section-11",
+          "title": "Links",
+          "paragraphs": [
+            "Figma Prototype",
+            "Figma"
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Figma Prototype",
+              "url": "https://www.figma.com/proto/IdbZoPTBYvutOuIlQLhI9u/Doula?page-id=0%3A1&type=design&node-id=14-147&viewport=192%2C210%2C0.24&t=nrbYNOIpKkHOBmep-1&scaling=scale-down&starting-point-node-id=14%3A147"
+            }
+          ]
+        },
+        {
+          "id": "section-12",
+          "title": "Skills Used",
+          "paragraphs": [
+            "UX/UI & Interaction Design | Advanced Figma, Adobe XD, wireframing, prototyping, usability testing, user flows, cognitive walkthroughs, design systems",
+            "Cognitive & Behavioral Insight | Advanced Behavioral research methods, human cognition & perception, human‑robot interaction, persuasive & ethical design",
+            "Research & Methodology | Expert User research, stakeholder interviews, Double Diamond, self‑regulated learning theory, storytelling, A/B testing"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/doulauxuicasestudy.html"
+    },
+    {
+      "id": "spotify",
+      "title": "Reimagining Spotify Podcasts",
+      "summary": "For a project at KTH, we embarked on a mission to enhance Spotify's Podcast section. Employing the Double Diamond framework, our design approach centered on goal-oriented strategies to uncover and meet user expectations and tap into the strengths and tackle the weakpoints of the current Spotify-app.",
+      "categories": [
+        "UX/UI-design"
+      ],
+      "image": "Media/74af3903623fafc6.jpg",
+      "imageAlt": "Spotify Podcast",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "A Revamped Podcast Section",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/74af3903623fafc6.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-3",
+          "title": "Designing for Listeners: A Double Diamond Redesign of Spotify Podcasts",
+          "paragraphs": [
+            "For a project at Kungliga Tekniska Högskolan (KTH) in Stockholm, Sweden, In this project, we employed the Double Diamond framework to revamp Spotify's podcast section. Our design approach was goal-oriented, primarily centered on uncovering and meeting user expectations. The subsequent sections delve into the various phases within the Double Diamond design process and outline the methods we utilized for each phase."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Kungliga Tekniska Högskolan (KTH)",
+              "url": "https://www.kth.se"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "The Discovery Phase: Think-Aloud & Interviews",
+          "paragraphs": [
+            "Our project was centered on enhancing the podcast section of Spotify, and Thinking Aloud emerged as the natural choice to delve into users' thought processes and identify pain points within the Spotify user experience. Thinking Aloud also offered the advantage of evaluating design perception without disrupting the user's thought process, in contrast to other evaluation methods like cooperative evaluations. Moreover, this method was straightforward to set up, time-efficient, and cost-effective, aligning well with our project goals and task limitations.",
+            "Our approach involved an initial interview to establish a baseline understanding of users, followed by Think Aloud tests, where one team member conducted the interview while another recorded and took notes. This collaborative approach ensured a smooth testing process and comprehensive note-taking during the Think Aloud sessions. We were able to explore users' podcast listening habits, their preferences for other podcast applications, and their specific pain points while using Spotify. These interviews provided valuable insights into their decision-making processes, making it clear why they chose Spotify or not."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-5",
+          "title": "Affinity Diagram",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/120e3bbdaa644fce.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-6",
+          "title": "The Define Phase: Affinity Diagram",
+          "paragraphs": [
+            "After gathering a large volume of qualitative data from our interviews and Think-Aloud sessions, we needed a structured way to uncover patterns and prioritize the most pressing user needs. To achieve this, our team created an affinity diagram, clustering sticky notes with observations, quotes, and insights into emerging themes. This method allowed us to visually organize scattered feedback into meaningful categories, such as navigation difficulties, content discovery frustrations, and desire for community features. By grouping insights collaboratively, we ensured that no single perspective dominated the analysis, and that the findings reflected a collective understanding of the users’ pain points.",
+            "The affinity diagram was especially valuable because it revealed relationships between issues that might otherwise have been overlooked. For example, we noticed that complaints about “cluttered navigation” frequently overlapped with frustrations about finding new podcasts—indicating that discoverability was as much a design problem as a content problem. These insights shaped our problem definition going forward, helping us set a clear design goal: to streamline podcast discovery and create a more supportive, intuitive navigation experience."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-7",
+          "title": "Information Architecture",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/4ed4fb281fcea55f.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-8",
+          "title": "The Evaluation Phase: Cooperative Evaluation",
+          "paragraphs": [
+            "To assess the prototype's usability, efficiency, and effectiveness, cooperative evaluation was chosen as the formative evaluation method to gather immediate user feedback. This approach involved users performing tasks related to the prototype's core functionality while providing feedback on their thought process and interactions. The dynamic and interactive nature of this method allowed for in-depth discussions, clarifications, and alternative suggestions during the evaluation process.",
+            "Users positively responded to the separation of music and podcast sections in the prototype, appreciating the toggle button and layout separation. However, they had questions and concerns about the social navigation component, leading to design improvements, such as the introduction of sub-tabs within the community section. The mood personalization feature was well-received for its intuitiveness and ease of use. Users also provided insights into its potential enhancements, such as expanding mood coverage and applying mood filtering in search and library tabs."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-9",
+          "title": "Screenshots",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/0793d196eecbcabd.jpg",
+              "alt": "Screenshot of My Project"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-10",
+          "title": "Figma Prototype",
+          "paragraphs": [
+            "After successfully completing the double-diamond stages, we are proud to unveil our final Spotify interface prototype. Our project aimed to enhance the Spotify Podcast section based on user research during the discovery phase, which highlighted the need for improved navigation and control. The final prototype includes Home, Community, Library, and Search screens, each with Podcast and Music versions. The Home screen features mood-based recommendations, while the Community screen includes Activity and Following sections. The Library and Search screens have layouts tailored for Podcasts. We developed three key strategies: • Layout Enhancement: We refined the user interface to clearly distinguish between Spotify's Music and Podcast sections. • Social Navigation: Users can now interact and follow others for personalized content recommendations, making navigation more intuitive. • Social Navigation: Users can now interact and follow others for personalized content recommendations, making navigation more intuitive."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-11",
+          "title": "Skills Used",
+          "paragraphs": [
+            "UX/UI & Interaction Design | Advanced Figma, Adobe XD, wireframing, prototyping, usability testing, user flows, cognitive walkthroughs, design systems",
+            "Cognitive & Behavioral Insight | Advanced Behavioral research methods, human cognition & perception, human‑robot interaction, persuasive & ethical design",
+            "Research & Methodology | Expert User research, stakeholder interviews, Double Diamond, self‑regulated learning theory, storytelling, A/B testing"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/reimaginingspotifypodcasts.html"
+    },
+    {
+      "id": "raspberries",
+      "title": "Raspberries Shopping Assistant",
+      "summary": "Crowded fitting rooms. Pushy sales staff. Or worse, none at all when you need them. For many, in-store shopping can feel more like a chore than a pleasure. That’s why my project-team and I created Rodebjer’s Digital Shopping Assistant, a seamless in-store UX that puts control back in the hands of the customer.",
+      "categories": [
+        "UX/UI-design"
+      ],
+      "image": "Media/3fda20d12ab30b61.jpg",
+      "imageAlt": "Raspberries Shopping Assistant",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "Demo Video",
+          "paragraphs": [],
+          "images": [],
+          "links": [
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/raspberries.mp4"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": "A new way to shop",
+          "paragraphs": [
+            "The present-day shopping experience can be stressful and aggravating to some. Especially for introverts shopping may be challenging for a number of reasons, such as invasive staff, crowded clothing stores and a lack of self-efficacy. What about letting the customer decide when they need assistance?",
+            "The Digital Shopping Assistant helps them do just that. The digital help desk bridges the gap between customers and salespeople by letting the customer decide when, and what for, they need help. For this project at Kungliga Tekniska Högskolan (KTH), we decided to use the Rodebjer brand as an example product. Below you can find the UX-workbook that takes you through the Double-Diamond Model that we used to conceptualize Raspberries. The workbook takes you through the different design phases in that model, from original ideation and conceptualization to wireframing, prototyping, testing and evaluation."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "Kungliga Tekniska Högskolan (KTH)",
+              "url": "https://www.kth.se"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "Workbook",
+          "paragraphs": [],
+          "images": [
+            {
+              "path": "Media/bf9f3cddb44bf6ee.jpg",
+              "alt": "Workbook"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": "section-5",
+          "title": "Skills Used",
+          "paragraphs": [
+            "UX/UI & Interaction Design | Advanced Figma, Adobe XD, wireframing, prototyping, usability testing, user flows, cognitive walkthroughs, design systems",
+            "Cognitive & Behavioral Insight | Advanced Behavioral research methods, human cognition & perception, human‑robot interaction, persuasive & ethical design",
+            "Research & Methodology | Expert User research, stakeholder interviews, Double Diamond, self‑regulated learning theory, storytelling, A/B testing"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/raspberriesshoppingassistant.html"
+    },
+    {
+      "id": "honeymoon",
+      "title": "The Honeymoon Webshop",
+      "summary": "One of my favorite personal projects is creating \"The Honeymoon Webshop\" for newlyweds. I built a custom website that lets wedding guests buy and customize honeymoon gifts like activities and hotel stays. Releasing a first version for my own sister's wedding, all the thoughtful presents and messages purchased on the website were beautifully displayed on a bulletin-style collage frame.",
+      "categories": [
+        "Web Development"
+      ],
+      "image": "Media/4fad5b7ff0df726e.jpg",
+      "imageAlt": "The Honeymoon Webshop",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "A project close to home",
+          "paragraphs": [
+            "The Honeymoon Webshop is one of my favourite personal projects. I built its first version for my sister’s wedding: a custom website where guests could buy and personalise honeymoon gifts.",
+            "The gifts were experiences and parts of the trip, including activities and hotel stays. That gave the website a specific purpose. Guests could choose something connected to the honeymoon and add their own personal touch, making each contribution more than an item on a list."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-3",
+          "title": "Building a personal gift experience",
+          "paragraphs": [
+            "I created the custom website around buying and customising those gifts. Developing it for a wedding in my own family made the project particularly personal. It was a chance to use web development for an occasion that mattered to people close to me.",
+            "The Honeymoon Webshop connected the practical act of choosing a gift with the message behind it. The activities and hotel stays gave guests a concrete connection to the couple’s plans, while customisation made room for an individual contribution."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-4",
+          "title": "Keeping the messages together",
+          "paragraphs": [
+            "The presents and messages purchased through the website were displayed together in a bulletin-style collage frame. That presentation brought the contributions into one shared view, keeping the thoughtful messages alongside the gifts they accompanied.",
+            "For me, the appeal of this project is its personal starting point: a website built for my sister’s wedding, shaped around honeymoon experiences and the people giving them."
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-5",
+          "title": "Overview",
+          "paragraphs": [
+            "Project",
+            "Personal project",
+            "First version",
+            "Created for my sister’s wedding",
+            "Focus",
+            "Custom website development and personalised honeymoon gifts"
+          ],
+          "images": [],
+          "links": []
+        },
+        {
+          "id": "section-6",
+          "title": "Skills Used",
+          "paragraphs": [
+            "WEB DEVELOPMENT Custom gift selection, personalisation and a shared presentation of messages"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/honeymoon.html"
+    },
+    {
+      "id": "j-meijer",
+      "title": "J. Meijer B.V. 40 Jaar",
+      "summary": "“A Day in the Life of Luca Orvini” was a lighthearted side project that let me explore my interest in videography in the form of a company anniversy gift for my brother-in-law Luca Orvini, celebrating his and his team's 5 years in business together. What started with a simple design brief by Luca himself, quickly turned into a playful short film with a PG-13 rating that was received surprisingly well.",
+      "categories": [
+        "Videography"
+      ],
+      "image": "Media/5570b0b7b570dba2.jpg",
+      "imageAlt": "J. Meijer BV",
+      "sections": [
+        {
+          "id": "section-2",
+          "title": "'Een dag in het leven van Luca Orvini'— Director’s Cut (~8:00) Video",
+          "paragraphs": [],
+          "images": [],
+          "links": [
+            {
+              "title": "View media online",
+              "url": "https://bram-peters.com/assets/img/jmeijerbv.mp4"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": "Videography Brief",
+          "paragraphs": [
+            "Outside of my professional work, I enjoy exploring storytelling through videography as a hobby. For J. Meijer B.V., I produced a short celebration film marking a double milestone, the company’s 40th anniversary and the CEO’s 5-year leadership anniversary. The concept was to create an ironic, lighthearted tribute to the the boss' daily routine, fully guided by a design brief set-up by the CEO himself. Something playful and personal, that would paint a tongue-in-cheek, satirical portrait of a day in the life of the CEO while celebrating the efforts and contributions to his success by his team of extraordinarily professional co-workers. The film was shown at a large anniversary event, with a build-up to a surprise reveal: the announcement that the entire company was being treated to a trip to Disneyland Paris.",
+            "What made this project particularly special to me was its personal nature. It was created as an anniversary gift for the CEO, who also happens to be my brother-in-law 💼Luca. This gave me the opportunity to produce something deeply personal and playful, featuring my sister 💼Eline in a leading role and allowing me to experiment with storytelling, humor, and videography in a way I knew would resonate with him and his team (hence its PG-13 rating; making non-profesionalism professional).",
+            "This was never meant to be a serious production, just a fun side project that got a little out of hand. I wrote the script, directed the scenes, and edited everything myself in Adobe Premiere Pro and After Effects, mostly for the joy of celebrating Luca and his team (and maybe to show off a bit). It was a lighthearted experiment in storytelling, timing, and tone, but honestly, I’m secretly proud of how it turned out. And here it is, on my portfolio.",
+            "🎥 4K YouTube",
+            "J. Meijer B.V."
+          ],
+          "images": [],
+          "links": [
+            {
+              "title": "J. Meijer B.V.",
+              "url": "https://www.jmeijerbv.nl"
+            },
+            {
+              "title": "💼Luca",
+              "url": "https://www.linkedin.com/in/luca-orvini/"
+            },
+            {
+              "title": "💼Eline",
+              "url": "https://www.linkedin.com/in/eline-orvini-peters-b752b8105/"
+            },
+            {
+              "title": "🎥 4K YouTube",
+              "url": "https://www.youtube.com/watch?v=TOFKqdojvsw"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "Skills Used",
+          "paragraphs": [
+            "Videography Adobe Premiere Pro, Adobe After Effects, Sound Effects, Post-Editing, Screenwriting, Storyboarding, Planning"
+          ],
+          "images": [],
+          "links": []
+        }
+      ],
+      "url": "https://bram-peters.com/jmeijerbv40jaareendaginhetlevenvanlucaorvini.html"
+    }
+  ],
+  "services": [
+    "Web Design & Development",
+    "App & Software Development",
+    "UX/UI Design Guidance",
+    "Video Production & Editing"
+  ]
+}

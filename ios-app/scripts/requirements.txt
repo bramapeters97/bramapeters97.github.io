@@ -1,0 +1,2 @@
+# Keep encoding deterministic across content rebuilds.
+Pillow==12.3.0

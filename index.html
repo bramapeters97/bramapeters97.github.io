@@ -423,20 +423,6 @@ body.portfolio-home::before {
 .portfolio-card .project-image-trigger { cursor: zoom-in; font: inherit; }
 .project-image-trigger::after { content: ''; position: absolute; inset: 0; z-index: 1; }
 .portfolio-card:has(.project-image-trigger:focus-visible) { outline: 2px solid #426aa7; outline-offset: 3px; }
-.project-image-dialog {
-  position: fixed; inset: 0; width: 100%; max-width: none; height: 100%; height: 100dvh;
-  max-height: none; margin: 0; padding: 0; border: 0; background: #080b10; color: #fff;
-}
-.project-image-dialog[open] { display: grid; place-items: center; }
-.project-image-dialog::backdrop { background: #080b10; }
-.project-image-dialog img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
-.project-image-close {
-  position: absolute; top: max(1rem, env(safe-area-inset-top)); right: max(1rem, env(safe-area-inset-right));
-  min-width: 44px; min-height: 44px; padding: .6rem 1rem; border: 1px solid #fff;
-  border-radius: 999px; background: #161b24; color: #fff; font: inherit; cursor: pointer;
-}
-.project-image-close:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
-html:has(.project-image-dialog[open]) { overflow: hidden; }
 .portfolio-card.portfolio-card--disabled .article-body .project-status {
   display: inline-flex; align-items: center; align-self: flex-start; gap: .35rem; margin-top: auto;
   padding: .32rem .62rem; border: 1px solid rgba(44,54,72,.25); border-radius: 999px;
@@ -574,6 +560,7 @@ html:has(.project-image-dialog[open]) { overflow: hidden; }
 }
 
   </style>
+  <link rel="stylesheet" href="assets/css/mypremiere-preview.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
   <link rel="stylesheet" href="assets/css/lit-departure.css" />
   <script src="assets/js/lit-departure.js" defer></script>
@@ -989,17 +976,15 @@ A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessa
     </div>
   </div>
 <dialog class="project-image-dialog" id="mypremiereplus-preview" aria-label="MyPremiere+ image preview">
-  <img src="assets/img/mypremiereplus.png" alt="MyPremiere+ streaming app on iPhone, iPad and Apple TV, coming soon to the App Store" loading="lazy" decoding="async" />
+  <div class="project-image-scene">
+    <img src="assets/img/mypremiereplus.png" alt="MyPremiere+ streaming app on iPhone, iPad and Apple TV, coming soon to the App Store" loading="lazy" decoding="async" />
+  </div>
+  <p class="project-image-status" role="status">Loading preview…</p>
   <button type="button" class="project-image-close" autofocus aria-label="Close MyPremiere+ image preview">Close &times;</button>
 </dialog>
+<script src="assets/js/mypremiere-preview.js"></script>
 <script src="assets/js/reveal.js"></script>
 <script>
-// A native modal keeps image previews on this page and supports Escape and focus restoration.
-(function () {
-  const preview = document.getElementById('mypremiereplus-preview');
-  document.querySelector('#project-mypremiereplus .project-image-trigger').addEventListener('click', () => preview.showModal());
-  preview.querySelector('.project-image-close').addEventListener('click', () => preview.close());
-})();
 // Desktop uses a right-hand CV rail; mobile places skills directly after experience.
 (function () {
   const desktopQuery = window.matchMedia('(min-width: 901px)');

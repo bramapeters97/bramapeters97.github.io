@@ -1,0 +1,7 @@
+{
+  "iconSource": "favicon_portfolio/favicon.png",
+  "iconNote": "Current website favicon fitted to opaque 1024×1024. Source is 237×244; replace website favicon with higher-resolution flat artwork for best App Store sharpness.",
+  "warnings": [
+    "Unsupported image, linked online instead: assets/amstroll/brand/wordmark.svg"
+  ]
+}

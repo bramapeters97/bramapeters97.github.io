@@ -40,3 +40,21 @@ All pages and the web manifest use `assets/img/bram-peters-studio.png` for the
 site icon. After replacing that image, run
 `python3 scripts/generate-studio-favicon.py` (Pillow) to refresh the legacy
 browser fallback at `favicon.ico`.
+
+## Native iPhone app
+
+The independent SwiftUI app is in [`ios-app/`](ios-app/README.md). Open
+`ios-app/Portfolio.xcodeproj` on a Mac. Its portfolio content and optimized images
+are bundled for offline browsing and generated from this website; run
+`python3 ios-app/scripts/import_content.py` after content changes. See the app's
+README for Python setup, signing, mail behavior and validation commands.
+
+## MyPremiere+ preview
+
+The homepage card opens a full-screen image with a left-to-right cinematic pan
+and subtle desktop pointer depth. It stays on the homepage and respects reduced
+motion. Its styles and lifecycle live in `assets/css/mypremiere-preview.css` and
+`assets/js/mypremiere-preview.js`. To verify desktop/mobile interactions, install
+Playwright in your development environment and run
+`node scripts/check-mypremiere-preview.cjs`; set `CHROMIUM_PATH` to use an existing
+Chromium installation. The test serves the repository only on localhost.
