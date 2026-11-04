@@ -14,6 +14,11 @@ final class AmstrollScreenshotTests: XCTestCase {
                 app.swipeUp()
             }
             XCTAssertTrue(ready.exists && ready.isHittable, "Results did not become visible")
+            if ready.frame.minY > 180 {
+                let start = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75))
+                let target = start.withOffset(CGVector(dx: 0, dy: -(ready.frame.minY - 120)))
+                start.press(forDuration: 0.05, thenDragTo: target)
+            }
         } else {
             XCTAssertTrue(ready.waitForExistence(timeout: 15), "Missing ready state: \(identifier)")
         }

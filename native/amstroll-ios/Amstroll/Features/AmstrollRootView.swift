@@ -263,7 +263,11 @@ struct AmstrollRootView: View {
             ProgressView("A little looking around. No rush.").frame(maxWidth: .infinity).padding(30)
         } else {
             if let error = discovery.error { SmallNotice(text: error, symbol: "wifi.exclamationmark") }
-            ForEach(discovery.warnings, id: \.self) { SmallNotice(text: $0) }
+            if !discovery.warnings.isEmpty {
+                DisclosureGroup("About these suggestions") {
+                    ForEach(discovery.warnings, id: \.self) { SmallNotice(text: $0) }
+                }.font(AmstrollStyle.body(12))
+            }
             if !discovery.places.isEmpty {
                 Text("Selected for your time and starting point. Walking routes checked from your start. Visit times are estimates.")
                     .font(AmstrollStyle.body(12)).foregroundStyle(AmstrollStyle.muted).accessibilityIdentifier("page-status")

@@ -175,4 +175,14 @@ struct WalkingSelectionTests {
         #expect(Set(mixed.map(PlaceSelection.kind)).count == 3)
         #expect(PlaceSelection.shortlist(candidates, mood: "coffee").map(\.id) == ["cafe"])
     }
+    @Test func discoveryKeepsARealWalkBeyondTheStartingCluster() {
+        var nearby = (0..<50).map { place("near\($0)", category: "cafe") }
+        var park = place("garden", category: "park")
+        park.lat = 52.383
+        nearby.append(park)
+        let pool = PlaceSelection.discoveryPool(nearby, latitude: start.lat, longitude: start.lng, limit: 10)
+        #expect(pool.contains { $0.id == "garden" })
+        #expect(PlaceSelection.matching([place("Stationseiland", category: "Cultural place")], mood: "any").isEmpty)
+    }
+
 }

@@ -11,7 +11,7 @@ Draft, 4 November 2026. The final owner must verify provider handling and answer
 | IP address and normal requests | Providers/hosts see network request metadata | Review provider retention and identifiers under Apple's collection definition; do not promise zero collection. |
 | Analytics/ads/tracking IDs | No SDK or collection added | Tracking is false; no ATT request needed for the implemented app. Reassess if implementation changes. |
 
-PrivacyInfo.xcprivacy includes the conservative precise-location/app-functionality declaration. Its accessed-API list is empty because this implementation uses local JSON/files and does not deliberately use UserDefaults, boot-time, disk-space or file-timestamp required-reason APIs. Audit the final binary and code, not just this intention. If a required-reason API is introduced, add its justified approved reason; never add arbitrary reason codes to silence a warning.
+PrivacyInfo.xcprivacy includes the conservative precise-location/app-functionality declaration. Its accessed-API list declares UserDefaults reason CA92.1 for the app-only first-launch splash preference. This flag is not sent off-device. Nearby selection automatically asks Apple Maps to route candidate walks from the chosen start, including a chosen finish when applicable. Review location disclosures for this behavior.
 
 No third-party binary SDKs are included. If any are added, audit Apple's current signature/manifest requirements. The resource conversion tool Sharp is an optional development-time tool, not shipped inside the app.
 

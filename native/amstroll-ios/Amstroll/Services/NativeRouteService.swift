@@ -68,8 +68,12 @@ enum PlaceSelection {
     }
 
     static func matching(_ places: [ServicePlace], mood: String) -> [ServicePlace] {
-        guard mood != "any" && mood != "unexpected" else { return places }
-        return places.filter {
+        let venues = places.filter { place in
+            let title = place.title.lowercased()
+            return !["stationseiland", "station amsterdam", "amsterdam centraal", "railway station", "metro station"].contains(where: title.contains)
+        }
+        guard mood != "any" && mood != "unexpected" else { return venues }
+        return venues.filter {
             let category = kind($0)
             return mood == "quiet" ? category == "outdoors" || $0.category.lowercased().contains("library") : category == mood
         }
@@ -95,9 +99,32 @@ enum PlaceSelection {
         }
     }
 
-    static func shortlist(_ places: [ServicePlace], mood: String, limit: Int = 10) -> [ServicePlace] {
-        // Within each category, keep the service's nearest-first ordering, prioritizing linked photographs.
-        let candidates = matching(places, mood: mood).sorted { ($0.photo != nil ? 0 : 1) < ($1.photo != nil ? 0 : 1) }
+    static func discoveryPool(_ places: [ServicePlace], latitude: Double, longitude: Double, limit: Int) -> [ServicePlace] {
+        // Keep options beyond the dense cluster immediately beside a station or starting point.
+        var bands = Array(repeating: [ServicePlace](), count: 4)
+        for place in places {
+            let distance = ProviderParsing.distance(latitude, longitude, place.lat, place.lng)
+            let band = distance < 150 ? 0 : distance < 400 ? 1 : distance < 1000 ? 2 : 3
+            bands[band].append(place)
+        }
+        var result: [ServicePlace] = []
+        while result.count < limit {
+            var added = false
+            for index in bands.indices where result.count < limit && !bands[index].isEmpty {
+                result.append(bands[index].removeFirst()); added = true
+            }
+            if !added { break }
+        }
+        return result
+    }
+
+    static func shortlist(_ places: [ServicePlace], mood: String, limit: Int = 12, origin: ServiceCoordinate? = nil, minutes: Int = 47) -> [ServicePlace] {
+        let targetDistance = min(1000, max(150, Double(minutes - 20) * 25))
+        func score(_ place: ServicePlace) -> Double {
+            let distance = origin.map { ProviderParsing.distance($0.latitude, $0.longitude, place.lat, place.lng) } ?? targetDistance
+            return abs(distance - targetDistance) + (place.photo == nil ? 500 : 0)
+        }
+        let candidates = matching(places, mood: mood).sorted { score($0) < score($1) }
         var groups: [String: [ServicePlace]] = [:]
         var order: [String] = []
         for place in candidates {
@@ -127,7 +154,7 @@ actor NearbySelectionService {
         guard preferences.minutes > 0 else { return ([], ["Choose some available time to find a walk that fits."]) }
         let origin = ServiceCoordinate(latitude: start.lat, longitude: start.lng)
         let endpoint = finish.map { ServiceCoordinate(latitude: $0.lat, longitude: $0.lng) }
-        let candidates = PlaceSelection.shortlist(places, mood: preferences.mood)
+        let candidates = PlaceSelection.shortlist(places, mood: preferences.mood, origin: origin, minutes: preferences.minutes)
         var selected: [ServicePlace] = []
         var routeFailures = 0
         // Two requests at a time avoids flooding the routing service with all nearby venues.

@@ -201,7 +201,7 @@ actor OpenPlaceService {
         distinct.sort { ProviderParsing.distance(latitude,longitude,$0.lat,$0.lng) < ProviderParsing.distance(latitude,longitude,$1.lat,$1.lng) }
         distinct = PlaceSelection.matching(distinct, mood: mood)
         guard !distinct.isEmpty else { throw ServiceError.noPlaces(warnings.joined(separator: " ")) }
-        let photographed = try await photographs(for: Array(distinct.prefix(requested)), limit: requested)
+        let photographed = try await photographs(for: PlaceSelection.discoveryPool(distinct, latitude: latitude, longitude: longitude, limit: requested), limit: requested)
         try Task.checkCancellation()
         warnings.append(contentsOf: photographed.warnings)
         return DiscoveryResult(places: photographed.places, warnings: Array(Set(warnings)).sorted(), retrievedAt: Date(), requestedCount: requested, source: Array(Set(photographed.places.map(\.provider))).sorted().joined(separator: " + "))

@@ -2,6 +2,8 @@ import SwiftUI
 
 struct SheetPage<Content: View>: View {
     let title: String
+    var doneTitle = "Done"
+    var onDone: (() -> Void)? = nil
     @ViewBuilder var content: () -> Content
     @Environment(\.dismiss) private var dismiss
     var body: some View {
@@ -9,7 +11,7 @@ struct SheetPage<Content: View>: View {
             ScrollView { VStack(alignment: .leading, spacing: 20, content: content).padding(22).frame(maxWidth: .infinity, alignment: .leading) }
                 .background(AmstrollStyle.paper).font(AmstrollStyle.body()).foregroundStyle(AmstrollStyle.ink).tint(AmstrollStyle.forest)
                 .navigationTitle(title).navigationBarTitleDisplayMode(.inline)
-                .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
+                .toolbar { ToolbarItem(placement: .confirmationAction) { Button(doneTitle) { if let onDone { onDone() } else { dismiss() } } } }
         }
     }
 }
@@ -33,7 +35,7 @@ struct AmstrollSheetView: View {
     @State private var locationTask: Task<Void, Never>?
     private let context = ContextService()
     var body: some View {
-        SheetPage(title: title) {
+        SheetPage(title: title, doneTitle: sheet == .preferences ? "Find" : "Done", onDone: sheet == .preferences ? applyPreferences : nil) {
             switch sheet {
             case .exact: exactTime
             case .location: locations
@@ -147,14 +149,22 @@ struct AmstrollSheetView: View {
                     ForEach(store.startingAreas) { Text($0.name).tag($0.id) }
                 }.pickerStyle(.menu)
             }.frame(maxWidth: .infinity, alignment: .leading).amstrollCard()
-            Button("Find my little adventure") {
-                let number = Double(budgetText.replacingOccurrences(of: ",", with: "."))
-                guard unlimitedBudget || (number != nil && number!.isFinite && number! >= 0 && number! <= 10_000) else { error = "Enter a spending allowance between €0 and €10,000, or choose Any budget."; return }
-                draft.budget = unlimitedBudget ? nil : number
-                store.prefs = draft; dismiss()
-            }.buttonStyle(AmstrollButton())
+            Button("Find my little adventure", action: applyPreferences).buttonStyle(AmstrollButton())
         }.accessibilityIdentifier("preferences-sheet")
     }
+    private func applyPreferences() {
+        let number = Double(budgetText.replacingOccurrences(of: ",", with: "."))
+        if !unlimitedBudget {
+            guard let number, number.isFinite, (0...10_000).contains(number) else {
+                error = "Enter a spending allowance between €0 and €10,000, or choose Any budget."
+                return
+            }
+        }
+        draft.budget = unlimitedBudget ? nil : number
+        store.prefs = draft
+        dismiss()
+    }
+
     private var sources: some View {
         VStack(alignment: .leading, spacing: 16) {
             ForEach(SourceMode.allCases, id: \.self) { mode in

@@ -3,7 +3,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 if [[ "$(uname -s)" != "Darwin" ]]; then echo "Real native screenshots require macOS and Xcode." >&2; exit 1; fi
 if [[ $# -ne 1 ]]; then echo 'Usage: bash scripts/capture-screenshots.sh SIMULATOR_UDID' >&2; xcrun simctl list devices available; exit 2; fi
-if command -v node >/dev/null; then node scripts/generate-project.mjs; fi
+# Use the checked-in project; regeneration would overwrite local signing settings.
 STAMP=$(date +%Y%m%d-%H%M%S)
 RESULT="Build/Screenshots-$STAMP.xcresult"
 OUT="AppStore/Screenshots/$STAMP"

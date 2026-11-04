@@ -20,7 +20,7 @@ Prepared 4 November 2026. This is a release preparation package, not an uploaded
 - [ ] Verify each UI screen against the actual reference content, without the fake phone hardware.
 - [ ] Exercise small/large iPhones, larger text, VoiceOver, Reduce Motion, denied location, no network, slow provider/images, keyboard and long content.
 - [ ] Verify all native provider requests and supported MapKit routes on a device. Provider metadata and route estimates do not verify opening times, prices or disruptions.
-- [ ] Capture seven actual native screenshot scenes using `scripts/capture-screenshots.sh`; inspect content and accepted dimensions. None have been fabricated or captured on Windows.
+- [ ] Capture seven actual native screenshot scenes using `scripts/capture-screenshots.sh`; inspect content and accepted dimensions. Use the dated native captures in AppStore/Screenshots; recapture whenever the release UI changes.
 - [ ] Validate the release icon in Simulator, the installed app and the archive.
 - [ ] Create and validate an archive in Xcode Organizer. Investigate privacy reports, required-reason API findings, dSYM and distribution warnings.
 - [ ] Complete TestFlight testing after the owner explicitly authorizes an upload.
@@ -29,7 +29,7 @@ Prepared 4 November 2026. This is a release preparation package, not an uploaded
 
 - [ ] Confirm legal rights holder/controller and contact details; review photo/provider redistribution and attribution obligations.
 - [ ] Maintain Apple Developer Program membership and App Store Connect access; accept required Apple agreements personally.
-- [ ] Register a unique explicit bundle identifier; choose the signing team and provisioning. Configuration.xcconfig values are examples until verified.
+- [ ] Register a unique explicit bundle identifier; choose the signing team and provisioning. The configured team is 4W75X459YD; Release uses the Amstroll App Store distribution profile. Confirm the installed signing identity is still valid.
 - [ ] Create the App Store Connect app record, select territories, version/build, categories, age rating and release method.
 - [ ] Review the dynamic catalogue for mature/alcohol content and answer the current age-rating questionnaire honestly. Do not select Kids category by default.
 - [ ] Publish reviewed support/privacy documents at real public URLs, then enter those URLs in metadata and verify in-app links.
