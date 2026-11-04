@@ -153,3 +153,47 @@ func spending(_ value: Double?) -> String {
     guard let value else { return "Any budget" }
     return value.formatted(.currency(code: "EUR").precision(.fractionLength(0...2)))
 }
+
+
+private struct AmstrollLoadingModifier: ViewModifier {
+    let isLoading: Bool
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
+
+    func body(content: Content) -> some View {
+        content
+            .disabled(isLoading)
+            .accessibilityHidden(isLoading)
+            .overlay {
+                ZStack {
+                    if isLoading {
+                        ZStack {
+                            AmstrollStyle.paper.opacity(reduceTransparency ? 1 : 0.92)
+                                .ignoresSafeArea()
+                            VStack(spacing: 16) {
+                                ProgressView().controlSize(.large)
+                                    .tint(AmstrollStyle.forest)
+                                    .accessibilityHidden(true)
+                                Text("Hold on...").font(AmstrollStyle.body(16))
+                                    .foregroundStyle(AmstrollStyle.ink)
+                            }
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel("Hold on. Loading.")
+                            .accessibilityAddTraits(.updatesFrequently)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .contentShape(Rectangle())
+                        .accessibilityIdentifier("loading-overlay")
+                        .transition(.opacity)
+                    }
+                }
+                .animation(.easeInOut(duration: reduceMotion ? 0.1 : 0.25), value: isLoading)
+            }
+    }
+}
+
+extension View {
+    func amstrollLoading(_ isLoading: Bool) -> some View {
+        modifier(AmstrollLoadingModifier(isLoading: isLoading))
+    }
+}

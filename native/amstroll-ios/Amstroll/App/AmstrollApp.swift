@@ -22,7 +22,7 @@ struct AmstrollApp: App {
     var body: some Scene {
         WindowGroup {
             Group {
-                if let store = bootstrap.store { AmstrollRootView().environmentObject(store) }
+                if let store = bootstrap.store { AmstrollLaunchView().environmentObject(store) }
                 else {
                     VStack(spacing: 20) {
                         Image(systemName: "exclamationmark.circle").font(.largeTitle)
@@ -36,6 +36,48 @@ struct AmstrollApp: App {
             }.font(AmstrollStyle.body()).foregroundStyle(AmstrollStyle.ink)
                 .tint(AmstrollStyle.forest).preferredColorScheme(.light)
                 .onChange(of: scenePhase) { _, phase in if phase != .active { bootstrap.store?.persist() } }
+        }
+    }
+}
+
+
+private struct AmstrollLaunchView: View {
+    @AppStorage("hasSeenAmstrollWelcome") private var hasSeenWelcome = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var welcomeFinished = false
+
+    private var showsWelcome: Bool {
+        !hasSeenWelcome && !welcomeFinished
+            && !ProcessInfo.processInfo.arguments.contains("--screenshot-mode")
+            && !ProcessInfo.processInfo.arguments.contains("--demo")
+    }
+
+    var body: some View {
+        ZStack {
+            if !showsWelcome {
+                AmstrollRootView().transition(.opacity)
+            }
+            if showsWelcome {
+                ZStack {
+                    AmstrollStyle.paper.ignoresSafeArea()
+                    Image("AmstrollWordmark")
+                        .resizable().scaledToFit()
+                        .frame(maxWidth: 220).padding(40)
+                        .accessibilityLabel("Welcome to Amstroll")
+                }
+                .accessibilityIdentifier("welcome-splash")
+                .transition(.opacity)
+                .zIndex(1)
+            }
+        }
+        .task {
+            guard showsWelcome else { return }
+            do { try await Task.sleep(for: .milliseconds(850)) }
+            catch { return }
+            withAnimation(.easeOut(duration: reduceMotion ? 0.1 : 0.4)) {
+                welcomeFinished = true
+                hasSeenWelcome = true
+            }
         }
     }
 }

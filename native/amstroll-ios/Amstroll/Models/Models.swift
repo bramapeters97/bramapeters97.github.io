@@ -248,7 +248,9 @@ struct UserState: Codable, Sendable {
 
 extension Int {
     var amstrollDuration: String {
-        let value=max(0,self),hours=value/60,minutes=value%60
+        let value = Swift.max(0, self)
+        let hours = value / 60
+        let minutes = value % 60
         if hours == 0 { return "\(minutes) min" }
         return minutes == 0 ? "\(hours)h" : "\(hours)h \(minutes)m"
     }

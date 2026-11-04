@@ -242,20 +242,6 @@
       "areaContext": true
     },
     {
-      "key": "login",
-      "file": "Assets.xcassets/photo-login.imageset/photo-login.png",
-      "sha256": "db7d1f6376268d266628860a2b20419c1d162456e030e1a7f2a95a4a1ee280e5",
-      "width": 800,
-      "height": 422,
-      "source": "https://commons.wikimedia.org/wiki/File:Amsterdam_Canals_-_July_2006.jpg",
-      "credit": "Diliff",
-      "license": "CC BY 2.5",
-      "licenseURL": "https://creativecommons.org/licenses/by/2.5",
-      "changes": "Resized to a maximum width of 1000px, compressed for offline embedding and converted to WebP; displayed crops may vary.",
-      "nativeChanges": "Extracted embedded WebP and converted to PNG without resampling for native assets; display crops may vary.",
-      "areaContext": true
-    },
-    {
       "key": "centrum",
       "file": "Assets.xcassets/photo-centrum.imageset/photo-centrum.png",
       "sha256": "db7d1f6376268d266628860a2b20419c1d162456e030e1a7f2a95a4a1ee280e5",

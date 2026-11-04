@@ -9,12 +9,11 @@ final class AmstrollScreenshotTests: XCTestCase {
         app.launch()
         let ready = app.descendants(matching: .any)[identifier].firstMatch
         if scene == "results" {
-            // Results is scheduled to scroll into view after the initial layout.
-            // Existence alone can capture the preceding planning card instead.
-            let visible = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in
-                ready.exists && ready.isHittable
-            }, object: nil)
-            XCTAssertEqual(XCTWaiter.wait(for: [visible], timeout: 15), .completed, "Results did not become visible")
+            for _ in 0..<6 {
+                if ready.exists && ready.isHittable { break }
+                app.swipeUp()
+            }
+            XCTAssertTrue(ready.exists && ready.isHittable, "Results did not become visible")
         } else {
             XCTAssertTrue(ready.waitForExistence(timeout: 15), "Missing ready state: \(identifier)")
         }

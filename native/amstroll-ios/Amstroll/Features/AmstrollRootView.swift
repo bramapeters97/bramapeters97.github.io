@@ -1,7 +1,7 @@
 import SwiftUI
-import Combine
+import Observation
 
-enum SourceMode: String, CaseIterable { case open = "Open places", collection = "Amsterdam collection" }
+enum SourceMode: String, CaseIterable { case open = "Nearby places", collection = "Amsterdam collection" }
 enum AmstrollTab: String, CaseIterable { case explore = "Explore", saved = "Saved", journal = "Journal"
     var icon: String { switch self { case .explore: "paperplane"; case .saved: "bookmark"; case .journal: "book" } }
 }
@@ -10,42 +10,45 @@ enum AmstrollSheet: String, Identifiable {
     var id: String { rawValue }
 }
 
-@MainActor final class DiscoveryModel: ObservableObject {
-    @Published var source: SourceMode = .open
-    @Published private(set) var places: [ServicePlace] = []
-    @Published private(set) var loading = false
-    @Published private(set) var error: String?
-    @Published private(set) var warnings: [String] = []
-    @Published private(set) var page = 0
-    @Published private(set) var didSearch = false
+@MainActor @Observable final class DiscoveryModel {
+    var source: SourceMode = .open
+    private(set) var places: [ServicePlace] = []
+    private(set) var loading = false
+    private(set) var error: String?
+    private(set) var warnings: [String] = []
+    private(set) var page = 0
+    private(set) var didSearch = false
     private let service = OpenPlaceService()
+    private let selection = NearbySelectionService()
     private var request: Task<Void, Never>?
     private var serial = 0
     var visible: [ServicePlace] { Array(places.dropFirst(page).prefix(5)) }
     func invalidate() { serial += 1; request?.cancel(); loading = false; error = nil; places = []; warnings = []; page = 0; didSearch = false }
-    func search(start: StartArea) {
+    func search(start: StartArea, finish: StartArea?, preferences: Preferences) {
         invalidate()
         guard source == .open else { didSearch = true; return }
         loading = true; didSearch = true
         let generation = serial
         request = Task {
             do {
-                let result = try await service.discover(latitude: start.lat, longitude: start.lng)
+                let radius = min(6000, max(500, preferences.minutes * 65))
+                let result = try await service.discover(latitude: start.lat, longitude: start.lng, radius: radius, mood: preferences.mood)
+                let picked = try await selection.select(result.places, start: start, finish: finish, preferences: preferences)
                 guard !Task.isCancelled, serial == generation else { return }
-                places = result.places.shuffled(); warnings = result.warnings; loading = false
+                places = picked.places; warnings = result.warnings + picked.warnings; loading = false
             } catch {
                 guard !Task.isCancelled, serial == generation else { return }
                 self.error = error.localizedDescription; loading = false
             }
         }
     }
-    func more() { if page + 5 >= places.count { places.shuffle(); page = 0 } else { page += 5 } }
+    func more() { if page + 5 >= places.count { page = 0 } else { page += 5 } }
 }
 
 struct AmstrollRootView: View {
     @EnvironmentObject private var store: AppStore
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @StateObject private var discovery = DiscoveryModel()
+    @State private var discovery = DiscoveryModel()
     @State private var tab = AmstrollTab.explore
     @State private var sheet: AmstrollSheet?
     @State private var selectedPlan: Plan?
@@ -67,20 +70,26 @@ struct AmstrollRootView: View {
                 }
                 .navigationDestination(item: $selectedPlace) { place in LivePlaceView(place: place) }
                 .navigationDestination(isPresented: $progress) { ActiveOutingView() }
-                .sheet(item: $sheet) { item in
+                .sheet(item: $sheet, onDismiss: { if !discovery.didSearch { search() } }) { item in
                     AmstrollSheetView(sheet: item, source: $discovery.source)
+                        .presentationDetents(item == .preferences ? [.large] : [.medium, .large])
                         .presentationDragIndicator(.visible).presentationCornerRadius(28)
                 }
-                .onChange(of: discovery.source) { _, _ in discovery.search(start: store.startArea) }
+                .onChange(of: discovery.source) { _, _ in search() }
                 .onChange(of: store.prefs) { _, _ in discovery.invalidate() }
                 .onChange(of: store.startArea) { _, _ in discovery.invalidate() }
                 .task { initialize() }
         }.safeAreaInset(edge: .bottom, spacing: 0) { bottomBar }
+            .amstrollLoading(discovery.loading)
+    }
+    private func search() {
+        let finish = store.prefs.endpoint == "start" ? store.startArea : store.engine.start(store.prefs.endpoint)
+        discovery.search(start: store.startArea, finish: finish, preferences: store.prefs)
     }
     private func initialize() {
         guard !initialized else { return }; initialized = true
         if store.demoMode { discovery.source = .collection }
-        else { discovery.search(start: store.startArea) }
+        else { sheet = .preferences }
         let arguments = ProcessInfo.processInfo.arguments
         guard let index = arguments.firstIndex(of: "--screenshot-scene"), arguments.count > index + 1 else { return }
         switch arguments[index + 1] {
@@ -95,8 +104,10 @@ struct AmstrollRootView: View {
     private var explore: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                LazyVStack(spacing: 18, pinnedViews: [.sectionHeaders]) {
-                    Section {
+                LazyVStack(spacing: 18) {
+                    brandHeader.padding(.top, 8)
+                    hero
+                    Group {
                         VStack(alignment: .leading, spacing: 10) {
                             HStack {
                                 Label("\(store.startArea.name.uppercased()) · AMSTERDAM", systemImage: "mappin.and.ellipse")
@@ -109,7 +120,7 @@ struct AmstrollRootView: View {
                             Text("Where shall we go?").font(AmstrollStyle.heading(26.4)).tracking(-1)
                             Text("Your free time. A little Amsterdam adventure.").font(AmstrollStyle.body(12))
                             if let forecast = store.forecast { Button { sheet = .sources } label: { Label(forecast.temperature.map { String(Int($0.rounded())) + "° · " + forecast.summary } ?? forecast.summary, systemImage: "cloud.sun").font(AmstrollStyle.body(11)) }.buttonStyle(.plain).frame(minHeight: 44) }
-                        }.foregroundStyle(.white).padding(.horizontal, 8).padding(.top, 6).padding(.bottom, 14)
+                        }.foregroundStyle(AmstrollStyle.ink).padding(.horizontal, 8).padding(.top, 6).padding(.bottom, 14)
                         if store.active != nil {
                             Button { progress = true } label: { Label("Pick up where you left off", systemImage: "paperplane") }.buttonStyle(AmstrollButton(primary: false))
                         }
@@ -121,13 +132,13 @@ struct AmstrollRootView: View {
                             Button { sheet = .moods } label: { Image(systemName: "slider.horizontal.3").frame(minWidth: 44, minHeight: 44) }
                                 .background(AmstrollStyle.card, in: RoundedRectangle(cornerRadius: 15)).accessibilityLabel("More moods")
                         } }
-                        Button { discovery.search(start: store.startArea); if reduceMotion { proxy.scrollTo("results", anchor: .top) } else { withAnimation { proxy.scrollTo("results", anchor: .top) } } } label: {
+                        Button { search(); if reduceMotion { proxy.scrollTo("results", anchor: .top) } else { withAnimation { proxy.scrollTo("results", anchor: .top) } } } label: {
                             HStack { Text(discovery.loading ? "Gathering a few good ideas…" : "Find my little adventure"); Image(systemName: discovery.loading ? "clock" : "arrow.right") }
                         }.buttonStyle(AmstrollButton()).disabled(discovery.loading).accessibilityIdentifier("find-adventure")
                         HStack(alignment: .top) {
                             Button { sheet = .preferences } label: { Label("\(spending(store.prefs.budget)) · \(transportName)", systemImage: "slider.horizontal.3") }
                             Spacer(minLength: 8)
-                            Button { sheet = .sources } label: { Label(discovery.source == .open ? "Open places" : "Collection", systemImage: "square.3.layers.3d") }
+                            Button { sheet = .sources } label: { Label(discovery.source == .open ? "Nearby places" : "Collection", systemImage: "square.3.layers.3d") }
                         }.font(AmstrollStyle.body(11)).buttonStyle(.plain).frame(minHeight: 44)
                         HStack(spacing: 9) {
                             Button { sheet = .transit } label: { connectionLabel("GVB nearby", subtitle: "Tram & metro stops", icon: "tram") }
@@ -135,17 +146,17 @@ struct AmstrollRootView: View {
                         }.buttonStyle(.plain)
                         VStack(alignment: .leading, spacing: 14) {
                             HStack(alignment: .firstTextBaseline) {
-                                Text(discovery.source == .collection ? "A little off the usual path." : "Fresh possibilities.").font(AmstrollStyle.heading(19))
+                                Text(discovery.source == .collection ? "A little off the usual path." : "A few places for you.").font(AmstrollStyle.heading(19))
                                 Spacer()
-                                Text(discovery.source == .collection ? "20 ideas" : "\(discovery.places.count) places").font(AmstrollStyle.body(11)).foregroundStyle(AmstrollStyle.muted)
+                                Text(discovery.source == .collection ? "20 ideas" : "\(discovery.places.count) picks").font(AmstrollStyle.body(11)).foregroundStyle(AmstrollStyle.muted)
                             }.id("results").accessibilityIdentifier("results-heading")
                             results
                         }
                         if let error = store.storageError { SmallNotice(text: error, symbol: "externaldrive.badge.exclamationmark") }
-                    } header: { brandHeader.padding(.vertical, 4) }
-                }.padding(.horizontal, 22).padding(.top, 8).padding(.bottom, 20)
-                    .background(alignment: .top) { hero }
-            }.accessibilityIdentifier("explore-screen")
+                    }
+                }.padding(.horizontal, 22).padding(.bottom, 20)
+            }
+                .accessibilityIdentifier("explore-screen")
                 .onAppear {
                     let arguments = ProcessInfo.processInfo.arguments
                     if let index = arguments.firstIndex(of: "--screenshot-scene"), arguments.count > index + 1, arguments[index + 1] == "results" {
@@ -156,28 +167,38 @@ struct AmstrollRootView: View {
     }
     private var transportName: String { store.prefs.transport == "walk" ? "On foot" : store.prefs.transport == "cycle" ? "By bike" : "Public transport" }
     private var hero: some View {
-        PlaceImage(photoKey: areaPhotoKey(store.startArea.area), label: "Amstroll starting area: \(store.startArea.name)", height: 310)
+        PlaceImage(photoKey: areaPhotoKey(store.startArea.area), label: "Amstroll starting area: \(store.startArea.name)", height: 220)
             .overlay(LinearGradient(colors: [.black.opacity(0.15), AmstrollStyle.forest.opacity(0.55), AmstrollStyle.paper], startPoint: .top, endPoint: .bottom))
             .overlay { DetourPath().stroke(.white.opacity(0.4), style: StrokeStyle(lineWidth: 2, lineCap: .round, dash: [3, 7])).padding(.top, 30).padding(.bottom, 60) }
             .padding(.horizontal, -22).accessibilityHidden(true)
     }
     private var brandHeader: some View {
-        HStack {
-            Image("AmstrollWordmark").resizable().scaledToFit().frame(width: 125, height: 30).accessibilityLabel("Amstroll")
-            Spacer(minLength: 8)
+        HStack(spacing: 16) {
+            Image("AmstrollWordmark")
+                .resizable().scaledToFit().frame(width: 125, height: 34)
+                .accessibilityLabel("Amstroll")
+            Spacer(minLength: 0)
             Button { sheet = .profile } label: {
-                HStack(spacing: 7) {
-                    Text(store.demoMode ? "AM" : "A").font(AmstrollStyle.label(10)).frame(width: 31, height: 31).background(AmstrollStyle.paleSage, in: Circle())
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(store.demoMode ? "Alex" : "Your space").font(AmstrollStyle.label(11))
-                        Text(store.demoMode ? "Demo account" : "On this iPhone").font(AmstrollStyle.body(9)).foregroundStyle(AmstrollStyle.muted)
+                HStack(spacing: 8) {
+                    Image(systemName: "person.crop.circle")
+                        .font(.system(size: 27, weight: .light))
+                        .foregroundStyle(AmstrollStyle.forest)
+                        .accessibilityHidden(true)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Your space").font(AmstrollStyle.label(11))
+                        Text("No account").font(AmstrollStyle.body(9))
+                            .foregroundStyle(AmstrollStyle.muted)
                     }
-                }.frame(minHeight: 44)
-            }.buttonStyle(.plain).accessibilityLabel("Open Amstroll settings")
-        }.padding(.horizontal, 12).padding(.vertical, 9).frame(minHeight: 63)
-            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 21))
-            .overlay(RoundedRectangle(cornerRadius: 21).stroke(.white.opacity(0.8), lineWidth: 1))
-            .shadow(color: AmstrollStyle.ink.opacity(0.09), radius: 15, y: 7)
+                }
+                .padding(.horizontal, 12).padding(.vertical, 9)
+                .frame(minHeight: 54)
+                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 19))
+                .overlay(RoundedRectangle(cornerRadius: 19).stroke(AmstrollStyle.line, lineWidth: 1))
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("Anonymous profile. Open Amstroll settings")
+            .accessibilityIdentifier("anonymous-profile")
+        }
     }
     private var timeCard: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -242,18 +263,18 @@ struct AmstrollRootView: View {
             ProgressView("A little looking around. No rush.").frame(maxWidth: .infinity).padding(30)
         } else {
             if let error = discovery.error { SmallNotice(text: error, symbol: "wifi.exclamationmark") }
+            ForEach(discovery.warnings, id: \.self) { SmallNotice(text: $0) }
             if !discovery.places.isEmpty {
-                Text("Showing \(discovery.page + 1)–\(min(discovery.page + 5, discovery.places.count)) of \(discovery.places.count) places. Open data, not confirmed open now.")
+                Text("Selected for your time and starting point. Walking routes checked from your start. Visit times are estimates.")
                     .font(AmstrollStyle.body(12)).foregroundStyle(AmstrollStyle.muted).accessibilityIdentifier("page-status")
-                ForEach(discovery.warnings, id: \.self) { SmallNotice(text: $0) }
                 ForEach(Array(discovery.visible.enumerated()), id: \.element.id) { index, place in
                     LivePlaceCard(place: place, compact: index != 0, open: { selectedPlace = place })
                 }
                 if discovery.places.count > 5 { Button { discovery.more() } label: { Label("More of these", systemImage: "arrow.right") }.buttonStyle(AmstrollButton(primary: false)) }
             } else if !discovery.loading {
-                Text(discovery.didSearch ? "This source has no photographed places to show right now." : "Choose your preferences, then find a little possibility nearby.").font(AmstrollStyle.body())
+                Text(discovery.didSearch ? "No nearby places could be loaded right now." : "Choose your preferences, then find a little possibility nearby.").font(AmstrollStyle.body())
             }
-            if discovery.error != nil || discovery.places.isEmpty {
+            if discovery.error != nil || (discovery.places.isEmpty) {
                 Button("Explore the Amsterdam collection") { discovery.source = .collection }.buttonStyle(AmstrollButton(primary: false))
             }
         }

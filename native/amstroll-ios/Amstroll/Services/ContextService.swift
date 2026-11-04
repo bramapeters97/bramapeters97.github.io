@@ -111,9 +111,10 @@ enum TransportLinks {
     }
     static let gvb = URL(string:"https://www.gvb.nl/reisinformatie")!
     static let ns = URL(string:"https://www.ns.nl/en/journeyplanner/")!
-    static func walkingDirections(latitude: Double, longitude: Double, name: String) -> URL {
+    static func walkingDirections(latitude: Double, longitude: Double, name: String, origin: ServiceCoordinate? = nil) -> URL {
         var components = URLComponents(string:"https://maps.apple.com/")!
         components.queryItems = [URLQueryItem(name:"daddr",value:"\(latitude),\(longitude)"),URLQueryItem(name:"dirflg",value:"w"),URLQueryItem(name:"q",value:name)]
+        if let origin { components.queryItems?.append(URLQueryItem(name: "saddr", value: "\(origin.latitude),\(origin.longitude)")) }
         return components.url!
     }
 }

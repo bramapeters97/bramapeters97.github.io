@@ -49,6 +49,7 @@ struct AmstrollSheetView: View {
         }.onAppear { hours = store.prefs.minutes / 60; minutes = store.prefs.minutes % 60; draft = store.prefs; unlimitedBudget = store.prefs.budget == nil; budgetText = store.prefs.budget.map { String($0) } ?? "20" }
             .task { if sheet == .transit { await loadStops() } }
             .onDisappear { locationTask?.cancel() }
+            .amstrollLoading(loading)
             .sheet(item: $document) { value in LegalDocumentView(document: value) }
     }
     private var title: String {
@@ -110,7 +111,20 @@ struct AmstrollSheetView: View {
     }
     private var preferences: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Set the effort, spending and finish that feel right. Nothing changes until you apply these preferences.").font(AmstrollStyle.body())
+            Text("A little time, a starting point, and whatever you’re in the mood for. We’ll find a few walks that fit.").font(AmstrollStyle.body())
+            VStack(alignment: .leading, spacing: 14) {
+                Stepper("\(draft.minutes) minutes to explore", value: $draft.minutes, in: 5...720, step: 5)
+                Picker("Start from", selection: $draft.start) {
+                    ForEach(store.startingAreas) { Text($0.name).tag($0.id) }
+                }
+                Picker("What sounds good?", selection: $draft.mood) {
+                    ForEach(["any", "coffee", "culture", "outdoors", "unexpected", "food", "quiet"], id: \.self) { mood in
+                        Text(moodName(mood)).tag(mood)
+                    }
+                }
+                Text("You can also choose your current location from the home screen.")
+                    .font(AmstrollStyle.body(11)).foregroundStyle(AmstrollStyle.muted)
+            }.amstrollCard()
             VStack(alignment: .leading, spacing: 14) {
                 Text("How would you like to travel?").font(AmstrollStyle.label())
                 Picker("Travel mode", selection: $draft.transport) { Text("On foot").tag("walk"); Text("By bike").tag("cycle"); Text("Public transport").tag("transit") }.pickerStyle(.segmented)
@@ -133,7 +147,7 @@ struct AmstrollSheetView: View {
                     ForEach(store.startingAreas) { Text($0.name).tag($0.id) }
                 }.pickerStyle(.menu)
             }.frame(maxWidth: .infinity, alignment: .leading).amstrollCard()
-            Button("Apply my preferences") {
+            Button("Find my little adventure") {
                 let number = Double(budgetText.replacingOccurrences(of: ",", with: "."))
                 guard unlimitedBudget || (number != nil && number!.isFinite && number! >= 0 && number! <= 10_000) else { error = "Enter a spending allowance between €0 and €10,000, or choose Any budget."; return }
                 draft.budget = unlimitedBudget ? nil : number
@@ -145,11 +159,11 @@ struct AmstrollSheetView: View {
         VStack(alignment: .leading, spacing: 16) {
             ForEach(SourceMode.allCases, id: \.self) { mode in
                 Button { source = mode; dismiss() } label: {
-                    HStack(alignment: .top, spacing: 12) { Image(systemName: mode == .open ? "globe.europe.africa" : "square.3.layers.3d"); VStack(alignment: .leading, spacing: 7) { Text(mode.rawValue).font(AmstrollStyle.heading(17)); Text(mode == .open ? "Real nearby places with distinct licensed photographs. Network needed; availability remains unverified." : "Twenty authored ideas, bundled for offline use. Travel and spending use sample estimates.").font(AmstrollStyle.body(12)).foregroundStyle(AmstrollStyle.muted) }; Spacer(minLength: 0); if source == mode { Image(systemName: "checkmark.circle.fill") } }.amstrollCard()
+                    HStack(alignment: .top, spacing: 12) { Image(systemName: mode == .open ? "globe.europe.africa" : "square.3.layers.3d"); VStack(alignment: .leading, spacing: 7) { Text(mode.rawValue).font(AmstrollStyle.heading(17)); Text(mode == .open ? "Nearby places from Apple Maps, OpenStreetMap, Wikidata and English and Dutch Wikipedia. Licensed photographs appear when available." : "Twenty authored ideas, bundled for offline use. Travel and spending use sample estimates.").font(AmstrollStyle.body(12)).foregroundStyle(AmstrollStyle.muted) }; Spacer(minLength: 0); if source == mode { Image(systemName: "checkmark.circle.fill") } }.amstrollCard()
                 }.buttonStyle(.plain)
             }
-            SmallNotice(text: "Open places describes open-data discovery. It does not mean these places are open right now. Sources are never silently replaced with sample results.")
-            Text("Live Google place and route information is unavailable in this version. Open places uses the public sources listed above.").font(AmstrollStyle.body(12)).foregroundStyle(AmstrollStyle.muted)
+            SmallNotice(text: "Nearby places combines public data and map listings. It does not mean these places are open right now. Sources are never silently replaced with sample results.")
+            Text("No subscription or API key is needed. OpenStreetMap and Wikimedia supply open data and licensed pictures; Apple Maps supplies nearby listings and walking routes. Photos are never borrowed from a different venue.").font(AmstrollStyle.body(12)).foregroundStyle(AmstrollStyle.muted)
             Button { Task { loading = true; defer { loading = false }; do { let selected = store.startArea; let result = try await context.weather(latitude: selected.lat, longitude: selected.lng); if store.startArea == selected { store.forecast = result } } catch { self.error = error.localizedDescription } } } label: { Label(loading ? "Checking the forecast…" : "Check weather for this start", systemImage: "sun.max") }.buttonStyle(AmstrollButton(primary: false)).disabled(loading)
             if let weather = store.forecast {
                 VStack(alignment: .leading, spacing: 9) {
@@ -164,8 +178,8 @@ struct AmstrollSheetView: View {
     private var profile: some View {
         VStack(alignment: .leading, spacing: 18) {
             Image("AmstrollWordmark").resizable().scaledToFit().frame(height: 40)
-            Text(store.demoMode ? "You’re exploring a fictional demo account." : "Your little corner of Amsterdam.").font(AmstrollStyle.heading(22))
-            Text("No password, registration or cloud account. Saved ideas, notes and optional photos stay on this iPhone.").font(AmstrollStyle.body())
+            Text(store.demoMode ? "You’re exploring sample adventures." : "Your little corner of Amsterdam.").font(AmstrollStyle.heading(22))
+            Text("Amstroll is completely free. No login, subscription or in-app purchases. Saved ideas, notes and optional photos stay on this iPhone.").font(AmstrollStyle.body())
             if store.demoMode { SmallNotice(text: "Demo mode uses isolated sample data. It does not replace your real saved ideas or memories.") }
             Button { document = .privacy } label: { Label("Privacy policy", systemImage: "hand.raised") }.frame(minHeight: 44)
             Button { document = .support } label: { Label("Help & support", systemImage: "questionmark.circle") }.frame(minHeight: 44)
@@ -177,7 +191,7 @@ struct AmstrollSheetView: View {
     }
     private var credits: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Amsterdam photographs retain their authors’ licences. Area images establish context; the Open places view uses separately linked place photographs.")
+            Text("Amsterdam photographs retain their authors’ licences. Area images establish context; the Nearby places view uses separately linked place photographs.")
             ForEach(PhotoMetadata.all.keys.sorted(), id: \.self) { key in if let photo = PhotoMetadata.all[key] { PhotoCreditView(metadata: photo).amstrollCard() } }
         }
     }

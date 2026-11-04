@@ -1,4 +1,5 @@
 import SwiftUI
+import MapKit
 
 struct LivePlaceCard: View {
     @EnvironmentObject private var store: AppStore
@@ -11,7 +12,9 @@ struct LivePlaceCard: View {
             ZStack(alignment: .topTrailing) {
                 Button(action: open) {
                     Group {
-                        if compact {
+                        if place.photo == nil {
+                            copy.padding(18).padding(.trailing, 35)
+                        } else if compact {
                             HStack(alignment: .top, spacing: 12) {
                                 PlaceImage(remote: place.photo.flatMap { URL(string: $0.url) }, label: place.photo?.alt ?? "Photograph unavailable", height: 145).frame(width: 100).clipped()
                                 copy.padding(.vertical, 13).padding(.trailing, 42)
@@ -38,7 +41,17 @@ struct LivePlaceCard: View {
             Label("Amsterdam · \(place.provider)", systemImage: "mappin").font(AmstrollStyle.body(10)).foregroundStyle(AmstrollStyle.muted)
             Text(place.title).font(AmstrollStyle.heading(compact ? 15 : 19)).tracking(-0.5)
             Text(place.summary).font(AmstrollStyle.body(12)).foregroundStyle(AmstrollStyle.muted).lineLimit(compact ? 2 : 3)
-            Label("Price, access or route needs checking", systemImage: "info.circle").font(AmstrollStyle.body(10)).foregroundStyle(AmstrollStyle.forest)
+            if let visit = place.walkingVisit {
+                Text(visit.reason).font(AmstrollStyle.body(11)).foregroundStyle(AmstrollStyle.forest)
+                Label("\(visit.outward.durationMinutes) min walk · about \(visit.totalMinutes) min outing", systemImage: "figure.walk")
+                    .font(AmstrollStyle.label(11))
+                Text("Visit time estimated · price and opening hours unverified")
+                    .font(AmstrollStyle.body(10)).foregroundStyle(AmstrollStyle.muted)
+            }
+            if let source = place.descriptionSourceURL, let url = URL(string: source) {
+                Text(place.descriptionLicense ?? "Source description").font(AmstrollStyle.body(9)).foregroundStyle(AmstrollStyle.muted)
+                    .accessibilityHint(url.absoluteString)
+            }
         }.frame(maxWidth: .infinity, alignment: .leading)
     }
     private func save() { store.saveLive(id: place.id, title: place.title, lat: place.lat, lng: place.lng, sourceURL: place.sourceURL) }
@@ -70,13 +83,27 @@ struct LivePlaceView: View {
     private let contextService = ContextService()
     var body: some View {
         ScrollView { VStack(alignment: .leading, spacing: 21) {
-            PlaceImage(remote: place.photo.flatMap { URL(string: $0.url) }, label: place.photo?.alt ?? "Photograph unavailable", height: 220).clipShape(RoundedRectangle(cornerRadius: 24))
+            if let photo = place.photo {
+                PlaceImage(remote: URL(string: photo.url), label: photo.alt, height: 220).clipShape(RoundedRectangle(cornerRadius: 24))
+            }
             if place.photo != nil { Button { credit = true } label: { Label("Photograph and licence", systemImage: "camera") }.font(AmstrollStyle.body(11)).frame(minHeight: 44) }
             Text("Amsterdam · A closer look").font(AmstrollStyle.body(12)).foregroundStyle(AmstrollStyle.muted)
             Text(place.title).screenHeading()
             Text(place.summary).foregroundStyle(AmstrollStyle.muted)
-            SmallNotice(text: "This is a real place from open data. Its current availability, price and access have not been verified. No authored route is substituted.")
+            if let source = place.descriptionSourceURL, let url = URL(string: source) {
+                Link(place.descriptionLicense ?? "Description source", destination: url).font(AmstrollStyle.body(11))
+            }
+            if let visit = place.walkingVisit {
+                Text("About \(visit.totalMinutes) minutes, including a \(visit.visitMinutes)-minute visit and a 5-minute buffer.")
+                    .font(AmstrollStyle.label(13))
+                Text("Visit time is an allowance. Walking is routed from \(visit.originName).")
+                    .font(AmstrollStyle.body(11)).foregroundStyle(AmstrollStyle.muted)
+            }
+            SmallNotice(text: "This place comes from the source linked below. Its current availability, price and access have not been verified. No authored route is substituted.")
             if let outward {
+                if !outward.coordinates.isEmpty {
+                    WalkingRouteMap(route: outward, returnRoute: returnRoute, destinationName: place.title)
+                }
                 VStack(alignment: .leading, spacing: 12) {
                     Text("\(outward.durationMinutes.amstrollDuration) walking to this place").font(AmstrollStyle.heading(19))
                     Text("\(Int(outward.distanceMeters.rounded())) m · \(outward.source)").font(AmstrollStyle.body(12))
@@ -96,7 +123,7 @@ struct LivePlaceView: View {
             }
             if let error { SmallNotice(text: error, symbol: "exclamationmark.circle") }
             if let url = URL(string: place.sourceURL) { Link("Check the original place source ↗", destination: url).frame(minHeight: 44) }
-            Link(destination: TransportLinks.walkingDirections(latitude: place.lat, longitude: place.lng, name: place.title)) { Label("Open walking directions", systemImage: "location") }.buttonStyle(AmstrollButton(primary: false))
+            Link(destination: TransportLinks.walkingDirections(latitude: place.lat, longitude: place.lng, name: place.title, origin: place.walkingVisit?.origin)) { Label("Open walking directions", systemImage: "location") }.buttonStyle(AmstrollButton(primary: false))
             HStack { Link("GVB planner ↗", destination: TransportLinks.gvb); Spacer(); Link("NS planner ↗", destination: TransportLinks.ns) }.font(AmstrollStyle.label(12)).frame(minHeight: 44)
             Button {
                 store.saveLive(id: place.id, title: place.title, lat: place.lat, lng: place.lng, sourceURL: place.sourceURL)
@@ -104,6 +131,13 @@ struct LivePlaceView: View {
             SmallNotice(text: "A live place is inspiration until all required plan checks fit. To try the complete start → progress → journal journey now, choose a fitting sample in the Amsterdam collection. Saving this place does not commit you to an outing.")
         }.padding(20) }.background(AmstrollStyle.paper).navigationTitle("Explore").navigationBarTitleDisplayMode(.inline).toolbar(.visible, for: .navigationBar)
             .sheet(isPresented: $credit) { if let photo = place.photo { ServicePhotoCredit(photo: photo) } }
+            .amstrollLoading(loading)
+            .onAppear {
+                if outward == nil, let visit = place.walkingVisit {
+                    outward = visit.outward
+                    returnRoute = visit.returnLeg
+                }
+            }
     }
     private func checkWalking() async {
         loading = true; error = nil; defer { loading = false }
@@ -116,5 +150,33 @@ struct LivePlaceView: View {
             if let end { last = try await NativeRouteService.walkingRoute(from: destination, to: ServiceCoordinate(latitude: end.lat, longitude: end.lng)) }
             outward = leg; returnRoute = last
         } catch { self.error = error.localizedDescription }
+    }
+}
+
+
+
+private struct WalkingRouteMap: View {
+    let route: NativeRoute
+    let returnRoute: NativeRoute?
+    let destinationName: String
+
+    var body: some View {
+        Map(initialPosition: .automatic) {
+            MapPolyline(coordinates: route.coordinates.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) })
+                .stroke(AmstrollStyle.forest, lineWidth: 5)
+            if let returnRoute {
+                MapPolyline(coordinates: returnRoute.coordinates.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) })
+                    .stroke(AmstrollStyle.muted, lineWidth: 4)
+            }
+            if let start = route.coordinates.first {
+                Marker("Start", systemImage: "figure.walk", coordinate: CLLocationCoordinate2D(latitude: start.latitude, longitude: start.longitude))
+            }
+            if let finish = route.coordinates.last {
+                Marker(destinationName, coordinate: CLLocationCoordinate2D(latitude: finish.latitude, longitude: finish.longitude))
+            }
+        }
+        .frame(height: 260)
+        .clipShape(RoundedRectangle(cornerRadius: 22))
+        .accessibilityLabel("Apple Maps walking route to \(destinationName)")
     }
 }

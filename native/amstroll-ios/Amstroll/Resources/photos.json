@@ -290,24 +290,6 @@
     "licenseURL": "https://creativecommons.org/licenses/by/4.0",
     "nativeChanges": "Extracted embedded WebP and converted to PNG without resampling for native assets; display crops may vary."
   },
-  "login": {
-    "alt": "Canal houses and water along Prinsengracht in Amsterdam.",
-    "credit": "Diliff",
-    "source": "https://commons.wikimedia.org/wiki/File:Amsterdam_Canals_-_July_2006.jpg",
-    "license": "CC BY 2.5",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-    "title": "File:Amsterdam Canals - July 2006.jpg",
-    "changes": "Resized to a maximum width of 1000px, compressed for offline embedding and converted to WebP; displayed crops may vary.",
-    "areaContext": true,
-    "width": 800,
-    "height": 422,
-    "aliasOf": "amsterdam-canals",
-    "imageName": "photo-login",
-    "url": "photo-login",
-    "sourceURL": "https://commons.wikimedia.org/wiki/File:Amsterdam_Canals_-_July_2006.jpg",
-    "licenseURL": "https://creativecommons.org/licenses/by/2.5",
-    "nativeChanges": "Extracted embedded WebP and converted to PNG without resampling for native assets; display crops may vary."
-  },
   "centrum": {
     "alt": "Canal houses and water along Prinsengracht in Amsterdam.",
     "credit": "Diliff",
