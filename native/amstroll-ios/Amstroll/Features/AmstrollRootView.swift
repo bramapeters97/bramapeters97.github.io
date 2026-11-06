@@ -132,7 +132,7 @@ struct AmstrollRootView: View {
                             Button { sheet = .moods } label: { Image(systemName: "slider.horizontal.3").frame(minWidth: 44, minHeight: 44) }
                                 .background(AmstrollStyle.card, in: RoundedRectangle(cornerRadius: 15)).accessibilityLabel("More moods")
                         } }
-                        Button { search(); if reduceMotion { proxy.scrollTo("results", anchor: .top) } else { withAnimation { proxy.scrollTo("results", anchor: .top) } } } label: {
+                        Button { search() } label: {
                             HStack { Text(discovery.loading ? "Gathering a few good ideas…" : "Find my little adventure"); Image(systemName: discovery.loading ? "clock" : "arrow.right") }
                         }.buttonStyle(AmstrollButton()).disabled(discovery.loading).accessibilityIdentifier("find-adventure")
                         HStack(alignment: .top) {
@@ -157,6 +157,14 @@ struct AmstrollRootView: View {
                 }.padding(.horizontal, 22).padding(.bottom, 20)
             }
                 .accessibilityIdentifier("explore-screen")
+                .onChange(of: discovery.loading) { wasLoading, isLoading in
+                    guard wasLoading, !isLoading, discovery.didSearch else { return }
+                    if reduceMotion {
+                        proxy.scrollTo("results", anchor: .top)
+                    } else {
+                        withAnimation(.easeInOut(duration: 0.35)) { proxy.scrollTo("results", anchor: .top) }
+                    }
+                }
                 .onAppear {
                     let arguments = ProcessInfo.processInfo.arguments
                     if let index = arguments.firstIndex(of: "--screenshot-scene"), arguments.count > index + 1, arguments[index + 1] == "results" {

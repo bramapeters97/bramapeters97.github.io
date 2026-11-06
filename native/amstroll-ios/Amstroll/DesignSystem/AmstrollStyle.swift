@@ -73,9 +73,21 @@ struct PlaceImage: View {
         }.frame(height: height).frame(maxWidth: .infinity).clipped()
             .accessibilityLabel(label)
     }
-    private var unavailable: some View {
-        VStack(spacing: 8) { Image(systemName: "photo"); Text("Photograph unavailable").font(AmstrollStyle.body(12)) }
-            .frame(maxWidth: .infinity, maxHeight: .infinity).foregroundStyle(AmstrollStyle.muted).background(AmstrollStyle.paleSage)
+    private var unavailable: some View { PlaceImagePlaceholder() }
+}
+
+private struct PlaceImagePlaceholder: View {
+    var body: some View {
+        ZStack {
+            LinearGradient(colors: [AmstrollStyle.paleSage, AmstrollStyle.paper], startPoint: .topLeading, endPoint: .bottomTrailing)
+            Image(systemName: "map").font(.system(size: 100, weight: .ultraLight)).rotationEffect(.degrees(-12)).opacity(0.12)
+            VStack(spacing: 10) {
+                Image(systemName: "mappin.and.ellipse").font(.system(size: 32, weight: .light))
+                Text("A place to discover").font(AmstrollStyle.body(12))
+            }
+        }.foregroundStyle(AmstrollStyle.forest)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .accessibilityLabel("Place illustration; photograph unavailable")
     }
 }
 
@@ -87,8 +99,7 @@ private struct RemotePlaceImage: View {
         Group {
             if let image { Image(uiImage: image).resizable().scaledToFill() }
             else if failed {
-                VStack(spacing: 8) { Image(systemName: "photo"); Text("Photograph unavailable").font(AmstrollStyle.body(12)) }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity).foregroundStyle(AmstrollStyle.muted).background(AmstrollStyle.paleSage)
+                PlaceImagePlaceholder()
             } else { ZStack { AmstrollStyle.paleSage; ProgressView().tint(AmstrollStyle.forest) } }
         }.task(id: url) {
             image = nil; failed = false

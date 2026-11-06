@@ -12,9 +12,7 @@ struct LivePlaceCard: View {
             ZStack(alignment: .topTrailing) {
                 Button(action: open) {
                     Group {
-                        if place.photo == nil {
-                            copy.padding(18).padding(.trailing, 35)
-                        } else if compact {
+                        if compact {
                             HStack(alignment: .top, spacing: 12) {
                                 PlaceImage(remote: place.photo.flatMap { URL(string: $0.url) }, label: place.photo?.alt ?? "Photograph unavailable", height: 145).frame(width: 100).clipped()
                                 copy.padding(.vertical, 13).padding(.trailing, 42)
@@ -83,9 +81,7 @@ struct LivePlaceView: View {
     private let contextService = ContextService()
     var body: some View {
         ScrollView { VStack(alignment: .leading, spacing: 21) {
-            if let photo = place.photo {
-                PlaceImage(remote: URL(string: photo.url), label: photo.alt, height: 220).clipShape(RoundedRectangle(cornerRadius: 24))
-            }
+            PlaceImage(remote: place.photo.flatMap { URL(string: $0.url) }, label: place.photo?.alt ?? "Place illustration; photograph unavailable", height: 220).clipShape(RoundedRectangle(cornerRadius: 24))
             if place.photo != nil { Button { credit = true } label: { Label("Photograph and licence", systemImage: "camera") }.font(AmstrollStyle.body(11)).frame(minHeight: 44) }
             Text("Amsterdam · A closer look").font(AmstrollStyle.body(12)).foregroundStyle(AmstrollStyle.muted)
             Text(place.title).screenHeading()

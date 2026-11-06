@@ -1,6 +1,6 @@
 # Native screenshot output
 
-No native screenshots have been captured in this Windows environment. This directory intentionally contains instructions rather than old web captures or generated application imagery.
+Seven native iPhone 17 Simulator captures are available in `2026-11-05-iPhone17/`. They are 1206×2622 opaque sRGB PNGs exported from passing Xcode UI tests. These show the app’s sample collection and demo memories; review the images before uploading. The capture manifest records their source attachments.
 
 On a Mac with Xcode and an installed medium Dynamic Island iPhone Simulator:
 

@@ -1,107 +1,107 @@
 [
   {
-    "attachments" : [
+    "attachments": [
       {
-        "configurationName" : "Test Scheme Action",
-        "deviceId" : "3E123E8B-1F4D-4659-9885-7A7DADC35532",
-        "deviceName" : "iPhone 17",
-        "exportedFileName" : "B185091E-C1EC-4CFB-8380-648A7CB08111.png",
-        "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Amstroll-explore_0_350C1CBE-EABC-47BD-94FC-067A1699356E.png",
-        "timestamp" : 1793834129.843
+        "configurationName": "Test Scheme Action",
+        "deviceId": "3E123E8B-1F4D-4659-9885-7A7DADC35532",
+        "deviceName": "iPhone 17",
+        "exportedFileName": "B185091E-C1EC-4CFB-8380-648A7CB08111.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "Amstroll-explore_0_350C1CBE-EABC-47BD-94FC-067A1699356E.png",
+        "timestamp": 1793834129.843
       }
     ],
-    "testIdentifier" : "AmstrollScreenshotTests/test01Explore()",
-    "testIdentifierURL" : "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test01Explore"
+    "testIdentifier": "AmstrollScreenshotTests/test01Explore()",
+    "testIdentifierURL": "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test01Explore"
   },
   {
-    "attachments" : [
+    "attachments": [
       {
-        "configurationName" : "Test Scheme Action",
-        "deviceId" : "3E123E8B-1F4D-4659-9885-7A7DADC35532",
-        "deviceName" : "iPhone 17",
-        "exportedFileName" : "F74375F3-D929-4840-83FC-C71F80CCA3D4.png",
-        "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Amstroll-preferences_0_BCE10BE0-F318-4EC2-94F1-673140D7B384.png",
-        "timestamp" : 1793834139.154
+        "configurationName": "Test Scheme Action",
+        "deviceId": "7D0CF99C-FD3D-4A32-AEF0-920320C8C320",
+        "deviceName": "iPhone 18 Pro",
+        "exportedFileName": "F2A4FEA1-0CC8-4953-890D-653D0A50EB0A.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "Amstroll-preferences_0_1AF9DEEE-8943-4D01-ADA1-1923AC777623.png",
+        "timestamp": 1793834940.831
       }
     ],
-    "testIdentifier" : "AmstrollScreenshotTests/test02Preferences()",
-    "testIdentifierURL" : "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test02Preferences"
+    "testIdentifier": "AmstrollScreenshotTests/test02Preferences()",
+    "testIdentifierURL": "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test02Preferences"
   },
   {
-    "attachments" : [
+    "attachments": [
       {
-        "configurationName" : "Test Scheme Action",
-        "deviceId" : "3E123E8B-1F4D-4659-9885-7A7DADC35532",
-        "deviceName" : "iPhone 17",
-        "exportedFileName" : "EE3262F0-43D0-409E-AFC0-430D969DBF24.png",
-        "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Amstroll-results_0_0921C0CF-8196-4264-BA0D-1BAD01A377E1.png",
-        "timestamp" : 1793834149.392
+        "configurationName": "Test Scheme Action",
+        "deviceId": "7D0CF99C-FD3D-4A32-AEF0-920320C8C320",
+        "deviceName": "iPhone 18 Pro",
+        "exportedFileName": "3201082E-03B7-481C-91C5-4C561F3979B9.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "Amstroll-results_0_9C5578BD-6CB3-4A4D-8B6C-23A2D0C8EE89.png",
+        "timestamp": 1793834955.016
       }
     ],
-    "testIdentifier" : "AmstrollScreenshotTests/test03Suggestions()",
-    "testIdentifierURL" : "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test03Suggestions"
+    "testIdentifier": "AmstrollScreenshotTests/test03Suggestions()",
+    "testIdentifierURL": "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test03Suggestions"
   },
   {
-    "attachments" : [
+    "attachments": [
       {
-        "configurationName" : "Test Scheme Action",
-        "deviceId" : "3E123E8B-1F4D-4659-9885-7A7DADC35532",
-        "deviceName" : "iPhone 17",
-        "exportedFileName" : "C957CA40-1729-4F8D-9878-B1C6B4E8FFEC.png",
-        "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Amstroll-detail_0_7E0C4A4D-C7E2-477A-ADE9-67005E2C28EE.png",
-        "timestamp" : 1793834156.195
+        "configurationName": "Test Scheme Action",
+        "deviceId": "3E123E8B-1F4D-4659-9885-7A7DADC35532",
+        "deviceName": "iPhone 17",
+        "exportedFileName": "C957CA40-1729-4F8D-9878-B1C6B4E8FFEC.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "Amstroll-detail_0_7E0C4A4D-C7E2-477A-ADE9-67005E2C28EE.png",
+        "timestamp": 1793834156.195
       }
     ],
-    "testIdentifier" : "AmstrollScreenshotTests/test04OutingDetail()",
-    "testIdentifierURL" : "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test04OutingDetail"
+    "testIdentifier": "AmstrollScreenshotTests/test04OutingDetail()",
+    "testIdentifierURL": "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test04OutingDetail"
   },
   {
-    "attachments" : [
+    "attachments": [
       {
-        "configurationName" : "Test Scheme Action",
-        "deviceId" : "3E123E8B-1F4D-4659-9885-7A7DADC35532",
-        "deviceName" : "iPhone 17",
-        "exportedFileName" : "335E286B-FADE-48D1-B960-531CAD4228F7.png",
-        "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Amstroll-progress_0_DD22D1C2-11B7-4894-9553-EB9DCB287139.png",
-        "timestamp" : 1793834162.968
+        "configurationName": "Test Scheme Action",
+        "deviceId": "3E123E8B-1F4D-4659-9885-7A7DADC35532",
+        "deviceName": "iPhone 17",
+        "exportedFileName": "335E286B-FADE-48D1-B960-531CAD4228F7.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "Amstroll-progress_0_DD22D1C2-11B7-4894-9553-EB9DCB287139.png",
+        "timestamp": 1793834162.968
       }
     ],
-    "testIdentifier" : "AmstrollScreenshotTests/test05ManualProgress()",
-    "testIdentifierURL" : "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test05ManualProgress"
+    "testIdentifier": "AmstrollScreenshotTests/test05ManualProgress()",
+    "testIdentifierURL": "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test05ManualProgress"
   },
   {
-    "attachments" : [
+    "attachments": [
       {
-        "configurationName" : "Test Scheme Action",
-        "deviceId" : "3E123E8B-1F4D-4659-9885-7A7DADC35532",
-        "deviceName" : "iPhone 17",
-        "exportedFileName" : "1FE85239-8002-4C1D-BAEB-E566930DA571.png",
-        "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Amstroll-saved_0_45165238-6E37-4DED-AD82-8334614483BF.png",
-        "timestamp" : 1793834169.424
+        "configurationName": "Test Scheme Action",
+        "deviceId": "3E123E8B-1F4D-4659-9885-7A7DADC35532",
+        "deviceName": "iPhone 17",
+        "exportedFileName": "1FE85239-8002-4C1D-BAEB-E566930DA571.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "Amstroll-saved_0_45165238-6E37-4DED-AD82-8334614483BF.png",
+        "timestamp": 1793834169.424
       }
     ],
-    "testIdentifier" : "AmstrollScreenshotTests/test06SavedIdeas()",
-    "testIdentifierURL" : "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test06SavedIdeas"
+    "testIdentifier": "AmstrollScreenshotTests/test06SavedIdeas()",
+    "testIdentifierURL": "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test06SavedIdeas"
   },
   {
-    "attachments" : [
+    "attachments": [
       {
-        "configurationName" : "Test Scheme Action",
-        "deviceId" : "3E123E8B-1F4D-4659-9885-7A7DADC35532",
-        "deviceName" : "iPhone 17",
-        "exportedFileName" : "B2F395FF-41E5-40CB-8CBC-B798599853FA.png",
-        "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Amstroll-journal_0_B9C1517C-37F5-4145-89EF-1C5657CA6D0D.png",
-        "timestamp" : 1793834175.903
+        "configurationName": "Test Scheme Action",
+        "deviceId": "3E123E8B-1F4D-4659-9885-7A7DADC35532",
+        "deviceName": "iPhone 17",
+        "exportedFileName": "B2F395FF-41E5-40CB-8CBC-B798599853FA.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "Amstroll-journal_0_B9C1517C-37F5-4145-89EF-1C5657CA6D0D.png",
+        "timestamp": 1793834175.903
       }
     ],
-    "testIdentifier" : "AmstrollScreenshotTests/test07Journal()",
-    "testIdentifierURL" : "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test07Journal"
+    "testIdentifier": "AmstrollScreenshotTests/test07Journal()",
+    "testIdentifierURL": "test://com.apple.xcode/Amstroll/AmstrollUITests/AmstrollScreenshotTests/test07Journal"
   }
 ]
