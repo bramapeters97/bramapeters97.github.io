@@ -1,0 +1,3161 @@
+{
+  "notice": "Sanitised readable metadata from the pristine fictional seed.db, not a snapshot of the editable working database. Demo media comes from the approved source registry; the original supplied clip remains an optional fallback. Synthetic captions are not sample dialogue. Password hashes, sessions, pairing codes, tokens, private files and runtime history are excluded.",
+  "schemaVersion": 2,
+  "accounts": [
+    {
+      "id": "demo-owner",
+      "email": "demo@example.test",
+      "name": "Demo Owner",
+      "createdAt": "2026-11-01T02:50:11.002Z"
+    },
+    {
+      "id": "demo-viewer",
+      "email": "viewer@example.test",
+      "name": "Demo Viewer",
+      "createdAt": "2026-11-01T02:50:11.146Z"
+    },
+    {
+      "id": "other-owner",
+      "email": "other@example.test",
+      "name": "Other Owner",
+      "createdAt": "2026-11-01T02:50:11.051Z"
+    },
+    {
+      "id": "third-owner",
+      "email": "third@example.test",
+      "name": "Third Owner",
+      "createdAt": "2026-11-01T02:50:11.099Z"
+    }
+  ],
+  "memberships": [
+    {
+      "tenantId": "demo",
+      "accountId": "demo-owner",
+      "role": "owner"
+    },
+    {
+      "tenantId": "demo",
+      "accountId": "demo-viewer",
+      "role": "viewer"
+    },
+    {
+      "tenantId": "other",
+      "accountId": "other-owner",
+      "role": "owner"
+    },
+    {
+      "tenantId": "third",
+      "accountId": "third-owner",
+      "role": "owner"
+    }
+  ],
+  "archives": [
+    {
+      "tenant": {
+        "id": "demo",
+        "name": "The Sunday Cinema",
+        "slogan": "Our stories. Our cinema.",
+        "icon": "clapperboard",
+        "accent": "#e9bd67",
+        "theme": "classic",
+        "palette": "midnight",
+        "font": "inter",
+        "background": "/artwork/lake.png",
+        "intro": true,
+        "homepage": [
+          "featured",
+          "continue",
+          "collections"
+        ],
+        "memoryDiscovery": {
+          "enabled": true,
+          "collectionIds": [],
+          "excludedVideoIds": [],
+          "sensitiveOccasions": []
+        },
+        "storageLimitBytes": 10737418240,
+        "storageLimitHours": 10,
+        "demo": true,
+        "draft": {
+          "name": "The Sunday Cinema",
+          "slogan": "Our stories. Our cinema.",
+          "icon": "clapperboard",
+          "accent": "#e9bd67",
+          "theme": "classic",
+          "palette": "midnight",
+          "font": "inter",
+          "background": "/artwork/lake.png",
+          "intro": true,
+          "homepage": [
+            "featured",
+            "continue",
+            "collections"
+          ],
+          "memoryDiscovery": {
+            "enabled": true,
+            "collectionIds": [],
+            "excludedVideoIds": [],
+            "sensitiveOccasions": []
+          },
+          "storageLimitBytes": 10737418240,
+          "storageLimitHours": 10,
+          "demo": true
+        }
+      },
+      "profiles": [
+        {
+          "id": "demo-profile-2",
+          "name": "Alex",
+          "avatar": "/artwork/profile.svg",
+          "color": "#8fb4d7",
+          "updatedAt": "2026-11-01T02:50:11.014Z",
+          "createdAt": "2026-11-01T02:50:11.014Z"
+        },
+        {
+          "id": "demo-profile-3",
+          "name": "Sam",
+          "avatar": "/artwork/profile.svg",
+          "color": "#bfa0c7",
+          "updatedAt": "2026-11-01T02:50:11.014Z",
+          "createdAt": "2026-11-01T02:50:11.014Z"
+        },
+        {
+          "id": "demo-profile",
+          "name": "Everyone",
+          "avatar": "/artwork/profile.svg",
+          "color": "#e9bd67",
+          "updatedAt": "2026-11-01T02:50:11.003Z",
+          "createdAt": "2026-11-01T02:50:11.003Z"
+        }
+      ],
+      "videos": [
+        {
+          "id": "demo-video-8",
+          "title": "The Road Trip",
+          "year": 2016,
+          "recordedDate": "2016",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: A Footage of a Forest.",
+          "location": "Open road",
+          "people": [],
+          "occasion": "journey",
+          "collectionIds": [
+            "demo-collection-1"
+          ],
+          "poster": "/artwork/mountains.png",
+          "backdrop": "/artwork/mountains.png",
+          "duration": 14.933333333333334,
+          "status": "draft",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 1,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/5367420/5367420-hd_1280_720_24fps.mp4",
+          "url": "https://videos.pexels.com/video-files/5367420/5367420-hd_1280_720_24fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.012Z",
+          "createdAt": "2026-11-01T02:50:11.012Z",
+          "mediaAssetId": "demo-stock04",
+          "demoMediaId": "stock04",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "demo-video-7",
+          "title": "Our First Home",
+          "year": 1995,
+          "recordedDate": "1995",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Flowing Water in Waterfall.",
+          "location": "Home",
+          "people": [],
+          "occasion": "home",
+          "collectionIds": [
+            "demo-collection-4"
+          ],
+          "poster": "/artwork/lake.png",
+          "backdrop": "/artwork/lake.png",
+          "duration": 31.018333333333334,
+          "status": "ready",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 2,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/13071923/13071923-hd_1280_720_30fps.mp4",
+          "url": "https://videos.pexels.com/video-files/13071923/13071923-hd_1280_720_30fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.011Z",
+          "createdAt": "2026-11-01T02:50:11.011Z",
+          "mediaAssetId": "demo-stock03",
+          "demoMediaId": "stock03",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "demo-video-6",
+          "title": "Christmas Together",
+          "year": 2004,
+          "recordedDate": "2004",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Time Lapse of Moving Clouds over the Mountains at Sunset.",
+          "location": "Home",
+          "people": [],
+          "occasion": "winter",
+          "collectionIds": [
+            "demo-collection-3"
+          ],
+          "poster": "/artwork/cinema.png",
+          "backdrop": "/artwork/cinema.png",
+          "duration": 14.25,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 3,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/11998311/11998311-hd_1280_720_24fps.mp4",
+          "url": "https://videos.pexels.com/video-files/11998311/11998311-hd_1280_720_24fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.010Z",
+          "createdAt": "2026-11-01T02:50:11.010Z",
+          "mediaAssetId": "demo-stock02",
+          "demoMediaId": "stock02",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "demo-video-4",
+          "title": "Across the Mountains",
+          "year": 2019,
+          "recordedDate": "2019",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: A Footage of a Forest.",
+          "location": "Mountains",
+          "people": [],
+          "occasion": "journey",
+          "collectionIds": [
+            "demo-collection-1"
+          ],
+          "poster": "/artwork/mountains.png",
+          "backdrop": "/artwork/mountains.png",
+          "duration": 14.933333333333334,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 5,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/5367420/5367420-hd_1280_720_24fps.mp4",
+          "url": "https://videos.pexels.com/video-files/5367420/5367420-hd_1280_720_24fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.009Z",
+          "createdAt": "2026-11-01T02:50:11.009Z",
+          "mediaAssetId": "demo-stock04",
+          "demoMediaId": "stock04",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "demo-video-5",
+          "title": "A Very Special Day",
+          "year": 2022,
+          "recordedDate": "2022",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Aerial View Of Ocean Waves.",
+          "location": "Countryside",
+          "people": [],
+          "occasion": "celebration",
+          "collectionIds": [
+            "demo-collection-2"
+          ],
+          "poster": "/artwork/garden.png",
+          "backdrop": "/artwork/garden.png",
+          "duration": 12.436666666666667,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 4,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/4631568/4631568-hd_1280_720_24fps.mp4",
+          "url": "https://videos.pexels.com/video-files/4631568/4631568-hd_1280_720_24fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.009Z",
+          "createdAt": "2026-11-01T02:50:11.009Z",
+          "mediaAssetId": "demo-stock01",
+          "demoMediaId": "stock01",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "demo-video-3",
+          "title": "The Family Reunion",
+          "year": 2012,
+          "recordedDate": "2012",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Flowing Water in Waterfall.",
+          "location": "Garden",
+          "people": [],
+          "occasion": "reunion",
+          "collectionIds": [
+            "demo-collection-2"
+          ],
+          "poster": "/artwork/garden.png",
+          "backdrop": "/artwork/garden.png",
+          "duration": 31.018333333333334,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 6,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/13071923/13071923-hd_1280_720_30fps.mp4",
+          "url": "https://videos.pexels.com/video-files/13071923/13071923-hd_1280_720_30fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.007Z",
+          "createdAt": "2026-11-01T02:50:11.007Z",
+          "mediaAssetId": "demo-stock03",
+          "demoMediaId": "stock03",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "demo-video-2",
+          "title": "Our First Holiday",
+          "year": 1998,
+          "recordedDate": "1998",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Time Lapse of Moving Clouds over the Mountains at Sunset.",
+          "location": "Coast",
+          "people": [],
+          "occasion": "holiday",
+          "collectionIds": [
+            "demo-collection-1"
+          ],
+          "poster": "/artwork/coast.png",
+          "backdrop": "/artwork/coast.png",
+          "duration": 14.25,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": true,
+          "priority": 7,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/11998311/11998311-hd_1280_720_24fps.mp4",
+          "url": "https://videos.pexels.com/video-files/11998311/11998311-hd_1280_720_24fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.006Z",
+          "createdAt": "2026-11-01T02:50:11.006Z",
+          "mediaAssetId": "demo-stock02",
+          "demoMediaId": "stock02",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "demo-video-1",
+          "title": "Summer by the Lake",
+          "year": 2007,
+          "recordedDate": "2007",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Aerial View Of Ocean Waves.",
+          "location": "Lake district",
+          "people": [],
+          "occasion": "summer",
+          "collectionIds": [
+            "demo-collection-1"
+          ],
+          "poster": "/artwork/lake.png",
+          "backdrop": "/artwork/lake.png",
+          "duration": 12.436666666666667,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": true,
+          "priority": 8,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/4631568/4631568-hd_1280_720_24fps.mp4",
+          "url": "https://videos.pexels.com/video-files/4631568/4631568-hd_1280_720_24fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.005Z",
+          "createdAt": "2026-11-01T02:50:11.005Z",
+          "mediaAssetId": "demo-stock01",
+          "demoMediaId": "stock01",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        }
+      ],
+      "collections": [
+        {
+          "id": "demo-collection-4",
+          "title": "Everyday",
+          "description": "Everyday from our archive.",
+          "artwork": "/artwork/mountains.png",
+          "priority": 3,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.005Z",
+          "createdAt": "2026-11-01T02:50:11.005Z"
+        },
+        {
+          "id": "demo-collection-2",
+          "title": "Celebrations",
+          "description": "Celebrations from our archive.",
+          "artwork": "/artwork/garden.png",
+          "priority": 1,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.004Z",
+          "createdAt": "2026-11-01T02:50:11.004Z"
+        },
+        {
+          "id": "demo-collection-3",
+          "title": "Traditions",
+          "description": "Traditions from our archive.",
+          "artwork": "/artwork/cinema.png",
+          "priority": 2,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.004Z",
+          "createdAt": "2026-11-01T02:50:11.004Z"
+        },
+        {
+          "id": "demo-collection-1",
+          "title": "Holidays",
+          "description": "Holidays from our archive.",
+          "artwork": "/artwork/lake.png",
+          "priority": 0,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.003Z",
+          "createdAt": "2026-11-01T02:50:11.003Z"
+        }
+      ],
+      "moments": [
+        {
+          "id": "demo-moment-3",
+          "videoId": "demo-video-3",
+          "title": "Together again",
+          "start": 1,
+          "end": 2.5,
+          "description": "A sample interval from this film's demonstration footage.",
+          "familyTv": true,
+          "collectionIds": [
+            "demo-collection-2"
+          ],
+          "visibility": "all",
+          "gathering": true,
+          "creator": "demo-owner",
+          "approved": true,
+          "thumbnail": "/artwork/garden.png",
+          "updatedAt": "2026-11-01T02:50:11.008Z",
+          "createdAt": "2026-11-01T02:50:11.008Z"
+        },
+        {
+          "id": "demo-moment-2",
+          "videoId": "demo-video-2",
+          "title": "The journey begins",
+          "start": 0.5,
+          "end": 2,
+          "description": "A sample interval from this film's demonstration footage.",
+          "familyTv": true,
+          "collectionIds": [
+            "demo-collection-1"
+          ],
+          "visibility": "all",
+          "gathering": true,
+          "creator": "demo-owner",
+          "approved": true,
+          "thumbnail": "/artwork/coast.png",
+          "updatedAt": "2026-11-01T02:50:11.007Z",
+          "createdAt": "2026-11-01T02:50:11.007Z"
+        },
+        {
+          "id": "demo-moment-1",
+          "videoId": "demo-video-1",
+          "title": "A little sunshine",
+          "start": 0,
+          "end": 1.5,
+          "description": "A sample interval from this film's demonstration footage.",
+          "familyTv": true,
+          "collectionIds": [
+            "demo-collection-1"
+          ],
+          "visibility": "all",
+          "gathering": true,
+          "creator": "demo-owner",
+          "approved": true,
+          "thumbnail": "/artwork/lake.png",
+          "updatedAt": "2026-11-01T02:50:11.006Z",
+          "createdAt": "2026-11-01T02:50:11.006Z"
+        }
+      ],
+      "stories": [
+        {
+          "id": "demo-story-1",
+          "videoId": "demo-video-1",
+          "text": "A fictional written family story, added to demonstrate optional commentary. This note does not describe or transcribe the sample footage.",
+          "timestamp": 1,
+          "creator": "demo-owner",
+          "status": "approved",
+          "approved": true,
+          "visibility": "all",
+          "gathering": true,
+          "updatedAt": "2026-11-01T02:50:11.149Z",
+          "createdAt": "2026-11-01T02:50:11.149Z"
+        }
+      ],
+      "transcripts": [
+        {
+          "id": "demo-caption-1",
+          "videoId": "demo-video-1",
+          "start": 0,
+          "end": 2,
+          "text": "Synthetic demonstration caption — not a transcription of the sample video.",
+          "language": "en",
+          "synthetic": true,
+          "updatedAt": "2026-11-01T02:50:11.150Z",
+          "createdAt": "2026-11-01T02:50:11.150Z"
+        }
+      ],
+      "chapters": [
+        {
+          "id": "demo-chapter-2",
+          "videoId": "demo-video-1",
+          "start": 2,
+          "end": 4,
+          "title": "Sample clip · closing interval",
+          "updatedAt": "2026-11-01T02:50:11.151Z",
+          "createdAt": "2026-11-01T02:50:11.151Z"
+        },
+        {
+          "id": "demo-chapter-1",
+          "videoId": "demo-video-1",
+          "start": 0,
+          "end": 2,
+          "title": "Sample clip · opening interval",
+          "updatedAt": "2026-11-01T02:50:11.150Z",
+          "createdAt": "2026-11-01T02:50:11.150Z"
+        }
+      ],
+      "channels": [
+        {
+          "id": "demo-channel-celebrations",
+          "name": "Celebration TV",
+          "description": "The occasions we love to remember.",
+          "artwork": "/artwork/garden.png",
+          "mode": "mix",
+          "collectionIds": [
+            "demo-collection-2"
+          ],
+          "excludedVideoIds": [],
+          "excludedMomentIds": [],
+          "excludedIntervals": [],
+          "minSeconds": 30,
+          "maxSeconds": 90,
+          "minutes": 30,
+          "enabled": true,
+          "published": true,
+          "gathering": true,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "overlay": true,
+          "updatedAt": "2026-11-01T02:50:11.015Z",
+          "createdAt": "2026-11-01T02:50:11.015Z"
+        },
+        {
+          "id": "demo-channel-summers",
+          "name": "Our Summers",
+          "description": "Sunny days and the journeys between them.",
+          "artwork": "/artwork/lake.png",
+          "mode": "mix",
+          "collectionIds": [
+            "demo-collection-1"
+          ],
+          "excludedVideoIds": [],
+          "excludedMomentIds": [],
+          "excludedIntervals": [],
+          "minSeconds": 30,
+          "maxSeconds": 90,
+          "minutes": 30,
+          "enabled": true,
+          "published": true,
+          "gathering": true,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "overlay": true,
+          "updatedAt": "2026-11-01T02:50:11.014Z",
+          "createdAt": "2026-11-01T02:50:11.014Z"
+        },
+        {
+          "id": "demo-channel",
+          "name": "The Family Channel",
+          "description": "A little of everything we love.",
+          "artwork": "/artwork/lake.png",
+          "mode": "mix",
+          "collectionIds": [],
+          "excludedVideoIds": [],
+          "excludedMomentIds": [],
+          "excludedIntervals": [],
+          "minSeconds": 30,
+          "maxSeconds": 90,
+          "minutes": 30,
+          "enabled": true,
+          "published": true,
+          "gathering": true,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "overlay": true,
+          "updatedAt": "2026-11-01T02:50:11.012Z",
+          "createdAt": "2026-11-01T02:50:11.012Z"
+        }
+      ],
+      "programmes": [
+        {
+          "id": "demo-programme-1",
+          "title": "Our next movie night",
+          "hostId": "demo-owner",
+          "profileIds": [
+            "demo-profile",
+            "demo-profile-2",
+            "demo-profile-3"
+          ],
+          "queue": [
+            {
+              "videoId": "demo-video-1"
+            },
+            {
+              "videoId": "demo-video-2",
+              "momentId": "demo-moment-2"
+            }
+          ],
+          "suggestions": [],
+          "status": "draft",
+          "index": 0,
+          "creator": "demo-owner",
+          "updatedAt": "2026-11-01T02:50:11.151Z",
+          "createdAt": "2026-11-01T02:50:11.151Z"
+        }
+      ],
+      "premieres": [
+        {
+          "id": "demo-premiere-1",
+          "title": "A night to remember",
+          "videoId": "demo-video-6",
+          "artwork": "/artwork/cinema.png",
+          "backdrop": "/artwork/cinema.png",
+          "releaseAt": "2099-12-24T18:00:00.000Z",
+          "timezone": "Europe/Amsterdam",
+          "dedication": "A fictional premiere for this demonstration archive.",
+          "intro": "Welcome to our family cinema. This is a demonstration title card.",
+          "introEnabled": true,
+          "profileIds": [
+            "demo-profile",
+            "demo-profile-2",
+            "demo-profile-3"
+          ],
+          "published": true,
+          "status": "published",
+          "visibility": "all",
+          "gathering": true,
+          "creator": "demo-owner",
+          "updatedAt": "2026-11-01T02:50:11.152Z",
+          "createdAt": "2026-11-01T02:50:11.152Z"
+        }
+      ],
+      "settings": [
+        {
+          "id": "demo-media-stock-v1",
+          "datasetVersion": "stock-v1",
+          "manifestFingerprint": "8ebb80b0121b89e84c9da947f8afd1e51f888e2394f48aaad588e80cec692a58",
+          "appliedAt": "2026-11-01T02:50:11.187Z",
+          "applied": [
+            {
+              "videoId": "demo-video-1",
+              "mediaId": "stock01"
+            },
+            {
+              "videoId": "demo-video-2",
+              "mediaId": "stock02"
+            },
+            {
+              "videoId": "demo-video-3",
+              "mediaId": "stock03"
+            },
+            {
+              "videoId": "demo-video-4",
+              "mediaId": "stock04"
+            },
+            {
+              "videoId": "demo-video-5",
+              "mediaId": "stock01"
+            },
+            {
+              "videoId": "demo-video-6",
+              "mediaId": "stock02"
+            },
+            {
+              "videoId": "demo-video-7",
+              "mediaId": "stock03"
+            },
+            {
+              "videoId": "demo-video-8",
+              "mediaId": "stock04"
+            }
+          ],
+          "skipped": [],
+          "updatedAt": "2026-11-01T02:50:11.187Z",
+          "createdAt": "2026-11-01T02:50:11.187Z"
+        },
+        {
+          "id": "archive",
+          "notifications": false,
+          "recoveryDays": 30,
+          "memoryDiscovery": {
+            "enabled": true,
+            "collectionIds": [],
+            "excludedVideoIds": [],
+            "sensitiveOccasions": []
+          },
+          "updatedAt": "2026-11-01T02:50:11.013Z",
+          "createdAt": "2026-11-01T02:50:11.013Z"
+        }
+      ],
+      "billing": [
+        {
+          "id": "subscription",
+          "planName": "Family Cinema",
+          "monthlyPrice": 14.99,
+          "currency": "EUR",
+          "cadence": "monthly",
+          "status": "demo-active",
+          "demo": true,
+          "nextBillingAt": "2026-12-01T00:00:00.000Z",
+          "billingName": "Demo Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "vat": "",
+          "paymentMethod": {
+            "label": "Demo card",
+            "last4": "4242"
+          },
+          "updatedAt": "2026-11-01T02:50:11.015Z",
+          "createdAt": "2026-11-01T02:50:11.015Z"
+        }
+      ],
+      "invoices": [
+        {
+          "id": "demo-invoice-2026-11",
+          "number": "DEMO-DEMO-202611",
+          "date": "2026-11-01",
+          "periodStart": "2026-11-01",
+          "total": 14.99,
+          "currency": "EUR",
+          "status": "demo",
+          "description": "Fictional Family Cinema subscription. No payment has been charged.",
+          "billingName": "Demo Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "items": [
+            {
+              "description": "Family Cinema · one demo month",
+              "quantity": 1,
+              "unitPrice": 14.99,
+              "total": 14.99
+            }
+          ],
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.017Z",
+          "createdAt": "2026-11-01T02:50:11.017Z"
+        },
+        {
+          "id": "demo-invoice-2026-09",
+          "number": "DEMO-DEMO-202609",
+          "date": "2026-09-01",
+          "periodStart": "2026-09-01",
+          "total": 14.99,
+          "currency": "EUR",
+          "status": "demo",
+          "description": "Fictional Family Cinema subscription. No payment has been charged.",
+          "billingName": "Demo Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "items": [
+            {
+              "description": "Family Cinema · one demo month",
+              "quantity": 1,
+              "unitPrice": 14.99,
+              "total": 14.99
+            }
+          ],
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.016Z",
+          "createdAt": "2026-11-01T02:50:11.016Z"
+        },
+        {
+          "id": "demo-invoice-2026-10",
+          "number": "DEMO-DEMO-202610",
+          "date": "2026-10-01",
+          "periodStart": "2026-10-01",
+          "total": 14.99,
+          "currency": "EUR",
+          "status": "demo",
+          "description": "Fictional Family Cinema subscription. No payment has been charged.",
+          "billingName": "Demo Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "items": [
+            {
+              "description": "Family Cinema · one demo month",
+              "quantity": 1,
+              "unitPrice": 14.99,
+              "total": 14.99
+            }
+          ],
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.016Z",
+          "createdAt": "2026-11-01T02:50:11.016Z"
+        }
+      ],
+      "watchlists": [
+        {
+          "id": "demo-owner:demo-profile-2",
+          "accountId": "demo-owner",
+          "profileId": "demo-profile-2",
+          "videos": [
+            "demo-video-3",
+            "demo-video-4"
+          ],
+          "updatedAt": "2026-11-01T02:50:11.158Z",
+          "createdAt": "2026-11-01T02:50:11.158Z"
+        },
+        {
+          "id": "demo-owner:demo-profile-3",
+          "accountId": "demo-owner",
+          "profileId": "demo-profile-3",
+          "videos": [
+            "demo-video-5",
+            "demo-video-6"
+          ],
+          "updatedAt": "2026-11-01T02:50:11.158Z",
+          "createdAt": "2026-11-01T02:50:11.158Z"
+        },
+        {
+          "id": "demo-owner:demo-profile",
+          "accountId": "demo-owner",
+          "profileId": "demo-profile",
+          "videos": [
+            "demo-video-1",
+            "demo-video-2"
+          ],
+          "updatedAt": "2026-11-01T02:50:11.024Z",
+          "createdAt": "2026-11-01T02:50:11.024Z"
+        }
+      ],
+      "providerConfigs": [
+        {
+          "id": "ai-images",
+          "provider": "ai-images",
+          "configured": false,
+          "capability": "Optional configured cover generation",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.022Z",
+          "createdAt": "2026-11-01T02:50:11.022Z"
+        },
+        {
+          "id": "transcription",
+          "provider": "transcription",
+          "configured": false,
+          "capability": "Optional configured speech transcription",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.022Z",
+          "createdAt": "2026-11-01T02:50:11.022Z"
+        },
+        {
+          "id": "cloudflare-stream",
+          "provider": "cloudflare-stream",
+          "configured": false,
+          "capability": "Customer video upload and signed playback",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.021Z",
+          "createdAt": "2026-11-01T02:50:11.021Z"
+        },
+        {
+          "id": "private-r2",
+          "provider": "private-r2",
+          "configured": false,
+          "capability": "Private artwork, original files and voice storage",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.021Z",
+          "createdAt": "2026-11-01T02:50:11.021Z"
+        }
+      ],
+      "mediaAssets": [
+        {
+          "id": "demo-stock02",
+          "provider": "demo-stock",
+          "providerVideoId": "Pexels:11998311",
+          "kind": "video",
+          "duration": 14.25,
+          "protected": false,
+          "demo": true,
+          "title": "Time Lapse of Moving Clouds over the Mountains at Sunset",
+          "author": "Erhan Dayı",
+          "sourcePage": "https://www.pexels.com/video/time-lapse-of-moving-clouds-over-the-mountains-at-sunset-11998311/",
+          "licenseName": "Pexels License",
+          "licensePage": "https://www.pexels.com/license/",
+          "attribution": "Time Lapse of Moving Clouds over the Mountains at Sunset by Erhan Dayı / Pexels",
+          "bytes": 5696617,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "container-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "anonymous",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.184Z",
+          "createdAt": "2026-11-01T02:50:11.184Z"
+        },
+        {
+          "id": "demo-stock03",
+          "provider": "demo-stock",
+          "providerVideoId": "Pexels:13071923",
+          "kind": "video",
+          "duration": 31.018333333333334,
+          "protected": false,
+          "demo": true,
+          "title": "Flowing Water in Waterfall",
+          "author": "Ambient_Nature_ Atmosphere",
+          "sourcePage": "https://www.pexels.com/video/flowing-water-in-waterfall-13071923/",
+          "licenseName": "Pexels License",
+          "licensePage": "https://www.pexels.com/license/",
+          "attribution": "Flowing Water in Waterfall by Ambient_Nature_ Atmosphere / Pexels",
+          "bytes": 11782914,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "container-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "anonymous",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.184Z",
+          "createdAt": "2026-11-01T02:50:11.184Z"
+        },
+        {
+          "id": "demo-stock04",
+          "provider": "demo-stock",
+          "providerVideoId": "Pexels:5367420",
+          "kind": "video",
+          "duration": 14.933333333333334,
+          "protected": false,
+          "demo": true,
+          "title": "A Footage of a Forest",
+          "author": "Cristina Verceles",
+          "sourcePage": "https://www.pexels.com/video/a-footage-of-a-forest-5367420/",
+          "licenseName": "Pexels License",
+          "licensePage": "https://www.pexels.com/license/",
+          "attribution": "A Footage of a Forest by Cristina Verceles / Pexels",
+          "bytes": 5799911,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "container-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "anonymous",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.184Z",
+          "createdAt": "2026-11-01T02:50:11.184Z"
+        },
+        {
+          "id": "demo-stock01",
+          "provider": "demo-stock",
+          "providerVideoId": "Pexels:4631568",
+          "kind": "video",
+          "duration": 12.436666666666667,
+          "protected": false,
+          "demo": true,
+          "title": "Aerial View Of Ocean Waves",
+          "author": "ArtHouse Studio",
+          "sourcePage": "https://www.pexels.com/video/aerial-view-of-ocean-waves-4631568/",
+          "licenseName": "Pexels License",
+          "licensePage": "https://www.pexels.com/license/",
+          "attribution": "Aerial View Of Ocean Waves by ArtHouse Studio / Pexels",
+          "bytes": 4596861,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "container-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "anonymous",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.183Z",
+          "createdAt": "2026-11-01T02:50:11.183Z"
+        },
+        {
+          "id": "demo-sample-media",
+          "provider": "cloudflare-demo",
+          "providerVideoId": "550d45ca5743a2f43fd0f6db8dfa2f98",
+          "kind": "video",
+          "duration": 4,
+          "protected": false,
+          "demo": true,
+          "note": "The single supplied public demonstration sample; customer media requires protected playback.",
+          "updatedAt": "2026-11-01T02:50:11.017Z",
+          "createdAt": "2026-11-01T02:50:11.017Z"
+        }
+      ],
+      "playbackLicenses": [
+        {
+          "id": "demo-sample",
+          "mediaAssetId": "demo-sample-media",
+          "provider": "cloudflare-demo",
+          "configured": false,
+          "requiresSigning": false,
+          "demo": true,
+          "note": "Public sample only; configured protected customer playback is signed per request.",
+          "updatedAt": "2026-11-01T02:50:11.022Z",
+          "createdAt": "2026-11-01T02:50:11.022Z"
+        }
+      ],
+      "accessPolicies": [
+        {
+          "id": "archive-members",
+          "scope": "archive",
+          "visibility": "members",
+          "configured": false,
+          "demo": true,
+          "authoritativeSource": "Authenticated memberships and each resource visibility policy are enforced by the API.",
+          "updatedAt": "2026-11-01T02:50:11.023Z",
+          "createdAt": "2026-11-01T02:50:11.023Z"
+        }
+      ],
+      "consents": [
+        {
+          "id": "private-images-ai",
+          "accountId": "demo-owner",
+          "kind": "private-images-to-ai",
+          "granted": false,
+          "provider": "none",
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.023Z",
+          "createdAt": "2026-11-01T02:50:11.023Z"
+        }
+      ]
+    },
+    {
+      "tenant": {
+        "id": "other",
+        "name": "The Coastal Archive",
+        "slogan": "Our stories. Our cinema.",
+        "icon": "clapperboard",
+        "accent": "#8fb4d7",
+        "theme": "classic",
+        "palette": "midnight",
+        "font": "inter",
+        "background": "/artwork/coast.png",
+        "intro": true,
+        "homepage": [
+          "featured",
+          "continue",
+          "collections"
+        ],
+        "memoryDiscovery": {
+          "enabled": true,
+          "collectionIds": [],
+          "excludedVideoIds": [],
+          "sensitiveOccasions": []
+        },
+        "storageLimitBytes": 10737418240,
+        "storageLimitHours": 10,
+        "demo": true,
+        "draft": {
+          "name": "The Coastal Archive",
+          "slogan": "Our stories. Our cinema.",
+          "icon": "clapperboard",
+          "accent": "#8fb4d7",
+          "theme": "classic",
+          "palette": "midnight",
+          "font": "inter",
+          "background": "/artwork/coast.png",
+          "intro": true,
+          "homepage": [
+            "featured",
+            "continue",
+            "collections"
+          ],
+          "memoryDiscovery": {
+            "enabled": true,
+            "collectionIds": [],
+            "excludedVideoIds": [],
+            "sensitiveOccasions": []
+          },
+          "storageLimitBytes": 10737418240,
+          "storageLimitHours": 10,
+          "demo": true
+        }
+      },
+      "profiles": [
+        {
+          "id": "other-profile-2",
+          "name": "Alex",
+          "avatar": "/artwork/profile.svg",
+          "color": "#8fb4d7",
+          "updatedAt": "2026-11-01T02:50:11.061Z",
+          "createdAt": "2026-11-01T02:50:11.061Z"
+        },
+        {
+          "id": "other-profile-3",
+          "name": "Sam",
+          "avatar": "/artwork/profile.svg",
+          "color": "#bfa0c7",
+          "updatedAt": "2026-11-01T02:50:11.061Z",
+          "createdAt": "2026-11-01T02:50:11.061Z"
+        },
+        {
+          "id": "other-profile",
+          "name": "Everyone",
+          "avatar": "/artwork/profile.svg",
+          "color": "#e9bd67",
+          "updatedAt": "2026-11-01T02:50:11.052Z",
+          "createdAt": "2026-11-01T02:50:11.052Z"
+        }
+      ],
+      "videos": [
+        {
+          "id": "other-video-8",
+          "title": "Coastal: The Road Trip",
+          "year": 2016,
+          "recordedDate": "2016",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Mountainous area in the Alps.",
+          "location": "Open road",
+          "people": [],
+          "occasion": "journey",
+          "collectionIds": [
+            "other-collection-1"
+          ],
+          "poster": "/artwork/mountains.png",
+          "backdrop": "/artwork/mountains.png",
+          "duration": 15.8,
+          "status": "draft",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 1,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/4132/4132-720.mp4",
+          "url": "https://assets.mixkit.co/videos/4132/4132-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.059Z",
+          "createdAt": "2026-11-01T02:50:11.060Z",
+          "mediaAssetId": "other-stock06",
+          "demoMediaId": "stock06",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "other-video-7",
+          "title": "Coastal: Our First Home",
+          "year": 1995,
+          "recordedDate": "1995",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Scenic View of a Placid Lake.",
+          "location": "Home",
+          "people": [],
+          "occasion": "home",
+          "collectionIds": [
+            "other-collection-4"
+          ],
+          "poster": "/artwork/lake.png",
+          "backdrop": "/artwork/lake.png",
+          "duration": 15.486666666666666,
+          "status": "ready",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 2,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/5511816/5511816-hd_1280_720_25fps.mp4",
+          "url": "https://videos.pexels.com/video-files/5511816/5511816-hd_1280_720_25fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.059Z",
+          "createdAt": "2026-11-01T02:50:11.059Z",
+          "mediaAssetId": "other-stock05",
+          "demoMediaId": "stock05",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "other-video-5",
+          "title": "Coastal: A Very Special Day",
+          "year": 2022,
+          "recordedDate": "2022",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Mountainous area in the Alps.",
+          "location": "Countryside",
+          "people": [],
+          "occasion": "celebration",
+          "collectionIds": [
+            "other-collection-2"
+          ],
+          "poster": "/artwork/garden.png",
+          "backdrop": "/artwork/garden.png",
+          "duration": 15.8,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 4,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/4132/4132-720.mp4",
+          "url": "https://assets.mixkit.co/videos/4132/4132-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.058Z",
+          "createdAt": "2026-11-01T02:50:11.058Z",
+          "mediaAssetId": "other-stock06",
+          "demoMediaId": "stock06",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "other-video-6",
+          "title": "Coastal: Christmas Together",
+          "year": 2004,
+          "recordedDate": "2004",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Turquoise blue water bay from above.",
+          "location": "Home",
+          "people": [],
+          "occasion": "winter",
+          "collectionIds": [
+            "other-collection-3"
+          ],
+          "poster": "/artwork/cinema.png",
+          "backdrop": "/artwork/cinema.png",
+          "duration": 15.098417,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 3,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/5008/5008-720.mp4",
+          "url": "https://assets.mixkit.co/videos/5008/5008-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.058Z",
+          "createdAt": "2026-11-01T02:50:11.058Z",
+          "mediaAssetId": "other-stock07",
+          "demoMediaId": "stock07",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "other-video-4",
+          "title": "Coastal: Across the Mountains",
+          "year": 2019,
+          "recordedDate": "2019",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Scenic View of a Placid Lake.",
+          "location": "Mountains",
+          "people": [],
+          "occasion": "journey",
+          "collectionIds": [
+            "other-collection-1"
+          ],
+          "poster": "/artwork/mountains.png",
+          "backdrop": "/artwork/mountains.png",
+          "duration": 15.486666666666666,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 5,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/5511816/5511816-hd_1280_720_25fps.mp4",
+          "url": "https://videos.pexels.com/video-files/5511816/5511816-hd_1280_720_25fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.057Z",
+          "createdAt": "2026-11-01T02:50:11.057Z",
+          "mediaAssetId": "other-stock05",
+          "demoMediaId": "stock05",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "other-video-3",
+          "title": "Coastal: The Family Reunion",
+          "year": 2012,
+          "recordedDate": "2012",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Turquoise blue water bay from above.",
+          "location": "Garden",
+          "people": [],
+          "occasion": "reunion",
+          "collectionIds": [
+            "other-collection-2"
+          ],
+          "poster": "/artwork/garden.png",
+          "backdrop": "/artwork/garden.png",
+          "duration": 15.098417,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 6,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/5008/5008-720.mp4",
+          "url": "https://assets.mixkit.co/videos/5008/5008-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.056Z",
+          "createdAt": "2026-11-01T02:50:11.056Z",
+          "mediaAssetId": "other-stock07",
+          "demoMediaId": "stock07",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "other-video-2",
+          "title": "Coastal: Our First Holiday",
+          "year": 1998,
+          "recordedDate": "1998",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Mountainous area in the Alps.",
+          "location": "Coast",
+          "people": [],
+          "occasion": "holiday",
+          "collectionIds": [
+            "other-collection-1"
+          ],
+          "poster": "/artwork/coast.png",
+          "backdrop": "/artwork/coast.png",
+          "duration": 15.8,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": true,
+          "priority": 7,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/4132/4132-720.mp4",
+          "url": "https://assets.mixkit.co/videos/4132/4132-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.055Z",
+          "createdAt": "2026-11-01T02:50:11.055Z",
+          "mediaAssetId": "other-stock06",
+          "demoMediaId": "stock06",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "other-video-1",
+          "title": "Coastal: Summer by the Lake",
+          "year": 2007,
+          "recordedDate": "2007",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Scenic View of a Placid Lake.",
+          "location": "Lake district",
+          "people": [],
+          "occasion": "summer",
+          "collectionIds": [
+            "other-collection-1"
+          ],
+          "poster": "/artwork/lake.png",
+          "backdrop": "/artwork/lake.png",
+          "duration": 15.486666666666666,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": true,
+          "priority": 8,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://videos.pexels.com/video-files/5511816/5511816-hd_1280_720_25fps.mp4",
+          "url": "https://videos.pexels.com/video-files/5511816/5511816-hd_1280_720_25fps.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.054Z",
+          "createdAt": "2026-11-01T02:50:11.054Z",
+          "mediaAssetId": "other-stock05",
+          "demoMediaId": "stock05",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        }
+      ],
+      "collections": [
+        {
+          "id": "other-collection-4",
+          "title": "Everyday",
+          "description": "Everyday from our archive.",
+          "artwork": "/artwork/mountains.png",
+          "priority": 3,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.054Z",
+          "createdAt": "2026-11-01T02:50:11.054Z"
+        },
+        {
+          "id": "other-collection-2",
+          "title": "Celebrations",
+          "description": "Celebrations from our archive.",
+          "artwork": "/artwork/garden.png",
+          "priority": 1,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.053Z",
+          "createdAt": "2026-11-01T02:50:11.053Z"
+        },
+        {
+          "id": "other-collection-3",
+          "title": "Traditions",
+          "description": "Traditions from our archive.",
+          "artwork": "/artwork/cinema.png",
+          "priority": 2,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.053Z",
+          "createdAt": "2026-11-01T02:50:11.053Z"
+        },
+        {
+          "id": "other-collection-1",
+          "title": "Holidays",
+          "description": "Holidays from our archive.",
+          "artwork": "/artwork/lake.png",
+          "priority": 0,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.052Z",
+          "createdAt": "2026-11-01T02:50:11.052Z"
+        }
+      ],
+      "moments": [
+        {
+          "id": "other-moment-3",
+          "videoId": "other-video-3",
+          "title": "Together again",
+          "start": 1,
+          "end": 2.5,
+          "description": "A sample interval from this film's demonstration footage.",
+          "familyTv": true,
+          "collectionIds": [
+            "other-collection-2"
+          ],
+          "visibility": "all",
+          "gathering": true,
+          "creator": "other-owner",
+          "approved": true,
+          "thumbnail": "/artwork/garden.png",
+          "updatedAt": "2026-11-01T02:50:11.057Z",
+          "createdAt": "2026-11-01T02:50:11.057Z"
+        },
+        {
+          "id": "other-moment-2",
+          "videoId": "other-video-2",
+          "title": "The journey begins",
+          "start": 0.5,
+          "end": 2,
+          "description": "A sample interval from this film's demonstration footage.",
+          "familyTv": true,
+          "collectionIds": [
+            "other-collection-1"
+          ],
+          "visibility": "all",
+          "gathering": true,
+          "creator": "other-owner",
+          "approved": true,
+          "thumbnail": "/artwork/coast.png",
+          "updatedAt": "2026-11-01T02:50:11.056Z",
+          "createdAt": "2026-11-01T02:50:11.056Z"
+        },
+        {
+          "id": "other-moment-1",
+          "videoId": "other-video-1",
+          "title": "A little sunshine",
+          "start": 0,
+          "end": 1.5,
+          "description": "A sample interval from this film's demonstration footage.",
+          "familyTv": true,
+          "collectionIds": [
+            "other-collection-1"
+          ],
+          "visibility": "all",
+          "gathering": true,
+          "creator": "other-owner",
+          "approved": true,
+          "thumbnail": "/artwork/lake.png",
+          "updatedAt": "2026-11-01T02:50:11.055Z",
+          "createdAt": "2026-11-01T02:50:11.055Z"
+        }
+      ],
+      "stories": [
+        {
+          "id": "other-story-1",
+          "videoId": "other-video-1",
+          "text": "A fictional written family story, added to demonstrate optional commentary. This note does not describe or transcribe the sample footage.",
+          "timestamp": 1,
+          "creator": "other-owner",
+          "status": "approved",
+          "approved": true,
+          "visibility": "all",
+          "gathering": true,
+          "updatedAt": "2026-11-01T02:50:11.152Z",
+          "createdAt": "2026-11-01T02:50:11.152Z"
+        }
+      ],
+      "transcripts": [
+        {
+          "id": "other-caption-1",
+          "videoId": "other-video-1",
+          "start": 0,
+          "end": 2,
+          "text": "Synthetic demonstration caption — not a transcription of the sample video.",
+          "language": "en",
+          "synthetic": true,
+          "updatedAt": "2026-11-01T02:50:11.153Z",
+          "createdAt": "2026-11-01T02:50:11.153Z"
+        }
+      ],
+      "chapters": [
+        {
+          "id": "other-chapter-2",
+          "videoId": "other-video-1",
+          "start": 2,
+          "end": 4,
+          "title": "Sample clip · closing interval",
+          "updatedAt": "2026-11-01T02:50:11.154Z",
+          "createdAt": "2026-11-01T02:50:11.154Z"
+        },
+        {
+          "id": "other-chapter-1",
+          "videoId": "other-video-1",
+          "start": 0,
+          "end": 2,
+          "title": "Sample clip · opening interval",
+          "updatedAt": "2026-11-01T02:50:11.153Z",
+          "createdAt": "2026-11-01T02:50:11.153Z"
+        }
+      ],
+      "channels": [
+        {
+          "id": "other-channel-celebrations",
+          "name": "Celebration TV",
+          "description": "The occasions we love to remember.",
+          "artwork": "/artwork/garden.png",
+          "mode": "mix",
+          "collectionIds": [
+            "other-collection-2"
+          ],
+          "excludedVideoIds": [],
+          "excludedMomentIds": [],
+          "excludedIntervals": [],
+          "minSeconds": 30,
+          "maxSeconds": 90,
+          "minutes": 30,
+          "enabled": true,
+          "published": true,
+          "gathering": true,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "overlay": true,
+          "updatedAt": "2026-11-01T02:50:11.063Z",
+          "createdAt": "2026-11-01T02:50:11.063Z"
+        },
+        {
+          "id": "other-channel-summers",
+          "name": "Our Summers",
+          "description": "Sunny days and the journeys between them.",
+          "artwork": "/artwork/lake.png",
+          "mode": "mix",
+          "collectionIds": [
+            "other-collection-1"
+          ],
+          "excludedVideoIds": [],
+          "excludedMomentIds": [],
+          "excludedIntervals": [],
+          "minSeconds": 30,
+          "maxSeconds": 90,
+          "minutes": 30,
+          "enabled": true,
+          "published": true,
+          "gathering": true,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "overlay": true,
+          "updatedAt": "2026-11-01T02:50:11.062Z",
+          "createdAt": "2026-11-01T02:50:11.062Z"
+        },
+        {
+          "id": "other-channel",
+          "name": "The Family Channel",
+          "description": "A little of everything we love.",
+          "artwork": "/artwork/lake.png",
+          "mode": "mix",
+          "collectionIds": [],
+          "excludedVideoIds": [],
+          "excludedMomentIds": [],
+          "excludedIntervals": [],
+          "minSeconds": 30,
+          "maxSeconds": 90,
+          "minutes": 30,
+          "enabled": true,
+          "published": true,
+          "gathering": true,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "overlay": true,
+          "updatedAt": "2026-11-01T02:50:11.060Z",
+          "createdAt": "2026-11-01T02:50:11.060Z"
+        }
+      ],
+      "programmes": [
+        {
+          "id": "other-programme-1",
+          "title": "Our next movie night",
+          "hostId": "other-owner",
+          "profileIds": [
+            "other-profile",
+            "other-profile-2",
+            "other-profile-3"
+          ],
+          "queue": [
+            {
+              "videoId": "other-video-1"
+            },
+            {
+              "videoId": "other-video-2",
+              "momentId": "other-moment-2"
+            }
+          ],
+          "suggestions": [],
+          "status": "draft",
+          "index": 0,
+          "creator": "other-owner",
+          "updatedAt": "2026-11-01T02:50:11.154Z",
+          "createdAt": "2026-11-01T02:50:11.154Z"
+        }
+      ],
+      "premieres": [
+        {
+          "id": "other-premiere-1",
+          "title": "A night to remember",
+          "videoId": "other-video-6",
+          "artwork": "/artwork/cinema.png",
+          "backdrop": "/artwork/cinema.png",
+          "releaseAt": "2099-12-24T18:00:00.000Z",
+          "timezone": "Europe/Amsterdam",
+          "dedication": "A fictional premiere for this demonstration archive.",
+          "intro": "Welcome to our family cinema. This is a demonstration title card.",
+          "introEnabled": true,
+          "profileIds": [
+            "other-profile",
+            "other-profile-2",
+            "other-profile-3"
+          ],
+          "published": true,
+          "status": "published",
+          "visibility": "all",
+          "gathering": true,
+          "creator": "other-owner",
+          "updatedAt": "2026-11-01T02:50:11.155Z",
+          "createdAt": "2026-11-01T02:50:11.155Z"
+        }
+      ],
+      "settings": [
+        {
+          "id": "demo-media-stock-v1",
+          "datasetVersion": "stock-v1",
+          "manifestFingerprint": "8ebb80b0121b89e84c9da947f8afd1e51f888e2394f48aaad588e80cec692a58",
+          "appliedAt": "2026-11-01T02:50:11.187Z",
+          "applied": [
+            {
+              "videoId": "other-video-1",
+              "mediaId": "stock05"
+            },
+            {
+              "videoId": "other-video-2",
+              "mediaId": "stock06"
+            },
+            {
+              "videoId": "other-video-3",
+              "mediaId": "stock07"
+            },
+            {
+              "videoId": "other-video-4",
+              "mediaId": "stock05"
+            },
+            {
+              "videoId": "other-video-5",
+              "mediaId": "stock06"
+            },
+            {
+              "videoId": "other-video-6",
+              "mediaId": "stock07"
+            },
+            {
+              "videoId": "other-video-7",
+              "mediaId": "stock05"
+            },
+            {
+              "videoId": "other-video-8",
+              "mediaId": "stock06"
+            }
+          ],
+          "skipped": [],
+          "updatedAt": "2026-11-01T02:50:11.187Z",
+          "createdAt": "2026-11-01T02:50:11.187Z"
+        },
+        {
+          "id": "archive",
+          "notifications": false,
+          "recoveryDays": 30,
+          "memoryDiscovery": {
+            "enabled": true,
+            "collectionIds": [],
+            "excludedVideoIds": [],
+            "sensitiveOccasions": []
+          },
+          "updatedAt": "2026-11-01T02:50:11.060Z",
+          "createdAt": "2026-11-01T02:50:11.060Z"
+        }
+      ],
+      "billing": [
+        {
+          "id": "subscription",
+          "planName": "Family Cinema",
+          "monthlyPrice": 14.99,
+          "currency": "EUR",
+          "cadence": "monthly",
+          "status": "demo-active",
+          "demo": true,
+          "nextBillingAt": "2026-12-01T00:00:00.000Z",
+          "billingName": "Other Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "vat": "",
+          "paymentMethod": {
+            "label": "Demo card",
+            "last4": "4242"
+          },
+          "updatedAt": "2026-11-01T02:50:11.063Z",
+          "createdAt": "2026-11-01T02:50:11.063Z"
+        }
+      ],
+      "invoices": [
+        {
+          "id": "other-invoice-2026-10",
+          "number": "DEMO-OTHER-202610",
+          "date": "2026-10-01",
+          "periodStart": "2026-10-01",
+          "total": 14.99,
+          "currency": "EUR",
+          "status": "demo",
+          "description": "Fictional Family Cinema subscription. No payment has been charged.",
+          "billingName": "Other Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "items": [
+            {
+              "description": "Family Cinema · one demo month",
+              "quantity": 1,
+              "unitPrice": 14.99,
+              "total": 14.99
+            }
+          ],
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.064Z",
+          "createdAt": "2026-11-01T02:50:11.064Z"
+        },
+        {
+          "id": "other-invoice-2026-11",
+          "number": "DEMO-OTHER-202611",
+          "date": "2026-11-01",
+          "periodStart": "2026-11-01",
+          "total": 14.99,
+          "currency": "EUR",
+          "status": "demo",
+          "description": "Fictional Family Cinema subscription. No payment has been charged.",
+          "billingName": "Other Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "items": [
+            {
+              "description": "Family Cinema · one demo month",
+              "quantity": 1,
+              "unitPrice": 14.99,
+              "total": 14.99
+            }
+          ],
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.064Z",
+          "createdAt": "2026-11-01T02:50:11.064Z"
+        },
+        {
+          "id": "other-invoice-2026-09",
+          "number": "DEMO-OTHER-202609",
+          "date": "2026-09-01",
+          "periodStart": "2026-09-01",
+          "total": 14.99,
+          "currency": "EUR",
+          "status": "demo",
+          "description": "Fictional Family Cinema subscription. No payment has been charged.",
+          "billingName": "Other Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "items": [
+            {
+              "description": "Family Cinema · one demo month",
+              "quantity": 1,
+              "unitPrice": 14.99,
+              "total": 14.99
+            }
+          ],
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.063Z",
+          "createdAt": "2026-11-01T02:50:11.063Z"
+        }
+      ],
+      "watchlists": [
+        {
+          "id": "other-owner:other-profile-2",
+          "accountId": "other-owner",
+          "profileId": "other-profile-2",
+          "videos": [
+            "other-video-3",
+            "other-video-4"
+          ],
+          "updatedAt": "2026-11-01T02:50:11.159Z",
+          "createdAt": "2026-11-01T02:50:11.159Z"
+        },
+        {
+          "id": "other-owner:other-profile-3",
+          "accountId": "other-owner",
+          "profileId": "other-profile-3",
+          "videos": [
+            "other-video-5",
+            "other-video-6"
+          ],
+          "updatedAt": "2026-11-01T02:50:11.159Z",
+          "createdAt": "2026-11-01T02:50:11.159Z"
+        },
+        {
+          "id": "other-owner:other-profile",
+          "accountId": "other-owner",
+          "profileId": "other-profile",
+          "videos": [
+            "other-video-1",
+            "other-video-2"
+          ],
+          "updatedAt": "2026-11-01T02:50:11.071Z",
+          "createdAt": "2026-11-01T02:50:11.071Z"
+        }
+      ],
+      "providerConfigs": [
+        {
+          "id": "private-r2",
+          "provider": "private-r2",
+          "configured": false,
+          "capability": "Private artwork, original files and voice storage",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.069Z",
+          "createdAt": "2026-11-01T02:50:11.069Z"
+        },
+        {
+          "id": "ai-images",
+          "provider": "ai-images",
+          "configured": false,
+          "capability": "Optional configured cover generation",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.069Z",
+          "createdAt": "2026-11-01T02:50:11.069Z"
+        },
+        {
+          "id": "transcription",
+          "provider": "transcription",
+          "configured": false,
+          "capability": "Optional configured speech transcription",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.069Z",
+          "createdAt": "2026-11-01T02:50:11.069Z"
+        },
+        {
+          "id": "cloudflare-stream",
+          "provider": "cloudflare-stream",
+          "configured": false,
+          "capability": "Customer video upload and signed playback",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.068Z",
+          "createdAt": "2026-11-01T02:50:11.068Z"
+        }
+      ],
+      "mediaAssets": [
+        {
+          "id": "other-stock05",
+          "provider": "demo-stock",
+          "providerVideoId": "Pexels:5511816",
+          "kind": "video",
+          "duration": 15.486666666666666,
+          "protected": false,
+          "demo": true,
+          "title": "Scenic View of a Placid Lake",
+          "author": "Mehmet Ali Turan",
+          "sourcePage": "https://www.pexels.com/video/scenic-view-of-a-placid-lake-5511816/",
+          "licenseName": "Pexels License",
+          "licensePage": "https://www.pexels.com/license/",
+          "attribution": "Scenic View of a Placid Lake by Mehmet Ali Turan / Pexels",
+          "bytes": 3176842,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "container-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "anonymous",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.185Z",
+          "createdAt": "2026-11-01T02:50:11.185Z"
+        },
+        {
+          "id": "other-stock06",
+          "provider": "demo-stock",
+          "providerVideoId": "Mixkit:4132",
+          "kind": "video",
+          "duration": 15.8,
+          "protected": false,
+          "demo": true,
+          "title": "Mountainous area in the Alps",
+          "author": "@dubassy",
+          "sourcePage": "https://mixkit.co/free-stock-video/mountainous-area-in-the-alps-4132/",
+          "licenseName": "Mixkit Stock Video Free License",
+          "licensePage": "https://mixkit.co/license/modal/videoFree/",
+          "attribution": "Mountainous area in the Alps by @dubassy / Mixkit",
+          "bytes": 4901373,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "browser-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "unknown",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.185Z",
+          "createdAt": "2026-11-01T02:50:11.185Z"
+        },
+        {
+          "id": "other-stock07",
+          "provider": "demo-stock",
+          "providerVideoId": "Mixkit:5008",
+          "kind": "video",
+          "duration": 15.098417,
+          "protected": false,
+          "demo": true,
+          "title": "Turquoise blue water bay from above",
+          "author": "@marcolopez",
+          "sourcePage": "https://mixkit.co/free-stock-video/turquoise-blue-water-bay-from-above-5008/",
+          "licenseName": "Mixkit Stock Video Free License",
+          "licensePage": "https://mixkit.co/license/modal/videoFree/",
+          "attribution": "Turquoise blue water bay from above by @marcolopez / Mixkit",
+          "bytes": 4493509,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "browser-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "unknown",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.185Z",
+          "createdAt": "2026-11-01T02:50:11.185Z"
+        },
+        {
+          "id": "other-sample-media",
+          "provider": "cloudflare-demo",
+          "providerVideoId": "550d45ca5743a2f43fd0f6db8dfa2f98",
+          "kind": "video",
+          "duration": 4,
+          "protected": false,
+          "demo": true,
+          "note": "The single supplied public demonstration sample; customer media requires protected playback.",
+          "updatedAt": "2026-11-01T02:50:11.065Z",
+          "createdAt": "2026-11-01T02:50:11.065Z"
+        }
+      ],
+      "playbackLicenses": [
+        {
+          "id": "demo-sample",
+          "mediaAssetId": "other-sample-media",
+          "provider": "cloudflare-demo",
+          "configured": false,
+          "requiresSigning": false,
+          "demo": true,
+          "note": "Public sample only; configured protected customer playback is signed per request.",
+          "updatedAt": "2026-11-01T02:50:11.070Z",
+          "createdAt": "2026-11-01T02:50:11.070Z"
+        }
+      ],
+      "accessPolicies": [
+        {
+          "id": "archive-members",
+          "scope": "archive",
+          "visibility": "members",
+          "configured": false,
+          "demo": true,
+          "authoritativeSource": "Authenticated memberships and each resource visibility policy are enforced by the API.",
+          "updatedAt": "2026-11-01T02:50:11.070Z",
+          "createdAt": "2026-11-01T02:50:11.070Z"
+        }
+      ],
+      "consents": [
+        {
+          "id": "private-images-ai",
+          "accountId": "other-owner",
+          "kind": "private-images-to-ai",
+          "granted": false,
+          "provider": "none",
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.071Z",
+          "createdAt": "2026-11-01T02:50:11.071Z"
+        }
+      ]
+    },
+    {
+      "tenant": {
+        "id": "third",
+        "name": "The Fireside Archive",
+        "slogan": "Our stories. Our cinema.",
+        "icon": "clapperboard",
+        "accent": "#bfa0c7",
+        "theme": "vintage",
+        "palette": "midnight",
+        "font": "inter",
+        "background": "/artwork/cinema.png",
+        "intro": true,
+        "homepage": [
+          "featured",
+          "continue",
+          "collections"
+        ],
+        "memoryDiscovery": {
+          "enabled": true,
+          "collectionIds": [],
+          "excludedVideoIds": [],
+          "sensitiveOccasions": []
+        },
+        "storageLimitBytes": 10737418240,
+        "storageLimitHours": 10,
+        "demo": true,
+        "draft": {
+          "name": "The Fireside Archive",
+          "slogan": "Our stories. Our cinema.",
+          "icon": "clapperboard",
+          "accent": "#bfa0c7",
+          "theme": "vintage",
+          "palette": "midnight",
+          "font": "inter",
+          "background": "/artwork/cinema.png",
+          "intro": true,
+          "homepage": [
+            "featured",
+            "continue",
+            "collections"
+          ],
+          "memoryDiscovery": {
+            "enabled": true,
+            "collectionIds": [],
+            "excludedVideoIds": [],
+            "sensitiveOccasions": []
+          },
+          "storageLimitBytes": 10737418240,
+          "storageLimitHours": 10,
+          "demo": true
+        }
+      },
+      "profiles": [
+        {
+          "id": "third-profile-2",
+          "name": "Alex",
+          "avatar": "/artwork/profile.svg",
+          "color": "#8fb4d7",
+          "updatedAt": "2026-11-01T02:50:11.109Z",
+          "createdAt": "2026-11-01T02:50:11.109Z"
+        },
+        {
+          "id": "third-profile-3",
+          "name": "Sam",
+          "avatar": "/artwork/profile.svg",
+          "color": "#bfa0c7",
+          "updatedAt": "2026-11-01T02:50:11.109Z",
+          "createdAt": "2026-11-01T02:50:11.109Z"
+        },
+        {
+          "id": "third-profile",
+          "name": "Everyone",
+          "avatar": "/artwork/profile.svg",
+          "color": "#e9bd67",
+          "updatedAt": "2026-11-01T02:50:11.100Z",
+          "createdAt": "2026-11-01T02:50:11.100Z"
+        }
+      ],
+      "videos": [
+        {
+          "id": "third-video-7",
+          "title": "Fireside: Our First Home",
+          "year": 1995,
+          "recordedDate": "1995",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Waterfall in woods.",
+          "location": "Home",
+          "people": [],
+          "occasion": "home",
+          "collectionIds": [
+            "third-collection-4"
+          ],
+          "poster": "/artwork/lake.png",
+          "backdrop": "/artwork/lake.png",
+          "duration": 15.056708,
+          "status": "ready",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 2,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/2212/2212-720.mp4",
+          "url": "https://assets.mixkit.co/videos/2212/2212-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.107Z",
+          "createdAt": "2026-11-01T02:50:11.107Z",
+          "mediaAssetId": "third-stock08",
+          "demoMediaId": "stock08",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "third-video-8",
+          "title": "Fireside: The Road Trip",
+          "year": 2016,
+          "recordedDate": "2016",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Countryside meadow.",
+          "location": "Open road",
+          "people": [],
+          "occasion": "journey",
+          "collectionIds": [
+            "third-collection-1"
+          ],
+          "poster": "/artwork/mountains.png",
+          "backdrop": "/artwork/mountains.png",
+          "duration": 23.12,
+          "status": "draft",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 1,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/4075/4075-720.mp4",
+          "url": "https://assets.mixkit.co/videos/4075/4075-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.107Z",
+          "createdAt": "2026-11-01T02:50:11.107Z",
+          "mediaAssetId": "third-stock09",
+          "demoMediaId": "stock09",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "third-video-4",
+          "title": "Fireside: Across the Mountains",
+          "year": 2019,
+          "recordedDate": "2019",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Waterfall in woods.",
+          "location": "Mountains",
+          "people": [],
+          "occasion": "journey",
+          "collectionIds": [
+            "third-collection-1"
+          ],
+          "poster": "/artwork/mountains.png",
+          "backdrop": "/artwork/mountains.png",
+          "duration": 15.056708,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 5,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/2212/2212-720.mp4",
+          "url": "https://assets.mixkit.co/videos/2212/2212-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.106Z",
+          "createdAt": "2026-11-01T02:50:11.106Z",
+          "mediaAssetId": "third-stock08",
+          "demoMediaId": "stock08",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "third-video-5",
+          "title": "Fireside: A Very Special Day",
+          "year": 2022,
+          "recordedDate": "2022",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Countryside meadow.",
+          "location": "Countryside",
+          "people": [],
+          "occasion": "celebration",
+          "collectionIds": [
+            "third-collection-2"
+          ],
+          "poster": "/artwork/garden.png",
+          "backdrop": "/artwork/garden.png",
+          "duration": 23.12,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 4,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/4075/4075-720.mp4",
+          "url": "https://assets.mixkit.co/videos/4075/4075-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.106Z",
+          "createdAt": "2026-11-01T02:50:11.106Z",
+          "mediaAssetId": "third-stock09",
+          "demoMediaId": "stock09",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "third-video-6",
+          "title": "Fireside: Christmas Together",
+          "year": 2004,
+          "recordedDate": "2004",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Aerial view of city traffic at night.",
+          "location": "Home",
+          "people": [],
+          "occasion": "winter",
+          "collectionIds": [
+            "third-collection-3"
+          ],
+          "poster": "/artwork/cinema.png",
+          "backdrop": "/artwork/cinema.png",
+          "duration": 12.5125,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 3,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/11/11-720.mp4",
+          "url": "https://assets.mixkit.co/videos/11/11-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.106Z",
+          "createdAt": "2026-11-01T02:50:11.106Z",
+          "mediaAssetId": "third-stock10",
+          "demoMediaId": "stock10",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "third-video-3",
+          "title": "Fireside: The Family Reunion",
+          "year": 2012,
+          "recordedDate": "2012",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Aerial view of city traffic at night.",
+          "location": "Garden",
+          "people": [],
+          "occasion": "reunion",
+          "collectionIds": [
+            "third-collection-2"
+          ],
+          "poster": "/artwork/garden.png",
+          "backdrop": "/artwork/garden.png",
+          "duration": 12.5125,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": false,
+          "priority": 6,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/11/11-720.mp4",
+          "url": "https://assets.mixkit.co/videos/11/11-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.104Z",
+          "createdAt": "2026-11-01T02:50:11.104Z",
+          "mediaAssetId": "third-stock10",
+          "demoMediaId": "stock10",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "third-video-2",
+          "title": "Fireside: Our First Holiday",
+          "year": 1998,
+          "recordedDate": "1998",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Countryside meadow.",
+          "location": "Coast",
+          "people": [],
+          "occasion": "holiday",
+          "collectionIds": [
+            "third-collection-1"
+          ],
+          "poster": "/artwork/coast.png",
+          "backdrop": "/artwork/coast.png",
+          "duration": 23.12,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": true,
+          "priority": 7,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/4075/4075-720.mp4",
+          "url": "https://assets.mixkit.co/videos/4075/4075-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.103Z",
+          "createdAt": "2026-11-01T02:50:11.103Z",
+          "mediaAssetId": "third-stock09",
+          "demoMediaId": "stock09",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        },
+        {
+          "id": "third-video-1",
+          "title": "Fireside: Summer by the Lake",
+          "year": 2007,
+          "recordedDate": "2007",
+          "datePrecision": "year",
+          "description": "Fictional demonstration metadata. Sample footage: Waterfall in woods.",
+          "location": "Lake district",
+          "people": [],
+          "occasion": "summer",
+          "collectionIds": [
+            "third-collection-1"
+          ],
+          "poster": "/artwork/lake.png",
+          "backdrop": "/artwork/lake.png",
+          "duration": 15.056708,
+          "status": "published",
+          "processingStatus": "ready",
+          "featured": true,
+          "priority": 8,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "familyTv": true,
+          "demo": true,
+          "streamVideoId": "https://assets.mixkit.co/videos/2212/2212-720.mp4",
+          "url": "https://assets.mixkit.co/videos/2212/2212-720.mp4",
+          "availableAt": null,
+          "updatedAt": "2026-11-01T02:50:11.102Z",
+          "createdAt": "2026-11-01T02:50:11.102Z",
+          "mediaAssetId": "third-stock08",
+          "demoMediaId": "stock08",
+          "demoMediaVersion": "stock-v1",
+          "playbackProvider": "local"
+        }
+      ],
+      "collections": [
+        {
+          "id": "third-collection-4",
+          "title": "Everyday",
+          "description": "Everyday from our archive.",
+          "artwork": "/artwork/mountains.png",
+          "priority": 3,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.102Z",
+          "createdAt": "2026-11-01T02:50:11.102Z"
+        },
+        {
+          "id": "third-collection-2",
+          "title": "Celebrations",
+          "description": "Celebrations from our archive.",
+          "artwork": "/artwork/garden.png",
+          "priority": 1,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.101Z",
+          "createdAt": "2026-11-01T02:50:11.101Z"
+        },
+        {
+          "id": "third-collection-3",
+          "title": "Traditions",
+          "description": "Traditions from our archive.",
+          "artwork": "/artwork/cinema.png",
+          "priority": 2,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.101Z",
+          "createdAt": "2026-11-01T02:50:11.101Z"
+        },
+        {
+          "id": "third-collection-1",
+          "title": "Holidays",
+          "description": "Holidays from our archive.",
+          "artwork": "/artwork/lake.png",
+          "priority": 0,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "gathering": true,
+          "homepage": true,
+          "updatedAt": "2026-11-01T02:50:11.100Z",
+          "createdAt": "2026-11-01T02:50:11.100Z"
+        }
+      ],
+      "moments": [
+        {
+          "id": "third-moment-3",
+          "videoId": "third-video-3",
+          "title": "Together again",
+          "start": 1,
+          "end": 2.5,
+          "description": "A sample interval from this film's demonstration footage.",
+          "familyTv": true,
+          "collectionIds": [
+            "third-collection-2"
+          ],
+          "visibility": "all",
+          "gathering": true,
+          "creator": "third-owner",
+          "approved": true,
+          "thumbnail": "/artwork/garden.png",
+          "updatedAt": "2026-11-01T02:50:11.105Z",
+          "createdAt": "2026-11-01T02:50:11.105Z"
+        },
+        {
+          "id": "third-moment-2",
+          "videoId": "third-video-2",
+          "title": "The journey begins",
+          "start": 0.5,
+          "end": 2,
+          "description": "A sample interval from this film's demonstration footage.",
+          "familyTv": true,
+          "collectionIds": [
+            "third-collection-1"
+          ],
+          "visibility": "all",
+          "gathering": true,
+          "creator": "third-owner",
+          "approved": true,
+          "thumbnail": "/artwork/coast.png",
+          "updatedAt": "2026-11-01T02:50:11.104Z",
+          "createdAt": "2026-11-01T02:50:11.104Z"
+        },
+        {
+          "id": "third-moment-1",
+          "videoId": "third-video-1",
+          "title": "A little sunshine",
+          "start": 0,
+          "end": 1.5,
+          "description": "A sample interval from this film's demonstration footage.",
+          "familyTv": true,
+          "collectionIds": [
+            "third-collection-1"
+          ],
+          "visibility": "all",
+          "gathering": true,
+          "creator": "third-owner",
+          "approved": true,
+          "thumbnail": "/artwork/lake.png",
+          "updatedAt": "2026-11-01T02:50:11.103Z",
+          "createdAt": "2026-11-01T02:50:11.103Z"
+        }
+      ],
+      "stories": [
+        {
+          "id": "third-story-1",
+          "videoId": "third-video-1",
+          "text": "A fictional written family story, added to demonstrate optional commentary. This note does not describe or transcribe the sample footage.",
+          "timestamp": 1,
+          "creator": "third-owner",
+          "status": "approved",
+          "approved": true,
+          "visibility": "all",
+          "gathering": true,
+          "updatedAt": "2026-11-01T02:50:11.155Z",
+          "createdAt": "2026-11-01T02:50:11.155Z"
+        }
+      ],
+      "transcripts": [
+        {
+          "id": "third-caption-1",
+          "videoId": "third-video-1",
+          "start": 0,
+          "end": 2,
+          "text": "Synthetic demonstration caption — not a transcription of the sample video.",
+          "language": "en",
+          "synthetic": true,
+          "updatedAt": "2026-11-01T02:50:11.156Z",
+          "createdAt": "2026-11-01T02:50:11.156Z"
+        }
+      ],
+      "chapters": [
+        {
+          "id": "third-chapter-1",
+          "videoId": "third-video-1",
+          "start": 0,
+          "end": 2,
+          "title": "Sample clip · opening interval",
+          "updatedAt": "2026-11-01T02:50:11.156Z",
+          "createdAt": "2026-11-01T02:50:11.156Z"
+        },
+        {
+          "id": "third-chapter-2",
+          "videoId": "third-video-1",
+          "start": 2,
+          "end": 4,
+          "title": "Sample clip · closing interval",
+          "updatedAt": "2026-11-01T02:50:11.156Z",
+          "createdAt": "2026-11-01T02:50:11.156Z"
+        }
+      ],
+      "channels": [
+        {
+          "id": "third-channel-summers",
+          "name": "Our Summers",
+          "description": "Sunny days and the journeys between them.",
+          "artwork": "/artwork/lake.png",
+          "mode": "mix",
+          "collectionIds": [
+            "third-collection-1"
+          ],
+          "excludedVideoIds": [],
+          "excludedMomentIds": [],
+          "excludedIntervals": [],
+          "minSeconds": 30,
+          "maxSeconds": 90,
+          "minutes": 30,
+          "enabled": true,
+          "published": true,
+          "gathering": true,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "overlay": true,
+          "updatedAt": "2026-11-01T02:50:11.110Z",
+          "createdAt": "2026-11-01T02:50:11.110Z"
+        },
+        {
+          "id": "third-channel-celebrations",
+          "name": "Celebration TV",
+          "description": "The occasions we love to remember.",
+          "artwork": "/artwork/garden.png",
+          "mode": "mix",
+          "collectionIds": [
+            "third-collection-2"
+          ],
+          "excludedVideoIds": [],
+          "excludedMomentIds": [],
+          "excludedIntervals": [],
+          "minSeconds": 30,
+          "maxSeconds": 90,
+          "minutes": 30,
+          "enabled": true,
+          "published": true,
+          "gathering": true,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "overlay": true,
+          "updatedAt": "2026-11-01T02:50:11.110Z",
+          "createdAt": "2026-11-01T02:50:11.110Z"
+        },
+        {
+          "id": "third-channel",
+          "name": "The Family Channel",
+          "description": "A little of everything we love.",
+          "artwork": "/artwork/lake.png",
+          "mode": "mix",
+          "collectionIds": [],
+          "excludedVideoIds": [],
+          "excludedMomentIds": [],
+          "excludedIntervals": [],
+          "minSeconds": 30,
+          "maxSeconds": 90,
+          "minutes": 30,
+          "enabled": true,
+          "published": true,
+          "gathering": true,
+          "visibility": "all",
+          "allowedAccounts": [],
+          "overlay": true,
+          "updatedAt": "2026-11-01T02:50:11.108Z",
+          "createdAt": "2026-11-01T02:50:11.108Z"
+        }
+      ],
+      "programmes": [
+        {
+          "id": "third-programme-1",
+          "title": "Our next movie night",
+          "hostId": "third-owner",
+          "profileIds": [
+            "third-profile",
+            "third-profile-2",
+            "third-profile-3"
+          ],
+          "queue": [
+            {
+              "videoId": "third-video-1"
+            },
+            {
+              "videoId": "third-video-2",
+              "momentId": "third-moment-2"
+            }
+          ],
+          "suggestions": [],
+          "status": "draft",
+          "index": 0,
+          "creator": "third-owner",
+          "updatedAt": "2026-11-01T02:50:11.157Z",
+          "createdAt": "2026-11-01T02:50:11.157Z"
+        }
+      ],
+      "premieres": [
+        {
+          "id": "third-premiere-1",
+          "title": "A night to remember",
+          "videoId": "third-video-6",
+          "artwork": "/artwork/cinema.png",
+          "backdrop": "/artwork/cinema.png",
+          "releaseAt": "2099-12-24T18:00:00.000Z",
+          "timezone": "Europe/Amsterdam",
+          "dedication": "A fictional premiere for this demonstration archive.",
+          "intro": "Welcome to our family cinema. This is a demonstration title card.",
+          "introEnabled": true,
+          "profileIds": [
+            "third-profile",
+            "third-profile-2",
+            "third-profile-3"
+          ],
+          "published": true,
+          "status": "published",
+          "visibility": "all",
+          "gathering": true,
+          "creator": "third-owner",
+          "updatedAt": "2026-11-01T02:50:11.157Z",
+          "createdAt": "2026-11-01T02:50:11.157Z"
+        }
+      ],
+      "settings": [
+        {
+          "id": "demo-media-stock-v1",
+          "datasetVersion": "stock-v1",
+          "manifestFingerprint": "8ebb80b0121b89e84c9da947f8afd1e51f888e2394f48aaad588e80cec692a58",
+          "appliedAt": "2026-11-01T02:50:11.187Z",
+          "applied": [
+            {
+              "videoId": "third-video-1",
+              "mediaId": "stock08"
+            },
+            {
+              "videoId": "third-video-2",
+              "mediaId": "stock09"
+            },
+            {
+              "videoId": "third-video-3",
+              "mediaId": "stock10"
+            },
+            {
+              "videoId": "third-video-4",
+              "mediaId": "stock08"
+            },
+            {
+              "videoId": "third-video-5",
+              "mediaId": "stock09"
+            },
+            {
+              "videoId": "third-video-6",
+              "mediaId": "stock10"
+            },
+            {
+              "videoId": "third-video-7",
+              "mediaId": "stock08"
+            },
+            {
+              "videoId": "third-video-8",
+              "mediaId": "stock09"
+            }
+          ],
+          "skipped": [],
+          "updatedAt": "2026-11-01T02:50:11.187Z",
+          "createdAt": "2026-11-01T02:50:11.187Z"
+        },
+        {
+          "id": "archive",
+          "notifications": false,
+          "recoveryDays": 30,
+          "memoryDiscovery": {
+            "enabled": true,
+            "collectionIds": [],
+            "excludedVideoIds": [],
+            "sensitiveOccasions": []
+          },
+          "updatedAt": "2026-11-01T02:50:11.108Z",
+          "createdAt": "2026-11-01T02:50:11.108Z"
+        }
+      ],
+      "billing": [
+        {
+          "id": "subscription",
+          "planName": "Family Cinema",
+          "monthlyPrice": 14.99,
+          "currency": "EUR",
+          "cadence": "monthly",
+          "status": "demo-active",
+          "demo": true,
+          "nextBillingAt": "2026-12-01T00:00:00.000Z",
+          "billingName": "Third Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "vat": "",
+          "paymentMethod": {
+            "label": "Demo card",
+            "last4": "4242"
+          },
+          "updatedAt": "2026-11-01T02:50:11.110Z",
+          "createdAt": "2026-11-01T02:50:11.110Z"
+        }
+      ],
+      "invoices": [
+        {
+          "id": "third-invoice-2026-11",
+          "number": "DEMO-THIRD-202611",
+          "date": "2026-11-01",
+          "periodStart": "2026-11-01",
+          "total": 14.99,
+          "currency": "EUR",
+          "status": "demo",
+          "description": "Fictional Family Cinema subscription. No payment has been charged.",
+          "billingName": "Third Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "items": [
+            {
+              "description": "Family Cinema · one demo month",
+              "quantity": 1,
+              "unitPrice": 14.99,
+              "total": 14.99
+            }
+          ],
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.112Z",
+          "createdAt": "2026-11-01T02:50:11.112Z"
+        },
+        {
+          "id": "third-invoice-2026-09",
+          "number": "DEMO-THIRD-202609",
+          "date": "2026-09-01",
+          "periodStart": "2026-09-01",
+          "total": 14.99,
+          "currency": "EUR",
+          "status": "demo",
+          "description": "Fictional Family Cinema subscription. No payment has been charged.",
+          "billingName": "Third Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "items": [
+            {
+              "description": "Family Cinema · one demo month",
+              "quantity": 1,
+              "unitPrice": 14.99,
+              "total": 14.99
+            }
+          ],
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.111Z",
+          "createdAt": "2026-11-01T02:50:11.111Z"
+        },
+        {
+          "id": "third-invoice-2026-10",
+          "number": "DEMO-THIRD-202610",
+          "date": "2026-10-01",
+          "periodStart": "2026-10-01",
+          "total": 14.99,
+          "currency": "EUR",
+          "status": "demo",
+          "description": "Fictional Family Cinema subscription. No payment has been charged.",
+          "billingName": "Third Owner",
+          "address": {
+            "line1": "1 Example Lane",
+            "line2": "Fictional demonstration address",
+            "city": "Example Town",
+            "postalCode": "0000 AA",
+            "country": "NL"
+          },
+          "items": [
+            {
+              "description": "Family Cinema · one demo month",
+              "quantity": 1,
+              "unitPrice": 14.99,
+              "total": 14.99
+            }
+          ],
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.111Z",
+          "createdAt": "2026-11-01T02:50:11.111Z"
+        }
+      ],
+      "watchlists": [
+        {
+          "id": "third-owner:third-profile-2",
+          "accountId": "third-owner",
+          "profileId": "third-profile-2",
+          "videos": [
+            "third-video-3",
+            "third-video-4"
+          ],
+          "updatedAt": "2026-11-01T02:50:11.160Z",
+          "createdAt": "2026-11-01T02:50:11.160Z"
+        },
+        {
+          "id": "third-owner:third-profile-3",
+          "accountId": "third-owner",
+          "profileId": "third-profile-3",
+          "videos": [
+            "third-video-5",
+            "third-video-6"
+          ],
+          "updatedAt": "2026-11-01T02:50:11.160Z",
+          "createdAt": "2026-11-01T02:50:11.160Z"
+        },
+        {
+          "id": "third-owner:third-profile",
+          "accountId": "third-owner",
+          "profileId": "third-profile",
+          "videos": [
+            "third-video-1",
+            "third-video-2"
+          ],
+          "updatedAt": "2026-11-01T02:50:11.118Z",
+          "createdAt": "2026-11-01T02:50:11.118Z"
+        }
+      ],
+      "providerConfigs": [
+        {
+          "id": "transcription",
+          "provider": "transcription",
+          "configured": false,
+          "capability": "Optional configured speech transcription",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.117Z",
+          "createdAt": "2026-11-01T02:50:11.117Z"
+        },
+        {
+          "id": "cloudflare-stream",
+          "provider": "cloudflare-stream",
+          "configured": false,
+          "capability": "Customer video upload and signed playback",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.116Z",
+          "createdAt": "2026-11-01T02:50:11.116Z"
+        },
+        {
+          "id": "private-r2",
+          "provider": "private-r2",
+          "configured": false,
+          "capability": "Private artwork, original files and voice storage",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.116Z",
+          "createdAt": "2026-11-01T02:50:11.116Z"
+        },
+        {
+          "id": "ai-images",
+          "provider": "ai-images",
+          "configured": false,
+          "capability": "Optional configured cover generation",
+          "demo": true,
+          "credentialsStoredHere": false,
+          "updatedAt": "2026-11-01T02:50:11.116Z",
+          "createdAt": "2026-11-01T02:50:11.116Z"
+        }
+      ],
+      "mediaAssets": [
+        {
+          "id": "third-stock08",
+          "provider": "demo-stock",
+          "providerVideoId": "Mixkit:2212",
+          "kind": "video",
+          "duration": 15.056708,
+          "protected": false,
+          "demo": true,
+          "title": "Waterfall in woods",
+          "author": "@marcolopez",
+          "sourcePage": "https://mixkit.co/free-stock-video/waterfall-in-woods-2212/",
+          "licenseName": "Mixkit Stock Video Free License",
+          "licensePage": "https://mixkit.co/license/modal/videoFree/",
+          "attribution": "Waterfall in woods by @marcolopez / Mixkit",
+          "bytes": 5425641,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "browser-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "unknown",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.187Z",
+          "createdAt": "2026-11-01T02:50:11.187Z"
+        },
+        {
+          "id": "third-stock09",
+          "provider": "demo-stock",
+          "providerVideoId": "Mixkit:4075",
+          "kind": "video",
+          "duration": 23.12,
+          "protected": false,
+          "demo": true,
+          "title": "Countryside meadow",
+          "author": "@dubassy",
+          "sourcePage": "https://mixkit.co/free-stock-video/countryside-meadow-4075/",
+          "licenseName": "Mixkit Stock Video Free License",
+          "licensePage": "https://mixkit.co/license/modal/videoFree/",
+          "attribution": "Countryside meadow by @dubassy / Mixkit",
+          "bytes": 8865733,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "browser-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "unknown",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.187Z",
+          "createdAt": "2026-11-01T02:50:11.187Z"
+        },
+        {
+          "id": "third-stock10",
+          "provider": "demo-stock",
+          "providerVideoId": "Mixkit:11",
+          "kind": "video",
+          "duration": 12.5125,
+          "protected": false,
+          "demo": true,
+          "title": "Aerial view of city traffic at night",
+          "author": "@franklandgrave",
+          "sourcePage": "https://mixkit.co/free-stock-video/aerial-view-of-city-traffic-at-night-11/",
+          "licenseName": "Mixkit Stock Video Free License",
+          "licensePage": "https://mixkit.co/license/modal/videoFree/",
+          "attribution": "Aerial view of city traffic at night by @franklandgrave / Mixkit",
+          "bytes": 3254260,
+          "verification": {
+            "verifiedAt": "2026-11-01",
+            "durationSource": "browser-metadata",
+            "httpStatus": 206,
+            "contentType": "video/mp4",
+            "cors": "unknown",
+            "noRecognizablePeople": true
+          },
+          "updatedAt": "2026-11-01T02:50:11.186Z",
+          "createdAt": "2026-11-01T02:50:11.186Z"
+        },
+        {
+          "id": "third-sample-media",
+          "provider": "cloudflare-demo",
+          "providerVideoId": "550d45ca5743a2f43fd0f6db8dfa2f98",
+          "kind": "video",
+          "duration": 4,
+          "protected": false,
+          "demo": true,
+          "note": "The single supplied public demonstration sample; customer media requires protected playback.",
+          "updatedAt": "2026-11-01T02:50:11.112Z",
+          "createdAt": "2026-11-01T02:50:11.112Z"
+        }
+      ],
+      "playbackLicenses": [
+        {
+          "id": "demo-sample",
+          "mediaAssetId": "third-sample-media",
+          "provider": "cloudflare-demo",
+          "configured": false,
+          "requiresSigning": false,
+          "demo": true,
+          "note": "Public sample only; configured protected customer playback is signed per request.",
+          "updatedAt": "2026-11-01T02:50:11.117Z",
+          "createdAt": "2026-11-01T02:50:11.117Z"
+        }
+      ],
+      "accessPolicies": [
+        {
+          "id": "archive-members",
+          "scope": "archive",
+          "visibility": "members",
+          "configured": false,
+          "demo": true,
+          "authoritativeSource": "Authenticated memberships and each resource visibility policy are enforced by the API.",
+          "updatedAt": "2026-11-01T02:50:11.118Z",
+          "createdAt": "2026-11-01T02:50:11.118Z"
+        }
+      ],
+      "consents": [
+        {
+          "id": "private-images-ai",
+          "accountId": "third-owner",
+          "kind": "private-images-to-ai",
+          "granted": false,
+          "provider": "none",
+          "demo": true,
+          "updatedAt": "2026-11-01T02:50:11.118Z",
+          "createdAt": "2026-11-01T02:50:11.118Z"
+        }
+      ]
+    }
+  ]
+}
