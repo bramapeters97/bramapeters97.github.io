@@ -533,19 +533,31 @@ def portfolio_page(number, items, capabilities):
     para('BRAM PETERS | STUDIO', M, H - M, 330, 9, font='CVHeading')
     link('bram-peters.com', SITE, W - M - 72, H - M, 8)
     top = H - 83
-    left_w, right_w, gap = 353, W - 2 * M - 365, 12
+    start = top - 28
+    left_w, gap = 353, 12
+    right_w = W - 2 * M - left_w - gap
     right_x = M + left_w + gap
     heading('Portfolio' if number == 2 else 'Portfolio continued', M, top, left_w)
-    card(right_x, top + 1, right_w, top - 42)
-    sy = heading('Skills' if number == 2 else 'Skills continued', right_x + 11, top - 11, right_w - 22)
+    heading('Skills' if number == 2 else 'Skills continued', right_x, top, right_w)
+    skill_top = start
+    skill_padding = 10
+    skill_x = right_x + skill_padding
+    skill_w = right_w - 2 * skill_padding
     for item in capabilities:
-        sy -= para(item.one('skill-title').text(), right_x + 11, sy, right_w - 22, 9.2, font='CVTitle') + 2
-        sy -= para(item.one('skill-level').text(), right_x + 11, sy, right_w - 22, 7.5, color=BLUE) + 4
-        sy -= para(item.one('skill-description').text(), right_x + 11, sy, right_w - 22, 7.6, leading=10.1, color=MUTED) + 14
-    assert sy >= 47, f'Skills overflow ({sy:.1f})'
+        title = item.one('skill-title').text()
+        text_top = skill_top - skill_padding
+        text_top -= para(title, skill_x, text_top, skill_w, 9.3, font='CVTitle') + 2
+        text_top -= para(item.one('skill-level').text(), skill_x, text_top, skill_w, 7.6, color=BLUE) + 4
+        text_top -= para(item.one('skill-description').text(), skill_x, text_top, skill_w,
+                         8, leading=10.4, color=MUTED)
+        skill_bottom = text_top - skill_padding
+        assert skill_bottom >= 42, f'Skill card overflow: {title} ({skill_bottom:.1f} pt)'
+        pdf.setStrokeColor(colors.HexColor('#bfc6cf'))
+        pdf.setLineWidth(.6)
+        pdf.roundRect(right_x, skill_bottom, right_w, skill_top - skill_bottom, 10, fill=0, stroke=1)
+        skill_top = skill_bottom - 9
     col_w = (left_w - 12) / 2
     row_h, image_h, row_gap = 164, 54, 10
-    start = top - 28
     assert len(items) <= 8
     for i, project_id in enumerate(items):
         item = projects[project_id]
