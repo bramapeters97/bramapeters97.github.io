@@ -17,6 +17,9 @@ from urllib.parse import urljoin
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 from reportlab import rl_config
+from reportlab.graphics import renderPDF
+from reportlab.graphics.shapes import Drawing, Group
+from reportlab.graphics.svgpath import SvgPath
 from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -87,9 +90,18 @@ experience = [item for item in doc.all('experience-item')
 projects = {item.attrs['data-project']: item for item in doc.all('portfolio-card')}
 skills = doc.all('skill-glass-card')
 
-intro = ("👋 Hi, I'm Bram! I'm a Business Intelligence Specialist at KLM with a background in UX/UI and an MSc in "
-         "Human-Technology Interaction. I believe data should tell a story and good design shouldn't need an "
-         "instruction manual. I turn messy data into tools people want to use. Let's make something that makes sense. 🚀")
+intro = (
+    "👋 Hi, I'm <b>Bram</b>! A Business Intelligence Specialist at ✈️ "
+    '<b><font color="#0099D9">KLM</font></b>, with a background in UX/UI design and an MSc in Human-Technology '
+    "Interaction. A curious mind, a soft spot for good UX, and a healthy intolerance for unnecessary complexity."
+    "<br/><br/>"
+    "I believe data should tell a story, technology should make life easier, and good design shouldn't require an "
+    "instruction manual. This belief has shaped the trajectory of my career in which my experience in BI and data "
+    "analytics and passion for Human-Centred Design culminated in projects I still take a lot of pride in to this "
+    "day. From untangling messy datasets and building data pipelines to designing intuitive interfaces and "
+    "developing complete digital solutions, I enjoy turning complex challenges into products that people <i>want</i> "
+    "to use. <b>Let's make something that makes sense.</b> 🚀"
+)
 experience_copy = {
     'Business Intelligence-Specialist, KLM': 'Delivering full-stack Microsoft Power Platform products for aviation Engineering & Maintenance, combining BI, user-centred design and stakeholder collaboration.',
     'Owner/Founder, Bram Peters Studio™': 'Independent design and development freelance venture for full-stack websites, apps, UX/UI, BI and Power Platforms solutions, alongside creative video production for businesses and individuals.',
@@ -102,9 +114,9 @@ experience_copy = {
 }
 # Insertion order is the print order; descriptions fit the original card footprint.
 project_copy = {
-    'uwv-monitor': 'Made socio-medical data understandable through public insight into WIA assessments, diagnoses, outcomes and regional trends.',
-    'mypremiereplus': 'Turns old family videos into a private streaming library with themed collections, family recommendations and TV-style channels.',
     'lost-in-translation': 'Built an AI-powered map-poster platform with custom travel assistants, personalised literal translations and brand-focused e-commerce.',
+    'mypremiereplus': 'Turns old family videos into a private streaming library with themed collections, family recommendations and TV-style channels.',
+    'uwv-monitor': 'Made socio-medical data understandable through public insight into WIA assessments, diagnoses, outcomes and regional trends.',
     'lelibrambas': 'Designed a private family-video streaming platform for TV, desktop and mobile, spanning UX/UI, cloud data, APIs and media delivery.',
     'tue-learning-dashboard': 'Mapped student journeys, set up ETL processes and designed academic-performance visualisations to support self-regulated learning.',
     'emotional-drone': 'Co-designed a healthcare drone interface and Android app, combining user research, voice recognition and mood-sensitive lighting.',
@@ -131,7 +143,8 @@ assert len(experience) == len(experience_copy), 'Review print summaries when exp
 assert len(project_copy) == 13 and project_copy.keys() <= projects.keys()
 
 font_files = {'CVBody': 'Aptos.ttf', 'CVTitle': 'Aptos-SemiBold.ttf',
-              'CVHeading': 'Aptos-Bold.ttf', 'CVLight': 'Aptos-Light.ttf'}
+              'CVHeading': 'Aptos-Bold.ttf', 'CVLight': 'Aptos-Light.ttf',
+              'CVItalic': 'Aptos-Italic.ttf', 'CVBoldItalic': 'Aptos-Bold-Italic.ttf'}
 font_dirs = [
     Path(environ['CV_FONT_DIR']) if environ.get('CV_FONT_DIR') else None,
     Path('/Applications/Microsoft Word.app/Contents/Resources/DFonts'),
@@ -145,6 +158,34 @@ if font_dir is None:
     sys.exit('Install the Aptos font family and set CV_FONT_DIR to its directory.')
 for name, filename in font_files.items():
     pdfmetrics.registerFont(TTFont(name, str(font_dir / filename)))
+pdfmetrics.registerFontFamily('CVBody', normal='CVBody', bold='CVHeading',
+                              italic='CVItalic', boldItalic='CVBoldItalic')
+
+# Font Awesome Free 6.4.0 icons by Fonticons, Inc. (CC BY 4.0).
+# Source: https://github.com/FortAwesome/Font-Awesome/tree/6.4.0/svgs
+# License: https://creativecommons.org/licenses/by/4.0/
+# Original paths, scaled and colored in icon() to match the homepage.
+ICONS = {
+    'user': (448, 512, 'M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z'),
+    'briefcase': (512, 512, 'M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z'),
+    'graduation-cap': (640, 512, 'M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z'),
+    'code': (640, 512, 'M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z'),
+    'book': (448, 512, 'M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z'),
+    'language': (640, 512, 'M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z'),
+    'address-book': (512, 512, 'M96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM208 288h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H144c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z'),
+    'layer-group': (576, 512, 'M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z'),
+    'envelope': (512, 512, 'M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z'),
+    'phone': (512, 512, 'M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z'),
+    'location-dot': (384, 512, 'M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z'),
+    'globe': (512, 512, 'M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z'),
+    'linkedin': (448, 512, 'M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z'),
+}
+SECTION_ICONS = {
+    'About me': 'user', 'Contact me': 'address-book', 'Education': 'graduation-cap',
+    'Languages': 'language', 'Certificates': 'book', 'Professional experience': 'briefcase',
+    'Portfolio': 'layer-group', 'Portfolio continued': 'layer-group',
+    'Skills': 'code', 'Skills continued': 'code',
+}
 
 W, H = A4
 M = 32
@@ -192,12 +233,12 @@ def emoji_image(char):
     return f'<img src="data:image/png;base64,{data}" width="{width:.2f}" height="9.1" valign="-1.6"/>'
 
 
-def para(value, x, top, width, size=8.7, leading=None, font='CVBody', color=INK, emoji=False):
+def para(value, x, top, width, size=8.7, leading=None, font='CVBody', color=INK, emoji=False, rich=False):
     style = ParagraphStyle('cv', fontName=font, fontSize=size,
                            leading=leading or size * 1.32, textColor=color)
-    markup = escape(clean(value))
+    markup = value if rich else escape(clean(value))
     if emoji:
-        for char in ('👋', '🚀'):
+        for char in ('👋', '🚀', '🧩', '✈️'):
             if char in markup:
                 markup = markup.replace(char, emoji_image(char))
     p = Paragraph(markup, style)
@@ -222,8 +263,19 @@ def card(x, top, width, height):
     pdf.roundRect(x, top - height, width, height, 12, fill=1, stroke=1)
 
 
+def icon(name, x, top, size):
+    width, height, path = ICONS[name]
+    scale = size / max(width, height)
+    holder = Group(SvgPath(path, fillColor=colors.HexColor('#444444'), strokeColor=None))
+    holder.translate((size - width * scale) / 2, (size + height * scale) / 2)
+    holder.scale(scale, -scale)
+    drawing = Drawing(size, size, holder)
+    renderPDF.draw(drawing, pdf, x, top - size)
+
+
 def heading(text, x, top, width):
-    used = para(text.upper(), x, top, width, 10.3, font='CVHeading')
+    icon(SECTION_ICONS[text], x, top - 2, 10)
+    used = para(text.upper(), x + 15, top, width - 15, 10.3, font='CVHeading')
     rule(x, top - used - 5, width)
     return top - used - 14
 
@@ -242,19 +294,19 @@ def link(label, url, x, top, size=8.2):
 def project_button(url, mid_x, bottom):
     width, height = 95, 21
     x = mid_x - width / 2
-    pdf.setFillColor(colors.HexColor('#d9e2ee'))
-    pdf.roundRect(x, bottom - 1.3, width, height, 6, fill=1, stroke=0)
+    pdf.setFillColor(colors.HexColor('#e1e8f0'))
+    pdf.roundRect(x, bottom - .7, width, height, height / 2, fill=1, stroke=0)
     pdf.saveState()
     shape = pdf.beginPath()
-    shape.roundRect(x, bottom, width, height, 6)
+    shape.roundRect(x, bottom, width, height, height / 2)
     pdf.clipPath(shape, stroke=0)
     pdf.linearGradient(x, bottom + height, x, bottom,
-                       ['#ffffff', '#eef3f9', '#dce5ef', '#eff4fa'],
-                       positions=[0, .45, .76, 1], extend=True)
+                       ['#fcfdff', '#eff3f9', '#e7eef6'],
+                       positions=[0, .38, 1], extend=True)
     pdf.restoreState()
-    pdf.setStrokeColor(colors.HexColor('#b6c4d4'))
-    pdf.setLineWidth(.65)
-    pdf.roundRect(x, bottom, width, height, 6, fill=0, stroke=1)
+    pdf.setStrokeColor(colors.HexColor('#cbd6e2'))
+    pdf.setLineWidth(.55)
+    pdf.roundRect(x, bottom, width, height, height / 2, fill=0, stroke=1)
     label, size = 'View Project', 8.3
     label_width = pdfmetrics.stringWidth(label, 'CVTitle', size)
     icon_x = mid_x - (label_width + 12) / 2
@@ -364,24 +416,41 @@ pdf.setFont('CVHeading', 26)
 pdf.setFillColor(colors.HexColor('#20242c'))
 pdf.drawString(x, top - 24, 'Bram Peters')
 para('Business Intelligence Specialist | Human-Centred Product Design', x, top - 37, W - M - x, 10, font='CVTitle')
-para('MSc Human-Technology Interaction | UX/UI, data & digital products', x, top - 54, W - M - x, 8.7, color=MUTED)
-rule(M, H - 116, W - 2 * M)
+para('🧩 I make sense of data, and data make sense.', x, top - 54, W - M - x, 9.5, font='CVHeading', emoji=True)
+rule(M, H - 112, W - 2 * M)
 
-about_top, about_height = H - 128, 113
-about_w, contact_x = 332, M + 344
+about_top, about_height = H - 123, 174
+about_w, contact_x = 345, M + 357
 contact_w = W - M - contact_x
 card(M, about_top, about_w, about_height)
 card(contact_x, about_top, contact_w, about_height)
 y = heading('About me', M + 12, about_top - 12, about_w - 24)
-assert y - para(intro, M + 12, y, about_w - 24, 9, emoji=True) >= about_top - about_height + 10
+intro_height = para(intro, M + 12, y, about_w - 24, 8.85, leading=10.25, emoji=True, rich=True)
+assert y - intro_height >= about_top - about_height + 10, f'Introduction overflow ({intro_height:.1f} pt)'
 y = heading('Contact me', contact_x + 12, about_top - 12, contact_w - 24)
-link('bramapeters@outlook.com', 'mailto:bramapeters@outlook.com', contact_x + 12, y, 8)
-language_flag('nl', contact_x + 12, y - 12)
-link('+31 6 30827054', 'tel:+31630827054', contact_x + 32, y - 12, 8)
-para('Haarlemmerdijk 3, 1013JZ Amsterdam', contact_x + 12, y - 24, contact_w - 24, 8)
-link('bram-peters.com', SITE, contact_x + 12, y - 36, 8)
-link('LinkedIn: Bram Peters', 'https://www.linkedin.com/in/bram-peters/', contact_x + 12, y - 48, 8)
-link('LinkedIn: Bram Peters Studio', 'https://www.linkedin.com/company/bram-peters-studio/', contact_x + 12, y - 60, 8)
+contact_rows = [
+    ('envelope', 'bramapeters@outlook.com', 'mailto:bramapeters@outlook.com'),
+    ('envelope', 'info@bram-peters.com', 'mailto:info@bram-peters.com'),
+    ('phone', '+31 6 30827054', 'tel:+31630827054'),
+    ('location-dot', 'Haarlemmerdijk 3, 1013JZ Amsterdam', None),
+    ('globe', 'bram-peters.com', SITE),
+    ('linkedin', 'LinkedIn: Bram Peters', 'https://www.linkedin.com/in/bram-peters/'),
+    ('linkedin', 'LinkedIn: Bram Peters Studio', 'https://www.linkedin.com/company/bram-peters-studio/'),
+]
+for index, (name, label, url) in enumerate(contact_rows):
+    row_top = y - 17.5 * index
+    icon(name, contact_x + 12, row_top - .45, 8.4)
+    text_x = contact_x + 26
+    if name == 'phone':
+        language_flag('nl', text_x, row_top + .4)
+        text_x += 20
+    if url:
+        link(label, url, text_x, row_top, 8.5)
+    else:
+        available = contact_x + contact_w - 12 - text_x
+        size = min(8.5, 8.5 * (available - .5) / pdfmetrics.stringWidth(label, 'CVBody', 8.5))
+        assert para(label, text_x, row_top, available, size, leading=11) == 11
+assert row_top - 11 >= about_top - about_height + 10
 
 section_top = about_top - about_height - 12
 side_w, gutter = 160, 12
@@ -401,9 +470,10 @@ for name, container_class in [('Education', 'education-list'), ('Languages', 'la
             code = Path(item.one('language-flag').attrs['src']).stem
             language_flag(code, M + 12, y)
             offset = 20
-        y -= para(title, M + 12 + offset, y, side_w - 24 - offset, 8.8, font='CVTitle') + 3
-        y -= para(detail, M + 12, y, side_w - 24, 7.8, color=MUTED) + 7
-    y -= 5
+        y -= para(title, M + 12 + offset, y, side_w - 24 - offset, 8.8, leading=10.7, font='CVTitle') + 2
+        y -= para(detail, M + 12, y, side_w - 24, 7.8, leading=9.3, color=MUTED) + 5
+    y -= 4
+assert y >= 48, f'Sidebar content overflow ({y:.1f})'
 
 y = heading('Professional experience', main_x + 12, section_top - 12, main_w - 24)
 for index, item in enumerate(experience):
@@ -415,8 +485,8 @@ for index, item in enumerate(experience):
     dates = item.one('experience-dates').text().replace('Okt ', 'Oct ')
     employer_logo(title.one(tag='img').attrs['src'], main_x + 12, y)
     y -= para(role, main_x + 40, y, main_w - 52, 9.4, font='CVTitle') + 2
-    y -= para(f'{location} | {dates}', main_x + 12, y, main_w - 24, 7.5, color=MUTED) + 4
-    y -= para(experience_copy[role], main_x + 12, y, main_w - 24, 8.6, leading=10.8) + 11
+    y -= para(f'{location} | {dates}', main_x + 12, y, main_w - 24, 7.5, color=MUTED) + 3
+    y -= para(experience_copy[role], main_x + 12, y, main_w - 24, 8.6, leading=10.2) + 5.5
     if index != len(experience) - 1:
         rule(main_x + 12, y + 3, main_w - 24)
 assert y >= 48, f'Experience content overflow ({y:.1f})'
@@ -427,8 +497,7 @@ def portfolio_page(number, items, capabilities):
     page_base(number)
     para('BRAM PETERS | STUDIO', M, H - M, 330, 9, font='CVHeading')
     link('bram-peters.com', SITE, W - M - 72, H - M, 8)
-    para('Selected work & capabilities', M, H - 69, W - 2 * M, 22, font='CVLight')
-    top = H - 112
+    top = H - 83
     left_w, right_w, gap = 353, W - 2 * M - 365, 12
     right_x = M + left_w + gap
     heading('Portfolio' if number == 2 else 'Portfolio continued', M, top, left_w)
@@ -440,7 +509,7 @@ def portfolio_page(number, items, capabilities):
         sy -= para(item.one('skill-description').text(), right_x + 11, sy, right_w - 22, 7.6, leading=10.1, color=MUTED) + 14
     assert sy >= 47, f'Skills overflow ({sy:.1f})'
     col_w = (left_w - 12) / 2
-    row_h = 211 if number == 2 else 187
+    row_h = 220 if number == 2 else 196
     start = top - 28
     for i, project_id in enumerate(items[:6]):
         item = projects[project_id]
