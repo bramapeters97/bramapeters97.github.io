@@ -31,6 +31,7 @@ from reportlab.platypus import Paragraph
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = 'https://bram-peters.com/'
+EMAIL = 'bramapeters@outlook.com'
 OUTPUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'assets/pdf/bapeters_cv.pdf'
 
 
@@ -125,22 +126,24 @@ project_copy = {
     'vinobo': 'Built a video-learning tool with searchable YouTube transcripts, timestamped annotations and personal notebooks saved to user accounts.',
     'spotify': 'Applied the Double Diamond framework at KTH to research listener goals and redesign the Spotify podcast experience.',
     'raspberries': 'Co-designed Rodebjer\'s digital in-store shopping assistant, giving customers greater control over fitting rooms, service and their visit.',
+    'honeymoon': 'Built a personalised wedding-gift webshop for honeymoon activities and stays, with guest messages collected in a keepsake collage.',
     'j-meijer': 'Created "A Day in the Life of Luca Orvini", a playful company-anniversary film, exploring concept development, directing and post-production.',
-    'next-project': 'Looking for new challenges that combine design and development. Let\'s connect and make something that makes sense.',
+    'next-project': 'Need a website, a fresh design, or a custom digital solution? I combine design and development to bring your ideas to life.',
 }
 project_titles = {
     'mypremiereplus': 'MyPremiere+',
     'lost-in-translation': 'Lost In Translation™',
     'lelibrambas': 'LELIBRAMBAS+ | Family Archive Streaming',
     'amstroll': 'Amstroll',
-    'next-project': 'My Next Project',
+    'next-project': 'Let’s build something together!',
 }
 project_links = {
     'mypremiereplus': 'mypremiereplus.html',
     'lost-in-translation': 'index.html#project-lost-in-translation',
+    'next-project': f'mailto:{EMAIL}',
 }
 assert len(experience) == len(experience_copy), 'Review print summaries when experience changes.'
-assert len(project_copy) == 13 and project_copy.keys() <= projects.keys()
+assert len(project_copy) == 14 and project_copy.keys() <= projects.keys()
 
 font_files = {'CVBody': 'Aptos.ttf', 'CVTitle': 'Aptos-SemiBold.ttf',
               'CVHeading': 'Aptos-Bold.ttf', 'CVLight': 'Aptos-Light.ttf',
@@ -291,35 +294,61 @@ def link(label, url, x, top, size=8.2):
     pdf.linkURL(url, (x, top - size - 2, x + width, top + 1), relative=0)
 
 
-def project_button(url, mid_x, bottom):
-    width, height = 95, 21
+BUTTON_HEIGHT = 20
+
+
+def project_button(url, mid_x, bottom, label='View Project'):
+    label_size = 8.6
+    label_width = pdfmetrics.stringWidth(label, 'CVTitle', label_size)
+    width, height = label_width + 37, BUTTON_HEIGHT
     x = mid_x - width / 2
-    pdf.setFillColor(colors.HexColor('#e1e8f0'))
-    pdf.roundRect(x, bottom - .7, width, height, height / 2, fill=1, stroke=0)
+    pdf.saveState()
+    pdf.setFillColor(colors.HexColor('#436487'))
+    pdf.setFillAlpha(.10)
+    pdf.roundRect(x, bottom - .8, width, height, height / 2, fill=1, stroke=0)
+    pdf.restoreState()
+
     pdf.saveState()
     shape = pdf.beginPath()
     shape.roundRect(x, bottom, width, height, height / 2)
     pdf.clipPath(shape, stroke=0)
-    pdf.linearGradient(x, bottom + height, x, bottom,
-                       ['#fcfdff', '#eff3f9', '#e7eef6'],
-                       positions=[0, .38, 1], extend=True)
+    pdf.setFillAlpha(.78)
+    pdf.linearGradient(x + width * .25, bottom + height, x + width * .55, bottom,
+                       ['#ffffff', '#f3f9ff', '#d9eafa'],
+                       positions=[0, .43, 1], extend=True)
     pdf.restoreState()
-    pdf.setStrokeColor(colors.HexColor('#cbd6e2'))
-    pdf.setLineWidth(.55)
+
+    pdf.saveState()
+    pdf.setStrokeColor(colors.HexColor('#9eb4cc'))
+    pdf.setStrokeAlpha(.44)
+    pdf.setLineWidth(.5)
     pdf.roundRect(x, bottom, width, height, height / 2, fill=0, stroke=1)
-    label, size = 'View Project', 8.3
-    label_width = pdfmetrics.stringWidth(label, 'CVTitle', size)
+    pdf.setStrokeColor(colors.white)
+    pdf.setStrokeAlpha(.92)
+    pdf.setLineWidth(.65)
+    highlight = pdf.beginPath()
+    highlight.moveTo(x + 4, bottom + height - 4)
+    highlight.curveTo(x + 5.5, bottom + height - 1.5, x + 8, bottom + height - .8, x + 12, bottom + height - .8)
+    highlight.lineTo(x + width - 12, bottom + height - .8)
+    highlight.curveTo(x + width - 8, bottom + height - .8, x + width - 5.5, bottom + height - 1.5, x + width - 4, bottom + height - 4)
+    pdf.drawPath(highlight)
+    pdf.restoreState()
+
     icon_x = mid_x - (label_width + 12) / 2
     icon_y = bottom + (height - 8) / 2
-    pointer = pdf.beginPath()
-    pointer.moveTo(icon_x + .6, icon_y + 8)
-    for dx, dy in [(6.8, 3.2), (4.1, 2.9), (5.1, .65), (3.9, 0), (2.8, 2.45), (.6, .8)]:
-        pointer.lineTo(icon_x + dx, icon_y + dy)
-    pointer.close()
+    if label == 'Contact Me':
+        icon('envelope', icon_x, icon_y + 8, 7.5)
+    else:
+        pointer = pdf.beginPath()
+        pointer.moveTo(icon_x + .8, icon_y + 7.5)
+        for dx, dy in [(6.4, 3.5), (4.0, 3.0), (4.9, 1.1), (3.8, .6), (2.8, 2.6), (.8, 1.2)]:
+            pointer.lineTo(icon_x + dx, icon_y + dy)
+        pointer.close()
+        pdf.setFillColor(colors.HexColor('#474e57'))
+        pdf.drawPath(pointer, fill=1, stroke=0)
     pdf.setFillColor(colors.HexColor('#474e57'))
-    pdf.drawPath(pointer, fill=1, stroke=0)
-    pdf.setFont('CVTitle', size)
-    pdf.drawString(icon_x + 12, bottom + (height - size) / 2 + 1.4, label)
+    pdf.setFont('CVTitle', label_size)
+    pdf.drawString(icon_x + 12, bottom + (height - label_size) / 2 + 1.4, label)
     pdf.linkURL(url, (x, bottom, x + width, bottom + height), relative=0)
 
 
@@ -371,15 +400,21 @@ def language_flag(code, x, top):
     pdf.roundRect(x, y, width, height, 1.8, fill=0, stroke=1)
 
 
-def picture(path, x, top, width, height, circle=False, show_full=False):
-    with Image.open(ROOT / path) as source:
-        img = source.convert('RGB')
+def picture(path, x, top, width, height, circle=False, show_full=False, badge=False):
     pixels = (round(width * 3), round(height * 3))
-    thumb = ImageOps.fit(img, pixels, method=Image.Resampling.LANCZOS)
-    if show_full:
-        thumb = thumb.filter(ImageFilter.GaussianBlur(16))
-        full = ImageOps.contain(img, pixels, method=Image.Resampling.LANCZOS)
-        thumb.paste(full, ((pixels[0] - full.width) // 2, (pixels[1] - full.height) // 2))
+    with Image.open(ROOT / path) as source:
+        img = source.convert('RGBA' if badge else 'RGB')
+    if badge:
+        thumb = Image.new('RGB', pixels, '#e9e9e9')
+        mark_size = round(pixels[1] * .65)
+        mark = ImageOps.contain(img, (mark_size, mark_size), method=Image.Resampling.LANCZOS)
+        thumb.paste(mark, ((pixels[0] - mark.width) // 2, (pixels[1] - mark.height) // 2), mark)
+    else:
+        thumb = ImageOps.fit(img, pixels, method=Image.Resampling.LANCZOS)
+        if show_full:
+            thumb = thumb.filter(ImageFilter.GaussianBlur(16))
+            full = ImageOps.contain(img, pixels, method=Image.Resampling.LANCZOS)
+            thumb.paste(full, ((pixels[0] - full.width) // 2, (pixels[1] - full.height) // 2))
     jpeg = BytesIO()
     thumb.save(jpeg, format='JPEG', quality=92, optimize=True)
     jpeg.seek(0)
@@ -416,7 +451,7 @@ pdf.setFont('CVHeading', 26)
 pdf.setFillColor(colors.HexColor('#20242c'))
 pdf.drawString(x, top - 24, 'Bram Peters')
 para('Business Intelligence Specialist | Human-Centred Product Design', x, top - 37, W - M - x, 10, font='CVTitle')
-para('🧩 I make sense of data, and data make sense.', x, top - 54, W - M - x, 9.5, font='CVHeading', emoji=True)
+para('🧩 I make sense of data, and data make sense.', x, top - 54, W - M - x, 9.5, font='CVLight', emoji=True)
 rule(M, H - 112, W - 2 * M)
 
 about_top, about_height = H - 123, 174
@@ -429,7 +464,7 @@ intro_height = para(intro, M + 12, y, about_w - 24, 8.85, leading=10.25, emoji=T
 assert y - intro_height >= about_top - about_height + 10, f'Introduction overflow ({intro_height:.1f} pt)'
 y = heading('Contact me', contact_x + 12, about_top - 12, contact_w - 24)
 contact_rows = [
-    ('envelope', 'bramapeters@outlook.com', 'mailto:bramapeters@outlook.com'),
+    ('envelope', EMAIL, f'mailto:{EMAIL}'),
     ('envelope', 'info@bram-peters.com', 'mailto:info@bram-peters.com'),
     ('phone', '+31 6 30827054', 'tel:+31630827054'),
     ('location-dot', 'Haarlemmerdijk 3, 1013JZ Amsterdam', None),
@@ -509,38 +544,32 @@ def portfolio_page(number, items, capabilities):
         sy -= para(item.one('skill-description').text(), right_x + 11, sy, right_w - 22, 7.6, leading=10.1, color=MUTED) + 14
     assert sy >= 47, f'Skills overflow ({sy:.1f})'
     col_w = (left_w - 12) / 2
-    row_h = 220 if number == 2 else 196
+    row_h, image_h, row_gap = 164, 54, 10
     start = top - 28
-    for i, project_id in enumerate(items[:6]):
+    assert len(items) <= 8
+    for i, project_id in enumerate(items):
         item = projects[project_id]
         px = M + (i % 2) * (col_w + 12)
-        py = start - (i // 2) * (row_h + 12)
+        py = start - (i // 2) * (row_h + row_gap)
         card(px, py, col_w, row_h)
         image = item.one(tag='img').attrs['src']
-        image_h = 70 if number == 2 else 60
-        picture(image, px + 7, py - 7, col_w - 14, image_h, show_full=project_id == 'mypremiereplus')
-        ty = py - image_h - 15
+        picture(image, px + 7, py - 7, col_w - 14, image_h,
+                show_full=project_id in {'mypremiereplus', 'lost-in-translation'},
+                badge=project_id == 'next-project')
+        ty = py - image_h - 13
         title = project_titles.get(project_id) or item.one(tag='h2').text()
-        ty -= para(title, px + 9, ty, col_w - 18, 9.5, leading=11.5, font='CVTitle') + 6
-        ty -= para(project_copy[project_id], px + 9, ty, col_w - 18, 8.55, leading=10.9) + 8
+        ty -= para(title, px + 9, ty, col_w - 18, 9.5, leading=11, font='CVTitle') + 4
+        ty -= para(project_copy[project_id], px + 9, ty, col_w - 18, 8.55, leading=10) + 5
         href = project_links.get(project_id) or item.one('portfolio-card-link').attrs['href']
-        button_bottom = py - row_h + 10
-        assert ty >= button_bottom + 21, f'Project card overflow: {project_id}'
-        project_button(urljoin(SITE, href), px + col_w / 2, button_bottom)
-    if len(items) > 6:
-        assert items[6] == 'next-project'
-        ty = start - 3 * (row_h + 12) + 1
-        card(M, ty, left_w, 62)
-        para(project_titles['next-project'], M + 11, ty - 9, left_w - 22, 10, font='CVTitle')
-        para(project_copy['next-project'], M + 11, ty - 25, left_w - 22, 8.1)
-        link('Contact me', urljoin(SITE, projects['next-project'].one('portfolio-card-link').attrs['href']),
-             M + 11, ty - 46, 8)
-        assert ty - 62 >= 40
+        button_bottom = ty - BUTTON_HEIGHT
+        assert py - row_h >= 42 and button_bottom >= py - row_h + 6, f'Project card overflow: {project_id}'
+        label = 'Contact Me' if project_id == 'next-project' else 'View Project'
+        project_button(urljoin(SITE, href), px + col_w / 2, button_bottom, label)
     pdf.showPage()
 
 
 print_order = list(project_copy)
-portfolio_page(2, print_order[:6], skills[:5])
-portfolio_page(3, print_order[6:], skills[5:])
+portfolio_page(2, print_order[:8], skills[:5])
+portfolio_page(3, print_order[8:], skills[5:])
 pdf.save()
-print(f'Created {OUTPUT} (3 A4 pages; {len(experience)} roles, {len(project_copy) - 1} projects, {len(skills)} skills).')
+print(f'Created {OUTPUT} (3 A4 pages; {len(experience)} roles, {len(project_copy)} cards, {len(skills)} skills).')
