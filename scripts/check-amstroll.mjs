@@ -1,12 +1,11 @@
 /* Offline regression checks: node scripts/check-amstroll.mjs
- * Add --dom-module /absolute/path/to/jsdom/lib/api.js for app interaction checks.
+ * Run check-amstroll-browser.mjs separately against a local preview.
  * No requests reach an external service; fixtures test behavior, not live coverage.
  */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
-import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -95,68 +94,42 @@ await assert.rejects(discover(providerHarness(cancelled), cancelled.controller.s
   error => error.name === 'AbortError');
 console.log(`PASS ${scripts.length} inline scripts; distinct licensed place images, batched requests, partial coverage, failure and cancellation`);
 
-const moduleFlag = process.argv.indexOf('--dom-module');
-if (moduleFlag < 0) {
-  console.log('Supply --dom-module for default source, pagination and offline app interaction checks.');
-  process.exit(0);
+await import('./check-amstroll-clock.mjs');
+await import('./check-amstroll-guide.mjs');
+assert.ok(!/https?:\/\/(?:maps\.googleapis\.com|www\.google\.com\/maps)/.test(html), 'Amstroll must have no Google Maps integration');
+assert.match(html, /guide-offline\.js/);
+for (const [, asset] of html.matchAll(/<script src="(guide-[^"]+\.js)"/g)) {
+  new vm.Script(fs.readFileSync(path.join(root, path.dirname(file), asset), 'utf8'), { filename: asset });
 }
-assert.ok(process.argv[moduleFlag + 1], '--dom-module needs an absolute jsdom module path');
-const require = createRequire(import.meta.url);
-const { JSDOM, VirtualConsole } = require(path.resolve(process.argv[moduleFlag + 1]));
-const windows = [];
-const waitFor = async (condition, message) => {
-  const deadline = Date.now() + 5000;
-  while (!condition()) {
-    assert.ok(Date.now() < deadline, message);
-    await new Promise(resolve => setTimeout(resolve, 10));
-  }
-};
-function appHarness(fixture) {
-  const errors = [];
-  const virtualConsole = new VirtualConsole();
-  virtualConsole.on('jsdomError', error => errors.push(error.message));
-  // CSS is outside this behavioral suite; no fonts, images or remote assets load.
-  const markup = html.replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi, '');
-  const dom = new JSDOM(markup, { url: 'https://amstroll.test/prototype/',
-    runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole });
-  const w = dom.window;
-  windows.push(w);
-  w.fetch = fixture.fetch;
-  w.matchMedia = () => ({ matches: true, addEventListener() {}, removeEventListener() {} });
-  w.document.fonts = { ready: Promise.resolve() };
-  w.HTMLElement.prototype.scrollIntoView = () => {};
-  w.HTMLDialogElement.prototype.showModal = function () { this.open = true; };
-  w.HTMLDialogElement.prototype.close = function () { this.open = false; };
-  scripts.forEach(source => w.eval(source));
-  return { w, doc: w.document, errors };
-}
-const cards = app => [...app.doc.querySelectorAll('.amstroll-card')];
-try {
-  const app = appHarness(fixtures());
-  assert.equal(app.w.AmstrollApp.getUI().mode, 'open', 'Open places must be the default');
-  await waitFor(() => cards(app).length === 5, 'The first five provider cards did not appear');
-  const first = cards(app).map(card => card.dataset.planId);
-  app.doc.querySelector('[data-action="more-places"]').click();
-  const second = cards(app).map(card => card.dataset.planId);
-  assert.equal(second.length, 5);
-  assert.ok(second.every(id => !first.includes(id)), 'The next five repeat the first page');
-  const image = app.doc.querySelector('img[data-place-photo]');
-  const originalSource = image.src;
-  image.dispatchEvent(new app.w.Event('error'));
-  assert.equal(image.src, originalSource, 'A failed place photo must not become unrelated area imagery');
-  assert.equal(image.hidden, true);
-  assert.ok(image.parentElement.querySelector('.photo-unavailable'));
-  assert.deepEqual(app.errors, []);
+console.log('PASS linked guide scripts and static shell');
 
-  const offline = appHarness(fixtures(8, { failPhotos: true }));
-  await waitFor(() => offline.doc.querySelector('[data-action="use-curated"]'), 'Provider failure was not shown');
-  assert.equal(cards(offline).length, 0, 'Offline failure silently substituted authored plans');
-  offline.doc.querySelector('[data-action="use-curated"]').click();
-  assert.equal(offline.w.AmstrollApp.getUI().mode, 'curated');
-  assert.equal(cards(offline).length, 20, 'Explicit offline collection should keep twenty ideas available');
-  assert.deepEqual(offline.errors, []);
-  console.log('PASS app: Open places default, five-card pages without overlap, honest image errors and explicit twenty-idea offline collection');
-} finally {
-  windows.forEach(w => w.close());
+const guideFolder = path.join(root, path.dirname(file));
+const guideContext = vm.createContext({ window: {}, AbortController, URL, setTimeout, clearTimeout });
+for (const asset of ['guide-data.js', 'guide-planner.js']) {
+  vm.runInContext(fs.readFileSync(path.join(guideFolder, asset), 'utf8'), guideContext);
 }
-
+const { AmstrollGuideData: catalogue, AmstrollGuide: guide } = guideContext.window;
+const seed = JSON.parse(fs.readFileSync(path.join(root, 'scripts/amstroll/catalogue.json'), 'utf8'));
+const points = new Map([...catalogue.starts, ...catalogue.places].map(point => [point.id, point]));
+const photos = catalogue.places.flatMap(place => [place.photo, place.thenAndNow?.then, place.thenAndNow?.now].filter(Boolean));
+for (const photo of photos) {
+  assert.ok(photo.src.startsWith('guide-photos/') && photo.subject && photo.alt && photo.credit && photo.modifications);
+  assert.equal(new URL(photo.sourceUrl).hostname, 'commons.wikimedia.org');
+  assert.match(photo.license, /^CC/);
+  assert.ok(fs.statSync(path.join(guideFolder, photo.src)).size > 1000);
+}
+assert.equal(Object.keys(catalogue.routes).length, seed.routePairs.length * 2);
+for (const [key, route] of Object.entries(catalogue.routes)) {
+  const [from, to] = key.split('>').map(id => points.get(id));
+  assert.ok(from && to && route.seconds > 0 && route.meters > 0 && !route.ferry && route.geometry.length > 2, key);
+  const distance = (point, [lng, lat]) => Math.hypot((point.lat - lat) * 111000, (point.lng - lng) * 68000);
+  assert.ok(distance(from, route.geometry[0]) < 80 && distance(to, route.geometry.at(-1)) < 80, key);
+}
+const day = new Date('2026-11-13T11:00:00Z');
+const bundled = guide.suggest({ start: 'central', endpoint: 'start', minutes: 47, budget: 0, walking: 45 }, { now: day });
+assert.ok(bundled.fits.length >= 3);
+assert.ok(bundled.fits.some(plan => plan.thenAndNow));
+assert.equal(new Set(bundled.fits.map(plan => plan.photo.src)).size, bundled.fits.length);
+assert.ok(bundled.fits.every(plan => plan.endId === 'central' && plan.total <= 47 && plan.cost === 0));
+assert.ok(bundled.ideas.some(plan => plan.handoff?.url.includes('gvb.nl')));
+console.log(`PASS packaged guide with ${catalogue.places.length} photographed places and ${Object.keys(catalogue.routes).length} routed legs`);

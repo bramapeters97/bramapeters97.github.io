@@ -4,17 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Amstroll — A Vibe-Coding Experiment | Bram Peters</title>
-    <meta name="description" content="Amstroll turns the time between plans into an invitation to explore Amsterdam. A self-initiated product concept exploring UX/UI, behavioural design and native iOS interaction through a web prototype." />
+    <meta name="description" content="Amstroll turns free time in Amsterdam into a walk that fits. Try the interactive browser guide and see the native iPhone prototype." />
     <link rel="canonical" href="https://bram-peters.com/amstroll.html" />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="Bram Peters" />
     <meta property="og:title" content="Amstroll — A Vibe-Coding Experiment" />
-    <meta property="og:description" content="An AI-assisted development experiment: from an Amsterdam outing concept to a working web prototype in just under two hours." />
+    <meta property="og:description" content="A pocket guide to Amsterdam with a station-clock planner, photographed walks and a working iPhone prototype." />
     <meta property="og:url" content="https://bram-peters.com/amstroll.html" />
+    <meta property="og:image" content="https://bram-peters.com/assets/amstroll/ios/overview.webp" />
+    <meta property="og:image:alt" content="Amstroll’s Explore, silver clock, suggestions, outing detail and Journal on iPhone" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Amstroll — A Vibe-Coding Experiment" />
-    <meta name="twitter:description" content="Exploring AI-assisted ideation, wireframing, mockups and interactive prototyping with Amstroll." />
+    <meta name="twitter:description" content="Try Amstroll’s station-clock planner and find a walk that fits the time you have in Amsterdam." />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/portfolio.css" />
@@ -88,8 +90,14 @@
         <header class="project-header">
             <span class="case-eyebrow"><i class="fa-solid fa-compass" aria-hidden="true"></i> VIBE-CODING EXPERIMENT</span>
             <h1 class="case-project-wordmark"><img src="assets/amstroll/brand/wordmark.svg" alt="Amstroll" width="356" height="64" decoding="async" /></h1>
-            <p class="tagline">A vibe-coding experiment showing how a solid brief can leverage AI-assisted development to create solid wireframes, mockups and working prototypes.</p>
-            <figure class="case-montage-frame"><img class="case-montage" src="assets/img/amstroll.png" alt="Amstroll montage with five iPhone views of planning, suggestions, a canal outing, an optional NS excursion and the journal" width="2200" height="900" fetchpriority="high" decoding="async" /></figure>
+            <p class="tagline">A pocket guide to Amsterdam for the time between plans.</p>
+            <p><a class="publication-btn" href="#prototype"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Try the interactive prototype</a></p>
+            <figure class="case-montage-frame">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="assets/amstroll/ios/overview-mobile.webp" width="960" height="690" />
+                    <img class="case-montage" src="assets/amstroll/ios/overview.webp" alt="Amstroll on iPhone, including the canal-led Explore screen, silver station clock and photographed outings" width="1680" height="752" fetchpriority="high" decoding="async" />
+                </picture>
+            </figure>
         </header>
         <main class="page-two-columns" id="case-content" tabindex="-1">
             <section class="left-col" aria-label="Amstroll case study">
@@ -104,21 +112,21 @@
 
                 <article class="card" id="prototype">
                     <h2 class="case-section-heading"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i><span>The interactive prototype</span></h2>
-                    <p>Choose an Amsterdam starting area and explore Open places: nearby suggestions with their own source photographs, five at a time. Adjust the time slider, exact editor and preferences, then try “More of these” for another selection. To explore a complete sample outing, switch to Amsterdam collection, open a fitting plan and progress manually or skip a stop. Finish with an optional journal memory. The fictional Alex account opens directly. No backend or API key is needed; Open places needs an internet connection, while the authored collection works offline.</p>
+                    <p>The interactive guide brings the iPhone flow to your browser. Choose <strong>Plan a stroll</strong>, set the clock, and check where you’ll start and finish. More walks appear as you scroll, and going back returns you to the outing you opened. During a walk, use the outing menu to skip or swap a stop or head back to your finish.</p>
                     <dialog class="case-prototype" id="amstroll-prototype-view" open aria-label="Amstroll interactive prototype" role="region">
                         <div class="case-prototype-controls" hidden>
                             <button class="publication-btn case-prototype-toggle" type="button" aria-controls="amstroll-prototype-view" aria-expanded="false"><i class="fa-solid fa-expand" aria-hidden="true"></i><span>Full screen</span></button>
                         </div>
-                        <iframe src="projects/amstroll/portfolio-embed/index.html" title="Amstroll — interactive Amsterdam discovery prototype" width="430" height="868" loading="lazy"></iframe>
+                        <iframe src="projects/amstroll/portfolio-embed/index.html?v=ios-guide" title="Amstroll — interactive Amsterdam discovery prototype" width="430" height="868" loading="lazy"></iframe>
                     </dialog>
-                    <p><a class="publication-btn" href="projects/amstroll/portfolio-embed/index.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open prototype</a></p>
-                    <p class="case-caption">If the embed cannot load, open the standalone prototype above or use the screenshots on this page. Manual area selection works without location permission. Storage restrictions may make saved ideas session-only.</p>
+                    <p><a class="publication-btn" href="projects/amstroll/portfolio-embed/index.html?v=ios-guide" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open prototype</a></p>
+                    <p class="case-caption">You can choose your area by hand. The case study images are captures from the SwiftUI app running on an iPhone simulator.</p>
                 </article>
 
                 <aside class="quote-block case-context" aria-labelledby="identity-heading">
                     <h2 class="case-section-heading" id="identity-heading"><i class="fa-solid fa-palette" aria-hidden="true"></i><span>Visual identity &amp; interaction</span></h2>
-                    <p>I wanted Amstroll to feel like permission to take a small detour. Warm neutrals, muted green, gentle gradients and soft shadows support real Amsterdam photography. At Centraal, the location banner fades into the planning card; rounded, glass-like navigation keeps the identity and demo profile readable. Exploring this in a working prototype let me consider the visual direction alongside the interactions, rather than treating either as settled too early.</p>
-                    <p>The rounded, bridge-like A has a detour crossbar and a yellow endpoint. Custom vector lettering sits alongside Plus Jakarta Sans headings and DM Sans interface text. An illustrated path suggests exploration. Motion provides feedback and orientation, with reduced-motion preferences respected.</p>
+                    <p>Real Amsterdam photography leads Explore. The canal image scrolls away into a compact toolbar that keeps the trip summary within reach. The silver dial borrows from a station clock, while glass and subtle reflections are concentrated on the controls and navigation.</p>
+                    <p>The original bridge-shaped A, detour crossbar and yellow endpoint anchor the identity. Editorial headings sit alongside interface controls sized for touch. A single planner keeps the time, start and finish, and optional preferences in the same flow.</p>
                     <figure class="case-brand"><img src="assets/amstroll/brand/wordmark.svg" alt="Amstroll wordmark with a green bridge-like A, detour crossbar and yellow endpoint" width="356" height="64" loading="lazy" decoding="async" /><figcaption class="case-caption">The supplied Amstroll identity, with custom vector lettering.</figcaption></figure>
                 </aside>
 
@@ -127,14 +135,14 @@
                     <p><strong>You’ve got an hour in Amsterdam. Let’s not spend forty-five minutes deciding what to do with it.</strong></p>
                     <p>Amstroll turns that familiar “we should do something” into a small outing worth putting your shoes on for. A wander along the canals, a quiet park, a trip across the IJ: something that suits your mood and makes good use of the time you actually have.</p>
                     <p>Tell it where you’re starting, how much time you have and what you feel like doing. Then adjust how you want to travel, how far you fancy walking, your budget and where you need to finish. Your chosen time and budget stay exactly where you set them until <strong>you</strong> change them. The app respects a firm “I’ve only got an hour.”</p>
-                    <p>There are always <strong>20+ curated outing ideas to browse</strong>, with clear labels showing what fits, what needs a little longer and what still needs checking. Just looking for inspiration? Browse away. You can explore the options without committing to an outing. Sometimes “let’s see what’s around” is quite enough commitment for one afternoon.</p>
-                    <p>And when a little stroll starts looking more like a day out, <strong>Haarlem and Zandvoort</strong> are on the menu too. Those excursions account for getting there, spending time there and getting back to Amsterdam. Even spontaneity needs a return journey. Apparently.</p>
+                    <p>The guide checks the full walk, time at each stop and a reserve before ranking suggestions. The original Amsterdam collection is also available to browse for inspiration.</p>
+                    <p>The bundled walking routes cover five starting areas. Ferry and train ideas with unverified schedules link to the operator’s planner.</p>
                 </article>
 
                 <section class="case-gallery" tabindex="0" aria-label="Amstroll planning, suggestions and outing detail">
-                    <figure><a href="assets/img/am1.png" target="_blank" rel="noopener noreferrer"><img src="assets/img/am1.png" alt="Amstroll planning screen in an iPhone mockup, with Amsterdam Centraal photography, a forty-seven-minute slider, time presets and Amsterdam starting area" width="460" height="930" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Set your time and starting point.</figcaption></figure>
-                    <figure><a href="assets/img/am2.png" target="_blank" rel="noopener noreferrer"><img src="assets/img/am2.png" alt="Amstroll suggestions screen in an iPhone mockup, showing a canal outing and visible sample-plan eligibility" width="460" height="930" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Explore suggestions and eligibility.</figcaption></figure>
-                    <figure><a href="assets/img/am3.png" target="_blank" rel="noopener noreferrer"><img src="assets/img/am3.png" alt="Amstroll outing-detail screen in an iPhone mockup, separating duration, walking effort and spending for a Jordaan canal walk" width="460" height="930" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Inspect the outing and travel options.</figcaption></figure>
+                    <figure><a href="assets/amstroll/ios/clock.webp" target="_blank" rel="noopener noreferrer"><img src="assets/amstroll/ios/clock.webp" alt="Silver station clock set to 47 minutes above start, finish and refinement controls" width="640" height="1391" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Set your time and starting point.</figcaption></figure>
+                    <figure><a href="assets/amstroll/ios/feed.webp" target="_blank" rel="noopener noreferrer"><img src="assets/amstroll/ios/feed.webp" alt="Ranked, photographed Amsterdam walks below a 47-minute Centraal trip summary" width="640" height="1391" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Scroll through walks that fit.</figcaption></figure>
+                    <figure><a href="assets/amstroll/ios/detail.webp" target="_blank" rel="noopener noreferrer"><img src="assets/amstroll/ios/detail.webp" alt="Brickwork on the Damrak outing with a photograph and a breakdown of walking, return time, cost and buffer" width="640" height="1391" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Check how an outing fits before starting.</figcaption></figure>
                 </section>
 
                 <article class="card">
@@ -154,34 +162,46 @@
                     <p>The opportunity I chose was a focused decision: what sounds good, what is practical from here, and what fits the time I have?</p>
                 </aside>
 
-                <section class="case-gallery" tabindex="0" aria-label="Amstroll progress, memory and journal screens">
-                    <figure><a href="assets/img/am4.png" target="_blank" rel="noopener noreferrer"><img src="assets/img/am4.png" alt="Amstroll progress screen in an iPhone mockup, with manual stop completion and a control to skip a stop" width="460" height="930" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Progress, skip a stop or finish early.</figcaption></figure>
-                    <figure><a href="assets/img/am5.png" target="_blank" rel="noopener noreferrer"><img src="assets/img/am5.png" alt="Amstroll memory screen in an iPhone mockup, with an optional journal note, mood choice and photo field" width="460" height="930" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Keep an optional note or photograph.</figcaption></figure>
-                    <figure><a href="assets/img/am6.png" target="_blank" rel="noopener noreferrer"><img src="assets/img/am6.png" alt="Amstroll journal screen in an iPhone mockup, showing a saved canal-walk memory alongside a labelled sample entry" width="460" height="930" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Revisit a saved memory.</figcaption></figure>
+                <section class="case-gallery" tabindex="0" aria-label="Amstroll progress, Saved and Journal screens">
+                    <figure><a href="assets/amstroll/ios/progress.webp" target="_blank" rel="noopener noreferrer"><img src="assets/amstroll/ios/progress.webp" alt="Active outing showing the next stop, the Centraal finish and the original deadline" width="640" height="1391" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Follow the next stop and keep the finish in view.</figcaption></figure>
+                    <figure><a href="assets/amstroll/ios/saved.webp" target="_blank" rel="noopener noreferrer"><img src="assets/amstroll/ios/saved.webp" alt="Saved Amsterdam outings with photographs and bookmark controls" width="640" height="1391" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Keep an idea for another day.</figcaption></figure>
+                    <figure><a href="assets/amstroll/ios/journal.webp" target="_blank" rel="noopener noreferrer"><img src="assets/amstroll/ios/journal.webp" alt="Journal with photographed sample Amsterdam memories" width="640" height="1391" loading="lazy" decoding="async" /></a><figcaption class="case-caption">Revisit an outing in the journal.</figcaption></figure>
                 </section>
 
+                <details class="card">
+                    <summary>Photo credits for the iPhone screenshots</summary>
+                    <p>The simulator captures show cropped photographs. The screenshot copies and montages use resized WebP images. Share-alike terms apply to the cropped photographs.</p>
+                    <ul>
+                        <li>Prinsengracht by David Iliff (Diliff). <a href="https://commons.wikimedia.org/wiki/File:Amsterdam_Canals_-_July_2006.jpg">Original photograph</a> · <a href="https://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></li>
+                        <li>Beurs van Berlage by C messier. <a href="https://commons.wikimedia.org/wiki/File:Beurs_van_Berlage_1709.jpg">Original photograph</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li>
+                        <li>OBA Oosterdok by EstherWikipedian. <a href="https://commons.wikimedia.org/wiki/File:Amsterdam_Public_Library_(OBA).jpg">Original photograph</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li>
+                        <li>Amsterdam Centraal by Dietmar Rabich. <a href="https://commons.wikimedia.org/wiki/File:Amsterdam_(NL),_Centraal_Station_--_2015_--_7269.jpg">Original photograph</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li>
+                        <li>Westerpark by acediscovery. <a href="https://commons.wikimedia.org/wiki/File:Westerpark-Amsterdam.jpg">Original photograph</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li>
+                    </ul>
+                </details>
 
                 <article class="card">
                     <h2 class="case-section-heading"><i class="fa-solid fa-code" aria-hidden="true"></i><span>The tech part</span></h2>
-                    <ul class="link-list case-tech-stack" aria-label="Technologies used in the prototype">
+                    <ul class="link-list case-tech-stack" aria-label="Technologies used in the browser and iPhone prototypes">
                         <li><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML</li>
                         <li><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> CSS</li>
                         <li><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</li>
+                        <li><i class="fa-brands fa-swift" aria-hidden="true"></i> SwiftUI</li>
                         <li><i class="fa-solid fa-database" aria-hidden="true"></i> localStorage</li>
                         <li><i class="fa-solid fa-hard-drive" aria-hidden="true"></i> IndexedDB</li>
                     </ul>
-                    <p>I built the prototype with HTML, CSS and JavaScript so I could explore the whole journey in a browser and share it directly. Here, AI-assisted coding helped turn design questions into interactions I could inspect and refine. Its value at this stage is a more concrete discussion about what to build, rather than a claim that the engineering work is complete. Separate modules handle the place catalogue, planning rules, provider requests, local state and interface.</p>
-                    <p>The standalone export bundles the essential assets and authored catalogue for static hosting. localStorage keeps saved ideas and notes in the browser; optional journal photos use IndexedDB. The core experience needs no backend or API key.</p>
-                    <p>Authored Amsterdam plans stay separate from optional OpenStreetMap, Wikipedia, Wikidata and Commons context, and weather from MET Norway. Attribution and visible errors preserve those boundaries. The municipal connection requests <a href="https://maps.amsterdam.nl/open_geodata/?k=649">Amsterdam’s Tramhaltes en metrostations 2026 inventory</a>, showing straight-line proximity, not departures or verified routes.</p>
-                    <p>GVB and NS buttons open official planners; they are not authenticated timetable feeds. Google Places and Routes are optional, owner-configured connections. No key was supplied during this phase, so external live verification remains pending.</p>
+                    <p>The browser prototype uses HTML, CSS and JavaScript so the interaction can be tried directly. The iPhone prototype uses SwiftUI for its sheet, tabs, navigation and menus. Both use the same bundled walking data and guide photography.</p>
+                    <p>The guide bundles a compact OpenStreetMap and Valhalla walking network, a licensed photo catalogue and the original authored collection. Preferences, saved ideas and notes stay in the browser. Journal photos use IndexedDB. The core experience runs on static hosting without an API key.</p>
+                    <p>Walk timings use OpenStreetMap routes. The route shape is bundled, and an optional interactive map uses MapLibre and OpenFreeMap. Place photography and the Brouwersgracht archive pair carry individual source credits.</p>
+                    <p>GVB and NS links open the official planners for schedules and fares. The original collection’s transit examples use authored timings and are labelled as samples.</p>
 
                 </article>
 
                 <article class="card">
                     <h2 class="case-section-heading"><i class="fa-solid fa-compass" aria-hidden="true"></i><span>Leaving room to explore</span></h2>
-                    <p>The next step would be to use feedback on this prototype to refine and agree the design brief before committing to a fuller build. A future native implementation could use SwiftUI, Core Location, a transport-aware route model, deliberate permissions and protected server handling of private provider credentials. This is a direction, not completed native code or a shipped iOS app.</p>
+                    <p>The browser guide and the iPhone prototype let me test the same city-trip decisions on two surfaces. The next step is to see how visitors use the clock and route choices when they actually have time to spare between plans.</p>
                     <ul class="link-list case-actions" aria-label="Amstroll project actions">
-                        <li><a class="publication-btn" href="projects/amstroll/portfolio-embed/index.html" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Prototype</a></li>
+                        <li><a class="publication-btn" href="projects/amstroll/portfolio-embed/index.html?v=ios-guide" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Prototype</a></li>
                         <li><a class="publication-btn" href="index.html#project-amstroll"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to portfolio</a></li>
                         <li><a class="publication-btn" href="contact.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Request app idea</a></li>
                     </ul>

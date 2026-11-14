@@ -11,6 +11,7 @@ Canal houses and water along Prinsengracht in Amsterdam.
 - License: [CC BY 2.5](https://creativecommons.org/licenses/by/2.5)
 - Changes: Resized to a maximum width of 1000px, compressed for offline embedding and converted to WebP; displayed crops may vary.
 - Derivative: [photos/amsterdam-canals.webp](photos/amsterdam-canals.webp)
+- Explore hero derivatives: [portrait crop](../../projects/amstroll/portfolio-embed/hero/amsterdam-canals-portrait.webp) and [wide crop](../../projects/amstroll/portfolio-embed/hero/amsterdam-canals-wide.webp). Photo by David Iliff (Diliff), licensed CC BY 2.5. The portrait is cropped, resized and converted to WebP. The wide image is resized and converted to WebP; the displayed crop varies by viewport.
 
 ## jordaan-coffee
 

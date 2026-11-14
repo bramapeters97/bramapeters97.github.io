@@ -1,0 +1,530 @@
+{
+  "starts": [
+    {
+      "id": "central",
+      "name": "Amsterdam Centraal",
+      "lat": 52.37805,
+      "lng": 4.89912,
+      "area": "Centrum",
+      "bank": "south"
+    },
+    {
+      "id": "jordaan",
+      "name": "Westermarkt · Jordaan",
+      "lat": 52.37466,
+      "lng": 4.88441,
+      "area": "Jordaan",
+      "bank": "south"
+    },
+    {
+      "id": "pijp",
+      "name": "De Pijp · metro station",
+      "lat": 52.35551,
+      "lng": 4.89039,
+      "area": "De Pijp",
+      "bank": "south"
+    },
+    {
+      "id": "westerpark",
+      "name": "Westergas · Westerpark",
+      "lat": 52.38606,
+      "lng": 4.87255,
+      "area": "Westerpark",
+      "bank": "south"
+    },
+    {
+      "id": "museum",
+      "name": "Museumplein",
+      "lat": 52.35801,
+      "lng": 4.88162,
+      "area": "Museumkwartier",
+      "bank": "south"
+    }
+  ],
+  "places": [
+    {
+      "id": "brewers-canal",
+      "name": "Brouwersgracht",
+      "lat": 52.38049,
+      "lng": 4.88837,
+      "area": "Jordaan",
+      "bank": "south",
+      "category": "canal",
+      "dwell": 10,
+      "cost": 0,
+      "access": "public",
+      "moods": [
+        "outdoors",
+        "quiet",
+        "culture"
+      ],
+      "photo": {
+        "src": "guide-photos/modern.jpg",
+        "subject": "Brouwersgracht in Amsterdam",
+        "alt": "Brouwersgracht in Amsterdam",
+        "credit": "Maarten Sepp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Brouwersgracht.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "modifications": "Wikimedia 960px rendition; display crop varies.",
+        "date": "2010"
+      },
+      "sourceUrl": "https://www.amsterdam.nl/stadsarchief/stukken/grachten-torens/brouwersgracht/",
+      "sourceId": "https://www.amsterdam.nl/stadsarchief/stukken/grachten-torens/brouwersgracht/",
+      "description": "Follow the water to the old warehouses and take a moment by the bridge.",
+      "observation": {
+        "text": "Look for the warehouse façades. The canal takes its name from the breweries that once worked here.",
+        "sourceUrl": "https://www.amsterdam.nl/stadsarchief/stukken/grachten-torens/brouwersgracht/"
+      },
+      "thenAndNow": {
+        "then": {
+          "src": "guide-photos/historic.jpg",
+          "subject": "Historic warehouses on Brouwersgracht",
+          "alt": "Historic warehouses on Brouwersgracht",
+          "credit": "George Hendrik Breitner / Rijksmuseum",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gouvernementspakhuizen_aan_de_Brouwersgracht_in_Amsterdam,_RP-F-K89533.jpg",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "modifications": "Wikimedia 960px rendition; display crop varies.",
+          "date": "c. 1890–1910"
+        },
+        "now": {
+          "src": "guide-photos/modern.jpg",
+          "subject": "Brouwersgracht in Amsterdam",
+          "alt": "Brouwersgracht in Amsterdam",
+          "credit": "Maarten Sepp",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Brouwersgracht.jpg",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "modifications": "Wikimedia 960px rendition; display crop varies.",
+          "date": "2010"
+        },
+        "text": "Two views of Brouwersgracht, taken in different years and from different viewpoints."
+      }
+    },
+    {
+      "id": "oosterdok-library",
+      "name": "OBA Oosterdok",
+      "lat": 52.37622,
+      "lng": 4.90817,
+      "area": "Oosterdok",
+      "bank": "south",
+      "category": "library",
+      "dwell": 15,
+      "cost": 0,
+      "access": "venue",
+      "moods": [
+        "rain",
+        "quiet",
+        "culture"
+      ],
+      "photo": {
+        "src": "guide-photos/oba.jpg",
+        "subject": "OBA Oosterdok central library in Amsterdam",
+        "alt": "OBA Oosterdok central library in Amsterdam",
+        "credit": "EstherWikipedian",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amsterdam_Public_Library_(OBA).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "modifications": "Wikimedia 960px rendition; display crop varies.",
+        "date": "2023"
+      },
+      "sourceUrl": "https://oba.nl/nl/locaties/oba-oosterdok",
+      "sourceId": "https://oba.nl/nl/locaties/oba-oosterdok",
+      "description": "Slip into the central library for a browse and a break from the weather.",
+      "observation": {
+        "text": "The seventh floor is home to the OBA Theater. Look for the signs as you explore the library.",
+        "sourceUrl": "https://oba.nl/nl/locaties/oba-oosterdok"
+      },
+      "indoor": true,
+      "openingHours": "Mo-Fr 08:00-22:00; Sa-Su 10:00-20:00",
+      "hoursValidUntil": "2027-01-01T00:00:00+01:00"
+    },
+    {
+      "id": "dam-square",
+      "name": "Dam Square",
+      "lat": 52.37286,
+      "lng": 4.89302,
+      "area": "Centrum",
+      "bank": "south",
+      "category": "square",
+      "dwell": 9,
+      "cost": 0,
+      "access": "public",
+      "moods": [
+        "culture",
+        "outdoors"
+      ],
+      "photo": {
+        "src": "guide-photos/dam.jpg",
+        "subject": "Dam Square in Amsterdam",
+        "alt": "Dam Square in Amsterdam",
+        "credit": "Guilhem Vellut from Annecy, France",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dam_Square_@_Amsterdam_(17811450239).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "modifications": "Wikimedia 960px rendition; display crop varies."
+      },
+      "sourceUrl": "https://www.paleisamsterdam.nl/en/the-palace/",
+      "sourceId": "https://www.paleisamsterdam.nl/en/the-palace/",
+      "description": "Cross the old city centre for a short look around the square and its façades.",
+      "observation": {
+        "text": "Look for the Royal Palace’s symmetry from the public square. The building began as Amsterdam’s town hall.",
+        "sourceUrl": "https://www.paleisamsterdam.nl/en/the-palace/"
+      }
+    },
+    {
+      "id": "beurs-square",
+      "name": "Beurs van Berlage",
+      "lat": 52.37596,
+      "lng": 4.89595,
+      "area": "Centrum",
+      "bank": "south",
+      "category": "architecture",
+      "dwell": 8,
+      "cost": 0,
+      "access": "public",
+      "moods": [
+        "culture",
+        "outdoors",
+        "unexpected"
+      ],
+      "photo": {
+        "src": "guide-photos/beurs.jpg",
+        "subject": "Beurs van Berlage, Amsterdam",
+        "alt": "Beurs van Berlage, Amsterdam",
+        "credit": "C messier",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beurs_van_Berlage_1709.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "modifications": "Wikimedia 960px rendition; display crop varies."
+      },
+      "sourceUrl": "https://beursvanberlage.com/",
+      "sourceId": "https://beursvanberlage.com/",
+      "description": "Find a small architectural detour on the way through the city centre.",
+      "observation": {
+        "text": "Look up at the clock tower and the brickwork of the former exchange designed by Hendrik Petrus Berlage.",
+        "sourceUrl": "https://beursvanberlage.com/"
+      }
+    },
+    {
+      "id": "albert-cuyp-street",
+      "name": "Albert Cuypstraat",
+      "lat": 52.35561,
+      "lng": 4.89365,
+      "area": "De Pijp",
+      "bank": "south",
+      "category": "market",
+      "dwell": 13,
+      "cost": 0,
+      "access": "public",
+      "moods": [
+        "outdoors",
+        "food",
+        "unexpected"
+      ],
+      "photo": {
+        "src": "guide-photos/depijp.webp",
+        "subject": "Albert Cuypstraat in De Pijp",
+        "alt": "Albert Cuypstraat in De Pijp",
+        "credit": "Fons Heijnsbroek",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amsterdam_2023_-_a_view_through_the_city_street_Albert_Cuypstraat_in_De_Pijp_district_with_sunlight_and_shadows_and_a_lot_of_parked_bicycles_-_free_download_photo_in_Dutch_street_photography_by_Fons_Heijnsbroek,_Netherlands.tif",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "modifications": "Bundled WebP derivative; display crop varies."
+      },
+      "sourceUrl": "https://albertcuyp-markt.amsterdam/",
+      "sourceId": "https://albertcuyp-markt.amsterdam/",
+      "description": "Walk the public market street and see what is happening along the way.",
+      "observation": {
+        "text": "Find the Albert Cuypstraat street sign. Market trading and access to stalls vary with the day.",
+        "sourceUrl": "https://albertcuyp-markt.amsterdam/"
+      }
+    },
+    {
+      "id": "westerpark-east",
+      "name": "Westerpark",
+      "lat": 52.38601,
+      "lng": 4.87746,
+      "area": "Westerpark",
+      "bank": "south",
+      "category": "park",
+      "dwell": 15,
+      "cost": 0,
+      "access": "public",
+      "moods": [
+        "outdoors",
+        "quiet"
+      ],
+      "photo": {
+        "src": "guide-photos/westerpark.webp",
+        "subject": "Westerpark in Amsterdam",
+        "alt": "Westerpark in Amsterdam",
+        "credit": "acediscovery",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Westerpark-Amsterdam.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "modifications": "Bundled WebP derivative; display crop varies."
+      },
+      "sourceUrl": "https://www.amsterdam.nl/stadsdelen/west/westerpark-over/",
+      "sourceId": "https://www.amsterdam.nl/stadsdelen/west/westerpark-over/",
+      "description": "Follow the paths in the old park and leave a few minutes for a bench.",
+      "observation": {
+        "text": "Look toward the former Westergas factory buildings. The city park grew alongside the old gasworks.",
+        "sourceUrl": "https://www.amsterdam.nl/stadsdelen/west/westerpark-over/"
+      }
+    },
+    {
+      "id": "museum-square",
+      "name": "Museumplein",
+      "lat": 52.35765,
+      "lng": 4.88247,
+      "area": "Museumkwartier",
+      "bank": "south",
+      "category": "culture",
+      "dwell": 10,
+      "cost": 0,
+      "access": "public",
+      "moods": [
+        "outdoors",
+        "culture"
+      ],
+      "photo": {
+        "src": "guide-photos/museumplein.webp",
+        "subject": "The Rijksmuseum from Museumplein",
+        "alt": "The Rijksmuseum from Museumplein",
+        "credit": "C messier",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rijksmuseum_from_Museumplein_2523.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "modifications": "Bundled WebP derivative; display crop varies."
+      },
+      "sourceUrl": "https://www.rijksmuseum.nl/en/visit",
+      "sourceId": "https://www.rijksmuseum.nl/en/visit",
+      "description": "Take in the Rijksmuseum façade from the open square.",
+      "observation": {
+        "text": "From Museumplein, look for the passage through the Rijksmuseum that connects both sides of the building.",
+        "sourceUrl": "https://www.rijksmuseum.nl/en/visit"
+      }
+    },
+    {
+      "id": "noord-waterfront",
+      "name": "EYE waterfront",
+      "lat": 52.38439,
+      "lng": 4.90161,
+      "area": "Amsterdam-Noord",
+      "bank": "north",
+      "category": "waterfront",
+      "dwell": 12,
+      "cost": 0,
+      "access": "public",
+      "moods": [
+        "outdoors",
+        "culture"
+      ],
+      "photo": {
+        "src": "guide-photos/noord.webp",
+        "subject": "EYE Filmmuseum on the Amsterdam-Noord waterfront",
+        "alt": "EYE Filmmuseum on the Amsterdam-Noord waterfront",
+        "credit": "Jvhertum",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:EYE_Filmmuseum.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "modifications": "Bundled WebP derivative; display crop varies."
+      },
+      "sourceUrl": "https://www.eyefilm.nl/en/visit",
+      "sourceId": "https://www.eyefilm.nl/en/visit",
+      "description": "Explore the waterfront on the north bank when you have time for the crossing.",
+      "observation": {
+        "text": "From the public waterfront, follow the angled silhouette of the Eye Filmmuseum.",
+        "sourceUrl": "https://www.eyefilm.nl/en/visit"
+      }
+    }
+  ],
+  "outings": [
+    {
+      "id": "guide-brewers-canal",
+      "title": "Canal houses on Brouwersgracht",
+      "description": "Follow the water to the old warehouses and take a moment by the bridge.",
+      "placeIds": [
+        "brewers-canal"
+      ],
+      "theme": "canal",
+      "moods": [
+        "outdoors",
+        "quiet",
+        "culture"
+      ]
+    },
+    {
+      "id": "guide-oosterdok-library",
+      "title": "A chapter at Oosterdok",
+      "description": "Slip into the central library for a browse and a break from the weather.",
+      "placeIds": [
+        "oosterdok-library"
+      ],
+      "theme": "library",
+      "moods": [
+        "rain",
+        "quiet",
+        "culture"
+      ]
+    },
+    {
+      "id": "guide-dam-square",
+      "title": "A closer look at Dam Square",
+      "description": "Cross the old city centre for a short look around the square and its façades.",
+      "placeIds": [
+        "dam-square"
+      ],
+      "theme": "square",
+      "moods": [
+        "culture",
+        "outdoors"
+      ]
+    },
+    {
+      "id": "guide-beurs-square",
+      "title": "Brickwork on the Damrak",
+      "description": "Find a small architectural detour on the way through the city centre.",
+      "placeIds": [
+        "beurs-square"
+      ],
+      "theme": "architecture",
+      "moods": [
+        "culture",
+        "outdoors",
+        "unexpected"
+      ]
+    },
+    {
+      "id": "guide-albert-cuyp-street",
+      "title": "The street life of De Pijp",
+      "description": "Walk the public market street and see what is happening along the way.",
+      "placeIds": [
+        "albert-cuyp-street"
+      ],
+      "theme": "market",
+      "moods": [
+        "outdoors",
+        "food",
+        "unexpected"
+      ]
+    },
+    {
+      "id": "guide-westerpark-east",
+      "title": "A green pause in Westerpark",
+      "description": "Follow the paths in the old park and leave a few minutes for a bench.",
+      "placeIds": [
+        "westerpark-east"
+      ],
+      "theme": "park",
+      "moods": [
+        "outdoors",
+        "quiet"
+      ]
+    },
+    {
+      "id": "guide-museum-square",
+      "title": "A museum view from outside",
+      "description": "Take in the Rijksmuseum façade from the open square.",
+      "placeIds": [
+        "museum-square"
+      ],
+      "theme": "culture",
+      "moods": [
+        "outdoors",
+        "culture"
+      ]
+    },
+    {
+      "id": "guide-noord-waterfront",
+      "title": "A different side of the IJ",
+      "description": "Explore the waterfront on the north bank when you have time for the crossing.",
+      "placeIds": [
+        "noord-waterfront"
+      ],
+      "theme": "waterfront",
+      "moods": [
+        "outdoors",
+        "culture"
+      ]
+    }
+  ],
+  "source": {
+    "routing": "Valhalla pedestrian routes",
+    "data": "OpenStreetMap contributors",
+    "licence": "ODbL",
+    "retrievedAt": "2026-11-13"
+  },
+  "routePairs": [
+    [
+      "central",
+      "brewers-canal"
+    ],
+    [
+      "central",
+      "oosterdok-library"
+    ],
+    [
+      "central",
+      "dam-square"
+    ],
+    [
+      "central",
+      "beurs-square"
+    ],
+    [
+      "brewers-canal",
+      "dam-square"
+    ],
+    [
+      "brewers-canal",
+      "beurs-square"
+    ],
+    [
+      "beurs-square",
+      "dam-square"
+    ],
+    [
+      "oosterdok-library",
+      "dam-square"
+    ],
+    [
+      "oosterdok-library",
+      "beurs-square"
+    ],
+    [
+      "jordaan",
+      "brewers-canal"
+    ],
+    [
+      "jordaan",
+      "dam-square"
+    ],
+    [
+      "westerpark",
+      "westerpark-east"
+    ],
+    [
+      "westerpark-east",
+      "brewers-canal"
+    ],
+    [
+      "pijp",
+      "albert-cuyp-street"
+    ],
+    [
+      "museum",
+      "museum-square"
+    ],
+    [
+      "museum-square",
+      "albert-cuyp-street"
+    ],
+    [
+      "dam-square",
+      "museum-square"
+    ]
+  ]
+}
