@@ -1,8 +1,6 @@
-# Amstroll for iPhone — native source and release preparation
+# Amstroll for iPhone
 
-This folder is a standalone SwiftUI iPhone project, with the original Amstroll identity, catalogue, licensed photos/fonts, planning rules and local-first outing journey. It contains no web wrapper and does not need the portfolio repository at runtime. Copy this entire folder to a Mac to continue verification.
-
-**Environment boundary:** source/resources/project preparation was performed on Windows, without Swift, Xcode or an iOS Simulator. A checked-in project and tests are supplied; native compilation, screenshots, device accessibility checks, signing and archive validation are **not yet performed**. No `.ipa`, uploaded build or App Store approval is claimed.
+Amstroll is a standalone SwiftUI iPhone guide. Explore opens with Amsterdam photography and a single Plan a stroll action. The planner holds a draft for the silver clock, start and finish, and optional preferences. Suggestions append while scrolling, and Back returns to the outing in the existing feed.
 
 ## Open and test on a Mac
 
@@ -32,7 +30,7 @@ Release starts without a fictional account or seeded journal. Use `--demo`, or `
 bash scripts/capture-screenshots.sh YOUR_SIMULATOR_UDID
 ```
 
-The script runs the screenshot UI tests and exports actual native captures. There are no native screenshots in this delivery because Simulator is unavailable. See docs/SCREEN-PARITY.md for the comparison procedure and honest verification status.
+The script runs the screenshot UI tests and exports actual native captures. The updated screens can be captured in the iPhone Simulator. The AppStore directory retains the earlier release material.
 
 ## Architecture and resources
 
@@ -40,14 +38,19 @@ The script runs the screenshot UI tests and exports actual native captures. Ther
 - Amstroll/DesignSystem and Features: styled native controls and views.
 - Amstroll/Models, Planning and Persistence: typed catalogue/constraints, progress and local JSON/files.
 - Amstroll/Services: cancellable open-data requests, optional foreground location, context/weather, supported native routing and planner links.
-- Amstroll/Resources: complete catalogue, 28 valid photo/alias assets, original fonts, logo/wordmark, app icon, attribution, privacy/help and licences.
+- Amstroll/Resources: bundled routes and guide photos, the original catalogue, fonts, logo, app icon and credits.
 - AmstrollTests and AmstrollUITests: planning fixtures, persistence/provider tests, a start/skip/finish/journal tap-through and seven screenshot tests.
 - AppStore: metadata, legal drafts, review worksheets, icon master and release checklist.
 - References: the recovered original web export and planning/provider/interface source for traceability, not bundled in the app.
 
-The primary Amstroll files were absent from the current portfolio checkout. They were recovered read-only from Git revision 27084d4 into this folder. The website was not restored or changed. See docs/REFERENCE-AUDIT.md and Amstroll/Resources/asset-manifest.json.
+The default guide uses the same bundled OpenStreetMap and Valhalla walking graph as the web app. It works offline across the five supported starting areas. Unsupported crossings and transit show operator links. Step-free mode requires documented access. The original Amsterdam collection remains available with its sample estimates.
 
-The app uses local storage for preferences, saved ideas, progress and journal notes/photos. Optional Open places uses external sources and aims for 50 distinct linked photographs, displaying five at a time. Route, access and price checks remain explicit. The bundled Amsterdam collection works offline and is never silently substituted for a failed provider. No Google key, backend, analytics or advertising is included.
+Preferences, saved ideas, active progress and journal memories stay on the device. Existing entries can still be opened. When refreshing web guide routes or photography, regenerate the native bundle and Xcode references from this directory:
+
+```sh
+node scripts/import-guide-data.mjs
+node scripts/generate-project.mjs
+```
 
 ## Reproduce asset extraction
 

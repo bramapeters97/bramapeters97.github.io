@@ -1,4 +1,13 @@
-# Verification record — 4 November 2026
+# Verification record
+
+## Explore redesign — 14 November 2026
+
+- Built and ran the SwiftUI app in Xcode on the iPhone 18 Pro Simulator. The UI journey checks cover the 47-minute planner, appending more outings, returning to the opened outing, and saving a journal note after skipping a stop and finishing.
+- Ran the Foundation planning tests and the app’s planning, persistence and provider tests. The bundled guide tests exercise time feasibility and preserving the original finish during active progress.
+- Captured Explore, the clock, results, outing detail, progress, Saved and Journal in the simulator. Also captured Explore and the planner with Accessibility Large text and Increase Contrast enabled and inspected their layout.
+- Physical-device checks, signing and distribution are separate. Manual VoiceOver, Reduce Motion and Reduce Transparency on iOS remain to be verified.
+
+## Initial preparation — 4 November 2026
 
 Prepared on Windows with Node.js. Swift, Xcode and an iOS Simulator are unavailable in this environment.
 
@@ -13,7 +22,7 @@ Prepared on Windows with Node.js. Swift, Xcode and an iOS Simulator are unavaila
 - Ran the repository's `npm run check:portfolio` successfully. No tracked website files were changed; other concurrent work outside this native folder was left alone.
 - Inspected sources for integration problems and corrected project dictionary terminators, bootstrap error handling, preference persistence flushing, obsolete-request cancellation, image timeouts, photo import bounds and test isolation.
 
-## Prepared, not executed
+## Pending at initial preparation
 
 - Foundation Swift package parity and persistence tests (`swift test`).
 - Xcode app compilation, unit/provider tests and UI journey tests.
@@ -23,6 +32,4 @@ Prepared on Windows with Node.js. Swift, Xcode and an iOS Simulator are unavaila
 
 ## Owner/release work
 
-No build was uploaded or submitted. Native screenshots, tested visual parity and App Store approval are not claimed. Complete `AppStore/RELEASE-CHECKLIST.md`, including the legal identity, final public policy URLs, privacy/provider declarations, signing identity and explicit upload/submission approval.
-
-Start on a Mac with the README instructions; run the tests and resolve any SDK/compiler/runtime issues before treating this as a verified release.
+Complete `AppStore/RELEASE-CHECKLIST.md`, including the legal identity, final public policy URLs, privacy/provider declarations, signing identity and explicit upload/submission approval. The local simulator build has no distribution signing.

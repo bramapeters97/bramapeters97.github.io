@@ -78,6 +78,44 @@ final class PlanningTests: XCTestCase {
         XCTAssertTrue(try FileManager.default.contentsOfDirectory(atPath:folder.path).contains{$0.hasPrefix("state-unreadable-")})
         try disk.reset();XCTAssertNil(disk.photoURL(file));XCTAssertTrue(try disk.load().journal.isEmpty)
         XCTAssertFalse(try FileManager.default.contentsOfDirectory(atPath:folder.path).contains{$0.hasPrefix("state-unreadable-")})
-        XCTAssertEqual(try disk.load().prefs,Preferences())
+        XCTAssertEqual(try disk.load().prefs,LocalPersistence.freshState().prefs)
     }
+    func testGuideBundleFitsAndPreservesTheOriginalFinish() throws {
+        #if SWIFT_PACKAGE
+        let dataURL = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
+            .appendingPathComponent("Amstroll/Resources/guide-data.json")
+        #else
+        let dataURL = try XCTUnwrap(Bundle.main.url(forResource: "guide-data", withExtension: "json"))
+        #endif
+        let planner = try GuidePlanner(data: Data(contentsOf: dataURL))
+        let engine = PlanningEngine(catalog: try catalogue())
+        let start = try XCTUnwrap(engine.start("central"))
+        let now = try XCTUnwrap(ISO8601DateFormatter().date(from: "2026-11-13T11:00:00Z"))
+        var prefs = LocalPersistence.freshState().prefs
+        let suggestions = planner.suggestions(prefs: prefs, start: start, end: start, now: now)
+        let fits = suggestions.filter(\.feasible)
+        XCTAssertGreaterThan(fits.count, 3)
+        XCTAssertEqual(fits.count, Set(fits.compactMap(\.photoKey)).count)
+        XCTAssertTrue(fits.allSatisfy { $0.total <= 47 && $0.cost == 0 && $0.endpointTravel > 0 })
+        XCTAssertTrue(suggestions.contains { $0.guideDetails?.handoffURL == GuidePlanner.gvb && !$0.feasible })
+
+        let canal = try XCTUnwrap(fits.first { $0.guideDetails?.thenPhotoKey != nil })
+        XCTAssertTrue(canal.legs.allSatisfy { ($0.coords?.count ?? 0) > 2 })
+        let active = ActiveOuting(plan: canal, prefs: prefs, startedAt: now)
+        let swapped = try XCTUnwrap(planner.swap(active, now: now))
+        XCTAssertEqual(swapped.plan.guideDetails?.finishPoint, canal.guideDetails?.finishPoint)
+        XCTAssertEqual(swapped.plan.guideDetails?.deadline, canal.guideDetails?.deadline)
+        var skipped = active
+        skipped.skipped = canal.stops.map(\.id)
+        let returning = try XCTUnwrap(planner.remaining(skipped, now: now))
+        XCTAssertTrue(returning.stops.isEmpty)
+        XCTAssertEqual(returning.guideDetails?.finishPoint, canal.guideDetails?.finishPoint)
+        XCTAssertEqual(returning.guideDetails?.deadline, canal.guideDetails?.deadline)
+        prefs.deadline = now.addingTimeInterval(60)
+        XCTAssertFalse(planner.suggestions(prefs: prefs, start: start, end: start, now: now).contains(where: \.feasible))
+        prefs.deadline = nil
+        prefs.requiresStepFree = true
+        XCTAssertFalse(planner.suggestions(prefs: prefs, start: start, end: start, now: now).contains(where: \.feasible))
+    }
+
 }

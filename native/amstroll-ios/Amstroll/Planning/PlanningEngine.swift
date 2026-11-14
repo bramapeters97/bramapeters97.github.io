@@ -36,7 +36,7 @@ final class PlanningEngine {
         guard (0...720).contains(prefs.minutes),(0...720).contains(prefs.walking) else { throw PlanningError.invalid("Choose time and walking allowances between zero and twelve hours.") }
         guard start(prefs.start) != nil else { throw PlanningError.invalid("Choose an Amsterdam starting area.") }
         guard ["none","start"].contains(prefs.endpoint) || start(prefs.endpoint) != nil else { throw PlanningError.invalid("Choose a valid endpoint.") }
-        guard ["walk","cycle","transit"].contains(prefs.transport),["any","coffee","culture","outdoors","unexpected","food","quiet"].contains(prefs.mood) else { throw PlanningError.invalid("Choose a supported mood and travel mode.") }
+        guard ["walk","cycle","transit"].contains(prefs.transport),["any","coffee","culture","outdoors","unexpected","food","quiet","rain"].contains(prefs.mood) else { throw PlanningError.invalid("Choose a supported mood and travel mode.") }
         if let budget=prefs.budget, !budget.isFinite || budget<0 || budget>10000 { throw PlanningError.invalid("The spending allowance is invalid.") }
     }
     static func distance(_ a: StartArea,_ b: StartArea) -> Double {

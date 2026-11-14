@@ -8,7 +8,11 @@ final class AmstrollScreenshotTests: XCTestCase {
         app.launchArguments = ["--screenshot-mode", "--screenshot-scene", scene]
         app.launch()
         let ready = app.descendants(matching: .any)[identifier].firstMatch
-        if scene == "results" {
+        if scene == "explore" {
+            XCTAssertTrue(app.buttons["plan-stroll"].waitForExistence(timeout: 15))
+            XCTAssertTrue(app.staticTexts["results-heading"].waitForExistence(timeout: 10))
+            XCTAssertFalse(app.activityIndicators.firstMatch.exists)
+        } else if scene == "results" {
             for _ in 0..<6 {
                 if ready.exists && ready.isHittable { break }
                 app.swipeUp()

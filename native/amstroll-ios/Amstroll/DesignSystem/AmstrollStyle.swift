@@ -2,15 +2,16 @@ import SwiftUI
 import UIKit
 
 enum AmstrollStyle {
-    static let paper = Color(hex: 0xF7F4EF)
+    static let paper = Color(hex: 0xF5F2E9)
     static let card = Color(hex: 0xFFFDF9)
-    static let ink = Color(hex: 0x26342D)
-    static let forest = Color(hex: 0x31564B)
+    static let ink = Color(hex: 0x23322C)
+    static let forest = Color(hex: 0x255145)
     static let muted = Color(hex: 0x5B6A61)
     static let sage = Color(hex: 0xA5B6A1)
     static let paleSage = Color(hex: 0xE7EDE2)
     static let butter = Color(hex: 0xF1D98A)
     static let line = Color(hex: 0xE4E5DD)
+    static func editorial(_ style: Font.TextStyle) -> Font { .system(style, design: .serif) }
     static func heading(_ size: CGFloat = 24) -> Font { .custom("PlusJakartaSans-Regular", size: size, relativeTo: .title2).weight(.semibold) }
     static func body(_ size: CGFloat = 14) -> Font { .custom("DMSans-9ptRegular", size: size, relativeTo: .body) }
     static func label(_ size: CGFloat = 13) -> Font { .custom("DMSans-9ptRegular", size: size, relativeTo: .subheadline).weight(.medium) }
@@ -30,17 +31,20 @@ struct AmstrollCard: ViewModifier {
 }
 extension View {
     func amstrollCard(padding: CGFloat = 18) -> some View { modifier(AmstrollCard(padding: padding)) }
-    func screenHeading() -> some View { font(AmstrollStyle.heading(27)).tracking(-1).foregroundStyle(AmstrollStyle.ink).fixedSize(horizontal: false, vertical: true) }
+    func screenHeading() -> some View { font(AmstrollStyle.editorial(.largeTitle)).tracking(-0.55).foregroundStyle(AmstrollStyle.ink).fixedSize(horizontal: false, vertical: true) }
 }
 struct AmstrollButton: ButtonStyle {
     var primary = true
     @Environment(\.isEnabled) private var enabled
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     func makeBody(configuration: Configuration) -> some View {
         configuration.label.font(AmstrollStyle.label(14)).frame(maxWidth: .infinity).padding(.vertical, 16).padding(.horizontal, 14)
             .foregroundStyle(primary ? Color.white : AmstrollStyle.forest)
-            .background(primary ? AmstrollStyle.forest : AmstrollStyle.card, in: RoundedRectangle(cornerRadius: 16))
-            .overlay(RoundedRectangle(cornerRadius: 16).stroke(primary ? .clear : AmstrollStyle.line, lineWidth: 1))
-            .opacity(!enabled ? 0.45 : configuration.isPressed ? 0.8 : 1)
+            .background(primary ? AmstrollStyle.forest : AmstrollStyle.card, in: RoundedRectangle(cornerRadius: 23))
+            .overlay(RoundedRectangle(cornerRadius: 23).strokeBorder(primary ? Color.white.opacity(0.14) : AmstrollStyle.line, lineWidth: 1))
+            .opacity(!enabled ? 0.45 : configuration.isPressed ? 0.82 : 1)
+            .scaleEffect(configuration.isPressed && !reduceMotion ? 0.985 : 1)
+            .animation(reduceMotion ? nil : .easeOut(duration: 0.12), value: configuration.isPressed)
     }
 }
 
@@ -68,7 +72,11 @@ struct PlaceImage: View {
             if let remote {
                 RemotePlaceImage(url: remote)
             } else if let key = photoKey, let meta = PhotoMetadata.all[key] {
-                Image(meta.imageName).resizable().scaledToFill()
+                GeometryReader { proxy in
+                    Image(meta.imageName).resizable().scaledToFill()
+                        .frame(width: proxy.size.width, height: proxy.size.height)
+                        .clipped()
+                }
             } else { unavailable }
         }.frame(height: height).frame(maxWidth: .infinity).clipped()
             .accessibilityLabel(label)
@@ -206,5 +214,186 @@ private struct AmstrollLoadingModifier: ViewModifier {
 extension View {
     func amstrollLoading(_ isLoading: Bool) -> some View {
         modifier(AmstrollLoadingModifier(isLoading: isLoading))
+    }
+}
+
+let amsterdamTimeZone = TimeZone(identifier: "Europe/Amsterdam")!
+
+func amsterdamTime(_ date: Date) -> String {
+    let format = DateFormatter()
+    format.locale = Locale(identifier: "en_GB")
+    format.timeZone = amsterdamTimeZone
+    format.dateFormat = "d MMM, HH:mm"
+    return format.string(from: date)
+}
+
+extension View {
+    func amstrollGlass<S: Shape>(in shape: S) -> some View {
+        modifier(GuideGlassMaterial(shape: shape))
+    }
+
+    @ViewBuilder
+    func amstrollGlassButton() -> some View {
+        if #available(iOS 26.0, *) {
+            buttonStyle(.glass).tint(.white).foregroundStyle(AmstrollStyle.ink)
+        } else {
+            buttonStyle(.borderedProminent).tint(AmstrollStyle.card).foregroundStyle(AmstrollStyle.ink)
+                .buttonBorderShape(.capsule)
+        }
+    }
+}
+
+private struct GuideGlassMaterial<Surface: Shape>: ViewModifier {
+    @Environment(\.accessibilityReduceTransparency) private var opaque
+    @Environment(\.colorSchemeContrast) private var contrast
+    let shape: Surface
+
+    @ViewBuilder func body(content: Content) -> some View {
+        if opaque || contrast == .increased {
+            content.background(AmstrollStyle.card, in: shape)
+                .overlay(shape.stroke(AmstrollStyle.line, lineWidth: 1).allowsHitTesting(false))
+        } else if #available(iOS 26.0, *) {
+            content.glassEffect(.regular.interactive(), in: shape)
+        } else {
+            content.background(.regularMaterial, in: shape)
+        }
+    }
+}
+
+struct StrollClock: View {
+    @Binding var minutes: Int
+    var editable: Bool
+    @Environment(\.accessibilityReduceTransparency) private var opaque
+    @Environment(\.colorSchemeContrast) private var contrast
+    @State private var lastMinute: Int?
+    @State private var dragValue: Int?
+    @State private var feedback = 0
+
+    var body: some View {
+        dial
+            .aspectRatio(1, contentMode: .fit)
+            .frame(maxWidth: 228)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("Time available")
+            .accessibilityValue(minutes.amstrollDuration)
+            .accessibilityHint(editable ? "Swipe up or down to adjust by one minute." : "")
+            .accessibilityAdjustableAction { direction in
+                guard editable else { return }
+                switch direction {
+                case .increment: select(minutes + 1, pulse: true)
+                case .decrement: select(minutes - 1, pulse: true)
+                @unknown default: break
+                }
+            }
+            .accessibilityIdentifier("stroll-clock")
+            .sensoryFeedback(.selection, trigger: feedback)
+    }
+
+    private var dial: some View {
+        GeometryReader { proxy in
+            let size = min(proxy.size.width, proxy.size.height)
+            ZStack {
+                clockFace
+                    .allowsHitTesting(false)
+                VStack(spacing: 3) {
+                    Text(minutes < 60 ? "\(minutes)" : "\(minutes / 60)h \(String(format: "%02d", minutes % 60))")
+                        .font(.system(size: size * (minutes < 60 ? 0.22 : 0.132), weight: .bold, design: .rounded))
+                        .monospacedDigit().lineLimit(1).minimumScaleFactor(0.65)
+                    Text(minutes < 60 ? "MINUTES" : "HRS / MIN")
+                        .font(.system(size: size * 0.052, weight: .semibold))
+                        .tracking(1.25)
+                }.foregroundStyle(AmstrollStyle.ink).allowsHitTesting(false)
+                if editable {
+                    Circle().strokeBorder(.black.opacity(0.001), lineWidth: 42)
+                        .gesture(DragGesture(minimumDistance: 0)
+                            .onChanged { update(at: $0.location, size: size) }
+                            .onEnded { _ in lastMinute = nil; dragValue = nil })
+                        .accessibilityHidden(true)
+                }
+            }
+            .frame(width: size, height: size)
+            .position(x: proxy.size.width / 2, y: proxy.size.height / 2)
+        }
+    }
+
+    private var clockFace: some View {
+        let face = opaque || contrast == .increased ? [Color(hex: 0xF5F8FA), Color(hex: 0xDCE5EA)] :
+            [Color.white, Color(hex: 0xDCE6ED), Color(hex: 0xF4F9FB), Color(hex: 0xCAD6E0)]
+        return ZStack {
+            Circle().fill(LinearGradient(colors: [Color(hex: 0x8697A2), .white, Color(hex: 0xA2B1BD), .white, Color(hex: 0x5D7381)],
+                                         startPoint: .topLeading, endPoint: .bottomTrailing))
+            Circle().inset(by: 5).fill(LinearGradient(colors: face, startPoint: .topLeading, endPoint: .bottomTrailing))
+            Circle().inset(by: 5).strokeBorder(.white, lineWidth: 1)
+            Canvas { context, dimensions in
+                let size = min(dimensions.height, dimensions.width)
+                let centre = CGPoint(x: size / 2, y: size / 2)
+                if !opaque && contrast != .increased {
+                    var reflection = Path()
+                    reflection.move(to: point(50, radius: size * 0.44, centre: centre))
+                    reflection.addQuadCurve(to: point(9, radius: size * 0.44, centre: centre),
+                                            control: CGPoint(x: size * 0.45, y: -size * 0.12))
+                    reflection.addQuadCurve(to: point(50, radius: size * 0.44, centre: centre),
+                                            control: CGPoint(x: size * 0.53, y: size * 0.29))
+                    context.fill(reflection, with: .linearGradient(Gradient(colors: [.white.opacity(0.85), .white.opacity(0)]),
+                                                                   startPoint: .zero, endPoint: CGPoint(x: size, y: size * 0.44)))
+                }
+                for minute in 0..<60 {
+                    let major = minute.isMultiple(of: 5)
+                    var tick = Path()
+                    tick.move(to: point(minute, radius: size * (major ? 0.378 : 0.408), centre: centre))
+                    tick.addLine(to: point(minute, radius: size * 0.445, centre: centre))
+                    context.stroke(tick, with: .color(AmstrollStyle.ink.opacity(major ? 0.95 : 0.68)), lineWidth: major ? 2 : 1)
+                }
+                for minute in [0, 15, 30, 45] {
+                    let label = Text(minute == 0 ? "00" : "\(minute)")
+                        .font(.system(size: size * 0.058, weight: .semibold, design: .monospaced))
+                        .foregroundStyle(AmstrollStyle.ink)
+                    context.draw(label, at: point(minute, radius: size * 0.325, centre: centre))
+                }
+                let shown = minutes % 60
+                let outer = point(shown, radius: size * 0.435, centre: centre)
+                let accent = Color(hex: 0x9E452E)
+                var hand = Path()
+                hand.move(to: point(shown, radius: size * 0.22, centre: centre))
+                hand.addLine(to: outer)
+                context.stroke(hand, with: .color(accent), style: StrokeStyle(lineWidth: 3.5, lineCap: .round))
+                let dot = Path(ellipseIn: CGRect(x: outer.x - 5, y: outer.y - 5, width: 10, height: 10))
+                context.fill(dot, with: .color(accent))
+                context.stroke(dot, with: .color(.white), lineWidth: 1.2)
+                let hub = Path(ellipseIn: CGRect(x: size * 0.28, y: size * 0.28, width: size * 0.44, height: size * 0.44))
+                context.fill(hub, with: .linearGradient(Gradient(colors: [.white, Color(hex: 0xDAE5EB)]),
+                                                       startPoint: CGPoint(x: 0, y: size * 0.26), endPoint: CGPoint(x: size, y: size * 0.73)))
+                context.stroke(hub, with: .color(.white), lineWidth: 1.5)
+            }
+        }.shadow(color: AmstrollStyle.ink.opacity(opaque ? 0 : 0.18), radius: 9, y: 7)
+    }
+
+    private func point(_ minute: Int, radius: CGFloat, centre: CGPoint) -> CGPoint {
+        let angle = Double(minute) * .pi / 30
+        return CGPoint(x: centre.x + sin(angle) * radius, y: centre.y - cos(angle) * radius)
+    }
+
+    private func update(at location: CGPoint, size: CGFloat) {
+        let angle = atan2(location.x - size / 2, size / 2 - location.y)
+        let destination = (Int((angle * 30 / .pi).rounded()) + 60) % 60
+        let old = minutes
+        let value: Int
+        if let lastMinute, let dragValue {
+            let delta = (destination - lastMinute + 90) % 60 - 30
+            value = dragValue + delta
+        } else {
+            value = minutes / 60 * 60 + destination
+        }
+        lastMinute = destination
+        let clamped = max(0, min(value, 720))
+        dragValue = clamped
+        select(clamped, pulse: old / 5 != clamped / 5 || old / 60 != clamped / 60)
+    }
+
+    private func select(_ target: Int, pulse: Bool) {
+        let value = max(0, min(target, 720))
+        guard minutes != value else { return }
+        minutes = value
+        if pulse { feedback += 1 }
     }
 }

@@ -98,6 +98,13 @@ struct Preferences: Codable, Hashable, Sendable {
     var budget: Double? = 20
     var walking = 45
     var strictBudget = false
+    var deadline: Date? = nil
+    var requiresStepFree: Bool? = nil
+
+    func availableMinutes(at now: Date) -> Int {
+        guard let deadline else { return minutes }
+        return Int(max(0, min(720, floor(deadline.timeIntervalSince(now) / 60))))
+    }
 }
 
 enum Eligibility: String, Codable, Hashable, Sendable {
@@ -140,6 +147,7 @@ struct TravelLeg: Codable, Hashable, Sendable {
     var fromId: String?
     var toId: String?
     var endpoint = false
+    var coords: [[Double]]? = nil
 }
 
 struct PlanStop: Codable, Hashable, Identifiable, Sendable {
@@ -162,6 +170,18 @@ struct PlanStop: Codable, Hashable, Identifiable, Sendable {
     var activityWalking: Int { place.activityWalking }
     var source: String { place.source }
     var area: String { place.area }
+}
+
+struct GuideDetails: Codable, Hashable, Sendable {
+    var observation: String?
+    var observationURL: String?
+    var thenPhotoKey: String?
+    var nowPhotoKey: String?
+    var thenDate: String?
+    var nowDate: String?
+    var finishPoint: StartArea
+    var deadline: Date
+    var handoffURL: String?
 }
 
 struct Plan: Codable, Hashable, Identifiable, Sendable {
@@ -201,6 +221,7 @@ struct Plan: Codable, Hashable, Identifiable, Sendable {
     var originalOrigin: StartArea? = nil
     var prefs = Preferences()
     var experience: Experience? = nil
+    var guideDetails: GuideDetails? = nil
     var feasible: Bool { status == .fits && prefs.minutes > 0 }
 }
 
@@ -212,6 +233,7 @@ struct SavedIdea: Codable, Hashable, Identifiable, Sendable {
     var isLive: Bool
     var latitude: Double?
     var longitude: Double?
+    var guidePlan: Plan? = nil
 }
 
 struct ActiveOuting: Codable, Hashable, Sendable {

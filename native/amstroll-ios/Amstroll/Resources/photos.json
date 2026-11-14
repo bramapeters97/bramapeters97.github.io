@@ -469,5 +469,95 @@
     "sourceURL": "https://commons.wikimedia.org/wiki/File:Rijksmuseum_from_Museumplein_2523.jpg",
     "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
     "nativeChanges": "Extracted embedded WebP and converted to PNG without resampling for native assets; display crops may vary."
+  },
+  "guide-hero": {
+    "imageName": "photo-guide-amsterdam-canals-portrait",
+    "alt": "Canal houses and water along Prinsengracht in Amsterdam.",
+    "credit": "Diliff",
+    "source": "https://commons.wikimedia.org/wiki/File:Amsterdam_Canals_-_July_2006.jpg",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+    "modifications": "Cropped and resized by Amstroll from the original photograph. Re-encoded as JPEG for iPhone."
+  },
+  "guide-modern": {
+    "imageName": "photo-guide-modern",
+    "alt": "Brouwersgracht in Amsterdam",
+    "credit": "Maarten Sepp",
+    "source": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Brouwersgracht.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "modifications": "Wikimedia 960px rendition; display crop varies. Re-encoded as JPEG for iPhone."
+  },
+  "guide-historic": {
+    "imageName": "photo-guide-historic",
+    "alt": "Historic warehouses on Brouwersgracht",
+    "credit": "George Hendrik Breitner / Rijksmuseum",
+    "source": "https://commons.wikimedia.org/wiki/File:Gouvernementspakhuizen_aan_de_Brouwersgracht_in_Amsterdam,_RP-F-K89533.jpg",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "modifications": "Wikimedia 960px rendition; display crop varies. Re-encoded as JPEG for iPhone."
+  },
+  "guide-oba": {
+    "imageName": "photo-guide-oba",
+    "alt": "OBA Oosterdok central library in Amsterdam",
+    "credit": "EstherWikipedian",
+    "source": "https://commons.wikimedia.org/wiki/File:Amsterdam_Public_Library_(OBA).jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "modifications": "Wikimedia 960px rendition; display crop varies. Re-encoded as JPEG for iPhone."
+  },
+  "guide-dam": {
+    "imageName": "photo-guide-dam",
+    "alt": "Dam Square in Amsterdam",
+    "credit": "Guilhem Vellut from Annecy, France",
+    "source": "https://commons.wikimedia.org/wiki/File:Dam_Square_@_Amsterdam_(17811450239).jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "modifications": "Wikimedia 960px rendition; display crop varies. Re-encoded as JPEG for iPhone."
+  },
+  "guide-beurs": {
+    "imageName": "photo-guide-beurs",
+    "alt": "Beurs van Berlage, Amsterdam",
+    "credit": "C messier",
+    "source": "https://commons.wikimedia.org/wiki/File:Beurs_van_Berlage_1709.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "modifications": "Wikimedia 960px rendition; display crop varies. Re-encoded as JPEG for iPhone."
+  },
+  "guide-depijp": {
+    "imageName": "photo-guide-depijp",
+    "alt": "Albert Cuypstraat in De Pijp",
+    "credit": "Fons Heijnsbroek",
+    "source": "https://commons.wikimedia.org/wiki/File:Amsterdam_2023_-_a_view_through_the_city_street_Albert_Cuypstraat_in_De_Pijp_district_with_sunlight_and_shadows_and_a_lot_of_parked_bicycles_-_free_download_photo_in_Dutch_street_photography_by_Fons_Heijnsbroek,_Netherlands.tif",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "modifications": "Bundled WebP derivative; display crop varies. Re-encoded as JPEG for iPhone."
+  },
+  "guide-westerpark": {
+    "imageName": "photo-guide-westerpark",
+    "alt": "Westerpark in Amsterdam",
+    "credit": "acediscovery",
+    "source": "https://commons.wikimedia.org/wiki/File:Westerpark-Amsterdam.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "modifications": "Bundled WebP derivative; display crop varies. Re-encoded as JPEG for iPhone."
+  },
+  "guide-museumplein": {
+    "imageName": "photo-guide-museumplein",
+    "alt": "The Rijksmuseum from Museumplein",
+    "credit": "C messier",
+    "source": "https://commons.wikimedia.org/wiki/File:Rijksmuseum_from_Museumplein_2523.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "modifications": "Bundled WebP derivative; display crop varies. Re-encoded as JPEG for iPhone."
+  },
+  "guide-noord": {
+    "imageName": "photo-guide-noord",
+    "alt": "EYE Filmmuseum on the Amsterdam-Noord waterfront",
+    "credit": "Jvhertum",
+    "source": "https://commons.wikimedia.org/wiki/File:EYE_Filmmuseum.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "modifications": "Bundled WebP derivative; display crop varies. Re-encoded as JPEG for iPhone."
   }
 }

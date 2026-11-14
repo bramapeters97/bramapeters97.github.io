@@ -16,17 +16,19 @@ final class AppStore: ObservableObject {
     @Published var forecast: WeatherContext? = nil { didSet { suggestionCache=nil } }
     let catalog: Catalog
     let engine: PlanningEngine
+    let guide: GuidePlanner?
     let demoMode: Bool
     let persistence: LocalPersistence
     private var restoring=false
     private var preferenceWrite: DispatchWorkItem?
     private var preferenceGeneration = 0
+    private var guideCache: (prefs: Preferences, minute: Int, start: StartArea, plans: [Plan])?
     private var suggestionCache: (prefs:Preferences, minute:Int, start:StartArea, plans:[Plan])?
     var now: Date { demoMode ? Self.fixtureDate : Date() }
     static let fixtureDate = ISO8601DateFormatter().date(from:"2026-11-03T14:00:00Z")!
 
     init(catalog:Catalog,demoMode:Bool=false,directory:URL?=nil) throws {
-        self.catalog=catalog;self.demoMode=demoMode
+        self.catalog=catalog;self.demoMode=demoMode;self.guide=GuidePlanner.load()
         let engine=PlanningEngine(catalog:catalog);self.engine=engine
         let effectiveDirectory=demoMode && directory == nil ? FileManager.default.temporaryDirectory.appendingPathComponent("AmstrollScreenshot-"+UUID().uuidString,isDirectory:true) : directory
         let persistence=try LocalPersistence(directory:effectiveDirectory);self.persistence=persistence
@@ -42,7 +44,7 @@ final class AppStore: ObservableObject {
         var recoveredPreferences=false
         do { try engine.validate(state.prefs) } catch { state.prefs=Preferences();recoveredPreferences=true }
         if demoMode {
-            state=UserState()
+            state=LocalPersistence.freshState()
             state.saved=Array(catalog.experiences.prefix(3)).map { SavedIdea(id:$0.id,prefs:Preferences(),title:$0.title,sourceURL:nil,isLive:false,latitude:nil,longitude:nil) }
             state.journal=[Memory(id:"demo-memory-1",title:"The quieter way through the city",note:"Took a different turn beside the water. Found a little more Amsterdam.",rating:"Loved it",minutes:38,date:Self.fixtureDate.addingTimeInterval(-172800),photoKey:"amsterdam-canals",photoFile:nil,sample:true),Memory(id:"demo-memory-2",title:"A little room in Westerpark",note:"No grand plan. Just green space, a slow lap and enough time to sit for a while.",rating:"Good",minutes:55,date:Self.fixtureDate.addingTimeInterval(-518400),photoKey:"westerpark",photoFile:nil,sample:true)]
         }
@@ -63,16 +65,76 @@ final class AppStore: ObservableObject {
         suggestionCache=(prefs,minute,start,plans)
         return plans
     }
-    var savedPlans: [Plan] { saved.filter{!$0.isLive}.compactMap { try? engine.plan(id:$0.id,prefs:$0.prefs,context:planningContext) } }
+    var guideSuggestions: [Plan] {
+        let date = now
+        let minute = Int(floor(date.timeIntervalSince1970 / 60))
+        if let cache = guideCache, cache.prefs == prefs, cache.minute == minute, cache.start == startArea { return cache.plans }
+        let plans = guidePlans(for: prefs, now: date)
+        guideCache = (prefs, minute, startArea, plans)
+        return plans
+    }
+
+    private func guidePlans(for preferences: Preferences, now date: Date) -> [Plan] {
+        guard let start = engine.start(preferences.start) else { return [] }
+        let end = preferences.endpoint == "start" ? start : engine.start(preferences.endpoint)
+        return guide?.suggestions(prefs: preferences, start: start, end: end, now: date) ?? []
+    }
+
+    var savedPlans: [Plan] {
+        saved.filter { !$0.isLive }.compactMap { item in
+            if let guideDetails = item.guidePlan, let refreshed = guide?.refresh(guideDetails, prefs: item.prefs, now: now) {
+                return refreshed
+            }
+            if item.id.hasPrefix("guide-") {
+                return guidePlans(for: item.prefs, now: now).first { $0.id == item.id }
+            }
+            return try? engine.plan(id: item.id, prefs: item.prefs, context: planningContext)
+        }
+    }
+
+    var activeDeadline: Date? {
+        guard let active else { return nil }
+        return active.plan.guideDetails?.deadline ?? active.prefs.deadline ??
+            active.startedAt.addingTimeInterval(Double(active.prefs.minutes) * 60)
+    }
+
+    var returnOriginChoices: [StartArea] {
+        guard let active else { return [] }
+        return [active.plan.origin] + active.plan.stops.map(\.place.point)
+    }
+
+    func returnRoute(from point: StartArea? = nil) -> TravelLeg? {
+        guard let active, let detail = active.plan.guideDetails else { return nil }
+        let last = active.done.last.flatMap { id in active.plan.stops.first { $0.id == id }?.place.point }
+        return guide?.route(from: point ?? last ?? active.plan.origin, to: detail.finishPoint,
+                            stepFree: active.prefs.requiresStepFree == true)
+    }
+
+    @discardableResult func swapStop() -> Bool {
+        guard let active, let replacement = guide?.swap(active, now: now) else { return false }
+        self.active = replacement
+        return true
+    }
+
+    func applyPreferences(_ draft: Preferences, customStart: StartArea? = nil) {
+        if let customStart {
+            self.customStart = customStart
+            engine.registerStart(customStart)
+        }
+        guard (try? engine.validate(draft)) != nil else { return }
+        prefs = draft
+        persist()
+    }
     var remainingPlan: Plan? {
         guard let active=active else { return nil }
+        if active.plan.guideDetails != nil { return guide?.remaining(active, now: now) }
         if active.plan.isLive {
             var remaining=active.plan
             remaining.stops=remaining.stops.filter{!active.done.contains($0.id) && !active.skipped.contains($0.id)}
             if !active.done.isEmpty || !active.skipped.isEmpty { remaining.status = .check;remaining.routeVerified=false;remaining.reason="Remaining travel needs a fresh route check after progress changes." }
             return remaining
         }
-        var p=active.prefs;p.minutes=max(0,p.minutes-active.elapsedMinutes);p.walking=max(0,p.walking-active.walkedMinutes)
+        var p=active.prefs;p.minutes=max(0,min(p.availableMinutes(at:now),p.minutes-active.elapsedMinutes));p.walking=max(0,p.walking-active.walkedMinutes)
         if let budget=p.budget { p.budget=max(0,budget-active.spentCost) }
         return try? engine.remaining(original:active.plan,completed:active.done,skipped:active.skipped,prefs:p,context:planningContext)
     }
@@ -109,7 +171,7 @@ final class AppStore: ObservableObject {
         if isSaved(plan.id) { saved.removeAll{$0.id == plan.id};return }
         // Only stable identity, original source and user preferences are retained for
         // live places. Third-party photos/descriptions are refreshed, not persisted.
-        saved.append(SavedIdea(id:plan.id,prefs:plan.prefs,title:plan.title,sourceURL:plan.sourceURL,isLive:plan.isLive,latitude:plan.stops.first?.lat,longitude:plan.stops.first?.lng))
+        saved.append(SavedIdea(id:plan.id,prefs:plan.prefs,title:plan.title,sourceURL:plan.sourceURL,isLive:plan.isLive,latitude:plan.stops.first?.lat,longitude:plan.stops.first?.lng,guidePlan:plan.guideDetails == nil ? nil : plan))
     }
     func saveLive(id:String,title:String,lat:Double,lng:Double,sourceURL:String) {
         if isSaved(id) { saved.removeAll{$0.id == id};return }
@@ -117,8 +179,15 @@ final class AppStore: ObservableObject {
     }
     func removeSaved(_ id:String) { saved.removeAll{$0.id == id} }
     @discardableResult func start(_ plan:Plan) -> Bool {
-        guard active == nil,plan.feasible,prefs.minutes>0,plan.prefs == prefs else { return false }
-        active=ActiveOuting(plan:plan,prefs:prefs,startedAt:now);return true
+        guard active == nil, plan.feasible else { return false }
+        let date = now
+        if plan.guideDetails != nil {
+            guard let fresh = guide?.refresh(plan, prefs: plan.prefs, now: date), fresh.feasible else { return false }
+            active = ActiveOuting(plan: fresh, prefs: plan.prefs, startedAt: date)
+            return true
+        }
+        guard prefs.availableMinutes(at: date) > 0, plan.prefs == prefs else { return false }
+        active=ActiveOuting(plan:plan,prefs:prefs,startedAt:date);return true
     }
     func completeStop() {
         guard var outing=active,let current=remainingPlan?.stops.first else { return }
@@ -157,7 +226,7 @@ final class AppStore: ObservableObject {
         try persistence.reset()
         engine.resetRuntimeStarts()
         suggestionCache=nil;forecast=nil
-        restoring=true;prefs=Preferences();saved=[];active=nil;journal=[];customStart=nil;restoring=false
+        restoring=true;prefs=LocalPersistence.freshState().prefs;saved=[];active=nil;journal=[];customStart=nil;restoring=false
         storageError=nil;persist()
     }
 }

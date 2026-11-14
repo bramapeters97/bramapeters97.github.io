@@ -21,8 +21,16 @@ final class LocalPersistence {
         try? FileManager.default.setAttributes([.protectionKey:FileProtectionType.completeUntilFirstUserAuthentication],ofItemAtPath:self.directory.path)
         #endif
     }
+    static func freshState() -> UserState {
+        var state = UserState()
+        state.prefs.endpoint = "start"
+        state.prefs.budget = 0
+        state.prefs.strictBudget = true
+        return state
+    }
+
     func load() throws -> UserState {
-        guard FileManager.default.fileExists(atPath:stateURL.path) else { return UserState() }
+        guard FileManager.default.fileExists(atPath:stateURL.path) else { return Self.freshState() }
         let decoder=JSONDecoder();decoder.dateDecodingStrategy = .iso8601
         let result=try decoder.decode(UserState.self,from:Data(contentsOf:stateURL))
         guard result.version == 1 else { throw PlanningError.invalid("This saved-data version is not supported.") }
@@ -58,6 +66,6 @@ final class LocalPersistence {
         for url in try FileManager.default.contentsOfDirectory(at:directory,includingPropertiesForKeys:[.isRegularFileKey]) where url.lastPathComponent.hasPrefix("state-unreadable-") && url.pathExtension == "json" {
             if try url.resourceValues(forKeys:[.isRegularFileKey]).isRegularFile == true { try FileManager.default.removeItem(at:url) }
         }
-        try save(UserState())
+        try save(Self.freshState())
     }
 }

@@ -26,8 +26,10 @@ final class AmstrollJourneyTests: XCTestCase {
         revealAndTap(start, in: app)
 
         XCTAssertTrue(app.descendants(matching: .any)["progress-screen"].firstMatch.waitForExistence(timeout: 10))
-        revealAndTap(app.buttons["skip-stop"], in: app)
-        revealAndTap(app.buttons["Call this a good little outing"], in: app)
+        app.buttons["outing-actions"].tap()
+        app.buttons["Skip this stop"].tap()
+        app.buttons["outing-actions"].tap()
+        app.buttons["Finish early"].tap()
 
         let note = app.textViews["Optional memory note"]
         XCTAssertTrue(note.waitForExistence(timeout: 10))
@@ -43,10 +45,50 @@ final class AmstrollJourneyTests: XCTestCase {
         let back = app.navigationBars.buttons.firstMatch
         XCTAssertTrue(back.waitForExistence(timeout: 5))
         back.tap()
-        XCTAssertTrue(app.buttons["tab-explore"].waitForExistence(timeout: 5))
-        XCTAssertTrue(app.buttons["tab-saved"].exists)
-        app.buttons["tab-journal"].tap()
+        let tabs = app.tabBars.firstMatch
+        XCTAssertTrue(tabs.buttons["Explore"].waitForExistence(timeout: 5))
+        XCTAssertTrue(tabs.buttons["Saved"].exists)
+        tabs.buttons["Journal"].tap()
         XCTAssertTrue(app.descendants(matching: .any)["journal-screen"].firstMatch.waitForExistence(timeout: 5))
         XCTAssertTrue(app.staticTexts[memory].waitForExistence(timeout: 5), "The optional note must appear in the local journal")
     }
+
+    func testPlannerAndFeedPreserveTheOpenedCard() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--demo"]
+        app.launch()
+        defer { app.terminate() }
+
+        let plan = app.buttons["plan-stroll"]
+        XCTAssertTrue(plan.waitForExistence(timeout: 10))
+        plan.tap()
+        let clock = app.descendants(matching: .any)["stroll-clock"].firstMatch
+        XCTAssertTrue(clock.waitForExistence(timeout: 5))
+        XCTAssertEqual(clock.value as? String, "47 min")
+        let show = app.buttons["find-adventure"]
+        XCTAssertTrue(show.waitForExistence(timeout: 5))
+        show.tap()
+
+        let heading = app.descendants(matching: .any)["results-heading"].firstMatch
+        XCTAssertTrue(heading.waitForExistence(timeout: 10))
+        let candidates = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "View "))
+        var opened: XCUIElement?
+        for _ in 0..<12 {
+            let available = candidates.allElementsBoundByIndex
+            if available.count > 3, let appended = available.dropFirst(3).first(where: \.isHittable) {
+                opened = appended
+                break
+            }
+            app.swipeUp()
+        }
+        guard let opened else { XCTFail("A fourth result did not append while scrolling"); return }
+        let label = opened.label
+        opened.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["detail-screen"].firstMatch.waitForExistence(timeout: 5))
+        app.navigationBars.buttons.firstMatch.tap()
+        let returned = app.buttons.matching(NSPredicate(format: "label == %@", label)).firstMatch
+        XCTAssertTrue(returned.waitForExistence(timeout: 5))
+        XCTAssertTrue(returned.isHittable)
+    }
+
 }
