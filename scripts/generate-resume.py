@@ -554,15 +554,15 @@ def portfolio_page(number, items, capabilities):
         card(px, py, col_w, row_h)
         image = item.one(tag='img').attrs['src']
         picture(image, px + 7, py - 7, col_w - 14, image_h,
-                show_full=project_id in {'mypremiereplus', 'lost-in-translation'},
+                show_full=project_id == 'mypremiereplus',
                 badge=project_id == 'next-project')
         ty = py - image_h - 13
         title = project_titles.get(project_id) or item.one(tag='h2').text()
         ty -= para(title, px + 9, ty, col_w - 18, 9.5, leading=11, font='CVTitle') + 4
-        ty -= para(project_copy[project_id], px + 9, ty, col_w - 18, 8.55, leading=10) + 5
+        ty -= para(project_copy[project_id], px + 9, ty, col_w - 18, 8.55, leading=10) + 7
         href = project_links.get(project_id) or item.one('portfolio-card-link').attrs['href']
         button_bottom = ty - BUTTON_HEIGHT
-        assert py - row_h >= 42 and button_bottom >= py - row_h + 6, f'Project card overflow: {project_id}'
+        assert py - row_h >= 42 and button_bottom >= py - row_h + 4, f'Project card overflow: {project_id}'
         label = 'Contact Me' if project_id == 'next-project' else 'View Project'
         project_button(urljoin(SITE, href), px + col_w / 2, button_bottom, label)
     pdf.showPage()
