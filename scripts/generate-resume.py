@@ -530,7 +530,13 @@ pdf.showPage()
 
 def portfolio_page(number, items, capabilities):
     page_base(number)
-    para('BRAM PETERS | STUDIO', M, H - M, 330, 9, font='CVHeading')
+    header = pdf.beginText(M, H - M - 9)
+    header.setFillColor(INK)
+    header.setFont('CVHeading', 9)
+    header.textOut('BRAM PETERS | ')
+    header.setFont('CVLight', 9)
+    header.textOut('STUDIO')
+    pdf.drawText(header)
     link('bram-peters.com', SITE, W - M - 72, H - M, 8)
     top = H - 83
     start = top - 28
