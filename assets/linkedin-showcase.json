@@ -1,0 +1,36 @@
+{
+  "company": {
+    "name": "Bram Peters | Studio",
+    "url": "https://www.linkedin.com/company/bram-peters-studio/",
+    "tagline": "Creative by nature. Technical by design.",
+    "description": "An independent digital design and development studio in Amsterdam. Websites, web and app development, BI / data analytics, UX/UI and video production."
+  },
+  "posts": [
+    {
+      "id": "introduction",
+      "title": "Meet Bram Peters Studio",
+      "url": "https://lnkd.in/p/erHYYsdx",
+      "excerpt": "Over the past few years, alongside my professional career, I've been keeping myself busy with quite a few digital and creative projects…",
+      "image": "introduction.jpg",
+      "alt": "Project showcase from the Bram Peters Studio introduction post",
+      "attribution": null,
+      "collaborators": null,
+      "reactionCount": 26,
+      "reactionCountVerifiedAt": "2026-11-15",
+      "lang": "en"
+    },
+    {
+      "id": "anniversary",
+      "title": "40 jaar J. Meijer B.V. & 5 jaar Orvini Investments B.V.",
+      "url": "https://lnkd.in/p/eMcCdXwr",
+      "excerpt": "de film, “Een dag in het leven van…” (met een knipoog)",
+      "image": "anniversary.jpg",
+      "alt": "Video thumbnail from the J. Meijer B.V. anniversary film",
+      "attribution": "Original post: Luca Orvini",
+      "collaborators": "Script, film & montage: Bram Peters",
+      "reactionCount": 60,
+      "reactionCountVerifiedAt": "2026-11-15",
+      "lang": "nl"
+    }
+  ]
+}
