@@ -1,0 +1,47 @@
+[
+  {
+    "aligned": true,
+    "brokenImages": 0,
+    "columns": "574.195px 302.211px",
+    "escaping": [],
+    "overflow": false,
+    "placement": "horizontal-split experience-layout → showcase → portfolio-layout",
+    "width": 1440
+  },
+  {
+    "aligned": true,
+    "brokenImages": 0,
+    "columns": "585.094px 307.945px",
+    "escaping": [],
+    "overflow": false,
+    "placement": "horizontal-split experience-layout → showcase → portfolio-layout",
+    "width": 1024
+  },
+  {
+    "aligned": true,
+    "brokenImages": 0,
+    "columns": "683.922px",
+    "escaping": [],
+    "overflow": false,
+    "placement": "horizontal-split experience-layout → showcase → portfolio-layout",
+    "width": 768
+  },
+  {
+    "aligned": true,
+    "brokenImages": 0,
+    "columns": "320px",
+    "escaping": [],
+    "overflow": false,
+    "placement": "horizontal-split experience-layout → showcase → portfolio-layout",
+    "width": 390
+  },
+  {
+    "aligned": true,
+    "brokenImages": 0,
+    "columns": "258px",
+    "escaping": [],
+    "overflow": false,
+    "placement": "horizontal-split experience-layout → showcase → portfolio-layout",
+    "width": 320
+  }
+]
