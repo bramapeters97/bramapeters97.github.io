@@ -1,0 +1,37 @@
+/* Scoped to the additive LinkedIn showcase; inherits the existing container. */
+.linkedin-showcase { display:grid; grid-template-columns:minmax(0,1.9fr) minmax(0,1fr); gap:24px; padding:20px; border:1px solid rgba(190,204,220,.3); border-radius:24px; background:rgba(255,255,255,.88); box-shadow:0 10px 30px rgba(72,92,122,.10); color:#172235; }
+.linkedin-showcase * { box-sizing:border-box; }
+.linkedin-showcase .studio-company, .linkedin-showcase .studio-featured { min-width:0; }
+.linkedin-showcase .studio-cover { display:block; width:100%; height:auto; aspect-ratio:1920/325; object-fit:cover; object-position:center; border-radius:12px; }
+.linkedin-showcase .studio-identity { display:flex; align-items:center; gap:16px; margin:22px 0; }
+.linkedin-showcase .studio-logo { width:50px; height:50px; object-fit:contain; }
+.linkedin-showcase .studio-linkedin { width:34px; height:34px; padding-left:16px; box-sizing:content-box; border-left:1px solid #8c99ab; fill:#0a66c2; stroke:none; flex-shrink:0; }
+.linkedin-showcase h2 { margin:0 0 3px; font-size:clamp(16px,1.8vw,21px); line-height:1.2; letter-spacing:-.025em; }
+.linkedin-showcase .studio-tagline { margin:0; font-size:12px; line-height:1.4; color:#596981; }
+.linkedin-showcase .studio-description { margin:0 0 20px; font-size:13px; line-height:1.55; }
+.linkedin-showcase .studio-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+.linkedin-showcase .studio-details { display:flex; flex-wrap:wrap; gap:12px; margin:0; font-size:11px; }
+.linkedin-showcase .studio-details span { display:inline-flex; align-items:center; gap:7px; }
+.linkedin-showcase .studio-details span+span { border-left:1px solid #ccd5df; padding-left:12px; }
+.linkedin-showcase a { text-decoration:none; }
+.linkedin-showcase .studio-cta { display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:10px 14px; border:1px solid #dce4ee; border-radius:999px; background:#fbfcfe; box-shadow:0 3px 10px #30466514; color:#172235; font-size:11px; font-weight:700; transition:background .2s,box-shadow .2s; }
+.linkedin-showcase a:focus-visible { outline:2px solid #426aa7; outline-offset:4px; }
+.linkedin-showcase .studio-cta:hover { background:#edf3f9; box-shadow:0 4px 12px #30466520; }
+.linkedin-showcase .studio-featured { border-left:1px solid #e0e7f0; padding-left:24px; }
+.linkedin-showcase .studio-featured h3 { display:flex; align-items:center; gap:8px; margin:2px 0 20px; font-size:14px; line-height:1.3; }
+.linkedin-showcase .studio-post { display:grid; grid-template-columns:80px minmax(0,1fr); gap:16px; }
+.linkedin-showcase .studio-post+.studio-post { border-top:1px solid #e4eaf1; margin-top:16px; padding-top:16px; }
+.linkedin-showcase .studio-post-image { width:80px; height:64px; object-fit:cover; border-radius:6px; box-shadow:0 5px 12px #2546671a; }
+.linkedin-showcase .studio-post h4 { margin:0 0 5px; font-size:12px; line-height:1.35; overflow-wrap:anywhere; }
+.linkedin-showcase .studio-excerpt { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; margin:0 0 6px; color:#48566c; font-size:11px; line-height:1.5; }
+.linkedin-showcase .studio-credit { margin:0 0 5px; color:#58657a; font-size:10px; line-height:1.4; }
+.linkedin-showcase .studio-post-link { display:inline-block; padding:5px 0; font-size:11px; font-weight:700; color:#075ec9; }
+.linkedin-showcase .studio-post-link:hover { text-decoration:underline; }
+.linkedin-showcase .studio-reactions { display:block; margin-top:3px; color:#647086; font-size:9px; line-height:1.4; }
+@media (min-width:769px) and (max-width:900px) { .linkedin-showcase { grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:18px; } .linkedin-showcase .studio-featured { padding-left:18px; } .linkedin-showcase .studio-post { grid-template-columns:60px minmax(0,1fr); gap:10px; } .linkedin-showcase .studio-post-image { width:60px; height:52px; } .linkedin-showcase .studio-identity { gap:10px; } }
+@media (max-width:768px) { .linkedin-showcase { grid-template-columns:minmax(0,1fr); gap:24px; padding:18px; } .linkedin-showcase .studio-featured { border-left:0; border-top:1px solid #e0e7f0; padding:22px 0 0; } .linkedin-showcase .studio-identity { gap:12px; margin:20px 0; } .linkedin-showcase .studio-logo { width:40px; height:40px; } .linkedin-showcase .studio-linkedin { width:27px; height:27px; padding-left:12px; } .linkedin-showcase .studio-footer { flex-direction:column; align-items:flex-start; } .linkedin-showcase .studio-post h4 { font-size:13px; } .linkedin-showcase .studio-excerpt { font-size:12px; } }
+@media (max-width:360px) { .linkedin-showcase { padding:14px; } .linkedin-showcase .studio-identity { gap:9px; } .linkedin-showcase .studio-logo { width:30px; height:36px; } .linkedin-showcase .studio-linkedin { width:23px; height:23px; padding-left:9px; } .linkedin-showcase .studio-tagline { font-size:11px; } .linkedin-showcase .studio-post { grid-template-columns:60px minmax(0,1fr); gap:12px; } .linkedin-showcase .studio-post-image { width:60px; height:52px; } }
+@media (prefers-reduced-motion:reduce) { .linkedin-showcase .studio-cta { transition:none; } }
+
+.linkedin-showcase .studio-company { display:flex; flex-direction:column; }
+.linkedin-showcase .studio-footer { margin-top:auto; }
