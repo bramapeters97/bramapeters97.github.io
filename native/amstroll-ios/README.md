@@ -67,14 +67,12 @@ The extractor preserves original vector paths, font bytes and photo source/licen
 
 ## Archive and App Store handoff
 
-Review AppStore/RELEASE-CHECKLIST.md. Supply your own registered identifier and signing team only when available:
+Open `Amstroll.xcodeproj`, select the Amstroll scheme and **Any iOS Device (arm64)**, then choose **Product → Archive**. To archive from Terminal:
 
 ```sh
-export AMSTROLL_TEAM_ID=YOUR_TEAM_ID
-export AMSTROLL_BUNDLE_ID=YOUR_REGISTERED_BUNDLE_ID
 bash scripts/archive-on-mac.sh
 ```
 
-The script creates a local archive only. Validate it in Organizer and investigate all issues. Upload/TestFlight/submission require a separate explicit owner instruction. Confirm public policy/support URLs, legal identity, age rating, provider terms, privacy labels, EU trader status and encryption answers before submission. Preparing these files does not guarantee Apple approval.
+The script saves the signed archive in Xcode Organizer’s Archives directory. Release uses the explicit team, bundle ID and App Store profile in `Configuration.xcconfig`. When the Mac has distribution certificates with identical names, `Signing.local.xcconfig` can select the certificate that the profile includes by SHA-1 fingerprint. Keep it local. Increment `AMSTROLL_BUILD_NUMBER` before each subsequent upload and use Organizer to validate and distribute. See [publishing instructions](AppStore/PUBLISHING.md) and the [release checklist](AppStore/RELEASE-CHECKLIST.md).
 
 Detailed performed/pending checks: [docs/VERIFICATION.md](docs/VERIFICATION.md). Real web reference captures are in References/Screenshots/ and must not be confused with native App Store screenshots.

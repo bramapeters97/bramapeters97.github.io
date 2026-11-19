@@ -10,3 +10,4 @@ xcuserdata/
 *.p12
 *.mobileprovision
 ExportOptions.plist
+Signing.local.xcconfig

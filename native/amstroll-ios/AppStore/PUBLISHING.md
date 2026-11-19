@@ -4,10 +4,10 @@ Updated 5 November 2026. TestFlight availability does not automatically publish 
 
 ## Prepare the release
 
-1. Test the release flow: first welcome → criteria sheet → suggestions → walking map, plus Saved/Journal and denied location. Check slow/offline providers and larger text. Live recommendations use Wikipedia (English/Dutch), Wikidata, OpenStreetMap, Wikimedia Commons and Apple Maps. No paid Places API is configured.
+1. Test the release flow from Explore through the planner, suggestions and walking map. Exercise Saved, Journal, denied location, offline routing and larger text.
 2. Increase the build number beyond the most recently uploaded build. Keep the version aligned with the App Store version you plan to release.
-3. Select Any iOS Device, then Product → Archive. Release is configured for manual Apple Distribution signing with team 4W75X459YD and profile Amstroll App Store. Renew the profile/certificate if they expire.
-4. In Organizer, Validate App, then Distribute App → App Store Connect → Upload. Avoid the “TestFlight internal testing only” option for a build intended for public App Store release. Wait for processing and complete any export-compliance questions.
+3. Select **Any iOS Device (arm64)** and choose **Product → Archive**, or run `bash scripts/archive-on-mac.sh` from the native project directory. Release for iOS devices uses the `Amstroll App Store` profile and Apple Distribution signing. If two valid identities have the same name, put `AMSTROLL_DISTRIBUTION_CERTIFICATE = <matching SHA-1 fingerprint>` in the ignored `Signing.local.xcconfig`. The fingerprint must correspond to a certificate included in the provisioning profile.
+4. In Organizer, select the archive and choose **Validate App**, then **Distribute App → TestFlight & App Store**. For an exported App Store Connect IPA, you can use Transporter instead. Wait for Apple to process the build, then answer the applicable export-compliance questions in TestFlight.
 
 ## Screenshots
 

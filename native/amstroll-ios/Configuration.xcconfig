@@ -1,3 +1,9 @@
 // Signing identifiers for Amstroll. No credentials belong here.
 AMSTROLL_BUNDLE_IDENTIFIER = com.brampeters.amstroll
 AMSTROLL_DEVELOPMENT_TEAM = 4W75X459YD
+AMSTROLL_BUILD_NUMBER = 2
+AMSTROLL_APP_STORE_PROFILE = Amstroll App Store
+AMSTROLL_DISTRIBUTION_CERTIFICATE = Apple Distribution
+
+// Optional machine-specific certificate selector for a Mac with duplicate identity names.
+#include? "Signing.local.xcconfig"

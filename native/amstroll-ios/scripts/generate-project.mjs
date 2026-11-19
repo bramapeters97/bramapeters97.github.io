@@ -20,7 +20,17 @@ const productRefs=products.map((name,i)=>add('product:'+name,`{isa = PBXFileRefe
 add('group:Products',`{isa = PBXGroup; children = (${productRefs.join(',')}); name = Products; sourceTree = "<group>"; }`);
 add('group:Main',`{isa = PBXGroup; children = (${allFiles.map(f=>id('file:'+f)).join(',')},${id('group:Products')}); sourceTree = "<group>"; }`);
 const configs=(key,base)=>{
- const refs=['Debug','Release'].map(name=>add(key+':'+name,`{isa = XCBuildConfiguration; ${key==='app'?'baseConfigurationReference = '+id('file:Configuration.xcconfig')+';':''}buildSettings = {${Object.entries({...base,...(name==='Debug'?{SWIFT_ACTIVE_COMPILATION_CONDITIONS:'DEBUG',SWIFT_OPTIMIZATION_LEVEL:'-Onone',ENABLE_TESTABILITY:'YES'}:{SWIFT_OPTIMIZATION_LEVEL:'-O',SWIFT_COMPILATION_MODE:'wholemodule',ENABLE_TESTABILITY:'NO'})}).map(([k,v])=>k+' = '+q(v)+';').join('')}}; name = ${name}; }`));
+ const refs=['Debug','Release'].map(name=>{
+  const settings={...base,...(name==='Debug'?{SWIFT_ACTIVE_COMPILATION_CONDITIONS:'DEBUG',SWIFT_OPTIMIZATION_LEVEL:'-Onone',ENABLE_TESTABILITY:'YES'}:{SWIFT_OPTIMIZATION_LEVEL:'-O',SWIFT_COMPILATION_MODE:'wholemodule',ENABLE_TESTABILITY:'NO'})};
+  if(key==='app'&&name==='Release') Object.assign(settings,{
+   'CODE_SIGN_STYLE[sdk=iphoneos*]':'Manual',
+   'CODE_SIGN_IDENTITY[sdk=iphoneos*]':'$(AMSTROLL_DISTRIBUTION_CERTIFICATE)',
+   'PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]':'$(AMSTROLL_APP_STORE_PROFILE)',
+  });
+  const configuration=key==='app'?'baseConfigurationReference = '+id('file:Configuration.xcconfig')+';':'';
+  const buildSettings=Object.entries(settings).map(([k,v])=>(k.includes('[')?q(k):k)+' = '+q(v)+';').join('');
+  return add(key+':'+name,`{isa = XCBuildConfiguration; ${configuration}buildSettings = {${buildSettings}}; name = ${name}; }`);
+ });
  return add(key+':configlist',`{isa = XCConfigurationList; buildConfigurations = (${refs.join(',')}); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; }`);
 };
 const projectSettings={ALWAYS_SEARCH_USER_PATHS:'NO',CLANG_ENABLE_MODULES:'YES',CLANG_ENABLE_OBJC_ARC:'YES',IPHONEOS_DEPLOYMENT_TARGET:'17.0',SDKROOT:'iphoneos',SWIFT_VERSION:'5.0',SWIFT_STRICT_CONCURRENCY:'targeted',DEBUG_INFORMATION_FORMAT:'dwarf-with-dsym'};
@@ -29,7 +39,7 @@ function phase(name,type,files){const refs=files.map(file=>add('build:'+name+':'
 const targetIds=[];
 for(let i=0;i<products.length;i++){
  const name=products[i],key=i===0?'app':name;
- const base=i===0?{PRODUCT_NAME:'Amstroll',PRODUCT_BUNDLE_IDENTIFIER:'$(AMSTROLL_BUNDLE_IDENTIFIER)',INFOPLIST_FILE:'Amstroll/Info.plist',GENERATE_INFOPLIST_FILE:'NO',ASSETCATALOG_COMPILER_APPICON_NAME:'AppIcon',ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME:'',CODE_SIGN_STYLE:'Automatic',DEVELOPMENT_TEAM:'$(AMSTROLL_DEVELOPMENT_TEAM)',CURRENT_PROJECT_VERSION:'1',MARKETING_VERSION:'1.0.0',TARGETED_DEVICE_FAMILY:'1',SUPPORTED_PLATFORMS:'iphoneos iphonesimulator',SUPPORTS_MACCATALYST:'NO',SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD:'NO',ENABLE_PREVIEWS:'YES',LD_RUNPATH_SEARCH_PATHS:'$(inherited) @executable_path/Frameworks',SWIFT_EMIT_LOC_STRINGS:'YES'}:{PRODUCT_NAME:name,PRODUCT_BUNDLE_IDENTIFIER:'com.brampeters.amstroll.'+name,GENERATE_INFOPLIST_FILE:'YES',CODE_SIGN_STYLE:'Automatic',TARGETED_DEVICE_FAMILY:'1',SWIFT_VERSION:'5.0',IPHONEOS_DEPLOYMENT_TARGET:'17.0',...(i===1?{TEST_HOST:'$(BUILT_PRODUCTS_DIR)/Amstroll.app/Amstroll',BUNDLE_LOADER:'$(TEST_HOST)'}:{TEST_TARGET_NAME:'Amstroll'})};
+ const base=i===0?{PRODUCT_NAME:'Amstroll',PRODUCT_BUNDLE_IDENTIFIER:'$(AMSTROLL_BUNDLE_IDENTIFIER)',INFOPLIST_FILE:'Amstroll/Info.plist',GENERATE_INFOPLIST_FILE:'NO',ASSETCATALOG_COMPILER_APPICON_NAME:'AppIcon',ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME:'',CODE_SIGN_STYLE:'Automatic',DEVELOPMENT_TEAM:'$(AMSTROLL_DEVELOPMENT_TEAM)',CURRENT_PROJECT_VERSION:'$(AMSTROLL_BUILD_NUMBER)',MARKETING_VERSION:'1.0.0',TARGETED_DEVICE_FAMILY:'1',SUPPORTED_PLATFORMS:'iphoneos iphonesimulator',SUPPORTS_MACCATALYST:'NO',SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD:'NO',ENABLE_PREVIEWS:'YES',LD_RUNPATH_SEARCH_PATHS:'$(inherited) @executable_path/Frameworks',SWIFT_EMIT_LOC_STRINGS:'YES'}:{PRODUCT_NAME:name,PRODUCT_BUNDLE_IDENTIFIER:'com.brampeters.amstroll.'+name,GENERATE_INFOPLIST_FILE:'YES',CODE_SIGN_STYLE:'Automatic',TARGETED_DEVICE_FAMILY:'1',SWIFT_VERSION:'5.0',IPHONEOS_DEPLOYMENT_TARGET:'17.0',...(i===1?{TEST_HOST:'$(BUILT_PRODUCTS_DIR)/Amstroll.app/Amstroll',BUNDLE_LOADER:'$(TEST_HOST)'}:{TEST_TARGET_NAME:'Amstroll'})};
  const config=configs(key,base);
  const phases=[phase(name+':sources','PBXSourcesBuildPhase',i===0?appSource:i===1?unitSource:uiSource),phase(name+':frameworks','PBXFrameworksBuildPhase',[]),phase(name+':resources','PBXResourcesBuildPhase',i===0?resources:i===1?testResources:[])];
  const deps=[];
