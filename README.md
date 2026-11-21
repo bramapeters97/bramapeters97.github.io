@@ -3,9 +3,21 @@ Bram Peters
 
 | My personal portfolio website at https://www.bram-peters.com |
 
-## Cloudflare Pages
+## Hosting
 
-The site has no runtime dependencies. Configure the Pages project with:
+The current production domain deploys from `main` through GitHub Pages. That
+pipeline publishes static files and does not execute the npm build command.
+
+The full MyPremierePlus application is imported under
+[`apps/mypremiereplus`](apps/mypremiereplus/INTEGRATION.md), with deployment
+support for `/mypremiereplus/`. It requires a persistent Node.js backend; the
+existing GitHub Pages deployment cannot run it. See its integration guide for
+local startup and the supplied Docker Compose deployment. Public routing has not
+been configured as part of this preparation.
+
+### Alternative: Cloudflare Pages
+
+The static portfolio has no runtime dependencies. Configure its Pages project with:
 
 - **Build command:** `npm run build`
 - **Build output directory:** `.`

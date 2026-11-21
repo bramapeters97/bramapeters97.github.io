@@ -1,0 +1,21 @@
+bram-peters.com, www.bram-peters.com {
+    encode zstd gzip
+
+    @mypremiereplus path /mypremiereplus /mypremiereplus/*
+    handle @mypremiereplus {
+        reverse_proxy mypremiereplus:8787
+    }
+
+    handle {
+        root * /srv/portfolio
+        file_server {
+            hide .git .gitignore .dockerignore package.json scripts
+        }
+    }
+
+    handle_errors {
+        root * /srv/portfolio
+        rewrite * /404.html
+        file_server
+    }
+}

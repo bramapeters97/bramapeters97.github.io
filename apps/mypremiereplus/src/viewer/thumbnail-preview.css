@@ -1,0 +1,46 @@
+.thumbnail-preview {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  background: #04080c;
+}
+.thumbnail-preview.is-playing {
+  opacity: 1;
+}
+.browse-art .thumbnail-preview video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.thumbnail-preview-sound {
+  position: absolute;
+  right: 9px;
+  bottom: 9px;
+  display: block;
+  font:
+    500 7px/1.4 system-ui,
+    sans-serif;
+  letter-spacing: 0.14em;
+  color: #d6dde4;
+  background: #030912a6;
+  border: 1px solid #ffffff2b;
+  border-radius: 4px;
+  padding: 4px 6px;
+  pointer-events: none;
+}
+.thumbnail-preview video::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .thumbnail-preview {
+    display: none !important;
+    transition: none;
+  }
+}
