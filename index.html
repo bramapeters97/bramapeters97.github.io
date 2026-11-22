@@ -416,12 +416,12 @@ body.portfolio-home::before {
 #project-pip .article-wrapper img { object-fit: contain; background: #d6dafa; }
 /* Retain the existing unavailable-project treatment. */
 .portfolio-card.portfolio-card--disabled {
-  cursor: default; background: rgba(83,94,113,.17); border-color: rgba(77,88,108,.28);
-  box-shadow: inset 0 0 0 999px rgba(37,45,60,.04); filter: brightness(.93) saturate(.86);
+  cursor: default; background: rgba(255,255,255,.66); border-color: rgba(210,220,240,.25);
+  box-shadow: none; filter: saturate(.96);
 }
 .portfolio-card.portfolio-card--disabled::after { display: none; }
 .portfolio-card.portfolio-card--disabled:active { transform: none; }
-.portfolio-card--disabled .article-wrapper img { opacity: .91; }
+.portfolio-card--disabled .article-wrapper img { opacity: 1; }
 .portfolio-card.portfolio-card--disabled .article-body .project-status {
   display: inline-flex; align-items: center; align-self: flex-start; gap: .35rem; margin-top: auto;
   padding: .32rem .62rem; border: 1px solid rgba(44,54,72,.25); border-radius: 999px;
@@ -429,7 +429,7 @@ body.portfolio-home::before {
 }
 @media (hover:hover) {
   .portfolio-card.portfolio-card--disabled:hover, .portfolio-card.portfolio-card--disabled:focus-visible {
-    transform: none; box-shadow: inset 0 0 0 999px rgba(37,45,60,.04); z-index: auto;
+    transform: none; box-shadow: none; z-index: auto;
   }
 }
 @media (min-width:901px) {
