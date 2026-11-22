@@ -1,0 +1,18 @@
+.signinViewBox {
+  margin: 10px 10px;
+}
+
+.headerText {
+  margin: 5px 0px;
+}
+
+.errorText {
+  color: red;
+  font-size: small;
+}
+
+.emailBox,
+.passwordBox,
+.submitButton {
+  margin: 8px 0px;
+}

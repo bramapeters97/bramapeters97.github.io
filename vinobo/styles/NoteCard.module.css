@@ -1,0 +1,37 @@
+.noteCard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0px 1px 3px 0px #00000080;
+}
+
+.noteInfo {
+  display: flex;
+  gap: 5px;
+}
+
+.noteInfo > *:not(:last-child) {
+  flex: 1 0;
+}
+
+.noteInfo > *:last-child {
+  flex: 0 0 auto;
+}
+.noteInfo > *,
+.content > * {
+  background-color: white;
+  word-break: break-all;
+  border-radius: 5px;
+  padding: 5px;
+}
+.content > * {
+  padding: 8px 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}

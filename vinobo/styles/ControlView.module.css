@@ -1,0 +1,30 @@
+.controlContent {
+  font-family: inherit;
+  resize: none;
+  border: none;
+  width: 100%;
+}
+
+.controlView {
+  box-shadow: 5px 10px #888888;
+}
+
+.controlTitle {
+  border: none;
+}
+
+.controlTime {
+  border: none;
+  width: 75px;
+  padding: 5px;
+}
+
+.fieldform {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.fieldform[disabled] {
+  opacity: 0.6;
+}
