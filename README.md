@@ -58,3 +58,27 @@ motion. Its styles and lifecycle live in `assets/css/mypremiere-preview.css` and
 Playwright in your development environment and run
 `node scripts/check-mypremiere-preview.cjs`; set `CHROMIUM_PATH` to use an existing
 Chromium installation. The test serves the repository only on localhost.
+
+## The Gift Chapter
+
+From the portfolio root, run `npm run build` and `python3 -m http.server 4173`.
+Open `http://localhost:4173/the-gift-chapter/`. The root is both the local
+build output and the source for the repository’s GitHub Pages site. The demo
+ships as static files in `the-gift-chapter/` with local WebP photographs from the
+starter and local fonts with licenses in `the-gift-chapter/assets/licenses/`.
+Nested URLs such as `#gift/coast` and `#studio` work on refresh.
+
+The fictional wedding uses a versioned IndexedDB record scoped to this origin.
+Guest records, cover uploads, note approvals and studio edits stay in that
+browser. Open the invitation link in a new browser profile to start with the
+seeded wedding. Use **Couple’s studio → Reset to sample data** to clear this
+browser’s demo after confirming. The studio is an open role preview. Gifts and
+voucher promises are simulations. The browser can print the approved collage
+or save it as a PDF in A4 or US Letter.
+
+A real wedding would need shared records, authenticated couple accounts and
+co-editor permissions, private invitation tokens, server-side gift holds,
+hosted provider checkout, signed and idempotent payment confirmations, and
+reconciliation for failed and expired reservations, refunds and receipts.
+Payout onboarding also belongs on the live service. The static demo contains
+none of these integrations.

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fcf8f2">
+  <meta name="description" content="A wedding invitation, gift registry and love-note keepsake for fictional couple Mila and Noah.">
+  <title>The Gift Chapter · Mila &amp; Noah</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body class="gift-chapter" data-paper="A4">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#home"><span aria-hidden="true">❦</span> The Gift Chapter</a>
+    <nav aria-label="Wedding navigation">
+      <a href="#home">Our wedding</a>
+      <a href="#gifts">Gift registry</a>
+      <a href="#board">Love notes</a>
+      <a href="#studio" aria-label="Couple’s studio">Studio</a>
+    </nav>
+    <a class="button outline rsvp-link" href="#rsvp">RSVP</a>
+  </header>
+  <div id="status" class="status" role="status"></div>
+  <main id="main" tabindex="-1">
+    <p class="loading">Opening the wedding invitation…</p>
+    <noscript><p>This registry demo needs JavaScript to open the invitation and save your choices.</p></noscript>
+  </main>
+  <footer class="site-footer">
+    <div><a class="brand" href="#home">The Gift Chapter</a><p>Fictional wedding · Each browser has its own demo.</p></div>
+    <nav aria-label="Prototype navigation">
+      <a href="#studio">Try the couple’s studio</a>
+      <a href="../honeymoon.html">Portfolio case study</a>
+    </nav>
+  </footer>
+  <dialog id="reset-dialog" aria-labelledby="reset-title">
+    <form method="dialog">
+      <h2 id="reset-title">Reset to sample data?</h2>
+      <p>This clears the wedding edits, gifts, replies and thank-you tracking saved in this browser.</p>
+      <div class="actions">
+        <button class="button outline" value="cancel" autofocus>Keep my changes</button>
+        <button class="button" value="reset">Reset to sample data</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
