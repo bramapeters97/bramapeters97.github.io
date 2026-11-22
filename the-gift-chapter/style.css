@@ -244,7 +244,6 @@ h1 i, h2 i { color: var(--accent); }
 
 .section, .page { max-width: 88rem; margin-inline: auto; padding: clamp(2.5rem, 4vw, 3.85rem) var(--gutter); }
 .page { min-height: 66vh; }
-.embedded-demo .page { min-height: 0; }
 .section-head {
   display: grid;
   grid-template-columns: 1.35fr 0.9fr;

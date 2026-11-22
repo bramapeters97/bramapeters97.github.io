@@ -23,6 +23,7 @@ const additional = [
   ['Vinobo', 'vinobo.html', 'video'],
   ['Spotify Podcasts', 'reimaginingspotifypodcasts.html', 'headphones'],
   ['Raspberries', 'raspberriesshoppingassistant.html', 'shopping'],
+  ['The Honeymoon Webshop', 'honeymoon.html', 'gift'],
   ['J. Meijer B.V. 40 Jaar', 'jmeijerbv40jaareendaginhetlevenvanlucaorvini.html', 'camera'],
 ];
 const icon = (path, extra = '') => `<svg class="project-nav-icon${extra}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${path}</svg>`;
@@ -40,6 +41,7 @@ const projectIcons = {
   video: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m9 8 6 4-6 4V8Z"/>',
   headphones: '<path d="M3 14v-3a9 9 0 0 1 18 0v3"/><rect x="3" y="12" width="4" height="9" rx="2"/><rect x="17" y="12" width="4" height="9" rx="2"/>',
   shopping: '<path d="M6 7h12l1 14H5L6 7Zm3 0V5a3 3 0 0 1 6 0v2"/>',
+  gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13m0-13H8a3 3 0 1 1 3-3l1 3Zm0 0h4a3 3 0 1 0-3-3l-1 3Z"/>',
   camera: '<rect x="2" y="6" width="13" height="12" rx="2"/><path d="m15 10 7-4v12l-7-4"/>',
 };
 const escape = text => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;');

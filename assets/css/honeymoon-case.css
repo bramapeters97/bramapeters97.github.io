@@ -19,7 +19,17 @@
 }
 
 .portfolio-case:has(.honeymoon-case) {
-  background: #f8f5f0 linear-gradient(155deg, #fcfaf6, #f8f5f0 48%, #f0eae2) fixed no-repeat;
+  isolation: isolate;
+  background: #f8f5f0;
+}
+
+.portfolio-case:has(.honeymoon-case)::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(155deg, #fcfaf6, #f8f5f0 48%, #f0eae2);
+  content: "";
 }
 
 .honeymoon-case {
@@ -178,8 +188,7 @@
   scroll-margin-top: 5rem;
   border: 1px solid #aaa39d;
   border-radius: clamp(0.75rem, 2vw, 1.15rem);
-  background: var(--case-surface);
-  box-shadow: 0 20px 50px #352a2326, 0 4px 10px #352a2314;
+  background: #fffcf82e;
 }
 
 .honeymoon-demo-titlebar {
@@ -188,9 +197,10 @@
   align-items: center;
   min-height: 3rem;
   padding-inline: clamp(0.65rem, 2vw, 1rem);
-  border-bottom: 1px solid #c5beb8;
-  background: linear-gradient(180deg, #faf9f8, #e9e5e2);
-  box-shadow: inset 0 1px 0 #fff;
+  border-bottom: 1px solid #8c827440;
+  background: linear-gradient(175deg, #ffffff87 0%, #ffffff33 55%, #c8b8a626 100%);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  backdrop-filter: blur(24px) saturate(1.4);
   color: #4d4643;
   font-size: clamp(0.7rem, 1.7vw, 0.83rem);
   font-weight: 650;
@@ -217,13 +227,23 @@
 .portfolio-case .honeymoon-demo-window .honeymoon-demo-frame {
   display: block;
   width: 100%;
-  height: 68rem;
-  min-height: 28rem;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  min-height: 18rem;
+  max-height: 75vh;
+  max-height: 75svh;
   border: 0;
   border-radius: 0;
 }
 
 @media (max-width: 740px) {
+  .portfolio-case .honeymoon-demo-window .honeymoon-demo-frame {
+    height: clamp(20rem, 67vh, 42rem);
+    height: clamp(20rem, 67svh, 42rem);
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
   .honeymoon-case .honeymoon-hero,
   .honeymoon-story,
   .honeymoon-keepsake {
