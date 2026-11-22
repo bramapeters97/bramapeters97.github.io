@@ -112,7 +112,6 @@ function showRoute(route, focus) {
       html = order ? view.receipt(order, 'gifts') : view.missing();
       break;
     }
-    case 'board': html = view.board(state); break;
     case 'rsvp': html = view.invitation(state, reply); break;
     case 'colours': html = view.colours(state); break;
     default: html = view.missing();
@@ -122,7 +121,6 @@ function showRoute(route, focus) {
   document.title = `${profile.names} · The Honeymoon Webshop`;
   main.innerHTML = html;
   main.dataset.route = route;
-  if (page === 'board') main.querySelector('#paper-size').value = document.body.dataset.paper;
   displayedRoute = route;
   for (const link of document.querySelectorAll('.site-header nav a, .rsvp-link')) {
     if (link.hash === '#' + page) link.setAttribute('aria-current', 'page');
@@ -266,7 +264,6 @@ main.addEventListener('change', event => {
   if (input.name === 'price-filter') filters.price = input.value;
   if (['available-filter', 'price-filter'].includes(input.name)) refreshResults();
   if (input.name === 'theme' && input.checked) choosePalette(input.value);
-  if (input.id === 'paper-size') document.body.dataset.paper = input.value;
   if (input.name === 'reply') {
     main.querySelector('#diet-field').hidden = input.value === 'no';
     input.form.elements.diet.disabled = input.value === 'no';
@@ -294,9 +291,6 @@ main.addEventListener('click', event => {
     refreshResults();
   }
   if (button.hasAttribute('data-retry')) render({ focus: true, initializeStorage: true });
-  if (button.hasAttribute('data-print')) {
-    window.print();
-  }
   if (button.hasAttribute('data-reset')) {
     dialog.returnValue = 'cancel';
     dialog.showModal();
@@ -340,6 +334,6 @@ window.addEventListener('hashchange', () => {
   render({ restore: true, focus: true, initializeStorage: !state });
 });
 changes?.addEventListener('message', () => {
-  if (['home', 'gifts', 'gift', 'board', 'colours', 'confirmed'].includes(current().split('/')[0])) render();
+  if (['home', 'gifts', 'gift', 'colours', 'confirmed'].includes(current().split('/')[0])) render();
 });
 render({ initializeStorage: true, restore: true });

@@ -17,8 +17,8 @@ const select = (name, label, options, selected) =>
     `<option value="${esc(value)}"${value === selected ? ' selected' : ''}>${esc(text)}</option>`).join('')}</select></label>`;
 const img = (image, className = '', lazy = true) =>
   `<img class="${className} photo-${image}" src="./assets/${image}.webp" alt="${images[image][1]}"${lazy ? ' loading="lazy"' : ''}>`;
-const note = (message, sender, gift) =>
-  `<article class="note">${gift ? `<small>${esc(gift)}</small>` : ''}<blockquote>${esc(message)}</blockquote><p class="signature">${esc(sender)}</p></article>`;
+const note = (message, sender) =>
+  `<article class="note"><blockquote>${esc(message)}</blockquote><p class="signature">${esc(sender)}</p></article>`;
 const price = gift => gift.type === 'cash' ? 'Your amount' : money(gift.target);
 const submit = text => `<button class="button" type="submit">${text}</button>`;
 export const palettes = [
@@ -183,7 +183,7 @@ export function checkout(state, gift, draft, returnTo) {
 
 function visibility(order) {
   if (!order.message) return 'No note was included.';
-  return order.consent && order.approved ? 'Part of the keepsake.' : 'Saved privately with this demo gift.';
+  return 'Saved privately with this demo gift.';
 }
 
 export function reviewDetails(draft) {
@@ -203,23 +203,7 @@ export function receipt(order, returnTo) {
     <p class="lead">${order.type === 'voucher' ? 'Your demo promise is saved. The voucher would be bought separately and brought to the wedding.' : 'Your demo contribution is confirmed.'}</p>
     ${reviewDetails(order)}
     <p class="subtle reference">Local reference <strong>${esc(order.id)}</strong></p>
-    <div class="actions">${link(returnTo, 'Back to the registry')}${link('board', 'View love notes', 'outline')}</div>
-  </section>`;
-}
-
-export function board(state) {
-  const notes = state.orders.filter(order => order.consent && order.approved && order.message);
-  return `<section class="page keepsake">
-    <div class="keepsake-title">
-      <p class="eyebrow">${esc(state.profile.names)} · ${date(state.profile.date)}</p>
-      ${title('Little', 'love notes.')}
-    </div>
-    <div class="board-tools">
-      <label>Paper size<select id="paper-size"><option>A4</option><option>Letter</option></select></label>
-      <button class="button outline" type="button" data-print${notes.length ? '' : ' disabled'}>Print or save as PDF</button>
-    </div>
-    ${notes.length ? `<div class="grid board-grid">${notes.map(o => note(o.message, o.sender, o.title)).join('')}</div>` :
-      '<p class="empty">There are no keepsake notes in this browser.</p>'}
+    <div class="actions">${link(returnTo, 'Back to the registry')}</div>
   </section>`;
 }
 

@@ -391,7 +391,6 @@ input[type="file"]::file-selector-button { max-width: 100%; }
 .status:empty { display: none; }
 .loading { padding: 2rem var(--gutter); }
 
-.board-tools { display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: space-between; margin-block: 1.5rem; }
 .colours-page .palette-card { min-height: 6rem; padding: clamp(0.75rem, 2.4vw, 1.25rem); }
 .colours-page .palette-swatches span { width: 1.4rem; height: 1.4rem; }
 .palette-picker {
@@ -460,21 +459,14 @@ input[type="file"]::file-selector-button { max-width: 100%; }
 dialog { width: min(30rem, calc(100% - 2rem)); }
 dialog::backdrop { background: #352c2977; }
 
-.keepsake-title { text-align: center; margin-inline: auto; }
-.keepsake { max-width: 76rem; }
-.board-tools { justify-content: center; align-items: end; }
-.board-tools label { margin: 0; }
-.board-grid { align-items: start; }
 .note {
   position: relative;
   background: var(--tint);
   border-block: 3px double #a98772;
   padding: 1.35rem;
 }
-.note:nth-child(3n + 2) { background: var(--eucalyptus); }
-.note:nth-child(3n) { background: var(--lilac); }
 .note blockquote { margin: 0.55rem 0 0.9rem; font: italic 1.95rem/1.13 var(--serif); }
-.note small, .signature { color: var(--ink); }
+.signature { color: var(--ink); }
 .signature { margin: 0; font-size: 0.97rem; }
 
 @media (max-width: 900px) {
@@ -510,20 +502,4 @@ dialog::backdrop { background: #352c2977; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
-}
-@page { margin: 14mm; }
-@page a4 { size: A4; }
-@page letter { size: letter; }
-@media print {
-  .gift-chapter { background: white; }
-  .gift-chapter[data-paper="A4"] .keepsake { page: a4; }
-  .gift-chapter[data-paper="Letter"] .keepsake { page: letter; }
-  .site-header, .site-footer, .status, .skip, dialog, .board-tools, .empty,
-  main > :not(.keepsake) { display: none !important; }
-  .keepsake { padding: 0; min-height: 0; max-width: none; }
-  .keepsake-title { margin-bottom: 13mm; }
-  .keepsake-title h1 { font-size: 42pt; }
-  .board-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5mm; }
-  .note { break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .note blockquote { font-size: 19pt; }
 }

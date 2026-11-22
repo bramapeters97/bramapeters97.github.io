@@ -2,7 +2,7 @@ const DB_NAME = 'the-gift-chapter';
 const STORE = 'demo';
 const RECORD = 'wedding';
 const DB_VERSION = 1;
-const VERSION = 2;
+const VERSION = 3;
 let connection;
 
 export const categories = ['Stays', 'Activities', 'Flexible gifts'];
@@ -36,7 +36,7 @@ const sampleProfile = {
   schedule: '15:30 · Welcome\n16:00 · Ceremony\n18:00 · Dinner together\n20:00 · Music and dancing',
   details: 'This demo invitation uses an example date, venue and schedule. You can try replying and add meal preferences if you like.',
   invite: 'We’d love to celebrate with you. You can try replying to our sample invitation below.',
-  theme: 'rose',
+  theme: 'sage',
   photo: null,
 };
 
@@ -151,7 +151,7 @@ function migrateVersionOne(state) {
     }
   }
 
-  return { ...state, version: VERSION, profile, gifts, orders };
+  return { ...state, version: 2, profile, gifts, orders };
 }
 
 export class DemoError extends Error {}
@@ -190,7 +190,15 @@ async function transaction(mode, change) {
     request.onsuccess = () => {
       try {
         const stored = request.result;
-        const state = stored?.version === 1 ? migrateVersionOne(stored) : stored;
+        const itinerary = stored?.version === 1 ? migrateVersionOne(stored) : stored;
+        const state = itinerary?.version === 2 ? {
+          ...itinerary,
+          version: VERSION,
+          profile: {
+            ...itinerary.profile,
+            theme: itinerary.profile.theme === 'rose' ? sampleProfile.theme : itinerary.profile.theme,
+          },
+        } : itinerary;
         if (state && state.version !== VERSION) throw new Error('Unsupported demo version');
         result = change ? change(state) : state;
         if (mode === 'readwrite') store.put(result, RECORD);

@@ -73,12 +73,10 @@ Nested URLs such as `#gift/coast` and `#colours` work on refresh.
 
 The demo is inspired by Eline and Luca’s wedding and Thailand honeymoon.
 It uses illustrative wedding details and sample gift prices. The **Colours**
-page offers six wedding palettes. Selections, replies, gifts and notes are
+page offers six wedding palettes, with Eucalyptus as the default. Selections, replies, gifts and notes are
 stored in this browser in IndexedDB. New notes stay with their demo gift.
 Use **Colours → Reset to sample data** to restore the sample after
-confirming. The browser can print the sample love-note collage or save it
-as a PDF in A4 or US Letter. Checkout simulates giving and shows a disabled
-Apple Pay example.
+confirming. Checkout simulates giving and shows a disabled Apple Pay example.
 
 A real wedding would need shared records, authenticated couple accounts and
 co-editor permissions, private invitation tokens, server-side gift holds,
