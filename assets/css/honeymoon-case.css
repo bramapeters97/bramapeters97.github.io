@@ -174,41 +174,45 @@
 
 .honeymoon-demo-window {
   overflow: hidden;
+  min-width: 0;
   scroll-margin-top: 5rem;
-  border: 1px solid var(--case-line);
-  border-radius: 1.1rem;
+  border: 1px solid #aaa39d;
+  border-radius: clamp(0.75rem, 2vw, 1.15rem);
   background: var(--case-surface);
-  box-shadow: 0 12px 36px #43322912;
+  box-shadow: 0 20px 50px #352a2326, 0 4px 10px #352a2314;
 }
 
 .honeymoon-demo-titlebar {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(3rem, 1fr) auto minmax(3rem, 1fr);
   align-items: center;
-  min-height: 2.75rem;
-  padding-inline: 0.9rem;
-  border-bottom: 1px solid var(--case-line);
-  background: linear-gradient(#fdfbf8, #f2ede8);
-  color: var(--case-muted);
-  font-size: 0.8rem;
-  font-weight: 600;
+  min-height: 3rem;
+  padding-inline: clamp(0.65rem, 2vw, 1rem);
+  border-bottom: 1px solid #c5beb8;
+  background: linear-gradient(180deg, #faf9f8, #e9e5e2);
+  box-shadow: inset 0 1px 0 #fff;
+  color: #4d4643;
+  font-size: clamp(0.7rem, 1.7vw, 0.83rem);
+  font-weight: 650;
   text-align: center;
 }
 
 .honeymoon-demo-lights {
   display: flex;
-  gap: 5px;
+  gap: clamp(4px, 1vw, 7px);
 }
 
 .honeymoon-demo-lights span {
-  width: 8px;
-  height: 8px;
+  box-sizing: border-box;
+  width: clamp(9px, 2.4vw, 12px);
+  height: clamp(9px, 2.4vw, 12px);
+  border: 1px solid #0002;
   border-radius: 50%;
-  background: #dc8e8c;
+  background: #f27b76;
 }
 
-.honeymoon-demo-lights span:nth-child(2) { background: #d8b16e; }
-.honeymoon-demo-lights span:nth-child(3) { background: #91ad89; }
+.honeymoon-demo-lights span:nth-child(2) { background: #ebbb60; }
+.honeymoon-demo-lights span:nth-child(3) { background: #7abd79; }
 
 .portfolio-case .honeymoon-demo-window .honeymoon-demo-frame {
   display: block;

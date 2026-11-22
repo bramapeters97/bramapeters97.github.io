@@ -2,7 +2,7 @@ const DB_NAME = 'the-gift-chapter';
 const STORE = 'demo';
 const RECORD = 'wedding';
 const DB_VERSION = 1;
-const VERSION = 3;
+const VERSION = 4;
 let connection;
 
 export const categories = ['Stays', 'Activities', 'Flexible gifts'];
@@ -28,11 +28,12 @@ export const images = {
   flowers: ['Wildflowers', 'Golden wildflowers against a blue sky'],
 };
 
+const previousSampleWelcome = 'We’re heading to Thailand for our honeymoon. If you’d like to give us something, you can pick an experience or chip in. Celebrating with you is more than enough.';
 const sampleProfile = {
   names: 'Eline & Luca',
   date: '2027-06-14',
   venue: 'Sample wedding venue',
-  welcome: 'We’re heading to Thailand for our honeymoon. If you’d like to give us something, you can pick an experience or chip in. Celebrating with you is more than enough.',
+  welcome: "We're heading to Thailand for our honeymoon! Celebrating with you is more than enough, but if you'd like to give us something, you can pick an experience or chip-in!",
   schedule: '15:30 · Welcome\n16:00 · Ceremony\n18:00 · Dinner together\n20:00 · Music and dancing',
   details: 'This demo invitation uses an example date, venue and schedule. You can try replying and add meal preferences if you like.',
   invite: 'We’d love to celebrate with you. You can try replying to our sample invitation below.',
@@ -191,12 +192,15 @@ async function transaction(mode, change) {
       try {
         const stored = request.result;
         const itinerary = stored?.version === 1 ? migrateVersionOne(stored) : stored;
-        const state = itinerary?.version === 2 ? {
+        const state = itinerary?.version === 2 || itinerary?.version === 3 ? {
           ...itinerary,
           version: VERSION,
           profile: {
             ...itinerary.profile,
-            theme: itinerary.profile.theme === 'rose' ? sampleProfile.theme : itinerary.profile.theme,
+            theme: itinerary.version === 2 && itinerary.profile.theme === 'rose'
+              ? sampleProfile.theme : itinerary.profile.theme,
+            welcome: itinerary.profile.welcome === previousSampleWelcome
+              ? sampleProfile.welcome : itinerary.profile.welcome,
           },
         } : itinerary;
         if (state && state.version !== VERSION) throw new Error('Unsupported demo version');
