@@ -1,0 +1,38 @@
+{
+  "name": "mypremiereplus",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "setup": "node --env-file-if-exists=.env --import tsx server/index.ts --seed",
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "vite --host 127.0.0.1",
+    "dev:api": "node --env-file-if-exists=.env --import tsx --watch server/index.ts",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run && tsx --test tests/*.test.ts",
+    "test:unit": "vitest run",
+    "test:api": "tsx --test tests/*.test.ts",
+    "start": "node --env-file-if-exists=.env --import tsx server/index.ts",
+    "format": "prettier --write src server shared scripts tests"
+  },
+  "dependencies": {
+    "hls.js": "1.7.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/node": "24.3.0",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "prettier": "3.6.2",
+    "tsx": "4.20.5",
+    "typescript": "6.0.3",
+    "vite": "8.2.1",
+    "vitest": "4.1.10"
+  }
+}

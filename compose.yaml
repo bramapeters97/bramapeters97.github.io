@@ -1,0 +1,36 @@
+services:
+  mypremiereplus:
+    build: ./apps/mypremiereplus
+    restart: unless-stopped
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8787
+      BASE_PATH: /mypremiereplus
+      DATA_DIRECTORY: /data
+      DB_PATH: /data/archive.sqlite
+      # The imported application currently supports demonstration identity only.
+      DEMO_MODE: "true"
+    volumes:
+      - mypremiereplus-data:/data
+
+  web:
+    build:
+      context: .
+      dockerfile: deployment/portfolio.Dockerfile
+    restart: unless-stopped
+    depends_on:
+      mypremiereplus:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./deployment/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  mypremiereplus-data:
+  caddy-data:
+  caddy-config:
