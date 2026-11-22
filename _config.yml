@@ -1,0 +1,8 @@
+# Keep GitHub Pages' existing Jekyll build and serve Next's static bundles.
+include:
+  - _next
+  - "_app-*.js"
+  - "_error-*.js"
+  - _buildManifest.js
+  - _ssgManifest.js
+  - _middlewareManifest.js

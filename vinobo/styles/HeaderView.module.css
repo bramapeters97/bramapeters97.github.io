@@ -57,3 +57,8 @@
 .signedInUser {
   font-size: 0.94em;
 }
+
+@media (max-width: 800px) {
+  .titleLogo { width: auto; }
+  .container > div { gap: 4px; }
+}

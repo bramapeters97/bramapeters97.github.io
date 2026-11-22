@@ -3,19 +3,18 @@ import useModelProperty from "../js/useModelProperty";
 import SidebarView from "../views/sidebarView";
 import { extractID } from "../js/functions";
 import { Video } from "../js/model";
+import { openSample, sampleId } from "../js/sampleVideo";
 import pageStyles from "../styles/Home.module.css";
 
 export default function SidebarPresenter(props) {
   const [error, setError] = React.useState(null);
   const videos = useModelProperty(props.model, "videos");
   const model_id = useModelProperty(props.model, "currentVideo");
-  const [loading, setLoading] = React.useState(false);
   const [collapsed, setCollapsed] = React.useState(false);
   const user = useModelProperty(props.model, "user");
 
   return (
     <SidebarView
-      loadingVideos={loading}
       videos={videos}
       currentVideo={model_id}
       videoChoice={(ref) => {
@@ -29,17 +28,19 @@ export default function SidebarPresenter(props) {
       }}
       addVideo={(ref) => {
         const id = extractID(ref);
-        if (id) {
+        if (id === sampleId) {
+          openSample(props.model);
+          setError(null);
+        } else if (id) {
+          props.model.addVideo(new Video(id, id, "", 0));
           props.model.setCurrentVideo(id);
-          setLoading(true);
-          props.vidCon
-            .getVideoInfo()
-            .then((info) => {
-              props.model.addVideo(new Video(id, info.title, info.author, info.length));
-              setError(null);
-            })
-            .catch((error) => setError("Failed to add video."))
-            .finally(() => setLoading(false));
+          setError(null);
+          props.vidCon.getVideoInfo().then(info => {
+            if (info.video_id !== id || !props.model.videos.some(video => video.id === id)) return;
+            props.model.setVideos(props.model.videos.map(video => video.id === id
+              ? { ...video, title: info.title || id, author: info.author || "", length: info.length || 0 }
+              : video));
+          }).catch(() => setError("Could not load the video details."));
         } else {
           setError("No valid YouTube URL or ID found.");
         }

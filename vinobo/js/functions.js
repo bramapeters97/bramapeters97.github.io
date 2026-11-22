@@ -1,15 +1,22 @@
-const ytRegex =
-  /^((https?:\/\/)?(youtu\.be\/|www\.youtube\.com\/watch\?.*v=))?(?<id>[A-Za-z0-9-_]{11}).*$/;
-// /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+const ytRegex = /^[A-Za-z0-9_-]{11}$/;
 
-/**
- * Takes in a YouTube URL or video ID and returns the video ID.
- * @param {string} URL_or_ID The string to extract video ID from.
- * @returns The ID or `null`.
- */
-function extractID(URL_or_ID) {
-  const match = URL_or_ID.match(ytRegex);
-  return match ? match.groups.id : null;
+function extractID(input) {
+  const value = input.trim();
+  if (ytRegex.test(value)) return value;
+  try {
+    const url = new URL(value.includes("://") ? value : "https://" + value);
+    const host = url.hostname.replace(/^(www\.|m\.)/, "");
+    const parts = url.pathname.split("/");
+    let id;
+    if (host === "youtu.be") id = parts[1];
+    if (host === "youtube.com" || host === "youtube-nocookie.com") {
+      id = parts[1] === "watch" ? url.searchParams.get("v")
+        : ["embed", "shorts", "live"].includes(parts[1]) ? parts[2] : null;
+    }
+    return id && ytRegex.test(id) ? id : null;
+  } catch {
+    return null;
+  }
 }
 
 /**

@@ -29,7 +29,7 @@ export async function onRequest({ request, waitUntil }) {
         if (upstream.origin !== "https://www.youtube.com") throw new Error("Unexpected caption source");
         // Vinobo's transcript highlights and seek controls use milliseconds.
         if (upstream.pathname === "/api/timedtext") upstream.searchParams.set("fmt", "srv3");
-        return fetch(upstream, { ...init, signal, redirect: "error" });
+        return fetch(upstream, { ...init, signal, redirect: "manual" });
       },
     });
     if (!rows.length) return errorResponse("YouTube returned no captions for this video.", 404);

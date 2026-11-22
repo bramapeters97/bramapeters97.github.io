@@ -63,10 +63,13 @@ export default function TranscriptView(props) {
       <div ref={scrollBox} className={styles.transcripts}>
         {props.transcriptError ? (
           <div className={styles.error}>
-            Failed to get transcript.
-            <br />
-            Either the video has no transcript, or it has been disabled, or something went wrong on
-            our end.
+            <p>Load a caption file to search this video.</p>
+            <input type="file" aria-label="Load captions" accept=".vtt,.srt"
+              onChange={event => {
+                const file = event.target.files[0];
+                if (file) props.onCaptionFile(file);
+                event.target.value = "";
+              }} />
           </div>
         ) : props.transcript ? (
           <>

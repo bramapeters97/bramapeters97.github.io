@@ -1,15 +1,10 @@
-/**
- * Fetches the YT transcript for the given video ID.
- * @param {string} id A valid YT video ID.
- * @returns A promise yielding the JSON response.
- */
-function getTranscript(id) {
-  return fetch(`/vinobo/api/get_transcript?id=${encodeURIComponent(id)}`)
-    .then((res) => {
-      if (!res.ok) throw new Error(res.statusText);
-      return res;
-    })
-    .then((res) => res.json());
-}
+import { parseCaptions } from "./captions";
+import { sampleCaptions, sampleId } from "./sampleVideo";
 
-export default getTranscript;
+export default async function getTranscript(id) {
+  const sample = id === sampleId;
+  const url = sample ? sampleCaptions : `/vinobo/api/get_transcript?id=${encodeURIComponent(id)}`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Captions are unavailable");
+  return sample ? parseCaptions(await response.text()) : response.json();
+}

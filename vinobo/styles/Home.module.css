@@ -58,3 +58,17 @@
   flex: 0 0;
   flex-basis: 40px;
 }
+
+@media (max-width: 800px) {
+  .pageContent, .transcriptAndControls {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .sidebar, .videoAndControlsContainer, .notesContainer, .controlView {
+    flex: none;
+    height: auto;
+    min-width: 0;
+  }
+  .transcriptView { flex: none; height: 250px; }
+}

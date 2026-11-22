@@ -47,3 +47,17 @@ The React pages, presenters, views and Firebase model live in this folder.
 The transcript handler is in `../functions/vinobo/api/get_transcript.js`.
 It retrieves public YouTube captions and caches successful results for one day.
 Transcript offsets and durations use milliseconds. Notebook timestamps use seconds.
+
+### GitHub Pages demo
+
+Rebuild the checked-in files with `npm run export:vinobo` from the repository root.
+The checked-in export serves at `/vinobo/`. Choose **Try a sample lecture** to
+play W3C WAI's *Video Introduction to Web Accessibility and W3C Standards*
+with its English captions, search and timestamped notes. Other public,
+embeddable YouTube videos can use a local WebVTT or SRT transcript on GitHub
+Pages. The same app automatically fetches available captions when the Pages
+Function is present. Signed-in notebooks retain the original Firebase project
+and data format.
+
+Sample video, poster frame and captions © W3C. [Original video, transcript,
+credits and permission information](https://www.w3.org/WAI/videos/standards-and-benefits/).

@@ -169,6 +169,11 @@ export default class VideoController extends Observable {
    * @param {Number} time The number of seconds from start to seek to.
    */
   seek(time) {
+    if (this.nativePlayer) {
+      this.nativePlayer.currentTime = time;
+      this.updateTime(time);
+      return;
+    }
     this.execute(() => this.player.seekTo(time));
   }
 
@@ -201,10 +206,13 @@ export default class VideoController extends Observable {
    * Checks the current player time and notifies observers if it changed.
    */
   pollTime() {
-    if (!this.fullyInitialized) return;
-    const prevTime = this.currentTime;
-    this.currentTime = this.player.getCurrentTime() || 0;
-    if (prevTime !== this.currentTime) this.notifyObservers();
+    if (this.fullyInitialized && !this.nativePlayer) this.updateTime(this.player.getCurrentTime() || 0);
+  }
+
+  updateTime(time) {
+    if (this.currentTime === time) return;
+    this.currentTime = time;
+    super.notifyObservers();
   }
 
   notifyObservers() {
