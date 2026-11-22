@@ -51,13 +51,17 @@ Transcript offsets and durations use milliseconds. Notebook timestamps use secon
 ### GitHub Pages demo
 
 Rebuild the checked-in files with `npm run export:vinobo` from the repository root.
-The checked-in export serves at `/vinobo/`. Choose **Try a sample lecture** to
-play W3C WAI's *Video Introduction to Web Accessibility and W3C Standards*
-with its English captions, search and timestamped notes. Other public,
-embeddable YouTube videos can use a local WebVTT or SRT transcript on GitHub
-Pages. The same app automatically fetches available captions when the Pages
-Function is present. Signed-in notebooks retain the original Firebase project
-and data format.
+The desktop demo opens on Ana Bell’s first MIT 6.100L lecture. The demo uses MIT’s
+published recording and includes its English WebVTT captions for immediate
+search and synchronized playback. [Lecture, captions and license at MIT OpenCourseWare](https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-1-introduction/).
 
-Sample video, poster frame and captions © W3C. [Original video, transcript,
+Pasting another YouTube video fetches its public captions. When the same-domain
+Function is unavailable, the browser sends the video ID to FreeTranscriptAPI’s
+anonymous endpoint. The provider limits anonymous requests to 20 per hour per
+IP. Loaded captions are reused while the page is open. Manual WebVTT/SRT import
+is also available when a request fails. [Provider documentation](https://freetranscriptapi.com/docs)
+
+Signed-in notebooks continue to use the original Firebase project and data format.
+
+Legacy accessibility sample credits follow. Sample video, poster frame and captions © W3C. [Original video, transcript,
 credits and permission information](https://www.w3.org/WAI/videos/standards-and-benefits/).
