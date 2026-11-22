@@ -24,10 +24,15 @@ export default class VideoController extends Observable {
    */
   loadPlayer(id) {
     try {
-      this.player = new window.YT.Player(this.elementId, {
+      const target = document.createElement("div");
+      document.getElementById(this.elementId).replaceChildren(target);
+      this.player = new window.YT.Player(target, {
+        width: "100%",
+        height: "100%",
         videoId: id !== null ? id : undefined,
         playerVars: {
           playsinline: 1,
+          origin: window.location.origin,
           modestbranding: 1, // hide YT logo in bottom right
           rel: 0, // show less random suggested videos
         },
@@ -37,7 +42,6 @@ export default class VideoController extends Observable {
           onError: (error) => this.onPlayerError(error),
         },
       });
-      window.player = player; // for debugging video
     } catch (error) {
       console.log("Player failed to load. Tell jonaro00 about this.");
       console.log(error);
@@ -50,7 +54,7 @@ export default class VideoController extends Observable {
   onPlayerReady(event) {
     if (!this.partiallyInitialized) {
       this.partiallyInitialized = true;
-      for (let cb of this.prioQueue) {
+      for (const cb of this.prioQueue.splice(0)) {
         try {
           cb();
         } catch (error) {}
@@ -66,7 +70,7 @@ export default class VideoController extends Observable {
     // the controller marks itself as initialized.
     if (!this.fullyInitialized && event.data === 5 /* video cued */) {
       this.fullyInitialized = true;
-      for (let cb of this.queue) {
+      for (const cb of this.queue.splice(0)) {
         try {
           cb();
         } catch (error) {}
@@ -132,7 +136,7 @@ export default class VideoController extends Observable {
     this.executePrio(() => {
       if (this.fullyInitialized) {
         if ((this.player.getVideoData()?.video_id || null) === id) return;
-        if (!id) this.reload();
+        if (!id) return this.reload();
       }
       id !== null && this.player.cueVideoById(id);
       this.fullyInitialized = false;
@@ -165,6 +169,11 @@ export default class VideoController extends Observable {
    * @param {Number} time The number of seconds from start to seek to.
    */
   seek(time) {
+    if (this.nativePlayer) {
+      this.nativePlayer.currentTime = time;
+      this.updateTime(time);
+      return;
+    }
     this.execute(() => this.player.seekTo(time));
   }
 
@@ -188,6 +197,7 @@ export default class VideoController extends Observable {
    * Starts polling timer. Sets `this.stopPolling` callback.
    */
   startPoller() {
+    if (this.stopPolling) this.stopPolling();
     const timer = setInterval(() => this.pollTime(), this.POLL_INTERVAL);
     this.stopPolling = () => clearInterval(timer);
   }
@@ -196,18 +206,13 @@ export default class VideoController extends Observable {
    * Checks the current player time and notifies observers if it changed.
    */
   pollTime() {
-    this.execute(() => {
-      const prevTime = this.currentTime;
-      try {
-        this.currentTime = this.player.getCurrentTime();
-      } catch (error) {
-        this.currentTime = 0;
-      }
-      if (prevTime !== this.currentTime) {
-        // has the current second changed?
-        this.notifyObservers();
-      }
-    });
+    if (this.fullyInitialized && !this.nativePlayer) this.updateTime(this.player.getCurrentTime() || 0);
+  }
+
+  updateTime(time) {
+    if (this.currentTime === time) return;
+    this.currentTime = time;
+    super.notifyObservers();
   }
 
   notifyObservers() {

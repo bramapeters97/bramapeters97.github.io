@@ -1,7 +1,6 @@
 import TextForm from "./textForm.js";
 import styles from "../styles/SidebarView.module.css";
 import { formatTimestamp } from "../js/functions.js";
-import Loader from "react-loader-spinner";
 
 export default function SidebarView(props) {
   return (
@@ -22,9 +21,7 @@ export default function SidebarView(props) {
           ></TextForm>
           {props.error && <div className={styles.addError}>{props.error}</div>}
           <div className={styles.videos}>
-            {props.loadingVideos ? (
-              <Loader type="Rings" color="#9fc5e8" height={60} width={60} />
-            ) : props.videos.length ? (
+            {props.videos.length ? (
               [...props.videos].map((video) => (
                 <div
                   key={video.id}

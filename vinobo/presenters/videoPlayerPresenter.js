@@ -3,35 +3,42 @@ import Script from "next/script";
 import VideoPlayerView from "../views/videoPlayerView";
 import useModelProperty from "../js/useModelProperty";
 
-export default function VideoPlayerPresenter({ model, vidCon }) {
-  // Binding VideoController to model
-  React.useEffect(() => {
-    window.vidCon = vidCon; // for debugging video
-    const obs = () => {
-      vidCon.setVideoID(model.currentVideo);
-    };
-    model.addObserver(obs);
-    return () => {
-      model.removeObserver(obs);
-    };
-  }, [model, vidCon]);
+import { sampleId, openSample } from "../js/sampleVideo";
 
-  // Binding YT API to VideoController and loading player
+export default function VideoPlayerPresenter({ model, vidCon }) {
+  const id = useModelProperty(model, "currentVideo");
+
   React.useEffect(() => {
-    if (!window.onYouTubeIframeAPIReady)
-      window.onYouTubeIframeAPIReady = () => vidCon.loadPlayer(model.currentVideo);
-    else vidCon.loadPlayer(model.currentVideo);
+    let selected = model.currentVideo;
+    const load = () => {
+      vidCon.loadPlayer(null);
+      if (model.currentVideo !== sampleId) vidCon.setVideoID(model.currentVideo);
+    };
+    // Cue synchronously so the sidebar reads metadata for the selected video.
+    const select = () => {
+      if (selected === model.currentVideo) return;
+      selected = model.currentVideo;
+      if (selected === sampleId) {
+        vidCon.player?.pauseVideo?.();
+        vidCon.updateTime(0);
+      } else {
+        vidCon.setVideoID(selected);
+      }
+    };
+    model.addObserver(select);
+    if (window.YT?.Player) load();
+    else window.onYouTubeIframeAPIReady = load;
     return () => {
+      model.removeObserver(select);
+      if (window.onYouTubeIframeAPIReady === load) delete window.onYouTubeIframeAPIReady;
       vidCon.destroy();
     };
   }, [model, vidCon]);
 
-  const id = useModelProperty(model, "currentVideo");
-
   return (
     <>
-      <Script src="https://www.youtube.com/iframe_api"></Script>
-      <VideoPlayerView hidden={id === null} />
+      {id && id !== sampleId && <Script src="https://www.youtube.com/iframe_api" />}
+      <VideoPlayerView id={id} vidCon={vidCon} onSample={() => openSample(model)} />
     </>
   );
 }

@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/vinobo/api/get_transcript"],
+  "exclude": []
+}

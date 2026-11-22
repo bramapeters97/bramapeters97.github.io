@@ -1,4 +1,5 @@
 import React from "react";
+import { parseCaptions } from "../js/captions";
 import getTranscript from "../js/api";
 import { makeStringSearchable, filterList } from "../js/search";
 import TranscriptView from "../views/transcriptView";
@@ -31,6 +32,7 @@ export default function TranscriptPresenter(props) {
       }
       transcriptError={error}
       transcriptPromise={promise}
+      onCaptionFile={file => setPromise(file.text().then(parseCaptions))}
       onText={(text) => setQuery(text)}
       clearSearchInput={() => setQuery("")}
       selectTimestamp={(offset) => props.vidCon.seek(offset / 1000)}

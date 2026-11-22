@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/HeaderView.module.css";
 
@@ -9,7 +8,7 @@ export default function HeaderView({ user, signOut }) {
         <Link href="/">
           <a>
             <div className={styles.titleLogo}>
-              <Image src={"/titleLogo.png"} width={112} height={36} alt="Logo" />
+              <img src="/vinobo/titleLogo.png" width={112} height={36} alt="Logo" />
             </div>
           </a>
         </Link>
