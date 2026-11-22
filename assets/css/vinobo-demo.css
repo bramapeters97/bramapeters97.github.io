@@ -1,0 +1,19 @@
+.vinobo-case-layout > .vinobo-demo {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.portfolio-case .vinobo-demo .vinobo-frame {
+  display: block;
+  width: 100%;
+  height: clamp(640px, 78vh, 900px);
+  border: 0;
+}
+
+@media (min-width: 1200px) {
+  .vinobo-case-layout > .case-meta {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
