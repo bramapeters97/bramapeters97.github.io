@@ -59,22 +59,24 @@ Playwright in your development environment and run
 `node scripts/check-mypremiere-preview.cjs`; set `CHROMIUM_PATH` to use an existing
 Chromium installation. The test serves the repository only on localhost.
 
-## The Gift Chapter
+## The Honeymoon Webshop
 
 From the portfolio root, run `npm run build` and `python3 -m http.server 4173`.
 Open `http://localhost:4173/the-gift-chapter/`. The root is both the local
 build output and the source for the repository’s GitHub Pages site. The demo
-ships as static files in `the-gift-chapter/` with local WebP photographs from the
-starter and local fonts with licenses in `the-gift-chapter/assets/licenses/`.
-Nested URLs such as `#gift/coast` and `#studio` work on refresh.
+ships as static files in `the-gift-chapter/` with local WebP photographs
+and local fonts with licenses in `the-gift-chapter/assets/licenses/`.
+The Thailand itinerary photo attributions are in `the-gift-chapter/photo-credits.html`.
+Nested URLs such as `#gift/coast` and `#colours` work on refresh.
 
-The fictional wedding uses a versioned IndexedDB record scoped to this origin.
-Guest records, cover uploads, note approvals and studio edits stay in that
-browser. Open the invitation link in a new browser profile to start with the
-seeded wedding. Use **Couple’s studio → Reset to sample data** to clear this
-browser’s demo after confirming. The studio is an open role preview. Gifts and
-voucher promises are simulations. The browser can print the approved collage
-or save it as a PDF in A4 or US Letter.
+The demo is inspired by Eline and Luca’s wedding and Thailand honeymoon.
+It uses illustrative wedding details and sample gift prices. The **Colours**
+page offers six wedding palettes. Selections, replies, gifts and notes are
+stored in this browser in IndexedDB. New notes stay with their demo gift.
+Use **Colours → Reset to sample data** to restore the sample after
+confirming. The browser can print the sample love-note collage or save it
+as a PDF in A4 or US Letter. Checkout simulates giving and shows a disabled
+Apple Pay example.
 
 A real wedding would need shared records, authenticated couple accounts and
 co-editor permissions, private invitation tokens, server-side gift holds,

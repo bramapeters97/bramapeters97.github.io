@@ -1,0 +1,217 @@
+@font-face {
+  font-family: "Honeymoon Cormorant";
+  src: url("../../the-gift-chapter/assets/cormorant.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Honeymoon Cormorant";
+  src: url("../../the-gift-chapter/assets/cormorant-italic.woff2") format("woff2");
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Honeymoon DM Sans";
+  src: url("../../the-gift-chapter/assets/dm.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+.portfolio-case:has(.honeymoon-case) {
+  background: #f8f5f0;
+}
+
+.honeymoon-case {
+  --honeymoon-serif: "Honeymoon Cormorant", Georgia, serif;
+  --case-ink: #352c29;
+  --case-muted: #625551;
+  --case-accent: #784d54;
+  --case-line: #d9cec4;
+  --case-surface: #fdfbf7;
+  color: var(--case-ink);
+  font-family: "Honeymoon DM Sans", system-ui, sans-serif;
+  gap: 0;
+}
+
+.honeymoon-case p {
+  display: block;
+  width: auto;
+  color: var(--case-muted);
+  text-align: left;
+  hyphens: none;
+  line-height: 1.65;
+}
+
+.honeymoon-case .honeymoon-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4.5rem);
+  padding-block: clamp(1rem, 4.5vw, 4rem);
+}
+
+.honeymoon-case .case-eyebrow {
+  color: var(--case-accent);
+  margin: 0 0 1rem;
+}
+
+.honeymoon-hero h1 {
+  margin: 0;
+  color: var(--case-ink);
+  font: normal clamp(3.5rem, 7vw, 6.8rem) / 0.87 var(--honeymoon-serif);
+  letter-spacing: -0.052em;
+}
+
+.honeymoon-case em {
+  color: var(--case-accent);
+}
+
+.honeymoon-case .honeymoon-lead {
+  max-width: 38ch;
+  margin: 1.55rem 0 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.26rem);
+}
+
+.honeymoon-photo {
+  margin: 0;
+}
+
+.honeymoon-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.1rem;
+  box-shadow: 0 10px 34px #43322917;
+}
+
+.honeymoon-photo figcaption {
+  margin-top: 0.65rem;
+  color: var(--case-muted);
+  font-size: 0.85rem;
+}
+
+.honeymoon-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.4fr);
+  align-items: start;
+  gap: clamp(1rem, 5vw, 4.5rem);
+  padding-block: clamp(1.4rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--case-line);
+}
+
+.honeymoon-chapter + .honeymoon-chapter {
+  margin-top: 1.9rem;
+}
+
+.honeymoon-case .case-section-heading {
+  display: block;
+  margin: 0 0 0.55rem;
+  font: normal clamp(2.2rem, 4vw, 3.45rem) / 1 var(--honeymoon-serif);
+  letter-spacing: -0.04em;
+  text-transform: none;
+}
+
+.honeymoon-chapter p,
+.honeymoon-keepsake p {
+  max-width: 65ch;
+  margin: 0;
+}
+
+.portfolio-case .honeymoon-case .case-meta {
+  padding: clamp(1rem, 2.6vw, 1.7rem);
+  box-shadow: none;
+}
+
+.honeymoon-case .case-meta .case-section-heading {
+  font-size: 1.95rem;
+}
+
+.honeymoon-case .case-facts,
+.honeymoon-case .case-facts dd {
+  margin: 0;
+}
+
+.honeymoon-case .case-facts dd {
+  color: var(--case-muted);
+}
+
+.honeymoon-case .case-facts > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.honeymoon-keepsake {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: clamp(0.65rem, 4vw, 3rem);
+  padding: clamp(1.4rem, 5vw, 3.8rem);
+  border: 1px solid #e1d0cb;
+  border-radius: 1.1rem;
+  background: linear-gradient(120deg, #f3e3df, #f7ece7);
+}
+
+.honeymoon-keepsake .case-section-heading {
+  font-size: clamp(2.7rem, 5.4vw, 5rem);
+}
+
+.honeymoon-keepsake p + p {
+  margin-top: 0.8rem;
+}
+
+.honeymoon-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-block: 1.35rem 0.6rem;
+  font-size: 0.9rem;
+}
+
+.honeymoon-footer a {
+  color: var(--case-ink);
+  text-underline-offset: 0.19em;
+}
+
+.honeymoon-footer a:focus-visible {
+  outline: 2px solid #784d54;
+  outline-offset: 4px;
+}
+
+.honeymoon-footer .honeymoon-contact {
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--case-accent);
+  border-radius: 2rem;
+  color: white;
+  background: var(--case-accent);
+  text-decoration: none;
+}
+
+.honeymoon-footer .honeymoon-contact:hover {
+  background: #61363e;
+}
+
+@media (max-width: 740px) {
+  .honeymoon-case .honeymoon-hero,
+  .honeymoon-story,
+  .honeymoon-keepsake {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .honeymoon-case .honeymoon-hero {
+    gap: 1.3rem;
+    padding-block: 2rem 1.5rem;
+  }
+
+  .honeymoon-hero h1 {
+    font-size: clamp(3.1rem, 13vw, 5.5rem);
+  }
+
+  .honeymoon-case .honeymoon-lead {
+    margin-top: 1rem;
+  }
+
+  .honeymoon-story {
+    gap: 1.35rem;
+  }
+}

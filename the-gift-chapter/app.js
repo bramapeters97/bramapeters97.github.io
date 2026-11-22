@@ -1,5 +1,5 @@
 import {
-  availability, categories, confirmGift, DemoError, euros, giftTypes, images,
+  availability, confirmGift, DemoError, euros,
   initialize, parseAmount, read, reset, update, verifyAmount,
 } from './model.js';
 import * as view from './views.js';
@@ -21,9 +21,7 @@ try {
   // Navigation preferences are optional. Wedding records use separate durable storage.
 }
 const sampleCover = './assets/wedding.webp';
-const invitationsUrl = new URL('#rsvp', location.href);
 const changes = 'BroadcastChannel' in window ? new BroadcastChannel('the-gift-chapter-v1') : null;
-const profileFields = ['names', 'date', 'venue', 'welcome', 'invite', 'schedule', 'details', 'theme'];
 const current = () => location.hash.slice(1) || 'home';
 const fieldValue = (form, name) => form.elements[name].value.trim();
 const storageError = 'Wedding demo storage is unavailable. Check that this browser allows local storage, then try again.';
@@ -31,9 +29,6 @@ let state;
 let displayedRoute = '';
 let renderId = 0;
 let photoUrl;
-let photoSelection;
-let photoPending = false;
-let photoVersion = 0;
 let working = false;
 let lastReply = history.state?.giftChapterReply ?? '';
 let noticeTimer;
@@ -63,21 +58,13 @@ function showProblem(error, scope = main) {
   problem.focus();
 }
 
-function discardPhoto() {
-  if (photoUrl) URL.revokeObjectURL(photoUrl);
-  photoUrl = undefined;
-  photoSelection = undefined;
-  photoPending = false;
-  photoVersion++;
-}
-
 function getDraft(gift) {
   if (!drafts.has(gift.id)) {
     const { left } = availability(state, gift);
     drafts.set(gift.id, {
       id: crypto.randomUUID(), gift: gift.id, generation: state.generation, type: gift.type,
       title: gift.title, target: gift.target, sender: '', message: '', consent: false,
-      rawAmount: gift.type === 'shared' ? euros(Math.min(3000, left)) : '25.00',
+      rawAmount: gift.type === 'shared' ? euros(Math.min(1500, left)) : '15.00',
     });
   }
   return drafts.get(gift.id);
@@ -89,23 +76,30 @@ function saveDraft(form) {
   if (form.elements.amount) draft.rawAmount = fieldValue(form, 'amount');
   draft.sender = fieldValue(form, 'sender');
   draft.message = fieldValue(form, 'message');
-  draft.consent = form.elements.consent.checked;
+}
+
+function previewPalette(theme) {
+  document.body.dataset.theme = theme;
+  const paper = getComputedStyle(document.body).getPropertyValue('--paper').trim();
+  document.querySelector('meta[name="theme-color"]').content = paper;
 }
 
 function showRoute(route, focus) {
-  discardPhoto();
-  const [page, id, sub] = route.split('/');
+  if (photoUrl) URL.revokeObjectURL(photoUrl);
+  const [page, id] = route.split('/');
   const profile = state.profile;
-  if (profile.photo) photoUrl = URL.createObjectURL(profile.photo);
+  photoUrl = page === 'home' && profile.photo ? URL.createObjectURL(profile.photo) : undefined;
   const cover = photoUrl ?? sampleCover;
   const gift = state.gifts.find(item => item.id === id && item.visibility !== 'hidden');
   const reply = state.rsvps.find(item => item.key === lastReply);
-  const studioTabs = ['wedding', 'wishes', 'activity'];
   let html;
 
   switch (page) {
     case 'home': html = view.home(state, cover); break;
-    case 'gifts': html = view.registry(state, filters); break;
+    case 'gifts':
+      if (filters.category && !view.registryCategories(state).includes(filters.category)) filters.category = '';
+      html = view.registry(state, filters);
+      break;
     case 'gift': html = gift ? view.giftDetail(state, gift, 'gifts') : view.missing(); break;
     case 'give': {
       const order = drafts.has(id) && state.orders.find(o => o.id === drafts.get(id).id);
@@ -120,13 +114,12 @@ function showRoute(route, focus) {
     }
     case 'board': html = view.board(state); break;
     case 'rsvp': html = view.invitation(state, reply); break;
-    case 'studio': html = view.studio(state, studioTabs.includes(id) ? id : 'wedding',
-      state.gifts.find(item => item.id === sub), cover, invitationsUrl.href); break;
+    case 'colours': html = view.colours(state); break;
     default: html = view.missing();
   }
 
-  document.body.dataset.theme = profile.theme;
-  document.title = `${profile.names} · The Gift Chapter`;
+  previewPalette(profile.theme);
+  document.title = `${profile.names} · The Honeymoon Webshop`;
   main.innerHTML = html;
   main.dataset.route = route;
   if (page === 'board') main.querySelector('#paper-size').value = document.body.dataset.paper;
@@ -137,8 +130,6 @@ function showRoute(route, focus) {
   }
   const replyForm = main.querySelector('#rsvp');
   if (replyForm) replyForm.elements.diet.disabled = reply?.reply === 'no';
-  const wishForm = main.querySelector('#wish');
-  if (wishForm) syncWishFields(wishForm);
   if (focus) main.focus({ preventScroll: true });
 }
 
@@ -215,97 +206,20 @@ async function saveReply(form) {
   notify('Your demo reply is saved.');
 }
 
-function syncWishFields(form) {
-  const hasHistory = state.orders.some(order => order.gift === form.dataset.id);
-  form.elements.type.disabled = hasHistory;
-  form.elements.price.closest('label').hidden = form.elements.type.value === 'cash';
-  form.elements.price.disabled = hasHistory || form.elements.type.value === 'cash';
-}
-
-async function saveWish(form) {
-  const route = current();
-  const wish = Object.fromEntries(['title', 'story', 'type', 'category', 'image']
-    .map(name => [name, fieldValue(form, name)]));
-  if (!wish.title || !wish.story) throw new DemoError('Add a gift title and a short description.');
-  if (!Object.hasOwn(giftTypes, wish.type) || !categories.includes(wish.category) || !Object.hasOwn(images, wish.image)) {
-    throw new DemoError('Choose a giving option, category and photo from the lists.');
-  }
-  wish.target = wish.type === 'cash' ? 0 : parseAmount(fieldValue(form, 'price'));
-  const id = form.dataset.id;
-  await save(latest => {
-    const existing = latest.gifts.find(item => item.id === id);
-    if (id && !existing) throw new DemoError('This wish is no longer in the demo. Reopen the wish list.');
-    if (existing && latest.orders.some(order => order.gift === id) &&
-        (wish.type !== existing.type || wish.target !== existing.target)) {
-      throw new DemoError('This wish has gift history. Reopen it to keep the existing giving option and price.');
-    }
-    if (!Number.isSafeInteger(wish.target)) throw new DemoError('Enter a positive price with up to two decimal places.');
-    if (existing) Object.assign(existing, wish);
-    else latest.gifts.push({ ...wish, id: crypto.randomUUID(), visibility: 'active' });
-  });
-  if (current() === route && form.isConnected) {
-    if (id) location.hash = 'studio/wishes';
-    else showRoute(route, true);
-  }
-  notify(id ? 'Wish updated.' : 'Wish added to the registry.');
-}
-
-async function previewPhoto(input) {
-  const version = ++photoVersion;
-  const preview = main.querySelector('#cover-preview');
-  const file = input.files[0];
-  clearProblem(input.form);
-  if (!file) {
-    photoPending = false;
-    return;
-  }
-  photoPending = true;
-  let candidate;
+async function choosePalette(theme) {
+  previewPalette(theme);
+  clearProblem();
   try {
-    if (file.size > 2_000_000 || !['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
-      throw new DemoError('Choose a JPG, PNG or WebP photograph up to 2 MB.');
-    }
-    const signature = new Uint8Array(await file.slice(0, 12).arrayBuffer());
-    const valid = {
-      'image/jpeg': signature[0] === 255 && signature[1] === 216 && signature[2] === 255,
-      'image/png': [137, 80, 78, 71, 13, 10, 26, 10].every((byte, i) => signature[i] === byte),
-      'image/webp': String.fromCharCode(...signature.subarray(0, 4)) === 'RIFF' &&
-        String.fromCharCode(...signature.subarray(8, 12)) === 'WEBP',
-    };
-    if (!valid[file.type]) throw new DemoError('This file does not match its image type. Choose another photograph.');
-    candidate = URL.createObjectURL(file);
-    const image = new Image();
-    image.src = candidate;
-    await image.decode();
-    if (version !== photoVersion) return;
-    if (photoUrl) URL.revokeObjectURL(photoUrl);
-    photoSelection = file;
-    photoUrl = candidate;
-    candidate = undefined;
-    preview.src = photoUrl;
-    notify('Photo preview ready. Save wedding details to keep it.');
+    await save(latest => { latest.profile.theme = theme; });
   } catch (error) {
-    if (version !== photoVersion) return;
-    input.value = '';
-    showProblem(error instanceof DemoError ? error : new DemoError('This photo could not be opened. Choose another file.'), input.form);
-  } finally {
-    if (candidate) URL.revokeObjectURL(candidate);
-    if (version === photoVersion) photoPending = false;
+    if (document.body.dataset.theme === theme) {
+      previewPalette(state.profile.theme);
+      const saved = [...main.querySelectorAll('[name="theme"]')]
+        .find(input => input.value === state.profile.theme);
+      if (saved) saved.checked = true;
+    }
+    showProblem(error);
   }
-}
-
-async function saveWedding(form) {
-  const route = current();
-  if (photoPending) throw new DemoError('Wait for the cover preview, then save your wedding details.');
-  const edits = Object.fromEntries(profileFields.map(name => [name, fieldValue(form, name)]));
-  if (!edits.names || !edits.venue) throw new DemoError('Enter your names and venue.');
-  if (photoSelection !== undefined) edits.photo = photoSelection;
-  await save(latest => Object.assign(latest.profile, edits));
-  if (current() === route && form.isConnected) {
-    showRoute(route, false);
-    main.querySelector('#settings button[type="submit"]').focus({ preventScroll: true });
-  }
-  notify('Wedding details saved.');
 }
 
 async function enterReview(form) {
@@ -342,44 +256,6 @@ async function submitGift() {
   location.replace('#confirmed/' + draft.id);
 }
 
-async function handleStudioButton(button) {
-  const route = current();
-  if (button.dataset.wish) {
-    const { wish, move, visibility } = button.dataset;
-    await save(latest => {
-      const index = latest.gifts.findIndex(item => item.id === wish);
-      if (index < 0) throw new DemoError('This wish is no longer in the demo.');
-      if (visibility) latest.gifts[index].visibility = visibility;
-      else {
-        const destination = index + Number(move);
-        if (destination < 0 || destination >= latest.gifts.length) return;
-        [latest.gifts[index], latest.gifts[destination]] = [latest.gifts[destination], latest.gifts[index]];
-      }
-    });
-    if (current() !== route || !button.isConnected) return;
-    showRoute(route, false);
-    const matching = [...main.querySelectorAll('[data-wish]')].find(b =>
-      b.dataset.wish === wish && !b.disabled &&
-      (move ? b.dataset.move === move : b.hasAttribute('data-visibility')));
-    matching?.focus({ preventScroll: true });
-    notify('Registry updated.');
-  } else {
-    const id = button.dataset.approve ?? button.dataset.thanks;
-    const property = button.dataset.approve ? 'approved' : 'thanked';
-    await save(latest => {
-      const order = latest.orders.find(item => item.id === id);
-      if (!order) throw new DemoError('This gift is no longer in the demo.');
-      if (property === 'approved' && (!order.consent || !order.message)) return;
-      order[property] = !order[property];
-    });
-    if (current() !== route || !button.isConnected) return;
-    showRoute(route, false);
-    [...main.querySelectorAll('[data-approve], [data-thanks]')].find(b =>
-      (property === 'approved' ? b.dataset.approve : b.dataset.thanks) === id)?.focus({ preventScroll: true });
-    notify('Gift record updated.');
-  }
-}
-
 main.addEventListener('input', event => {
   if (event.target.form?.id === 'checkout') saveDraft(event.target.form);
 });
@@ -389,9 +265,8 @@ main.addEventListener('change', event => {
   if (input.name === 'available-filter') filters.available = input.checked;
   if (input.name === 'price-filter') filters.price = input.value;
   if (['available-filter', 'price-filter'].includes(input.name)) refreshResults();
-  if (input.name === 'photo') previewPhoto(input);
+  if (input.name === 'theme' && input.checked) choosePalette(input.value);
   if (input.id === 'paper-size') document.body.dataset.paper = input.value;
-  if (input.name === 'type' && input.form?.id === 'wish') syncWishFields(input.form);
   if (input.name === 'reply') {
     main.querySelector('#diet-field').hidden = input.value === 'no';
     input.form.elements.diet.disabled = input.value === 'no';
@@ -401,7 +276,7 @@ main.addEventListener('change', event => {
 main.addEventListener('submit', event => {
   event.preventDefault();
   const form = event.target;
-  const operations = { settings: saveWedding, wish: saveWish, rsvp: saveReply, checkout: enterReview };
+  const operations = { rsvp: saveReply, checkout: enterReview };
   if (operations[form.id]) action(event.submitter, () => operations[form.id](form), form.id === 'checkout' ? main : form);
 });
 
@@ -426,19 +301,6 @@ main.addEventListener('click', event => {
     dialog.returnValue = 'cancel';
     dialog.showModal();
   }
-  if (button.hasAttribute('data-default-cover')) {
-    discardPhoto();
-    photoSelection = null;
-    main.querySelector('[name="photo"]').value = '';
-    main.querySelector('#cover-preview').src = sampleCover;
-    clearProblem(main.querySelector('#settings'));
-  }
-  if (button.hasAttribute('data-copy')) {
-    const input = main.querySelector('#invite-link');
-    navigator.clipboard?.writeText(input.value).then(() => notify('Invitation link copied.'),
-      () => { input.select(); notify('Link selected. Copy it with your browser.'); });
-    if (!navigator.clipboard) input.select();
-  }
   if (button.hasAttribute('data-edit-checkout') && !working) {
     main.querySelector('#review').hidden = true;
     const form = main.querySelector('#checkout');
@@ -447,9 +309,6 @@ main.addEventListener('click', event => {
     clearProblem();
   }
   if (button.hasAttribute('data-confirm')) action(button, submitGift);
-  if (button.dataset.wish || button.dataset.approve || button.dataset.thanks) {
-    action(button, () => handleStudioButton(button));
-  }
 });
 
 dialog.addEventListener('close', () => {
@@ -481,6 +340,6 @@ window.addEventListener('hashchange', () => {
   render({ restore: true, focus: true, initializeStorage: !state });
 });
 changes?.addEventListener('message', () => {
-  if (['home', 'gifts', 'gift', 'board', 'confirmed'].includes(current().split('/')[0])) render();
+  if (['home', 'gifts', 'gift', 'board', 'colours', 'confirmed'].includes(current().split('/')[0])) render();
 });
 render({ initializeStorage: true, restore: true });
