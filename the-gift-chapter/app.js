@@ -54,7 +54,7 @@ function clearProblem(scope = main) {
 function showProblem(error, scope = main) {
   const message = error instanceof DemoError ? error.message : storageError;
   const problem = scope.querySelector('.problem');
-  if (!problem) {
+  if (!problem?.isConnected) {
     notify(message);
     return;
   }
@@ -128,6 +128,8 @@ function showRoute(route, focus) {
   document.body.dataset.theme = profile.theme;
   document.title = `${profile.names} · The Gift Chapter`;
   main.innerHTML = html;
+  main.dataset.route = route;
+  if (page === 'board') main.querySelector('#paper-size').value = document.body.dataset.paper;
   displayedRoute = route;
   for (const link of document.querySelectorAll('.site-header nav a, .rsvp-link')) {
     if (link.hash === '#' + page) link.setAttribute('aria-current', 'page');
@@ -193,23 +195,24 @@ async function save(edit) {
   changes?.postMessage('changed');
 }
 
-function saveReply(form) {
+async function saveReply(form) {
   const guest = fieldValue(form, 'guest');
   if (!guest) throw new DemoError('Enter a name for your reply.');
   const key = guest.toLocaleLowerCase('en-GB');
   const reply = fieldValue(form, 'reply');
   const diet = reply === 'yes' ? fieldValue(form, 'diet') : '';
-  return save(latest => {
+  await save(latest => {
     latest.rsvps = latest.rsvps.filter(item => item.key !== key);
     latest.rsvps.push({ guest, key, reply, diet });
-  }).then(() => {
-    lastReply = key;
+  });
+  lastReply = key;
+  if (current() === 'rsvp' && form.isConnected) {
     history.replaceState({ ...history.state, giftChapterReply: key }, '');
     showRoute(current(), false);
     main.querySelector('h2').setAttribute('tabindex', '-1');
     main.querySelector('h2').focus({ preventScroll: true });
-    notify('Your demo reply is saved.');
-  });
+  }
+  notify('Your demo reply is saved.');
 }
 
 function syncWishFields(form) {
@@ -220,6 +223,7 @@ function syncWishFields(form) {
 }
 
 async function saveWish(form) {
+  const route = current();
   const wish = Object.fromEntries(['title', 'story', 'type', 'category', 'image']
     .map(name => [name, fieldValue(form, name)]));
   if (!wish.title || !wish.story) throw new DemoError('Add a gift title and a short description.');
@@ -239,8 +243,10 @@ async function saveWish(form) {
     if (existing) Object.assign(existing, wish);
     else latest.gifts.push({ ...wish, id: crypto.randomUUID(), visibility: 'active' });
   });
-  if (id) location.hash = 'studio/wishes';
-  else showRoute(current(), true);
+  if (current() === route && form.isConnected) {
+    if (id) location.hash = 'studio/wishes';
+    else showRoute(route, true);
+  }
   notify(id ? 'Wish updated.' : 'Wish added to the registry.');
 }
 
@@ -289,13 +295,16 @@ async function previewPhoto(input) {
 }
 
 async function saveWedding(form) {
+  const route = current();
   if (photoPending) throw new DemoError('Wait for the cover preview, then save your wedding details.');
   const edits = Object.fromEntries(profileFields.map(name => [name, fieldValue(form, name)]));
   if (!edits.names || !edits.venue) throw new DemoError('Enter your names and venue.');
   if (photoSelection !== undefined) edits.photo = photoSelection;
   await save(latest => Object.assign(latest.profile, edits));
-  showRoute(current(), false);
-  main.querySelector('#settings button[type="submit"]').focus({ preventScroll: true });
+  if (current() === route && form.isConnected) {
+    showRoute(route, false);
+    main.querySelector('#settings button[type="submit"]').focus({ preventScroll: true });
+  }
   notify('Wedding details saved.');
 }
 
@@ -334,6 +343,7 @@ async function submitGift() {
 }
 
 async function handleStudioButton(button) {
+  const route = current();
   if (button.dataset.wish) {
     const { wish, move, visibility } = button.dataset;
     await save(latest => {
@@ -346,7 +356,8 @@ async function handleStudioButton(button) {
         [latest.gifts[index], latest.gifts[destination]] = [latest.gifts[destination], latest.gifts[index]];
       }
     });
-    showRoute(current(), false);
+    if (current() !== route || !button.isConnected) return;
+    showRoute(route, false);
     const matching = [...main.querySelectorAll('[data-wish]')].find(b =>
       b.dataset.wish === wish && !b.disabled &&
       (move ? b.dataset.move === move : b.hasAttribute('data-visibility')));
@@ -361,7 +372,8 @@ async function handleStudioButton(button) {
       if (property === 'approved' && (!order.consent || !order.message)) return;
       order[property] = !order[property];
     });
-    showRoute(current(), false);
+    if (current() !== route || !button.isConnected) return;
+    showRoute(route, false);
     [...main.querySelectorAll('[data-approve], [data-thanks]')].find(b =>
       (property === 'approved' ? b.dataset.approve : b.dataset.thanks) === id)?.focus({ preventScroll: true });
     notify('Gift record updated.');
@@ -378,6 +390,7 @@ main.addEventListener('change', event => {
   if (input.name === 'price-filter') filters.price = input.value;
   if (['available-filter', 'price-filter'].includes(input.name)) refreshResults();
   if (input.name === 'photo') previewPhoto(input);
+  if (input.id === 'paper-size') document.body.dataset.paper = input.value;
   if (input.name === 'type' && input.form?.id === 'wish') syncWishFields(input.form);
   if (input.name === 'reply') {
     main.querySelector('#diet-field').hidden = input.value === 'no';
@@ -407,7 +420,6 @@ main.addEventListener('click', event => {
   }
   if (button.hasAttribute('data-retry')) render({ focus: true, initializeStorage: true });
   if (button.hasAttribute('data-print')) {
-    document.body.dataset.paper = main.querySelector('#paper-size').value;
     window.print();
   }
   if (button.hasAttribute('data-reset')) {
