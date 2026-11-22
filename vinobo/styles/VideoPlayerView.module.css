@@ -26,3 +26,13 @@
   height: 100%;
   border: 0;
 }
+
+.youtubeLink {
+  flex: none;
+  text-align: right;
+  color: #454545;
+  font-size: 12px;
+}
+.youtubeLink a {
+  color: inherit;
+}
