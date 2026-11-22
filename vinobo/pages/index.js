@@ -9,7 +9,7 @@ import NotesPresenter from "../presenters/notesPresenter";
 import VideoController from "../js/videoController";
 import ControlPresenter from "../presenters/controlPresenter";
 
-const vidCon = new VideoController("player");
+const vidCon = new VideoController();
 
 export default function Home({ model, auth }) {
   const notesContRef = React.useRef(null);

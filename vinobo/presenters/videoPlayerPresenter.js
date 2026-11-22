@@ -1,44 +1,35 @@
 import React from "react";
-import Script from "next/script";
 import VideoPlayerView from "../views/videoPlayerView";
 import useModelProperty from "../js/useModelProperty";
-
 import { sampleId, openSample } from "../js/sampleVideo";
 
 export default function VideoPlayerPresenter({ model, vidCon }) {
   const id = useModelProperty(model, "currentVideo");
+  const container = React.useRef(null);
+  const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
-    let selected = model.currentVideo;
-    const load = () => {
-      vidCon.loadPlayer(null);
-      if (model.currentVideo !== sampleId) vidCon.setVideoID(model.currentVideo);
-    };
-    // Cue synchronously so the sidebar reads metadata for the selected video.
-    const select = () => {
-      if (selected === model.currentVideo) return;
-      selected = model.currentVideo;
-      if (selected === sampleId) {
-        vidCon.player?.pauseVideo?.();
-        vidCon.updateTime(0);
-      } else {
-        vidCon.setVideoID(selected);
-      }
-    };
-    model.addObserver(select);
-    if (window.YT?.Player) load();
-    else window.onYouTubeIframeAPIReady = load;
-    return () => {
-      model.removeObserver(select);
-      if (window.onYouTubeIframeAPIReady === load) delete window.onYouTubeIframeAPIReady;
-      vidCon.destroy();
-    };
-  }, [model, vidCon]);
+    vidCon.updateTime(0);
+    setError(null);
+    if (!id || id === sampleId) return;
 
-  return (
-    <>
-      {id && id !== sampleId && <Script src="https://www.youtube.com/iframe_api" />}
-      <VideoPlayerView id={id} vidCon={vidCon} onSample={() => openSample(model)} />
-    </>
-  );
+    function updateInfo(title, author, length) {
+      const video = model.videos.find(video => video.id === id);
+      if (!video || model.currentVideo !== id) return;
+      const info = { title: title || video.title, author: author || video.author, length: length || video.length };
+      if (video.title === info.title && video.author === info.author && video.length === info.length) return;
+      model.setVideos(model.videos.map(item => item.id === id ? { ...item, ...info } : item));
+    }
+
+    const disconnect = vidCon.connect(container.current, id, updateInfo, setError);
+    const request = new AbortController();
+    const watch = "https://www.youtube.com/watch?v=" + id;
+    fetch("https://www.youtube.com/oembed?" + new URLSearchParams({ url: watch, format: "json" }), { signal: request.signal })
+      .then(response => response.ok ? response.json() : null)
+      .then(info => { if (info && !request.signal.aborted) updateInfo(info.title, info.author_name); })
+      .catch(() => {});
+    return () => { request.abort(); disconnect(); };
+  }, [id, model, vidCon]);
+
+  return <VideoPlayerView id={id} vidCon={vidCon} playerRef={container} error={error} onSample={() => openSample(model)} />;
 }

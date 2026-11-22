@@ -1,247 +1,107 @@
 import Observable from "./observable";
 
+let iframeAPI;
+
+function loadIframeAPI() {
+  if (window.YT?.Player) return Promise.resolve(window.YT);
+  if (!iframeAPI) {
+    iframeAPI = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      window.onYouTubeIframeAPIReady = () => resolve(window.YT);
+      script.src = "https://www.youtube.com/iframe_api";
+      script.onerror = () => {
+        script.remove();
+        iframeAPI = null;
+        reject(new Error("YouTube playback controls could not connect."));
+      };
+      document.head.appendChild(script);
+    });
+  }
+  return iframeAPI;
+}
+
 export default class VideoController extends Observable {
-  POLL_INTERVAL = 1000 / 3; // ms between time polls to player
+  currentTime = 0;
+  nativePlayer = null;
+  player = null;
+  pendingTime = null;
 
-  constructor(elementId) {
-    super();
-    this.elementId = elementId;
-    this.player = null;
-    this.currentTime = 0;
+  connect(container, id, onInfo, onError) {
+    const frame = document.createElement("iframe");
+    const url = new URL("https://www.youtube.com/embed/" + id);
+    url.search = new URLSearchParams({ enablejsapi: "1", origin: window.location.origin, playsinline: "1", rel: "0" });
+    frame.title = "YouTube video player";
+    frame.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = "strict-origin-when-cross-origin";
+    frame.width = "100%";
+    frame.height = "100%";
+    frame.style.border = "0";
+    frame.src = url.href;
+    container.replaceChildren(frame);
 
-    this.stopPolling = null;
-
-    // dont ask
-    this.partiallyInitialized = false;
-    this.prioQueue = [];
-    this.fullyInitialized = false;
-    this.queue = [];
-  }
-
-  /**
-   * Loads a new `Player` in the `this.elementId` element.
-   * @param {String} id Optional video ID to load the player with.
-   */
-  loadPlayer(id) {
-    try {
-      const target = document.createElement("div");
-      document.getElementById(this.elementId).replaceChildren(target);
-      this.player = new window.YT.Player(target, {
-        width: "100%",
-        height: "100%",
-        videoId: id !== null ? id : undefined,
-        playerVars: {
-          playsinline: 1,
-          origin: window.location.origin,
-          modestbranding: 1, // hide YT logo in bottom right
-          rel: 0, // show less random suggested videos
+    let active = true;
+    let widget;
+    let timer;
+    const readInfo = player => {
+      if (!active) return;
+      const info = player.getVideoData?.();
+      if (info?.video_id === id) onInfo(info.title, info.author, player.getDuration?.());
+    };
+    loadIframeAPI().then(YT => {
+      if (!active) return;
+      widget = new YT.Player(frame, { events: {
+        onReady: event => {
+          if (!active) return;
+          this.player = event.target;
+          if (this.pendingTime !== null) this.seek(this.pendingTime);
+          readInfo(event.target);
+          timer = window.setInterval(() => this.updateTime(event.target.getCurrentTime() || 0), 300);
         },
-        events: {
-          onReady: (event) => this.onPlayerReady(event),
-          onStateChange: (event) => this.onPlayerStateChange(event),
-          onError: (error) => this.onPlayerError(error),
-        },
-      });
-    } catch (error) {
-      console.log("Player failed to load. Tell jonaro00 about this.");
-      console.log(error);
-    }
-  }
-
-  /**
-   * The player will call this function when it is ready.
-   */
-  onPlayerReady(event) {
-    if (!this.partiallyInitialized) {
-      this.partiallyInitialized = true;
-      for (const cb of this.prioQueue.splice(0)) {
-        try {
-          cb();
-        } catch (error) {}
-      }
-    }
-  }
-
-  /**
-   * The player calls this function when the it's state changes.
-   */
-  onPlayerStateChange(event) {
-    // The first time the player state is reported as cued,
-    // the controller marks itself as initialized.
-    if (!this.fullyInitialized && event.data === 5 /* video cued */) {
-      this.fullyInitialized = true;
-      for (const cb of this.queue.splice(0)) {
-        try {
-          cb();
-        } catch (error) {}
-      }
-      this.startPoller();
-    }
-    //this.notifyObservers();
-  }
-
-  /**
-   * The player (should) call this function when there was an error.
-   */
-  onPlayerError(error) {
-    console.log("player error:", error);
-    switch (error.data) {
-      case 2:
-        // invalid ID
-        break;
-      case 100:
-        // not found (removed or private)
-        break;
-      case 101:
-      case 105:
-        // The owner of the requested video does not allow it to be played in embedded players.
-        break;
-      default:
-        // unknown error
-        break;
-    }
-  }
-
-  /**
-   * Ensures callback `cb` is only executed if player is fully loaded.
-   * Otherwise adds it to the queue to be executed when player is ready.
-   * @param {Function} cb A callback that does something with the VideoController.
-   */
-  execute(cb) {
-    if (!this.fullyInitialized) {
-      this.queue = [...this.queue, cb];
-    } else {
-      cb();
-    }
-  }
-  /**
-   * Ensures callback `cb` is only executed if player is initialized.
-   * Otherwise adds it to the queue to be executed when player is ready.
-   * @param {Function} cb A callback that does something with the VideoController.
-   */
-  executePrio(cb) {
-    if (!this.partiallyInitialized) {
-      this.prioQueue = [...this.prioQueue, cb];
-    } else {
-      cb();
-    }
-  }
-
-  /**
-   * Changes the video in player.
-   * Setting ID to `null` reloads and empty player.
-   * @param {String} id Video ID to play.
-   */
-  setVideoID(id) {
-    this.executePrio(() => {
-      if (this.fullyInitialized) {
-        if ((this.player.getVideoData()?.video_id || null) === id) return;
-        if (!id) return this.reload();
-      }
-      id !== null && this.player.cueVideoById(id);
-      this.fullyInitialized = false;
-    });
-  }
-
-  /**
-   * Plays the video.
-   */
-  play() {
-    this.execute(() => this.player.playVideo());
-  }
-
-  /**
-   * Pauses the video.
-   */
-  pause() {
-    this.execute(() => this.player.pauseVideo());
-  }
-
-  /**
-   * Stops the video.
-   */
-  stop() {
-    this.execute(() => this.player.stopVideo());
-  }
-
-  /**
-   * Changes the current video time.
-   * @param {Number} time The number of seconds from start to seek to.
-   */
-  seek(time) {
-    if (this.nativePlayer) {
-      this.nativePlayer.currentTime = time;
-      this.updateTime(time);
-      return;
-    }
-    this.execute(() => this.player.seekTo(time));
-  }
-
-  /**
-   * Gets the data of the current video. Contains id, title, author, length, and more.
-   * @returns {Object} The video data.
-   */
-  getVideoInfo() {
-    return new Promise((resolve, reject) => {
-      this.execute(() => {
-        try {
-          resolve({ ...this.player.getVideoData(), length: this.player.getDuration() });
-        } catch (error) {
-          reject(error);
+        onStateChange: event => readInfo(event.target),
+        onError: event => {
+          if (!active) return;
+          const messages = {
+            2: "YouTube could not recognize this video.",
+            100: "This video is private or has been removed.",
+            101: "The owner only allows playback on YouTube.",
+            150: "The owner only allows playback on YouTube.",
+            153: "YouTube could not identify this website for playback."
+          };
+          onError(messages[event.data] || "YouTube could not play this video here.");
         }
-      });
+      }});
+    }).catch(() => {
+      if (active) onError("YouTube playback controls could not connect.");
     });
+    return () => {
+      active = false;
+      window.clearInterval(timer);
+      this.player = null;
+      this.pendingTime = null;
+      widget?.destroy();
+      container.replaceChildren();
+    };
   }
 
-  /**
-   * Starts polling timer. Sets `this.stopPolling` callback.
-   */
-  startPoller() {
-    if (this.stopPolling) this.stopPolling();
-    const timer = setInterval(() => this.pollTime(), this.POLL_INTERVAL);
-    this.stopPolling = () => clearInterval(timer);
+  seek(time) {
+    if (this.nativePlayer) this.nativePlayer.currentTime = time;
+    else if (this.player) this.player.seekTo(time, true);
+    else this.pendingTime = time;
+    if (this.nativePlayer || this.player) {
+      this.pendingTime = null;
+      this.updateTime(time);
+    }
   }
 
-  /**
-   * Checks the current player time and notifies observers if it changed.
-   */
-  pollTime() {
-    if (this.fullyInitialized && !this.nativePlayer) this.updateTime(this.player.getCurrentTime() || 0);
+  getVideoInfo() {
+    const data = this.player?.getVideoData?.() || {};
+    return Promise.resolve({ ...data, length: this.player?.getDuration?.() || 0 });
   }
 
   updateTime(time) {
     if (this.currentTime === time) return;
     this.currentTime = time;
-    super.notifyObservers();
-  }
-
-  notifyObservers() {
-    // extends parent's method
-    this.execute(() => super.notifyObservers());
-  }
-
-  /**
-   * Destroy player when Video player needs to unload.
-   */
-  destroy() {
-    if (this.player !== null) {
-      this.player.destroy();
-      this.player = null;
-    }
-    if (this.stopPolling) this.stopPolling();
-    this.currentTime = 0;
-    this.partiallyInitialized = false;
-    this.prioQueue = [];
-    this.fullyInitialized = false;
-    this.queue = [];
-  }
-
-  /**
-   * Destroys current player and loads a new one.
-   * @param {String} id Optional video ID to load the player with.
-   */
-  reload(id) {
-    this.destroy();
-    this.loadPlayer(id);
+    this.notifyObservers();
   }
 }

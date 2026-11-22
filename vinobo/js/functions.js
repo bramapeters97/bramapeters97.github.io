@@ -1,17 +1,21 @@
 const ytRegex = /^[A-Za-z0-9_-]{11}$/;
 
 function extractID(input) {
-  const value = input.trim();
+  const value = String(input || "").trim();
   if (ytRegex.test(value)) return value;
   try {
     const url = new URL(value.includes("://") ? value : "https://" + value);
-    const host = url.hostname.replace(/^(www\.|m\.)/, "");
+    if (!["http:", "https:"].includes(url.protocol)) return null;
+    const host = url.hostname.replace(/^(www\.|m\.|music\.)/, "");
     const parts = url.pathname.split("/");
     let id;
     if (host === "youtu.be") id = parts[1];
     if (host === "youtube.com" || host === "youtube-nocookie.com") {
-      id = parts[1] === "watch" ? url.searchParams.get("v")
-        : ["embed", "shorts", "live"].includes(parts[1]) ? parts[2] : null;
+      if (parts[1] === "attribution_link") {
+        const target = new URL(url.searchParams.get("u") || "/", url.origin);
+        if (target.origin === url.origin && target.pathname === "/watch") id = target.searchParams.get("v");
+      } else if (parts[1] === "watch") id = url.searchParams.get("v");
+      else if (["embed", "shorts", "live", "v"].includes(parts[1])) id = parts[2];
     }
     return id && ytRegex.test(id) ? id : null;
   } catch {
