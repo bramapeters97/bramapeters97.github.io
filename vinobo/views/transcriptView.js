@@ -2,10 +2,10 @@ import React from "react";
 import { formatTimestamp } from "../js/functions";
 import styles from "../styles/TranscriptView.module.css";
 import Loader from "react-loader-spinner";
-import useEventListener from "../js/useEventListener";
+
 
 const SCROLL_TOP_OFFSET = 44;
-const UNLOCK_SCROLL_HEIGHT = SCROLL_TOP_OFFSET + 50;
+
 
 export default function TranscriptView(props) {
   const [autoScroll, setAutoScroll] = React.useState(true);
@@ -13,36 +13,18 @@ export default function TranscriptView(props) {
   const scrollBox = React.useRef(null);
   const activeRow = React.useRef(null);
 
-  // auto scroll when enabled
   React.useEffect(() => {
-    if (!autoScroll || !activeRow.current || !scrollBox.current) return;
+    setAutoScroll(true);
+  }, [props.currentVideo]);
 
-    const target = activeRow.current.offsetTop - SCROLL_TOP_OFFSET;
-    if (scrollBox.current.scrollTop === target) return;
-
-    if (
-      Math.abs(scrollBox.current.scrollTop - activeRow.current.offsetTop) >= UNLOCK_SCROLL_HEIGHT
-    ) {
-      scrollBox.current.style.scrollBehavior = "auto";
-      scrollBox.current.scroll(0, target);
-      scrollBox.current.style.scrollBehavior = "smooth";
-    } else {
-      scrollBox.current.scroll(0, target);
-    }
-  }, [props.videoTime, autoScroll]);
-
-  // check when scrolling happens to see if user wants to "break" the auto scroll
-  useEventListener(
-    "scroll",
-    () => {
-      if (!autoScroll || !activeRow.current) return;
-      if (
-        Math.abs(scrollBox.current.scrollTop - activeRow.current.offsetTop) >= UNLOCK_SCROLL_HEIGHT
-      )
-        setAutoScroll(false);
-    },
-    scrollBox.current
-  );
+  React.useEffect(() => {
+    const box = scrollBox.current;
+    const row = activeRow.current;
+    if (!autoScroll || !box || !row) return;
+    const top = row.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop;
+    const target = Math.max(0, top - SCROLL_TOP_OFFSET);
+    if (Math.abs(box.scrollTop - target) > 2) box.scrollTop = target;
+  }, [props.transcript, autoScroll]);
 
   return (
     <div className={styles.container}>
@@ -60,10 +42,10 @@ export default function TranscriptView(props) {
           ></input>
         </fieldset>
       </div>
-      <div ref={scrollBox} className={styles.transcripts}>
+      <div ref={scrollBox} onWheel={() => setAutoScroll(false)} onTouchMove={() => setAutoScroll(false)} className={styles.transcripts}>
         {props.transcriptError ? (
           <div className={styles.error}>
-            <p>Load a caption file to search this video.</p>
+            <p>{props.transcriptError.message || "Captions could not be loaded."} You can also open a caption file.</p>
             <input type="file" aria-label="Load captions" accept=".vtt,.srt"
               onChange={event => {
                 const file = event.target.files[0];

@@ -18,3 +18,21 @@
     grid-row: 1;
   }
 }
+
+.vinobo-case-layout > .vinobo-demo {
+  order: 2;
+  padding: clamp(8px, 1.4vw, 18px);
+}
+.portfolio-case .vinobo-demo .vinobo-viewport {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  overflow: hidden;
+}
+.portfolio-case .vinobo-viewport .vinobo-frame {
+  position: absolute;
+  inset: 0 auto auto 0;
+  max-width: none;
+  min-height: 0;
+  transform-origin: top left;
+}

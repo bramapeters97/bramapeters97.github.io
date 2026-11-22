@@ -7,7 +7,10 @@ import { onAuthStateChanged } from "@firebase/auth";
 import persistModel from "../js/persistModel";
 import Layout from "../components/layout";
 
+import { openSample } from "../js/sampleVideo";
+
 const model = new Model();
+openSample(model);
 
 export default function App({ Component, pageProps }) {
   React.useEffect(() => {
@@ -24,13 +27,14 @@ export default function App({ Component, pageProps }) {
       auth,
       (user) => {
         // user is a `User` object or `null`
-        if (!user || (user && model.user)) {
+        if (user || model.user) {
           // user logged out OR user changed, unsubscribe persistor and clear model
           if (unsubscribePersistor) {
             unsubscribePersistor();
             unsubscribePersistor = null;
           }
           model.clear();
+          if (!user) openSample(model);
         }
         model.setUser(user ? user.email : null);
         if (user) {

@@ -25,8 +25,10 @@ export default function TranscriptPresenter(props) {
 
   const [query, setQuery] = React.useState("");
 
+  React.useEffect(() => setQuery(""), [id]);
+
   return (
-    <TranscriptView
+    <TranscriptView key={id}
       transcript={
         error || transformTranscript(processedData, makeStringSearchable(query), videoTime)
       }
