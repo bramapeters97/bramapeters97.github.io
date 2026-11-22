@@ -46,15 +46,13 @@ export function home(state, cover) {
   const p = state.profile;
   const featured = state.gifts.filter(g => g.visibility !== 'hidden').slice(0, 3);
   return `<section class="hero">
-    <img src="${esc(cover)}" alt="${p.photo ? 'Wedding cover chosen by the couple' : 'A couple holding a bouquet in warm evening sunlight'}" fetchpriority="high">
-    <div class="hero-frame">
-      <div class="hero-copy">
-        <p class="eyebrow">Together with our favourite people</p>
-        <h1${p.names.length > 33 ? ' class="long-names"' : ''}>${esc(p.names).replace(' &amp; ', ' <i>&amp;</i> ')}</h1>
-        <p class="hero-date"><time datetime="${esc(p.date)}">${date(p.date)}</time> <span aria-hidden="true">·</span> ${esc(p.venue)}</p>
-        <p class="hero-message">${esc(p.welcome)}</p>
-        ${link('gifts', 'Explore our gift registry', 'gold')}
-      </div>
+    <img src="${esc(cover)}" alt="" fetchpriority="high">
+    <div class="hero-copy">
+      <p class="eyebrow">Together with our favourite people</p>
+      <h1${p.names.length > 33 ? ' class="long-names"' : ''}>${esc(p.names).replace(' &amp; ', ' <i>&amp;</i> ')}</h1>
+      <p class="hero-date"><time datetime="${esc(p.date)}">${date(p.date)}</time> <span aria-hidden="true">·</span> ${esc(p.venue)}</p>
+      <p class="hero-message">${esc(p.welcome)}</p>
+      ${link('gifts', 'Explore our gift registry', 'glass')}
     </div>
   </section>
   <section class="section featured" aria-labelledby="featured">
@@ -124,7 +122,7 @@ export function giftDetail(state, gift, returnTo) {
         <p class="gift-value"><strong>${price(gift)}</strong> <span class="badge">${status}</span></p>
         ${gift.type === 'shared' ? `<div class="funding"><progress value="${funded}" max="${gift.target}" aria-label="Amount funded"></progress>
           <p>${money(funded)} funded · ${money(left)} remaining</p></div>` : ''}
-        <div class="actions">${available ? link('give/' + gift.id, action[gift.type], 'gold') :
+        <div class="actions">${available ? link('give/' + gift.id, action[gift.type], 'glass') :
           `<button type="button" class="button" disabled>${status}</button>`}</div>
         <p class="subtle">Wedding demo · ${gift.type === 'voucher' ? 'Promises are saved in this browser.' : 'No money is collected.'}</p>
       </div>
@@ -155,7 +153,7 @@ export function checkout(state, gift, draft, returnTo) {
           ${field('sender', 'Your name', draft.sender, 'text', 'autocomplete="name" required maxlength="80"')}
           ${area('message', 'Personal note (optional)', draft.message, 'maxlength="600"')}
           <label class="check"><input name="consent" type="checkbox"${draft.consent ? ' checked' : ''}> The couple may approve and display my note and name on their keepsake.</label>
-          <div class="actions"><button class="button gold" type="submit"${available ? '' : ' disabled'}>${voucher ? 'Review promise' : 'Review demo gift'}</button>
+          <div class="actions"><button class="button glass" type="submit"${available ? '' : ' disabled'}>${voucher ? 'Review promise' : 'Review demo gift'}</button>
           <a href="#${returnTo}" data-cancel class="button outline">Cancel</a></div>
         </form>
         <section id="review" hidden aria-labelledby="review-heading">
@@ -163,7 +161,7 @@ export function checkout(state, gift, draft, returnTo) {
           <div id="review-details"></div>
           <label class="check"><input id="simulate-failure" type="checkbox"> Simulate a failure on this attempt</label>
           <div class="actions">
-            <button class="button gold" type="button" data-confirm>${voucher ? 'Simulate voucher promise' : 'Simulate gift confirmation'}</button>
+            <button class="button glass" type="button" data-confirm>${voucher ? 'Simulate voucher promise' : 'Simulate gift confirmation'}</button>
             <button class="button outline" type="button" data-edit-checkout>Back to edit</button>
             <a href="#${returnTo}" data-cancel class="button outline">Cancel</a>
           </div>
