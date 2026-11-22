@@ -83,7 +83,7 @@
   // Keep in sync when changing portfolio cards; scripts/check-contact.mjs verifies this list.
   const fallbackProjects = [
     { id: 'amstroll', title: 'Amstroll | Vibe-Coding Experiment', image: 'assets/img/amstroll.png', category: 'UX/UI-design' },
-    { id: 'uwv-monitor', title: 'UWV Monitor Arbeid & Gezondheid', image: 'assets/img/ÙWV3.png', category: 'Data Analytics' },
+    { id: 'uwv-monitor', title: 'UWV Monitor Arbeid & Gezondheid', image: 'assets/img/UWV3.png', category: 'Data Analytics' },
     { id: 'lost-in-translation', title: 'Lost In Translation™ | Global Transit, Local Nonsense™', image: 'assets/img/lostintranslation.png', category: 'Web Development' },
     { id: 'lelibrambas', title: 'LELIBRAMBAS+ | Family Archive Streaming', image: 'assets/lelibrambas-plus/screenshots/03-home.webp', category: 'Web Development' },
     { id: 'tue-learning-dashboard', title: 'TU/e Learning Dashboard', image: 'assets/img/dashboard1.jpg', category: 'UX/UI-design' },
