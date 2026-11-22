@@ -1,4 +1,4 @@
-import { cp, mkdir, readdir, rm } from "node:fs/promises";
+import { cp, mkdir, readdir, rm, stat } from "node:fs/promises";
 import { join, relative, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -8,8 +8,14 @@ const publicFiles = [
   "lelibrambas", "mypremiereplus", "openapi.yaml", "projects", "screenshots",
   "the-gift-chapter", "_redirects", "_routes.json",
 ];
-for (const file of await readdir(root)) {
-  if (file.endsWith(".html")) publicFiles.push(file);
+for (const entry of await readdir(root, { withFileTypes: true })) {
+  if (entry.isFile() && entry.name.endsWith(".html")) publicFiles.push(entry.name);
+  // Include new self-contained portfolio demos without registering each one here.
+  if (entry.isDirectory() && !entry.name.startsWith(".")
+      && !["dist", "vinobo", "node_modules", ...publicFiles].includes(entry.name)
+      && (await stat(join(root, entry.name, "index.html")).catch(() => null))?.isFile()) {
+    publicFiles.push(entry.name);
+  }
 }
 
 await rm(output, { recursive: true, force: true });
