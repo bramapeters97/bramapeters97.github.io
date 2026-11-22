@@ -578,11 +578,13 @@ def portfolio_page(number, items, capabilities):
         title = project_titles.get(project_id) or item.one(tag='h2').text()
         ty -= para(title, px + 9, ty, col_w - 18, 9.5, leading=11, font='CVTitle') + 4
         ty -= para(project_copy[project_id], px + 9, ty, col_w - 18, 8.55, leading=10) + 7
-        href = project_links.get(project_id) or item.one('portfolio-card-link').attrs['href']
-        button_bottom = ty - BUTTON_HEIGHT
-        assert py - row_h >= 42 and button_bottom >= py - row_h + 4, f'Project card overflow: {project_id}'
-        label = 'Contact Me' if project_id == 'next-project' else 'View Project'
-        project_button(urljoin(SITE, href), px + col_w / 2, button_bottom, label)
+        links = item.all('portfolio-card-link', tag='a')
+        href = project_links.get(project_id) or (links[0].attrs.get('href') if links else None)
+        content_bottom = ty - BUTTON_HEIGHT if href else ty
+        assert py - row_h >= 42 and content_bottom >= py - row_h + 4, f'Project card overflow: {project_id}'
+        if href:
+            label = 'Contact Me' if project_id == 'next-project' else 'View Project'
+            project_button(urljoin(SITE, href), px + col_w / 2, content_bottom, label)
     pdf.showPage()
 
 

@@ -19,7 +19,7 @@
 }
 
 .portfolio-case:has(.honeymoon-case) {
-  background: linear-gradient(145deg, #fbf8f3, #f8f3f2 55%, #f7f4ef);
+  background: linear-gradient(155deg, #fcfaf6, #f8f5f0 48%, #f0eae2);
 }
 
 .honeymoon-case {
@@ -156,7 +156,7 @@
 }
 
 .honeymoon-demo {
-  margin-block: clamp(2rem, 5vw, 4rem) 1rem;
+  margin-block: clamp(3.75rem, 8vw, 7.5rem) 1rem;
   min-width: 0;
 }
 
@@ -168,8 +168,9 @@
   display: block;
   box-sizing: border-box;
   width: 100%;
-  height: clamp(34rem, 83vh, 54rem);
-  height: clamp(34rem, 83svh, 54rem);
+  height: 68rem;
+  min-height: 28rem;
+  scroll-margin-top: 5rem;
   border: 1px solid var(--case-line);
   border-radius: 1.1rem;
   background: var(--case-surface);

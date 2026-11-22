@@ -18,7 +18,7 @@ export const images = {
   'thailand-chiang-mai': ['Chiang Mai cooking class', 'Northern Thai starters arranged on a red-patterned tray'],
   'thailand-khao-sok': ['Khao Sok lake stay', 'A floating bungalow backed by forest on Cheow Lan Lake'],
   'thailand-river': ['Bangkok riverfront', 'Wat Arun silhouetted across the Chao Phraya River at sunset'],
-  'thailand-transit': ['Chao Phraya river boat', 'A red-and-white Chao Phraya Express Boat crossing the river'],
+  'thailand-transit': ['Chao Phraya river boats', 'A long-tail boat and covered ferries on the Chao Phraya River in Bangkok'],
   'thailand-trip': ['Thailand travels', 'The brick spires of Wat Chaiwatthanaram in Ayutthaya in late-afternoon light'],
   coast: ['Aegean coast', 'White steps between island houses overlooking the Aegean'],
   dinner: ['Dinner table', 'Candlelit dinner table set with plates and wine glasses'],
