@@ -4,6 +4,7 @@
 }
 
 .textInput {
+  min-width: 0;
   flex: 1;
   padding: 5px;
   border-radius: 5px;

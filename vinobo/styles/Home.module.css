@@ -1,74 +1,60 @@
-.pageContent,
-.transcriptAndControls {
+.pageContent {
   display: flex;
-  flex-direction: row;
   gap: 10px;
   width: 100%;
+  min-width: 1024px;
   height: calc(100vh - 45px);
-}
-
-.pageContent {
-  padding-bottom: 10px;
-  padding-top: 5px;
-}
-
-.transcriptView,
-.controlView {
-  flex: 1 0;
-  padding: 3px;
+  min-height: 540px;
+  padding: 5px 0 10px;
 }
 
 .videoAndControlsContainer {
   display: flex;
+  flex: 1 1 0;
   flex-direction: column;
-  flex: 2 0;
+  min-width: 0;
   gap: 7px;
-  height: 100%;
-  overflow: hidden;
 }
 
 .transcriptAndControls {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(230px, 1fr);
   flex: 1;
-  flex-grow: 1;
-  overflow: hidden;
+  min-height: 0;
   gap: 7px;
 }
 
+.transcriptView,
+.controlView {
+  min-height: 0;
+  min-width: 0;
+  padding: 3px;
+}
+
+.controlView {
+  overflow-y: auto;
+}
+
+.sidebar,
 .notesContainer {
-  flex: 1 0;
-  background-color: #ffffff;
-  padding: 0 6px 6px 6px;
-  border-radius: 10px 0 0 10px;
-  box-shadow: 0px 1px 4px 0px #00000080;
+  min-width: 0;
+  padding: 0 6px 6px;
+  background: #fff;
+  box-shadow: 0 1px 4px #00000080;
   overflow-y: auto;
 }
 
 .sidebar {
-  flex: 0 0 260px;
-  padding: 0 6px 6px 6px;
+  flex: 0 0 clamp(190px, 16%, 260px);
   border-radius: 0 10px 10px 0;
-  box-shadow: 0px 1px 4px 0px #00000080;
-  background-color: #ffffff;
-  overflow-y: auto;
+}
+
+.notesContainer {
+  flex: 0 0 clamp(226px, 21%, 350px);
+  border-radius: 10px 0 0 10px;
 }
 
 .sidebar.collapsed,
 .notesContainer.collapsed {
-  flex: 0 0;
   flex-basis: 40px;
-}
-
-@media (max-width: 800px) {
-  .pageContent, .transcriptAndControls {
-    flex-direction: column;
-    height: auto;
-    overflow: visible;
-  }
-  .sidebar, .videoAndControlsContainer, .notesContainer, .controlView {
-    flex: none;
-    height: auto;
-    min-width: 0;
-  }
-  .transcriptView { flex: none; height: 250px; }
 }

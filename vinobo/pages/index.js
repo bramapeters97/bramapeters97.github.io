@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import TestPresenter from "../presenters/testPresenter";
 import VideoPlayerPresenter from "../presenters/videoPlayerPresenter";
@@ -15,6 +16,9 @@ export default function Home({ model, auth }) {
   const sidebarRef = React.useRef(null);
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=1024" key="viewport" />
+      </Head>
       <div className={styles.pageContent}>
         <div ref={sidebarRef} className={styles.sidebar}>
           <SidebarPresenter model={model} vidCon={vidCon} auth={auth} parentRef={sidebarRef} />
