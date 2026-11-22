@@ -10,12 +10,12 @@ export default function ControlPresenter(props) {
   const [title, setTitle] = React.useState("");
   const [timestamp, setTimestamp] = React.useState("");
   const [content, setContent] = React.useState("");
-  const [timePlaceholder, setTimeplaceholder] = React.useState("");
+  const [timePlaceholder, setTimeplaceholder] = React.useState(0);
 
   // Update placeholder while the user hasn't typed anything
   React.useEffect(() => {
     if (!title && !content) setTimeplaceholder(videoTime | 0);
-  }, [videoTime]);
+  }, [videoTime, title, content]);
 
   function formReset() {
     setTitle("");
@@ -28,7 +28,7 @@ export default function ControlPresenter(props) {
       currentTime={formatTimestamp(timePlaceholder)}
       currentVideo={currentVideo}
       addNote={() => {
-        props.model.addNote(new Note(parseTimestamp(timestamp) || timePlaceholder, title, content));
+        props.model.addNote(new Note(parseTimestamp(timestamp) ?? timePlaceholder, title, content));
         formReset();
       }}
       setTitle={setTitle}

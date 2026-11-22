@@ -39,38 +39,11 @@ Signing in allows the user to save their videos and notes in their account.
 
 ## Developing
 
-### Setup
+The portfolio builds and serves Vinobo from `/vinobo/`. From the portfolio root,
+run `npm ci`, `npm run build` and `npx wrangler pages dev dist` to run the
+static pages and the transcript Function together.
 
-1. Clone the repo.
-2. You need `npm` to install dependencies.
-3. Run `npm install` in the project folder to install packages.
-4. To launch the development server, run `npm run dev`.
-
-### What we built the app with
-
-- `react` - Javascript framework
-- `next` - Next.js (React wrapper that sped up development)
-- `youtube-transcript` - A library for fetching YouTube transcripts (server side)
-- `react-loader-spinner` - React components for loader spinners
-- `firebase` - Integrations with Firebase
-- `memory-cache` - Caching API responses
-
-### File structure
-
-- `components/`
-  - Custom React components to be used throughout the app.
-- `js/`
-  - Javascript files for Model, video controller and other helper functions.
-- `pages/`
-  - `api/`
-    - `get_transcript`: Custom API enpoint for delivering the data our app needs.
-  - One file per page (endpoint) on the site.
-- `presenters/`
-  - Presenters for the different views.
-- `public/`
-  - Static files. Logos and images.
-- `styles/`
-  - CSS modules that render per component.
-- `views/`
-  - Views and their respective functions.
-- `FEEDBACK.md`: Feedback from user evaluations and what we did to fix their concerns.
+The React pages, presenters, views and Firebase model live in this folder.
+The transcript handler is in `../functions/vinobo/api/get_transcript.js`.
+It retrieves public YouTube captions and caches successful results for one day.
+Transcript offsets and durations use milliseconds. Notebook timestamps use seconds.

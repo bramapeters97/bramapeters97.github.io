@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 import React from "react";
 import "../styles/globals.css";
 import Model, { Video, Note } from "../js/model";
@@ -51,8 +50,9 @@ export default function App({ Component, pageProps }) {
     <div className="app">
       <Head>
         <title>Vinobo</title>
+        <link rel="icon" href="/vinobo/favicon.ico" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </Head>
-      <Script src="https://kit.fontawesome.com/067013981a.js" crossorigin="anonymous" />
       <Layout model={model} auth={auth}>
         <Component {...pageProps} model={model} auth={auth} />
       </Layout>

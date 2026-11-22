@@ -4,33 +4,25 @@ import VideoPlayerView from "../views/videoPlayerView";
 import useModelProperty from "../js/useModelProperty";
 
 export default function VideoPlayerPresenter({ model, vidCon }) {
-  // Binding VideoController to model
-  React.useEffect(() => {
-    window.vidCon = vidCon; // for debugging video
-    const obs = () => {
-      vidCon.setVideoID(model.currentVideo);
-    };
-    model.addObserver(obs);
-    return () => {
-      model.removeObserver(obs);
-    };
-  }, [model, vidCon]);
+  const id = useModelProperty(model, "currentVideo");
 
-  // Binding YT API to VideoController and loading player
   React.useEffect(() => {
-    if (!window.onYouTubeIframeAPIReady)
-      window.onYouTubeIframeAPIReady = () => vidCon.loadPlayer(model.currentVideo);
-    else vidCon.loadPlayer(model.currentVideo);
+    const load = () => vidCon.loadPlayer(model.currentVideo);
+    if (window.YT?.Player) load();
+    else window.onYouTubeIframeAPIReady = load;
     return () => {
+      if (window.onYouTubeIframeAPIReady === load) delete window.onYouTubeIframeAPIReady;
       vidCon.destroy();
     };
   }, [model, vidCon]);
 
-  const id = useModelProperty(model, "currentVideo");
+  React.useEffect(() => {
+    vidCon.setVideoID(id);
+  }, [id, vidCon]);
 
   return (
     <>
-      <Script src="https://www.youtube.com/iframe_api"></Script>
+      <Script src="https://www.youtube.com/iframe_api" />
       <VideoPlayerView hidden={id === null} />
     </>
   );

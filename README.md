@@ -5,16 +5,18 @@ Bram Peters
 
 ## Cloudflare Pages
 
-The site has no runtime dependencies. Configure the Pages project with:
+Use the repository root, framework preset **None**, build command `npm run build`
+and build output directory `dist`. Use Node 22 or later. Branch previews use the
+same settings. The build keeps the portfolio pages and regenerates the
+LELIBRAMBAS+ icons, then adds the original Vinobo app as a static export at
+`/vinobo/`. Only `/vinobo/api/get_transcript` runs a Pages Function. It needs
+no secret, storage binding or server. Firebase keeps using the original project.
 
-- **Build command:** `npm run build`
-- **Build output directory:** `.`
+The existing J. Meijer film exceeds Pages' 25 MiB per-file limit. Its original
+portfolio URL redirects to the same MP4 in this public GitHub repository.
 
-The build command reconstructs the binary LELIBRAMBAS+ favicon and home-screen
-icons from their text-only source in `scripts/generate-lelibrambas-icons.mjs`.
-This keeps binary files out of Git while still placing every referenced icon in
-`projects/lelibrambas/` before Cloudflare publishes the site. Run `npm run build`
-before serving the repository locally as well.
+To run the complete site locally, use `npm ci`, `npm run build` and
+`npx wrangler pages dev dist` from the repository root.
 
 ## Portfolio maintenance
 

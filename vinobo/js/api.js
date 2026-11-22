@@ -4,7 +4,7 @@
  * @returns A promise yielding the JSON response.
  */
 function getTranscript(id) {
-  return fetch(`/api/get_transcript?id=${id}`)
+  return fetch(`/vinobo/api/get_transcript?id=${encodeURIComponent(id)}`)
     .then((res) => {
       if (!res.ok) throw new Error(res.statusText);
       return res;

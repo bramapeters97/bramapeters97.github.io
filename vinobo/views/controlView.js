@@ -8,22 +8,14 @@ export default function ControlView(props) {
         name="addNoteForm"
         onSubmit={(e) => {
           e.preventDefault();
-          if (!addNoteForm["title"].value) {
-            addNoteForm["title"].select();
-          } else {
-            props.addNote();
-            addNoteForm.reset();
-          }
+          props.addNote();
+          e.currentTarget.reset();
         }}
         onReset={props.onReset}
         onKeyDown={(e) => {
           if (e.ctrlKey && e.key === "Enter") {
-            if (!addNoteForm["title"].value) {
-              addNoteForm["title"].select();
-            } else {
-              props.addNote(e);
-              addNoteForm.reset();
-            }
+            e.preventDefault();
+            e.currentTarget.requestSubmit();
           }
         }}
       >

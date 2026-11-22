@@ -2,12 +2,15 @@
   "name": "bramapeters97.github.io",
   "private": true,
   "scripts": {
-    "build": "node scripts/generate-lelibrambas-icons.mjs",
+    "build": "npm run generate:lelibrambas-icons && npm ci --prefix vinobo --legacy-peer-deps && npm run build --prefix vinobo && node scripts/build-pages.mjs",
     "generate:lelibrambas-icons": "node scripts/generate-lelibrambas-icons.mjs",
     "update:project-navigation": "node scripts/update-project-navigation.mjs",
     "check:portfolio": "node scripts/update-project-navigation.mjs --check && node scripts/validate-case-studies.mjs",
     "check:amstroll": "node scripts/check-amstroll.mjs",
     "check:contact": "node scripts/check-contact.mjs",
     "check:responsive": "node scripts/check-responsive.mjs"
+  },
+  "dependencies": {
+    "youtube-transcript": "1.3.1"
   }
 }
