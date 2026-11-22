@@ -19,7 +19,7 @@
 }
 
 .portfolio-case:has(.honeymoon-case) {
-  background: linear-gradient(155deg, #fcfaf6, #f8f5f0 48%, #f0eae2);
+  background: #f8f5f0 linear-gradient(155deg, #fcfaf6, #f8f5f0 48%, #f0eae2) fixed no-repeat;
 }
 
 .honeymoon-case {
