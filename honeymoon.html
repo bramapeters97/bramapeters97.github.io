@@ -93,12 +93,16 @@
                     <h2 class="case-section-heading" id="guest-gifts">Give a stay or chip in</h2>
                     <p>My sister and my brother-in-law wanted guests to have the option of contributing to the trip. I turned hotel stays and activities from their itinerary into individual gifts, so guests could see exactly what they were helping give. They could choose a gift outright or chip in towards an activity with an amount they felt comfortable giving.</p>
                 </section>
+                <section class="honeymoon-chapter" aria-labelledby="how-i-ran-it">
+                    <h2 class="case-section-heading" id="how-i-ran-it">How I ran the shop</h2>
+                    <p>This was a hobby project, so I kept the back end simple. For the wedding, I handled payments through Tikkie and kept an inventory of gifts and contributions. When a payment came in, I updated the gift’s availability on the website myself. Very high-tech, I know.</p>
+                    <p>The demo below runs in your browser. It saves sample contributions in IndexedDB and checks the remaining balance before recording a contribution to a shared gift.</p>
+                </section>
             </div>
             <aside class="card case-meta" aria-labelledby="honeymoon-overview" data-reveal-skip>
                 <h2 class="case-section-heading" id="honeymoon-overview">Project overview</h2>
                 <dl class="case-facts">
                     <div><dt>Made for</dt><dd>My sister and my brother-in-law</dd></div>
-                    <div><dt>Destination</dt><dd>Thailand</dd></div>
                     <div><dt>My role</dt><dd>Web design, development and print design</dd></div>
                 </dl>
             </aside>
@@ -114,7 +118,13 @@
 
         <section class="honeymoon-demo" aria-labelledby="webshop-demo">
             <h2 class="case-section-heading" id="webshop-demo">Explore the <em>webshop</em></h2>
-            <iframe class="honeymoon-demo-frame" src="the-gift-chapter/#gifts" title="The Honeymoon Webshop interactive demo" loading="lazy"></iframe>
+            <div class="honeymoon-demo-window">
+                <div class="honeymoon-demo-titlebar" aria-hidden="true">
+                    <div class="honeymoon-demo-lights"><span></span><span></span><span></span></div>
+                    <span>The Honeymoon Webshop</span>
+                </div>
+                <iframe class="honeymoon-demo-frame" src="the-gift-chapter/#home" title="The Honeymoon Webshop interactive demo" loading="lazy"></iframe>
+            </div>
         </section>
     </main>
     <script src="assets/js/reveal.js"></script>

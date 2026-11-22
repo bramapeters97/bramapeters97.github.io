@@ -1,10 +1,11 @@
-const frame = document.querySelector('.honeymoon-demo-frame');
+const demoWindow = document.querySelector('.honeymoon-demo-window');
+const frame = demoWindow.querySelector('iframe');
 let observer;
 let navigation;
 
 function showFrameStart() {
-  if (frame.getBoundingClientRect().top < 0) {
-    frame.scrollIntoView({ block: 'start' });
+  if (demoWindow.getBoundingClientRect().top < 0) {
+    demoWindow.scrollIntoView({ block: 'start' });
   }
 }
 
@@ -20,7 +21,7 @@ function fitDemo() {
   frame.contentWindow.addEventListener('hashchange', showFrameStart, { signal: navigation.signal });
 
   const resize = () => {
-    const height = Math.ceil(document.body.getBoundingClientRect().height) + 2;
+    const height = Math.ceil(document.body.getBoundingClientRect().height) + 1;
     if (height > 2) frame.style.height = `${height}px`;
   };
   observer = new ResizeObserver(resize);
