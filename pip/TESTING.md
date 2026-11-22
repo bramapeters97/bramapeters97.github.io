@@ -31,7 +31,7 @@ node scripts/check-pip.mjs --dom-module /absolute/path/to/jsdom/lib/api.js
 
 - A real iPhone onscreen keyboard and Safari were unavailable. The native browser's DevTools are disabled, so phone sizes were tested with ordinary iframe viewports. Physical touch, safe-area behavior and keyboard-induced visual-viewport resizing still need device verification.
 - The Sites preview relay failed; the repository-root Python server and Cloud browser were used instead.
-- `check:portfolio`: navigation passed; case-study validation reports the existing missing `assets/img/ÙWV3.png` in `uwvmonitorarbeidgezondheid.html`.
+- `check:portfolio`: navigation and case-study validation passed after correcting the reference to `assets/img/UWV3.png`.
 - `check:responsive`: the existing assertion expects an exact `mailto:bramapeters@outlook.com` link in unchanged `contact.html`.
 - No participant usability session was conducted. Automated/operator checks are not user-study results.
 
